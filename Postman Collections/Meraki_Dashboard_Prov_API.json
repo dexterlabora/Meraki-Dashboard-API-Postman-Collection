@@ -213,7 +213,7 @@
                 }
               ]
             },
-            "description": "```\nHTTP REQUEST\nGET /networks/[networkId]/clients/[client_mac]/policy\nPARAMETERS\ntimespan\nThe timespan for which clients will be fetched. Must be in seconds and less than or equal to a month (2592000 seconds).\nSAMPLE REQUEST\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X GET -H 'Content-Type: application/json' 'https://dashboard.meraki.com/api/v0/networks/[networkId]/clients/[mac]/policy?timespan=86400'\nSAMPLE RESPONSE\nSuccessful HTTP Status: 200\n{\n  \"mac\": \"00:11:22:33:44:55\",\n  \"type\": \"Group policy\",\n  \"groupPolicyId\": 101\n}\n```"
+            "description": "```\nHTTP REQUEST\nPUT /networks/[id]/clients/[mac]/policy\nPARAMETERS\ndevicePolicy\nThe group policy (Whitelisted, Blocked, Normal, Group policy)\ngroupPolicyId\n[optional] If devicePolicy param is set to 'group' this param is used to specify the group id.\nSAMPLE REQUEST\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X PUT -H 'Content-Type: application/json' 'https://dashboard.meraki.com/api/v0/networks/[id]/clients/[mac]/policy'\nSAMPLE RESPONSE\nSuccessful HTTP Status: 200\n{\n  \"mac\": \"00:11:22:33:44:55\",\n  \"type\": \"Group policy\",\n  \"groupPolicyId\": 101\n}\n```"
           },
           "response": []
         }
