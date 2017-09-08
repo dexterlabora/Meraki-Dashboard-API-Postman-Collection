@@ -184,6 +184,38 @@
             "description": "```\nHTTP REQUEST\nGET /networks/[networkId]/clients/[client_mac]/policy\nPARAMETERS\ntimespan\nThe timespan for which clients will be fetched. Must be in seconds and less than or equal to a month (2592000 seconds).\nSAMPLE REQUEST\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X GET -H 'Content-Type: application/json' 'https://dashboard.meraki.com/api/v0/networks/[networkId]/clients/[mac]/policy?timespan=86400'\nSAMPLE RESPONSE\nSuccessful HTTP Status: 200\n{\n  \"mac\": \"00:11:22:33:44:55\",\n  \"type\": \"Group policy\",\n  \"groupPolicyId\": 101\n}\n```"
           },
           "response": []
+        },
+        {
+          "_postman_id": "ab98f74d-92bb-0030-1076-ac0f86eacadd",
+          "name": "Clients - Return the group policy that is assigned to a device in the network copy",
+          "request": {
+            "url": "https://dashboard.meraki.com/api/v0/devices/{{serial}}/clients?timespan=84000",
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}",
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "Toni",
+                  "type": "text"
+                },
+                {
+                  "key": "orgAccess",
+                  "value": "full",
+                  "type": "text"
+                }
+              ]
+            },
+            "description": "```\nHTTP REQUEST\nGET /networks/[networkId]/clients/[client_mac]/policy\nPARAMETERS\ntimespan\nThe timespan for which clients will be fetched. Must be in seconds and less than or equal to a month (2592000 seconds).\nSAMPLE REQUEST\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X GET -H 'Content-Type: application/json' 'https://dashboard.meraki.com/api/v0/networks/[networkId]/clients/[mac]/policy?timespan=86400'\nSAMPLE RESPONSE\nSuccessful HTTP Status: 200\n{\n  \"mac\": \"00:11:22:33:44:55\",\n  \"type\": \"Group policy\",\n  \"groupPolicyId\": 101\n}\n```"
+          },
+          "response": []
         }
       ]
     },
@@ -953,10 +985,10 @@
           },
           "response": [
             {
-              "id": "f03925a5-92f4-47b2-8e24-c7dc3a8efec9",
-              "name": "get Devices List",
+              "id": "9460ebb0-54e1-5c0d-0e22-5e2fd1ca476d",
+              "name": "GP - List the Group Policies",
               "originalRequest": {
-                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/devices",
+                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/groupPolicies",
                 "method": "GET",
                 "header": [
                   {
@@ -982,111 +1014,111 @@
               "_postman_previewtype": "text",
               "header": [
                 {
-                  "name": "Cache-Control",
-                  "key": "Cache-Control",
+                  "name": "cache-control",
+                  "key": "cache-control",
                   "value": "no-cache, no-store, max-age=0, must-revalidate",
-                  "description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+                  "description": ""
                 },
                 {
-                  "name": "Connection",
-                  "key": "Connection",
+                  "name": "connection",
+                  "key": "connection",
                   "value": "keep-alive",
-                  "description": "Options that are desired for the connection"
+                  "description": ""
                 },
                 {
-                  "name": "Content-Encoding",
-                  "key": "Content-Encoding",
+                  "name": "content-encoding",
+                  "key": "content-encoding",
                   "value": "gzip",
-                  "description": "The type of encoding used on the data."
+                  "description": ""
                 },
                 {
-                  "name": "Content-Type",
-                  "key": "Content-Type",
+                  "name": "content-type",
+                  "key": "content-type",
                   "value": "application/json; charset=utf-8",
-                  "description": "The mime type of this content"
+                  "description": ""
                 },
                 {
-                  "name": "Date",
-                  "key": "Date",
-                  "value": "Sun, 02 Jul 2017 00:24:26 GMT",
-                  "description": "The date and time that the message was sent"
+                  "name": "date",
+                  "key": "date",
+                  "value": "Fri, 08 Sep 2017 10:20:01 GMT",
+                  "description": ""
                 },
                 {
-                  "name": "Expires",
-                  "key": "Expires",
+                  "name": "expires",
+                  "key": "expires",
                   "value": "Fri, 01 Jan 1990 00:00:00 GMT",
-                  "description": "Gives the date/time after which the response is considered stale"
+                  "description": ""
                 },
                 {
-                  "name": "Pragma",
-                  "key": "Pragma",
+                  "name": "pragma",
+                  "key": "pragma",
                   "value": "no-cache",
-                  "description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+                  "description": ""
                 },
                 {
-                  "name": "Public-Key-Pins-Report-Only",
-                  "key": "Public-Key-Pins-Report-Only",
+                  "name": "public-key-pins-report-only",
+                  "key": "public-key-pins-report-only",
                   "value": "max-age=1200; pin-sha256=\"2V5tfxXMLkn2kVg/Iv8FqL4JHcNVGEUFK27oSMYhHEU=\"; pin-sha256=\"8Rw90Ej3Ttt8RRkrg+WYDS9n7IS03bk5bjP/UXPtaY8=\"; pin-sha256=\"3YQf+D42t1/pQJhWTwYLRnFVnbBNXf9W5S6dmwq2+3g=\"; pin-sha256=\"klO23nT2ehFDXCfx3eHTDRESMz3asj1muO+4aIdjiuY=\"; pin-sha256=\"fake+hpkp+key+for+testing+report+only+QWERT=\"; includeSubDomains; report-uri=\"https://therealmerakidashboard.report-uri.io/r/default/hpkp/reportOnly\"",
-                  "description": "Custom header"
+                  "description": ""
                 },
                 {
-                  "name": "Server",
-                  "key": "Server",
+                  "name": "server",
+                  "key": "server",
                   "value": "nginx",
-                  "description": "A name for the server"
+                  "description": ""
                 },
                 {
-                  "name": "Strict-Transport-Security",
-                  "key": "Strict-Transport-Security",
+                  "name": "strict-transport-security",
+                  "key": "strict-transport-security",
                   "value": "max-age=15552000; includeSubDomains",
-                  "description": "A HSTS Policy informing the HTTP client how long to cache the HTTPS only policy and whether this applies to subdomains."
+                  "description": ""
                 },
                 {
-                  "name": "Transfer-Encoding",
-                  "key": "Transfer-Encoding",
+                  "name": "transfer-encoding",
+                  "key": "transfer-encoding",
                   "value": "chunked",
-                  "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+                  "description": ""
                 },
                 {
-                  "name": "Vary",
-                  "key": "Vary",
+                  "name": "vary",
+                  "key": "vary",
                   "value": "Accept-Encoding",
-                  "description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+                  "description": ""
                 },
                 {
-                  "name": "X-Frame-Options",
-                  "key": "X-Frame-Options",
+                  "name": "x-frame-options",
+                  "key": "x-frame-options",
                   "value": "sameorigin",
-                  "description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+                  "description": ""
                 },
                 {
-                  "name": "X-Rack-Cache",
-                  "key": "X-Rack-Cache",
+                  "name": "x-rack-cache",
+                  "key": "x-rack-cache",
                   "value": "miss",
-                  "description": "Custom header"
+                  "description": ""
                 },
                 {
-                  "name": "X-Request-Id",
-                  "key": "X-Request-Id",
-                  "value": "9cddcdc1efaea3748f1bbe0b7dba4bdd",
-                  "description": "Custom header"
+                  "name": "x-request-id",
+                  "key": "x-request-id",
+                  "value": "6e39f1f205468de5105452ec9e48349f",
+                  "description": ""
                 },
                 {
-                  "name": "X-Runtime",
-                  "key": "X-Runtime",
-                  "value": "0.079595",
-                  "description": "Custom header"
+                  "name": "x-runtime",
+                  "key": "x-runtime",
+                  "value": "0.091271",
+                  "description": ""
                 },
                 {
-                  "name": "X-UA-Compatible",
-                  "key": "X-UA-Compatible",
+                  "name": "x-ua-compatible",
+                  "key": "x-ua-compatible",
                   "value": "IE=Edge,chrome=1",
-                  "description": "Custom header"
+                  "description": ""
                 }
               ],
               "cookie": [],
-              "responseTime": "266",
-              "body": "[{\"lanIp\":\"10.10.130.99\",\"serial\":\"Q2PD-QG4J-JT9F\",\"mac\":\"0c:8d:db:66:45:6d\",\"lat\":51.5081677,\"lng\":-0.0598511,\"address\":\"\",\"tags\":\" devnet \",\"name\":\"Workshop 2 - Captive Portal\",\"model\":\"MR33\",\"networkId\":\"L_646829496481095933\"},{\"lanIp\":null,\"serial\":\"Q2RD-9R8X-VHE8\",\"mac\":\"e0:55:3d:ee:57:70\",\"lat\":37.4180951010362,\"lng\":-122.098531723022,\"address\":\"\",\"tags\":\" recently-added \",\"name\":null,\"model\":\"MR30H\",\"networkId\":\"L_646829496481095933\"},{\"lanIp\":null,\"serial\":\"Q2AT-YECB-HSLC\",\"mac\":\"00:18:0a:12:31:d0\",\"lat\":37.4180951010362,\"lng\":-122.098531723022,\"address\":\"\",\"tags\":\" recently-added \",\"name\":null,\"model\":\"MC74\",\"networkId\":\"L_646829496481095933\"},{\"lanIp\":null,\"serial\":\"Q2AT-DA5E-TRUS\",\"mac\":\"e0:55:3d:4e:bc:75\",\"lat\":37.4180951010362,\"lng\":-122.098531723022,\"address\":\"\",\"tags\":\" recently-added \",\"name\":null,\"model\":\"MC74\",\"networkId\":\"L_646829496481095933\"}]"
+              "responseTime": "1761",
+              "body": "[{\"groupPolicyId\":102,\"name\":\"WiFi-Verified\"},{\"groupPolicyId\":101,\"name\":\"IoT\"},{\"groupPolicyId\":100,\"name\":\"VoIP\"}]"
             }
           ]
         }
