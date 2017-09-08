@@ -928,7 +928,7 @@
       "item": [
         {
           "_postman_id": "19d8f2ff-12b8-bb6c-596c-72a397ff180f",
-          "name": "Devices - List the devices in a network copy",
+          "name": "GP - List the Group Policies",
           "request": {
             "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/devices",
             "method": "GET",
@@ -949,7 +949,7 @@
                 }
               ]
             },
-            "description": ""
+            "description": "HTTP REQUEST\nGET /networks/[id]/groupPolicies\nPARAMETERS\nNone\nSAMPLE REQUEST\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X GET -H 'Content-Type: application/json' 'https://dashboard.meraki.com/api/v0/networks/[id]/groupPolicies'\nSAMPLE RESPONSE\nSuccessful HTTP Status: 200\n[\n  {\n    \"name\": \"No video streaming\",\n    \"groupPolicyId\": 102\n  }\n  ...\n]"
           },
           "response": [
             {
