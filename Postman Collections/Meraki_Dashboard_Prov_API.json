@@ -3,7 +3,7 @@
   "info": {
     "name": "Meraki Dashboard Prov API",
     "_postman_id": "869321b7-03ac-8ddd-4b31-c2cbf08e64c3",
-    "description": "# Meraki Dashboard API\n\nThis collection of API calls provides an easy way to interact with a Cisco Meraki network. Update your environment variables to efficiently use the collection.\n\n**Common Variables**\n* X-Cisco-Meraki-API-Key\n* organizationId\n* networkId\n\nYou will need to add additional variables as the endpoints require more details, such as a **serial** or **ssid**.\n\n\n# What's New?\n\n** Oct 2017. **\n- Group Policy support\n\t* Bind a client to a Group Policy\n\t* List Group Policies for a Network\n- MX L3 Firewalls\n\t* Return L3 Firewall Rules\n\t* Update L3 Firewall Rules\n- Bluetooth Settings\n\t* Return Bluetooth Settings\n\t* Update Bluetooth Settings\n- Splash authorization\n\t* Return Splash Authorization status\n\t* Update Splash Authorization status\n- Update the SNMP settings for an organization\n\n\n## Documentation and Resources\n\nhttp://developers.meraki.com/\n\n## Troubleshooting:\n- Check your profile permissions. If you can't do it in Dashboard, you won't be able to in the API.\n\n- Some calls seem to work better if you use the shard number instead of \"dashboard\" because of a required redirect. Just update the shard that matches when you login to the web Dashboard. It will be in the URL.\n\n**Original**\n\n```\n- https://dashboard.meraki.com/api/v0/networks/{{networkId}}/ssids/{{ssidNum}}?name=viaAPI345&number={{ssidNum}}\n```\n**With shard number**\n\n```\n- https://n123.meraki.com/api/v0/networks/{{networkId}}/ssids/{{ssidNum}}?name=viaAPI345&number={{ssidNum}}\n```",
+    "description": "# Meraki Dashboard API\n\nThis collection of API calls provides an easy way to interact with a Cisco Meraki network. Update your environment variables to efficiently use the collection.\n\n**Common Variables**\n* X-Cisco-Meraki-API-Key\n* organizationId\n* networkId\n\nYou will need to add additional variables as the endpoints require more details, such as a **serial** or **ssid**.\n\n\n# What's New?\n\n** Oct 2017. **\n- Group Policy support\n\t* Bind a client to a Group Policy\n\t* List Group Policies for a Network\n- MX L3 Firewalls\n\t* Return L3 Firewall Rules\n\t* Update L3 Firewall Rules\n- Bluetooth Settings\n\t* Return Bluetooth Settings\n\t* Update Bluetooth Settings\n- Splash authorization\n\t* Return Splash Authorization status\n\t* Update Splash Authorization status\n- Update the SNMP settings for an organization\n- Phone assignments\n\n\n## Documentation and Resources\n\nhttp://developers.meraki.com/\n\n## Troubleshooting:\n- Check your profile permissions. If you can't do it in Dashboard, you won't be able to in the API.\n\n- Some calls seem to work better if you use the shard number instead of \"dashboard\" because of a required redirect. Just update the shard that matches when you login to the web Dashboard. It will be in the URL.\n\n**Original**\n\n```\n- https://dashboard.meraki.com/api/v0/networks/{{networkId}}/ssids/{{ssidNum}}?name=viaAPI345&number={{ssidNum}}\n```\n**With shard number**\n\n```\n- https://n123.meraki.com/api/v0/networks/{{networkId}}/ssids/{{ssidNum}}?name=viaAPI345&number={{ssidNum}}\n```",
     "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
   },
   "item": [
@@ -5004,6 +5004,142 @@
               "cookie": [],
               "responseTime": "722",
               "body": "[\n    {\n        \"serial\": \"Q2AT-DEMO-LFF2\",\n        \"contactId\": null,\n        \"contactType\": \"unassigned\",\n        \"publicNumber\": [],\n        \"ext\": null\n    },\n    {\n        \"serial\": \"Q2AT-DEMO-XEEC\",\n        \"contactId\": null,\n        \"contactType\": \"unassigned\",\n        \"publicNumber\": [],\n        \"ext\": null\n    }\n]"
+            },
+            {
+              "id": "de9839b2-d77c-beec-c39c-8248f89df3d0",
+              "name": "Assign a contact and number(s) to a phone",
+              "originalRequest": {
+                "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/phoneAssignments/{{serial}}",
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}",
+                    "description": ""
+                  },
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n\t\"contactId\":\"646829496481091096\",\n\t\"contactType\":\"Dashboard\",\n\t\"ext\":\"1111\"\n}"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "_postman_previewtype": "text",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate",
+                  "name": "Cache-Control",
+                  "description": ""
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "name": "Content-Encoding",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8",
+                  "name": "Content-Type",
+                  "description": ""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 12 Oct 2017 14:26:00 GMT",
+                  "name": "Date",
+                  "description": ""
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT",
+                  "name": "Expires",
+                  "description": ""
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache",
+                  "name": "Pragma",
+                  "description": ""
+                },
+                {
+                  "key": "Public-Key-Pins-Report-Only",
+                  "value": "max-age=1200; pin-sha256=\"2V5tfxXMLkn2kVg/Iv8FqL4JHcNVGEUFK27oSMYhHEU=\"; pin-sha256=\"8Rw90Ej3Ttt8RRkrg+WYDS9n7IS03bk5bjP/UXPtaY8=\"; pin-sha256=\"3YQf+D42t1/pQJhWTwYLRnFVnbBNXf9W5S6dmwq2+3g=\"; pin-sha256=\"klO23nT2ehFDXCfx3eHTDRESMz3asj1muO+4aIdjiuY=\"; pin-sha256=\"fake+hpkp+key+for+testing+report+only+QWERT=\"; includeSubDomains; report-uri=\"https://therealmerakidashboard.report-uri.io/r/default/hpkp/reportOnly\"",
+                  "name": "Public-Key-Pins-Report-Only",
+                  "description": ""
+                },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": ""
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains",
+                  "name": "Strict-Transport-Security",
+                  "description": ""
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": ""
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding",
+                  "name": "Vary",
+                  "description": ""
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin",
+                  "name": "X-Frame-Options",
+                  "description": ""
+                },
+                {
+                  "key": "X-Rack-Cache",
+                  "value": "invalidate, pass",
+                  "name": "X-Rack-Cache",
+                  "description": ""
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "ff4fbab7cd8f042ecd79b9f356199c9c",
+                  "name": "X-Request-Id",
+                  "description": ""
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.222128",
+                  "name": "X-Runtime",
+                  "description": ""
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1",
+                  "name": "X-UA-Compatible",
+                  "description": ""
+                }
+              ],
+              "cookie": [],
+              "responseTime": "395",
+              "body": "{\n    \"serial\": \"Q2AT-85YQ-XEEC\",\n    \"contactId\": \"646829496481091096\",\n    \"contactType\": \"Dashboard\",\n    \"publicNumber\": [\"+11231231234\"],\n    \"ext\": \"1111\"\n}"
             }
           ]
         },
@@ -5033,150 +5169,31 @@
           },
           "response": [
             {
-              "id": "3ab6557e-f2c1-324d-eacb-b88cc2036271",
-              "name": "Return a phone in a network and their contact assignment",
+              "id": "d85c1e8b-db58-a912-6c17-2f8b86e3e9bb",
+              "name": "Remove a phone assignment (unprovision a phone)",
               "originalRequest": {
-                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/phoneAssignments/{{serial}}",
-                "method": "GET",
+                "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/phoneAssignments/{{serial}}",
+                "method": "DELETE",
                 "header": [
                   {
                     "key": "X-Cisco-Meraki-API-Key",
                     "value": "{{X-Cisco-Meraki-API-Key}}",
                     "description": ""
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
                   }
                 ],
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "_postman_previewtype": "text",
-              "header": [
-                {
-                  "key": "Cache-Control",
-                  "value": "no-cache, no-store, max-age=0, must-revalidate",
-                  "name": "Cache-Control",
-                  "description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
-                },
-                {
-                  "key": "Connection",
-                  "value": "keep-alive",
-                  "name": "Connection",
-                  "description": "Options that are desired for the connection"
-                },
-                {
-                  "key": "Content-Encoding",
-                  "value": "gzip",
-                  "name": "Content-Encoding",
-                  "description": "The type of encoding used on the data."
-                },
-                {
-                  "key": "Content-Type",
-                  "value": "application/json; charset=utf-8",
-                  "name": "Content-Type",
-                  "description": "The mime type of this content"
-                },
-                {
-                  "key": "Date",
-                  "value": "Thu, 12 Oct 2017 14:13:49 GMT",
-                  "name": "Date",
-                  "description": "The date and time that the message was sent"
-                },
-                {
-                  "key": "Expires",
-                  "value": "Fri, 01 Jan 1990 00:00:00 GMT",
-                  "name": "Expires",
-                  "description": "Gives the date/time after which the response is considered stale"
-                },
-                {
-                  "key": "Pragma",
-                  "value": "no-cache",
-                  "name": "Pragma",
-                  "description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
-                },
-                {
-                  "key": "Public-Key-Pins-Report-Only",
-                  "value": "max-age=1200; pin-sha256=\"2V5tfxXMLkn2kVg/Iv8FqL4JHcNVGEUFK27oSMYhHEU=\"; pin-sha256=\"8Rw90Ej3Ttt8RRkrg+WYDS9n7IS03bk5bjP/UXPtaY8=\"; pin-sha256=\"3YQf+D42t1/pQJhWTwYLRnFVnbBNXf9W5S6dmwq2+3g=\"; pin-sha256=\"klO23nT2ehFDXCfx3eHTDRESMz3asj1muO+4aIdjiuY=\"; pin-sha256=\"fake+hpkp+key+for+testing+report+only+QWERT=\"; includeSubDomains; report-uri=\"https://therealmerakidashboard.report-uri.io/r/default/hpkp/reportOnly\"",
-                  "name": "Public-Key-Pins-Report-Only",
-                  "description": "Custom header"
-                },
-                {
-                  "key": "Server",
-                  "value": "nginx",
-                  "name": "Server",
-                  "description": "A name for the server"
-                },
-                {
-                  "key": "Strict-Transport-Security",
-                  "value": "max-age=15552000; includeSubDomains",
-                  "name": "Strict-Transport-Security",
-                  "description": "A HSTS Policy informing the HTTP client how long to cache the HTTPS only policy and whether this applies to subdomains."
-                },
-                {
-                  "key": "Transfer-Encoding",
-                  "value": "chunked",
-                  "name": "Transfer-Encoding",
-                  "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
-                },
-                {
-                  "key": "Vary",
-                  "value": "Accept-Encoding",
-                  "name": "Vary",
-                  "description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
-                },
-                {
-                  "key": "X-Frame-Options",
-                  "value": "sameorigin",
-                  "name": "X-Frame-Options",
-                  "description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
-                },
-                {
-                  "key": "X-Rack-Cache",
-                  "value": "miss",
-                  "name": "X-Rack-Cache",
-                  "description": "Custom header"
-                },
-                {
-                  "key": "X-Request-Id",
-                  "value": "2e0365f6a10a6e32b74455ce106eb531",
-                  "name": "X-Request-Id",
-                  "description": "Custom header"
-                },
-                {
-                  "key": "X-Runtime",
-                  "value": "0.161831",
-                  "name": "X-Runtime",
-                  "description": "Custom header"
-                },
-                {
-                  "key": "X-UA-Compatible",
-                  "value": "IE=Edge,chrome=1",
-                  "name": "X-UA-Compatible",
-                  "description": "Custom header"
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
                 }
-              ],
-              "cookie": [],
-              "responseTime": "553",
-              "body": "{\n    \"serial\": \"Q2AT-DEMO-XEEC\",\n    \"contactId\": null,\n    \"contactType\": \"unassigned\",\n    \"publicNumber\": [],\n    \"ext\": null\n}"
-            },
-            {
-              "id": "6a34e0a2-e8cf-8810-f805-b42ddf0e9966",
-              "name": "List all phones in a network and their contact assignment",
-              "originalRequest": {
-                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/phoneAssignments",
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "X-Cisco-Meraki-API-Key",
-                    "value": "{{X-Cisco-Meraki-API-Key}}",
-                    "description": ""
-                  }
-                ],
-                "body": {}
               },
-              "status": "OK",
-              "code": 200,
-              "_postman_previewlanguage": "json",
+              "status": "No Content",
+              "code": 204,
+              "_postman_previewlanguage": "plain",
               "_postman_previewtype": "text",
               "header": [
                 {
@@ -5192,20 +5209,8 @@
                   "description": ""
                 },
                 {
-                  "key": "Content-Encoding",
-                  "value": "gzip",
-                  "name": "Content-Encoding",
-                  "description": ""
-                },
-                {
-                  "key": "Content-Type",
-                  "value": "application/json; charset=utf-8",
-                  "name": "Content-Type",
-                  "description": ""
-                },
-                {
                   "key": "Date",
-                  "value": "Thu, 12 Oct 2017 14:09:19 GMT",
+                  "value": "Thu, 12 Oct 2017 14:23:12 GMT",
                   "name": "Date",
                   "description": ""
                 },
@@ -5240,18 +5245,6 @@
                   "description": ""
                 },
                 {
-                  "key": "Transfer-Encoding",
-                  "value": "chunked",
-                  "name": "Transfer-Encoding",
-                  "description": ""
-                },
-                {
-                  "key": "Vary",
-                  "value": "Accept-Encoding",
-                  "name": "Vary",
-                  "description": ""
-                },
-                {
                   "key": "X-Frame-Options",
                   "value": "sameorigin",
                   "name": "X-Frame-Options",
@@ -5259,19 +5252,19 @@
                 },
                 {
                   "key": "X-Rack-Cache",
-                  "value": "miss",
+                  "value": "invalidate, pass",
                   "name": "X-Rack-Cache",
                   "description": ""
                 },
                 {
                   "key": "X-Request-Id",
-                  "value": "90eade44c04129aafe2caf278e8e5a94",
+                  "value": "5e6fb0189761f994fe9c537ad9b8a18d",
                   "name": "X-Request-Id",
                   "description": ""
                 },
                 {
                   "key": "X-Runtime",
-                  "value": "0.296816",
+                  "value": "0.190208",
                   "name": "X-Runtime",
                   "description": ""
                 },
@@ -5283,8 +5276,8 @@
                 }
               ],
               "cookie": [],
-              "responseTime": "722",
-              "body": "[\n    {\n        \"serial\": \"Q2AT-DEMO-LFF2\",\n        \"contactId\": null,\n        \"contactType\": \"unassigned\",\n        \"publicNumber\": [],\n        \"ext\": null\n    },\n    {\n        \"serial\": \"Q2AT-DEMO-XEEC\",\n        \"contactId\": null,\n        \"contactType\": \"unassigned\",\n        \"publicNumber\": [],\n        \"ext\": null\n    }\n]"
+              "responseTime": "715",
+              "body": ""
             }
           ]
         }
