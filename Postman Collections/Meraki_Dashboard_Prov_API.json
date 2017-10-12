@@ -214,36 +214,9 @@
         },
         {
           "_postman_id": "bae3d361-1ac7-8778-9db8-177fcee91165",
-          "name": "Clients - Return the group policy that is assigned to a device in the network copy",
+          "name": "Clients - Return the splash authorization for a client, for each SSID they've associated with through splash.",
           "request": {
-            "url": {
-              "raw": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/clients/{{clientMac}}/policy?timespan=84000",
-              "protocol": "https",
-              "auth": {},
-              "host": [
-                "{{shard}}",
-                "meraki",
-                "com"
-              ],
-              "path": [
-                "api",
-                "v0",
-                "networks",
-                "{{networkId}}",
-                "clients",
-                "{{clientMac}}",
-                "policy"
-              ],
-              "query": [
-                {
-                  "key": "timespan",
-                  "value": "84000",
-                  "equals": true,
-                  "description": ""
-                }
-              ],
-              "variable": []
-            },
+            "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/clients/{{clientMac}}/splashAuthorizationStatus",
             "method": "GET",
             "header": [
               {
