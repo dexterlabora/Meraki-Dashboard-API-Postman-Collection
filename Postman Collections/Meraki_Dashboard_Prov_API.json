@@ -321,7 +321,143 @@
             },
             "description": "## HTTP REQUEST\n```\nPUT /networks/[id]/clients/[mac]/splashAuthorizationStatus\n```\n\n## PARAMETERS\n\n**ssids**\n\nThe target SSIDs. For each SSID where isAuthorized is true, the expiration time will automatically be set according to the SSID's splash frequency.\n\n**isAuthorized**\n\nNew authorization status for SSID (true, false).\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X PUT -H 'Content-Type: application/json' --data-binary '{\"ssids\":{\"0\":{\"isAuthorized\":true},\"2\":{\"isAuthorized\":false}}}' 'https://dashboard.meraki.com/api/v0/networks/[id]/clients/[mac]/splashAuthorizationStatus'\n```\n\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n{\n  \"ssids\": {\n    \"0\": {\n      \"isAuthorized\": true,\n      \"authorizedAt\": \"2017-07-19 16:24:13 UTC\",\n      \"expiresAt\": \"2017-07-20 16:24:13 UTC\"\n    },\n    \"2\": {\n      \"isAuthorized\": false\n    }\n  }\n}\n```"
           },
-          "response": []
+          "response": [
+            {
+              "id": "ac17ab46-2da4-10e8-5caf-6d13e6ca59b0",
+              "name": "Clients - Update a client's splash authorization",
+              "originalRequest": {
+                "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/clients/{{clientMac}}/splashAuthorizationStatus",
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}",
+                    "description": ""
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ssids\": {\n    \"3\": {\n      \"isAuthorized\": true,\n      \"authorizedAt\": \"2017-07-19 16:24:13 UTC\",\n      \"expiresAt\": \"2017-07-20 16:24:13 UTC\"\n    }\n  }\n}"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "_postman_previewtype": "text",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate",
+                  "name": "Cache-Control",
+                  "description": ""
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "name": "Content-Encoding",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8",
+                  "name": "Content-Type",
+                  "description": ""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 12 Oct 2017 13:02:08 GMT",
+                  "name": "Date",
+                  "description": ""
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT",
+                  "name": "Expires",
+                  "description": ""
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache",
+                  "name": "Pragma",
+                  "description": ""
+                },
+                {
+                  "key": "Public-Key-Pins-Report-Only",
+                  "value": "max-age=1200; pin-sha256=\"2V5tfxXMLkn2kVg/Iv8FqL4JHcNVGEUFK27oSMYhHEU=\"; pin-sha256=\"8Rw90Ej3Ttt8RRkrg+WYDS9n7IS03bk5bjP/UXPtaY8=\"; pin-sha256=\"3YQf+D42t1/pQJhWTwYLRnFVnbBNXf9W5S6dmwq2+3g=\"; pin-sha256=\"klO23nT2ehFDXCfx3eHTDRESMz3asj1muO+4aIdjiuY=\"; pin-sha256=\"fake+hpkp+key+for+testing+report+only+QWERT=\"; includeSubDomains; report-uri=\"https://therealmerakidashboard.report-uri.io/r/default/hpkp/reportOnly\"",
+                  "name": "Public-Key-Pins-Report-Only",
+                  "description": ""
+                },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": ""
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains",
+                  "name": "Strict-Transport-Security",
+                  "description": ""
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": ""
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding",
+                  "name": "Vary",
+                  "description": ""
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin",
+                  "name": "X-Frame-Options",
+                  "description": ""
+                },
+                {
+                  "key": "X-Rack-Cache",
+                  "value": "invalidate, pass",
+                  "name": "X-Rack-Cache",
+                  "description": ""
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "77c6ce322b940c6b4403009ea8e05add",
+                  "name": "X-Request-Id",
+                  "description": ""
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.277367",
+                  "name": "X-Runtime",
+                  "description": ""
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1",
+                  "name": "X-UA-Compatible",
+                  "description": ""
+                }
+              ],
+              "cookie": [],
+              "responseTime": "448",
+              "body": "{\"ssids\":{\"3\":{\"isAuthorized\":true,\"authorizedAt\":\"2017-10-12 13:02:08 UTC\",\"expiresAt\":\"2017-10-13 13:02:08 UTC\"}}}"
+            }
+          ]
         }
       ]
     },
@@ -3902,6 +4038,170 @@
             "description": ""
           },
           "response": []
+        },
+        {
+          "_postman_id": "a1294fa2-f6f2-55c6-7dd4-03852b4b554d",
+          "name": "Organizations - Return the SNMP settings copy",
+          "request": {
+            "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/snmp",
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}",
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "order",
+                  "value": "234234234",
+                  "type": "text"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "response": [
+            {
+              "id": "cdfaecef-b2ad-4679-7a4d-c7acf440ff89",
+              "name": "get SNMP - Meraki Dev Sandbox",
+              "originalRequest": {
+                "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/snmp",
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}",
+                    "description": ""
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "order",
+                      "value": "234234234",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "_postman_previewtype": "text",
+              "header": [
+                {
+                  "name": "Cache-Control",
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate",
+                  "description": ""
+                },
+                {
+                  "name": "Connection",
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "description": ""
+                },
+                {
+                  "name": "Content-Encoding",
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "description": ""
+                },
+                {
+                  "name": "Content-Type",
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8",
+                  "description": ""
+                },
+                {
+                  "name": "Date",
+                  "key": "Date",
+                  "value": "Sun, 02 Jul 2017 00:38:52 GMT",
+                  "description": ""
+                },
+                {
+                  "name": "Expires",
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT",
+                  "description": ""
+                },
+                {
+                  "name": "Pragma",
+                  "key": "Pragma",
+                  "value": "no-cache",
+                  "description": ""
+                },
+                {
+                  "name": "Public-Key-Pins-Report-Only",
+                  "key": "Public-Key-Pins-Report-Only",
+                  "value": "max-age=1200; pin-sha256=\"2V5tfxXMLkn2kVg/Iv8FqL4JHcNVGEUFK27oSMYhHEU=\"; pin-sha256=\"8Rw90Ej3Ttt8RRkrg+WYDS9n7IS03bk5bjP/UXPtaY8=\"; pin-sha256=\"3YQf+D42t1/pQJhWTwYLRnFVnbBNXf9W5S6dmwq2+3g=\"; pin-sha256=\"klO23nT2ehFDXCfx3eHTDRESMz3asj1muO+4aIdjiuY=\"; pin-sha256=\"fake+hpkp+key+for+testing+report+only+QWERT=\"; includeSubDomains; report-uri=\"https://therealmerakidashboard.report-uri.io/r/default/hpkp/reportOnly\"",
+                  "description": ""
+                },
+                {
+                  "name": "Server",
+                  "key": "Server",
+                  "value": "nginx",
+                  "description": ""
+                },
+                {
+                  "name": "Strict-Transport-Security",
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains",
+                  "description": ""
+                },
+                {
+                  "name": "Transfer-Encoding",
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "description": ""
+                },
+                {
+                  "name": "Vary",
+                  "key": "Vary",
+                  "value": "Accept-Encoding",
+                  "description": ""
+                },
+                {
+                  "name": "X-Frame-Options",
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin",
+                  "description": ""
+                },
+                {
+                  "name": "X-Rack-Cache",
+                  "key": "X-Rack-Cache",
+                  "value": "miss",
+                  "description": ""
+                },
+                {
+                  "name": "X-Request-Id",
+                  "key": "X-Request-Id",
+                  "value": "7392f21da14eb2f34dae8520e2af7196",
+                  "description": ""
+                },
+                {
+                  "name": "X-Runtime",
+                  "key": "X-Runtime",
+                  "value": "0.078306",
+                  "description": ""
+                },
+                {
+                  "name": "X-UA-Compatible",
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1",
+                  "description": ""
+                }
+              ],
+              "cookie": [],
+              "responseTime": "281",
+              "body": "{\"v2cEnabled\":true,\"v3Enabled\":false,\"v3AuthMode\":null,\"v3PrivMode\":null,\"peerIps\":null,\"v2CommunityString\":\"o/-t35Mb\",\"hostname\":\"n149.meraki.com\",\"port\":16100}"
+            }
+          ]
         }
       ]
     },
