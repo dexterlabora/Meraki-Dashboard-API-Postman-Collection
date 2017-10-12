@@ -1372,148 +1372,11 @@
             },
             "description": "## HTTP REQUEST\n```GET /networks/[networkId]/l3FirewallRules```\n## PARAMETERS\nNone\n\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X GET -H 'Content-Type: application/json' 'https://dashboard.meraki.com/api/v0/networks/[networkId]/l3FirewallRules'\n```\n\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n[\n  {\n     \"comment\": \"Allow tcp traffic to subnet with http servers.\",\n     \"policy\": \"allow\",\n     \"protocol\": \"tcp\",\n     \"destPort\": \"80,443\",\n     \"destCidr\": \"10.1.333/24\",\n     \"srcPort\": \"Any\",\n     \"srcCidr\": \"Any\",\n     \"syslogEnabled\": false\n  },\n  {\n     \"comment\": \"Block all tcp to http/https ports.\",\n     \"policy\": \"deny\",\n     \"protocol\": \"http\",\n     \"destPort\": \"80,443\",\n     \"destCidr\": \"10.1.1.0/24,10.1.2.0/24\",\n     \"srcPort\": \"Any\",\n     \"srcCidr\": \"Any\",\n     \"syslogEnabled\": false\n  },\n  {\n     \"comment\": \"Default rule\",\n     \"policy\": \"allow\",\n     \"protocol\": \"Any\",\n     \"destPort\": \"Any\",\n     \"destCidr\": \"Any\",\n     \"srcPort\": \"Any\",\n     \"srcCidr\": \"Any\",\n     \"syslogEnabled\": false\n  }\n]\n```"
           },
-          "response": [
-            {
-              "id": "9a313cd2-4a1d-fd37-5271-b50129b4dc98",
-              "name": "get L3 Firewall Rules",
-              "originalRequest": {
-                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/ssids/{{ssidNum}}]/l3FirewallRules",
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "X-Cisco-Meraki-API-Key",
-                    "value": "{{X-Cisco-Meraki-API-Key}}",
-                    "description": ""
-                  }
-                ],
-                "body": {
-                  "mode": "formdata",
-                  "formdata": [
-                    {
-                      "key": "name",
-                      "value": "Turkcell",
-                      "type": "text"
-                    }
-                  ]
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "_postman_previewtype": "text",
-              "header": [
-                {
-                  "name": "Cache-Control",
-                  "key": "Cache-Control",
-                  "value": "no-cache, no-store, max-age=0, must-revalidate",
-                  "description": ""
-                },
-                {
-                  "name": "Connection",
-                  "key": "Connection",
-                  "value": "keep-alive",
-                  "description": ""
-                },
-                {
-                  "name": "Content-Encoding",
-                  "key": "Content-Encoding",
-                  "value": "gzip",
-                  "description": ""
-                },
-                {
-                  "name": "Content-Type",
-                  "key": "Content-Type",
-                  "value": "application/json; charset=utf-8",
-                  "description": ""
-                },
-                {
-                  "name": "Date",
-                  "key": "Date",
-                  "value": "Sun, 02 Jul 2017 00:27:42 GMT",
-                  "description": ""
-                },
-                {
-                  "name": "Expires",
-                  "key": "Expires",
-                  "value": "Fri, 01 Jan 1990 00:00:00 GMT",
-                  "description": ""
-                },
-                {
-                  "name": "Pragma",
-                  "key": "Pragma",
-                  "value": "no-cache",
-                  "description": ""
-                },
-                {
-                  "name": "Public-Key-Pins-Report-Only",
-                  "key": "Public-Key-Pins-Report-Only",
-                  "value": "max-age=1200; pin-sha256=\"2V5tfxXMLkn2kVg/Iv8FqL4JHcNVGEUFK27oSMYhHEU=\"; pin-sha256=\"8Rw90Ej3Ttt8RRkrg+WYDS9n7IS03bk5bjP/UXPtaY8=\"; pin-sha256=\"3YQf+D42t1/pQJhWTwYLRnFVnbBNXf9W5S6dmwq2+3g=\"; pin-sha256=\"klO23nT2ehFDXCfx3eHTDRESMz3asj1muO+4aIdjiuY=\"; pin-sha256=\"fake+hpkp+key+for+testing+report+only+QWERT=\"; includeSubDomains; report-uri=\"https://therealmerakidashboard.report-uri.io/r/default/hpkp/reportOnly\"",
-                  "description": ""
-                },
-                {
-                  "name": "Server",
-                  "key": "Server",
-                  "value": "nginx",
-                  "description": ""
-                },
-                {
-                  "name": "Strict-Transport-Security",
-                  "key": "Strict-Transport-Security",
-                  "value": "max-age=15552000; includeSubDomains",
-                  "description": ""
-                },
-                {
-                  "name": "Transfer-Encoding",
-                  "key": "Transfer-Encoding",
-                  "value": "chunked",
-                  "description": ""
-                },
-                {
-                  "name": "Vary",
-                  "key": "Vary",
-                  "value": "Accept-Encoding",
-                  "description": ""
-                },
-                {
-                  "name": "X-Frame-Options",
-                  "key": "X-Frame-Options",
-                  "value": "sameorigin",
-                  "description": ""
-                },
-                {
-                  "name": "X-Rack-Cache",
-                  "key": "X-Rack-Cache",
-                  "value": "miss",
-                  "description": ""
-                },
-                {
-                  "name": "X-Request-Id",
-                  "key": "X-Request-Id",
-                  "value": "72958aae009e8b17d9add986f19f20ab",
-                  "description": ""
-                },
-                {
-                  "name": "X-Runtime",
-                  "key": "X-Runtime",
-                  "value": "0.305363",
-                  "description": ""
-                },
-                {
-                  "name": "X-UA-Compatible",
-                  "key": "X-UA-Compatible",
-                  "value": "IE=Edge,chrome=1",
-                  "description": ""
-                }
-              ],
-              "cookie": [],
-              "responseTime": "503",
-              "body": "[{\"comment\":\"Wireless clients accessing LAN\",\"policy\":\"allow\",\"proto\":\"Any\",\"dst_port\":\"Any\",\"dst_cidr\":\"Local LAN\"},{\"comment\":\"Default rule\",\"policy\":\"allow\",\"proto\":\"Any\",\"dst_port\":\"Any\",\"dst_cidr\":\"Any\"}]"
-            }
-          ]
+          "response": []
         },
         {
           "_postman_id": "4a257e46-19cb-d669-3471-306e626d6257",
-          "name": "L3 Firewall Rules Update an SSID",
+          "name": "MX - Update L3 Firewall Rules ",
           "request": {
             "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/ssids/{{ssidNum}}/l3FirewallRules/",
             "method": "PUT",
@@ -1533,7 +1396,7 @@
               "mode": "raw",
               "raw": "{\n\t\"rules\":[{\n\t\"comment\":\"a note about the rule\",\n\t\"policy\":\"deny\",\n\t\"protocol\":\"tcp\",\n\t\"destPort\":\"any\",\n\t\"destCidr\":\"192.168.1.0/24\"\n\t\n}],\n\t\"allowLanAccess\":true\n}"
             },
-            "description": ""
+            "description": "### HTTP REQUEST\n```\nPUT /networks/[networkId]/l3FirewallRules\n```\n\n### PARAMETERS\n* rules\nAn ordered array of the firewall rules (not including the default rule)\n\n**comment**|**Description of the rule (optional)**\n:-----:|:-----:\npolicy|Allow' or 'Deny' traffic specified by this rule\nprotocol|The type of protocol (must be 'tcp', 'udp', 'icmp' or 'any')\nsrcPort|Comma-separated list of source port(s) (integer in the range 1-65535), or 'any'\nsrcCidr|Comma-separated list of source IP address(es) (in IP or CIDR notation), or 'any' (note: FQDN not supported for source addresses)\ndestPort|Comma-separated list of destination port(s) (integer in the range 1-65535), or 'any'\ndestCidr|Comma-separated list of destination IP address(es) (in IP or CIDR notation), fully-qualified domain names (FQDN) or 'any'\nsyslogEnabled|Log this rule to syslog (true or false, boolean value) - only applicable if a syslog has been configured (optional)\n\n\n* syslogDefaultRule\nLog the special default rule (boolean value - enable only if you've configured a syslog server) (optional)\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n[\n  {\n     \"comment\": \"a note about the rule\",\n     \"policy\": \"deny\",\n     \"protocol\": \"tcp\",\n     \"destPort\": \"80,443\",\n     \"destCidr\": \"192.168.1.0/24,192.168.2.0/24\",\n     \"srcPort\": \"Any\",\n     \"srcCidr\": \"Any\",\n     \"syslogEnabled\": true\n  },\n  {\n     \"comment\": \"Default rule\",\n     \"policy\": \"allow\",\n     \"protocol\": \"Any\",\n     \"destPort\": \"Any\",\n     \"destCidr\": \"Any\",\n     \"srcPort\": \"Any\",\n     \"srcCidr\": \"Any\",\n     \"syslogEnabled\": true\n  }\n]\n```"
           },
           "response": []
         }
