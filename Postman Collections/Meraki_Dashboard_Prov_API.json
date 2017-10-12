@@ -2483,7 +2483,7 @@
               "mode": "raw",
               "raw": "{\n  \"name\":\"My network\",\n  \"timeZone\": \"US/Pacific\",\n  \"tags\": \" tag1 tag2 \"\n}"
             },
-            "description": ""
+            "description": "## HTTP REQUEST\n```\nPUT /networks/[id]/bluetoothSettings\n```\n## PARAMETERS\n\nscanningEnabled|Whether APs will scan for Bluetooth enabled clients. (true, false)\n-----|-----\nadvertisingEnabled|Whether APs will advertise beacons. (true, false)\nuuid|The UUID to be used in the beacon identifier.\nmajorMinorAssignmentMode|The way major and minor number should be assigned to nodes in the network. ('Unique', 'Non-unique')\nmajor|The major number to be used in the beacon identifier. Only valid in 'Non-unique' mode.\nminor|The minor number to be used in the beacon identifier. Only valid in 'Non-unique' mode.\n\n## SAMPLE REQUEST\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X PUT -H 'Content-Type: application/json' --data-binary '{\"scanningEnabled\":true, \"advertisingEnabled\":true, \"uuid\":\"00000000-0000-0000-000-000000000000\", \"majorMinorAssignmentMode\":\"Unique\"}' 'https://dashboard.meraki.com/api/v0/networks/N_1234/bluetoothSettings'\n\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n{\n  \"id\":\"N_1234\",\n  \"scanningEnabled\": true,\n  \"advertisingEnabled\": true,\n  \"uuid\": \"00000000-0000-0000-000-000000000000\"\n  \"majorMinorAssignmentMode\": \"Unique\"\n  \"major\": 1,\n}\n```"
           },
           "response": []
         },
