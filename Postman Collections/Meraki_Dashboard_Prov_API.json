@@ -4008,31 +4008,31 @@
               "mode": "raw",
               "raw": "{\n\t\"v2cEnabled\":true,\n\t\"v3Enabled\":false\n}"
             },
-            "description": "## HTTP REQUEST\n```\nPUT /organizations/[id]/snmp\n```\n## PARAMETERS\n-----|-----\nv2cEnabled |\nBoolean indicating whether SNMP version 2c is enabled for the organization\nv3Enabled |\nBoolean indicating whether SNMP version 3 is enabled for the organization\nv3AuthMode |\nThe SNMP version 3 authentication mode either MD5 or SHA\nv3AuthPass |\nThe SNMP version 3 authentication password. Must be at least 8 characters if specified.\nv3PrivMode |\nThe SNMP version 3 privacy mode DES or AES128\nv3PrivPass |\nThe SNMP version 3 privacy password. Must be at least 8 characters if specified.\npeerIps |\nThe IPs that are allowed to access the SNMP server. This list should be IPv4 addresses separated by semi-colons (ie. \"1.2.3.4;2.3.4.5\").\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X PUT -H 'Content-Type: application/json' --data-binary '{\"v2cEnabled\":true,\"v3Enabled\":false}' 'https://dashboard.meraki.com/api/v0/organizations/[id]/snmp'\n```\n\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n{\n  \"v2cEnabled\":false,\n  \"v3Enabled\":false,\n  \"v3AuthMode\":null,\n  \"v3PrivMode\":null,\n  \"hostname\":\"n1.meraki.com\",\n  \"port\":16100,\n  \"peerIps\":null\n}\n```"
+            "description": "## HTTP REQUEST\n```\nPUT /organizations/[id]/snmp\n```\n## PARAMETERS\nname|info\n----|----\nv2cEnabled|Boolean indicating whether SNMP version 2c is enabled for the organization|v3Enabled\nBoolean| indicating whether SNMP version 3 is enabled for the organization\nv3AuthMode|The SNMP version 3 authentication mode either MD5 or SHA\nv3AuthPass|The SNMP version 3 authentication password. Must be at least 8 characters if specified.\nv3PrivMode|The SNMP version 3 privacy mode DES or AES128\nv3PrivPass|The SNMP version 3 privacy password. Must be at least 8 characters if specified.\npeerIps|The IPs that are allowed to access the SNMP server. This list should be IPv4 addresses separated by semi-colons (ie. \"1.2.3.4;2.3.4.5\").\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X PUT -H 'Content-Type: application/json' --data-binary '{\"v2cEnabled\":true,\"v3Enabled\":false}' 'https://dashboard.meraki.com/api/v0/organizations/[id]/snmp'\n```\n\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n{\n  \"v2cEnabled\":false,\n  \"v3Enabled\":false,\n  \"v3AuthMode\":null,\n  \"v3PrivMode\":null,\n  \"hostname\":\"n1.meraki.com\",\n  \"port\":16100,\n  \"peerIps\":null\n}\n```"
           },
           "response": [
             {
-              "id": "cdfaecef-b2ad-4679-7a4d-c7acf440ff89",
-              "name": "get SNMP - Meraki Dev Sandbox",
+              "id": "d8d25a2e-0586-8b6d-d589-7a3a61079e9c",
+              "name": "Organizations - Update the SNMP settings",
               "originalRequest": {
                 "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/snmp",
-                "method": "GET",
+                "method": "PUT",
                 "header": [
                   {
                     "key": "X-Cisco-Meraki-API-Key",
                     "value": "{{X-Cisco-Meraki-API-Key}}",
                     "description": ""
+                  },
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
                   }
                 ],
                 "body": {
-                  "mode": "formdata",
-                  "formdata": [
-                    {
-                      "key": "order",
-                      "value": "234234234",
-                      "type": "text"
-                    }
-                  ]
+                  "mode": "raw",
+                  "raw": "{\n\t\"v2cEnabled\":true,\n\t\"v3Enabled\":false\n}"
                 }
               },
               "status": "OK",
@@ -4041,111 +4041,111 @@
               "_postman_previewtype": "text",
               "header": [
                 {
-                  "name": "Cache-Control",
                   "key": "Cache-Control",
                   "value": "no-cache, no-store, max-age=0, must-revalidate",
+                  "name": "Cache-Control",
                   "description": ""
                 },
                 {
-                  "name": "Connection",
                   "key": "Connection",
                   "value": "keep-alive",
+                  "name": "Connection",
                   "description": ""
                 },
                 {
-                  "name": "Content-Encoding",
                   "key": "Content-Encoding",
                   "value": "gzip",
+                  "name": "Content-Encoding",
                   "description": ""
                 },
                 {
-                  "name": "Content-Type",
                   "key": "Content-Type",
                   "value": "application/json; charset=utf-8",
+                  "name": "Content-Type",
                   "description": ""
                 },
                 {
-                  "name": "Date",
                   "key": "Date",
-                  "value": "Sun, 02 Jul 2017 00:38:52 GMT",
+                  "value": "Thu, 12 Oct 2017 13:09:34 GMT",
+                  "name": "Date",
                   "description": ""
                 },
                 {
-                  "name": "Expires",
                   "key": "Expires",
                   "value": "Fri, 01 Jan 1990 00:00:00 GMT",
+                  "name": "Expires",
                   "description": ""
                 },
                 {
-                  "name": "Pragma",
                   "key": "Pragma",
                   "value": "no-cache",
+                  "name": "Pragma",
                   "description": ""
                 },
                 {
-                  "name": "Public-Key-Pins-Report-Only",
                   "key": "Public-Key-Pins-Report-Only",
                   "value": "max-age=1200; pin-sha256=\"2V5tfxXMLkn2kVg/Iv8FqL4JHcNVGEUFK27oSMYhHEU=\"; pin-sha256=\"8Rw90Ej3Ttt8RRkrg+WYDS9n7IS03bk5bjP/UXPtaY8=\"; pin-sha256=\"3YQf+D42t1/pQJhWTwYLRnFVnbBNXf9W5S6dmwq2+3g=\"; pin-sha256=\"klO23nT2ehFDXCfx3eHTDRESMz3asj1muO+4aIdjiuY=\"; pin-sha256=\"fake+hpkp+key+for+testing+report+only+QWERT=\"; includeSubDomains; report-uri=\"https://therealmerakidashboard.report-uri.io/r/default/hpkp/reportOnly\"",
+                  "name": "Public-Key-Pins-Report-Only",
                   "description": ""
                 },
                 {
-                  "name": "Server",
                   "key": "Server",
                   "value": "nginx",
+                  "name": "Server",
                   "description": ""
                 },
                 {
-                  "name": "Strict-Transport-Security",
                   "key": "Strict-Transport-Security",
                   "value": "max-age=15552000; includeSubDomains",
+                  "name": "Strict-Transport-Security",
                   "description": ""
                 },
                 {
-                  "name": "Transfer-Encoding",
                   "key": "Transfer-Encoding",
                   "value": "chunked",
+                  "name": "Transfer-Encoding",
                   "description": ""
                 },
                 {
-                  "name": "Vary",
                   "key": "Vary",
                   "value": "Accept-Encoding",
+                  "name": "Vary",
                   "description": ""
                 },
                 {
-                  "name": "X-Frame-Options",
                   "key": "X-Frame-Options",
                   "value": "sameorigin",
+                  "name": "X-Frame-Options",
                   "description": ""
                 },
                 {
-                  "name": "X-Rack-Cache",
                   "key": "X-Rack-Cache",
-                  "value": "miss",
+                  "value": "invalidate, pass",
+                  "name": "X-Rack-Cache",
                   "description": ""
                 },
                 {
-                  "name": "X-Request-Id",
                   "key": "X-Request-Id",
-                  "value": "7392f21da14eb2f34dae8520e2af7196",
+                  "value": "8c5353a223e13a595ee247d9d9f6732d",
+                  "name": "X-Request-Id",
                   "description": ""
                 },
                 {
-                  "name": "X-Runtime",
                   "key": "X-Runtime",
-                  "value": "0.078306",
+                  "value": "0.103088",
+                  "name": "X-Runtime",
                   "description": ""
                 },
                 {
-                  "name": "X-UA-Compatible",
                   "key": "X-UA-Compatible",
                   "value": "IE=Edge,chrome=1",
+                  "name": "X-UA-Compatible",
                   "description": ""
                 }
               ],
               "cookie": [],
-              "responseTime": "281",
-              "body": "{\"v2cEnabled\":true,\"v3Enabled\":false,\"v3AuthMode\":null,\"v3PrivMode\":null,\"peerIps\":null,\"v2CommunityString\":\"o/-t35Mb\",\"hostname\":\"n149.meraki.com\",\"port\":16100}"
+              "responseTime": "1041",
+              "body": "{\n    \"v2cEnabled\": true,\n    \"v3Enabled\": false,\n    \"v3AuthMode\": \"SHA\",\n    \"v3PrivMode\": \"AES128\",\n    \"peerIps\": null,\n    \"v2CommunityString\": \"o/3ZZIub\",\n    \"hostname\": \"n000.meraki.com\",\n    \"port\": 16100\n}"
             }
           ]
         },
