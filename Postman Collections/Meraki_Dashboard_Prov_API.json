@@ -3987,59 +3987,6 @@
           ]
         },
         {
-          "_postman_id": "b4827255-ee47-88d4-526a-4b8e33bb931c",
-          "name": "Organizations - Return the third party VPN peers",
-          "request": {
-            "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/thirdPartyVPNPeers",
-            "method": "GET",
-            "header": [
-              {
-                "key": "X-Cisco-Meraki-API-Key",
-                "value": "{{X-Cisco-Meraki-API-Key}}",
-                "description": ""
-              }
-            ],
-            "body": {
-              "mode": "formdata",
-              "formdata": [
-                {
-                  "key": "order",
-                  "value": "234234234",
-                  "type": "text"
-                }
-              ]
-            },
-            "description": ""
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "e26f5106-0c44-0e51-702d-ebbb49d10c62",
-          "name": "Organizations - Update the third party VPN peers",
-          "request": {
-            "url": "https://{{shard}}.meraki.com/api/v0/organizations/{{organizationId}}/thirdPartyVPNPeers",
-            "method": "PUT",
-            "header": [
-              {
-                "key": "X-Cisco-Meraki-API-Key",
-                "value": "{{X-Cisco-Meraki-API-Key}}",
-                "description": ""
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json",
-                "description": ""
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "[{\n\t\"name\":\"Your peer\",\n\t\"publicIp\":\"192.168.0.1\",\n\t\"privateSubnets\":[\n\t\t\"172.168.0.0/16\",\n\t\t\"172.169.0.0/16\"\n\t\t],\n\t\"secret\":\"asdf1234\"\n}]"
-            },
-            "description": ""
-          },
-          "response": []
-        },
-        {
           "_postman_id": "a1294fa2-f6f2-55c6-7dd4-03852b4b554d",
           "name": "Organizations - Return the SNMP settings copy",
           "request": {
@@ -4202,6 +4149,59 @@
               "body": "{\"v2cEnabled\":true,\"v3Enabled\":false,\"v3AuthMode\":null,\"v3PrivMode\":null,\"peerIps\":null,\"v2CommunityString\":\"o/-t35Mb\",\"hostname\":\"n149.meraki.com\",\"port\":16100}"
             }
           ]
+        },
+        {
+          "_postman_id": "b4827255-ee47-88d4-526a-4b8e33bb931c",
+          "name": "Organizations - Return the third party VPN peers",
+          "request": {
+            "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/thirdPartyVPNPeers",
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}",
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "order",
+                  "value": "234234234",
+                  "type": "text"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "e26f5106-0c44-0e51-702d-ebbb49d10c62",
+          "name": "Organizations - Update the third party VPN peers",
+          "request": {
+            "url": "https://{{shard}}.meraki.com/api/v0/organizations/{{organizationId}}/thirdPartyVPNPeers",
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}",
+                "description": ""
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[{\n\t\"name\":\"Your peer\",\n\t\"publicIp\":\"192.168.0.1\",\n\t\"privateSubnets\":[\n\t\t\"172.168.0.0/16\",\n\t\t\"172.169.0.0/16\"\n\t\t],\n\t\"secret\":\"asdf1234\"\n}]"
+            },
+            "description": ""
+          },
+          "response": []
         }
       ]
     },
