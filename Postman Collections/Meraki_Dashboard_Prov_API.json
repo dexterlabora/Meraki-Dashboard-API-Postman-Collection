@@ -2299,7 +2299,7 @@
         },
         {
           "_postman_id": "8c5c0a9c-17d4-0e37-6038-30a59b117c38",
-          "name": "Networks - List the access policies (MS) copy",
+          "name": "Networks - Return the Bluetooth settings",
           "request": {
             "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/accessPolicies",
             "method": "GET",
@@ -2320,7 +2320,7 @@
                 }
               ]
             },
-            "description": ""
+            "description": "## HTTP REQUEST\n```\nGET /networks/[id]/bluetoothSettings\n```\n## PARAMETERS\n**none**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X GET -H 'Content-Type: application/json' 'https://dashboard.meraki.com/api/v0/networks/[id]/bluetoothSettings'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n{\n  \"id\":\"N_1234\",\n  \"scanningEnabled\": true,\n  \"advertisingEnabled\": true,\n  \"uuid\": \"00000000-0000-0000-000-000000000000\"\n  \"majorMinorAssignmentMode\": \"Non-unique\"\n  \"major\": 65535,\n  \"minor\": 65535,\n}\n```"
           },
           "response": []
         },
