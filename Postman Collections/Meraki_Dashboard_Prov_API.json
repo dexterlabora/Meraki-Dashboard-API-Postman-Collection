@@ -3991,23 +3991,22 @@
           "name": "Organizations - Update the SNMP settings",
           "request": {
             "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/snmp",
-            "method": "GET",
+            "method": "PUT",
             "header": [
               {
                 "key": "X-Cisco-Meraki-API-Key",
                 "value": "{{X-Cisco-Meraki-API-Key}}",
                 "description": ""
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": ""
               }
             ],
             "body": {
-              "mode": "formdata",
-              "formdata": [
-                {
-                  "key": "order",
-                  "value": "234234234",
-                  "type": "text"
-                }
-              ]
+              "mode": "raw",
+              "raw": "{\n\t\"v2cEnabled\":true,\n\t\"v3Enabled\":false\n}"
             },
             "description": "## HTTP REQUEST\n```\nPUT /organizations/[id]/snmp\n```\n## PARAMETERS\n-----|-----\nv2cEnabled |\nBoolean indicating whether SNMP version 2c is enabled for the organization\nv3Enabled |\nBoolean indicating whether SNMP version 3 is enabled for the organization\nv3AuthMode |\nThe SNMP version 3 authentication mode either MD5 or SHA\nv3AuthPass |\nThe SNMP version 3 authentication password. Must be at least 8 characters if specified.\nv3PrivMode |\nThe SNMP version 3 privacy mode DES or AES128\nv3PrivPass |\nThe SNMP version 3 privacy password. Must be at least 8 characters if specified.\npeerIps |\nThe IPs that are allowed to access the SNMP server. This list should be IPv4 addresses separated by semi-colons (ie. \"1.2.3.4;2.3.4.5\").\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X PUT -H 'Content-Type: application/json' --data-binary '{\"v2cEnabled\":true,\"v3Enabled\":false}' 'https://dashboard.meraki.com/api/v0/organizations/[id]/snmp'\n```\n\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n{\n  \"v2cEnabled\":false,\n  \"v3Enabled\":false,\n  \"v3AuthMode\":null,\n  \"v3PrivMode\":null,\n  \"hostname\":\"n1.meraki.com\",\n  \"port\":16100,\n  \"peerIps\":null\n}\n```"
           },
