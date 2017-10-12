@@ -1780,32 +1780,6 @@
           "response": []
         },
         {
-          "_postman_id": "7d30a151-afd6-8195-c788-354f0d4688c1",
-          "name": "Networks - Update a network copy",
-          "request": {
-            "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}",
-            "method": "PUT",
-            "header": [
-              {
-                "key": "X-Cisco-Meraki-API-Key",
-                "value": "{{X-Cisco-Meraki-API-Key}}",
-                "description": ""
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json",
-                "description": ""
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"name\":\"My network\",\n  \"timeZone\": \"US/Pacific\",\n  \"tags\": \" tag1 tag2 \"\n}"
-            },
-            "description": ""
-          },
-          "response": []
-        },
-        {
           "_postman_id": "0d8b4994-f26b-470f-e5c6-6fe0cc16a144",
           "name": "Networks -  Create a network",
           "event": [
@@ -2486,6 +2460,32 @@
               "body": "{\n    \"scanningEnabled\": true,\n    \"advertisingEnabled\": true,\n    \"uuid\": \"95bba6e5-c32d-446b-fake-aebd4c62888d\",\n    \"majorMinorAssignmentMode\": \"Non-unique\",\n    \"major\": 0,\n    \"minor\": 0\n}"
             }
           ]
+        },
+        {
+          "_postman_id": "7d30a151-afd6-8195-c788-354f0d4688c1",
+          "name": "Networks - Update a network copy",
+          "request": {
+            "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}",
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}",
+                "description": ""
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\":\"My network\",\n  \"timeZone\": \"US/Pacific\",\n  \"tags\": \" tag1 tag2 \"\n}"
+            },
+            "description": ""
+          },
+          "response": []
         },
         {
           "_postman_id": "0e2bd100-6148-6bb5-77f4-4471cbaca89a",
