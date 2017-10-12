@@ -296,6 +296,59 @@
             "description": "## HTTP REQUEST\n```\nGET /networks/[id]/clients/[mac]/splashAuthorizationStatus\n```\n\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X GET -H 'Content-Type: application/json' 'https://dashboard.meraki.com/api/v0/networks/[id]/clients/[mac]/splashAuthorizationStatus'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n{\n  \"ssids\": {\n    \"0\": {\n      \"isAuthorized\": true,\n      \"authorizedAt\": \"2017-07-19 16:24:13 UTC\",\n      \"expiresAt\": \"2017-07-20 16:24:13 UTC\"\n    },\n    \"2\": {\n      \"isAuthorized\": false\n    }\n  }\n}\n```"
           },
           "response": []
+        },
+        {
+          "_postman_id": "680bb106-5aad-0bac-5998-d68fef1c3378",
+          "name": "Clients - Update the group policy assigned to a device in the network copy",
+          "request": {
+            "url": {
+              "raw": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/clients/{{clientMac}}/policy?timespan=84000",
+              "protocol": "https",
+              "auth": {},
+              "host": [
+                "{{shard}}",
+                "meraki",
+                "com"
+              ],
+              "path": [
+                "api",
+                "v0",
+                "networks",
+                "{{networkId}}",
+                "clients",
+                "{{clientMac}}",
+                "policy"
+              ],
+              "query": [
+                {
+                  "key": "timespan",
+                  "value": "84000",
+                  "equals": true,
+                  "description": ""
+                }
+              ],
+              "variable": []
+            },
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}",
+                "description": ""
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"devicePolicy\": \"Group policy\",\n  \"groupPolicyId\": 102\n}"
+            },
+            "description": "```\nHTTP REQUEST\nPUT /networks/[id]/clients/[mac]/policy\nPARAMETERS\ndevicePolicy\nThe group policy (Whitelisted, Blocked, Normal, Group policy)\ngroupPolicyId\n[optional] If devicePolicy param is set to 'group' this param is used to specify the group id.\nSAMPLE REQUEST\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X PUT -H 'Content-Type: application/json' 'https://dashboard.meraki.com/api/v0/networks/[id]/clients/[mac]/policy'\nSAMPLE RESPONSE\nSuccessful HTTP Status: 200\n{\n  \"mac\": \"00:11:22:33:44:55\",\n  \"type\": \"Group policy\",\n  \"groupPolicyId\": 101\n}\n```"
+          },
+          "response": []
         }
       ]
     },
