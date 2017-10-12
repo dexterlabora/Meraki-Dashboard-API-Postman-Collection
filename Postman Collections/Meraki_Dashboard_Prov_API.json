@@ -1192,6 +1192,170 @@
             "description": ""
           },
           "response": []
+        },
+        {
+          "_postman_id": "639ad0b4-a751-9cc6-985d-442e351e33e0",
+          "name": "Devices - Return a single device copy",
+          "request": {
+            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/devices/{{serial}}",
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}",
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "type": "text",
+                  "value": "Turkcell"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "response": [
+            {
+              "id": "98d15a73-4ffd-d35e-debb-065fe13b26e6",
+              "name": "get Single Device",
+              "originalRequest": {
+                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/devices/{{serial}}",
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}",
+                    "description": ""
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "name",
+                      "type": "text",
+                      "value": "Turkcell"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "_postman_previewtype": "text",
+              "header": [
+                {
+                  "name": "Cache-Control",
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate",
+                  "description": ""
+                },
+                {
+                  "name": "Connection",
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "description": ""
+                },
+                {
+                  "name": "Content-Encoding",
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "description": ""
+                },
+                {
+                  "name": "Content-Type",
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8",
+                  "description": ""
+                },
+                {
+                  "name": "Date",
+                  "key": "Date",
+                  "value": "Sun, 02 Jul 2017 00:26:16 GMT",
+                  "description": ""
+                },
+                {
+                  "name": "Expires",
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT",
+                  "description": ""
+                },
+                {
+                  "name": "Pragma",
+                  "key": "Pragma",
+                  "value": "no-cache",
+                  "description": ""
+                },
+                {
+                  "name": "Public-Key-Pins-Report-Only",
+                  "key": "Public-Key-Pins-Report-Only",
+                  "value": "max-age=1200; pin-sha256=\"2V5tfxXMLkn2kVg/Iv8FqL4JHcNVGEUFK27oSMYhHEU=\"; pin-sha256=\"8Rw90Ej3Ttt8RRkrg+WYDS9n7IS03bk5bjP/UXPtaY8=\"; pin-sha256=\"3YQf+D42t1/pQJhWTwYLRnFVnbBNXf9W5S6dmwq2+3g=\"; pin-sha256=\"klO23nT2ehFDXCfx3eHTDRESMz3asj1muO+4aIdjiuY=\"; pin-sha256=\"fake+hpkp+key+for+testing+report+only+QWERT=\"; includeSubDomains; report-uri=\"https://therealmerakidashboard.report-uri.io/r/default/hpkp/reportOnly\"",
+                  "description": ""
+                },
+                {
+                  "name": "Server",
+                  "key": "Server",
+                  "value": "nginx",
+                  "description": ""
+                },
+                {
+                  "name": "Strict-Transport-Security",
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains",
+                  "description": ""
+                },
+                {
+                  "name": "Transfer-Encoding",
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "description": ""
+                },
+                {
+                  "name": "Vary",
+                  "key": "Vary",
+                  "value": "Accept-Encoding",
+                  "description": ""
+                },
+                {
+                  "name": "X-Frame-Options",
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin",
+                  "description": ""
+                },
+                {
+                  "name": "X-Rack-Cache",
+                  "key": "X-Rack-Cache",
+                  "value": "miss",
+                  "description": ""
+                },
+                {
+                  "name": "X-Request-Id",
+                  "key": "X-Request-Id",
+                  "value": "6a45667f56fb7fdebbd35b6919279fce",
+                  "description": ""
+                },
+                {
+                  "name": "X-Runtime",
+                  "key": "X-Runtime",
+                  "value": "0.075077",
+                  "description": ""
+                },
+                {
+                  "name": "X-UA-Compatible",
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1",
+                  "description": ""
+                }
+              ],
+              "cookie": [],
+              "responseTime": "420",
+              "body": "{\"lanIp\":\"10.10.130.99\",\"serial\":\"Q2PD-QG4J-JT9F\",\"mac\":\"0c:8d:db:66:45:6d\",\"lat\":51.5081677,\"lng\":-0.0598511,\"address\":\"\",\"tags\":\" devnet \",\"name\":\"Workshop 2 - Captive Portal\",\"model\":\"MR33\",\"networkId\":\"L_646829496481095933\"}"
+            }
+          ]
         }
       ]
     },
