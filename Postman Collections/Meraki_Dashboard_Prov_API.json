@@ -213,65 +213,6 @@
           "response": []
         },
         {
-          "_postman_id": "bae3d361-1ac7-8778-9db8-177fcee91165",
-          "name": "Clients - Return the splash authorization for a client, for each SSID they've associated with through splash.",
-          "request": {
-            "url": {
-              "raw": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/clients/{{clientMac}}/policy?timespan=84000",
-              "protocol": "https",
-              "auth": {},
-              "host": [
-                "{{shard}}",
-                "meraki",
-                "com"
-              ],
-              "path": [
-                "api",
-                "v0",
-                "networks",
-                "{{networkId}}",
-                "clients",
-                "{{clientMac}}",
-                "policy"
-              ],
-              "query": [
-                {
-                  "key": "timespan",
-                  "value": "84000",
-                  "equals": true,
-                  "description": ""
-                }
-              ],
-              "variable": []
-            },
-            "method": "GET",
-            "header": [
-              {
-                "key": "X-Cisco-Meraki-API-Key",
-                "value": "{{X-Cisco-Meraki-API-Key}}",
-                "description": ""
-              }
-            ],
-            "body": {
-              "mode": "formdata",
-              "formdata": [
-                {
-                  "key": "name",
-                  "value": "Toni",
-                  "type": "text"
-                },
-                {
-                  "key": "orgAccess",
-                  "value": "full",
-                  "type": "text"
-                }
-              ]
-            },
-            "description": "## HTTP REQUEST\n```\nGET /networks/[id]/clients/[mac]/splashAuthorizationStatus\n```\n\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X GET -H 'Content-Type: application/json' 'https://dashboard.meraki.com/api/v0/networks/[id]/clients/[mac]/splashAuthorizationStatus'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n{\n  \"ssids\": {\n    \"0\": {\n      \"isAuthorized\": true,\n      \"authorizedAt\": \"2017-07-19 16:24:13 UTC\",\n      \"expiresAt\": \"2017-07-20 16:24:13 UTC\"\n    },\n    \"2\": {\n      \"isAuthorized\": false\n    }\n  }\n}\n```"
-          },
-          "response": []
-        },
-        {
           "_postman_id": "ab98f74d-92bb-0030-1076-ac0f86eacadd",
           "name": "Clients - Update the group policy assigned to a device in the network",
           "request": {
@@ -321,6 +262,38 @@
               "raw": "{\n  \"devicePolicy\": \"Group policy\",\n  \"groupPolicyId\": 102\n}"
             },
             "description": "```\nHTTP REQUEST\nPUT /networks/[id]/clients/[mac]/policy\nPARAMETERS\ndevicePolicy\nThe group policy (Whitelisted, Blocked, Normal, Group policy)\ngroupPolicyId\n[optional] If devicePolicy param is set to 'group' this param is used to specify the group id.\nSAMPLE REQUEST\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X PUT -H 'Content-Type: application/json' 'https://dashboard.meraki.com/api/v0/networks/[id]/clients/[mac]/policy'\nSAMPLE RESPONSE\nSuccessful HTTP Status: 200\n{\n  \"mac\": \"00:11:22:33:44:55\",\n  \"type\": \"Group policy\",\n  \"groupPolicyId\": 101\n}\n```"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "bae3d361-1ac7-8778-9db8-177fcee91165",
+          "name": "Clients - Return the splash authorization for a client, for each SSID they've associated with through splash.",
+          "request": {
+            "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/clients/{{clientMac}}/splashAuthorizationStatus",
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}",
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "Toni",
+                  "type": "text"
+                },
+                {
+                  "key": "orgAccess",
+                  "value": "full",
+                  "type": "text"
+                }
+              ]
+            },
+            "description": "## HTTP REQUEST\n```\nGET /networks/[id]/clients/[mac]/splashAuthorizationStatus\n```\n\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X GET -H 'Content-Type: application/json' 'https://dashboard.meraki.com/api/v0/networks/[id]/clients/[mac]/splashAuthorizationStatus'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n{\n  \"ssids\": {\n    \"0\": {\n      \"isAuthorized\": true,\n      \"authorizedAt\": \"2017-07-19 16:24:13 UTC\",\n      \"expiresAt\": \"2017-07-20 16:24:13 UTC\"\n    },\n    \"2\": {\n      \"isAuthorized\": false\n    }\n  }\n}\n```"
           },
           "response": []
         }
