@@ -16,6 +16,7 @@
           "_postman_id": "a8c54933-d1ef-abd0-a283-4c4790409c81",
           "name": "Admins - List the dashboard administrators",
           "request": {
+            "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/admins",
             "method": "GET",
             "header": [
               {
@@ -38,7 +39,6 @@
                 }
               ]
             },
-            "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/admins",
             "description": "## HTTP REQUEST\n```\nGET /organizations/[organization_id]/admins\n```\n\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X GET -H 'Content-Type: application/json' 'https://dashboard.meraki.com/api/v0/organizations/1234/admins'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n[\n  {\n    \"id\":\"1\",\n    \"name\":\"Miles Meraki\",\n    \"email\":\"miles@meraki.com\",\n    \"orgAccess\":\"none\",\n    \"tags\":[\n      {\n        \"tag\":\"west\",\n        \"access\":\"read-only\"\n      }\n    ],\n    \"networks\":[\n      {\n        \"id\":\"N_249\",\n        \"access\":\"full\"\n      }\n    ]\n  }\n]\n```"
           },
           "response": []
@@ -47,6 +47,7 @@
           "_postman_id": "e2b891fc-51ff-f7e3-0f3b-a3ec8fe6a74c",
           "name": "Admins - Create a new dashboard administrator",
           "request": {
+            "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/admins",
             "method": "POST",
             "header": [
               {
@@ -62,7 +63,6 @@
               "mode": "raw",
               "raw": "{\n\t\"name\":\"Miles Meraki\",\n\t\"email\":\"miles@meraki.com\",\n\t\"orgAccess\":\"none\",\n\t\"tags\":[\n\t\t{\n\t\t\t\"tag\":\"west\",\n\t\t\t\"access\":\"read-only\"\n\t\t\t\n\t\t}\n\t]\n}"
             },
-            "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/admins",
             "description": ""
           },
           "response": []
@@ -71,22 +71,24 @@
           "_postman_id": "5f8b85bf-d0ef-a884-ee2f-eed83e153f93",
           "name": "Admins - Update an administrator",
           "request": {
+            "url": "https://{{shard}}.meraki.com/api/v0/organizations/{{organizationId}}/admins/596726950626604099",
             "method": "PUT",
             "header": [
               {
                 "key": "X-Cisco-Meraki-API-Key",
-                "value": "{{X-Cisco-Meraki-API-Key}}"
+                "value": "{{X-Cisco-Meraki-API-Key}}",
+                "description": ""
               },
               {
                 "key": "Content-Type",
-                "value": "application/json"
+                "value": "application/json",
+                "description": ""
               }
             ],
             "body": {
               "mode": "raw",
               "raw": "{\n\t\"name\":\"Miles Meraki\",\n\t\"email\":\"miles@meraki.com\",\n\t\"orgAccess\":\"none\",\n\t\"tags\":[\n\t\t{\n\t\t\t\"tag\":\"west\",\n\t\t\t\"access\":\"read-only\"\n\t\t\t\n\t\t}\n\t]\n}"
             },
-            "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/admins/596726950626604099",
             "description": ""
           },
           "response": []
@@ -95,6 +97,7 @@
           "_postman_id": "af8b819e-90e6-63d5-795d-02a22e970663",
           "name": "Admins - Revoke all access for a dashboard administrator for this org",
           "request": {
+            "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/admins/{{adminId}}",
             "method": "DELETE",
             "header": [
               {
@@ -106,7 +109,6 @@
               "mode": "raw",
               "raw": ""
             },
-            "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/admins/{{adminId}}",
             "description": ""
           },
           "response": []
@@ -122,31 +124,10 @@
           "_postman_id": "6248112f-2a02-e76b-910d-efb759e9d073",
           "name": "Clients - List the clients of a device, up to 1 month",
           "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "X-Cisco-Meraki-API-Key",
-                "value": "{{X-Cisco-Meraki-API-Key}}"
-              }
-            ],
-            "body": {
-              "mode": "formdata",
-              "formdata": [
-                {
-                  "key": "name",
-                  "value": "Toni",
-                  "type": "text"
-                },
-                {
-                  "key": "orgAccess",
-                  "value": "full",
-                  "type": "text"
-                }
-              ]
-            },
             "url": {
               "raw": "https://dashboard.meraki.com/api/v0/devices/{{serial}}/clients?timespan=84000",
               "protocol": "https",
+              "auth": {},
               "host": [
                 "dashboard",
                 "meraki",
@@ -164,16 +145,9 @@
                   "key": "timespan",
                   "value": "84000"
                 }
-              ]
+              ],
+              "variable": []
             },
-            "description": ""
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "fe07764a-2520-5c14-d224-0ae573903cfb",
-          "name": "Clients - Return the group policy that is assigned to a device in the network",
-          "request": {
             "method": "GET",
             "header": [
               {
@@ -196,9 +170,18 @@
                 }
               ]
             },
+            "description": ""
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "fe07764a-2520-5c14-d224-0ae573903cfb",
+          "name": "Clients - Return the group policy that is assigned to a device in the network",
+          "request": {
             "url": {
               "raw": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/clients/{{clientMac}}/policy?timespan=84000",
               "protocol": "https",
+              "auth": {},
               "host": [
                 "{{shard}}",
                 "meraki",
@@ -219,6 +202,29 @@
                   "value": "84000",
                   "equals": true
                 }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "Toni",
+                  "type": "text"
+                },
+                {
+                  "key": "orgAccess",
+                  "value": "full",
+                  "type": "text"
+                }
               ]
             },
             "description": "```\nHTTP REQUEST\nGET /networks/[networkId]/clients/[client_mac]/policy\nPARAMETERS\ntimespan\nThe timespan for which clients will be fetched. Must be in seconds and less than or equal to a month (2592000 seconds).\nSAMPLE REQUEST\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X GET -H 'Content-Type: application/json' 'https://dashboard.meraki.com/api/v0/networks/[networkId]/clients/[mac]/policy?timespan=86400'\nSAMPLE RESPONSE\nSuccessful HTTP Status: 200\n{\n  \"mac\": \"00:11:22:33:44:55\",\n  \"type\": \"Group policy\",\n  \"groupPolicyId\": 101\n}\n```"
@@ -229,6 +235,33 @@
           "_postman_id": "c0018e53-8613-e76c-c057-ee7899911614",
           "name": "Clients - Update the group policy assigned to a device in the network",
           "request": {
+            "url": {
+              "raw": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/clients/{{clientMac}}/policy?timespan=84000",
+              "protocol": "https",
+              "auth": {},
+              "host": [
+                "{{shard}}",
+                "meraki",
+                "com"
+              ],
+              "path": [
+                "api",
+                "v0",
+                "networks",
+                "{{networkId}}",
+                "clients",
+                "{{clientMac}}",
+                "policy"
+              ],
+              "query": [
+                {
+                  "key": "timespan",
+                  "value": "84000",
+                  "equals": true
+                }
+              ],
+              "variable": []
+            },
             "method": "PUT",
             "header": [
               {
@@ -244,31 +277,6 @@
               "mode": "raw",
               "raw": "{\n  \"devicePolicy\": \"Group policy\",\n  \"groupPolicyId\": 102\n}"
             },
-            "url": {
-              "raw": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/clients/{{clientMac}}/policy?timespan=84000",
-              "protocol": "https",
-              "host": [
-                "{{shard}}",
-                "meraki",
-                "com"
-              ],
-              "path": [
-                "api",
-                "v0",
-                "networks",
-                "{{networkId}}",
-                "clients",
-                "{{clientMac}}",
-                "policy"
-              ],
-              "query": [
-                {
-                  "key": "timespan",
-                  "value": "84000",
-                  "equals": true
-                }
-              ]
-            },
             "description": "```\nHTTP REQUEST\nPUT /networks/[id]/clients/[mac]/policy\nPARAMETERS\ndevicePolicy\nThe group policy (Whitelisted, Blocked, Normal, Group policy)\ngroupPolicyId\n[optional] If devicePolicy param is set to 'group' this param is used to specify the group id.\nSAMPLE REQUEST\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X PUT -H 'Content-Type: application/json' 'https://dashboard.meraki.com/api/v0/networks/[id]/clients/[mac]/policy'\nSAMPLE RESPONSE\nSuccessful HTTP Status: 200\n{\n  \"mac\": \"00:11:22:33:44:55\",\n  \"type\": \"Group policy\",\n  \"groupPolicyId\": 101\n}\n```"
           },
           "response": []
@@ -277,6 +285,7 @@
           "_postman_id": "de8d2525-af63-fed6-3eda-bf31d1c93311",
           "name": "Clients - Return the splash authorization for a client, for each SSID they've associated with through splash.",
           "request": {
+            "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/clients/{{clientMac}}/splashAuthorizationStatus",
             "method": "GET",
             "header": [
               {
@@ -299,7 +308,6 @@
                 }
               ]
             },
-            "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/clients/{{clientMac}}/splashAuthorizationStatus",
             "description": "## HTTP REQUEST\n```\nGET /networks/[id]/clients/[mac]/splashAuthorizationStatus\n```\n\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X GET -H 'Content-Type: application/json' 'https://dashboard.meraki.com/api/v0/networks/[id]/clients/[mac]/splashAuthorizationStatus'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n{\n  \"ssids\": {\n    \"0\": {\n      \"isAuthorized\": true,\n      \"authorizedAt\": \"2017-07-19 16:24:13 UTC\",\n      \"expiresAt\": \"2017-07-20 16:24:13 UTC\"\n    },\n    \"2\": {\n      \"isAuthorized\": false\n    }\n  }\n}\n```"
           },
           "response": []
@@ -308,6 +316,7 @@
           "_postman_id": "d76f8106-3a1a-fcb2-9f44-ce9bd1703bfd",
           "name": "Clients - Update a client's splash authorization",
           "request": {
+            "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/clients/{{clientMac}}/splashAuthorizationStatus",
             "method": "PUT",
             "header": [
               {
@@ -323,7 +332,6 @@
               "mode": "raw",
               "raw": "{\n  \"ssids\": {\n    \"0\": {\n      \"isAuthorized\": true,\n      \"authorizedAt\": \"2017-07-19 16:24:13 UTC\",\n      \"expiresAt\": \"2017-07-20 16:24:13 UTC\"\n    },\n    \"2\": {\n      \"isAuthorized\": false\n    }\n  }\n}"
             },
-            "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/clients/{{clientMac}}/splashAuthorizationStatus",
             "description": "## HTTP REQUEST\n```\nPUT /networks/[id]/clients/[mac]/splashAuthorizationStatus\n```\n\n## PARAMETERS\n\n**ssids**\n\nThe target SSIDs. For each SSID where isAuthorized is true, the expiration time will automatically be set according to the SSID's splash frequency.\n\n**isAuthorized**\n\nNew authorization status for SSID (true, false).\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X PUT -H 'Content-Type: application/json' --data-binary '{\"ssids\":{\"0\":{\"isAuthorized\":true},\"2\":{\"isAuthorized\":false}}}' 'https://dashboard.meraki.com/api/v0/networks/[id]/clients/[mac]/splashAuthorizationStatus'\n```\n\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n{\n  \"ssids\": {\n    \"0\": {\n      \"isAuthorized\": true,\n      \"authorizedAt\": \"2017-07-19 16:24:13 UTC\",\n      \"expiresAt\": \"2017-07-20 16:24:13 UTC\"\n    },\n    \"2\": {\n      \"isAuthorized\": false\n    }\n  }\n}\n```"
           },
           "response": [
@@ -331,6 +339,7 @@
               "id": "eb0d70fa-aa9c-4982-e334-1426d6085d2d",
               "name": "Clients - Update a client's splash authorization",
               "originalRequest": {
+                "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/clients/{{clientMac}}/splashAuthorizationStatus",
                 "method": "PUT",
                 "header": [
                   {
@@ -346,7 +355,6 @@
                   "mode": "raw",
                   "raw": "{\n  \"ssids\": {\n    \"3\": {\n      \"isAuthorized\": true,\n      \"authorizedAt\": \"2017-07-19 16:24:13 UTC\",\n      \"expiresAt\": \"2017-07-20 16:24:13 UTC\"\n    }\n  }\n}"
                 },
-                "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/clients/{{clientMac}}/splashAuthorizationStatus",
                 "description": ""
               },
               "status": "OK",
@@ -474,6 +482,7 @@
           "_postman_id": "85fbb3f0-e3aa-d7d5-fd3a-ac23d5176d36",
           "name": "Config Templates - List the config templates for this org",
           "request": {
+            "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/configTemplates",
             "method": "GET",
             "header": [
               {
@@ -496,7 +505,6 @@
                 }
               ]
             },
-            "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/configTemplates",
             "description": ""
           },
           "response": []
@@ -505,6 +513,7 @@
           "_postman_id": "eab1dd8c-00d6-0eb7-7478-80f382cb6433",
           "name": "Config Templates - Remove a configuration template",
           "request": {
+            "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/configTemplates/{{Del-configTemplateId}}",
             "method": "DELETE",
             "header": [
               {
@@ -516,7 +525,6 @@
               "mode": "raw",
               "raw": ""
             },
-            "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/configTemplates/{{Del-configTemplateId}}",
             "description": ""
           },
           "response": []
@@ -532,6 +540,7 @@
           "_postman_id": "1efb40c2-4c39-3c0d-a9a4-ff7291ca0b39",
           "name": "Devices - List the devices in a network",
           "request": {
+            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/devices",
             "method": "GET",
             "header": [
               {
@@ -549,7 +558,6 @@
                 }
               ]
             },
-            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/devices",
             "description": ""
           },
           "response": [
@@ -557,6 +565,7 @@
               "id": "348862d6-f923-12f4-d241-5eb8c272dc17",
               "name": "get Devices List",
               "originalRequest": {
+                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/devices",
                 "method": "GET",
                 "header": [
                   {
@@ -574,7 +583,6 @@
                     }
                   ]
                 },
-                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/devices",
                 "description": ""
               },
               "status": "OK",
@@ -695,6 +703,7 @@
           "_postman_id": "4c3ba26b-77b8-9b60-494c-2fa41246c730",
           "name": "Devices - Return a single device",
           "request": {
+            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/devices/{{serial}}",
             "method": "GET",
             "header": [
               {
@@ -712,7 +721,6 @@
                 }
               ]
             },
-            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/devices/{{serial}}",
             "description": ""
           },
           "response": [
@@ -720,6 +728,7 @@
               "id": "ba76387d-ea41-1876-9026-0170cce8eb46",
               "name": "get Single Device",
               "originalRequest": {
+                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/devices/{{serial}}",
                 "method": "GET",
                 "header": [
                   {
@@ -737,7 +746,6 @@
                     }
                   ]
                 },
-                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/devices/{{serial}}",
                 "description": ""
               },
               "status": "OK",
@@ -858,6 +866,7 @@
           "_postman_id": "d96f2d50-b985-d626-ed5f-d768c14230b3",
           "name": "Return the performance score for a single device (MX)",
           "request": {
+            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/devices/{{serial}}/performance",
             "method": "GET",
             "header": [
               {
@@ -875,7 +884,6 @@
                 }
               ]
             },
-            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/devices/{{serial}}/performance",
             "description": "## Notes\n* This feature is currently in beta and must be enabled by Meraki Support\n* Doc: https://documentation.meraki.com/MX-Z/Monitoring_and_Reporting/Load_Monitoring\n\n\n## HTTP REQUEST\nGET /networks/[networkId]/devices/[serial]/performance\n\n## HTTP Response\n* If no data is available, error code 204 is returned.\n\n```\n{\"perfScore\":19}\n```"
           },
           "response": [
@@ -883,6 +891,7 @@
               "id": "d33fbbbd-2d7f-dce0-3787-3c4813778a72",
               "name": "Return the performance score for a single device (MX)",
               "originalRequest": {
+                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/devices/{{serial}}/performance",
                 "method": "GET",
                 "header": [
                   {
@@ -900,7 +909,6 @@
                     }
                   ]
                 },
-                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/devices/{{serial}}/performance",
                 "description": ""
               },
               "status": "OK",
@@ -1021,6 +1029,7 @@
           "_postman_id": "d4a122ee-0679-dda7-d787-9b70a068d069",
           "name": "Devices - Update the attributes of a device",
           "request": {
+            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/devices/Q2GD-LMLX-SEUM",
             "method": "PUT",
             "header": [
               {
@@ -1036,7 +1045,6 @@
               "mode": "raw",
               "raw": "{\n  \"name\":\"Your AP\",\n  \"tags\":\" recently-added \",\n  \"lat\":37.4180951010362,\n  \"lng\":-122.098531723022,\n  \"address\":\"1600 Pennsylvania Ave\",\n  \"moveMapMarker\": true\n}"
             },
-            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/devices/Q2GD-LMLX-SEUM",
             "description": ""
           },
           "response": []
@@ -1045,6 +1053,7 @@
           "_postman_id": "8f51e8fa-8dbd-40a0-923f-6d0c3898a95a",
           "name": "Devices - Return uplink status",
           "request": {
+            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/devices/{{serial}}/uplink",
             "method": "GET",
             "header": [
               {
@@ -1062,7 +1071,6 @@
                 }
               ]
             },
-            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/devices/{{serial}}/uplink",
             "description": ""
           },
           "response": [
@@ -1070,6 +1078,7 @@
               "id": "9a0fd397-3fc8-7cf5-8bd8-d3e488119d8a",
               "name": "get Single Device - failed",
               "originalRequest": {
+                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/devices/{{serial}}/uplink",
                 "method": "GET",
                 "header": [
                   {
@@ -1087,7 +1096,6 @@
                     }
                   ]
                 },
-                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/devices/{{serial}}/uplink",
                 "description": ""
               },
               "status": "OK",
@@ -1208,6 +1216,7 @@
           "_postman_id": "7c4946ca-0580-f7c5-d880-20902a89801a",
           "name": "Devices - Claim a device",
           "request": {
+            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/devices/claim",
             "method": "POST",
             "header": [
               {
@@ -1223,7 +1232,6 @@
               "mode": "raw",
               "raw": "{\"serial\":\"Q2XX-XXXX-XXXX\"}"
             },
-            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/devices/claim",
             "description": ""
           },
           "response": [
@@ -1231,6 +1239,7 @@
               "id": "bda33541-5cff-7f5b-d401-2ebea39caea1",
               "name": "claim",
               "originalRequest": {
+                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/devices/claim",
                 "method": "POST",
                 "header": [
                   {
@@ -1248,7 +1257,6 @@
                     }
                   ]
                 },
-                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/devices/claim",
                 "description": ""
               },
               "status": "Not Found",
@@ -1339,6 +1347,7 @@
           "_postman_id": "2cf2e0dc-a3d8-753b-0386-3736736a9159",
           "name": "Devices - Remove a single device",
           "request": {
+            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/devices/{{serial}}/remove",
             "method": "POST",
             "header": [
               {
@@ -1350,7 +1359,6 @@
               "mode": "raw",
               "raw": ""
             },
-            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/devices/{{serial}}/remove",
             "description": ""
           },
           "response": []
@@ -1366,6 +1374,7 @@
           "_postman_id": "eb10aa63-42b7-fa03-c2e0-9621eb0717dd",
           "name": "GP - List the Group Policies",
           "request": {
+            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/groupPolicies",
             "method": "GET",
             "header": [
               {
@@ -1383,7 +1392,6 @@
                 }
               ]
             },
-            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/groupPolicies",
             "description": "```\nHTTP REQUEST\nGET /networks/[id]/groupPolicies\nPARAMETERS\nNone\nSAMPLE REQUEST\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X GET -H 'Content-Type: application/json' 'https://dashboard.meraki.com/api/v0/networks/[id]/groupPolicies'\nSAMPLE RESPONSE\nSuccessful HTTP Status: 200\n[\n  {\n    \"name\": \"No video streaming\",\n    \"groupPolicyId\": 102\n  }\n  ...\n]\n```"
           },
           "response": [
@@ -1391,6 +1399,7 @@
               "id": "feaecc98-49e1-d7de-d9da-d94fc3d62613",
               "name": "GP - List the Group Policies",
               "originalRequest": {
+                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/groupPolicies",
                 "method": "GET",
                 "header": [
                   {
@@ -1408,7 +1417,6 @@
                     }
                   ]
                 },
-                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/groupPolicies",
                 "description": ""
               },
               "status": "OK",
@@ -1536,6 +1544,7 @@
           "_postman_id": "e51e32ab-4d46-58ac-ed20-95b513942d9e",
           "name": "L3 Firewall Rules for an SSID",
           "request": {
+            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/ssids/{{ssidNum}}]/l3FirewallRules",
             "method": "GET",
             "header": [
               {
@@ -1553,7 +1562,6 @@
                 }
               ]
             },
-            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/ssids/{{ssidNum}}]/l3FirewallRules",
             "description": ""
           },
           "response": [
@@ -1561,6 +1569,7 @@
               "id": "83fee86b-957b-6207-0150-fcdd36af5db2",
               "name": "get L3 Firewall Rules",
               "originalRequest": {
+                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/ssids/{{ssidNum}}]/l3FirewallRules",
                 "method": "GET",
                 "header": [
                   {
@@ -1578,7 +1587,6 @@
                     }
                   ]
                 },
-                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/ssids/{{ssidNum}}]/l3FirewallRules",
                 "description": ""
               },
               "status": "OK",
@@ -1699,6 +1707,7 @@
           "_postman_id": "57f40af3-bc38-2889-0844-154de1521ca6",
           "name": "L3 Firewall Rules Update an SSID",
           "request": {
+            "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/ssids/{{ssidNum}}/l3FirewallRules/",
             "method": "PUT",
             "header": [
               {
@@ -1714,7 +1723,6 @@
               "mode": "raw",
               "raw": "{\n\t\"rules\":[{\n\t\"comment\":\"a note about the rule\",\n\t\"policy\":\"deny\",\n\t\"protocol\":\"tcp\",\n\t\"destPort\":\"any\",\n\t\"destCidr\":\"192.168.1.0/24\"\n\t\n}],\n\t\"allowLanAccess\":true\n}"
             },
-            "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/ssids/{{ssidNum}}/l3FirewallRules/",
             "description": ""
           },
           "response": []
@@ -1730,6 +1738,7 @@
           "_postman_id": "48c771bc-8cf1-7561-15ec-8106f745b8d6",
           "name": "MX - Return L3 Firewall Rules",
           "request": {
+            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/l3FirewallRules",
             "method": "GET",
             "header": [
               {
@@ -1747,7 +1756,6 @@
                 }
               ]
             },
-            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/l3FirewallRules",
             "description": "## HTTP REQUEST\n```GET /networks/[networkId]/l3FirewallRules```\n## PARAMETERS\nNone\n\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X GET -H 'Content-Type: application/json' 'https://dashboard.meraki.com/api/v0/networks/[networkId]/l3FirewallRules'\n```\n\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n[\n  {\n     \"comment\": \"Allow tcp traffic to subnet with http servers.\",\n     \"policy\": \"allow\",\n     \"protocol\": \"tcp\",\n     \"destPort\": \"80,443\",\n     \"destCidr\": \"10.1.333/24\",\n     \"srcPort\": \"Any\",\n     \"srcCidr\": \"Any\",\n     \"syslogEnabled\": false\n  },\n  {\n     \"comment\": \"Block all tcp to http/https ports.\",\n     \"policy\": \"deny\",\n     \"protocol\": \"http\",\n     \"destPort\": \"80,443\",\n     \"destCidr\": \"10.1.1.0/24,10.1.2.0/24\",\n     \"srcPort\": \"Any\",\n     \"srcCidr\": \"Any\",\n     \"syslogEnabled\": false\n  },\n  {\n     \"comment\": \"Default rule\",\n     \"policy\": \"allow\",\n     \"protocol\": \"Any\",\n     \"destPort\": \"Any\",\n     \"destCidr\": \"Any\",\n     \"srcPort\": \"Any\",\n     \"srcCidr\": \"Any\",\n     \"syslogEnabled\": false\n  }\n]\n```"
           },
           "response": [
@@ -1755,6 +1763,7 @@
               "id": "be518dda-7b86-8208-29fd-7c7bace2a249",
               "name": "MX - Return L3 Firewall Rules",
               "originalRequest": {
+                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/l3FirewallRules",
                 "method": "GET",
                 "header": [
                   {
@@ -1772,7 +1781,6 @@
                     }
                   ]
                 },
-                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/l3FirewallRules",
                 "description": ""
               },
               "status": "OK",
@@ -1893,6 +1901,7 @@
           "_postman_id": "4dfeffce-6926-8958-3a98-1181822bd550",
           "name": "MX - Update L3 Firewall Rules ",
           "request": {
+            "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/l3FirewallRules/",
             "method": "PUT",
             "header": [
               {
@@ -1908,7 +1917,6 @@
               "mode": "raw",
               "raw": "{\n\t\"rules\": [\n\t    {\n\t        \"comment\": \"Private FTP Server\",\n\t        \"policy\": \"deny\",\n\t        \"protocol\": \"tcp\",\n\t        \"srcPort\": \"Any\",\n\t        \"srcCidr\": \"Any\",\n\t        \"destPort\": \"21,22\",\n\t        \"destCidr\": \"192.168.21.123/32\",\n\t        \"syslogEnabled\": false\n\t    },\n\t    {\n\t        \"comment\": \"Default rule\",\n\t        \"policy\": \"allow\",\n\t        \"protocol\": \"Any\",\n\t        \"srcPort\": \"Any\",\n\t        \"srcCidr\": \"Any\",\n\t        \"destPort\": \"Any\",\n\t        \"destCidr\": \"Any\",\n\t        \"syslogEnabled\": false\n\t    }\n\t]\n}"
             },
-            "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/l3FirewallRules/",
             "description": "## HTTP REQUEST\n```\nPUT /networks/[networkId]/l3FirewallRules\n```\n\n## PARAMETERS\n**rules**\n\nAn ordered array of the firewall rules (not including the default rule)\n\n**comment**|**Description of the rule (optional)**\n:-----:|:-----:\npolicy|Allow' or 'Deny' traffic specified by this rule\nprotocol|The type of protocol (must be 'tcp', 'udp', 'icmp' or 'any')\nsrcPort|Comma-separated list of source port(s) (integer in the range 1-65535), or 'any'\nsrcCidr|Comma-separated list of source IP address(es) (in IP or CIDR notation), or 'any' (note: FQDN not supported for source addresses)\ndestPort|Comma-separated list of destination port(s) (integer in the range 1-65535), or 'any'\ndestCidr|Comma-separated list of destination IP address(es) (in IP or CIDR notation), fully-qualified domain names (FQDN) or 'any'\nsyslogEnabled|Log this rule to syslog (true or false, boolean value) - only applicable if a syslog has been configured (optional)\n\n\n**syslogDefaultRule**\n\nLog the special default rule (boolean value - enable only if you've configured a syslog server) (optional)\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n[\n  {\n     \"comment\": \"a note about the rule\",\n     \"policy\": \"deny\",\n     \"protocol\": \"tcp\",\n     \"destPort\": \"80,443\",\n     \"destCidr\": \"192.168.1.0/24,192.168.2.0/24\",\n     \"srcPort\": \"Any\",\n     \"srcCidr\": \"Any\",\n     \"syslogEnabled\": true\n  },\n  {\n     \"comment\": \"Default rule\",\n     \"policy\": \"allow\",\n     \"protocol\": \"Any\",\n     \"destPort\": \"Any\",\n     \"destCidr\": \"Any\",\n     \"srcPort\": \"Any\",\n     \"srcCidr\": \"Any\",\n     \"syslogEnabled\": true\n  }\n]\n```"
           },
           "response": []
@@ -1924,6 +1932,7 @@
           "_postman_id": "1527a177-b4fe-e94b-1a11-ffdc0585b10c",
           "name": "Networks - List networks in org",
           "request": {
+            "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/networks",
             "method": "GET",
             "header": [
               {
@@ -1941,7 +1950,6 @@
                 }
               ]
             },
-            "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/networks",
             "description": ""
           },
           "response": [
@@ -1949,6 +1957,7 @@
               "id": "f9e584d0-3b43-78d8-5a73-227368241b93",
               "name": "get Networks List - Meraki Dev Sandbox",
               "originalRequest": {
+                "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/networks",
                 "method": "GET",
                 "header": [
                   {
@@ -1966,7 +1975,6 @@
                     }
                   ]
                 },
-                "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/networks",
                 "description": ""
               },
               "status": "OK",
@@ -2105,6 +2113,7 @@
           "_postman_id": "ab61b5a6-193d-1a94-c9c6-61e88448ffe4",
           "name": "Networks - Return a network",
           "request": {
+            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}",
             "method": "GET",
             "header": [
               {
@@ -2122,7 +2131,6 @@
                 }
               ]
             },
-            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}",
             "description": ""
           },
           "response": [
@@ -2130,6 +2138,7 @@
               "id": "d4642328-eddb-4706-392a-71903247ba8c",
               "name": "get Network - Sandbox 2 - Las Vegas USA",
               "originalRequest": {
+                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}",
                 "method": "GET",
                 "header": [
                   {
@@ -2147,7 +2156,6 @@
                     }
                   ]
                 },
-                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}",
                 "description": ""
               },
               "status": "OK",
@@ -2268,6 +2276,7 @@
           "_postman_id": "f28710b3-9c9b-7465-a0bc-bb6cb1a3b850",
           "name": "Networks - Update a network",
           "request": {
+            "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}",
             "method": "PUT",
             "header": [
               {
@@ -2283,7 +2292,6 @@
               "mode": "raw",
               "raw": "{\n  \"name\":\"My network\",\n  \"timeZone\": \"US/Pacific\",\n  \"tags\": \" tag1 tag2 \"\n}"
             },
-            "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}",
             "description": ""
           },
           "response": []
@@ -2305,6 +2313,7 @@
             }
           ],
           "request": {
+            "url": "https://{{shard}}.meraki.com/api/v0/organizations/{{organizationId}}/networks",
             "method": "POST",
             "header": [
               {
@@ -2320,7 +2329,6 @@
               "mode": "raw",
               "raw": "  {\n    \"name\": \"API Test - Home\",\n    \"timeZone\": \"Europe/Amsterdam\",\n    \"tags\": \"test\",\n    \"type\": \"wireless\"\n  }"
             },
-            "url": "https://{{shard}}.meraki.com/api/v0/organizations/{{organizationId}}/networks",
             "description": ""
           },
           "response": []
@@ -2329,6 +2337,7 @@
           "_postman_id": "0b784b88-f4da-c44a-22e6-f94a3129d73f",
           "name": "Networks - Delete",
           "request": {
+            "url": "https://dashboard.meraki.com/api/v0/networks/{{Del-Network}}",
             "method": "DELETE",
             "header": [
               {
@@ -2340,7 +2349,6 @@
               "mode": "raw",
               "raw": ""
             },
-            "url": "https://dashboard.meraki.com/api/v0/networks/{{Del-Network}}",
             "description": ""
           },
           "response": []
@@ -2349,6 +2357,7 @@
           "_postman_id": "999aa0df-db70-2829-b806-347aebdc0d1f",
           "name": "Networks - Bind to template",
           "request": {
+            "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/bind",
             "method": "POST",
             "header": [
               {
@@ -2364,7 +2373,6 @@
               "mode": "raw",
               "raw": "  {\n    \"configTemplateId\":\"{{templateId}}\",\n    \"autoBind\": false\n  }"
             },
-            "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/bind",
             "description": ""
           },
           "response": []
@@ -2373,6 +2381,7 @@
           "_postman_id": "c18cf664-9792-e47b-f48e-01946801f7c7",
           "name": "Networks - Unbind from template",
           "request": {
+            "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/unbind",
             "method": "POST",
             "header": [
               {
@@ -2388,7 +2397,6 @@
               "mode": "raw",
               "raw": ""
             },
-            "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/unbind",
             "description": ""
           },
           "response": []
@@ -2397,6 +2405,7 @@
           "_postman_id": "0712c739-22f6-b5f2-9a87-56d3f4bbd047",
           "name": "Networks - Return site-to-site VPN settings",
           "request": {
+            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/siteToSiteVpn",
             "method": "GET",
             "header": [
               {
@@ -2414,7 +2423,6 @@
                 }
               ]
             },
-            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/siteToSiteVpn",
             "description": ""
           },
           "response": [
@@ -2422,6 +2430,7 @@
               "id": "a041380a-455c-045f-4005-f75152429bfb",
               "name": "get VPN - none",
               "originalRequest": {
+                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/siteToSiteVpn",
                 "method": "GET",
                 "header": [
                   {
@@ -2439,7 +2448,6 @@
                     }
                   ]
                 },
-                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/siteToSiteVpn",
                 "description": ""
               },
               "status": "OK",
@@ -2560,6 +2568,7 @@
           "_postman_id": "cf093ba9-4342-b71d-b7d5-2bf0d7bf630f",
           "name": "Networks - Update the site-to-site VPN settings",
           "request": {
+            "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/siteToSiteVpn",
             "method": "PUT",
             "header": [
               {
@@ -2575,7 +2584,6 @@
               "mode": "raw",
               "raw": "{\n\"mode\":\"spoke\",\n\"hubs\":[{\n\t\"hubId\":\"N_1234\",\n\t\"useDefaultRoute\":true\n\t},\n\t{\n\t\t\"hubId\":\"N_2345\",\"useDefaultRoute\":false\n\t}],\n\t\"subnets\":[{\n\t\t\"localSubnet\":\"192.168.1.0/24\",\n\t\t\"useVpn\":true\n\t},\n\t{\"localSubnet\":\"192.168.128.0/24\",\n\t\"useVpn\":true\n\t\t\n\t}]\n}"
             },
-            "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/siteToSiteVpn",
             "description": ""
           },
           "response": []
@@ -2584,26 +2592,10 @@
           "_postman_id": "dbbf40bf-b4f9-4f08-1fa0-f582f4653b0e",
           "name": "Networks - Traffic analysis",
           "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "X-Cisco-Meraki-API-Key",
-                "value": "{{X-Cisco-Meraki-API-Key}}"
-              }
-            ],
-            "body": {
-              "mode": "formdata",
-              "formdata": [
-                {
-                  "key": "order",
-                  "type": "text",
-                  "value": "234234234"
-                }
-              ]
-            },
             "url": {
               "raw": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/traffic?timespan=7200",
               "protocol": "https",
+              "auth": {},
               "host": [
                 "dashboard",
                 "meraki",
@@ -2621,6 +2613,24 @@
                   "key": "timespan",
                   "value": "7200"
                 }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "order",
+                  "type": "text",
+                  "value": "234234234"
+                }
               ]
             },
             "description": ""
@@ -2630,26 +2640,10 @@
               "id": "7a63f3f5-c908-3937-d38c-1c90c71f73d1",
               "name": "get Traffic Analysis",
               "originalRequest": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "X-Cisco-Meraki-API-Key",
-                    "value": "{{X-Cisco-Meraki-API-Key}}"
-                  }
-                ],
-                "body": {
-                  "mode": "formdata",
-                  "formdata": [
-                    {
-                      "key": "order",
-                      "type": "text",
-                      "value": "234234234"
-                    }
-                  ]
-                },
                 "url": {
                   "raw": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/traffic?timespan=7200",
                   "protocol": "https",
+                  "auth": {},
                   "host": [
                     "dashboard",
                     "meraki",
@@ -2667,6 +2661,24 @@
                       "key": "timespan",
                       "value": "7200",
                       "equals": true
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "order",
+                      "type": "text",
+                      "value": "234234234"
                     }
                   ]
                 },
@@ -2790,6 +2802,7 @@
           "_postman_id": "00f9604b-2474-6c52-1da4-244f68aacd17",
           "name": "Networks - List the access policies (MS)",
           "request": {
+            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/accessPolicies",
             "method": "GET",
             "header": [
               {
@@ -2807,7 +2820,6 @@
                 }
               ]
             },
-            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/accessPolicies",
             "description": ""
           },
           "response": []
@@ -2816,6 +2828,7 @@
           "_postman_id": "86ed5853-5498-205b-3712-609f274cf253",
           "name": "Networks - Return the Bluetooth settings (MR)",
           "request": {
+            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/bluetoothSettings",
             "method": "GET",
             "header": [
               {
@@ -2833,7 +2846,6 @@
                 }
               ]
             },
-            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/bluetoothSettings",
             "description": "## HTTP REQUEST\n```\nGET /networks/[id]/bluetoothSettings\n```\n## PARAMETERS\n**none**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X GET -H 'Content-Type: application/json' 'https://dashboard.meraki.com/api/v0/networks/[id]/bluetoothSettings'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n{\n  \"id\":\"N_1234\",\n  \"scanningEnabled\": true,\n  \"advertisingEnabled\": true,\n  \"uuid\": \"00000000-0000-0000-000-000000000000\"\n  \"majorMinorAssignmentMode\": \"Non-unique\"\n  \"major\": 65535,\n  \"minor\": 65535,\n}\n```"
           },
           "response": [
@@ -2841,6 +2853,7 @@
               "id": "9cf51e41-98a5-bae8-01e9-54a038979360",
               "name": "Networks - Return the Bluetooth settings (MR)",
               "originalRequest": {
+                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/bluetoothSettings",
                 "method": "GET",
                 "header": [
                   {
@@ -2858,7 +2871,6 @@
                     }
                   ]
                 },
-                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/bluetoothSettings",
                 "description": ""
               },
               "status": "OK",
@@ -2979,6 +2991,7 @@
           "_postman_id": "f30a8691-56f1-23fe-a48d-9540fe1431ee",
           "name": "Networks - Update the Bluetooth settings (MR)",
           "request": {
+            "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/bluetoothSettings",
             "method": "PUT",
             "header": [
               {
@@ -2994,7 +3007,6 @@
               "mode": "raw",
               "raw": "{\n\t\"scanningEnabled\":true,\n\t\"advertisingEnabled\":true,\n\t\"uuid\":\"95bba6e5-c32d-446b-ffff-aebd4c62888d\",\n\t\"majorMinorAssignmentMode\":\"Unique\"\n}"
             },
-            "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/bluetoothSettings",
             "description": "## HTTP REQUEST\n```\nPUT /networks/[id]/bluetoothSettings\n```\n## PARAMETERS\n\nscanningEnabled|Whether APs will scan for Bluetooth enabled clients. (true, false)\n-----|-----\nadvertisingEnabled|Whether APs will advertise beacons. (true, false)\nuuid|The UUID to be used in the beacon identifier.\nmajorMinorAssignmentMode|The way major and minor number should be assigned to nodes in the network. ('Unique', 'Non-unique')\nmajor|The major number to be used in the beacon identifier. Only valid in 'Non-unique' mode.\nminor|The minor number to be used in the beacon identifier. Only valid in 'Non-unique' mode.\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X PUT -H 'Content-Type: application/json' --data-binary '{\"scanningEnabled\":true, \"advertisingEnabled\":true, \"uuid\":\"00000000-0000-0000-000-000000000000\", \"majorMinorAssignmentMode\":\"Unique\"}' 'https://dashboard.meraki.com/api/v0/networks/N_1234/bluetoothSettings'\n```\n\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n{\n  \"id\":\"N_1234\",\n  \"scanningEnabled\": true,\n  \"advertisingEnabled\": true,\n  \"uuid\": \"00000000-0000-0000-000-000000000000\"\n  \"majorMinorAssignmentMode\": \"Unique\"\n  \"major\": 1,\n}\n```"
           },
           "response": []
@@ -3003,26 +3015,10 @@
           "_postman_id": "a922144b-f19d-8811-077f-118abbdb9872",
           "name": "List Air Marshal scan results from a network",
           "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "X-Cisco-Meraki-API-Key",
-                "value": "{{X-Cisco-Meraki-API-Key}}"
-              }
-            ],
-            "body": {
-              "mode": "formdata",
-              "formdata": [
-                {
-                  "key": "order",
-                  "type": "text",
-                  "value": "234234234"
-                }
-              ]
-            },
             "url": {
               "raw": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/airMarshal?timespan=3600",
               "protocol": "https",
+              "auth": {},
               "host": [
                 "dashboard",
                 "meraki",
@@ -3040,6 +3036,24 @@
                   "key": "timespan",
                   "value": "3600"
                 }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "order",
+                  "type": "text",
+                  "value": "234234234"
+                }
               ]
             },
             "description": ""
@@ -3049,26 +3063,10 @@
               "id": "00f28483-7183-135c-a47f-749ca71b52f6",
               "name": "get Air Marshal results",
               "originalRequest": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "X-Cisco-Meraki-API-Key",
-                    "value": "{{X-Cisco-Meraki-API-Key}}"
-                  }
-                ],
-                "body": {
-                  "mode": "formdata",
-                  "formdata": [
-                    {
-                      "key": "order",
-                      "type": "text",
-                      "value": "234234234"
-                    }
-                  ]
-                },
                 "url": {
                   "raw": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/airMarshal?timespan=3600",
                   "protocol": "https",
+                  "auth": {},
                   "host": [
                     "dashboard",
                     "meraki",
@@ -3086,6 +3084,24 @@
                       "key": "timespan",
                       "value": "3600",
                       "equals": true
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "order",
+                      "type": "text",
+                      "value": "234234234"
                     }
                   ]
                 },
@@ -3216,6 +3232,7 @@
           "_postman_id": "ef0ba20c-4396-2e6a-943c-ab31ff2e4341",
           "name": "Organizations - List organizations this user has access to",
           "request": {
+            "url": "https://dashboard.meraki.com/api/v0/organizations",
             "method": "GET",
             "header": [
               {
@@ -3233,7 +3250,6 @@
                 }
               ]
             },
-            "url": "https://dashboard.meraki.com/api/v0/organizations",
             "description": ""
           },
           "response": [
@@ -3241,6 +3257,7 @@
               "id": "2332bf1b-1dc2-1a09-3014-5238af13a4f1",
               "name": "get Org List",
               "originalRequest": {
+                "url": "https://dashboard.meraki.com/api/v0/organizations",
                 "method": "GET",
                 "header": [
                   {
@@ -3258,7 +3275,6 @@
                     }
                   ]
                 },
-                "url": "https://dashboard.meraki.com/api/v0/organizations",
                 "description": ""
               },
               "status": "OK",
@@ -3379,6 +3395,7 @@
           "_postman_id": "f89081a8-a216-7be1-42b9-64bc8e475aa8",
           "name": "Organizations - Return an organization",
           "request": {
+            "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}",
             "method": "GET",
             "header": [
               {
@@ -3396,7 +3413,6 @@
                 }
               ]
             },
-            "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}",
             "description": ""
           },
           "response": [
@@ -3404,6 +3420,7 @@
               "id": "f4f109ed-3984-48a3-ee40-ffb5ca15c58f",
               "name": "get Org - Meraki Live Sandbox",
               "originalRequest": {
+                "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}",
                 "method": "GET",
                 "header": [
                   {
@@ -3421,7 +3438,6 @@
                     }
                   ]
                 },
-                "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}",
                 "description": ""
               },
               "status": "OK",
@@ -3542,6 +3558,7 @@
           "_postman_id": "972c4b44-67a1-2b7f-ca5f-039ed29cb68a",
           "name": "Organizations - Update an organization",
           "request": {
+            "url": "https://{{shard}}.meraki.com/api/v0/organizations/{{organizationId}}",
             "method": "PUT",
             "header": [
               {
@@ -3557,7 +3574,6 @@
               "mode": "raw",
               "raw": "{\n  \"name\":\"Your org\"\n}"
             },
-            "url": "https://{{shard}}.meraki.com/api/v0/organizations/{{organizationId}}",
             "description": ""
           },
           "response": []
@@ -3566,6 +3582,7 @@
           "_postman_id": "36326bb5-8f3f-5e02-7ba7-1a9998b1f61d",
           "name": "Organizations - Create a new organization",
           "request": {
+            "url": "https://{{shard}}.meraki.com/api/v0/organizations",
             "method": "POST",
             "header": [
               {
@@ -3581,7 +3598,6 @@
               "mode": "raw",
               "raw": "{\n  \"name\":\"Your org\"\n}"
             },
-            "url": "https://{{shard}}.meraki.com/api/v0/organizations",
             "description": ""
           },
           "response": []
@@ -3590,6 +3606,7 @@
           "_postman_id": "08cbfea5-14e2-17ec-6a40-0371da309bbf",
           "name": "Organizations - Create new org by cloning",
           "request": {
+            "url": "https://{{shard}}.meraki.com/api/v0/organizations/{{organizationId}}/clone",
             "method": "POST",
             "header": [
               {
@@ -3605,7 +3622,6 @@
               "mode": "raw",
               "raw": "{\n  \"name\":\"Your org\"\n}"
             },
-            "url": "https://{{shard}}.meraki.com/api/v0/organizations/{{organizationId}}/clone",
             "description": ""
           },
           "response": []
@@ -3614,6 +3630,7 @@
           "_postman_id": "b020dc75-f96e-e2b4-8cfe-f069b38afa9f",
           "name": "Organizations - Claim order, license key, or order into an organization",
           "request": {
+            "url": "https://{{shard}}.meraki.com/api/v0/organizations/{{organizationId}}/claim",
             "method": "POST",
             "header": [
               {
@@ -3629,7 +3646,6 @@
               "mode": "raw",
               "raw": "{\n\t\"order\": \"order-number\",\n\t\"serial\" \"serial-number\",\n\t\"licenseKey\": \"license-key\",\n\t\"licenseMode: \"renew or addDevices\"\n}\n"
             },
-            "url": "https://{{shard}}.meraki.com/api/v0/organizations/{{organizationId}}/claim",
             "description": ""
           },
           "response": []
@@ -3638,6 +3654,7 @@
           "_postman_id": "fa2e7fec-07a5-db72-9476-19e87c8fad4d",
           "name": "Organizations - Return the license state",
           "request": {
+            "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/licenseState",
             "method": "GET",
             "header": [
               {
@@ -3655,7 +3672,6 @@
                 }
               ]
             },
-            "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/licenseState",
             "description": ""
           },
           "response": [
@@ -3663,6 +3679,7 @@
               "id": "f5fe086d-6d3e-9465-e11c-032d313b7dce",
               "name": "get Org License state",
               "originalRequest": {
+                "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/licenseState",
                 "method": "GET",
                 "header": [
                   {
@@ -3680,7 +3697,6 @@
                     }
                   ]
                 },
-                "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/licenseState",
                 "description": ""
               },
               "status": "OK",
@@ -3822,6 +3838,7 @@
             }
           ],
           "request": {
+            "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/inventory",
             "method": "GET",
             "header": [
               {
@@ -3839,7 +3856,6 @@
                 }
               ]
             },
-            "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/inventory",
             "description": ""
           },
           "response": [
@@ -3847,6 +3863,7 @@
               "id": "1baad62e-40ef-7f08-b902-9b4852caffda",
               "name": "get Org Inventory",
               "originalRequest": {
+                "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/inventory",
                 "method": "GET",
                 "header": [
                   {
@@ -3864,7 +3881,6 @@
                     }
                   ]
                 },
-                "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/inventory",
                 "description": ""
               },
               "status": "OK",
@@ -3985,6 +4001,7 @@
           "_postman_id": "2762f755-a207-eae7-6435-6ce8d1d1dffd",
           "name": "Organizations - Return the SNMP settings",
           "request": {
+            "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/snmp",
             "method": "GET",
             "header": [
               {
@@ -4002,7 +4019,6 @@
                 }
               ]
             },
-            "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/snmp",
             "description": ""
           },
           "response": [
@@ -4010,6 +4026,7 @@
               "id": "5cd656cb-a6cd-5ce7-7709-8602c4ff5c33",
               "name": "get SNMP - Meraki Dev Sandbox",
               "originalRequest": {
+                "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/snmp",
                 "method": "GET",
                 "header": [
                   {
@@ -4027,7 +4044,6 @@
                     }
                   ]
                 },
-                "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/snmp",
                 "description": ""
               },
               "status": "OK",
@@ -4148,6 +4164,7 @@
           "_postman_id": "c9e27674-3c03-9a79-e498-d9f8e58e0cdb",
           "name": "Organizations - Update the SNMP settings",
           "request": {
+            "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/snmp",
             "method": "PUT",
             "header": [
               {
@@ -4163,7 +4180,6 @@
               "mode": "raw",
               "raw": "{\n\t\"v2cEnabled\":true,\n\t\"v3Enabled\":false\n}"
             },
-            "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/snmp",
             "description": "## HTTP REQUEST\n```\nPUT /organizations/[id]/snmp\n```\n## PARAMETERS\nname|info\n----|----\nv2cEnabled|Boolean indicating whether SNMP version 2c is enabled for the organization\nv3Enabled|Boolean indicating whether SNMP version 3 is enabled for the organization\nv3AuthMode|The SNMP version 3 authentication mode either MD5 or SHA\nv3AuthPass|The SNMP version 3 authentication password. Must be at least 8 characters if specified.\nv3PrivMode|The SNMP version 3 privacy mode DES or AES128\nv3PrivPass|The SNMP version 3 privacy password. Must be at least 8 characters if specified.\npeerIps|The IPs that are allowed to access the SNMP server. This list should be IPv4 addresses separated by semi-colons (ie. \"1.2.3.4;2.3.4.5\").\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X PUT -H 'Content-Type: application/json' --data-binary '{\"v2cEnabled\":true,\"v3Enabled\":false}' 'https://dashboard.meraki.com/api/v0/organizations/[id]/snmp'\n```\n\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n{\n  \"v2cEnabled\":false,\n  \"v3Enabled\":false,\n  \"v3AuthMode\":null,\n  \"v3PrivMode\":null,\n  \"hostname\":\"n1.meraki.com\",\n  \"port\":16100,\n  \"peerIps\":null\n}\n```"
           },
           "response": [
@@ -4171,6 +4187,7 @@
               "id": "75a973d6-197b-98c0-5ed9-bf3e13c5e4cb",
               "name": "Organizations - Update the SNMP settings",
               "originalRequest": {
+                "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/snmp",
                 "method": "PUT",
                 "header": [
                   {
@@ -4187,7 +4204,6 @@
                   "mode": "raw",
                   "raw": "{\n\t\"v2cEnabled\":true,\n\t\"v3Enabled\":false\n}"
                 },
-                "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/snmp",
                 "description": ""
               },
               "status": "OK",
@@ -4308,6 +4324,7 @@
           "_postman_id": "2d39924a-17e0-d963-dc97-e74055579bc7",
           "name": "Organizations - Return the third party VPN peers",
           "request": {
+            "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/thirdPartyVPNPeers",
             "method": "GET",
             "header": [
               {
@@ -4325,7 +4342,6 @@
                 }
               ]
             },
-            "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/thirdPartyVPNPeers",
             "description": ""
           },
           "response": []
@@ -4334,6 +4350,7 @@
           "_postman_id": "1c81ff91-f714-00dd-bc63-77415b705270",
           "name": "Organizations - Update the third party VPN peers",
           "request": {
+            "url": "https://{{shard}}.meraki.com/api/v0/organizations/{{organizationId}}/thirdPartyVPNPeers",
             "method": "PUT",
             "header": [
               {
@@ -4349,7 +4366,6 @@
               "mode": "raw",
               "raw": "[{\n\t\"name\":\"Your peer\",\n\t\"publicIp\":\"192.168.0.1\",\n\t\"privateSubnets\":[\n\t\t\"172.168.0.0/16\",\n\t\t\"172.169.0.0/16\"\n\t\t],\n\t\"secret\":\"asdf1234\"\n}]"
             },
-            "url": "https://{{shard}}.meraki.com/api/v0/organizations/{{organizationId}}/thirdPartyVPNPeers",
             "description": ""
           },
           "response": []
@@ -4365,6 +4381,7 @@
           "_postman_id": "e87cdc9c-f464-cc27-857f-6e7669419d8f",
           "name": "Phone contacts - List the phone contacts in a network",
           "request": {
+            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/phoneContacts",
             "method": "GET",
             "header": [
               {
@@ -4376,7 +4393,6 @@
               "mode": "raw",
               "raw": ""
             },
-            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/phoneContacts",
             "description": ""
           },
           "response": []
@@ -4385,6 +4401,7 @@
           "_postman_id": "161c61d6-41b2-5399-1e41-c78dcb672feb",
           "name": "Phone contacts - Add a phone contact",
           "request": {
+            "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/phoneContacts",
             "method": "POST",
             "header": [
               {
@@ -4400,7 +4417,6 @@
               "mode": "raw",
               "raw": "{\n\t\"name\": \"Miles Meraki\"\n}\n"
             },
-            "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/phoneContacts",
             "description": ""
           },
           "response": []
@@ -4409,6 +4425,7 @@
           "_postman_id": "0b415d4c-3035-62ad-8100-5139ead9f584",
           "name": "Phone contacts - Update a phone contact",
           "request": {
+            "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/phoneContacts/{{contactId}}",
             "method": "PUT",
             "header": [
               {
@@ -4424,7 +4441,6 @@
               "mode": "raw",
               "raw": "{\n\t\"name\": \"Miles Meraki\"\n}\n"
             },
-            "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/phoneContacts/{{contactId}}",
             "description": ""
           },
           "response": []
@@ -4433,6 +4449,7 @@
           "_postman_id": "b8ea763a-4773-3fa2-f08d-e08d09436093",
           "name": "Phone contacts - Delete a phone contact",
           "request": {
+            "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/phoneContacts/{{contactId}}",
             "method": "DELETE",
             "header": [
               {
@@ -4444,7 +4461,6 @@
               "mode": "raw",
               "raw": ""
             },
-            "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/phoneContacts/{{contactId}}",
             "description": ""
           },
           "response": []
@@ -4460,6 +4476,7 @@
           "_postman_id": "d99474f2-c305-c05f-3b7b-bee264b5cb20",
           "name": "List all phones in a network and their contact assignment",
           "request": {
+            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/phoneAssignments",
             "method": "GET",
             "header": [
               {
@@ -4471,7 +4488,6 @@
               "mode": "raw",
               "raw": ""
             },
-            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/phoneAssignments",
             "description": "## HTTP REQUEST\n```\nGET /networks/[networkId]/phoneAssignments\n```\n\n## PARAMETERS\n\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://dashboard.meraki.com/api/v0/networks/[networkId]/phoneAssignments'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n[\n  {\n    \"serial\": \"Q2XX-XXXX-XXXX\",\n    \"contactId\": \"823\",\n    \"contactType\": \"Dashboard\",\n    \"publicNumber\": [\n      \"+15555555555\"\n    ],\n    \"ext\": \"1234\"\n  }\n]\n```"
           },
           "response": [
@@ -4479,6 +4495,7 @@
               "id": "21489e12-f6ca-2e30-b5b7-d197a02860ae",
               "name": "List all phones in a network and their contact assignment",
               "originalRequest": {
+                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/phoneAssignments",
                 "method": "GET",
                 "header": [
                   {
@@ -4490,7 +4507,6 @@
                   "mode": "raw",
                   "raw": ""
                 },
-                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/phoneAssignments",
                 "description": ""
               },
               "status": "OK",
@@ -4611,6 +4627,7 @@
           "_postman_id": "f3b87e01-c74a-77fd-de5d-a6e6577a5ad2",
           "name": "Return a phone in a network and their contact assignment",
           "request": {
+            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/phoneAssignments/{{serial}}",
             "method": "GET",
             "header": [
               {
@@ -4622,7 +4639,6 @@
               "mode": "raw",
               "raw": ""
             },
-            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/phoneAssignments/{{serial}}",
             "description": "## HTTP REQUEST\n```\nGET /networks/[networkId]/phoneAssignments/[serial]\n```\n## PARAMETERS\n\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://dashboard.meraki.com/api/v0/networks/[networkId]/phoneAssignments/[serial]'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n{\n  \"serial\": \"Q2XX-XXXX-XXXX\",\n  \"contactId\": \"823\",\n  \"contactType\": \"Dashboard\",\n  \"publicNumber\": [\n    \"+15555555555\"\n  ],\n  \"ext\": \"1234\"\n}\n```"
           },
           "response": [
@@ -4630,6 +4646,7 @@
               "id": "6ce28291-f8c3-433e-1516-89fab7134827",
               "name": "Return a phone in a network and their contact assignment",
               "originalRequest": {
+                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/phoneAssignments/{{serial}}",
                 "method": "GET",
                 "header": [
                   {
@@ -4641,7 +4658,6 @@
                   "mode": "raw",
                   "raw": ""
                 },
-                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/phoneAssignments/{{serial}}",
                 "description": ""
               },
               "status": "OK",
@@ -4760,6 +4776,7 @@
               "id": "b24a333f-4c06-37d7-040b-936796d177de",
               "name": "List all phones in a network and their contact assignment",
               "originalRequest": {
+                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/phoneAssignments",
                 "method": "GET",
                 "header": [
                   {
@@ -4771,7 +4788,6 @@
                   "mode": "raw",
                   "raw": ""
                 },
-                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/phoneAssignments",
                 "description": ""
               },
               "status": "OK",
@@ -4892,6 +4908,7 @@
           "_postman_id": "4acbbdff-4273-de3b-012b-ecdf348b0ae4",
           "name": "Assign a contact and number(s) to a phone",
           "request": {
+            "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/phoneAssignments/{{serial}}",
             "method": "PUT",
             "header": [
               {
@@ -4907,7 +4924,6 @@
               "mode": "raw",
               "raw": "{\n\t\"contactId\":\"823\",\n\t\"contactType\":\"Google\",\n\t\"publicNumber\":[\"+15555555555\"],\n\t\"ext\":\"1234\"\n}"
             },
-            "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/phoneAssignments/{{serial}}",
             "description": "## HTTP REQUEST\n```\nPUT /networks/[networkId]/phoneAssignments/[serial]\n```\n## PARAMETERS\nname|info\n----|----\ncontactId|The ID of the contact (obtained from 'Phone Contacts' API)\ncontactType|The type of contact to bind: 'Dashboard' or 'Google' (obtained from 'Phone Contacts' API)\npublicNumber|The public number(s) in E.164 format (obtained from 'Phone Numbers' API) as an array of strings. Multiple numbers per phone are allowed. Omitting this paramater will remove the public number assignment(s).\next|The 4-6 digit extension. Extension cannot be in use. Omitting this parameter will remove the extension assignment.\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X PUT --data-binary '{\"contactId\":\"823\",\"contactType\":\"Google\",\"publicNumber\":[\"+15555555555\"],\"ext\":\"1234\"}' 'https://dashboard.meraki.com/api/v0/networks/[networkId]/phoneAssignments/[serial]'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n{\n  \"serial\": \"Q2XX-XXXX-XXXX\",\n  \"contactId\": \"823\",\n  \"contactType\": \"Dashboard\",\n  \"publicNumber\": [\n    \"+15555555555\"\n  ],\n  \"ext\": \"1234\"\n}\n```"
           },
           "response": [
@@ -4915,6 +4931,7 @@
               "id": "323d11aa-bb0f-e4ed-867e-96ae7df97489",
               "name": "List all phones in a network and their contact assignment",
               "originalRequest": {
+                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/phoneAssignments",
                 "method": "GET",
                 "header": [
                   {
@@ -4926,7 +4943,6 @@
                   "mode": "raw",
                   "raw": ""
                 },
-                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/phoneAssignments",
                 "description": ""
               },
               "status": "OK",
@@ -5045,6 +5061,7 @@
               "id": "a3bf85d8-84d7-93db-9272-8eab3d5a9b91",
               "name": "Assign a contact and number(s) to a phone",
               "originalRequest": {
+                "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/phoneAssignments/{{serial}}",
                 "method": "PUT",
                 "header": [
                   {
@@ -5061,7 +5078,6 @@
                   "mode": "raw",
                   "raw": "{\n\t\"contactId\":\"646829496481091096\",\n\t\"contactType\":\"Dashboard\",\n\t\"ext\":\"1111\"\n}"
                 },
-                "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/phoneAssignments/{{serial}}",
                 "description": ""
               },
               "status": "OK",
@@ -5180,6 +5196,7 @@
               "id": "a49a73c4-9fdd-dd8e-4191-e398887391c6",
               "name": "Return a phone in a network and their contact assignment",
               "originalRequest": {
+                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/phoneAssignments/{{serial}}",
                 "method": "GET",
                 "header": [
                   {
@@ -5191,7 +5208,6 @@
                   "mode": "raw",
                   "raw": ""
                 },
-                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/phoneAssignments/{{serial}}",
                 "description": ""
               },
               "status": "OK",
@@ -5312,6 +5328,7 @@
           "_postman_id": "58ef4c49-b21d-7d6c-ccae-bbad05686466",
           "name": "Remove a phone assignment (unprovision a phone)",
           "request": {
+            "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/phoneAssignments/{{serial}}",
             "method": "DELETE",
             "header": [
               {
@@ -5327,7 +5344,6 @@
               "mode": "raw",
               "raw": ""
             },
-            "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/phoneAssignments/{{serial}}",
             "description": "## HTTP REQUEST\n```\nDELETE /networks/[networkId]/phoneAssignments/[serial]\n```\n## PARAMETERS\n\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X DELETE 'https://dashboard.meraki.com/api/v0/networks/[networkId]/phoneAssignments/[serial]'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 204\n(empty)\n```"
           },
           "response": [
@@ -5335,6 +5351,7 @@
               "id": "679956c4-da28-5e20-378e-77b9fd612af4",
               "name": "Remove a phone assignment (unprovision a phone)",
               "originalRequest": {
+                "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/phoneAssignments/{{serial}}",
                 "method": "DELETE",
                 "header": [
                   {
@@ -5350,7 +5367,6 @@
                   "mode": "raw",
                   "raw": ""
                 },
-                "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/phoneAssignments/{{serial}}",
                 "description": ""
               },
               "status": "No Content",
@@ -5454,6 +5470,7 @@
           "_postman_id": "7906659d-9844-0646-f439-f818dbd0536c",
           "name": "Phone numbers - List all the phone numbers in a network",
           "request": {
+            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/phoneNumbers",
             "method": "GET",
             "header": [
               {
@@ -5465,7 +5482,6 @@
               "mode": "raw",
               "raw": ""
             },
-            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/phoneNumbers",
             "description": ""
           },
           "response": []
@@ -5474,6 +5490,7 @@
           "_postman_id": "06755866-8c73-1731-2aa6-7a49e745d2e8",
           "name": "Phone numbers - List the available phone numbers in a network",
           "request": {
+            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/phoneNumbers/available",
             "method": "GET",
             "header": [
               {
@@ -5485,7 +5502,6 @@
               "mode": "raw",
               "raw": ""
             },
-            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/phoneNumbers/available",
             "description": ""
           },
           "response": []
@@ -5501,6 +5517,7 @@
           "_postman_id": "00b73f06-cfd3-5baa-1b6a-16cf0adb00f1",
           "name": "SAML roles - List the SAML roles for this organization",
           "request": {
+            "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/samlRoles",
             "method": "GET",
             "header": [
               {
@@ -5512,7 +5529,6 @@
               "mode": "raw",
               "raw": ""
             },
-            "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/samlRoles",
             "description": ""
           },
           "response": []
@@ -5521,6 +5537,7 @@
           "_postman_id": "ab882d54-4475-ee8d-277d-5f39604e9c95",
           "name": "SAML roles - Return a SAML role",
           "request": {
+            "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/samlRoles/{{samlId}}",
             "method": "GET",
             "header": [
               {
@@ -5532,7 +5549,6 @@
               "mode": "raw",
               "raw": ""
             },
-            "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/samlRoles/{{samlId}}",
             "description": ""
           },
           "response": []
@@ -5541,6 +5557,7 @@
           "_postman_id": "e6fa5ab4-1882-2d7f-e05c-4f335a142669",
           "name": "SAML roles - Update a SAML role",
           "request": {
+            "url": "https://{{shard}}.meraki.com/api/v0/organizations/{{organizationId}}/samlRoles/{{samlId}}",
             "method": "PUT",
             "header": [
               {
@@ -5556,7 +5573,6 @@
               "mode": "raw",
               "raw": "{\n  \"role\": \"myrole\",\n  \"orgAccess\": \"none\",\n  \"networks\": [\n    {\n      \"id\": \"N_1234\",\n      \"access\": \"full\"\n    }\n  ],\n  \"tags\": [\n    {\n      \"tag\": \"west\",\n      \"access\": \"read-only\"\n    }\n  ]\n}"
             },
-            "url": "https://{{shard}}.meraki.com/api/v0/organizations/{{organizationId}}/samlRoles/{{samlId}}",
             "description": ""
           },
           "response": []
@@ -5565,6 +5581,7 @@
           "_postman_id": "5018e6e2-0214-7e69-a323-6461ec9e06cb",
           "name": "SAML roles - Create a SAML role",
           "request": {
+            "url": "https://{{shard}}.meraki.com/api/v0/organizations/{{organizationId}}/samlRoles",
             "method": "POST",
             "header": [
               {
@@ -5580,7 +5597,6 @@
               "mode": "raw",
               "raw": "{\n  \"role\": \"myrole\",\n  \"orgAccess\": \"none\",\n  \"networks\": [\n    {\n      \"id\": \"N_1234\",\n      \"access\": \"full\"\n    }\n  ],\n  \"tags\": [\n    {\n      \"tag\": \"west\",\n      \"access\": \"read-only\"\n    }\n  ]\n}"
             },
-            "url": "https://{{shard}}.meraki.com/api/v0/organizations/{{organizationId}}/samlRoles",
             "description": ""
           },
           "response": []
@@ -5589,6 +5605,7 @@
           "_postman_id": "159df5c1-b1fc-ad1d-72f1-ded7c20a3b74",
           "name": "SAML roles - Remove a SAML role",
           "request": {
+            "url": "https://{{shard}}.meraki.com/api/v0/organizations/{{organizationId}}/samlRoles/{{samlId}}",
             "method": "DELETE",
             "header": [
               {
@@ -5600,7 +5617,6 @@
               "mode": "raw",
               "raw": ""
             },
-            "url": "https://{{shard}}.meraki.com/api/v0/organizations/{{organizationId}}/samlRoles/{{samlId}}",
             "description": ""
           },
           "response": []
@@ -5616,6 +5632,7 @@
           "_postman_id": "7e220498-6d4f-800c-8c31-3824155eb9d3",
           "name": "SM - List the devices enrolled in an SM network with various specified fields and filters",
           "request": {
+            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/sm/devices",
             "method": "GET",
             "header": [
               {
@@ -5633,7 +5650,6 @@
                 }
               ]
             },
-            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/sm/devices",
             "description": ""
           },
           "response": []
@@ -5642,24 +5658,10 @@
           "_postman_id": "1612b94b-1ca8-51a1-20f4-4229626263ed",
           "name": "SM - Add, delete, or update the tags of a set of devices",
           "request": {
-            "method": "PUT",
-            "header": [
-              {
-                "key": "X-Cisco-Meraki-API-Key",
-                "value": "{{X-Cisco-Meraki-API-Key}}"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
             "url": {
               "raw": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/sm/devices/tags?scope=withAny, viaAPI&updateAction=add&tags=API",
               "protocol": "https",
+              "auth": {},
               "host": [
                 "dashboard",
                 "meraki",
@@ -5687,140 +5689,9 @@
                   "key": "tags",
                   "value": "API"
                 }
-              ]
+              ],
+              "variable": []
             },
-            "description": ""
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "bec0e6f5-d78f-7511-e95b-c6ccb459b6a1",
-          "name": "*SM - Modify the fields of a device",
-          "request": {
-            "method": "PUT",
-            "header": [
-              {
-                "key": "X-Cisco-Meraki-API-Key",
-                "value": "{{X-Cisco-Meraki-API-Key}}"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n\t\"id\":\"643451796760613160\",\n\t\"deviceFields\":{\n\t\t\"name\":\"my iPad\",\n\t\t\"notes\":\"viaAPI\"\n\t\t}\n}"
-            },
-            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/sm/device/fields",
-            "description": ""
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "7ae04cbe-f257-dd4a-91be-19931591e148",
-          "name": "*SM - Lock a set of devices",
-          "request": {
-            "method": "PUT",
-            "header": [
-              {
-                "key": "X-Cisco-Meraki-API-Key",
-                "value": "{{X-Cisco-Meraki-API-Key}}"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "formdata",
-              "formdata": [
-                {
-                  "key": "wifiMacs",
-                  "value": "",
-                  "type": "text"
-                },
-                {
-                  "key": "ids",
-                  "value": "",
-                  "type": "text"
-                },
-                {
-                  "key": "serials",
-                  "value": "",
-                  "type": "text"
-                },
-                {
-                  "key": "scope",
-                  "value": "",
-                  "type": "text"
-                },
-                {
-                  "key": "pin",
-                  "value": "",
-                  "type": "text"
-                }
-              ]
-            },
-            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/sm/device/fields",
-            "description": ""
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "1a28d39e-7a88-f31b-f94b-600c1e720a19",
-          "name": "*SM - Wipe a device",
-          "request": {
-            "method": "PUT",
-            "header": [
-              {
-                "key": "X-Cisco-Meraki-API-Key",
-                "value": "{{X-Cisco-Meraki-API-Key}}"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "formdata",
-              "formdata": [
-                {
-                  "key": "wifiMacs",
-                  "value": "",
-                  "type": "text"
-                },
-                {
-                  "key": "ids",
-                  "value": "",
-                  "type": "text"
-                },
-                {
-                  "key": "serials",
-                  "value": "",
-                  "type": "text"
-                },
-                {
-                  "key": "scope",
-                  "value": "",
-                  "type": "text"
-                },
-                {
-                  "key": "pin",
-                  "value": "",
-                  "type": "text"
-                }
-              ]
-            },
-            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/sm/device/fields",
-            "description": ""
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "4e3460c9-a7c2-5ee0-6935-62bf451fad1d",
-          "name": "SM - Force check-in a set of devices",
-          "request": {
             "method": "PUT",
             "header": [
               {
@@ -5836,9 +5707,142 @@
               "mode": "raw",
               "raw": ""
             },
+            "description": ""
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "bec0e6f5-d78f-7511-e95b-c6ccb459b6a1",
+          "name": "*SM - Modify the fields of a device",
+          "request": {
+            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/sm/device/fields",
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"id\":\"643451796760613160\",\n\t\"deviceFields\":{\n\t\t\"name\":\"my iPad\",\n\t\t\"notes\":\"viaAPI\"\n\t\t}\n}"
+            },
+            "description": ""
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "7ae04cbe-f257-dd4a-91be-19931591e148",
+          "name": "*SM - Lock a set of devices",
+          "request": {
+            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/sm/device/fields",
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "wifiMacs",
+                  "value": "",
+                  "type": "text"
+                },
+                {
+                  "key": "ids",
+                  "value": "",
+                  "type": "text"
+                },
+                {
+                  "key": "serials",
+                  "value": "",
+                  "type": "text"
+                },
+                {
+                  "key": "scope",
+                  "value": "",
+                  "type": "text"
+                },
+                {
+                  "key": "pin",
+                  "value": "",
+                  "type": "text"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "1a28d39e-7a88-f31b-f94b-600c1e720a19",
+          "name": "*SM - Wipe a device",
+          "request": {
+            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/sm/device/fields",
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "wifiMacs",
+                  "value": "",
+                  "type": "text"
+                },
+                {
+                  "key": "ids",
+                  "value": "",
+                  "type": "text"
+                },
+                {
+                  "key": "serials",
+                  "value": "",
+                  "type": "text"
+                },
+                {
+                  "key": "scope",
+                  "value": "",
+                  "type": "text"
+                },
+                {
+                  "key": "pin",
+                  "value": "",
+                  "type": "text"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "4e3460c9-a7c2-5ee0-6935-62bf451fad1d",
+          "name": "SM - Force check-in a set of devices",
+          "request": {
             "url": {
               "raw": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/sm/devices/checkin?scope=withAny, recently-added",
               "protocol": "https",
+              "auth": {},
               "host": [
                 "dashboard",
                 "meraki",
@@ -5858,16 +5862,9 @@
                   "key": "scope",
                   "value": "withAny, recently-added"
                 }
-              ]
+              ],
+              "variable": []
             },
-            "description": "HTTP REQUEST\nPUT /networks/[network_id]/sm/devices/checkin\nPARAMETERS\nwifiMacs\nThe wifiMacs of the devices to be checked-in.\nids\nThe ids of the devices to be checked-in.\nserials\nThe serials of the devices to be checked-in.\nscope\nThe scope (one of withAny, withAll, withoutAny, or withoutAll) and a set of tags of the devices to be checked-in."
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "fc25f1e2-b14f-a1f3-3444-9a0c4915f72c",
-          "name": "SM - Move a set of devices to a new network",
-          "request": {
             "method": "PUT",
             "header": [
               {
@@ -5883,9 +5880,18 @@
               "mode": "raw",
               "raw": ""
             },
+            "description": "HTTP REQUEST\nPUT /networks/[network_id]/sm/devices/checkin\nPARAMETERS\nwifiMacs\nThe wifiMacs of the devices to be checked-in.\nids\nThe ids of the devices to be checked-in.\nserials\nThe serials of the devices to be checked-in.\nscope\nThe scope (one of withAny, withAll, withoutAny, or withoutAll) and a set of tags of the devices to be checked-in."
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "fc25f1e2-b14f-a1f3-3444-9a0c4915f72c",
+          "name": "SM - Move a set of devices to a new network",
+          "request": {
             "url": {
               "raw": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/sm/devices/checkin?scope=withAny, recently-added&newNetwork=newNetworkID",
               "protocol": "https",
+              "auth": {},
               "host": [
                 "dashboard",
                 "meraki",
@@ -5909,7 +5915,23 @@
                   "key": "newNetwork",
                   "value": "newNetworkID"
                 }
-              ]
+              ],
+              "variable": []
+            },
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
             },
             "description": "HTTP REQUEST\nPUT /networks/[network_id]/sm/devices/move\nPARAMETERS\nwifiMacs\nThe wifiMacs of the devices to be moved.\nids\nThe ids of the devices to be moved.\nserials\nThe serials of the devices to be moved.\nscope\nThe scope (one of withAny, withAll, withoutAny, or withoutAll) and a set of tags of the devices to be moved.\nnewNetwork\nThe new network to which the devices will be moved."
           },
@@ -5926,6 +5948,7 @@
           "_postman_id": "36adef51-1112-b18d-3086-e6123cbdb4fb",
           "name": "SSIDs - List the SSIDs in a network",
           "request": {
+            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/ssids",
             "method": "GET",
             "header": [
               {
@@ -5937,7 +5960,6 @@
               "mode": "raw",
               "raw": ""
             },
-            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/ssids",
             "description": ""
           },
           "response": [
@@ -5945,6 +5967,7 @@
               "id": "10c2eeb2-1859-1bce-46a1-17c21967dd29",
               "name": "get SSIDs list - Meraki Dev Sandbox",
               "originalRequest": {
+                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/ssids",
                 "method": "GET",
                 "header": [
                   {
@@ -5956,7 +5979,6 @@
                   "mode": "raw",
                   "raw": ""
                 },
-                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/ssids",
                 "description": ""
               },
               "status": "OK",
@@ -6077,6 +6099,7 @@
           "_postman_id": "d7683254-0e40-9797-522f-26521be76bc5",
           "name": "SSIDs - Return a single SSID",
           "request": {
+            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/ssids/{{ssidNum}}",
             "method": "GET",
             "header": [
               {
@@ -6088,7 +6111,6 @@
               "mode": "raw",
               "raw": ""
             },
-            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/ssids/{{ssidNum}}",
             "description": ""
           },
           "response": [
@@ -6096,6 +6118,7 @@
               "id": "6746cc97-664d-eb54-dad1-45486de23430",
               "name": "get SSID - excap-DevNet - Meraki Dev Sandbox",
               "originalRequest": {
+                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/ssids/{{ssidNum}}",
                 "method": "GET",
                 "header": [
                   {
@@ -6107,7 +6130,6 @@
                   "mode": "raw",
                   "raw": ""
                 },
-                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/ssids/{{ssidNum}}",
                 "description": ""
               },
               "status": "OK",
@@ -6228,6 +6250,7 @@
           "_postman_id": "88e1a54a-77dd-9dee-3bc7-982473499826",
           "name": "SSIDs - Update the attributes of an SSID",
           "request": {
+            "url": "https://n143.meraki.com/api/v0/networks/{{networkId}}/ssids/{{ssidNum}}",
             "method": "PUT",
             "header": [
               {
@@ -6243,7 +6266,6 @@
               "mode": "raw",
               "raw": "{\n    \"name\": \"viaPostman935\",\n    \"enabled\": false,\n    \"splashPage\": \"None\",\n    \"perClientBandwidthLimitUp\": 0,\n    \"perClientBandwidthLimitDown\": 0,\n    \"ssidAdminAccessible\": false,\n    \"ipAssignmentMode\": \"NAT mode\",\n    \"authMode\": \"open\"\n}"
             },
-            "url": "https://n143.meraki.com/api/v0/networks/{{networkId}}/ssids/{{ssidNum}}",
             "description": ""
           },
           "response": []
@@ -6259,6 +6281,7 @@
           "_postman_id": "a5b91474-d9da-c345-cf0e-5c828475686d",
           "name": "Static routes - List the static routes for this network",
           "request": {
+            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/staticRoutes",
             "method": "GET",
             "header": [
               {
@@ -6270,7 +6293,6 @@
               "mode": "raw",
               "raw": ""
             },
-            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/staticRoutes",
             "description": ""
           },
           "response": []
@@ -6279,6 +6301,7 @@
           "_postman_id": "73401fc7-caf6-e9aa-8f31-a939510a39bb",
           "name": "Static routes - Return a static route",
           "request": {
+            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/staticRoutes/{{srId}}",
             "method": "GET",
             "header": [
               {
@@ -6290,7 +6313,6 @@
               "mode": "raw",
               "raw": ""
             },
-            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/staticRoutes/{{srId}}",
             "description": ""
           },
           "response": []
@@ -6299,6 +6321,7 @@
           "_postman_id": "b1745104-a2a3-9952-fdc0-42848d9b6f7a",
           "name": "Static routes - Update a static route",
           "request": {
+            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/staticRoutes/{{srId}}",
             "method": "PUT",
             "header": [
               {
@@ -6314,7 +6337,6 @@
               "mode": "raw",
               "raw": "{\n\t\"name\":\"test\",\n\t\"subnet\":\"192.168.123.0/24\",\n\t\"gatewayIp\":\"10.0.0.1\",\n\t\"enabled\":\"true\"\n}"
             },
-            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/staticRoutes/{{srId}}",
             "description": ""
           },
           "response": []
@@ -6323,6 +6345,7 @@
           "_postman_id": "7dcaafca-4478-fadd-8b6c-eeb18b70a421",
           "name": "Static routes - Add a static route",
           "request": {
+            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/staticRoutes",
             "method": "POST",
             "header": [
               {
@@ -6338,7 +6361,6 @@
               "mode": "raw",
               "raw": "{\n\t\"name\":\"test\",\n\t\"subnet\":\"192.168.123.0/24\",\n\t\"gatewayIp\":\"10.0.0.1\",\n\t\"enabled\":\"true\"\n}"
             },
-            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/staticRoutes",
             "description": ""
           },
           "response": []
@@ -6347,6 +6369,7 @@
           "_postman_id": "dc093775-7add-fa08-ac2e-71b6a4f0ee1c",
           "name": "Static routes - Delete a static route from a network",
           "request": {
+            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/staticRoutes/{{srId}}",
             "method": "DELETE",
             "header": [
               {
@@ -6362,7 +6385,6 @@
               "mode": "raw",
               "raw": "{\n\t\"name\":\"test\",\n\t\"subnet\":\"192.168.123.0/24\",\n\t\"gatewayIp\":\"10.0.0.1\",\n\t\"enabled\":\"true\"\n}"
             },
-            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/staticRoutes/{{srId}}",
             "description": ""
           },
           "response": []
@@ -6378,6 +6400,7 @@
           "_postman_id": "d5188697-85cd-7f6c-eead-4ca103c5c057",
           "name": "Switch ports - List the switch ports for a switch",
           "request": {
+            "url": "https://dashboard.meraki.com/api/v0/devices/{{serial}}/switchPorts",
             "method": "GET",
             "header": [
               {
@@ -6389,7 +6412,6 @@
               "mode": "raw",
               "raw": ""
             },
-            "url": "https://dashboard.meraki.com/api/v0/devices/{{serial}}/switchPorts",
             "description": ""
           },
           "response": []
@@ -6398,6 +6420,7 @@
           "_postman_id": "3d03c9e7-145c-15d3-4230-686f848d8fff",
           "name": "Switch ports - Return a switch port",
           "request": {
+            "url": "https://dashboard.meraki.com/api/v0/devices/{{serial}}/switchPorts/{{portNum}}",
             "method": "GET",
             "header": [
               {
@@ -6409,7 +6432,6 @@
               "mode": "raw",
               "raw": ""
             },
-            "url": "https://dashboard.meraki.com/api/v0/devices/{{serial}}/switchPorts/{{portNum}}",
             "description": ""
           },
           "response": []
@@ -6418,6 +6440,7 @@
           "_postman_id": "34a1dd64-081e-ab92-53f0-6564a7ee2444",
           "name": "Switch ports - Update a switch port",
           "request": {
+            "url": "https://dashboard.meraki.com/api/v0/devices/{{serial}}/switchPorts/{{portNum}}",
             "method": "PUT",
             "header": [
               {
@@ -6433,7 +6456,6 @@
               "mode": "raw",
               "raw": "{\n  \"name\": \"test from Postman\",\n  \"tags\": \"API\",\n  \"enabled\": true,\n  \"poeEnabled\": true,\n  \"type\": \"trunk\",\n  \"vlan\": 1,\n  \"voiceVlan\": null,\n  \"allowedVlans\": \"all\",\n  \"isolationEnabled\": false,\n  \"rstpEnabled\": true,\n  \"stpGuard\": \"disabled\",\n  \"accessPolicyNumber\": null\n}"
             },
-            "url": "https://dashboard.meraki.com/api/v0/devices/{{serial}}/switchPorts/{{portNum}}",
             "description": ""
           },
           "response": []
@@ -6449,6 +6471,7 @@
           "_postman_id": "eb081a13-3640-f6ae-30bc-6753a7ed04c1",
           "name": "VLANs - List the VLANs for this network",
           "request": {
+            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/vlans",
             "method": "GET",
             "header": [
               {
@@ -6471,7 +6494,6 @@
                 }
               ]
             },
-            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/vlans",
             "description": "https://dashboard.meraki.com/Dexter-LaBora-Ho/n/I9xFFbpc/manage/support/api_docs#list-the-vlans-for-this-network"
           },
           "response": []
@@ -6480,6 +6502,7 @@
           "_postman_id": "b108991f-f0d0-2ef0-7b46-6ae0b6f85baf",
           "name": "VLANs - Return a VLAN",
           "request": {
+            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/vlans/{{vlanId}}",
             "method": "GET",
             "header": [
               {
@@ -6502,7 +6525,6 @@
                 }
               ]
             },
-            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/vlans/{{vlanId}}",
             "description": "https://dashboard.meraki.com/Dexter-LaBora-Ho/n/I9xFFbpc/manage/support/api_docs#return-a-vlan"
           },
           "response": []
@@ -6511,6 +6533,7 @@
           "_postman_id": "62fa2b28-6b5c-c328-70e7-1527d4e2f718",
           "name": "VLANs - Update a VLAN",
           "request": {
+            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/vlans/{{vlanId}}",
             "method": "PUT",
             "header": [
               {
@@ -6550,7 +6573,6 @@
                 }
               ]
             },
-            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/vlans/{{vlanId}}",
             "description": "https://dashboard.meraki.com/Dexter-LaBora-Ho/n/I9xFFbpc/manage/support/api_docs#update-a-vlan"
           },
           "response": []
@@ -6559,6 +6581,7 @@
           "_postman_id": "eaad6d04-2a0b-0c4b-fc37-87766fbdc758",
           "name": "VLANs - Add a VLAN",
           "request": {
+            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/vlans",
             "method": "POST",
             "header": [
               {
@@ -6586,7 +6609,6 @@
                 }
               ]
             },
-            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/vlans",
             "description": "https://dashboard.meraki.com/Dexter-LaBora-Ho/n/I9xFFbpc/manage/support/api_docs#add-a-vlan"
           },
           "response": []
@@ -6595,6 +6617,7 @@
           "_postman_id": "bff35088-c8dc-1e56-3d09-bc13599a384f",
           "name": "VLANs - Delete a VLAN",
           "request": {
+            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/vlans/{{vlanId}}",
             "method": "DELETE",
             "header": [
               {
@@ -6606,7 +6629,6 @@
               "mode": "raw",
               "raw": ""
             },
-            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/vlans/{{vlanId}}",
             "description": "https://dashboard.meraki.com/Dexter-LaBora-Ho/n/I9xFFbpc/manage/support/api_docs#delete-a-vlan-from-a-network"
           },
           "response": []
