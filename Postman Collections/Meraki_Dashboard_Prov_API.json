@@ -1739,7 +1739,7 @@
                 }
               ]
             },
-            "url": "https://api.meraki.com/api/v0/organizations/{{organizationId}}/vpnFirewallRules",
+            "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/vpnFirewallRules",
             "description": "## HTTP REQUEST\n```\nGET /organizations/[organizationId]/vpnFirewallRules\n```\n##PARAMETERS\n* None\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X GET -H 'Content-Type: application/json' 'https://dashboard.meraki.com/api/v0/organizations/[organizationId]/vpnFirewallRules'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n[\n  {\n     \"comment\": \"Allow TCP traffic to subnet with http servers.\",\n     \"policy\": \"allow\",\n     \"protocol\": \"tcp\",\n     \"destPort\": \"80,443\",\n     \"destCidr\": \"10.1.333/24\",\n     \"srcPort\": \"Any\",\n     \"srcCidr\": \"Any\",\n     \"syslogEnabled\": false\n  },\n  {\n     \"comment\": \"Block all TCP to http/https ports.\",\n     \"policy\": \"deny\",\n     \"protocol\": \"http\",\n     \"destPort\": \"80,443\",\n     \"destCidr\": \"10.1.1.0/24,10.1.2.0/24\",\n     \"srcPort\": \"Any\",\n     \"srcCidr\": \"Any\",\n     \"syslogEnabled\": false\n  },\n  {\n     \"comment\": \"Default rule\",\n     \"policy\": \"allow\",\n     \"protocol\": \"Any\",\n     \"destPort\": \"Any\",\n     \"destCidr\": \"Any\",\n     \"srcPort\": \"Any\",\n     \"srcCidr\": \"Any\",\n     \"syslogEnabled\": false\n  }\n]\n```"
           },
           "response": [
