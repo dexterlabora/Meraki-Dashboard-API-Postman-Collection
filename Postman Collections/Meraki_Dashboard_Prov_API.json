@@ -1896,12 +1896,147 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"rules\": [\n\t    {\n\t        \"comment\": \"Private FTP Server\",\n\t        \"policy\": \"deny\",\n\t        \"protocol\": \"tcp\",\n\t        \"srcPort\": \"Any\",\n\t        \"srcCidr\": \"Any\",\n\t        \"destPort\": \"21,22\",\n\t        \"destCidr\": \"192.168.21.123/32\",\n\t        \"syslogEnabled\": false\n\t    },\n\t    {\n\t        \"comment\": \"Default rule\",\n\t        \"policy\": \"allow\",\n\t        \"protocol\": \"Any\",\n\t        \"srcPort\": \"Any\",\n\t        \"srcCidr\": \"Any\",\n\t        \"destPort\": \"Any\",\n\t        \"destCidr\": \"Any\",\n\t        \"syslogEnabled\": false\n\t    }\n\t]\n}"
+              "raw": "{\n\t\"rules\":[{\n\t\t\"comment\":\"A note about the rule\",\n\t\t\"policy\":\"deny\",\n\t\t\"protocol\":\"tcp\",\n\t\t\"destPort\":\"80,443\",\n\t\t\"destCidr\":\"192.168.123.0/24,192.168.124.0/24\",\n\t\t\"srcPort\":\"any\",\n\t\t\"srcCidr\":\"any\",\n\t\t\"syslogEnabled\":true\n\t}],\n\t\"syslogDefaultRule\":true\n}"
             },
-            "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/l3FirewallRules/",
+            "url": "https://{{shard}}.meraki.com/api/v0/organizations/{{organizationId}}/vpnFirewallRules",
             "description": "\n## HTTP REQUEST\n```\nPUT /organizations/[organizationId]/vpnFirewallRules\n```\n\n## PARAMETERS\n**rules**\n\nAn ordered array of the firewall rules (not including the default rule)\n\n|               |                                                                                                                                    | \n|---------------|------------------------------------------------------------------------------------------------------------------------------------| \n| comment       | Description of the rule (optional)                                                                                                 | \n| policy        | Allow' or 'Deny' traffic specified by this rule                                                                                    | \n| protocol      | \"The type of protocol (must be 'tcp', 'udp', 'icmp' or 'any')\"                                                                     | \n| srcPort       | \"Comma-separated list of source port(s) (integer in the range 1-65535), or 'any'\"                                                  | \n| srcCidr       | \"Comma-separated list of source IP address(es) (in IP or CIDR notation), or 'any' (note: FQDN not supported for source addresses)\" | \n| destPort      | \"Comma-separated list of destination port(s) (integer in the range 1-65535), or 'any'\"                                             | \n| destCidr      | \"Comma-separated list of destination IP address(es) (in IP or CIDR notation), fully-qualified domain names (FQDN) or 'any'\"        | \n| syslogEnabled | \"Log this rule to syslog (true or false, boolean value) (optional)\"                                                                | \n"
           },
-          "response": []
+          "response": [
+            {
+              "id": "1a03ecce-9691-a151-9473-87696254762b",
+              "name": "Update firewall rules of an organization's site-to-site VPN",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}",
+                    "disabled": false
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "disabled": false
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n\t\"rules\": [\n\t    {\n\t        \"comment\": \"Private FTP Server\",\n\t        \"policy\": \"deny\",\n\t        \"protocol\": \"tcp\",\n\t        \"srcPort\": \"Any\",\n\t        \"srcCidr\": \"Any\",\n\t        \"destPort\": \"21,22\",\n\t        \"destCidr\": \"192.168.21.123/32\",\n\t        \"syslogEnabled\": false\n\t    },\n\t    {\n\t        \"comment\": \"Default rule\",\n\t        \"policy\": \"allow\",\n\t        \"protocol\": \"Any\",\n\t        \"srcPort\": \"Any\",\n\t        \"srcCidr\": \"Any\",\n\t        \"destPort\": \"Any\",\n\t        \"destCidr\": \"Any\",\n\t        \"syslogEnabled\": false\n\t    }\n\t]\n}"
+                },
+                "url": "https://{{shard}}.meraki.com/api/v0/organizations/{{organizationId}}/vpnFirewallRules"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate",
+                  "name": "Cache-Control",
+                  "description": ""
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "name": "Content-Encoding",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8",
+                  "name": "Content-Type",
+                  "description": ""
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 07 Nov 2017 12:38:17 GMT",
+                  "name": "Date",
+                  "description": ""
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT",
+                  "name": "Expires",
+                  "description": ""
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache",
+                  "name": "Pragma",
+                  "description": ""
+                },
+                {
+                  "key": "Public-Key-Pins-Report-Only",
+                  "value": "max-age=1200; pin-sha256=\"2V5tfxXMLkn2kVg/Iv8FqL4JHcNVGEUFK27oSMYhHEU=\"; pin-sha256=\"8Rw90Ej3Ttt8RRkrg+WYDS9n7IS03bk5bjP/UXPtaY8=\"; pin-sha256=\"3YQf+D42t1/pQJhWTwYLRnFVnbBNXf9W5S6dmwq2+3g=\"; pin-sha256=\"klO23nT2ehFDXCfx3eHTDRESMz3asj1muO+4aIdjiuY=\"; pin-sha256=\"fake+hpkp+key+for+testing+report+only+QWERT=\"; includeSubDomains; report-uri=\"https://therealmerakidashboard.report-uri.io/r/default/hpkp/reportOnly\"",
+                  "name": "Public-Key-Pins-Report-Only",
+                  "description": ""
+                },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": ""
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains",
+                  "name": "Strict-Transport-Security",
+                  "description": ""
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": ""
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding",
+                  "name": "Vary",
+                  "description": ""
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin",
+                  "name": "X-Frame-Options",
+                  "description": ""
+                },
+                {
+                  "key": "X-Rack-Cache",
+                  "value": "invalidate, pass",
+                  "name": "X-Rack-Cache",
+                  "description": ""
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "9c06e692caae551a18b5e60445d79a16",
+                  "name": "X-Request-Id",
+                  "description": ""
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.134363",
+                  "name": "X-Runtime",
+                  "description": ""
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1",
+                  "name": "X-UA-Compatible",
+                  "description": ""
+                }
+              ],
+              "cookie": [],
+              "responseTime": "739",
+              "body": "[{\"comment\":\"A note about the rule\",\"policy\":\"deny\",\"protocol\":\"tcp\",\"srcPort\":\"Any\",\"srcCidr\":\"Any\",\"destPort\":\"80,443\",\"destCidr\":\"192.168.123.0/24,192.168.124.0/24\",\"syslogEnabled\":true},{\"comment\":\"Default rule\",\"policy\":\"allow\",\"protocol\":\"Any\",\"srcPort\":\"Any\",\"srcCidr\":\"Any\",\"destPort\":\"Any\",\"destCidr\":\"Any\",\"syslogEnabled\":true}]"
+            }
+          ]
         }
       ]
     },
