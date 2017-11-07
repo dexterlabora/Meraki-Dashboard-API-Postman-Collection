@@ -1744,8 +1744,8 @@
           },
           "response": [
             {
-              "id": "daebd8a6-57ab-c83b-e97f-8db54fb48633",
-              "name": "MX - Return L3 Firewall Rules",
+              "id": "192cefe9-5a50-6b31-4381-3ef08aabd94b",
+              "name": "Return the firewall rules for an organization's site-to-site VPN",
               "originalRequest": {
                 "method": "GET",
                 "header": [
@@ -1764,8 +1764,7 @@
                     }
                   ]
                 },
-                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/l3FirewallRules",
-                "description": ""
+                "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/vpnFirewallRules"
               },
               "status": "OK",
               "code": 200,
@@ -1797,7 +1796,7 @@
                 },
                 {
                   "key": "Date",
-                  "value": "Thu, 12 Oct 2017 09:51:49 GMT",
+                  "value": "Tue, 07 Nov 2017 12:12:21 GMT",
                   "name": "Date",
                   "description": ""
                 },
@@ -1857,13 +1856,13 @@
                 },
                 {
                   "key": "X-Request-Id",
-                  "value": "c1cc756d80ca4834b33294ee22581294",
+                  "value": "893b0f04d6a0843503a1df2ce8e139fc",
                   "name": "X-Request-Id",
                   "description": ""
                 },
                 {
                   "key": "X-Runtime",
-                  "value": "0.079556",
+                  "value": "0.079256",
                   "name": "X-Runtime",
                   "description": ""
                 },
@@ -1875,8 +1874,8 @@
                 }
               ],
               "cookie": [],
-              "responseTime": "1143",
-              "body": "[{\"comment\":\"Private FTP Server\",\"policy\":\"deny\",\"protocol\":\"tcp\",\"srcPort\":\"Any\",\"srcCidr\":\"Any\",\"destPort\":\"21\",\"destCidr\":\"192.168.21.123/32\",\"syslogEnabled\":false},{\"comment\":\"Default rule\",\"policy\":\"allow\",\"protocol\":\"Any\",\"srcPort\":\"Any\",\"srcCidr\":\"Any\",\"destPort\":\"Any\",\"destCidr\":\"Any\",\"syslogEnabled\":false}]"
+              "responseTime": "1204",
+              "body": "[{\"comment\":\"Default rule\",\"policy\":\"allow\",\"protocol\":\"Any\",\"srcPort\":\"Any\",\"srcCidr\":\"Any\",\"destPort\":\"Any\",\"destCidr\":\"Any\",\"syslogEnabled\":true}]"
             }
           ]
         }
@@ -2052,6 +2051,30 @@
         {
           "_postman_id": "4dfeffce-6926-8958-3a98-1181822bd550",
           "name": "MX - Update L3 Firewall Rules ",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"rules\": [\n\t    {\n\t        \"comment\": \"Private FTP Server\",\n\t        \"policy\": \"deny\",\n\t        \"protocol\": \"tcp\",\n\t        \"srcPort\": \"Any\",\n\t        \"srcCidr\": \"Any\",\n\t        \"destPort\": \"21,22\",\n\t        \"destCidr\": \"192.168.21.123/32\",\n\t        \"syslogEnabled\": false\n\t    },\n\t    {\n\t        \"comment\": \"Default rule\",\n\t        \"policy\": \"allow\",\n\t        \"protocol\": \"Any\",\n\t        \"srcPort\": \"Any\",\n\t        \"srcCidr\": \"Any\",\n\t        \"destPort\": \"Any\",\n\t        \"destCidr\": \"Any\",\n\t        \"syslogEnabled\": false\n\t    }\n\t]\n}"
+            },
+            "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/l3FirewallRules/",
+            "description": "## HTTP REQUEST\n```\nPUT /networks/[networkId]/l3FirewallRules\n```\n\n## PARAMETERS\n**rules**\n\nAn ordered array of the firewall rules (not including the default rule)\n\n**comment**|**Description of the rule (optional)**\n:-----:|:-----:\npolicy|Allow' or 'Deny' traffic specified by this rule\nprotocol|The type of protocol (must be 'tcp', 'udp', 'icmp' or 'any')\nsrcPort|Comma-separated list of source port(s) (integer in the range 1-65535), or 'any'\nsrcCidr|Comma-separated list of source IP address(es) (in IP or CIDR notation), or 'any' (note: FQDN not supported for source addresses)\ndestPort|Comma-separated list of destination port(s) (integer in the range 1-65535), or 'any'\ndestCidr|Comma-separated list of destination IP address(es) (in IP or CIDR notation), fully-qualified domain names (FQDN) or 'any'\nsyslogEnabled|Log this rule to syslog (true or false, boolean value) - only applicable if a syslog has been configured (optional)\n\n\n**syslogDefaultRule**\n\nLog the special default rule (boolean value - enable only if you've configured a syslog server) (optional)\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n[\n  {\n     \"comment\": \"a note about the rule\",\n     \"policy\": \"deny\",\n     \"protocol\": \"tcp\",\n     \"destPort\": \"80,443\",\n     \"destCidr\": \"192.168.1.0/24,192.168.2.0/24\",\n     \"srcPort\": \"Any\",\n     \"srcCidr\": \"Any\",\n     \"syslogEnabled\": true\n  },\n  {\n     \"comment\": \"Default rule\",\n     \"policy\": \"allow\",\n     \"protocol\": \"Any\",\n     \"destPort\": \"Any\",\n     \"destCidr\": \"Any\",\n     \"srcPort\": \"Any\",\n     \"srcCidr\": \"Any\",\n     \"syslogEnabled\": true\n  }\n]\n```"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "8d5f3b84-da8e-c6f6-c77e-1939a07980b7",
+          "name": "MX - Update L3 Firewall Rules  copy",
           "request": {
             "method": "PUT",
             "header": [
