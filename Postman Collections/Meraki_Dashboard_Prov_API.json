@@ -1903,7 +1903,7 @@
           },
           "response": [
             {
-              "id": "1a03ecce-9691-a151-9473-87696254762b",
+              "id": "b241ba41-22ab-a7e0-0a36-e129f03e9f42",
               "name": "Update firewall rules of an organization's site-to-site VPN",
               "originalRequest": {
                 "method": "PUT",
@@ -1921,7 +1921,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n\t\"rules\": [\n\t    {\n\t        \"comment\": \"Private FTP Server\",\n\t        \"policy\": \"deny\",\n\t        \"protocol\": \"tcp\",\n\t        \"srcPort\": \"Any\",\n\t        \"srcCidr\": \"Any\",\n\t        \"destPort\": \"21,22\",\n\t        \"destCidr\": \"192.168.21.123/32\",\n\t        \"syslogEnabled\": false\n\t    },\n\t    {\n\t        \"comment\": \"Default rule\",\n\t        \"policy\": \"allow\",\n\t        \"protocol\": \"Any\",\n\t        \"srcPort\": \"Any\",\n\t        \"srcCidr\": \"Any\",\n\t        \"destPort\": \"Any\",\n\t        \"destCidr\": \"Any\",\n\t        \"syslogEnabled\": false\n\t    }\n\t]\n}"
+                  "raw": "{\n\t\"rules\":[{\n\t\t\"comment\":\"A note about the rule\",\n\t\t\"policy\":\"deny\",\n\t\t\"protocol\":\"tcp\",\n\t\t\"destPort\":\"80,443\",\n\t\t\"destCidr\":\"192.168.123.0/24,192.168.124.0/24\",\n\t\t\"srcPort\":\"any\",\n\t\t\"srcCidr\":\"any\",\n\t\t\"syslogEnabled\":true\n\t}],\n\t\"syslogDefaultRule\":true\n}"
                 },
                 "url": "https://{{shard}}.meraki.com/api/v0/organizations/{{organizationId}}/vpnFirewallRules"
               },
@@ -1955,7 +1955,7 @@
                 },
                 {
                   "key": "Date",
-                  "value": "Tue, 07 Nov 2017 12:38:17 GMT",
+                  "value": "Tue, 07 Nov 2017 12:41:51 GMT",
                   "name": "Date",
                   "description": ""
                 },
@@ -2015,13 +2015,13 @@
                 },
                 {
                   "key": "X-Request-Id",
-                  "value": "9c06e692caae551a18b5e60445d79a16",
+                  "value": "a9236d6a72cf770708bd47f27888a883",
                   "name": "X-Request-Id",
                   "description": ""
                 },
                 {
                   "key": "X-Runtime",
-                  "value": "0.134363",
+                  "value": "0.095857",
                   "name": "X-Runtime",
                   "description": ""
                 },
@@ -2033,7 +2033,7 @@
                 }
               ],
               "cookie": [],
-              "responseTime": "739",
+              "responseTime": "1726",
               "body": "[{\"comment\":\"A note about the rule\",\"policy\":\"deny\",\"protocol\":\"tcp\",\"srcPort\":\"Any\",\"srcCidr\":\"Any\",\"destPort\":\"80,443\",\"destCidr\":\"192.168.123.0/24,192.168.124.0/24\",\"syslogEnabled\":true},{\"comment\":\"Default rule\",\"policy\":\"allow\",\"protocol\":\"Any\",\"srcPort\":\"Any\",\"srcCidr\":\"Any\",\"destPort\":\"Any\",\"destCidr\":\"Any\",\"syslogEnabled\":true}]"
             }
           ]
