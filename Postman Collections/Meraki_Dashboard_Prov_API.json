@@ -2261,7 +2261,7 @@
               ]
             },
             "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/networks",
-            "description": ""
+            "description": "## HTTP REQUEST\n```\nGET /organizations/[organizationId]/networks\n```\n\n## PARAMETERS\n\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\nconfigTemplateId|An optional parameter that is the ID of a config template. Will return all networks bound to that template.\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X GET -H 'Content-Type: application/json' 'https://api.meraki.com/api/v0/organizations/[organizationId]/networks'\n```\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n[\n  {\n    \"id\":\"N_1234\",\n    \"organizationId\":\"1234\",\n    \"type\": \"wireless\",\n    \"name\":\"My network\",\n    \"timeZone\": \"US/Pacific\",\n    \"tags\": null\n  }\n]\n```"
           },
           "response": [
             {
