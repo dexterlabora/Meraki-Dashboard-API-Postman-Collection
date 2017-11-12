@@ -2601,7 +2601,7 @@
               "raw": "{\n  \"name\":\"My network\",\n  \"timeZone\": \"US/Pacific\",\n  \"tags\": \" tag1 tag2 \"\n}"
             },
             "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}",
-            "description": ""
+            "description": "## HTTP REQUEST\n```\nPUT /networks/[id]\n```\n\n## PARAMETERS\n\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\nname|The name of the new network\ntimeZone|The timezone of the network. For a list of allowed timezones, please see the 'TZ' column in the table in this article.\ntags|A space-separated list of tags to be applied to the network\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X PUT -H 'Content-Type: application/json' --data-binary '{\"id\":\"N_1234\",\"organizationId\":1234,\"name\":\"My network\", \"tags\":\"tag1 tag2\"}' 'https://api.meraki.com/api/v0/networks/[id]'\n```\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n{\n  \"id\":\"N_1234\",\n  \"organizationId\":\"1234\",\n  \"type\": \"wireless\",\n  \"name\":\"My network\",\n  \"timeZone\": \"US/Pacific\",\n  \"tags\": \" tag1 tag2 \"\n}\n```"
           },
           "response": []
         },
