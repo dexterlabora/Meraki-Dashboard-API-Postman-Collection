@@ -4634,7 +4634,7 @@
               ]
             },
             "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/thirdPartyVPNPeers",
-            "description": ""
+            "description": "## HTTP REQUEST\n```\nGET /organizations/[id]/thirdPartyVPNPeers\n```\n\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: [key]' -X GET -H 'Content-Type: application/json' 'https://api.meraki.com/api/v0/organizations/[id]/thirdPartyVPNPeers'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n[\n  {\n    \"name\":\"My peer\",\n    \"publicIp\":\"192.168.0.1\",\n    \"privateSubnets\":[\n      \"172.168.0.0/16\",\n      \"172.169.0.0/16\"\n    ],\n    \"secret\":\"asdf1234\"\n  }\n]\n```"
           },
           "response": []
         },
