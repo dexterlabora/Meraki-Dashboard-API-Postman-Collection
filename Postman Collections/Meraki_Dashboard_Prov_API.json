@@ -4655,10 +4655,10 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "[{\n\t\"name\":\"Your peer\",\n\t\"publicIp\":\"192.168.0.1\",\n\t\"privateSubnets\":[\n\t\t\"172.168.0.0/16\",\n\t\t\"172.169.0.0/16\"\n\t\t],\n\t\"secret\":\"asdf1234\"\n}]"
+              "raw": "[{\n  \"name\":\"Your peer\",\n  \"publicIp\":\"192.168.0.1\",\n  \"privateSubnets\":[\n    \"172.168.0.0/16\",\n    \"172.169.0.0/16\"\n    ],\n  \"secret\":\"asdf1234\"\n}]"
             },
             "url": "https://{{shard}}.meraki.com/api/v0/organizations/{{organizationId}}/thirdPartyVPNPeers",
-            "description": ""
+            "description": "## HTTP REQUEST\n```\nPUT /organizations/[id]/thirdPartyVPNPeers\n```\n\n## PARAMETERS\n\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\nname|The name of the VPN peer\npublicIp|The public IP of the VPN peer\nprivateSubnets|The list of the private subnets of the VPN peer\nsecret|The shared secret with the VPN peer\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: [key]' -X PUT -H 'Content-Type: application/json' --data-binary '[{\"name\":\"Your peer\",\"publicIp\":\"192.168.0.1\",\"privateSubnets\":[\"172.168.0.0/16\",\"172.169.0.0/16\"],\"secret\":\"asdf1234\"}]' 'https://api.meraki.com/api/v0/organizations/[id]/thirdPartyVPNPeers'\n```\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n[\n  {\n    \"name\":\"Your peer\",\n    \"publicIp\":\"192.168.0.1\",\n    \"privateSubnets\":[\n      \"172.168.0.0/16\",\n      \"172.169.0.0/16\"\n    ],\n    \"secret\":\"asdf1234\"\n  }\n]\n```"
           },
           "response": []
         }
