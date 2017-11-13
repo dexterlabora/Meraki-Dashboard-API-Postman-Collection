@@ -2939,7 +2939,7 @@
                 }
               ]
             },
-            "description": ""
+            "description": "## HTTP REQUEST\n```\nGET /networks/[id]/traffic\n```\n\n## PARAMETERS\n\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\ntimespan|The timespan for the data. Must be an integer representing a duration in seconds between two hours and one month. (Mandatory.)\ndeviceType|Filter the data by device type: combined (default), wireless, switch, appliance. When using combined, for each rule the data will come from the device type with the most usage.\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X GET -H 'Content-Type: application/json' 'https://api.meraki.com/api/v0/networks/[id]/traffic?timespan=7200'\n```\n\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n[\n  {\"application\": \"Gmail\", \"destination\": null, \"protocol\": \"TCP\", \"port\": 443, \"sent\": 100, \"recv\": 200, \"numClients\": 7, \"activeTime\": 77000, \"flows\": 300},\n  {\"application\": \"ICMP\", \"destination\": \"wired.meraki.com\", \"protocol\": \"ICMP\", \"port\": null, \"sent\": 11, \"recv\": 20, \"numClients\": 1, \"activeTime\": 7, \"flows\": 3}\n]\n```"
           },
           "response": [
             {
