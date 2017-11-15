@@ -6852,7 +6852,7 @@
               ]
             },
             "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/vlans/{{vlanId}}",
-            "description": "https://dashboard.meraki.com/Dexter-LaBora-Ho/n/I9xFFbpc/manage/support/api_docs#update-a-vlan"
+            "description": "## HTTP REQUEST\n```\nPUT /networks/[networkId]/vlans/[vlanId]\n```\n\n## PARAMETERS\n\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\nname|The name of the VLAN\nsubnet|The subnet of the VLAN\napplianceIp|The local IP of the appliance on the VLAN\nfixedIpAssignments|The DHCP fixed IP assignments on the VLAN\nreservedIpRanges|The DHCP reserved IP ranges on the VLAN\nvpnNatSubnet|The translated VPN subnet if VPN and VPN subnet translation are enabled on the VLAN\ndnsNameservers|The DNS nameservers used for DHCP responses, either \"upstream_dns\", \"google_dns\", \"opendns\", or a newline seperated string of IP addresses or domain names \n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X PUT --data-binary '{\"name\":\"VOIP\",\"applianceIp\":\"192.168.10.1\",\"subnet\":\"192.168.10.0/24\",\"fixedIpAssignments\":{\"13:37:de:ad:be:ef\":{\"ip\":\"192.168.10.5\",\"name\":\"fixed\"}},\"reservedIpRanges\":[{\"start\":\"192.168.10.20\",\"end\":\"192.168.10.30\",\"comment\":\"reserved\"}],\"dnsNameservers\":\"google_dns\"}' 'https://dashboard.meraki.com/api/v0/networks/[networkId]/vlans/[vlanId]'\n```\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"id\": \"10\",\n  \"networkId\": \"N_1234\",\n  \"name\": \"VOIP\",\n  \"applianceIp\": \"192.168.10.1\",\n  \"subnet\": \"192.168.10.0/24\"\n}\n```"
           },
           "response": []
         },
