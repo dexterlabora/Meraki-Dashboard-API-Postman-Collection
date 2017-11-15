@@ -6637,10 +6637,10 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"name\":\"test\",\n\t\"subnet\":\"192.168.123.0/24\",\n\t\"gatewayIp\":\"10.0.0.1\",\n\t\"enabled\":\"true\"\n}"
+              "raw": "{\n  \"name\":\"test\",\n  \"subnet\":\"192.168.123.0/24\",\n  \"gatewayIp\":\"10.0.0.1\",\n  \"enabled\":\"true\"\n}"
             },
             "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/staticRoutes",
-            "description": ""
+            "description": "## HTTP REQUEST\n```\nPOST /networks/[networkId]/staticRoutes\n```\n\n## PARAMETERS\n\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\nname|The name of the new static route\nsubnet|The subnet of the static route\ngatewayIp|The gateway IP (next hop) of the static route \n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X POST --data-binary '{\"name\":\"VOIP\",\"subnet\":\"192.168.10.0/24\",\"gatewayIp\":\"10.0.13.37\"}' 'https://dashboard.meraki.com/api/v0/networks/[networkId]/staticRoutes'\n```\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 201\n\n{\n  \"id\": \"10\",\n  \"networkId\": \"N_1234\",\n  \"name\": \"VOIP\",\n  \"gatewayIp\": \"10.8.0.5\",\n  \"subnet\": \"192.168.10.0/24\"\n}\n```"
           },
           "response": []
         },
