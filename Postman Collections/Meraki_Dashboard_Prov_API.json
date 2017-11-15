@@ -5858,7 +5858,7 @@
               "raw": "{\n  \"role\": \"myrole\",\n  \"orgAccess\": \"none\",\n  \"networks\": [\n    {\n      \"id\": \"N_1234\",\n      \"access\": \"full\"\n    }\n  ],\n  \"tags\": [\n    {\n      \"tag\": \"west\",\n      \"access\": \"read-only\"\n    }\n  ]\n}"
             },
             "url": "https://{{shard}}.meraki.com/api/v0/organizations/{{organizationId}}/samlRoles/{{samlId}}",
-            "description": ""
+            "description": "## HTTP REQUEST\n```\nPUT /organizations/[organizationId]/samlRoles/[id]\n```\n\n## PARAMETERS\n\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\n role|The role of the SAML administrator\norgAccess|The privilege of the SAML administrator on the organization\ntags|The list of tags that the SAML administrator has privileges on\ntag|The name of the tag\naccess|The privilege of the SAML administrator on the tag\nnetworks|The list of networks that the SAML administrator has privileges on\nid|The network ID\naccess|The privilege of the SAML administrator on the network\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X PUT 'https://dashboard.meraki.com/api/v0/organizations/[organizationId]/samlRoles/[id]'\n```\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"id\": \"TEdJIEN1c3RvbWVy\",\n  \"role\": \"myrole\",\n  \"orgAccess\": \"none\",\n  \"networks\": [\n    {\n      \"id\": \"N_1234\",\n      \"access\": \"full\"\n    }\n  ],\n  \"tags\": [\n    {\n      \"tag\": \"west\",\n      \"access\": \"read-only\"\n    }\n  ]\n}\n```"
           },
           "response": []
         },
