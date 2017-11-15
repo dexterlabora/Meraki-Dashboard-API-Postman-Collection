@@ -5990,7 +5990,7 @@
                 }
               ]
             },
-            "description": ""
+            "description": "## HTTP REQUEST\n```\nPUT /networks/[network_id]/sm/devices/tags\n```\n\n## PARAMETERS\n\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\nwifiMacs|The wifiMacs of the devices to be modified.\nids|The ids of the devices to be modified.\nserials|The serials of the devices to be modified.\nscope|The scope (one of all, none, withAny, withAll, withoutAny, or withoutAll) and a set of tags of the devices to be modified.\ntags|The tags to be added, deleted, or updated.\nupdateAction|One of add, delete, or update. Only devices that have been modified will be returned. \n\n### SAMPLE REQUEST\n```\n\ncurl -L -H 'X-Cisco-Meraki-API-KEY: <key>' -X PUT -H 'Content-Type: application/json' --data-binary '{\"scope\":\"withAny, <tag>, <tag>\", \"updateAction\":\"add\", \"tags\":\"new-tag, new-tag-2\"}' 'https://api.meraki.com/api/v0/networks/[networkId]/sm/devices/tags'\n```\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"success\": [\n    {\n      \"id\": 123456,\n      \"serial\": \"ABCD1234\",\n      \"wifiMac\": \"11:aa:11:11:a1:a1\",\n      \"tags\": [\n        \"old-tag\",\n        \"new-tag\",\n        \"new-tag-2\"\n      ]\n    }\n  ]\n}\n```"
           },
           "response": []
         },
