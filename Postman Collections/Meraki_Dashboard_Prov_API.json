@@ -6391,7 +6391,7 @@
               "raw": ""
             },
             "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/ssids/{{ssidNum}}",
-            "description": ""
+            "description": "## HTTP REQUEST\n```\nGET /networks/[networkId]/ssids/[number]\n```\n\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X GET -H 'Content-Type: application/json' 'https://api.meraki.com/api/v0/networks/[networkId]/ssids/[number]'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"number\":0,\n  \"name\":\"SSID-1\",\n  \"enabled\":true,\n  \"authMode\":\"psk\",\n  \"encryptionMode\":\"wpa\",\n  \"psk\":\"abcd1234\",\n  \"splashPage\":\"Click-through splash page\",\n  \"perClientBandwidthLimitUp\":0,\n  \"perClientBandwidthLimitDown\":0,\n  \"ssidAdminAccessible\":false,\n  \"ipAssignmentMode\":\"NAT mode\",\n  \"walledGardenEnabled\":true,\n  \"walledGardenRanges\":\"192.168.1.1/24 192.168.37.10/32\"\n}\n```"
           },
           "response": [
             {
