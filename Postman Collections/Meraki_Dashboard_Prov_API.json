@@ -6011,10 +6011,10 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"id\":\"643451796760613160\",\n\t\"deviceFields\":{\n\t\t\"name\":\"my iPad\",\n\t\t\"notes\":\"viaAPI\"\n\t\t}\n}"
+              "raw": "{\n  \"id\":\"643451796760613160\",\n  \"deviceFields\":{\n    \"name\":\"my iPad\",\n    \"notes\":\"viaAPI\"\n    }\n}"
             },
             "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/sm/device/fields",
-            "description": ""
+            "description": "## HTTP REQUEST\n```\nPUT /networks/[network_id]/sm/device/fields\n```\n\n## PARAMETERS\n\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\nwifiMac|The wifiMac of the device to be modified.\nid|The id of the device to be modified.\nserial|The serial of the device to be modified.\ndeviceFields|The new fields of the device. Passed in as a JSON object. The list of available fields are: name, notes \n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-KEY: <key>' -X PUT -H 'Content-Type: application/json' --data-binary '{\"id\":\"123456\", \"deviceFields\":\"{\"name\":\"<name>\"}\"}' 'https://api.meraki.com/api/v0/networks/[networkId]/sm/device/fields'\n```\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"success\": [\n    {\n      \"id\": 123456,\n      \"serial\": \"ABCD1234\",\n      \"wifiMac\": \"11:aa:11:11:a1:a1\",\n      \"name\": \"<name>\"\n    }\n  ]\n}\n```"
           },
           "response": []
         },
