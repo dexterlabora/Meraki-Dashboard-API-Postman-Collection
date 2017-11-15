@@ -5814,7 +5814,7 @@
               "raw": ""
             },
             "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/samlRoles",
-            "description": ""
+            "description": "## HTTP REQUEST\n```\nGET /organizations/[organizationId]/samlRoles\n```\n\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://dashboard.meraki.com/api/v0/organizations/[organizationId]/samlRoles'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n[\n  {\n    \"id\": \"TEdJIEN1c3RvbWVy\",\n    \"role\": \"myrole\",\n    \"orgAccess\": \"none\",\n    \"networks\": [\n      {\n        \"id\": \"N_1234\",\n        \"access\": \"full\"\n      }\n    ],\n    \"tags\": [\n      {\n        \"tag\": \"west\",\n        \"access\": \"read-only\"\n      }\n    ]\n  }\n]\n```"
           },
           "response": []
         },
