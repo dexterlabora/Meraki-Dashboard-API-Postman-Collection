@@ -6661,10 +6661,10 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"name\":\"test\",\n\t\"subnet\":\"192.168.123.0/24\",\n\t\"gatewayIp\":\"10.0.0.1\",\n\t\"enabled\":\"true\"\n}"
+              "raw": "{\n  \"name\":\"test\",\n  \"subnet\":\"192.168.123.0/24\",\n  \"gatewayIp\":\"10.0.0.1\",\n  \"enabled\":\"true\"\n}"
             },
             "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/staticRoutes/{{srId}}",
-            "description": ""
+            "description": "## HTTP REQUEST\n```\nDELETE /networks/[networkId]/staticRoutes/[srId]\n```\n\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X DELETE 'https://dashboard.meraki.com/api/v0/networks/[networkId]/staticRoutes/[srId]'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 204\n\n(empty)\n```"
           },
           "response": []
         }
