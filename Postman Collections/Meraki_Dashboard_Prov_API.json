@@ -270,7 +270,7 @@
                 }
               ]
             },
-            "description": "## HTTP REQUEST\n```\nPUT /networks/[id]/clients/[mac]/policy\n```\n\n## PARAMETERS\n\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\ndevicePolicy|**whitelisted**, **blocked**, **normal**, **group**)\ngroupPolicyId|[optional] If devicePolicy param is set to **group** this param is used to specify the group id.\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X PUT -H 'Content-Type: application/json' 'https://dashboard.meraki.com/api/v0/networks/[id]/clients/[mac]/policy'\n```\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n{\n  \"mac\": \"00:11:22:33:44:55\",\n  \"type\": \"Group policy\",\n  \"groupPolicyId\": 101\n}\n```"
+            "description": "## HTTP REQUEST\n```\nPUT /networks/[id]/clients/[mac]/policy\n```\n\n## PARAMETERS\n\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\ndevicePolicy|**whitelisted**, **blocked**, **normal** or **group**\ngroupPolicyId|[optional] If devicePolicy param is set to **group** this param is used to specify the group id.\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X PUT -H 'Content-Type: application/json' 'https://dashboard.meraki.com/api/v0/networks/[id]/clients/[mac]/policy'\n```\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n{\n  \"mac\": \"00:11:22:33:44:55\",\n  \"type\": \"Group policy\",\n  \"groupPolicyId\": 101\n}\n```"
           },
           "response": [
             {
