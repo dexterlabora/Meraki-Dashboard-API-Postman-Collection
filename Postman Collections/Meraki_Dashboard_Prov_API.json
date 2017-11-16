@@ -270,9 +270,166 @@
                 }
               ]
             },
-            "description": "## HTTP REQUEST\n```\nPUT /networks/[id]/clients/[mac]/policy\n```\n\n## PARAMETERS\n\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\ndevicePolicy|The group policy (Whitelisted, Blocked, Normal, Group policy)\ngroupPolicyId|[optional] If devicePolicy param is set to 'group' this param is used to specify the group id.\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X PUT -H 'Content-Type: application/json' 'https://dashboard.meraki.com/api/v0/networks/[id]/clients/[mac]/policy'\n```\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n{\n  \"mac\": \"00:11:22:33:44:55\",\n  \"type\": \"Group policy\",\n  \"groupPolicyId\": 101\n}\n```"
+            "description": "## HTTP REQUEST\n```\nPUT /networks/[id]/clients/[mac]/policy\n```\n\n## PARAMETERS\n\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\ndevicePolicy|**whitelisted**, **blocked**, **normal**, **group**)\ngroupPolicyId|[optional] If devicePolicy param is set to **group** this param is used to specify the group id.\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X PUT -H 'Content-Type: application/json' 'https://dashboard.meraki.com/api/v0/networks/[id]/clients/[mac]/policy'\n```\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n{\n  \"mac\": \"00:11:22:33:44:55\",\n  \"type\": \"Group policy\",\n  \"groupPolicyId\": 101\n}\n```"
           },
-          "response": []
+          "response": [
+            {
+              "id": "a7608f02-d31f-d619-2f94-49bae4be41ed",
+              "name": "Clients - Update the group policy assigned to a device in the network",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"devicePolicy\": \"group\",\n  \"groupPolicyId\": 102\n}"
+                },
+                "url": {
+                  "raw": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/clients/{{clientMac}}/policy?timespan=2592000",
+                  "protocol": "https",
+                  "host": [
+                    "{{shard}}",
+                    "meraki",
+                    "com"
+                  ],
+                  "path": [
+                    "api",
+                    "v0",
+                    "networks",
+                    "{{networkId}}",
+                    "clients",
+                    "{{clientMac}}",
+                    "policy"
+                  ],
+                  "query": [
+                    {
+                      "key": "timespan",
+                      "value": "2592000",
+                      "equals": true
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate",
+                  "name": "Cache-Control",
+                  "description": ""
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "name": "Content-Encoding",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8",
+                  "name": "Content-Type",
+                  "description": ""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 16 Nov 2017 14:01:39 GMT",
+                  "name": "Date",
+                  "description": ""
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT",
+                  "name": "Expires",
+                  "description": ""
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache",
+                  "name": "Pragma",
+                  "description": ""
+                },
+                {
+                  "key": "Public-Key-Pins-Report-Only",
+                  "value": "max-age=1200; pin-sha256=\"2V5tfxXMLkn2kVg/Iv8FqL4JHcNVGEUFK27oSMYhHEU=\"; pin-sha256=\"8Rw90Ej3Ttt8RRkrg+WYDS9n7IS03bk5bjP/UXPtaY8=\"; pin-sha256=\"3YQf+D42t1/pQJhWTwYLRnFVnbBNXf9W5S6dmwq2+3g=\"; pin-sha256=\"klO23nT2ehFDXCfx3eHTDRESMz3asj1muO+4aIdjiuY=\"; pin-sha256=\"fake+hpkp+key+for+testing+report+only+QWERT=\"; includeSubDomains; report-uri=\"https://therealmerakidashboard.report-uri.io/r/default/hpkp/reportOnly\"",
+                  "name": "Public-Key-Pins-Report-Only",
+                  "description": ""
+                },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": ""
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains",
+                  "name": "Strict-Transport-Security",
+                  "description": ""
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": ""
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding",
+                  "name": "Vary",
+                  "description": ""
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin",
+                  "name": "X-Frame-Options",
+                  "description": ""
+                },
+                {
+                  "key": "X-Rack-Cache",
+                  "value": "invalidate, pass",
+                  "name": "X-Rack-Cache",
+                  "description": ""
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "b73b6deaf57550b6749ab3b9d61520ad",
+                  "name": "X-Request-Id",
+                  "description": ""
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.447389",
+                  "name": "X-Runtime",
+                  "description": ""
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1",
+                  "name": "X-UA-Compatible",
+                  "description": ""
+                }
+              ],
+              "cookie": [],
+              "responseTime": "681",
+              "body": "{\"mac\":\"04:03:d6:55:a8:34\",\"type\":\"Group policy\",\"groupPolicyId\":102}"
+            }
+          ]
         },
         {
           "_postman_id": "de8d2525-af63-fed6-3eda-bf31d1c93311",
