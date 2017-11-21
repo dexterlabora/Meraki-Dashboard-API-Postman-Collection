@@ -7217,7 +7217,146 @@
             "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/vlans",
             "description": "## HTTP REQUEST\n```\nPOST /networks/[networkId]/vlans\n```\n\n## PARAMETERS\n\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\nid|The VLAN ID of the new VLAN (must be between 1 and 4094)\nname|The name of the new VLAN\nsubnet|The subnet of the VLAN\napplianceIp|The local IP of the appliance on the VLAN \n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X POST --data-binary '{\"id\":\"10\",\"name\":\"VOIP\",\"applianceIp\":\"192.168.10.1\",\"subnet\":\"192.168.10.0/24\"}' 'https://dashboard.meraki.com/api/v0/networks/[networkId]/vlans'\n```\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 201\n\n{\n  \"id\": \"10\",\n  \"networkId\": \"N_1234\",\n  \"name\": \"VOIP\",\n  \"applianceIp\": \"192.168.10.1\",\n  \"subnet\": \"192.168.10.0/24\"\n}\n```"
           },
-          "response": []
+          "response": [
+            {
+              "id": "5ca1bf33-cccb-4058-f66e-f337d88b1bb6",
+              "name": "VLANs - Add a VLAN",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "name",
+                      "value": "Test-VLAN",
+                      "type": "text"
+                    },
+                    {
+                      "key": "applianceIp",
+                      "value": "172.16.110.1",
+                      "type": "text"
+                    },
+                    {
+                      "key": "subnet",
+                      "value": "172.16.110.0/24",
+                      "type": "text"
+                    },
+                    {
+                      "key": "id",
+                      "value": "110",
+                      "description": "",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/vlans"
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate",
+                  "name": "Cache-Control",
+                  "description": ""
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8",
+                  "name": "Content-Type",
+                  "description": ""
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 21 Nov 2017 14:07:35 GMT",
+                  "name": "Date",
+                  "description": ""
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT",
+                  "name": "Expires",
+                  "description": ""
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache",
+                  "name": "Pragma",
+                  "description": ""
+                },
+                {
+                  "key": "Public-Key-Pins-Report-Only",
+                  "value": "max-age=1200; pin-sha256=\"2V5tfxXMLkn2kVg/Iv8FqL4JHcNVGEUFK27oSMYhHEU=\"; pin-sha256=\"8Rw90Ej3Ttt8RRkrg+WYDS9n7IS03bk5bjP/UXPtaY8=\"; pin-sha256=\"3YQf+D42t1/pQJhWTwYLRnFVnbBNXf9W5S6dmwq2+3g=\"; pin-sha256=\"klO23nT2ehFDXCfx3eHTDRESMz3asj1muO+4aIdjiuY=\"; pin-sha256=\"fake+hpkp+key+for+testing+report+only+QWERT=\"; includeSubDomains; report-uri=\"https://therealmerakidashboard.report-uri.io/r/default/hpkp/reportOnly\"",
+                  "name": "Public-Key-Pins-Report-Only",
+                  "description": ""
+                },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": ""
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains",
+                  "name": "Strict-Transport-Security",
+                  "description": ""
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": ""
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin",
+                  "name": "X-Frame-Options",
+                  "description": ""
+                },
+                {
+                  "key": "X-Rack-Cache",
+                  "value": "invalidate, pass",
+                  "name": "X-Rack-Cache",
+                  "description": ""
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "a8b52a52317b6c59e7a3392042794233",
+                  "name": "X-Request-Id",
+                  "description": ""
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.313889",
+                  "name": "X-Runtime",
+                  "description": ""
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1",
+                  "name": "X-UA-Compatible",
+                  "description": ""
+                }
+              ],
+              "cookie": [],
+              "responseTime": "687",
+              "body": "{\n    \"id\": 110,\n    \"networkId\": \"L_6434517bogus560141\",\n    \"name\": \"Test-VLAN\",\n    \"applianceIp\": \"172.16.110.1\",\n    \"subnet\": \"172.16.110.0/24\",\n    \"fixedIpAssignments\": {},\n    \"reservedIpRanges\": [],\n    \"dnsNameservers\": \"upstream_dns\"\n}"
+            }
+          ]
         },
         {
           "_postman_id": "bff35088-c8dc-1e56-3d09-bc13599a384f",
@@ -7234,7 +7373,7 @@
               "mode": "raw",
               "raw": ""
             },
-            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/vlans/{{vlanId}}",
+            "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/vlans/{{vlanId}}",
             "description": "## HTTP REQUEST\n```\nDELETE /networks/[networkId]/vlans/[id]\n```\n\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X DELETE 'https://dashboard.meraki.com/api/v0/networks/[networkId]/vlans/[id]'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 204\n\n(empty)\n```"
           },
           "response": []
