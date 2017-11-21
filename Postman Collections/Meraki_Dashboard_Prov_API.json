@@ -7198,17 +7198,23 @@
                 },
                 {
                   "key": "applianceIp",
-                  "value": "192.168.0.1",
+                  "value": "172.16.110.1",
                   "type": "text"
                 },
                 {
                   "key": "subnet",
-                  "value": "172.16.0.0/24",
+                  "value": "172.16.110.0/24",
+                  "type": "text"
+                },
+                {
+                  "key": "id",
+                  "value": "110",
+                  "description": "",
                   "type": "text"
                 }
               ]
             },
-            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/vlans",
+            "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/vlans",
             "description": "## HTTP REQUEST\n```\nPOST /networks/[networkId]/vlans\n```\n\n## PARAMETERS\n\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\nid|The VLAN ID of the new VLAN (must be between 1 and 4094)\nname|The name of the new VLAN\nsubnet|The subnet of the VLAN\napplianceIp|The local IP of the appliance on the VLAN \n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X POST --data-binary '{\"id\":\"10\",\"name\":\"VOIP\",\"applianceIp\":\"192.168.10.1\",\"subnet\":\"192.168.10.0/24\"}' 'https://dashboard.meraki.com/api/v0/networks/[networkId]/vlans'\n```\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 201\n\n{\n  \"id\": \"10\",\n  \"networkId\": \"N_1234\",\n  \"name\": \"VOIP\",\n  \"applianceIp\": \"192.168.10.1\",\n  \"subnet\": \"192.168.10.0/24\"\n}\n```"
           },
           "response": []
