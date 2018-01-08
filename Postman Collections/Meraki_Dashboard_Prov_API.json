@@ -7,661 +7,6 @@
   },
   "item": [
     {
-      "_postman_id": "8bcb645e-cc17-0f21-539a-786cfa03a392",
-      "name": "Phone callgroups",
-      "description": "",
-      "item": [
-        {
-          "_postman_id": "318901ef-6dcb-4e30-a9be-ac3bf5aeeeb3",
-          "name": "List all call groups in a network",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "X-Cisco-Meraki-API-Key",
-                "value": "{{X-Cisco-Meraki-API-Key}}"
-              }
-            ],
-            "body": {},
-            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/phoneCallgroups",
-            "description": "## HTTP REQUEST\n```GET /networks/[networkId]/phoneCallgroups```\n\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://dashboard.meraki.com/api/v0/networks/[networkId]/phoneCallgroups'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n[\n  {\n    \"id\": \"178449602133687616\",\n    \"name\": \"Meraki Sales\",\n    \"publicNumber\": \"+15555555555\",\n    \"ext\": \"1234\"\n  }\n]\n```"
-          },
-          "response": [
-            {
-              "id": "ae4232ff-25d1-ad7f-37a4-457b70a426a6",
-              "name": "List all call groups in a network",
-              "originalRequest": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "X-Cisco-Meraki-API-Key",
-                    "value": "{{X-Cisco-Meraki-API-Key}}",
-                    "disabled": false
-                  }
-                ],
-                "body": {},
-                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/phoneCallgroups"
-              },
-              "status": "OK",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Cache-Control",
-                  "value": "no-cache, no-store, max-age=0, must-revalidate",
-                  "name": "Cache-Control",
-                  "description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
-                },
-                {
-                  "key": "Connection",
-                  "value": "keep-alive",
-                  "name": "Connection",
-                  "description": "Options that are desired for the connection"
-                },
-                {
-                  "key": "Content-Encoding",
-                  "value": "gzip",
-                  "name": "Content-Encoding",
-                  "description": "The type of encoding used on the data."
-                },
-                {
-                  "key": "Content-Type",
-                  "value": "application/json; charset=utf-8",
-                  "name": "Content-Type",
-                  "description": "The mime type of this content"
-                },
-                {
-                  "key": "Date",
-                  "value": "Mon, 08 Jan 2018 12:34:15 GMT",
-                  "name": "Date",
-                  "description": "The date and time that the message was sent"
-                },
-                {
-                  "key": "Expires",
-                  "value": "Fri, 01 Jan 1990 00:00:00 GMT",
-                  "name": "Expires",
-                  "description": "Gives the date/time after which the response is considered stale"
-                },
-                {
-                  "key": "Pragma",
-                  "value": "no-cache",
-                  "name": "Pragma",
-                  "description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
-                },
-                {
-                  "key": "Public-Key-Pins-Report-Only",
-                  "value": "max-age=1200; pin-sha256=\"2V5tfxXMLkn2kVg/Iv8FqL4JHcNVGEUFK27oSMYhHEU=\"; pin-sha256=\"8Rw90Ej3Ttt8RRkrg+WYDS9n7IS03bk5bjP/UXPtaY8=\"; pin-sha256=\"3YQf+D42t1/pQJhWTwYLRnFVnbBNXf9W5S6dmwq2+3g=\"; pin-sha256=\"klO23nT2ehFDXCfx3eHTDRESMz3asj1muO+4aIdjiuY=\"; pin-sha256=\"fake+hpkp+key+for+testing+report+only+QWERT=\"; includeSubDomains; report-uri=\"https://therealmerakidashboard.report-uri.io/r/default/hpkp/reportOnly\"",
-                  "name": "Public-Key-Pins-Report-Only",
-                  "description": "Custom header"
-                },
-                {
-                  "key": "Server",
-                  "value": "nginx",
-                  "name": "Server",
-                  "description": "A name for the server"
-                },
-                {
-                  "key": "Strict-Transport-Security",
-                  "value": "max-age=15552000; includeSubDomains",
-                  "name": "Strict-Transport-Security",
-                  "description": "A HSTS Policy informing the HTTP client how long to cache the HTTPS only policy and whether this applies to subdomains."
-                },
-                {
-                  "key": "Transfer-Encoding",
-                  "value": "chunked",
-                  "name": "Transfer-Encoding",
-                  "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
-                },
-                {
-                  "key": "Vary",
-                  "value": "Accept-Encoding",
-                  "name": "Vary",
-                  "description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
-                },
-                {
-                  "key": "X-Frame-Options",
-                  "value": "sameorigin",
-                  "name": "X-Frame-Options",
-                  "description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
-                },
-                {
-                  "key": "X-Rack-Cache",
-                  "value": "miss",
-                  "name": "X-Rack-Cache",
-                  "description": "Custom header"
-                },
-                {
-                  "key": "X-Request-Id",
-                  "value": "162b7fbd296e747b7600ebb094f2e0ce",
-                  "name": "X-Request-Id",
-                  "description": "Custom header"
-                },
-                {
-                  "key": "X-Runtime",
-                  "value": "0.103788",
-                  "name": "X-Runtime",
-                  "description": "Custom header"
-                },
-                {
-                  "key": "X-UA-Compatible",
-                  "value": "IE=Edge,chrome=1",
-                  "name": "X-UA-Compatible",
-                  "description": "Custom header"
-                }
-              ],
-              "cookie": [],
-              "responseTime": "1035",
-              "body": "[\n  {\n    \"id\": \"178449602133687616\",\n    \"name\": \"Meraki Sales\",\n    \"publicNumber\": \"+15555555555\",\n    \"ext\": \"1234\"\n  }\n]"
-            }
-          ]
-        },
-        {
-          "_postman_id": "f8998944-706c-6854-05f6-5ec1f9cd73c1",
-          "name": "Show a call group's details",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "X-Cisco-Meraki-API-Key",
-                "value": "{{X-Cisco-Meraki-API-Key}}"
-              }
-            ],
-            "body": {},
-            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/phoneCallgroups/{{callgroupId}}",
-            "description": "## HTTP REQUEST\n```GET /networks/[networkId]/phoneCallgroups/[id]```\n## PARAMETERS\n**None**\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://dashboard.meraki.com/api/v0/networks/[networkId]/phoneCallgroups/[id]'\n```\n##SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n{\n  \"id\": \"178449602133687616\",\n  \"name\": \"Meraki Sales\",\n  \"publicNumber\": \"+15555555555\",\n  \"ext\": \"1234\"\n}\n```"
-          },
-          "response": [
-            {
-              "id": "13f35fab-01bc-78b5-9635-9dad5ef92046",
-              "name": "Show a call group's details",
-              "originalRequest": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "X-Cisco-Meraki-API-Key",
-                    "value": "{{X-Cisco-Meraki-API-Key}}"
-                  }
-                ],
-                "body": {},
-                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/phoneCallgroups/{{callgroupId}}"
-              },
-              "status": "Not Found",
-              "code": 404,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Cache-Control",
-                  "value": "no-cache, no-store, max-age=0, must-revalidate",
-                  "name": "Cache-Control",
-                  "description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
-                },
-                {
-                  "key": "Connection",
-                  "value": "keep-alive",
-                  "name": "Connection",
-                  "description": "Options that are desired for the connection"
-                },
-                {
-                  "key": "Content-Encoding",
-                  "value": "gzip",
-                  "name": "Content-Encoding",
-                  "description": "The type of encoding used on the data."
-                },
-                {
-                  "key": "Content-Type",
-                  "value": "application/json; charset=utf-8",
-                  "name": "Content-Type",
-                  "description": "The mime type of this content"
-                },
-                {
-                  "key": "Date",
-                  "value": "Mon, 08 Jan 2018 12:59:48 GMT",
-                  "name": "Date",
-                  "description": "The date and time that the message was sent"
-                },
-                {
-                  "key": "Expires",
-                  "value": "Fri, 01 Jan 1990 00:00:00 GMT",
-                  "name": "Expires",
-                  "description": "Gives the date/time after which the response is considered stale"
-                },
-                {
-                  "key": "Pragma",
-                  "value": "no-cache",
-                  "name": "Pragma",
-                  "description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
-                },
-                {
-                  "key": "Public-Key-Pins-Report-Only",
-                  "value": "max-age=1200; pin-sha256=\"2V5tfxXMLkn2kVg/Iv8FqL4JHcNVGEUFK27oSMYhHEU=\"; pin-sha256=\"8Rw90Ej3Ttt8RRkrg+WYDS9n7IS03bk5bjP/UXPtaY8=\"; pin-sha256=\"3YQf+D42t1/pQJhWTwYLRnFVnbBNXf9W5S6dmwq2+3g=\"; pin-sha256=\"klO23nT2ehFDXCfx3eHTDRESMz3asj1muO+4aIdjiuY=\"; pin-sha256=\"fake+hpkp+key+for+testing+report+only+QWERT=\"; includeSubDomains; report-uri=\"https://therealmerakidashboard.report-uri.io/r/default/hpkp/reportOnly\"",
-                  "name": "Public-Key-Pins-Report-Only",
-                  "description": "Custom header"
-                },
-                {
-                  "key": "Server",
-                  "value": "nginx",
-                  "name": "Server",
-                  "description": "A name for the server"
-                },
-                {
-                  "key": "Transfer-Encoding",
-                  "value": "chunked",
-                  "name": "Transfer-Encoding",
-                  "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
-                },
-                {
-                  "key": "Vary",
-                  "value": "Accept-Encoding",
-                  "name": "Vary",
-                  "description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
-                },
-                {
-                  "key": "X-Frame-Options",
-                  "value": "sameorigin",
-                  "name": "X-Frame-Options",
-                  "description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
-                },
-                {
-                  "key": "X-Rack-Cache",
-                  "value": "miss",
-                  "name": "X-Rack-Cache",
-                  "description": "Custom header"
-                },
-                {
-                  "key": "X-Request-Id",
-                  "value": "7ccb02361fbd4a26cad65ca8ad99b1ab",
-                  "name": "X-Request-Id",
-                  "description": "Custom header"
-                },
-                {
-                  "key": "X-Runtime",
-                  "value": "0.093530",
-                  "name": "X-Runtime",
-                  "description": "Custom header"
-                },
-                {
-                  "key": "X-UA-Compatible",
-                  "value": "IE=Edge,chrome=1",
-                  "name": "X-UA-Compatible",
-                  "description": "Custom header"
-                }
-              ],
-              "cookie": [],
-              "responseTime": "4399",
-              "body": "{\n  \"id\": \"178449602133687616\",\n  \"name\": \"Meraki Sales\",\n  \"publicNumber\": \"+15555555555\",\n  \"ext\": \"1234\"\n}"
-            },
-            {
-              "id": "f9be0ff1-05b2-fcc9-022e-6879bf118d5f",
-              "name": "error",
-              "originalRequest": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "X-Cisco-Meraki-API-Key",
-                    "value": "{{X-Cisco-Meraki-API-Key}}",
-                    "disabled": false
-                  }
-                ],
-                "body": {},
-                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/phoneCallgroups/{{callgroupId}}"
-              },
-              "status": "Not Found",
-              "code": 404,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Cache-Control",
-                  "value": "no-cache, no-store, max-age=0, must-revalidate",
-                  "name": "Cache-Control",
-                  "description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
-                },
-                {
-                  "key": "Connection",
-                  "value": "keep-alive",
-                  "name": "Connection",
-                  "description": "Options that are desired for the connection"
-                },
-                {
-                  "key": "Content-Encoding",
-                  "value": "gzip",
-                  "name": "Content-Encoding",
-                  "description": "The type of encoding used on the data."
-                },
-                {
-                  "key": "Content-Type",
-                  "value": "application/json; charset=utf-8",
-                  "name": "Content-Type",
-                  "description": "The mime type of this content"
-                },
-                {
-                  "key": "Date",
-                  "value": "Mon, 08 Jan 2018 12:59:48 GMT",
-                  "name": "Date",
-                  "description": "The date and time that the message was sent"
-                },
-                {
-                  "key": "Expires",
-                  "value": "Fri, 01 Jan 1990 00:00:00 GMT",
-                  "name": "Expires",
-                  "description": "Gives the date/time after which the response is considered stale"
-                },
-                {
-                  "key": "Pragma",
-                  "value": "no-cache",
-                  "name": "Pragma",
-                  "description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
-                },
-                {
-                  "key": "Public-Key-Pins-Report-Only",
-                  "value": "max-age=1200; pin-sha256=\"2V5tfxXMLkn2kVg/Iv8FqL4JHcNVGEUFK27oSMYhHEU=\"; pin-sha256=\"8Rw90Ej3Ttt8RRkrg+WYDS9n7IS03bk5bjP/UXPtaY8=\"; pin-sha256=\"3YQf+D42t1/pQJhWTwYLRnFVnbBNXf9W5S6dmwq2+3g=\"; pin-sha256=\"klO23nT2ehFDXCfx3eHTDRESMz3asj1muO+4aIdjiuY=\"; pin-sha256=\"fake+hpkp+key+for+testing+report+only+QWERT=\"; includeSubDomains; report-uri=\"https://therealmerakidashboard.report-uri.io/r/default/hpkp/reportOnly\"",
-                  "name": "Public-Key-Pins-Report-Only",
-                  "description": "Custom header"
-                },
-                {
-                  "key": "Server",
-                  "value": "nginx",
-                  "name": "Server",
-                  "description": "A name for the server"
-                },
-                {
-                  "key": "Transfer-Encoding",
-                  "value": "chunked",
-                  "name": "Transfer-Encoding",
-                  "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
-                },
-                {
-                  "key": "Vary",
-                  "value": "Accept-Encoding",
-                  "name": "Vary",
-                  "description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
-                },
-                {
-                  "key": "X-Frame-Options",
-                  "value": "sameorigin",
-                  "name": "X-Frame-Options",
-                  "description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
-                },
-                {
-                  "key": "X-Rack-Cache",
-                  "value": "miss",
-                  "name": "X-Rack-Cache",
-                  "description": "Custom header"
-                },
-                {
-                  "key": "X-Request-Id",
-                  "value": "7ccb02361fbd4a26cad65ca8ad99b1ab",
-                  "name": "X-Request-Id",
-                  "description": "Custom header"
-                },
-                {
-                  "key": "X-Runtime",
-                  "value": "0.093530",
-                  "name": "X-Runtime",
-                  "description": "Custom header"
-                },
-                {
-                  "key": "X-UA-Compatible",
-                  "value": "IE=Edge,chrome=1",
-                  "name": "X-UA-Compatible",
-                  "description": "Custom header"
-                }
-              ],
-              "cookie": [],
-              "responseTime": "4399",
-              "body": "{\"error\":\"Callgroup not found\"}"
-            }
-          ]
-        },
-        {
-          "_postman_id": "8ddb8ee2-fae4-5393-21b2-a233eaf37873",
-          "name": "Create a new call group",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "X-Cisco-Meraki-API-Key",
-                "value": "{{X-Cisco-Meraki-API-Key}}"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n\t\"ext\":\"1234\",\n\t\"publicNumber\":\"+15555555555\",\n\t\"ringStrategy\":\"ring-all\",\n\t\"scope\":\"some\",\n\t\"tags\":[\"sales\",\"support\"],\n\t\"noAnswerAction\":\"transfer-to-ext\",\n\t\"transferExtension\":\"1003\"\n}"
-            },
-            "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/phoneCallgroups/",
-            "description": "## HTTP REQUEST\n```POST /networks/[networkId]/phoneCallgroups/```\n##PARAMETERS\n|                       |                                                                                                                                                                                                                                                                                 | \n|-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| \n| **allowExternalForwards** | Allow external forwards. Boolean true or false                                                                                                                                                                                                                                  | \n| **ext**                   | The 4-6 digit extension. Extension cannot be in use.                                                                                                                                                                                                                            | \n| **maxWaitTime**           | Max wait time in seconds.                                                                                                                                                                                                                                                       | \n| **name**                  | The call group name.                                                                                                                                                                                                                                                            | \n| **noAnswerAction**        | No answer action: options: 'hang-up', 'transfer-to-ext'. If 'transfer-to-ext', use the transferExtension field                                                                                                                                                                  | \n| **publicNumber**          | The public number in E.164 format (obtained from 'Phone Numbers' API)                                                                                                                                                                                                           | \n| **ringStrategy**          | Ring strategy: options: 'ring-all', 'longest-idle-agent', 'round-robin'                                                                                                                                                                                                         | \n| **scope**                 | Device Scope: options: 'all' - All devices, 'some' - Devices with ANY of the following tags (specify tags field), 'all_tags' - Devices with ALL of the following tags (specify tags field), 'without_all_tags' - Devices WITHOUT ALL of the following tags (specify tags field) | \n| **tags**                  | Scope tags (use if scope is 'some', 'all_tags', or 'without_all_tags'). Submit as array of text. ex: [\"sales\", \"eng\"]                                                                                                                                                           | \n| **transferExtension**     | The extension to transfer to after wait time expires. Submit the 4-6 digit extension as text. Use if noAnswerAction is 'transfer-to-ext'                                                                                                                                        | \n| **waitTimeEnabled**       | Enable Max Wait Time. Boolean true or false                                                                                                                                                                                                                                     | \n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X POST --data-binary '{\"name\":\"Sales Group\",\"ext\":\"1234\",\"publicNumber\":\"+15555555555\",\"ringStrategy\":\"ring-all\",\"scope\":\"some\",\"tags\":[\"sales\",\"support\"],\"noAnswerAction\":\"transfer-to-ext\",\"transferExtension\":\"1003\"}' 'https://dashboard.meraki.com/api/v0/networks/[networkId]/phoneCallgroups/'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 201\n{\n  \"id\": \"178449602133687616\",\n  \"name\": \"Meraki Sales\",\n  \"publicNumber\": \"+15555555555\",\n  \"ext\": \"1234\"\n}\n```"
-          },
-          "response": [
-            {
-              "id": "78b74e07-83a8-5aec-4caf-df85d9444d68",
-              "name": "Create a new call group",
-              "originalRequest": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "X-Cisco-Meraki-API-Key",
-                    "value": "{{X-Cisco-Meraki-API-Key}}"
-                  },
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n\t\"name\":\"Sales Group\",\n\t\"ext\":\"1234\",\n\t\"publicNumber\":\"+15555555555\",\n\t\"ringStrategy\":\"ring-all\",\n\t\"scope\":\"some\",\n\t\"tags\":[\"sales\",\"support\"],\n\t\"noAnswerAction\":\"transfer-to-ext\",\n\t\"transferExtension\":\"1003\"\n}"
-                },
-                "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/phoneCallgroups/"
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Cache-Control",
-                  "value": "no-cache, no-store, max-age=0, must-revalidate",
-                  "name": "Cache-Control",
-                  "description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
-                },
-                {
-                  "key": "Connection",
-                  "value": "keep-alive",
-                  "name": "Connection",
-                  "description": "Options that are desired for the connection"
-                },
-                {
-                  "key": "Content-Type",
-                  "value": "application/json; charset=utf-8",
-                  "name": "Content-Type",
-                  "description": "The mime type of this content"
-                },
-                {
-                  "key": "Date",
-                  "value": "Mon, 08 Jan 2018 12:40:15 GMT",
-                  "name": "Date",
-                  "description": "The date and time that the message was sent"
-                },
-                {
-                  "key": "Expires",
-                  "value": "Fri, 01 Jan 1990 00:00:00 GMT",
-                  "name": "Expires",
-                  "description": "Gives the date/time after which the response is considered stale"
-                },
-                {
-                  "key": "Pragma",
-                  "value": "no-cache",
-                  "name": "Pragma",
-                  "description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
-                },
-                {
-                  "key": "Public-Key-Pins-Report-Only",
-                  "value": "max-age=1200; pin-sha256=\"2V5tfxXMLkn2kVg/Iv8FqL4JHcNVGEUFK27oSMYhHEU=\"; pin-sha256=\"8Rw90Ej3Ttt8RRkrg+WYDS9n7IS03bk5bjP/UXPtaY8=\"; pin-sha256=\"3YQf+D42t1/pQJhWTwYLRnFVnbBNXf9W5S6dmwq2+3g=\"; pin-sha256=\"klO23nT2ehFDXCfx3eHTDRESMz3asj1muO+4aIdjiuY=\"; pin-sha256=\"fake+hpkp+key+for+testing+report+only+QWERT=\"; includeSubDomains; report-uri=\"https://therealmerakidashboard.report-uri.io/r/default/hpkp/reportOnly\"",
-                  "name": "Public-Key-Pins-Report-Only",
-                  "description": "Custom header"
-                },
-                {
-                  "key": "Server",
-                  "value": "nginx",
-                  "name": "Server",
-                  "description": "A name for the server"
-                },
-                {
-                  "key": "Transfer-Encoding",
-                  "value": "chunked",
-                  "name": "Transfer-Encoding",
-                  "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
-                },
-                {
-                  "key": "X-Frame-Options",
-                  "value": "sameorigin",
-                  "name": "X-Frame-Options",
-                  "description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
-                },
-                {
-                  "key": "X-Rack-Cache",
-                  "value": "invalidate, pass",
-                  "name": "X-Rack-Cache",
-                  "description": "Custom header"
-                },
-                {
-                  "key": "X-Request-Id",
-                  "value": "8ef48e16c6a18bd2310a1c0944d3e84e",
-                  "name": "X-Request-Id",
-                  "description": "Custom header"
-                },
-                {
-                  "key": "X-Runtime",
-                  "value": "0.111886",
-                  "name": "X-Runtime",
-                  "description": "Custom header"
-                },
-                {
-                  "key": "X-UA-Compatible",
-                  "value": "IE=Edge,chrome=1",
-                  "name": "X-UA-Compatible",
-                  "description": "Custom header"
-                }
-              ],
-              "cookie": [],
-              "responseTime": "1129",
-              "body": "{\n  \"id\": \"178449602133687616\",\n  \"name\": \"Meraki Sales\",\n  \"publicNumber\": \"+15555555555\",\n  \"ext\": \"1234\"\n}"
-            }
-          ]
-        },
-        {
-          "_postman_id": "c488251d-77a5-b761-5af9-791cdf282cbc",
-          "name": "Update a call group",
-          "request": {
-            "method": "PUT",
-            "header": [
-              {
-                "key": "X-Cisco-Meraki-API-Key",
-                "value": "{{X-Cisco-Meraki-API-Key}}"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n\t\"ext\":\"1234\",\n\t\"publicNumber\":\"+15555555555\",\n\t\"ringStrategy\":\"ring-all\",\n\t\"scope\":\"some\",\n\t\"tags\":[\"sales\",\"support\"],\n\t\"noAnswerAction\":\"transfer-to-ext\",\n\t\"transferExtension\":\"1003\"\n}"
-            },
-            "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/phoneCallgroups/{{callgroupId}}",
-            "description": "## HTTP REQUEST\n```POST /networks/[networkId]/phoneCallgroups/```\n##PARAMETERS\n|                       |                                                                                                                                                                                                                                                                                 | \n|-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| \n| **allowExternalForwards** | Allow external forwards. Boolean true or false                                                                                                                                                                                                                                  | \n| **ext**                   | The 4-6 digit extension. Extension cannot be in use.                                                                                                                                                                                                                            | \n| **maxWaitTime**           | Max wait time in seconds.                                                                                                                                                                                                                                                       | \n| **name**                  | The call group name.                                                                                                                                                                                                                                                            | \n| **noAnswerAction**        | No answer action: options: 'hang-up', 'transfer-to-ext'. If 'transfer-to-ext', use the transferExtension field                                                                                                                                                                  | \n| **publicNumber**          | The public number in E.164 format (obtained from 'Phone Numbers' API)                                                                                                                                                                                                           | \n| **ringStrategy**          | Ring strategy: options: 'ring-all', 'longest-idle-agent', 'round-robin'                                                                                                                                                                                                         | \n| **scope**                 | Device Scope: options: 'all' - All devices, 'some' - Devices with ANY of the following tags (specify tags field), 'all_tags' - Devices with ALL of the following tags (specify tags field), 'without_all_tags' - Devices WITHOUT ALL of the following tags (specify tags field) | \n| **tags**                  | Scope tags (use if scope is 'some', 'all_tags', or 'without_all_tags'). Submit as array of text. ex: [\"sales\", \"eng\"]                                                                                                                                                           | \n| **transferExtension**     | The extension to transfer to after wait time expires. Submit the 4-6 digit extension as text. Use if noAnswerAction is 'transfer-to-ext'                                                                                                                                        | \n| **waitTimeEnabled**       | Enable Max Wait Time. Boolean true or false                                                                                                                                                                                                                                     | \n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X POST --data-binary '{\"name\":\"Sales Group\",\"ext\":\"1234\",\"publicNumber\":\"+15555555555\",\"ringStrategy\":\"ring-all\",\"scope\":\"some\",\"tags\":[\"sales\",\"support\"],\"noAnswerAction\":\"transfer-to-ext\",\"transferExtension\":\"1003\"}' 'https://dashboard.meraki.com/api/v0/networks/[networkId]/phoneCallgroups/'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 201\n{\n  \"id\": \"178449602133687616\",\n  \"name\": \"Meraki Sales\",\n  \"publicNumber\": \"+15555555555\",\n  \"ext\": \"1234\"\n}\n```"
-          },
-          "response": [
-            {
-              "id": "bbf02887-8e0f-8694-8bac-dadad7b8f329",
-              "name": "Update a call group",
-              "originalRequest": {
-                "method": "PUT",
-                "header": [
-                  {
-                    "key": "X-Cisco-Meraki-API-Key",
-                    "value": "{{X-Cisco-Meraki-API-Key}}"
-                  },
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n\t\"ext\":\"1234\",\n\t\"publicNumber\":\"+15555555555\",\n\t\"ringStrategy\":\"ring-all\",\n\t\"scope\":\"some\",\n\t\"tags\":[\"sales\",\"support\"],\n\t\"noAnswerAction\":\"transfer-to-ext\",\n\t\"transferExtension\":\"1003\"\n}"
-                },
-                "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/phoneCallgroups/{{callgroupId}}"
-              },
-              "status": "OK",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [],
-              "cookie": [],
-              "responseTime": "0",
-              "body": "{\n  \"id\": \"178449602133687616\",\n  \"name\": \"Meraki Sales\",\n  \"publicNumber\": \"+15555555555\",\n  \"ext\": \"1234\"\n}"
-            }
-          ]
-        },
-        {
-          "_postman_id": "78ba6681-e0cd-952b-f606-fa646c236796",
-          "name": "Delete a call group",
-          "request": {
-            "method": "DELETE",
-            "header": [
-              {
-                "key": "X-Cisco-Meraki-API-Key",
-                "value": "{{X-Cisco-Meraki-API-Key}}"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/phoneCallgroups/{{callgroupId}}",
-            "description": "## HTTP REQUEST\n```DELETE /networks/[networkId]/phoneCallgroups/[id]```\n## PARAMETERS\n**None**\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X DELETE 'https://dashboard.meraki.com/api/v0/networks/[networkId]/phoneCallgroups/[id]'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 204\n(empty)\n```"
-          },
-          "response": [
-            {
-              "id": "de4d2d73-beb0-f85f-e3ca-142754e7c762",
-              "name": "Delete a call group",
-              "originalRequest": {
-                "method": "DELETE",
-                "header": [
-                  {
-                    "key": "X-Cisco-Meraki-API-Key",
-                    "value": "{{X-Cisco-Meraki-API-Key}}"
-                  },
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": ""
-                },
-                "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/phoneCallgroups/{{callgroupId}}"
-              },
-              "status": "OK",
-              "code": 204,
-              "_postman_previewlanguage": "",
-              "header": [],
-              "cookie": [],
-              "responseTime": "0",
-              "body": "(empty)"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "_postman_id": "3fff7bd2-37c2-4cb5-820a-17a2a560edf7",
       "name": "Admins",
       "description": "",
@@ -5636,6 +4981,661 @@
             "description": "## HTTP REQUEST\n```\nPUT /organizations/[id]/thirdPartyVPNPeers\n```\n\n## PARAMETERS\n\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\nname|The name of the VPN peer\npublicIp|The public IP of the VPN peer\nprivateSubnets|The list of the private subnets of the VPN peer\nsecret|The shared secret with the VPN peer\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: [key]' -X PUT -H 'Content-Type: application/json' --data-binary '[{\"name\":\"Your peer\",\"publicIp\":\"192.168.0.1\",\"privateSubnets\":[\"172.168.0.0/16\",\"172.169.0.0/16\"],\"secret\":\"asdf1234\"}]' 'https://api.meraki.com/api/v0/organizations/[id]/thirdPartyVPNPeers'\n```\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n[\n  {\n    \"name\":\"Your peer\",\n    \"publicIp\":\"192.168.0.1\",\n    \"privateSubnets\":[\n      \"172.168.0.0/16\",\n      \"172.169.0.0/16\"\n    ],\n    \"secret\":\"asdf1234\"\n  }\n]\n```"
           },
           "response": []
+        }
+      ]
+    },
+    {
+      "_postman_id": "8bcb645e-cc17-0f21-539a-786cfa03a392",
+      "name": "Phone callgroups",
+      "description": "",
+      "item": [
+        {
+          "_postman_id": "318901ef-6dcb-4e30-a9be-ac3bf5aeeeb3",
+          "name": "List all call groups in a network",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "body": {},
+            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/phoneCallgroups",
+            "description": "## HTTP REQUEST\n```GET /networks/[networkId]/phoneCallgroups```\n\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://dashboard.meraki.com/api/v0/networks/[networkId]/phoneCallgroups'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n[\n  {\n    \"id\": \"178449602133687616\",\n    \"name\": \"Meraki Sales\",\n    \"publicNumber\": \"+15555555555\",\n    \"ext\": \"1234\"\n  }\n]\n```"
+          },
+          "response": [
+            {
+              "id": "ae4232ff-25d1-ad7f-37a4-457b70a426a6",
+              "name": "List all call groups in a network",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}",
+                    "disabled": false
+                  }
+                ],
+                "body": {},
+                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/phoneCallgroups"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate",
+                  "name": "Cache-Control",
+                  "description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": "Options that are desired for the connection"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "name": "Content-Encoding",
+                  "description": "The type of encoding used on the data."
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8",
+                  "name": "Content-Type",
+                  "description": "The mime type of this content"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 08 Jan 2018 12:34:15 GMT",
+                  "name": "Date",
+                  "description": "The date and time that the message was sent"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT",
+                  "name": "Expires",
+                  "description": "Gives the date/time after which the response is considered stale"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache",
+                  "name": "Pragma",
+                  "description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+                },
+                {
+                  "key": "Public-Key-Pins-Report-Only",
+                  "value": "max-age=1200; pin-sha256=\"2V5tfxXMLkn2kVg/Iv8FqL4JHcNVGEUFK27oSMYhHEU=\"; pin-sha256=\"8Rw90Ej3Ttt8RRkrg+WYDS9n7IS03bk5bjP/UXPtaY8=\"; pin-sha256=\"3YQf+D42t1/pQJhWTwYLRnFVnbBNXf9W5S6dmwq2+3g=\"; pin-sha256=\"klO23nT2ehFDXCfx3eHTDRESMz3asj1muO+4aIdjiuY=\"; pin-sha256=\"fake+hpkp+key+for+testing+report+only+QWERT=\"; includeSubDomains; report-uri=\"https://therealmerakidashboard.report-uri.io/r/default/hpkp/reportOnly\"",
+                  "name": "Public-Key-Pins-Report-Only",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains",
+                  "name": "Strict-Transport-Security",
+                  "description": "A HSTS Policy informing the HTTP client how long to cache the HTTPS only policy and whether this applies to subdomains."
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding",
+                  "name": "Vary",
+                  "description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin",
+                  "name": "X-Frame-Options",
+                  "description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+                },
+                {
+                  "key": "X-Rack-Cache",
+                  "value": "miss",
+                  "name": "X-Rack-Cache",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "162b7fbd296e747b7600ebb094f2e0ce",
+                  "name": "X-Request-Id",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.103788",
+                  "name": "X-Runtime",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1",
+                  "name": "X-UA-Compatible",
+                  "description": "Custom header"
+                }
+              ],
+              "cookie": [],
+              "responseTime": "1035",
+              "body": "[\n  {\n    \"id\": \"178449602133687616\",\n    \"name\": \"Meraki Sales\",\n    \"publicNumber\": \"+15555555555\",\n    \"ext\": \"1234\"\n  }\n]"
+            }
+          ]
+        },
+        {
+          "_postman_id": "f8998944-706c-6854-05f6-5ec1f9cd73c1",
+          "name": "Show a call group's details",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "body": {},
+            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/phoneCallgroups/{{callgroupId}}",
+            "description": "## HTTP REQUEST\n```GET /networks/[networkId]/phoneCallgroups/[id]```\n## PARAMETERS\n**None**\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://dashboard.meraki.com/api/v0/networks/[networkId]/phoneCallgroups/[id]'\n```\n##SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n{\n  \"id\": \"178449602133687616\",\n  \"name\": \"Meraki Sales\",\n  \"publicNumber\": \"+15555555555\",\n  \"ext\": \"1234\"\n}\n```"
+          },
+          "response": [
+            {
+              "id": "13f35fab-01bc-78b5-9635-9dad5ef92046",
+              "name": "Show a call group's details",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  }
+                ],
+                "body": {},
+                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/phoneCallgroups/{{callgroupId}}"
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate",
+                  "name": "Cache-Control",
+                  "description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": "Options that are desired for the connection"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "name": "Content-Encoding",
+                  "description": "The type of encoding used on the data."
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8",
+                  "name": "Content-Type",
+                  "description": "The mime type of this content"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 08 Jan 2018 12:59:48 GMT",
+                  "name": "Date",
+                  "description": "The date and time that the message was sent"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT",
+                  "name": "Expires",
+                  "description": "Gives the date/time after which the response is considered stale"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache",
+                  "name": "Pragma",
+                  "description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+                },
+                {
+                  "key": "Public-Key-Pins-Report-Only",
+                  "value": "max-age=1200; pin-sha256=\"2V5tfxXMLkn2kVg/Iv8FqL4JHcNVGEUFK27oSMYhHEU=\"; pin-sha256=\"8Rw90Ej3Ttt8RRkrg+WYDS9n7IS03bk5bjP/UXPtaY8=\"; pin-sha256=\"3YQf+D42t1/pQJhWTwYLRnFVnbBNXf9W5S6dmwq2+3g=\"; pin-sha256=\"klO23nT2ehFDXCfx3eHTDRESMz3asj1muO+4aIdjiuY=\"; pin-sha256=\"fake+hpkp+key+for+testing+report+only+QWERT=\"; includeSubDomains; report-uri=\"https://therealmerakidashboard.report-uri.io/r/default/hpkp/reportOnly\"",
+                  "name": "Public-Key-Pins-Report-Only",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding",
+                  "name": "Vary",
+                  "description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin",
+                  "name": "X-Frame-Options",
+                  "description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+                },
+                {
+                  "key": "X-Rack-Cache",
+                  "value": "miss",
+                  "name": "X-Rack-Cache",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "7ccb02361fbd4a26cad65ca8ad99b1ab",
+                  "name": "X-Request-Id",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.093530",
+                  "name": "X-Runtime",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1",
+                  "name": "X-UA-Compatible",
+                  "description": "Custom header"
+                }
+              ],
+              "cookie": [],
+              "responseTime": "4399",
+              "body": "{\n  \"id\": \"178449602133687616\",\n  \"name\": \"Meraki Sales\",\n  \"publicNumber\": \"+15555555555\",\n  \"ext\": \"1234\"\n}"
+            },
+            {
+              "id": "f9be0ff1-05b2-fcc9-022e-6879bf118d5f",
+              "name": "error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}",
+                    "disabled": false
+                  }
+                ],
+                "body": {},
+                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/phoneCallgroups/{{callgroupId}}"
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate",
+                  "name": "Cache-Control",
+                  "description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": "Options that are desired for the connection"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "name": "Content-Encoding",
+                  "description": "The type of encoding used on the data."
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8",
+                  "name": "Content-Type",
+                  "description": "The mime type of this content"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 08 Jan 2018 12:59:48 GMT",
+                  "name": "Date",
+                  "description": "The date and time that the message was sent"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT",
+                  "name": "Expires",
+                  "description": "Gives the date/time after which the response is considered stale"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache",
+                  "name": "Pragma",
+                  "description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+                },
+                {
+                  "key": "Public-Key-Pins-Report-Only",
+                  "value": "max-age=1200; pin-sha256=\"2V5tfxXMLkn2kVg/Iv8FqL4JHcNVGEUFK27oSMYhHEU=\"; pin-sha256=\"8Rw90Ej3Ttt8RRkrg+WYDS9n7IS03bk5bjP/UXPtaY8=\"; pin-sha256=\"3YQf+D42t1/pQJhWTwYLRnFVnbBNXf9W5S6dmwq2+3g=\"; pin-sha256=\"klO23nT2ehFDXCfx3eHTDRESMz3asj1muO+4aIdjiuY=\"; pin-sha256=\"fake+hpkp+key+for+testing+report+only+QWERT=\"; includeSubDomains; report-uri=\"https://therealmerakidashboard.report-uri.io/r/default/hpkp/reportOnly\"",
+                  "name": "Public-Key-Pins-Report-Only",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding",
+                  "name": "Vary",
+                  "description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin",
+                  "name": "X-Frame-Options",
+                  "description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+                },
+                {
+                  "key": "X-Rack-Cache",
+                  "value": "miss",
+                  "name": "X-Rack-Cache",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "7ccb02361fbd4a26cad65ca8ad99b1ab",
+                  "name": "X-Request-Id",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.093530",
+                  "name": "X-Runtime",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1",
+                  "name": "X-UA-Compatible",
+                  "description": "Custom header"
+                }
+              ],
+              "cookie": [],
+              "responseTime": "4399",
+              "body": "{\"error\":\"Callgroup not found\"}"
+            }
+          ]
+        },
+        {
+          "_postman_id": "8ddb8ee2-fae4-5393-21b2-a233eaf37873",
+          "name": "Create a new call group",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"ext\":\"1234\",\n\t\"publicNumber\":\"+15555555555\",\n\t\"ringStrategy\":\"ring-all\",\n\t\"scope\":\"some\",\n\t\"tags\":[\"sales\",\"support\"],\n\t\"noAnswerAction\":\"transfer-to-ext\",\n\t\"transferExtension\":\"1003\"\n}"
+            },
+            "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/phoneCallgroups/",
+            "description": "## HTTP REQUEST\n```POST /networks/[networkId]/phoneCallgroups/```\n##PARAMETERS\n|                       |                                                                                                                                                                                                                                                                                 | \n|-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| \n| **allowExternalForwards** | Allow external forwards. Boolean true or false                                                                                                                                                                                                                                  | \n| **ext**                   | The 4-6 digit extension. Extension cannot be in use.                                                                                                                                                                                                                            | \n| **maxWaitTime**           | Max wait time in seconds.                                                                                                                                                                                                                                                       | \n| **name**                  | The call group name.                                                                                                                                                                                                                                                            | \n| **noAnswerAction**        | No answer action: options: 'hang-up', 'transfer-to-ext'. If 'transfer-to-ext', use the transferExtension field                                                                                                                                                                  | \n| **publicNumber**          | The public number in E.164 format (obtained from 'Phone Numbers' API)                                                                                                                                                                                                           | \n| **ringStrategy**          | Ring strategy: options: 'ring-all', 'longest-idle-agent', 'round-robin'                                                                                                                                                                                                         | \n| **scope**                 | Device Scope: options: 'all' - All devices, 'some' - Devices with ANY of the following tags (specify tags field), 'all_tags' - Devices with ALL of the following tags (specify tags field), 'without_all_tags' - Devices WITHOUT ALL of the following tags (specify tags field) | \n| **tags**                  | Scope tags (use if scope is 'some', 'all_tags', or 'without_all_tags'). Submit as array of text. ex: [\"sales\", \"eng\"]                                                                                                                                                           | \n| **transferExtension**     | The extension to transfer to after wait time expires. Submit the 4-6 digit extension as text. Use if noAnswerAction is 'transfer-to-ext'                                                                                                                                        | \n| **waitTimeEnabled**       | Enable Max Wait Time. Boolean true or false                                                                                                                                                                                                                                     | \n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X POST --data-binary '{\"name\":\"Sales Group\",\"ext\":\"1234\",\"publicNumber\":\"+15555555555\",\"ringStrategy\":\"ring-all\",\"scope\":\"some\",\"tags\":[\"sales\",\"support\"],\"noAnswerAction\":\"transfer-to-ext\",\"transferExtension\":\"1003\"}' 'https://dashboard.meraki.com/api/v0/networks/[networkId]/phoneCallgroups/'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 201\n{\n  \"id\": \"178449602133687616\",\n  \"name\": \"Meraki Sales\",\n  \"publicNumber\": \"+15555555555\",\n  \"ext\": \"1234\"\n}\n```"
+          },
+          "response": [
+            {
+              "id": "78b74e07-83a8-5aec-4caf-df85d9444d68",
+              "name": "Create a new call group",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n\t\"name\":\"Sales Group\",\n\t\"ext\":\"1234\",\n\t\"publicNumber\":\"+15555555555\",\n\t\"ringStrategy\":\"ring-all\",\n\t\"scope\":\"some\",\n\t\"tags\":[\"sales\",\"support\"],\n\t\"noAnswerAction\":\"transfer-to-ext\",\n\t\"transferExtension\":\"1003\"\n}"
+                },
+                "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/phoneCallgroups/"
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate",
+                  "name": "Cache-Control",
+                  "description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": "Options that are desired for the connection"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8",
+                  "name": "Content-Type",
+                  "description": "The mime type of this content"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 08 Jan 2018 12:40:15 GMT",
+                  "name": "Date",
+                  "description": "The date and time that the message was sent"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT",
+                  "name": "Expires",
+                  "description": "Gives the date/time after which the response is considered stale"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache",
+                  "name": "Pragma",
+                  "description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+                },
+                {
+                  "key": "Public-Key-Pins-Report-Only",
+                  "value": "max-age=1200; pin-sha256=\"2V5tfxXMLkn2kVg/Iv8FqL4JHcNVGEUFK27oSMYhHEU=\"; pin-sha256=\"8Rw90Ej3Ttt8RRkrg+WYDS9n7IS03bk5bjP/UXPtaY8=\"; pin-sha256=\"3YQf+D42t1/pQJhWTwYLRnFVnbBNXf9W5S6dmwq2+3g=\"; pin-sha256=\"klO23nT2ehFDXCfx3eHTDRESMz3asj1muO+4aIdjiuY=\"; pin-sha256=\"fake+hpkp+key+for+testing+report+only+QWERT=\"; includeSubDomains; report-uri=\"https://therealmerakidashboard.report-uri.io/r/default/hpkp/reportOnly\"",
+                  "name": "Public-Key-Pins-Report-Only",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin",
+                  "name": "X-Frame-Options",
+                  "description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+                },
+                {
+                  "key": "X-Rack-Cache",
+                  "value": "invalidate, pass",
+                  "name": "X-Rack-Cache",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "8ef48e16c6a18bd2310a1c0944d3e84e",
+                  "name": "X-Request-Id",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.111886",
+                  "name": "X-Runtime",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1",
+                  "name": "X-UA-Compatible",
+                  "description": "Custom header"
+                }
+              ],
+              "cookie": [],
+              "responseTime": "1129",
+              "body": "{\n  \"id\": \"178449602133687616\",\n  \"name\": \"Meraki Sales\",\n  \"publicNumber\": \"+15555555555\",\n  \"ext\": \"1234\"\n}"
+            }
+          ]
+        },
+        {
+          "_postman_id": "c488251d-77a5-b761-5af9-791cdf282cbc",
+          "name": "Update a call group",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"ext\":\"1234\",\n\t\"publicNumber\":\"+15555555555\",\n\t\"ringStrategy\":\"ring-all\",\n\t\"scope\":\"some\",\n\t\"tags\":[\"sales\",\"support\"],\n\t\"noAnswerAction\":\"transfer-to-ext\",\n\t\"transferExtension\":\"1003\"\n}"
+            },
+            "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/phoneCallgroups/{{callgroupId}}",
+            "description": "## HTTP REQUEST\n```POST /networks/[networkId]/phoneCallgroups/```\n##PARAMETERS\n|                       |                                                                                                                                                                                                                                                                                 | \n|-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| \n| **allowExternalForwards** | Allow external forwards. Boolean true or false                                                                                                                                                                                                                                  | \n| **ext**                   | The 4-6 digit extension. Extension cannot be in use.                                                                                                                                                                                                                            | \n| **maxWaitTime**           | Max wait time in seconds.                                                                                                                                                                                                                                                       | \n| **name**                  | The call group name.                                                                                                                                                                                                                                                            | \n| **noAnswerAction**        | No answer action: options: 'hang-up', 'transfer-to-ext'. If 'transfer-to-ext', use the transferExtension field                                                                                                                                                                  | \n| **publicNumber**          | The public number in E.164 format (obtained from 'Phone Numbers' API)                                                                                                                                                                                                           | \n| **ringStrategy**          | Ring strategy: options: 'ring-all', 'longest-idle-agent', 'round-robin'                                                                                                                                                                                                         | \n| **scope**                 | Device Scope: options: 'all' - All devices, 'some' - Devices with ANY of the following tags (specify tags field), 'all_tags' - Devices with ALL of the following tags (specify tags field), 'without_all_tags' - Devices WITHOUT ALL of the following tags (specify tags field) | \n| **tags**                  | Scope tags (use if scope is 'some', 'all_tags', or 'without_all_tags'). Submit as array of text. ex: [\"sales\", \"eng\"]                                                                                                                                                           | \n| **transferExtension**     | The extension to transfer to after wait time expires. Submit the 4-6 digit extension as text. Use if noAnswerAction is 'transfer-to-ext'                                                                                                                                        | \n| **waitTimeEnabled**       | Enable Max Wait Time. Boolean true or false                                                                                                                                                                                                                                     | \n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X POST --data-binary '{\"name\":\"Sales Group\",\"ext\":\"1234\",\"publicNumber\":\"+15555555555\",\"ringStrategy\":\"ring-all\",\"scope\":\"some\",\"tags\":[\"sales\",\"support\"],\"noAnswerAction\":\"transfer-to-ext\",\"transferExtension\":\"1003\"}' 'https://dashboard.meraki.com/api/v0/networks/[networkId]/phoneCallgroups/'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 201\n{\n  \"id\": \"178449602133687616\",\n  \"name\": \"Meraki Sales\",\n  \"publicNumber\": \"+15555555555\",\n  \"ext\": \"1234\"\n}\n```"
+          },
+          "response": [
+            {
+              "id": "bbf02887-8e0f-8694-8bac-dadad7b8f329",
+              "name": "Update a call group",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n\t\"ext\":\"1234\",\n\t\"publicNumber\":\"+15555555555\",\n\t\"ringStrategy\":\"ring-all\",\n\t\"scope\":\"some\",\n\t\"tags\":[\"sales\",\"support\"],\n\t\"noAnswerAction\":\"transfer-to-ext\",\n\t\"transferExtension\":\"1003\"\n}"
+                },
+                "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/phoneCallgroups/{{callgroupId}}"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [],
+              "cookie": [],
+              "responseTime": "0",
+              "body": "{\n  \"id\": \"178449602133687616\",\n  \"name\": \"Meraki Sales\",\n  \"publicNumber\": \"+15555555555\",\n  \"ext\": \"1234\"\n}"
+            }
+          ]
+        },
+        {
+          "_postman_id": "78ba6681-e0cd-952b-f606-fa646c236796",
+          "name": "Delete a call group",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/phoneCallgroups/{{callgroupId}}",
+            "description": "## HTTP REQUEST\n```DELETE /networks/[networkId]/phoneCallgroups/[id]```\n## PARAMETERS\n**None**\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X DELETE 'https://dashboard.meraki.com/api/v0/networks/[networkId]/phoneCallgroups/[id]'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 204\n(empty)\n```"
+          },
+          "response": [
+            {
+              "id": "de4d2d73-beb0-f85f-e3ca-142754e7c762",
+              "name": "Delete a call group",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/phoneCallgroups/{{callgroupId}}"
+              },
+              "status": "OK",
+              "code": 204,
+              "_postman_previewlanguage": "",
+              "header": [],
+              "cookie": [],
+              "responseTime": "0",
+              "body": "(empty)"
+            }
+          ]
         }
       ]
     },
