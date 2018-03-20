@@ -1,7 +1,7 @@
 {
   "info": {
-    "name": "Meraki Dashboard Prov API",
     "_postman_id": "d092a0e1-7632-9720-359e-d2366897b860",
+    "name": "Meraki Dashboard Prov API",
     "description": "# Meraki Dashboard API\n\nThis collection of API calls provides an easy way to interact with a Cisco Meraki network. Update your environment variables to efficiently use the collection.\n\n**Common Variables**\n* X-Cisco-Meraki-API-Key\n* organizationId\n* networkId\n\nYou will need to add additional variables as the endpoints require more details, such as a **serial** or **ssid**.\n\n\n# What's New?\n\n** Feb 2018 **\n- Clone Network\n  * Use the **Create a Network** endpoint with the `copyFromNetworkId` parameter to create a new network with the sames settings as the source network.\n\n** Nov 2017 **\n- MX VPN Firewall Rules\n  * Return the firewall rules for an org\n  * Upate the firewall rules of an org\n  \n**Note**: This endpoint requires support@meraki.com to enable it.\n\n** Oct 2017. **\n- Group Policy support\n  * Bind a client to a Group Policy\n  * List Group Policies for a Network\n- MX L3 Firewalls\n  * Return L3 Firewall Rules\n  * Update L3 Firewall Rules\n- Bluetooth Settings\n  * Return Bluetooth Settings\n  * Update Bluetooth Settings\n- Splash authorization\n  * Return Splash Authorization status\n  * Update Splash Authorization status\n- Update the SNMP settings for an organization\n- Phone Assignments\n  * List all phones in a network and their contact assignment\n  * Return a phone's contact assignment\n  * Assign a contact and number(s) to a phone\n  * Remove a phone assignment (unprovision a phone)\n\n## Documentation and Resources\nhttps://dashboard.meraki.com/api_docs\nhttp://developers.meraki.com/\n\n## Troubleshooting:\n- Check your profile permissions. If you can't do it in Dashboard, you won't be able to in the API.\n\n- Some calls seem to work better if you use the shard number instead of \"dashboard\" because of a required redirect. Just update the shard that matches when you login to the web Dashboard. It will be in the URL.\n\n**Original**\n\n```\n- https://dashboard.meraki.com/api/v0/networks/{{networkId}}/ssids/{{ssidNum}}?name=viaAPI345&number={{ssidNum}}\n```\n**With shard number**\n\n```\n- https://n123.meraki.com/api/v0/networks/{{networkId}}/ssids/{{ssidNum}}?name=viaAPI345&number={{ssidNum}}\n```",
     "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
   },
@@ -667,8 +667,7 @@
                   "mode": "raw",
                   "raw": "{\n  \"ssids\": {\n    \"3\": {\n      \"isAuthorized\": true,\n      \"authorizedAt\": \"2017-07-19 16:24:13 UTC\",\n      \"expiresAt\": \"2017-07-20 16:24:13 UTC\"\n    }\n  }\n}"
                 },
-                "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/clients/{{clientMac}}/splashAuthorizationStatus",
-                "description": ""
+                "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/clients/{{clientMac}}/splashAuthorizationStatus"
               },
               "status": "OK",
               "code": 200,
@@ -894,8 +893,7 @@
                     }
                   ]
                 },
-                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/devices",
-                "description": ""
+                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/devices"
               },
               "status": "OK",
               "code": 200,
@@ -1056,8 +1054,7 @@
                     }
                   ]
                 },
-                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/devices/{{serial}}",
-                "description": ""
+                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/devices/{{serial}}"
               },
               "status": "OK",
               "code": 200,
@@ -1218,8 +1215,7 @@
                     }
                   ]
                 },
-                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/devices/{{serial}}/performance",
-                "description": ""
+                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/devices/{{serial}}/performance"
               },
               "status": "OK",
               "code": 200,
@@ -1404,8 +1400,7 @@
                     }
                   ]
                 },
-                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/devices/{{serial}}/uplink",
-                "description": ""
+                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/devices/{{serial}}/uplink"
               },
               "status": "OK",
               "code": 200,
@@ -1564,8 +1559,7 @@
                     }
                   ]
                 },
-                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/devices/claim",
-                "description": ""
+                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/devices/claim"
               },
               "status": "Not Found",
               "code": 404,
@@ -1723,8 +1717,7 @@
                     }
                   ]
                 },
-                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/groupPolicies",
-                "description": ""
+                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/groupPolicies"
               },
               "status": "OK",
               "code": 200,
@@ -1892,8 +1885,7 @@
                     }
                   ]
                 },
-                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/ssids/{{ssidNum}}]/l3FirewallRules",
-                "description": ""
+                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/ssids/{{ssidNum}}]/l3FirewallRules"
               },
               "status": "OK",
               "code": 200,
@@ -2412,8 +2404,7 @@
                     }
                   ]
                 },
-                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/l3FirewallRules",
-                "description": ""
+                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/l3FirewallRules"
               },
               "status": "OK",
               "code": 200,
@@ -2605,8 +2596,7 @@
                     }
                   ]
                 },
-                "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/networks",
-                "description": ""
+                "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/networks"
               },
               "status": "OK",
               "code": 200,
@@ -2785,8 +2775,7 @@
                     }
                   ]
                 },
-                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}",
-                "description": ""
+                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}"
               },
               "status": "OK",
               "code": 200,
@@ -3076,8 +3065,7 @@
                     }
                   ]
                 },
-                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/siteToSiteVpn",
-                "description": ""
+                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/siteToSiteVpn"
               },
               "status": "OK",
               "code": 200,
@@ -3306,8 +3294,7 @@
                       "equals": true
                     }
                   ]
-                },
-                "description": ""
+                }
               },
               "status": "OK",
               "code": 200,
@@ -3494,8 +3481,7 @@
                     }
                   ]
                 },
-                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/bluetoothSettings",
-                "description": ""
+                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/bluetoothSettings"
               },
               "status": "OK",
               "code": 200,
@@ -3723,8 +3709,7 @@
                       "equals": true
                     }
                   ]
-                },
-                "description": ""
+                }
               },
               "status": "OK",
               "code": 200,
@@ -3892,8 +3877,7 @@
                     }
                   ]
                 },
-                "url": "https://dashboard.meraki.com/api/v0/organizations",
-                "description": ""
+                "url": "https://dashboard.meraki.com/api/v0/organizations"
               },
               "status": "OK",
               "code": 200,
@@ -4054,8 +4038,7 @@
                     }
                   ]
                 },
-                "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}",
-                "description": ""
+                "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}"
               },
               "status": "OK",
               "code": 200,
@@ -4312,8 +4295,7 @@
                     }
                   ]
                 },
-                "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/licenseState",
-                "description": ""
+                "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/licenseState"
               },
               "status": "OK",
               "code": 200,
@@ -4495,8 +4477,7 @@
                     }
                   ]
                 },
-                "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/inventory",
-                "description": ""
+                "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/inventory"
               },
               "status": "OK",
               "code": 200,
@@ -4657,8 +4638,7 @@
                     }
                   ]
                 },
-                "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/snmp",
-                "description": ""
+                "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/snmp"
               },
               "status": "OK",
               "code": 200,
@@ -4816,8 +4796,7 @@
                   "mode": "raw",
                   "raw": "{\n\t\"v2cEnabled\":true,\n\t\"v3Enabled\":false\n}"
                 },
-                "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/snmp",
-                "description": ""
+                "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/snmp"
               },
               "status": "OK",
               "code": 200,
@@ -5773,8 +5752,7 @@
                   "mode": "raw",
                   "raw": ""
                 },
-                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/phoneAssignments",
-                "description": ""
+                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/phoneAssignments"
               },
               "status": "OK",
               "code": 200,
@@ -5923,8 +5901,7 @@
                   "mode": "raw",
                   "raw": ""
                 },
-                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/phoneAssignments/{{serial}}",
-                "description": ""
+                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/phoneAssignments/{{serial}}"
               },
               "status": "OK",
               "code": 200,
@@ -6052,8 +6029,7 @@
                   "mode": "raw",
                   "raw": ""
                 },
-                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/phoneAssignments",
-                "description": ""
+                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/phoneAssignments"
               },
               "status": "OK",
               "code": 200,
@@ -6206,8 +6182,7 @@
                   "mode": "raw",
                   "raw": ""
                 },
-                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/phoneAssignments",
-                "description": ""
+                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/phoneAssignments"
               },
               "status": "OK",
               "code": 200,
@@ -6340,8 +6315,7 @@
                   "mode": "raw",
                   "raw": "{\n\t\"contactId\":\"646829496481091096\",\n\t\"contactType\":\"Dashboard\",\n\t\"ext\":\"1111\"\n}"
                 },
-                "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/phoneAssignments/{{serial}}",
-                "description": ""
+                "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/phoneAssignments/{{serial}}"
               },
               "status": "OK",
               "code": 200,
@@ -6469,8 +6443,7 @@
                   "mode": "raw",
                   "raw": ""
                 },
-                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/phoneAssignments/{{serial}}",
-                "description": ""
+                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/phoneAssignments/{{serial}}"
               },
               "status": "OK",
               "code": 200,
@@ -6627,8 +6600,7 @@
                   "mode": "raw",
                   "raw": ""
                 },
-                "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/phoneAssignments/{{serial}}",
-                "description": ""
+                "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/phoneAssignments/{{serial}}"
               },
               "status": "No Content",
               "code": 204,
@@ -7234,8 +7206,7 @@
                   "mode": "raw",
                   "raw": ""
                 },
-                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/ssids",
-                "description": ""
+                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/ssids"
               },
               "status": "OK",
               "code": 200,
@@ -7384,8 +7355,7 @@
                   "mode": "raw",
                   "raw": ""
                 },
-                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/ssids/{{ssidNum}}",
-                "description": ""
+                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/ssids/{{ssidNum}}"
               },
               "status": "OK",
               "code": 200,
@@ -7987,6 +7957,198 @@
             },
             "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/vlans/{{vlanId}}",
             "description": "## HTTP REQUEST\n```\nDELETE /networks/[networkId]/vlans/[id]\n```\n\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X DELETE 'https://dashboard.meraki.com/api/v0/networks/[networkId]/vlans/[id]'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 204\n\n(empty)\n```"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "_postman_id": "bd576efc-4f9f-4c8a-98b9-035ef6767127",
+      "name": "MX L3 Firewall Rules Copy",
+      "description": "",
+      "item": [
+        {
+          "_postman_id": "628bfae3-ca68-4d6a-8b7d-51c45eb05a99",
+          "name": "MX - Return L3 Firewall Rules",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "Turkcell",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/l3FirewallRules",
+            "description": "## HTTP REQUEST\n```GET /networks/[networkId]/l3FirewallRules```\n## PARAMETERS\nNone\n\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X GET -H 'Content-Type: application/json' 'https://dashboard.meraki.com/api/v0/networks/[networkId]/l3FirewallRules'\n```\n\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n[\n  {\n     \"comment\": \"Allow tcp traffic to subnet with http servers.\",\n     \"policy\": \"allow\",\n     \"protocol\": \"tcp\",\n     \"destPort\": \"80,443\",\n     \"destCidr\": \"10.1.333/24\",\n     \"srcPort\": \"Any\",\n     \"srcCidr\": \"Any\",\n     \"syslogEnabled\": false\n  },\n  {\n     \"comment\": \"Block all tcp to http/https ports.\",\n     \"policy\": \"deny\",\n     \"protocol\": \"http\",\n     \"destPort\": \"80,443\",\n     \"destCidr\": \"10.1.1.0/24,10.1.2.0/24\",\n     \"srcPort\": \"Any\",\n     \"srcCidr\": \"Any\",\n     \"syslogEnabled\": false\n  },\n  {\n     \"comment\": \"Default rule\",\n     \"policy\": \"allow\",\n     \"protocol\": \"Any\",\n     \"destPort\": \"Any\",\n     \"destCidr\": \"Any\",\n     \"srcPort\": \"Any\",\n     \"srcCidr\": \"Any\",\n     \"syslogEnabled\": false\n  }\n]\n```"
+          },
+          "response": [
+            {
+              "id": "8dfa4693-9e6d-4501-ba89-60a779355218",
+              "name": "MX - Return L3 Firewall Rules",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "name",
+                      "value": "Turkcell",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/l3FirewallRules"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate",
+                  "name": "Cache-Control",
+                  "description": ""
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "name": "Content-Encoding",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8",
+                  "name": "Content-Type",
+                  "description": ""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 12 Oct 2017 09:51:49 GMT",
+                  "name": "Date",
+                  "description": ""
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT",
+                  "name": "Expires",
+                  "description": ""
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache",
+                  "name": "Pragma",
+                  "description": ""
+                },
+                {
+                  "key": "Public-Key-Pins-Report-Only",
+                  "value": "max-age=1200; pin-sha256=\"2V5tfxXMLkn2kVg/Iv8FqL4JHcNVGEUFK27oSMYhHEU=\"; pin-sha256=\"8Rw90Ej3Ttt8RRkrg+WYDS9n7IS03bk5bjP/UXPtaY8=\"; pin-sha256=\"3YQf+D42t1/pQJhWTwYLRnFVnbBNXf9W5S6dmwq2+3g=\"; pin-sha256=\"klO23nT2ehFDXCfx3eHTDRESMz3asj1muO+4aIdjiuY=\"; pin-sha256=\"fake+hpkp+key+for+testing+report+only+QWERT=\"; includeSubDomains; report-uri=\"https://therealmerakidashboard.report-uri.io/r/default/hpkp/reportOnly\"",
+                  "name": "Public-Key-Pins-Report-Only",
+                  "description": ""
+                },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": ""
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains",
+                  "name": "Strict-Transport-Security",
+                  "description": ""
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": ""
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding",
+                  "name": "Vary",
+                  "description": ""
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin",
+                  "name": "X-Frame-Options",
+                  "description": ""
+                },
+                {
+                  "key": "X-Rack-Cache",
+                  "value": "miss",
+                  "name": "X-Rack-Cache",
+                  "description": ""
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "c1cc756d80ca4834b33294ee22581294",
+                  "name": "X-Request-Id",
+                  "description": ""
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.079556",
+                  "name": "X-Runtime",
+                  "description": ""
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1",
+                  "name": "X-UA-Compatible",
+                  "description": ""
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[{\"comment\":\"Private FTP Server\",\"policy\":\"deny\",\"protocol\":\"tcp\",\"srcPort\":\"Any\",\"srcCidr\":\"Any\",\"destPort\":\"21\",\"destCidr\":\"192.168.21.123/32\",\"syslogEnabled\":false},{\"comment\":\"Default rule\",\"policy\":\"allow\",\"protocol\":\"Any\",\"srcPort\":\"Any\",\"srcCidr\":\"Any\",\"destPort\":\"Any\",\"destCidr\":\"Any\",\"syslogEnabled\":false}]"
+            }
+          ]
+        },
+        {
+          "_postman_id": "00be6203-a3c4-464a-a96d-07ed635f5980",
+          "name": "MX - Update L3 Firewall Rules ",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rules\": [\n      {\n          \"comment\": \"Private FTP Server\",\n          \"policy\": \"deny\",\n          \"protocol\": \"tcp\",\n          \"srcPort\": \"Any\",\n          \"srcCidr\": \"Any\",\n          \"destPort\": \"21,22\",\n          \"destCidr\": \"192.168.21.123/32\",\n          \"syslogEnabled\": false\n      },\n      {\n          \"comment\": \"Default rule\",\n          \"policy\": \"allow\",\n          \"protocol\": \"Any\",\n          \"srcPort\": \"Any\",\n          \"srcCidr\": \"Any\",\n          \"destPort\": \"Any\",\n          \"destCidr\": \"Any\",\n          \"syslogEnabled\": false\n      }\n  ]\n}"
+            },
+            "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/l3FirewallRules/",
+            "description": "## HTTP REQUEST\n```\nPUT /networks/[networkId]/l3FirewallRules\n```\n\n## PARAMETERS\n**rules**\n\nAn ordered array of the firewall rules (not including the default rule)\n\n**comment**|**Description of the rule (optional)**\n:-----:|:-----:\npolicy|Allow' or 'Deny' traffic specified by this rule\nprotocol|The type of protocol (must be 'tcp', 'udp', 'icmp' or 'any')\nsrcPort|Comma-separated list of source port(s) (integer in the range 1-65535), or 'any'\nsrcCidr|Comma-separated list of source IP address(es) (in IP or CIDR notation), or 'any' (note: FQDN not supported for source addresses)\ndestPort|Comma-separated list of destination port(s) (integer in the range 1-65535), or 'any'\ndestCidr|Comma-separated list of destination IP address(es) (in IP or CIDR notation), fully-qualified domain names (FQDN) or 'any'\nsyslogEnabled|Log this rule to syslog (true or false, boolean value) - only applicable if a syslog has been configured (optional)\n\n\n**syslogDefaultRule**\n\nLog the special default rule (boolean value - enable only if you've configured a syslog server) (optional)\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n[\n  {\n     \"comment\": \"a note about the rule\",\n     \"policy\": \"deny\",\n     \"protocol\": \"tcp\",\n     \"destPort\": \"80,443\",\n     \"destCidr\": \"192.168.1.0/24,192.168.2.0/24\",\n     \"srcPort\": \"Any\",\n     \"srcCidr\": \"Any\",\n     \"syslogEnabled\": true\n  },\n  {\n     \"comment\": \"Default rule\",\n     \"policy\": \"allow\",\n     \"protocol\": \"Any\",\n     \"destPort\": \"Any\",\n     \"destCidr\": \"Any\",\n     \"srcPort\": \"Any\",\n     \"srcCidr\": \"Any\",\n     \"syslogEnabled\": true\n  }\n]\n```"
           },
           "response": []
         }
