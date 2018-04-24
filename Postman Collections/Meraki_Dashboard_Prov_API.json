@@ -5361,9 +5361,145 @@
               ]
             },
             "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/deviceStatuses",
-            "description": "## HTTP REQUEST\n```\nGET /organizations/[id]/inventory\n```\n\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X GET -H 'Content-Type: application/json' 'https://api.meraki.com/api/v0/organizations/[id]/inventory'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n[\n  {\n    \"mac\": \"00:11:22:33:44:55:66\",\n    \"serial\": \"Q2XX-XXXX-XXXX\",\n    \"networkId\": \"N_1234\",\n    \"model\": \"MR34\",\n    \"claimedAt\": \"1477958158.69776\",\n    \"publicIp\": \"1.2.3.4\",\n  }\n]\n```"
+            "description": "## HTTP REQUEST\n```\nGET /organizations/[organizationId]/deviceStatuses\n```\n\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X GET -H 'Content-Type: application/json' 'https://api.meraki.com/api/v0/organizations/[organizationId]/deviceStatuses'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n[\n  {\n    \"name\":\"My AP\",\n    \"serial\":\"Q2XX-XXXX-XXXX\",\n    \"mac\":\"00:11:22:33:44:55:66\",\n    \"status\":\"online\",\n    \"lanIp:\"1.2.3.4\",\n    \"publicIp\":\"4.3.2.1\",\n    \"networkId\":\"N_1234\"\n  }\n]\n```"
           },
-          "response": []
+          "response": [
+            {
+              "id": "c098e7ab-205d-4b0c-97c7-90de9eb74fa8",
+              "name": "Organizations - List the status of every Meraki device in the organization",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}",
+                    "disabled": false
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "order",
+                      "value": "234234234",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/deviceStatuses"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate",
+                  "name": "Cache-Control",
+                  "description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": "Options that are desired for the connection"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "name": "Content-Encoding",
+                  "description": "The type of encoding used on the data."
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "name": "Content-Type",
+                  "description": "The mime type of this content"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 24 Apr 2018 19:13:25 GMT",
+                  "name": "Date",
+                  "description": "The date and time that the message was sent"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT",
+                  "name": "Expires",
+                  "description": "Gives the date/time after which the response is considered stale"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache",
+                  "name": "Pragma",
+                  "description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+                },
+                {
+                  "key": "Public-Key-Pins-Report-Only",
+                  "value": "max-age=1200; pin-sha256=\"2V5tfxXMLkn2kVg/Iv8FqL4JHcNVGEUFK27oSMYhHEU=\"; pin-sha256=\"8Rw90Ej3Ttt8RRkrg+WYDS9n7IS03bk5bjP/UXPtaY8=\"; pin-sha256=\"3YQf+D42t1/pQJhWTwYLRnFVnbBNXf9W5S6dmwq2+3g=\"; pin-sha256=\"klO23nT2ehFDXCfx3eHTDRESMz3asj1muO+4aIdjiuY=\"; pin-sha256=\"fake+hpkp+key+for+testing+report+only+QWERT=\"; includeSubDomains; report-uri=\"https://therealmerakidashboard.report-uri.io/r/default/hpkp/reportOnly\"",
+                  "name": "Public-Key-Pins-Report-Only",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains",
+                  "name": "Strict-Transport-Security",
+                  "description": "A HSTS Policy informing the HTTP client how long to cache the HTTPS only policy and whether this applies to subdomains."
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding",
+                  "name": "Vary",
+                  "description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin",
+                  "name": "X-Frame-Options",
+                  "description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+                },
+                {
+                  "key": "X-Rack-Cache",
+                  "value": "miss",
+                  "name": "X-Rack-Cache",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "953719597639334423a042120c08a891",
+                  "name": "X-Request-Id",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.221602",
+                  "name": "X-Runtime",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1",
+                  "name": "X-UA-Compatible",
+                  "description": "Custom header"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[{\"name\":null,\"serial\":\"Q2QN-WVV9-W4KK\",\"mac\":\"e0:55:3d:17:c6:87\",\"publicIp\":\"64.103.26.54\",\"networkId\":\"L_646829496481095933\",\"status\":\"offline\",\"usingCellularFailover\":false,\"wan1Ip\":\"10.10.20.70\",\"wan2Ip\":null},{\"name\":\"S23\",\"serial\":\"Q2HP-AJ22-UG72\",\"mac\":\"88:15:44:df:76:d1\",\"publicIp\":\"64.103.26.57\",\"networkId\":\"L_646829496481095933\",\"status\":\"offline\",\"lanIp\":\"10.0.10.2\"},{\"name\":null,\"serial\":\"Q2RD-4YLL-CSUN\",\"mac\":\"e0:55:3d:f4:39:17\",\"publicIp\":null,\"networkId\":\"L_646829496481095933\",\"status\":\"offline\",\"lanIp\":null},{\"name\":null,\"serial\":\"Q2MD-9PJD-E9L7\",\"mac\":\"88:15:44:60:20:a8\",\"publicIp\":null,\"networkId\":\"L_646829496481095933\",\"status\":\"offline\",\"lanIp\":null},{\"name\":null,\"serial\":\"Q2EK-SMY9-FSWW\",\"mac\":\"e0:55:3d:10:42:a6\",\"publicIp\":null,\"networkId\":\"L_646829496481095933\",\"status\":\"offline\",\"lanIp\":null},{\"name\":null,\"serial\":\"Q2EK-SARE-UUBY\",\"mac\":\"e0:55:3d:10:21:f0\",\"publicIp\":null,\"networkId\":\"L_646829496481095933\",\"status\":\"offline\",\"lanIp\":null},{\"name\":null,\"serial\":\"Q2AT-U95F-NHKM\",\"mac\":\"e0:55:3d:50:74:0a\",\"publicIp\":null,\"networkId\":\"L_646829496481095933\",\"status\":\"offline\",\"lanIp\":null},{\"name\":null,\"serial\":\"Q2AT-8L46-5E9H\",\"mac\":\"e0:55:3d:4f:31:a2\",\"publicIp\":null,\"networkId\":\"L_646829496481095933\",\"status\":\"offline\",\"lanIp\":null},{\"name\":null,\"serial\":\"Q2AT-6YBM-LFF2\",\"mac\":\"e0:55:3d:4f:3c:3d\",\"publicIp\":null,\"networkId\":\"L_646829496481095933\",\"status\":\"offline\",\"lanIp\":null},{\"name\":null,\"serial\":\"Q2AT-DA5E-TRUS\",\"mac\":\"e0:55:3d:4e:bc:75\",\"publicIp\":null,\"networkId\":\"L_646829496481095933\",\"status\":\"offline\",\"lanIp\":null},{\"name\":null,\"serial\":\"Q2BV-NZ63-KCSW\",\"mac\":\"e0:55:3d:84:a3:65\",\"publicIp\":null,\"networkId\":\"L_646829496481095660\",\"status\":\"offline\",\"lanIp\":null},{\"name\":\"Switch\",\"serial\":\"Q2HP-TQPZ-M5LP\",\"mac\":\"e0:55:3d:d1:a9:b1\",\"publicIp\":\"64.103.26.54\",\"networkId\":\"L_646829496481095660\",\"status\":\"offline\",\"lanIp\":\"192.168.128.2\"},{\"name\":\"Router\",\"serial\":\"Q2QN-XPL2-2MPN\",\"mac\":\"e0:55:3d:70:a4:d7\",\"publicIp\":\"64.103.26.54\",\"networkId\":\"L_646829496481095660\",\"status\":\"offline\",\"usingCellularFailover\":false,\"wan1Ip\":\"10.10.20.62\",\"wan2Ip\":null},{\"name\":null,\"serial\":\"Q2AT-85YQ-XEEC\",\"mac\":\"e0:55:3d:4f:33:8b\",\"publicIp\":\"64.103.26.54\",\"networkId\":\"L_646829496481095660\",\"status\":\"offline\",\"lanIp\":\"192.168.128.6\"},{\"name\":\"ap1_dne-vienna-mar2018\",\"serial\":\"Q2KD-VUCZ-2RUY\",\"mac\":\"88:15:44:ab:ac:99\",\"publicIp\":\"173.38.220.60\",\"networkId\":\"N_646829496481143399\",\"status\":\"offline\",\"lanIp\":\"192.168.137.234\"},{\"name\":null,\"serial\":\"Q2PD-2U3F-N4Y9\",\"mac\":\"e0:cb:bc:30:c6:5e\",\"publicIp\":\"189.216.94.119\",\"networkId\":\"L_646829496481098845\",\"status\":\"offline\",\"lanIp\":\"192.168.0.2\"},{\"name\":null,\"serial\":\"Q2JD-YWZ2-KVUR\",\"mac\":\"88:15:44:ad:97:c0\",\"publicIp\":null,\"networkId\":\"N_646829496481144175\",\"status\":\"offline\",\"lanIp\":null},{\"name\":null,\"serial\":\"Q2JD-V3G3-JHA3\",\"mac\":\"88:15:44:ad:2d:a0\",\"publicIp\":null,\"networkId\":\"N_646829496481144175\",\"status\":\"offline\",\"lanIp\":null},{\"name\":null,\"serial\":\"Q2FD-X82Q-6SFQ\",\"mac\":\"88:15:44:f4:f3:c0\",\"publicIp\":null,\"networkId\":\"N_646829496481144175\",\"status\":\"offline\",\"lanIp\":null},{\"name\":null,\"serial\":\"Q2BV-NJY8-P6KV\",\"mac\":\"e0:55:3d:84:a3:67\",\"publicIp\":null,\"networkId\":\"L_646829496481095933\",\"status\":\"offline\",\"lanIp\":null},{\"name\":null,\"serial\":\"Q2RD-6YRX-3EJV\",\"mac\":\"0c:8d:db:67:01:86\",\"publicIp\":null,\"networkId\":\"L_646829496481099051\",\"status\":\"offline\",\"lanIp\":null},{\"name\":null,\"serial\":\"Q2QN-F2KR-YVC3\",\"mac\":\"e0:55:3d:70:a6:c5\",\"publicIp\":null,\"networkId\":\"L_646829496481099051\",\"status\":\"offline\",\"usingCellularFailover\":false,\"wan1Ip\":null,\"wan2Ip\":null},{\"name\":null,\"serial\":\"Q2LD-98WJ-743V\",\"mac\":\"0c:8d:db:b2:86:9c\",\"publicIp\":null,\"networkId\":\"L_646829496481099052\",\"status\":\"offline\",\"lanIp\":null},{\"name\":null,\"serial\":\"Q2PD-GP6W-ZGBC\",\"mac\":\"0c:8d:db:65:89:27\",\"publicIp\":null,\"networkId\":\"L_646829496481099052\",\"status\":\"offline\",\"lanIp\":null},{\"name\":null,\"serial\":\"Q2LD-LREJ-RRZT\",\"mac\":\"88:15:44:50:09:e4\",\"publicIp\":null,\"networkId\":\"N_646829496481144501\",\"status\":\"offline\",\"lanIp\":null},{\"name\":null,\"serial\":\"Q2PD-PWC9-2KW4\",\"mac\":\"0c:8d:db:db:aa:86\",\"publicIp\":null,\"networkId\":\"N_646829496481144501\",\"status\":\"offline\",\"lanIp\":null},{\"name\":null,\"serial\":\"Q2RD-PS95-N2WJ\",\"mac\":\"e0:55:3d:ee:df:1a\",\"publicIp\":null,\"networkId\":\"N_646829496481144502\",\"status\":\"offline\",\"lanIp\":null},{\"name\":null,\"serial\":\"Q2PD-Y4LF-CDX3\",\"mac\":\"e0:cb:bc:31:82:df\",\"publicIp\":null,\"networkId\":\"N_646829496481144510\",\"status\":\"offline\",\"lanIp\":null},{\"name\":null,\"serial\":\"Q2JD-CAF3-Y6G2\",\"mac\":\"e0:55:3d:1f:a7:10\",\"publicIp\":null,\"networkId\":\"L_646829496481099063\",\"status\":\"offline\",\"lanIp\":null},{\"name\":null,\"serial\":\"Q2MD-BHHS-5FDL\",\"mac\":\"88:15:44:60:21:10\",\"publicIp\":null,\"networkId\":\"L_646829496481099066\",\"status\":\"offline\",\"lanIp\":null},{\"name\":null,\"serial\":\"Q2HP-F5K5-R88R\",\"mac\":\"88:15:44:df:f3:af\",\"publicIp\":null,\"networkId\":\"L_646829496481099066\",\"status\":\"offline\",\"lanIp\":null},{\"name\":null,\"serial\":\"Q2BV-5YPE-R9YV\",\"mac\":\"e0:55:3d:84:a3:7e\",\"publicIp\":null,\"networkId\":\"L_646829496481099070\",\"status\":\"offline\",\"lanIp\":null},{\"name\":null,\"serial\":\"Q2HP-Q9S8-BVHB\",\"mac\":\"e0:55:3d:d2:e6:cd\",\"publicIp\":null,\"networkId\":\"L_646829496481099070\",\"status\":\"offline\",\"lanIp\":null},{\"name\":null,\"serial\":\"Q2JD-N9K5-3QRB\",\"mac\":\"e0:55:3d:21:26:60\",\"publicIp\":null,\"networkId\":\"L_646829496481099070\",\"status\":\"offline\",\"lanIp\":null},{\"name\":null,\"serial\":\"Q2PD-LVHH-AJGZ\",\"mac\":\"e0:55:3d:f3:4b:0e\",\"publicIp\":null,\"networkId\":\"L_646829496481099070\",\"status\":\"offline\",\"lanIp\":null},{\"name\":null,\"serial\":\"Q2RD-PPCW-Z5SX\",\"mac\":\"e0:55:3d:ee:de:34\",\"publicIp\":null,\"networkId\":\"L_646829496481099089\",\"status\":\"offline\",\"lanIp\":null}]\n"
+            }
+          ]
         },
         {
           "_postman_id": "2762f755-a207-eae7-6435-6ce8d1d1dffd",
