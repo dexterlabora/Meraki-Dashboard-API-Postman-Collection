@@ -37,7 +37,7 @@
                 }
               ]
             },
-            "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/admins",
+            "url": "https://api.meraki.com/api/v0/organizations/{{organizationId}}/admins",
             "description": "## HTTP REQUEST\n```\nGET /organizations/[organization_id]/admins\n```\n\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X GET -H 'Content-Type: application/json' 'https://dashboard.meraki.com/api/v0/organizations/1234/admins'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n[\n  {\n    \"id\":\"1\",\n    \"name\":\"Miles Meraki\",\n    \"email\":\"miles@meraki.com\",\n    \"orgAccess\":\"none\",\n    \"tags\":[\n      {\n        \"tag\":\"west\",\n        \"access\":\"read-only\"\n      }\n    ],\n    \"networks\":[\n      {\n        \"id\":\"N_249\",\n        \"access\":\"full\"\n      }\n    ]\n  }\n]\n```"
           },
           "response": []
