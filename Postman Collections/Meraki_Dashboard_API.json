@@ -870,6 +870,69 @@
           "AllowDynamicFormParameters": false,
           "IsMultiContentStreaming": false
         }
+      },
+      "put": {
+        "description": "## HTTP REQUEST\n```\nPUT /networks/[networkId]/devices/[serial]\n```\n\n## PARAMETERS\n\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\nname|The name of a device\ntags|The tags of a device\nlat|The latitude of a device\nlng|The longitude of a device\naddress|The address of a device\nmoveMapMarker|Whether or not to set the latitude and longitude of a device based on the new address. Only applies when lat and lng are not specified.\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X PUT -H 'Content-Type: application/json' --data-binary '{\"name\":\"Your AP\", \"lat\":37.4180951010362, \"lng\":-122.098531723022, \"serial\":\"Q2XX-XXXX-XXXX\", \"mac\":\"00:11:22:33:44:55:66\", \"tags\":\" recently-added \"}' 'https://api.meraki.com/api/v0/networks/[networkId]/devices/[serial]'\n```\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n{\n  \"name\":\"Your AP\",\n  \"tags\":\" recently-added \",\n  \"lat\":37.4180951010362,\n  \"lng\":-122.098531723022,\n  \"serial\":\"Q2XX-XXXX-XXXX\",\n  \"mac\":\"00:11:22:33:44:55:66\",\n  \"model\":\"MR34\",\n  \"address\":\"1600 Pennsylvania Ave\",\n  \"moveMapMarker\": true,\n  \"lanIp\":\"1.2.3.4\"\n}\n```",
+        "summary": "Devices - Update the attributes of a device",
+        "tags": [
+          "Devices"
+        ],
+        "operationId": "NetworksDevicesByNetworkIdAndSerialPut",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Devices  update the attributes of a devicerequest"
+            }
+          },
+          {
+            "name": "X-Cisco-Meraki-API-Key",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "networkId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "serial",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
       }
     },
     "/networks/{networkId}/devices/{serial}/performance": {
@@ -917,64 +980,6 @@
                 "perfScore": 2
               }
             }
-          }
-        },
-        "security": [],
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
-      }
-    },
-    "/networks/{networkId}/devices/Q2GD-LMLX-SEUM": {
-      "put": {
-        "description": "## HTTP REQUEST\n```\nPUT /networks/[networkId]/devices/[serial]\n```\n\n## PARAMETERS\n\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\nname|The name of a device\ntags|The tags of a device\nlat|The latitude of a device\nlng|The longitude of a device\naddress|The address of a device\nmoveMapMarker|Whether or not to set the latitude and longitude of a device based on the new address. Only applies when lat and lng are not specified.\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X PUT -H 'Content-Type: application/json' --data-binary '{\"name\":\"Your AP\", \"lat\":37.4180951010362, \"lng\":-122.098531723022, \"serial\":\"Q2XX-XXXX-XXXX\", \"mac\":\"00:11:22:33:44:55:66\", \"tags\":\" recently-added \"}' 'https://api.meraki.com/api/v0/networks/[networkId]/devices/[serial]'\n```\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n{\n  \"name\":\"Your AP\",\n  \"tags\":\" recently-added \",\n  \"lat\":37.4180951010362,\n  \"lng\":-122.098531723022,\n  \"serial\":\"Q2XX-XXXX-XXXX\",\n  \"mac\":\"00:11:22:33:44:55:66\",\n  \"model\":\"MR34\",\n  \"address\":\"1600 Pennsylvania Ave\",\n  \"moveMapMarker\": true,\n  \"lanIp\":\"1.2.3.4\"\n}\n```",
-        "summary": "Devices - Update the attributes of a device",
-        "tags": [
-          "Devices"
-        ],
-        "operationId": "NetworksDevicesQ2GDLMLXSEUMByNetworkIdPut",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "Body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/Devices  update the attributes of a devicerequest"
-            }
-          },
-          {
-            "name": "X-Cisco-Meraki-API-Key",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "description": ""
-          },
-          {
-            "name": "Content-Type",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "description": ""
-          },
-          {
-            "name": "networkId",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "description": ""
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": ""
           }
         },
         "security": [],
