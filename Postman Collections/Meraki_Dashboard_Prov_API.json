@@ -3794,7 +3794,7 @@
         },
         {
           "_postman_id": "dbbf40bf-b4f9-4f08-1fa0-f582f4653b0e",
-          "name": "Traffic analysis",
+          "name": "Networks - Traffic analysis",
           "request": {
             "method": "GET",
             "header": [
@@ -3814,7 +3814,7 @@
               ]
             },
             "url": {
-              "raw": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/traffic?timespan={{timespan}}",
+              "raw": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/traffic?timespan=7200",
               "protocol": "https",
               "host": [
                 "dashboard",
@@ -3831,7 +3831,7 @@
               "query": [
                 {
                   "key": "timespan",
-                  "value": "{{timespan}}",
+                  "value": "7200",
                   "equals": true
                 }
               ]
