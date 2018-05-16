@@ -7951,7 +7951,7 @@
               "mode": "raw",
               "raw": "{\n  \"id\":\"643451796760613160\",\n  \"deviceFields\":{\n    \"name\":\"my iPad\",\n    \"notes\":\"viaAPI\"\n    }\n}"
             },
-            "url": "{{baseUrl}}/networks/{{networkId}}/sm/device/fields",
+            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/sm/device/fields",
             "description": "## HTTP REQUEST\n```\nPUT /networks/[network_id]/sm/device/fields\n```\n\n## PARAMETERS\n\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\nwifiMac|The wifiMac of the device to be modified.\nid|The id of the device to be modified.\nserial|The serial of the device to be modified.\ndeviceFields|The new fields of the device. Passed in as a JSON object. The list of available fields are: name, notes \n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-KEY: <key>' -X PUT -H 'Content-Type: application/json' --data-binary '{\"id\":\"123456\", \"deviceFields\":\"{\"name\":\"<name>\"}\"}' 'https://api.meraki.com/api/v0/networks/[networkId]/sm/device/fields'\n```\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"success\": [\n    {\n      \"id\": 123456,\n      \"serial\": \"ABCD1234\",\n      \"wifiMac\": \"11:aa:11:11:a1:a1\",\n      \"name\": \"<name>\"\n    }\n  ]\n}\n```"
           },
           "response": []
@@ -8001,7 +8001,7 @@
                 }
               ]
             },
-            "url": "{{baseUrl}}/networks/{{networkId}}/sm/device/fields",
+            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/sm/device/fields",
             "description": "## HTTP REQUEST\n```\nPUT /networks/[network_id]/sm/devices/lock\n```\n\n## PARAMETERS\n\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\nwifiMacs|The wifiMacs of the devices to be locked.\nids|The ids of the devices to be locked.\nserials|The serials of the devices to be locked.\nscope|The scope (one of all, none, withAny, withAll, withoutAny, or withoutAll) and a set of tags of the devices to be wiped.\npin|The pin number for locking macOS devices (a six digit number). Required only for macOS devices. \n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-KEY: <key>' -X PUT -H 'Content-Type: application/json' --data-binary '{\"ids\":\"123456, 123457\"}' 'https://api.meraki.com/api/v0/networks/[networkId]/sm/devices/lock'\n```\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"success\": true\n}\n```"
           },
           "response": []
