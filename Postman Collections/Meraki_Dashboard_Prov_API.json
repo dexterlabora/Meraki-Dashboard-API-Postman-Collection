@@ -743,7 +743,7 @@
                 }
               ]
             },
-            "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/clients/{{clientMac}}/splashAuthorizationStatus",
+            "url": "{{baseUrl}}/networks/{{networkId}}/clients/{{clientMac}}/splashAuthorizationStatus",
             "description": "## HTTP REQUEST\n```\nGET /networks/[id]/clients/[mac]/splashAuthorizationStatus\n```\n\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X GET -H 'Content-Type: application/json' 'https://dashboard.meraki.com/api/v0/networks/[id]/clients/[mac]/splashAuthorizationStatus'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n{\n  \"ssids\": {\n    \"0\": {\n      \"isAuthorized\": true,\n      \"authorizedAt\": \"2017-07-19 16:24:13 UTC\",\n      \"expiresAt\": \"2017-07-20 16:24:13 UTC\"\n    },\n    \"2\": {\n      \"isAuthorized\": false\n    }\n  }\n}\n```"
           },
           "response": []
