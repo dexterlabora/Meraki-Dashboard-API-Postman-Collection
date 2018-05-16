@@ -7775,11 +7775,8 @@
                 "value": "{{X-Cisco-Meraki-API-Key}}"
               }
             ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/samlRoles/{{samlId}}",
+            "body": {},
+            "url": "{{baseUrl}}/organizations/{{organizationId}}/samlRoles/{{samlId}}",
             "description": "## HTTP REQUEST\n```\nGET /organizations/[organizationId]/samlRoles/[id]\n```\n\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://dashboard.meraki.com/api/v0/organizations/[organizationId]/samlRoles/[id]'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"id\": \"TEdJIEN1c3RvbWVy\",\n  \"role\": \"myrole\",\n  \"orgAccess\": \"none\",\n  \"networks\": [\n    {\n      \"id\": \"N_1234\",\n      \"access\": \"full\"\n    }\n  ],\n  \"tags\": [\n    {\n      \"tag\": \"west\",\n      \"access\": \"read-only\"\n    }\n  ]\n}\n```"
           },
           "response": []
@@ -7803,7 +7800,7 @@
               "mode": "raw",
               "raw": "{\n  \"role\": \"myrole\",\n  \"orgAccess\": \"none\",\n  \"networks\": [\n    {\n      \"id\": \"N_1234\",\n      \"access\": \"full\"\n    }\n  ],\n  \"tags\": [\n    {\n      \"tag\": \"west\",\n      \"access\": \"read-only\"\n    }\n  ]\n}"
             },
-            "url": "https://{{shard}}.meraki.com/api/v0/organizations/{{organizationId}}/samlRoles/{{samlId}}",
+            "url": "{{baseUrl}}/organizations/{{organizationId}}/samlRoles/{{samlId}}",
             "description": "## HTTP REQUEST\n```\nPUT /organizations/[organizationId]/samlRoles/[id]\n```\n\n## PARAMETERS\n\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\n role|The role of the SAML administrator\norgAccess|The privilege of the SAML administrator on the organization\ntags|The list of tags that the SAML administrator has privileges on\ntag|The name of the tag\naccess|The privilege of the SAML administrator on the tag\nnetworks|The list of networks that the SAML administrator has privileges on\nid|The network ID\naccess|The privilege of the SAML administrator on the network\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X PUT 'https://dashboard.meraki.com/api/v0/organizations/[organizationId]/samlRoles/[id]'\n```\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"id\": \"TEdJIEN1c3RvbWVy\",\n  \"role\": \"myrole\",\n  \"orgAccess\": \"none\",\n  \"networks\": [\n    {\n      \"id\": \"N_1234\",\n      \"access\": \"full\"\n    }\n  ],\n  \"tags\": [\n    {\n      \"tag\": \"west\",\n      \"access\": \"read-only\"\n    }\n  ]\n}\n```"
           },
           "response": []
@@ -7827,7 +7824,7 @@
               "mode": "raw",
               "raw": "{\n  \"role\": \"myrole\",\n  \"orgAccess\": \"none\",\n  \"networks\": [\n    {\n      \"id\": \"N_1234\",\n      \"access\": \"full\"\n    }\n  ],\n  \"tags\": [\n    {\n      \"tag\": \"west\",\n      \"access\": \"read-only\"\n    }\n  ]\n}"
             },
-            "url": "https://{{shard}}.meraki.com/api/v0/organizations/{{organizationId}}/samlRoles",
+            "url": "{{baseUrl}}/organizations/{{organizationId}}/samlRoles",
             "description": "## HTTP REQUEST\n```\nPOST /organizations/[organizationId]/samlRoles\n```\n\n## PARAMETERS\n\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\nrole|The role of the SAML administrator\norgAccess|The privilege of the SAML administrator on the organization\ntags|The list of tags that the SAML administrator has privileges on\ntag|The name of the tag\naccess|The privilege of the SAML administrator on the tag\nnetworks|The list of networks that the SAML administrator has privileges on\nid|The network ID\naccess|The privilege of the SAML administrator on the network\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X POST 'https://dashboard.meraki.com/api/v0/organizations/[organizationId]/samlRoles'\n```\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"id\": \"TEdJIEN1c3RvbWVy\",\n  \"role\": \"myrole\",\n  \"orgAccess\": \"none\",\n  \"networks\": [\n    {\n      \"id\": \"N_1234\",\n      \"access\": \"full\"\n    }\n  ],\n  \"tags\": [\n    {\n      \"tag\": \"west\",\n      \"access\": \"read-only\"\n    }\n  ]\n}\n```"
           },
           "response": []
@@ -7843,11 +7840,8 @@
                 "value": "{{X-Cisco-Meraki-API-Key}}"
               }
             ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": "https://{{shard}}.meraki.com/api/v0/organizations/{{organizationId}}/samlRoles/{{samlId}}",
+            "body": {},
+            "url": "{{baseUrl}}/organizations/{{organizationId}}/samlRoles/{{samlId}}",
             "description": "## HTTP REQUEST\n```\nDELETE /organizations/[organizationId]/samlRoles/[id]\n```\n\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X DELETE 'https://dashboard.meraki.com/api/v0/organizations/[organizationId]/samlRoles/[id]'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n(empty)\n```"
           },
           "response": []
@@ -7880,7 +7874,7 @@
                 }
               ]
             },
-            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/sm/devices",
+            "url": "{{baseUrl}}/networks/{{networkId}}/sm/devices",
             "description": "## HTTP REQUEST\n```\nGET /networks/[network_id]/sm/devices\n```\n\n## PARAMETERS\n\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\nfields|Additional fields that will be displayed for each device. Multiple fields can be passed in as comma separated values. The default fields are: id, name, tags, ssid, wifiMac, osName, systemModel, uuid, and serialNumber. The additional fields are: ip, systemType, availableDeviceCapacity, kioskAppName, biosVersion, lastConnected, missingAppsCount, userSuppliedAddress, location, lastUser, publicIp, phoneNumber, diskInfoJson, deviceCapacity, isManaged, hadMdm, isSupervised, meid, imei, iccid, simCarrierNetwork, cellularDataUsed, isHotspotEnabled, createdAt, batteryEstCharge, quarantined, avName, avRunning, asName, fwName, isRooted, loginRequired, screenLockEnabled, screenLockDelay, autoLoginDisabled, hasMdm, hasDesktopAgent, diskEncryptionEnabled, hardwareEncryptionCaps, and passCodeLock.\nwifiMacs|Filter devices by wifi mac(s). Multiple wifi macs can be passed in as comma separated values.\nserials|Filter devices by serial(s). Multiple serials can be passed in as comma separated values.\nids|Filter devices by id(s). Multiple ids can be passed in as comma separated values.\nscope|Specify a scope (one of all, none, withAny, withAll, withoutAny, or withoutAll) and a set of tags as comma separated values.\nbatchToken|On networks with more than 1000 devices, the device list will be limited to 1000 devices per query. If there are more devices to be seen, a batch token will be returned as a part of the device list. To see the remainder of the devices, pass in the batchToken as a parameter in the next request. Requests made with the batchToken do not require additional parameters as the batchToken includes the parameters passed in with the original request. Additional parameters passed in with the batchToken will be ignored. \n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-KEY: <key>' -X GET -H 'Content-Type: application/json' 'https://api.meraki.com/api/v0/networks/[networkId]/sm/devices?fields=ip&scope=withAll,recently-added'\n```\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"devices\": [\n    {\n      \"id\": \"123456\",\n      \"name\": \"Device name\",\n      \"tags\": [\n        \"recently-added\"\n      ],\n      \"ssid\": \"Wifi name\",\n      \"wifiMac\": \"00:aa:00:00:a0:a0\"\n      \"osName\": \"iOS 9.3.2\",\n      \"systemModel\": \"iPod\",\n      \"uuid\": \"123aaa123aaa\",\n      \"serialNumber\": \"AABBCCDD\",\n      \"ip\": \"11.1.1.111\"\n    }\n  ],\n  \"batchToken\": <batchToken>\n}\n```"
           },
           "response": []
@@ -7905,16 +7899,11 @@
               "raw": ""
             },
             "url": {
-              "raw": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/sm/devices/tags?scope=withAny, viaAPI&updateAction=add&tags=API",
-              "protocol": "https",
+              "raw": "{{baseUrl}}/networks/{{networkId}}/sm/devices/tags?scope=withAny, viaAPI&updateAction=add&tags=API",
               "host": [
-                "dashboard",
-                "meraki",
-                "com"
+                "{{baseUrl}}"
               ],
               "path": [
-                "api",
-                "v0",
                 "networks",
                 "{{networkId}}",
                 "sm",
@@ -7924,15 +7913,18 @@
               "query": [
                 {
                   "key": "scope",
-                  "value": "withAny, viaAPI"
+                  "value": "withAny, viaAPI",
+                  "equals": true
                 },
                 {
                   "key": "updateAction",
-                  "value": "add"
+                  "value": "add",
+                  "equals": true
                 },
                 {
                   "key": "tags",
-                  "value": "API"
+                  "value": "API",
+                  "equals": true
                 }
               ]
             },
@@ -7959,7 +7951,7 @@
               "mode": "raw",
               "raw": "{\n  \"id\":\"643451796760613160\",\n  \"deviceFields\":{\n    \"name\":\"my iPad\",\n    \"notes\":\"viaAPI\"\n    }\n}"
             },
-            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/sm/device/fields",
+            "url": "{{baseUrl}}/networks/{{networkId}}/sm/device/fields",
             "description": "## HTTP REQUEST\n```\nPUT /networks/[network_id]/sm/device/fields\n```\n\n## PARAMETERS\n\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\nwifiMac|The wifiMac of the device to be modified.\nid|The id of the device to be modified.\nserial|The serial of the device to be modified.\ndeviceFields|The new fields of the device. Passed in as a JSON object. The list of available fields are: name, notes \n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-KEY: <key>' -X PUT -H 'Content-Type: application/json' --data-binary '{\"id\":\"123456\", \"deviceFields\":\"{\"name\":\"<name>\"}\"}' 'https://api.meraki.com/api/v0/networks/[networkId]/sm/device/fields'\n```\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"success\": [\n    {\n      \"id\": 123456,\n      \"serial\": \"ABCD1234\",\n      \"wifiMac\": \"11:aa:11:11:a1:a1\",\n      \"name\": \"<name>\"\n    }\n  ]\n}\n```"
           },
           "response": []
@@ -8009,7 +8001,7 @@
                 }
               ]
             },
-            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/sm/device/fields",
+            "url": "{{baseUrl}}/networks/{{networkId}}/sm/device/fields",
             "description": "## HTTP REQUEST\n```\nPUT /networks/[network_id]/sm/devices/lock\n```\n\n## PARAMETERS\n\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\nwifiMacs|The wifiMacs of the devices to be locked.\nids|The ids of the devices to be locked.\nserials|The serials of the devices to be locked.\nscope|The scope (one of all, none, withAny, withAll, withoutAny, or withoutAll) and a set of tags of the devices to be wiped.\npin|The pin number for locking macOS devices (a six digit number). Required only for macOS devices. \n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-KEY: <key>' -X PUT -H 'Content-Type: application/json' --data-binary '{\"ids\":\"123456, 123457\"}' 'https://api.meraki.com/api/v0/networks/[networkId]/sm/devices/lock'\n```\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"success\": true\n}\n```"
           },
           "response": []
@@ -8059,7 +8051,7 @@
                 }
               ]
             },
-            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/sm/device/fields",
+            "url": "{{baseUrl}}/networks/{{networkId}}/sm/device/fields",
             "description": "## HTTP REQUEST\n```\nPUT /networks/[network_id]/sm/device/wipe\n```\n\n## PARAMETERS\n\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\nwifiMac|The wifiMac of the device to be wiped.\nid|The id of the device to be wiped.\nserial|The serial of the device to be wiped.\npin|The pin number (a six digit value) for wiping a macOS device. Required only for macOS devices. \n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-KEY: <key>' -X PUT -H 'Content-Type: application/json' --data-binary '{\"id\":\"123456\"}' 'https://api.meraki.com/api/v0/networks/[networkId]/sm/device/wipe'\n```\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"success\": true\n}\n```"
           },
           "response": []
