@@ -4345,16 +4345,11 @@
               ]
             },
             "url": {
-              "raw": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/airMarshal?timespan=3600",
-              "protocol": "https",
+              "raw": "{{baseUrl}}/networks/{{networkId}}/airMarshal?timespan=3600",
               "host": [
-                "dashboard",
-                "meraki",
-                "com"
+                "{{baseUrl}}"
               ],
               "path": [
-                "api",
-                "v0",
                 "networks",
                 "{{networkId}}",
                 "airMarshal"
@@ -4362,7 +4357,8 @@
               "query": [
                 {
                   "key": "timespan",
-                  "value": "3600"
+                  "value": "3600",
+                  "equals": true
                 }
               ]
             },
