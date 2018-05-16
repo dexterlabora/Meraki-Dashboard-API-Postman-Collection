@@ -1636,7 +1636,7 @@
                 }
               ]
             },
-            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/devices/{{serial}}/uplink",
+            "url": "{{baseUrl}}/networks/{{networkId}}/devices/{{serial}}/uplink",
             "description": "## HTTP REQUEST\n```\nGET /networks/[networkId]/devices/[serial]/uplink\n```\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X GET -H 'Content-Type: application/json' 'https://api.meraki.com/api/v0/networks/[networkId]/devices/[serial]/uplink'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n[\n  {\n  \"interface\":\"WAN 1\",\n  \"status\":\"Active\",\n  \"ip\":\"10.0.0.0\",\n  \"gateway\":\"10.0.0.1\",\n  \"publicIp\":\"123.123.123.1\",\n  \"dns\":\"8.8.8.8, 8.8.4.4\",\n  \"usingStaticIp\":true\n  },\n  {\n  \"interface\":\"WAN 2\",\n  \"status\":\"Ready\",\n  \"ip\":\"10.0.4.2\",\n  \"gateway\":\"10.0.4.1\",\n  \"publicIp\":\"123.123.123.2\",\n  \"dns\":\"8.8.8.8\",\n  \"usingStaticIp\":false\n  }\n]\n```"
           },
           "response": [
