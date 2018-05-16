@@ -3748,7 +3748,7 @@
                 }
               ]
             },
-            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/siteToSiteVpn",
+            "url": "{{baseUrl}}/networks/{{networkId}}/siteToSiteVpn",
             "description": "## HTTP REQUEST\n```\nGET /networks/[id]/siteToSiteVpn\n```\n\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X GET -H 'Content-Type: application/json' 'https://api.meraki.com/api/v0/networks/[id]/siteToSiteVpn'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n{\n  \"mode\":\"spoke\",\n  \"hubs\":[\n    {\n      \"hubId\":\"N_1234\"\n      \"useDefaultRoute\":true\n    },\n    {\n      \"hubId\":\"N_2345\"\n      \"useDefaultRoute\":false\n    }\n  ],\n  \"subnets\":[\n    {\n      \"localSubnet\":\"192.168.1.0/24\",\n      \"useVpn\":true\n    },\n    {\n      \"localSubnet\":\"192.168.128.0/24\",\n      \"useVpn\":true\n    }\n  ]\n}\n```"
           },
           "response": [
