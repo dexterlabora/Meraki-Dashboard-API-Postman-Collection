@@ -8111,21 +8111,13 @@
                 "value": "application/json"
               }
             ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
+            "body": {},
             "url": {
-              "raw": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/sm/devices/checkin?scope=withAny, recently-added&newNetwork=newNetworkID",
-              "protocol": "https",
+              "raw": "{{baseUrl}}/networks/{{networkId}}/sm/devices/checkin?scope=withAny, recently-added&newNetwork=newNetworkID",
               "host": [
-                "dashboard",
-                "meraki",
-                "com"
+                "{{baseUrl}}"
               ],
               "path": [
-                "api",
-                "v0",
                 "networks",
                 "{{networkId}}",
                 "sm",
@@ -8167,11 +8159,8 @@
                 "value": "{{X-Cisco-Meraki-API-Key}}"
               }
             ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/ssids",
+            "body": {},
+            "url": "{{baseUrl}}/networks/{{networkId}}/ssids",
             "description": "## HTTP REQUEST\n```\nGET /networks/[networkId]/ssids\n```\n\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X GET -H 'Content-Type: application/json' 'https://api.meraki.com/api/v0/networks/[networkId]/ssids'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n[\n  {\n    \"number\":0,\n    \"name\":\"SSID-1\",\n    \"enabled\":true,\n    \"authMode\":\"open\"\n  }\n]\n```"
           },
           "response": [
