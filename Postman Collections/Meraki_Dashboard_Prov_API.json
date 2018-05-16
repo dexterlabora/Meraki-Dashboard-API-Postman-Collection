@@ -7899,16 +7899,11 @@
               "raw": ""
             },
             "url": {
-              "raw": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/sm/devices/tags?scope=withAny, viaAPI&updateAction=add&tags=API",
-              "protocol": "https",
+              "raw": "{{baseUrl}}/networks/{{networkId}}/sm/devices/tags?scope=withAny, viaAPI&updateAction=add&tags=API",
               "host": [
-                "dashboard",
-                "meraki",
-                "com"
+                "{{baseUrl}}"
               ],
               "path": [
-                "api",
-                "v0",
                 "networks",
                 "{{networkId}}",
                 "sm",
@@ -7918,15 +7913,18 @@
               "query": [
                 {
                   "key": "scope",
-                  "value": "withAny, viaAPI"
+                  "value": "withAny, viaAPI",
+                  "equals": true
                 },
                 {
                   "key": "updateAction",
-                  "value": "add"
+                  "value": "add",
+                  "equals": true
                 },
                 {
                   "key": "tags",
-                  "value": "API"
+                  "value": "API",
+                  "equals": true
                 }
               ]
             },
@@ -7953,7 +7951,7 @@
               "mode": "raw",
               "raw": "{\n  \"id\":\"643451796760613160\",\n  \"deviceFields\":{\n    \"name\":\"my iPad\",\n    \"notes\":\"viaAPI\"\n    }\n}"
             },
-            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/sm/device/fields",
+            "url": "{{baseUrl}}/networks/{{networkId}}/sm/device/fields",
             "description": "## HTTP REQUEST\n```\nPUT /networks/[network_id]/sm/device/fields\n```\n\n## PARAMETERS\n\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\nwifiMac|The wifiMac of the device to be modified.\nid|The id of the device to be modified.\nserial|The serial of the device to be modified.\ndeviceFields|The new fields of the device. Passed in as a JSON object. The list of available fields are: name, notes \n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-KEY: <key>' -X PUT -H 'Content-Type: application/json' --data-binary '{\"id\":\"123456\", \"deviceFields\":\"{\"name\":\"<name>\"}\"}' 'https://api.meraki.com/api/v0/networks/[networkId]/sm/device/fields'\n```\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"success\": [\n    {\n      \"id\": 123456,\n      \"serial\": \"ABCD1234\",\n      \"wifiMac\": \"11:aa:11:11:a1:a1\",\n      \"name\": \"<name>\"\n    }\n  ]\n}\n```"
           },
           "response": []
@@ -8003,7 +8001,7 @@
                 }
               ]
             },
-            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/sm/device/fields",
+            "url": "{{baseUrl}}/networks/{{networkId}}/sm/device/fields",
             "description": "## HTTP REQUEST\n```\nPUT /networks/[network_id]/sm/devices/lock\n```\n\n## PARAMETERS\n\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\nwifiMacs|The wifiMacs of the devices to be locked.\nids|The ids of the devices to be locked.\nserials|The serials of the devices to be locked.\nscope|The scope (one of all, none, withAny, withAll, withoutAny, or withoutAll) and a set of tags of the devices to be wiped.\npin|The pin number for locking macOS devices (a six digit number). Required only for macOS devices. \n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-KEY: <key>' -X PUT -H 'Content-Type: application/json' --data-binary '{\"ids\":\"123456, 123457\"}' 'https://api.meraki.com/api/v0/networks/[networkId]/sm/devices/lock'\n```\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"success\": true\n}\n```"
           },
           "response": []
@@ -8053,7 +8051,7 @@
                 }
               ]
             },
-            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/sm/device/fields",
+            "url": "{{baseUrl}}/networks/{{networkId}}/sm/device/fields",
             "description": "## HTTP REQUEST\n```\nPUT /networks/[network_id]/sm/device/wipe\n```\n\n## PARAMETERS\n\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\nwifiMac|The wifiMac of the device to be wiped.\nid|The id of the device to be wiped.\nserial|The serial of the device to be wiped.\npin|The pin number (a six digit value) for wiping a macOS device. Required only for macOS devices. \n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-KEY: <key>' -X PUT -H 'Content-Type: application/json' --data-binary '{\"id\":\"123456\"}' 'https://api.meraki.com/api/v0/networks/[networkId]/sm/device/wipe'\n```\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"success\": true\n}\n```"
           },
           "response": []
@@ -8073,21 +8071,13 @@
                 "value": "application/json"
               }
             ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
+            "body": {},
             "url": {
-              "raw": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/sm/devices/checkin?scope=withAny, recently-added",
-              "protocol": "https",
+              "raw": "{{baseUrl}}/networks/{{networkId}}/sm/devices/checkin?scope=withAny, recently-added",
               "host": [
-                "dashboard",
-                "meraki",
-                "com"
+                "{{baseUrl}}"
               ],
               "path": [
-                "api",
-                "v0",
                 "networks",
                 "{{networkId}}",
                 "sm",
@@ -8097,7 +8087,8 @@
               "query": [
                 {
                   "key": "scope",
-                  "value": "withAny, recently-added"
+                  "value": "withAny, recently-added",
+                  "equals": true
                 }
               ]
             },
