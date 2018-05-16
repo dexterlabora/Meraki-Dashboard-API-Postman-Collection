@@ -4969,7 +4969,7 @@
                 }
               ]
             },
-            "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/licenseState",
+            "url": "{{baseUrl}}/organizations/{{organizationId}}/licenseState",
             "description": "## HTTP REQUEST\n```\nGET /organizations/[id]/licenseState\n```\n\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X GET -H 'Content-Type: application/json' 'https://api.meraki.com/api/v0/organizations/[id]/licenseState'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n{\n  \"status\": \"OK\",\n  \"expirationDate\": \"Nov 16, 2016 UTC\",\n  \"licensedDeviceCounts\": {\n    \"MS\": 100\n  }\n}\n```"
           },
           "response": [
