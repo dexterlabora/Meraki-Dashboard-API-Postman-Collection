@@ -1795,7 +1795,7 @@
               "mode": "raw",
               "raw": "{\"serial\":\"Q2XX-XXXX-XXXX\"}"
             },
-            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/devices/claim",
+            "url": "{{baseUrl}}/networks/{{networkId}}/devices/claim",
             "description": "## HTTP REQUEST\n```\nPOST /networks/[networkId]/devices/claim\n```\n## PARAMETERS\n\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\nserial|The serial of a device\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X POST -H 'Content-Type: application/json' --data-binary '{\"serial\":\"Q2XX-XXXX-XXXX\"}' 'https://api.meraki.com/api/v0/networks/[networkId]/devices/claim'\n```\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 201\n```"
           },
           "response": [
