@@ -5151,7 +5151,7 @@
                 }
               ]
             },
-            "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/inventory",
+            "url": "{{baseUrl}}/organizations/{{organizationId}}/inventory",
             "description": "## HTTP REQUEST\n```\nGET /organizations/[id]/inventory\n```\n\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X GET -H 'Content-Type: application/json' 'https://api.meraki.com/api/v0/organizations/[id]/inventory'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n[\n  {\n    \"mac\": \"00:11:22:33:44:55:66\",\n    \"serial\": \"Q2XX-XXXX-XXXX\",\n    \"networkId\": \"N_1234\",\n    \"model\": \"MR34\",\n    \"claimedAt\": \"1477958158.69776\",\n    \"publicIp\": \"1.2.3.4\",\n  }\n]\n```"
           },
           "response": [
@@ -5468,7 +5468,7 @@
                 }
               ]
             },
-            "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/deviceStatuses",
+            "url": "{{baseUrl}}/organizations/{{organizationId}}/deviceStatuses",
             "description": "## HTTP REQUEST\n```\nGET /organizations/[organizationId]/deviceStatuses\n```\n\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X GET -H 'Content-Type: application/json' 'https://api.meraki.com/api/v0/organizations/[organizationId]/deviceStatuses'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n[\n  {\n    \"name\":\"My AP\",\n    \"serial\":\"Q2XX-XXXX-XXXX\",\n    \"mac\":\"00:11:22:33:44:55:66\",\n    \"status\":\"online\",\n    \"lanIp:\"1.2.3.4\",\n    \"publicIp\":\"4.3.2.1\",\n    \"networkId\":\"N_1234\"\n  }\n]\n```"
           },
           "response": [
