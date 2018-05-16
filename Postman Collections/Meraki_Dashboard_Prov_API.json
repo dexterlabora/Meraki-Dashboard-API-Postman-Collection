@@ -8612,11 +8612,8 @@
                 "value": "{{X-Cisco-Meraki-API-Key}}"
               }
             ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": "https://dashboard.meraki.com/api/v0/devices/{{serial}}/switchPorts/{{portNum}}",
+            "body": {},
+            "url": "{{baseUrl}}/devices/{{serial}}/switchPorts/{{portNum}}",
             "description": "## HTTP REQUEST\n```\nGET /devices/[serial]/switchPorts/[number]\n```\n\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://dashboard.meraki.com/api/v0/devices/[serial]/switchPorts/[number]'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"number\": 1,\n  \"name\": \"my port\",\n  \"tags\": \"dorm-room limited\",\n  \"enabled\": true,\n  \"type\": \"access\",\n  \"vlan\": 10,\n  \"voiceVlan\": 20,\n  \"poeEnabled\": true,\n  \"isolationEnabled\": false,\n  \"rstpEnabled\": true,\n  \"stpGuard\": \"disabled\",\n  \"accessPolicyNumber\": \"asdf1234\"\n}\n```"
           },
           "response": []
@@ -8640,7 +8637,7 @@
               "mode": "raw",
               "raw": "{\n  \"name\": \"test from Postman\",\n  \"tags\": \"API\",\n  \"enabled\": true,\n  \"poeEnabled\": true,\n  \"type\": \"trunk\",\n  \"vlan\": 1,\n  \"voiceVlan\": null,\n  \"allowedVlans\": \"all\",\n  \"isolationEnabled\": false,\n  \"rstpEnabled\": true,\n  \"stpGuard\": \"disabled\",\n  \"accessPolicyNumber\": null\n}"
             },
-            "url": "https://dashboard.meraki.com/api/v0/devices/{{serial}}/switchPorts/{{portNum}}",
+            "url": "{{baseUrl}}/devices/{{serial}}/switchPorts/{{portNum}}",
             "description": "## HTTP REQUEST\n```\nPUT /devices/[serial]/switchPorts/[number]\n```\n\n## PARAMETERS\n\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\nname|The name of the switch port\ntags|The tags of the switch port\nenabled|The status of the switch port\ntype|The type of the switch port (\"access\" or \"trunk\")\nvlan|The VLAN of the switch port\nvoiceVlan|The voice VLAN of the switch port. Only applicable to access ports.\nallowedVlans|The VLANs allowed on the switch port. Only applicable to trunk ports.\npoeEnabled|The PoE status of the switch port\nisolationEnabled|The isolation status of the switch port\nrstpEnabled|The rapid spanning tree protocol status\nstpGuard|The state of the STP guard (\"disabled\", \"Root guard\", \"BPDU guard\", \"Loop guard\")\naccessPolicyNumber|The number of the access policy of the switch port. Only applicable to access ports. \n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X PUT 'https://dashboard.meraki.com/api/v0/devices/[serial]/switchPorts/[number]'\n```\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"number\": 1,\n  \"name\": \"my port\",\n  \"tags\": \"dorm-room limited\",\n  \"enabled\": true,\n  \"type\": \"access\",\n  \"vlan\": 10,\n  \"voiceVlan\": 20,\n  \"poeEnabled\": true,\n  \"isolationEnabled\": false,\n  \"rstpEnabled\": true,\n  \"stpGuard\": \"disabled\",\n  \"accessPolicyNumber\": \"asdf1234\"\n}\n```"
           },
           "response": []
