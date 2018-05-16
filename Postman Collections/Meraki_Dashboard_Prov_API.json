@@ -8051,7 +8051,7 @@
                 }
               ]
             },
-            "url": "{{baseUrl}}/networks/{{networkId}}/sm/device/fields",
+            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/sm/device/fields",
             "description": "## HTTP REQUEST\n```\nPUT /networks/[network_id]/sm/device/wipe\n```\n\n## PARAMETERS\n\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\nwifiMac|The wifiMac of the device to be wiped.\nid|The id of the device to be wiped.\nserial|The serial of the device to be wiped.\npin|The pin number (a six digit value) for wiping a macOS device. Required only for macOS devices. \n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-KEY: <key>' -X PUT -H 'Content-Type: application/json' --data-binary '{\"id\":\"123456\"}' 'https://api.meraki.com/api/v0/networks/[networkId]/sm/device/wipe'\n```\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"success\": true\n}\n```"
           },
           "response": []
@@ -8071,13 +8071,21 @@
                 "value": "application/json"
               }
             ],
-            "body": {},
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
             "url": {
-              "raw": "{{baseUrl}}/networks/{{networkId}}/sm/devices/checkin?scope=withAny, recently-added",
+              "raw": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/sm/devices/checkin?scope=withAny, recently-added",
+              "protocol": "https",
               "host": [
-                "{{baseUrl}}"
+                "dashboard",
+                "meraki",
+                "com"
               ],
               "path": [
+                "api",
+                "v0",
                 "networks",
                 "{{networkId}}",
                 "sm",
@@ -8087,8 +8095,7 @@
               "query": [
                 {
                   "key": "scope",
-                  "value": "withAny, recently-added",
-                  "equals": true
+                  "value": "withAny, recently-added"
                 }
               ]
             },
@@ -8111,13 +8118,21 @@
                 "value": "application/json"
               }
             ],
-            "body": {},
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
             "url": {
-              "raw": "{{baseUrl}}/networks/{{networkId}}/sm/devices/checkin?scope=withAny, recently-added&newNetwork=newNetworkID",
+              "raw": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/sm/devices/checkin?scope=withAny, recently-added&newNetwork=newNetworkID",
+              "protocol": "https",
               "host": [
-                "{{baseUrl}}"
+                "dashboard",
+                "meraki",
+                "com"
               ],
               "path": [
+                "api",
+                "v0",
                 "networks",
                 "{{networkId}}",
                 "sm",
@@ -8159,8 +8174,11 @@
                 "value": "{{X-Cisco-Meraki-API-Key}}"
               }
             ],
-            "body": {},
-            "url": "{{baseUrl}}/networks/{{networkId}}/ssids",
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/ssids",
             "description": "## HTTP REQUEST\n```\nGET /networks/[networkId]/ssids\n```\n\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X GET -H 'Content-Type: application/json' 'https://api.meraki.com/api/v0/networks/[networkId]/ssids'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n[\n  {\n    \"number\":0,\n    \"name\":\"SSID-1\",\n    \"enabled\":true,\n    \"authMode\":\"open\"\n  }\n]\n```"
           },
           "response": [
