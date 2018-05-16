@@ -61,7 +61,7 @@
               "mode": "raw",
               "raw": "{\n  \"name\":\"Miles Meraki\",\n  \"email\":\"miles@meraki.com\",\n  \"orgAccess\":\"none\",\n  \"tags\":[\n    {\n      \"tag\":\"west\",\n      \"access\":\"read-only\"\n      \n    }\n  ]\n}"
             },
-            "url": "https://api.meraki.com/api/v0/organizations/{{organizationId}}/admins",
+            "url": "{{baseUrl}}/organizations/{{organizationId}}/admins",
             "description": "## HTTP REQUEST\n```\nPOST /organizations/[organization_id]/admins\n```\n\n## PARAMETERS\n\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\nemail|The email of the dashboard administrator. This attribute can not be updated.\nname|The name of the dashboard administrator\norgAccess|The privilege of the dashboard administrator on the organization (full, read-only, none)\ntags|The list of tags that the dashboard administrator has privileges on\ntag|The name of the tag\naccess|The privilege of the dashboard administrator on the tag\nnetworks|The list of networks that the dashboard administrator has privileges on\nid|The network ID\naccess|The privilege of the dashboard administrator on the network\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X POST -H 'Content-Type: application/json' --data-binary '{\"name\":\"Miles Meraki\", \"email\":\"miles@meraki.com\", \"orgAccess\":\"none\", \"tags\":[{\"tag\":\"west\", \"access\":\"read-only\"}]}' 'https://dashboard.meraki.com/api/v0/organizations/1234/admins'\n```\n\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 201\n{\n  \"id\":\"212406\",\n  \"name\":\"Miles Meraki\",\n  \"email\":\"miles@meraki.com\",\n  \"orgAccess\":\"none\",\n  \"tags\":[\n    {\n      \"tag\":\"west\",\n      \"access\":\"read-only\"\n    }\n  ],\n  \"networks\":[]\n}\n```"
           },
           "response": []
@@ -7923,7 +7923,7 @@
         },
         {
           "_postman_id": "1a28d39e-7a88-f31b-f94b-600c1e720a19",
-          "name": "*SM - Wipe a device",
+          "name": "Wipe a device",
           "request": {
             "method": "PUT",
             "header": [
@@ -7973,7 +7973,7 @@
         },
         {
           "_postman_id": "4e3460c9-a7c2-5ee0-6935-62bf451fad1d",
-          "name": "SM - Force check-in a set of devices",
+          "name": "Force check-in a set of devices",
           "request": {
             "method": "PUT",
             "header": [
@@ -8020,7 +8020,7 @@
         },
         {
           "_postman_id": "fc25f1e2-b14f-a1f3-3444-9a0c4915f72c",
-          "name": "SM - Move a set of devices to a new network",
+          "name": "Move a set of devices to a new network",
           "request": {
             "method": "PUT",
             "header": [
@@ -8080,7 +8080,7 @@
       "item": [
         {
           "_postman_id": "36adef51-1112-b18d-3086-e6123cbdb4fb",
-          "name": "SSIDs - List the SSIDs in a network",
+          "name": "List the SSIDs in a network",
           "request": {
             "method": "GET",
             "header": [
@@ -8229,7 +8229,7 @@
         },
         {
           "_postman_id": "d7683254-0e40-9797-522f-26521be76bc5",
-          "name": "SSIDs - Return a single SSID",
+          "name": "Return a single SSID",
           "request": {
             "method": "GET",
             "header": [
@@ -8378,7 +8378,7 @@
         },
         {
           "_postman_id": "88e1a54a-77dd-9dee-3bc7-982473499826",
-          "name": "SSIDs - Update the attributes of an SSID",
+          "name": "Update the attributes of an SSID",
           "request": {
             "method": "PUT",
             "header": [
@@ -8409,7 +8409,7 @@
       "item": [
         {
           "_postman_id": "a5b91474-d9da-c345-cf0e-5c828475686d",
-          "name": "Static routes - List the static routes for this network",
+          "name": "List the static routes for this network",
           "request": {
             "method": "GET",
             "header": [
@@ -8429,7 +8429,7 @@
         },
         {
           "_postman_id": "73401fc7-caf6-e9aa-8f31-a939510a39bb",
-          "name": "Static routes - Return a static route",
+          "name": "Return a static route",
           "request": {
             "method": "GET",
             "header": [
@@ -8449,7 +8449,7 @@
         },
         {
           "_postman_id": "b1745104-a2a3-9952-fdc0-42848d9b6f7a",
-          "name": "Static routes - Update a static route",
+          "name": "Update a static route",
           "request": {
             "method": "PUT",
             "header": [
@@ -8473,7 +8473,7 @@
         },
         {
           "_postman_id": "7dcaafca-4478-fadd-8b6c-eeb18b70a421",
-          "name": "Static routes - Add a static route",
+          "name": "Add a static route",
           "request": {
             "method": "POST",
             "header": [
@@ -8497,7 +8497,7 @@
         },
         {
           "_postman_id": "dc093775-7add-fa08-ac2e-71b6a4f0ee1c",
-          "name": "Static routes - Delete a static route from a network",
+          "name": "Delete a static route from a network",
           "request": {
             "method": "DELETE",
             "header": [
@@ -8528,7 +8528,7 @@
       "item": [
         {
           "_postman_id": "d5188697-85cd-7f6c-eead-4ca103c5c057",
-          "name": "Switch ports - List the switch ports for a switch",
+          "name": "List the switch ports for a switch",
           "request": {
             "method": "GET",
             "header": [
@@ -8548,7 +8548,7 @@
         },
         {
           "_postman_id": "3d03c9e7-145c-15d3-4230-686f848d8fff",
-          "name": "Switch ports - Return a switch port",
+          "name": "Return a switch port",
           "request": {
             "method": "GET",
             "header": [
@@ -8568,7 +8568,7 @@
         },
         {
           "_postman_id": "34a1dd64-081e-ab92-53f0-6564a7ee2444",
-          "name": "Switch ports - Update a switch port",
+          "name": "Update a switch port",
           "request": {
             "method": "PUT",
             "header": [
@@ -8599,7 +8599,7 @@
       "item": [
         {
           "_postman_id": "eb081a13-3640-f6ae-30bc-6753a7ed04c1",
-          "name": "VLANs - List the VLANs for this network",
+          "name": "List the VLANs for this network",
           "request": {
             "method": "GET",
             "header": [
@@ -8630,7 +8630,7 @@
         },
         {
           "_postman_id": "b108991f-f0d0-2ef0-7b46-6ae0b6f85baf",
-          "name": "VLANs - Return a VLAN",
+          "name": "Return a VLAN",
           "request": {
             "method": "GET",
             "header": [
@@ -8661,7 +8661,7 @@
         },
         {
           "_postman_id": "62fa2b28-6b5c-c328-70e7-1527d4e2f718",
-          "name": "VLANs - Update a VLAN",
+          "name": "Update a VLAN",
           "request": {
             "method": "PUT",
             "header": [
@@ -8685,7 +8685,7 @@
         },
         {
           "_postman_id": "eaad6d04-2a0b-0c4b-fc37-87766fbdc758",
-          "name": "VLANs - Add a VLAN",
+          "name": "Add a VLAN",
           "request": {
             "method": "POST",
             "header": [
@@ -8848,7 +8848,7 @@
         },
         {
           "_postman_id": "bff35088-c8dc-1e56-3d09-bc13599a384f",
-          "name": "VLANs - Delete a VLAN",
+          "name": "Delete a VLAN",
           "request": {
             "method": "DELETE",
             "header": [
