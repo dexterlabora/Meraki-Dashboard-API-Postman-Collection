@@ -4919,7 +4919,7 @@
               "mode": "raw",
               "raw": "{\n  \"name\":\"Your org\"\n}"
             },
-            "url": "https://{{shard}}.meraki.com/api/v0/organizations/{{organizationId}}/clone",
+            "url": "{{baseUrl}}/organizations/{{organizationId}}/clone",
             "description": "## HTTP REQUEST\n```\nPOST /organizations/[id]/clone\n```\n\n## PARAMETERS\n\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\nname|The name of the new organization\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X POST -H 'Content-Type: application/json' --data-binary '{\"name\":\"Your cloned org\"}' 'https://api.meraki.com/api/v0/organizations/[id]/clone'\n```\n\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 201\n{\n  \"id\":1234,\n  \"name\":\"Your cloned org\"\n}\n```"
           },
           "response": []
