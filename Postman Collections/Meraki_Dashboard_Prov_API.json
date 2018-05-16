@@ -1095,11 +1095,8 @@
                 "value": "{{X-Cisco-Meraki-API-Key}}"
               }
             ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": "https://dashboard.meraki.com/api/v0/organizations/{{organizationId}}/configTemplates/{{Del-configTemplateId}}",
+            "body": {},
+            "url": "{{baseUrl}}/organizations/{{organizationId}}/configTemplates/{{Del-configTemplateId}}",
             "description": "## HTTP REQUEST\n```\nDELETE /organizations/[organizationId]/configTemplates/[id]\n```\n\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X DELETE 'https://dashboard.meraki.com/api/v0/organizations/[organizationId]/configTemplates/[id]'\n```\n\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n(empty)\n```"
           },
           "response": []
