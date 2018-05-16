@@ -13,7 +13,7 @@
       "item": [
         {
           "_postman_id": "a8c54933-d1ef-abd0-a283-4c4790409c81",
-          "name": "Admins - List the dashboard administrators",
+          "name": "List the dashboard administrators",
           "request": {
             "method": "GET",
             "header": [
@@ -3794,7 +3794,7 @@
         },
         {
           "_postman_id": "dbbf40bf-b4f9-4f08-1fa0-f582f4653b0e",
-          "name": "Networks - Traffic analysis",
+          "name": "Traffic analysis",
           "request": {
             "method": "GET",
             "header": [
@@ -3814,7 +3814,7 @@
               ]
             },
             "url": {
-              "raw": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/traffic?timespan=7200",
+              "raw": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/traffic?timespan={{timespan}}",
               "protocol": "https",
               "host": [
                 "dashboard",
@@ -3831,7 +3831,7 @@
               "query": [
                 {
                   "key": "timespan",
-                  "value": "7200",
+                  "value": "{{timespan}}",
                   "equals": true
                 }
               ]
@@ -3993,7 +3993,7 @@
               ],
               "cookie": [],
               "responseTime": "1654",
-              "body": "[{\"application\":\"Miscellaneous web\",\"destination\":\"scripts.dailymail.co.uk\",\"protocol\":\"TCP\",\"port\":80,\"recv\":375,\"sent\":12,\"flows\":2,\"activeTime\":60,\"numClients\":1},{\"application\":\"Miscellaneous web\",\"destination\":\"www.metdaan.com\",\"protocol\":\"TCP\",\"port\":80,\"recv\":4218,\"sent\":144,\"flows\":9,\"activeTime\":240,\"numClients\":1},{\"application\":\"Miscellaneous secure web\",\"destination\":\"assets.zendesk.com\",\"protocol\":\"TCP\",\"port\":443,\"recv\":1101,\"sent\":30,\"flows\":3,\"activeTime\":300,\"numClients\":1},{\"application\":\"Miscellaneous secure web\",\"destination\":\"cloudfront.net\",\"protocol\":\"TCP\",\"port\":443,\"recv\":8918,\"sent\":231,\"flows\":35,\"activeTime\":720,\"numClients\":1},{\"application\":\"Miscellaneous secure web\",\"destination\":\"fbcdn.net\",\"protocol\":\"TCP\",\"port\":443,\"recv\":217610,\"sent\":3873,\"flows\":36,\"activeTime\":3960,\"numClients\":1},{\"application\":\"Miscellaneous secure web\",\"destination\":\"graph.facebook.com\",\"protocol\":\"TCP\",\"port\":443,\"recv\":60,\"sent\":34,\"flows\":3,\"activeTime\":60,\"numClients\":1},{\"application\":\"Miscellaneous secure web\",\"destination\":\"i1.wp.com\",\"protocol\":\"TCP\",\"port\":443,\"recv\":467,\"sent\":17,\"flows\":2,\"activeTime\":180,\"numClients\":1},{\"application\":\"Miscellaneous secure web\",\"destination\":\"star.c10r.facebook.com\",\"protocol\":\"TCP\",\"port\":443,\"recv\":3316,\"sent\":1060,\"flows\":13,\"activeTime\":4020,\"numClients\":1},{\"application\":\"Miscellaneous secure web\",\"destination\":\"staticxx.facebook.com\",\"protocol\":\"TCP\",\"port\":443,\"recv\":3113,\"sent\":64,\"flows\":1,\"activeTime\":60,\"numClients\":1},{\"application\":\"Miscellaneous secure web\",\"destination\":\"v2.zopim.com\",\"protocol\":\"TCP\",\"port\":443,\"recv\":518,\"sent\":11,\"flows\":1,\"activeTime\":120,\"numClients\":1},{\"application\":\"Miscellaneous secure web\",\"destination\":\"www.happysocks.com\",\"protocol\":\"TCP\",\"port\":443,\"recv\":541,\"sent\":49,\"flows\":8,\"activeTime\":180,\"numClients\":1},{\"application\":\"Non-web TCP\",\"destination\":\"app.internetoflego.com\",\"protocol\":\"TCP\",\"port\":1883,\"recv\":242,\"sent\":583,\"flows\":0,\"activeTime\":6120,\"numClients\":1},{\"application\":\"Meraki Control Traffic\",\"destination\":null,\"protocol\":\"-\",\"port\":\"-\",\"recv\":443,\"sent\":679,\"flows\":0,\"activeTime\":5940,\"numClients\":1},{\"application\":\"YouTube\",\"destination\":null,\"protocol\":\"-\",\"port\":\"-\",\"recv\":13596,\"sent\":141,\"flows\":3,\"activeTime\":60,\"numClients\":1},{\"application\":\"iTunes\",\"destination\":null,\"protocol\":\"-\",\"port\":\"-\",\"recv\":323,\"sent\":79,\"flows\":17,\"activeTime\":180,\"numClients\":1},{\"application\":\"apple.com\",\"destination\":null,\"protocol\":\"-\",\"port\":\"-\",\"recv\":712,\"sent\":132,\"flows\":25,\"activeTime\":1260,\"numClients\":1},{\"application\":\"Facebook\",\"destination\":null,\"protocol\":\"-\",\"port\":\"-\",\"recv\":2232,\"sent\":177,\"flows\":14,\"activeTime\":2400,\"numClients\":1},{\"application\":\"Google HTTPS\",\"destination\":null,\"protocol\":\"-\",\"port\":\"-\",\"recv\":1582,\"sent\":296,\"flows\":30,\"activeTime\":1260,\"numClients\":1},{\"application\":\"Miscellaneous secure web\",\"destination\":\"a.rfihub.com\",\"protocol\":\"TCP\",\"port\":443,\"recv\":81,\"sent\":44,\"flows\":11,\"activeTime\":120,\"numClients\":1},{\"application\":\"Miscellaneous secure web\",\"destination\":\"s3.lightboxcdn.com\",\"protocol\":\"TCP\",\"port\":443,\"recv\":201,\"sent\":8,\"flows\":1,\"activeTime\":60,\"numClients\":1},{\"application\":\"Miscellaneous secure web\",\"destination\":\"www.parent.co\",\"protocol\":\"TCP\",\"port\":443,\"recv\":229,\"sent\":15,\"flows\":1,\"activeTime\":60,\"numClients\":1},{\"application\":\"Non-web TCP\",\"destination\":\"mqtt.internetoflego.com\",\"protocol\":\"TCP\",\"port\":1883,\"recv\":239,\"sent\":577,\"flows\":0,\"activeTime\":6000,\"numClients\":1}]"
+              "body": "[\n    {\n        \"application\": \"Miscellaneous web\",\n        \"destination\": \"scripts.dailymail.co.uk\",\n        \"protocol\": \"TCP\",\n        \"port\": 80,\n        \"recv\": 375,\n        \"sent\": 12,\n        \"flows\": 2,\n        \"activeTime\": 60,\n        \"numClients\": 1\n    },\n    {\n        \"application\": \"Miscellaneous web\",\n        \"destination\": \"www.metdaan.com\",\n        \"protocol\": \"TCP\",\n        \"port\": 80,\n        \"recv\": 4218,\n        \"sent\": 144,\n        \"flows\": 9,\n        \"activeTime\": 240,\n        \"numClients\": 1\n    },\n    {\n        \"application\": \"Miscellaneous secure web\",\n        \"destination\": \"assets.zendesk.com\",\n        \"protocol\": \"TCP\",\n        \"port\": 443,\n        \"recv\": 1101,\n        \"sent\": 30,\n        \"flows\": 3,\n        \"activeTime\": 300,\n        \"numClients\": 1\n    },\n    {\n        \"application\": \"Miscellaneous secure web\",\n        \"destination\": \"cloudfront.net\",\n        \"protocol\": \"TCP\",\n        \"port\": 443,\n        \"recv\": 8918,\n        \"sent\": 231,\n        \"flows\": 35,\n        \"activeTime\": 720,\n        \"numClients\": 1\n    },\n    {\n        \"application\": \"Miscellaneous secure web\",\n        \"destination\": \"fbcdn.net\",\n        \"protocol\": \"TCP\",\n        \"port\": 443,\n        \"recv\": 217610,\n        \"sent\": 3873,\n        \"flows\": 36,\n        \"activeTime\": 3960,\n        \"numClients\": 1\n    },\n    {\n        \"application\": \"Miscellaneous secure web\",\n        \"destination\": \"graph.facebook.com\",\n        \"protocol\": \"TCP\",\n        \"port\": 443,\n        \"recv\": 60,\n        \"sent\": 34,\n        \"flows\": 3,\n        \"activeTime\": 60,\n        \"numClients\": 1\n    },\n    {\n        \"application\": \"Miscellaneous secure web\",\n        \"destination\": \"i1.wp.com\",\n        \"protocol\": \"TCP\",\n        \"port\": 443,\n        \"recv\": 467,\n        \"sent\": 17,\n        \"flows\": 2,\n        \"activeTime\": 180,\n        \"numClients\": 1\n    },\n    {\n        \"application\": \"Miscellaneous secure web\",\n        \"destination\": \"star.c10r.facebook.com\",\n        \"protocol\": \"TCP\",\n        \"port\": 443,\n        \"recv\": 3316,\n        \"sent\": 1060,\n        \"flows\": 13,\n        \"activeTime\": 4020,\n        \"numClients\": 1\n    },\n    {\n        \"application\": \"Miscellaneous secure web\",\n        \"destination\": \"staticxx.facebook.com\",\n        \"protocol\": \"TCP\",\n        \"port\": 443,\n        \"recv\": 3113,\n        \"sent\": 64,\n        \"flows\": 1,\n        \"activeTime\": 60,\n        \"numClients\": 1\n    }\n]"
             }
           ]
         },
