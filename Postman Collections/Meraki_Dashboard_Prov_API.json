@@ -1916,11 +1916,8 @@
                 "value": "{{X-Cisco-Meraki-API-Key}}"
               }
             ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/devices/{{serial}}/remove",
+            "body": {},
+            "url": "{{baseUrl}}/networks/{{networkId}}/devices/{{serial}}/remove",
             "description": "## HTTP REQUEST\n```\nPOST /networks/[networkId]/devices/[serial]/remove\n```\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X POST -H 'Content-Type: application/json' 'https://api.meraki.com/api/v0/networks/[networkId]/devices/[serial]/remove'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 204\n```"
           },
           "response": []
