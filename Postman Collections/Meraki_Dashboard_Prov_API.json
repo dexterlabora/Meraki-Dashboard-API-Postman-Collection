@@ -4133,7 +4133,7 @@
                 }
               ]
             },
-            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/accessPolicies",
+            "url": "{{baseUrl}}/networks/{{networkId}}/accessPolicies",
             "description": "## HTTP REQUEST\n```\nGET /networks/[id]/accessPolicies\n```\n\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X GET -H 'Content-Type: application/json' 'https://api.meraki.com/api/v0/networks/[id]/accessPolicies'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n[\n  {\n    \"number\": 1,\n    \"name\": \"Access policy 1\",\n    \"accessType\": \"8021.x\",\n    \"guestVlan\": 3700,\n    \"radiusServers\": [\n      {\n        \"ip\": \"1.2.3.4\",\n        \"port\": 1337\n      },\n      {\n        \"ip\": \"2.3.4.5\",\n        \"port\": 1337\n      }\n    ]\n  },\n  {\n    \"number\": 2,\n    \"name\": \"Access policy 2\",\n    \"accessType\": \"MAC authentication bypass\",\n    \"guestVlan\": 1661,\n    \"radiusServers\": [\n      {\n        \"ip\": \"4.5.6.7\",\n        \"port\": 2222\n      }\n    ]\n  }\n]\n```"
           },
           "response": []
