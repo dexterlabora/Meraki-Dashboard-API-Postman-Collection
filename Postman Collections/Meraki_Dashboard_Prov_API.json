@@ -2118,7 +2118,7 @@
                 }
               ]
             },
-            "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/ssids/{{ssidNum}}]/l3FirewallRules",
+            "url": "{{baseUrl}}/networks/{{networkId}}/ssids/{{ssidNum}}]/l3FirewallRules",
             "description": "## HTTP REQUEST\n```\nGET /networks/[networkId]/ssids/[number]/l3FirewallRules\n```\n\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://dashboard.meraki.com/api/v0/networks/[networkId]/ssids/[number]/l3FirewallRules'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n[\n  {\n     \"comment\": \"TCP access for test servers\",\n     \"policy\": \"deny\",\n     \"protocol\": \"tcp\",\n     \"destPort\": \"Any\",\n     \"destCidr\": \"192.168.1.0/24\"\n  },\n  {\n     \"comment\": \"Wireless clients accessing LAN\",\n     \"policy\": \"allow\",\n     \"protocol\": \"Any\",\n     \"destPort\": \"Any\",\n     \"destCidr\": \"Local LAN\"\n  },\n  {\n     \"comment\": \"Default rule\",\n     \"policy\": \"allow\",\n     \"protocol\": \"Any\",\n     \"destPort\": \"Any\",\n     \"destCidr\": \"Any\"\n  }\n]\n```"
           },
           "response": [
