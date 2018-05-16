@@ -330,16 +330,11 @@
               ]
             },
             "url": {
-              "raw": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/clients/{{clientMac}}/policy?timespan=84000",
-              "protocol": "https",
+              "raw": "{{baseUrl}}/networks/{{networkId}}/clients/{{clientMac}}/policy?timespan=84000",
               "host": [
-                "{{shard}}",
-                "meraki",
-                "com"
+                "{{baseUrl}}"
               ],
               "path": [
-                "api",
-                "v0",
                 "networks",
                 "{{networkId}}",
                 "clients",
