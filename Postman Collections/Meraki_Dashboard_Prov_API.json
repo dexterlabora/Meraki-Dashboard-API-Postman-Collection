@@ -904,6 +904,172 @@
               "body": "{\"ssids\":{\"3\":{\"isAuthorized\":true,\"authorizedAt\":\"2017-10-12 13:02:08 UTC\",\"expiresAt\":\"2017-10-13 13:02:08 UTC\"}}}"
             }
           ]
+        },
+        {
+          "_postman_id": "6002c3a9-39b5-4df9-8469-9b435e2b4e0f",
+          "name": "Return a client",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "Toni",
+                  "type": "text"
+                },
+                {
+                  "key": "orgAccess",
+                  "value": "full",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/clients/{{clientMac}}",
+            "description": "Return the client associated with the given identifier. This endpoint will lookup by client ID or either the MAC or IP depending on whether the network uses Track-by-IP.\n## HTTP REQUEST\n```\nGET /networks/[networkId]/clients/[id_or_mac_or_ip]\n```\n## PARAMETERS\n**None**\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[networkId]/clients/[id_or_mac_or_ip]\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n{\n  \"usage\": {\n    \"sent\": 138.0,\n    \"recv\": 61.0\n  },\n  \"id\": \"k74272e\",\n  \"description\": \"Miles's phone\",\n  \"mdnsName\": \"Miles's phone\",\n  \"dhcpHostname\": \"MilesPhone\",\n  \"mac\": \"00:11:22:33:44:55\",\n  \"ip\": \"1.2.3.4\",\n  \"vlan\": \"255\",\n  \"switchport\": null,\n  \"ip6\": \"\",\n  \"firstSeen\": 1518365681,\n  \"lastSeen\": 1526087474,\n  \"manufacturer\": \"Apple\",\n  \"os\": \"iOS\",\n  \"user\": \"null\",\n  \"ssid\": \"My SSID\",\n  \"wirelessCapabilities\": \"802.11ac - 2.4 and 5 GHz\",\n  \"smInstalled\": true,\n  \"recentDeviceMac\": \"00:11:22:33:44:55\",\n  \"clientVpnConnections\": [\n    {\n      \"remoteIp\": \"1.2.3.4\",\n      \"connectedAt\": 1522613355,\n      \"disconnectedAt\": 1522613360\n    }\n  ],\n  \"lldp\": [\n    [\n      \"System name\",\n      \"Some system name\"\n    ],\n    [\n      \"System description\",\n      \"Some system description\"\n    ],\n    [\n      \"Port ID\",\n      \"1\"\n    ],\n    [\n      \"Chassis ID\",\n      \"00:18:0a:00:00:00\"\n    ],\n    [\n      \"Port description\",\n      \"eth0\"\n    ],\n    [\n      \"System capabilities\",\n      \"Two-port MAC Relay\"\n    ]\n  ],\n  \"cdp\": null\n}\n```"
+          },
+          "response": [
+            {
+              "id": "858be32f-ab99-4bec-868c-5dcb194fafc0",
+              "name": "Return a client",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}",
+                    "disabled": false
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "name",
+                      "value": "Toni",
+                      "type": "text"
+                    },
+                    {
+                      "key": "orgAccess",
+                      "value": "full",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": "{{baseUrl}}/networks/{{networkId}}/clients/{{clientMac}}"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate",
+                  "name": "Cache-Control",
+                  "description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": "Options that are desired for the connection"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "name": "Content-Encoding",
+                  "description": "The type of encoding used on the data."
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8",
+                  "name": "Content-Type",
+                  "description": "The mime type of this content"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 26 May 2018 21:31:49 GMT",
+                  "name": "Date",
+                  "description": "The date and time that the message was sent"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT",
+                  "name": "Expires",
+                  "description": "Gives the date/time after which the response is considered stale"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache",
+                  "name": "Pragma",
+                  "description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+                },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains",
+                  "name": "Strict-Transport-Security",
+                  "description": "A HSTS Policy informing the HTTP client how long to cache the HTTPS only policy and whether this applies to subdomains."
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding",
+                  "name": "Vary",
+                  "description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin",
+                  "name": "X-Frame-Options",
+                  "description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+                },
+                {
+                  "key": "X-Rack-Cache",
+                  "value": "miss",
+                  "name": "X-Rack-Cache",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "c3acc831d33fcc828ad29e98ffbba918",
+                  "name": "X-Request-Id",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.565261",
+                  "name": "X-Runtime",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1",
+                  "name": "X-UA-Compatible",
+                  "description": "Custom header"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"id\": \"k1af98e\",\n    \"mac\": \"8c:85:90:aa:aa:aa\",\n    \"ip\": \"192.168.0.113\",\n    \"ip6\": \"\",\n    \"description\": \"Miles-MacBook-Pro\",\n    \"firstSeen\": 1520683433,\n    \"lastSeen\": 1527370304,\n    \"manufacturer\": \"Apple\",\n    \"os\": \"Mac OS X 10.13\",\n    \"user\": null,\n    \"vlan\": \"1\",\n    \"ssid\": \"viaPostman\",\n    \"wirelessCapabilities\": \"802.11ac - 2.4 and 5 GHz\",\n    \"smInstalled\": false,\n    \"recentDeviceMac\": \"88:15:44:bb:bb:bb\",\n    \"clientVpnConnections\": null,\n    \"lldp\": null,\n    \"cdp\": null\n}"
+            }
+          ]
         }
       ]
     },
