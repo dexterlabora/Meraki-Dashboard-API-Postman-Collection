@@ -1070,6 +1070,172 @@
               "body": "{\n    \"id\": \"k1af98e\",\n    \"mac\": \"8c:85:90:aa:aa:aa\",\n    \"ip\": \"192.168.0.113\",\n    \"ip6\": \"\",\n    \"description\": \"Miles-MacBook-Pro\",\n    \"firstSeen\": 1520683433,\n    \"lastSeen\": 1527370304,\n    \"manufacturer\": \"Apple\",\n    \"os\": \"Mac OS X 10.13\",\n    \"user\": null,\n    \"vlan\": \"1\",\n    \"ssid\": \"viaPostman\",\n    \"wirelessCapabilities\": \"802.11ac - 2.4 and 5 GHz\",\n    \"smInstalled\": false,\n    \"recentDeviceMac\": \"88:15:44:bb:bb:bb\",\n    \"clientVpnConnections\": null,\n    \"lldp\": null,\n    \"cdp\": null\n}"
             }
           ]
+        },
+        {
+          "_postman_id": "9a239958-bd9c-46b1-ab78-d2a4c4a71587",
+          "name": "Return a client usage history",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "Toni",
+                  "type": "text"
+                },
+                {
+                  "key": "orgAccess",
+                  "value": "full",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/clients/{{clientMac}}/usageHistory",
+            "description": "Return the client's daily usage history. Usage data is in kilobytes.\n## HTTP REQUEST\n```\nGET /networks/[networkId]/clients/[id_or_mac_or_ip]/usageHistory\n```\n## PARAMETERS\n**None**\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[networkId]/clients/[id_or_mac_or_ip]/usageHistory'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n[\n  {\n    \"sent\": 500,\n    \"received\": 680,\n    \"ts\": 1518365681\n  }\n]\n```"
+          },
+          "response": [
+            {
+              "id": "038766d1-7b5f-4e0e-8e87-9d81b26ca2d5",
+              "name": "Return a client usage history",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}",
+                    "disabled": false
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "name",
+                      "value": "Toni",
+                      "type": "text"
+                    },
+                    {
+                      "key": "orgAccess",
+                      "value": "full",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": "{{baseUrl}}/networks/{{networkId}}/clients/{{clientMac}}/usageHistory"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate",
+                  "name": "Cache-Control",
+                  "description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": "Options that are desired for the connection"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "name": "Content-Encoding",
+                  "description": "The type of encoding used on the data."
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8",
+                  "name": "Content-Type",
+                  "description": "The mime type of this content"
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 25 May 2018 15:54:29 GMT",
+                  "name": "Date",
+                  "description": "The date and time that the message was sent"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT",
+                  "name": "Expires",
+                  "description": "Gives the date/time after which the response is considered stale"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache",
+                  "name": "Pragma",
+                  "description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+                },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains",
+                  "name": "Strict-Transport-Security",
+                  "description": "A HSTS Policy informing the HTTP client how long to cache the HTTPS only policy and whether this applies to subdomains."
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding",
+                  "name": "Vary",
+                  "description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin",
+                  "name": "X-Frame-Options",
+                  "description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+                },
+                {
+                  "key": "X-Rack-Cache",
+                  "value": "miss",
+                  "name": "X-Rack-Cache",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "9335da373562ade54bbfcee6a4f3f5e7",
+                  "name": "X-Request-Id",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.160196",
+                  "name": "X-Runtime",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1",
+                  "name": "X-UA-Compatible",
+                  "description": "Custom header"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[{\"received\":null,\"sent\":null,\"ts\":1525824000},{\"received\":0,\"sent\":116,\"ts\":1525910400},{\"received\":0,\"sent\":109,\"ts\":1525996800},{\"received\":0,\"sent\":123,\"ts\":1526083200},{\"received\":0,\"sent\":117,\"ts\":1526169600},{\"received\":0,\"sent\":133,\"ts\":1526256000},{\"received\":0,\"sent\":119,\"ts\":1526342400},{\"received\":0,\"sent\":104,\"ts\":1526428800},{\"received\":0,\"sent\":122,\"ts\":1526515200},{\"received\":0,\"sent\":131,\"ts\":1526601600},{\"received\":0,\"sent\":132,\"ts\":1526688000},{\"received\":0,\"sent\":135,\"ts\":1526774400},{\"received\":0,\"sent\":108,\"ts\":1526860800},{\"received\":0,\"sent\":119,\"ts\":1526947200},{\"received\":0,\"sent\":120,\"ts\":1527033600},{\"received\":0,\"sent\":131,\"ts\":1527120000},{\"received\":0,\"sent\":135,\"ts\":1527206400}]"
+            }
+          ]
         }
       ]
     },
