@@ -575,6 +575,279 @@
         }
       }
     },
+    "/networks/{networkId}/clients/{clientMac}": {
+      "get": {
+        "description": "Return the client associated with the given identifier. This endpoint will lookup by client ID or either the MAC or IP depending on whether the network uses Track-by-IP.\n## HTTP REQUEST\n```\nGET /networks/[networkId]/clients/[id_or_mac_or_ip]\n```\n## PARAMETERS\n**None**\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[networkId]/clients/[id_or_mac_or_ip]\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n{\n  \"usage\": {\n    \"sent\": 138.0,\n    \"recv\": 61.0\n  },\n  \"id\": \"k74272e\",\n  \"description\": \"Miles's phone\",\n  \"mdnsName\": \"Miles's phone\",\n  \"dhcpHostname\": \"MilesPhone\",\n  \"mac\": \"00:11:22:33:44:55\",\n  \"ip\": \"1.2.3.4\",\n  \"vlan\": \"255\",\n  \"switchport\": null,\n  \"ip6\": \"\",\n  \"firstSeen\": 1518365681,\n  \"lastSeen\": 1526087474,\n  \"manufacturer\": \"Apple\",\n  \"os\": \"iOS\",\n  \"user\": \"null\",\n  \"ssid\": \"My SSID\",\n  \"wirelessCapabilities\": \"802.11ac - 2.4 and 5 GHz\",\n  \"smInstalled\": true,\n  \"recentDeviceMac\": \"00:11:22:33:44:55\",\n  \"clientVpnConnections\": [\n    {\n      \"remoteIp\": \"1.2.3.4\",\n      \"connectedAt\": 1522613355,\n      \"disconnectedAt\": 1522613360\n    }\n  ],\n  \"lldp\": [\n    [\n      \"System name\",\n      \"Some system name\"\n    ],\n    [\n      \"System description\",\n      \"Some system description\"\n    ],\n    [\n      \"Port ID\",\n      \"1\"\n    ],\n    [\n      \"Chassis ID\",\n      \"00:18:0a:00:00:00\"\n    ],\n    [\n      \"Port description\",\n      \"eth0\"\n    ],\n    [\n      \"System capabilities\",\n      \"Two-port MAC Relay\"\n    ]\n  ],\n  \"cdp\": null\n}\n```",
+        "summary": "Return a client",
+        "tags": [
+          "Clients"
+        ],
+        "operationId": "NetworksClientsByNetworkIdAndClientMacGet",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "X-Cisco-Meraki-API-Key",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "networkId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "clientMac",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ReturnAClient"
+            },
+            "examples": {
+              "application/json": {
+                "id": "k1af98e",
+                "mac": "8c:85:90:aa:aa:aa",
+                "ip": "192.168.0.113",
+                "ip6": "",
+                "description": "Miles-MacBook-Pro",
+                "firstSeen": 1520683433,
+                "lastSeen": 1527370304,
+                "manufacturer": "Apple",
+                "os": "Mac OS X 10.13",
+                "user": null,
+                "vlan": "1",
+                "ssid": "viaPostman",
+                "wirelessCapabilities": "802.11ac - 2.4 and 5 GHz",
+                "smInstalled": false,
+                "recentDeviceMac": "88:15:44:bb:bb:bb",
+                "clientVpnConnections": null,
+                "lldp": null,
+                "cdp": null
+              }
+            }
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/networks/{networkId}/clients/{clientMac}/usageHistory": {
+      "get": {
+        "description": "Return the client's daily usage history. Usage data is in kilobytes.\n## HTTP REQUEST\n```\nGET /networks/[networkId]/clients/[id_or_mac_or_ip]/usageHistory\n```\n## PARAMETERS\n**None**\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[networkId]/clients/[id_or_mac_or_ip]/usageHistory'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n[\n  {\n    \"sent\": 500,\n    \"received\": 680,\n    \"ts\": 1518365681\n  }\n]\n```",
+        "summary": "Return a client usage history",
+        "tags": [
+          "Clients"
+        ],
+        "operationId": "NetworksClientsUsageHistoryByNetworkIdAndClientMacGet",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "X-Cisco-Meraki-API-Key",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "networkId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "clientMac",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ReturnAClientUsageHistory"
+              }
+            },
+            "examples": {
+              "application/json": [
+                {
+                  "received": "null",
+                  "sent": "null",
+                  "ts": 1525824000
+                },
+                {
+                  "received": "0",
+                  "sent": "116",
+                  "ts": 1525910400
+                },
+                {
+                  "received": "0",
+                  "sent": "109",
+                  "ts": 1525996800
+                },
+                {
+                  "received": "0",
+                  "sent": "123",
+                  "ts": 1526083200
+                },
+                {
+                  "received": "0",
+                  "sent": "117",
+                  "ts": 1526169600
+                },
+                {
+                  "received": "0",
+                  "sent": "133",
+                  "ts": 1526256000
+                },
+                {
+                  "received": "0",
+                  "sent": "119",
+                  "ts": 1526342400
+                },
+                {
+                  "received": "0",
+                  "sent": "104",
+                  "ts": 1526428800
+                },
+                {
+                  "received": "0",
+                  "sent": "122",
+                  "ts": 1526515200
+                },
+                {
+                  "received": "0",
+                  "sent": "131",
+                  "ts": 1526601600
+                },
+                {
+                  "received": "0",
+                  "sent": "132",
+                  "ts": 1526688000
+                },
+                {
+                  "received": "0",
+                  "sent": "135",
+                  "ts": 1526774400
+                },
+                {
+                  "received": "0",
+                  "sent": "108",
+                  "ts": 1526860800
+                },
+                {
+                  "received": "0",
+                  "sent": "119",
+                  "ts": 1526947200
+                },
+                {
+                  "received": "0",
+                  "sent": "120",
+                  "ts": 1527033600
+                },
+                {
+                  "received": "0",
+                  "sent": "131",
+                  "ts": 1527120000
+                },
+                {
+                  "received": "0",
+                  "sent": "135",
+                  "ts": 1527206400
+                }
+              ]
+            }
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/networks/{networkId}/clients/{clientMac}/trafficHistory": {
+      "get": {
+        "description": "Return the client's network traffic data over time. Usage data is in kilobytes.\n## HTTP REQUEST\n```\nGET /networks/[networkId]/clients/[id_or_mac_or_ip]/trafficHistory\n```\n## PARAMETERS\n**parameter**|**description**\n :-------------: |:-------------:\nperPage|The number of entries per page returned\nstartingAfter|A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, next or prev page in the HTTP Link header should define it.\nendingBefore|A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, next or prev page in the HTTP Link header should define it.\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[networkId]/clients/[id_or_mac_or_ip]/trafficHistory'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n[\n  {\n    \"ts\": 1518365681,\n    \"application\": \"Google\",\n    \"destination\": \"www.google.com\",\n    \"protocol\": \"UDP\",\n    \"port\": 443,\n    \"recv\": 383,\n    \"sent\": 56,\n    \"numFlows\": 5,\n    \"activeSeconds\": 240\n  }\n]\n```",
+        "summary": "Return a client traffic history",
+        "tags": [
+          "Clients"
+        ],
+        "operationId": "NetworksClientsTrafficHistoryByNetworkIdAndClientMacGet",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "X-Cisco-Meraki-API-Key",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "networkId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "clientMac",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ReturnAClientTrafficHistory"
+            }
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
     "/organizations/{organizationId}/configTemplates": {
       "get": {
         "description": "## HTTP REQUEST\n```\nGET /organizations/[organizationId]/configTemplates\n```\n\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://dashboard.meraki.com/api/v0/organizations/[organizationId]/configTemplates'\n```\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n[\n  {\n    \"id\": \"N_1234\",\n    \"name\": \"Your config template\"\n  }\n]\n```",
@@ -10038,6 +10311,237 @@
         "expiresAt"
       ]
     },
+    "ReturnAClient": {
+      "title": "Return a client",
+      "example": {
+        "id": "k1af98e",
+        "mac": "8c:85:90:aa:aa:aa",
+        "ip": "192.168.0.113",
+        "ip6": "",
+        "description": "Miles-MacBook-Pro",
+        "firstSeen": 1520683433,
+        "lastSeen": 1527370304,
+        "manufacturer": "Apple",
+        "os": "Mac OS X 10.13",
+        "user": null,
+        "vlan": "1",
+        "ssid": "viaPostman",
+        "wirelessCapabilities": "802.11ac - 2.4 and 5 GHz",
+        "smInstalled": false,
+        "recentDeviceMac": "88:15:44:bb:bb:bb",
+        "clientVpnConnections": null,
+        "lldp": null,
+        "cdp": null
+      },
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "",
+          "example": "k1af98e",
+          "type": "string"
+        },
+        "mac": {
+          "description": "",
+          "example": "8c:85:90:aa:aa:aa",
+          "type": "string"
+        },
+        "ip": {
+          "description": "",
+          "example": "192.168.0.113",
+          "type": "string"
+        },
+        "ip6": {
+          "description": "",
+          "type": "string"
+        },
+        "description": {
+          "description": "",
+          "example": "Miles-MacBook-Pro",
+          "type": "string"
+        },
+        "firstSeen": {
+          "description": "",
+          "example": 1520683433,
+          "type": "integer",
+          "format": "int32"
+        },
+        "lastSeen": {
+          "description": "",
+          "example": 1527370304,
+          "type": "integer",
+          "format": "int32"
+        },
+        "manufacturer": {
+          "description": "",
+          "example": "Apple",
+          "type": "string"
+        },
+        "os": {
+          "description": "",
+          "example": "Mac OS X 10.13",
+          "type": "string"
+        },
+        "user": {
+          "description": "",
+          "type": "string"
+        },
+        "vlan": {
+          "description": "",
+          "example": "1",
+          "type": "string"
+        },
+        "ssid": {
+          "description": "",
+          "example": "viaPostman",
+          "type": "string"
+        },
+        "wirelessCapabilities": {
+          "description": "",
+          "example": "802.11ac - 2.4 and 5 GHz",
+          "type": "string"
+        },
+        "smInstalled": {
+          "description": "",
+          "example": false,
+          "type": "boolean"
+        },
+        "recentDeviceMac": {
+          "description": "",
+          "example": "88:15:44:bb:bb:bb",
+          "type": "string"
+        },
+        "clientVpnConnections": {
+          "description": "",
+          "type": "string"
+        },
+        "lldp": {
+          "description": "",
+          "type": "string"
+        },
+        "cdp": {
+          "description": "",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "mac",
+        "ip",
+        "ip6",
+        "description",
+        "firstSeen",
+        "lastSeen",
+        "manufacturer",
+        "os",
+        "user",
+        "vlan",
+        "ssid",
+        "wirelessCapabilities",
+        "smInstalled",
+        "recentDeviceMac",
+        "clientVpnConnections",
+        "lldp",
+        "cdp"
+      ]
+    },
+    "ReturnAClientUsageHistory": {
+      "title": "Return a client usage history",
+      "example": {
+        "received": "null",
+        "sent": "null",
+        "ts": 1525824000
+      },
+      "type": "object",
+      "properties": {
+        "received": {
+          "description": "",
+          "type": "string"
+        },
+        "sent": {
+          "description": "",
+          "type": "string"
+        },
+        "ts": {
+          "description": "",
+          "example": 1525824000,
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "received",
+        "sent",
+        "ts"
+      ]
+    },
+    "ReturnAClientTrafficHistory": {
+      "title": "Return a client traffic history",
+      "type": "object",
+      "properties": {
+        "ts": {
+          "description": "",
+          "example": 1518365681,
+          "type": "integer",
+          "format": "int32"
+        },
+        "application": {
+          "description": "",
+          "example": "Google",
+          "type": "string"
+        },
+        "destination": {
+          "description": "",
+          "example": "www.google.com",
+          "type": "string"
+        },
+        "protocol": {
+          "description": "",
+          "example": "UDP",
+          "type": "string"
+        },
+        "port": {
+          "description": "",
+          "example": 443,
+          "type": "integer",
+          "format": "int32"
+        },
+        "recv": {
+          "description": "",
+          "example": 383,
+          "type": "integer",
+          "format": "int32"
+        },
+        "sent": {
+          "description": "",
+          "example": 56,
+          "type": "integer",
+          "format": "int32"
+        },
+        "numFlows": {
+          "description": "",
+          "example": 5,
+          "type": "integer",
+          "format": "int32"
+        },
+        "activeSeconds": {
+          "description": "",
+          "example": 240,
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "ts",
+        "application",
+        "destination",
+        "protocol",
+        "port",
+        "recv",
+        "sent",
+        "numFlows",
+        "activeSeconds"
+      ]
+    },
     "Config templates  list the config templates for this org": {
       "title": "Config Templates - List the config templates for this org",
       "example": {
@@ -10596,7 +11100,7 @@
           ],
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Rule26"
+            "$ref": "#/definitions/Rule29"
           }
         },
         "syslogDefaultRule": {
@@ -10610,8 +11114,8 @@
         "syslogDefaultRule"
       ]
     },
-    "Rule26": {
-      "title": "Rule26",
+    "Rule29": {
+      "title": "Rule29",
       "example": {
         "comment": "A note about the rule",
         "policy": "deny",
@@ -10862,7 +11366,7 @@
           ],
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Rule26"
+            "$ref": "#/definitions/Rule29"
           }
         }
       },
@@ -10905,7 +11409,7 @@
           ],
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Rule26"
+            "$ref": "#/definitions/Rule29"
           }
         },
         "syslogDefaultRule": {
