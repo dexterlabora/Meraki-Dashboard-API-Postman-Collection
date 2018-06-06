@@ -11465,6 +11465,454 @@
           "response": []
         }
       ]
+    },
+    {
+      "_postman_id": "66672efb-4cdc-4cd5-8118-e3330cc0313b",
+      "name": "Meraki Auth",
+      "description": "",
+      "item": [
+        {
+          "_postman_id": "b3b36a0c-a91a-4a70-9ea5-257026c74e99",
+          "name": "List the splash or RADIUS users",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "order",
+                  "value": "234234234",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/merakiAuthUsers",
+            "description": "List the splash or RADIUS users configured under Meraki Authentication for a network\n## HTTP REQUEST\n```\nGET /networks/[id]/merakiAuthUsers\n```\n## PARAMETERS\n**None**\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[id]/merakiAuthUsers'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n[\n  {\n    \"id\": \"aGlAaGkuY29t\",\n    \"email\": \"miles@meraki.com\",\n    \"name\": \"Miles Meraki\",\n    \"createdAt\": 1518365681,\n    \"accountType\": \"Guest\",\n    \"authorizations\": [\n      {\n        \"authorizedZone\": \"Store WiFi\",\n        \"expiresAt\": 1526087474,\n        \"authorizedByName\": \"Miles Meraki\",\n        \"authorizedByEmail\": \"miles@meraki.com\"\n      }\n    ]\n  }\n]\n```"
+          },
+          "response": [
+            {
+              "id": "4012cd42-332b-4742-9d8b-fb8dd7696427",
+              "name": "List the splash or RADIUS users",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}",
+                    "disabled": false
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "order",
+                      "value": "234234234",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": "{{baseUrl}}/networks/{{networkId}}/merakiAuthUsers"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate",
+                  "name": "Cache-Control",
+                  "description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": "Options that are desired for the connection"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "name": "Content-Encoding",
+                  "description": "The type of encoding used on the data."
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8",
+                  "name": "Content-Type",
+                  "description": "The mime type of this content"
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 06 Jun 2018 14:14:21 GMT",
+                  "name": "Date",
+                  "description": "The date and time that the message was sent"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT",
+                  "name": "Expires",
+                  "description": "Gives the date/time after which the response is considered stale"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache",
+                  "name": "Pragma",
+                  "description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+                },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains",
+                  "name": "Strict-Transport-Security",
+                  "description": "A HSTS Policy informing the HTTP client how long to cache the HTTPS only policy and whether this applies to subdomains."
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding",
+                  "name": "Vary",
+                  "description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin",
+                  "name": "X-Frame-Options",
+                  "description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+                },
+                {
+                  "key": "X-Rack-Cache",
+                  "value": "miss",
+                  "name": "X-Rack-Cache",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "f2105b75f546d92a9e739b40f258d43d",
+                  "name": "X-Request-Id",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.113898",
+                  "name": "X-Runtime",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1",
+                  "name": "X-UA-Compatible",
+                  "description": "Custom header"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n    {\n        \"id\": \"MTE1bWlsZXNAbWVyYWtpLmNv1234\",\n        \"email\": \"miles@meraki.com\",\n        \"name\": \"Miles Meraki\",\n        \"createdAt\": 1497593719,\n        \"accountType\": \"Administrator\",\n        \"authorizations\": [\n            {\n                \"authorizedZone\": \"MR-Cafe-1\",\n                \"expiresAt\": 1512414963,\n                \"authorizedByName\": \"Miles Meraki\",\n                \"authorizedByEmail\": \"milesAdmin@meraki.com\"\n            }\n        ]\n    },\n    {\n        \"id\": \"Y29yeS5ndXlubkBtZXJha2k3456\",\n        \"email\": \"demo@meraki.com\",\n        \"name\": \"Demo User\",\n        \"createdAt\": 1401835830,\n        \"accountType\": \"Administrator\",\n        \"authorizations\": [\n            {\n                \"authorizedZone\": \"MX-Branch-1\",\n                \"expiresAt\": \"Never\",\n                \"authorizedByName\": \"Miles Meraki\",\n                \"authorizedByEmail\": \"miles@meraki.com\"\n            }\n        ]\n    }\n]"
+            }
+          ]
+        },
+        {
+          "_postman_id": "68d616d2-49e0-4cb1-a931-b254c2558275",
+          "name": "Return the Meraki Auth splash or RADIUS user",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "order",
+                  "value": "234234234",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/merakiAuthUsers",
+            "description": "## HTTP REQUEST\n```\nGET /networks/[id]/merakiAuthUsers/[id]\n```\n## PARAMETERS\n**None**\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[id]/merakiAuthUsers/[id]'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n{\n  \"id\": \"aGlAaGkuY29t\",\n  \"email\": \"miles@meraki.com\",\n  \"name\": \"Miles Meraki\",\n  \"createdAt\": 1518365681,\n  \"accountType\": \"Guest\",\n  \"authorizations\": [\n    {\n      \"authorizedZone\": \"Store WiFi\",\n      \"expiresAt\": 1526087474,\n      \"authorizedByName\": \"Miles Meraki\",\n      \"authorizedByEmail\": \"miles@meraki.com\"\n    }\n  ]\n}\n```"
+          },
+          "response": [
+            {
+              "id": "189bac38-f14b-4fd9-9227-4f665e2f46c4",
+              "name": "Return the Meraki Auth splash or RADIUS user",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}",
+                    "disabled": false
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "order",
+                      "value": "234234234",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": "{{baseUrl}}/networks/{{networkId}}/merakiAuthUsers/{{authId}}"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate",
+                  "name": "Cache-Control",
+                  "description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": "Options that are desired for the connection"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "name": "Content-Encoding",
+                  "description": "The type of encoding used on the data."
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8",
+                  "name": "Content-Type",
+                  "description": "The mime type of this content"
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 06 Jun 2018 14:20:40 GMT",
+                  "name": "Date",
+                  "description": "The date and time that the message was sent"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT",
+                  "name": "Expires",
+                  "description": "Gives the date/time after which the response is considered stale"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache",
+                  "name": "Pragma",
+                  "description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+                },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains",
+                  "name": "Strict-Transport-Security",
+                  "description": "A HSTS Policy informing the HTTP client how long to cache the HTTPS only policy and whether this applies to subdomains."
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding",
+                  "name": "Vary",
+                  "description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin",
+                  "name": "X-Frame-Options",
+                  "description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+                },
+                {
+                  "key": "X-Rack-Cache",
+                  "value": "miss",
+                  "name": "X-Rack-Cache",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "27ae3784dd308567997813caa1463973",
+                  "name": "X-Request-Id",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.297347",
+                  "name": "X-Runtime",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1",
+                  "name": "X-UA-Compatible",
+                  "description": "Custom header"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"id\": \"MTE1bWlsZXNAbWVyYWtpLmNvb123\",\n    \"email\": \"miles@meraki.com\",\n    \"name\": \"Miles Meraki\",\n    \"createdAt\": 1497593719,\n    \"accountType\": \"Administrator\",\n    \"authorizations\": [\n        {\n            \"authorizedZone\": \"MR - Cafe -1\",\n            \"expiresAt\": 1512414963,\n            \"authorizedByName\": \"Admin User\",\n            \"authorizedByEmail\": \"adminn@meraki.com\"\n        }\n    ]\n}"
+            },
+            {
+              "id": "1d0668d2-1a88-41a8-8206-8f0a974116f3",
+              "name": "List the splash or RADIUS users",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}",
+                    "disabled": false
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "order",
+                      "value": "234234234",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": "{{baseUrl}}/networks/{{networkId}}/merakiAuthUsers"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate",
+                  "name": "Cache-Control",
+                  "description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": "Options that are desired for the connection"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "name": "Content-Encoding",
+                  "description": "The type of encoding used on the data."
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8",
+                  "name": "Content-Type",
+                  "description": "The mime type of this content"
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 06 Jun 2018 14:14:21 GMT",
+                  "name": "Date",
+                  "description": "The date and time that the message was sent"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT",
+                  "name": "Expires",
+                  "description": "Gives the date/time after which the response is considered stale"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache",
+                  "name": "Pragma",
+                  "description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+                },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains",
+                  "name": "Strict-Transport-Security",
+                  "description": "A HSTS Policy informing the HTTP client how long to cache the HTTPS only policy and whether this applies to subdomains."
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding",
+                  "name": "Vary",
+                  "description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin",
+                  "name": "X-Frame-Options",
+                  "description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+                },
+                {
+                  "key": "X-Rack-Cache",
+                  "value": "miss",
+                  "name": "X-Rack-Cache",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "f2105b75f546d92a9e739b40f258d43d",
+                  "name": "X-Request-Id",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.113898",
+                  "name": "X-Runtime",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1",
+                  "name": "X-UA-Compatible",
+                  "description": "Custom header"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n    {\n        \"id\": \"MTE1bWlsZXNAbWVyYWtpLmNv1234\",\n        \"email\": \"miles@meraki.com\",\n        \"name\": \"Miles Meraki\",\n        \"createdAt\": 1497593719,\n        \"accountType\": \"Administrator\",\n        \"authorizations\": [\n            {\n                \"authorizedZone\": \"MR-Cafe-1\",\n                \"expiresAt\": 1512414963,\n                \"authorizedByName\": \"Miles Meraki\",\n                \"authorizedByEmail\": \"miles@meraki.com\"\n            }\n        ]\n    },\n    {\n        \"id\": \"Y29yeS5ndXlubkBtZXJha2k3456\",\n        \"email\": \"demo@meraki.com\",\n        \"name\": \"Demo User\",\n        \"createdAt\": 1401835830,\n        \"accountType\": \"Administrator\",\n        \"authorizations\": [\n            {\n                \"authorizedZone\": \"MX-Branch-1\",\n                \"expiresAt\": \"Never\",\n                \"authorizedByName\": \"Miles Meraki\",\n                \"authorizedByEmail\": \"miles@meraki.com\"\n            }\n        ]\n    }\n]"
+            }
+          ]
+        }
+      ]
     }
   ],
   "event": [
