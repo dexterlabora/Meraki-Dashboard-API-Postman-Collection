@@ -10066,7 +10066,7 @@
                 }
               ]
             },
-            "description": "List the PII requests for this organization\n## HTTP Request\n```\nGET /organizations/[organizationId]/pii/requests\n```\n## Parameters\n\n**None**\n\n## Sample Request\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X GET -H 'Content-Type: application/json' 'https://api.meraki.com/api/v0/organizations/[organizationId]/pii/requests'\n```\n## Sample Response\n```\nSuccessful HTTP Status: 200\n\n[\n  {\n    \"id\": \"1234\",\n    \"organizationWide\": false,\n    \"networkId\": \"N_1234\",\n    \"type\": \"delete\",\n    \"mac\": \"00:77:00:77:00:77\",\n    \"datasets\": \"['usage', 'events']\",\n    \"createdAt\": 1524692227,\n    \"completedAt\": 1524702227\n  }\n]\n```"
+            "description": "List the PII requests for this organization\n## HTTP Request\n```\nGET /networks/[networkId]/pii/requests\nGET /organizations/[organizationId]/pii/requests\n```\n## Parameters\n\n**None**\n\n## Sample Request\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X GET -H 'Content-Type: application/json' 'https://api.meraki.com/api/v0/organizations/[organizationId]/pii/requests'\n```\n## Sample Response\n```\nSuccessful HTTP Status: 200\n\n[\n  {\n    \"id\": \"1234\",\n    \"organizationWide\": false,\n    \"networkId\": \"N_1234\",\n    \"type\": \"delete\",\n    \"mac\": \"00:77:00:77:00:77\",\n    \"datasets\": \"['usage', 'events']\",\n    \"createdAt\": 1524692227,\n    \"completedAt\": 1524702227\n  }\n]\n```"
           },
           "response": [
             {
