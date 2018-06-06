@@ -1396,6 +1396,347 @@
               "body": " [\n  {\n    \"ts\": 1518365681,\n    \"application\": \"Google\",\n    \"destination\": \"www.google.com\",\n    \"protocol\": \"UDP\",\n    \"port\": 443,\n    \"recv\": 383,\n    \"sent\": 56,\n    \"numFlows\": 5,\n    \"activeSeconds\": 240\n  }\n]"
             }
           ]
+        },
+        {
+          "_postman_id": "a8ff6697-b590-4bf5-9656-fb28759de4c0",
+          "name": "Return a client events",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "Toni",
+                  "type": "text"
+                },
+                {
+                  "key": "orgAccess",
+                  "value": "full",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/networks/{{networkId}}/clients/{{clientMac}}/events?perPage=20",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "networks",
+                "{{networkId}}",
+                "clients",
+                "{{clientMac}}",
+                "events"
+              ],
+              "query": [
+                {
+                  "key": "perPage",
+                  "value": "20",
+                  "equals": true
+                }
+              ]
+            },
+            "description": "## HTTP REQUEST\n```\nGET /networks/[networkId]/clients/[id_or_mac_or_ip]/events\n```\n## QUERY PARAMETERS\n**Parameter**|**Description of the parameter**\n :-------------: |:-------------:\nperPage| The number of entries per page returned\nstartingAfter| A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, next or prev page in the HTTP Link header should define it.\nendingBefore| A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, next or prev page in the HTTP Link header should define it.\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[networkId]/clients/[id_or_mac_or_ip]/events'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n[\n  {\n    \"deviceSerial\": \"Q234-ABCD-5678\",\n    \"occurredAt\": 1518365681,\n    \"type\": \"l3roaming_assoc_start\",\n    \"details\": {\n      \"vap\": \"1\",\n      \"on_packet\": \"true\"\n    }\n  }\n]\n```"
+          },
+          "response": [
+            {
+              "id": "4ba3b01f-31a1-45c0-9a84-ca3f6dc62397",
+              "name": "Return a client traffic history",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}",
+                    "disabled": false
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "name",
+                      "value": "Toni",
+                      "type": "text"
+                    },
+                    {
+                      "key": "orgAccess",
+                      "value": "full",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": "{{baseUrl}}/networks/{{networkId}}/clients/{{clientMac}}/trafficHistory"
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate",
+                  "name": "Cache-Control",
+                  "description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": "Options that are desired for the connection"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "name": "Content-Encoding",
+                  "description": "The type of encoding used on the data."
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/html; charset=utf-8",
+                  "name": "Content-Type",
+                  "description": "The mime type of this content"
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 25 May 2018 15:51:59 GMT",
+                  "name": "Date",
+                  "description": "The date and time that the message was sent"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT",
+                  "name": "Expires",
+                  "description": "Gives the date/time after which the response is considered stale"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache",
+                  "name": "Pragma",
+                  "description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+                },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding",
+                  "name": "Vary",
+                  "description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin",
+                  "name": "X-Frame-Options",
+                  "description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+                },
+                {
+                  "key": "X-Rack-Cache",
+                  "value": "miss",
+                  "name": "X-Rack-Cache",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "7b464b682b3c2d26d9493704807ea8b3",
+                  "name": "X-Request-Id",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "1.313774",
+                  "name": "X-Runtime",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1",
+                  "name": "X-UA-Compatible",
+                  "description": "Custom header"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": " [\n  {\n    \"ts\": 1518365681,\n    \"application\": \"Google\",\n    \"destination\": \"www.google.com\",\n    \"protocol\": \"UDP\",\n    \"port\": 443,\n    \"recv\": 383,\n    \"sent\": 56,\n    \"numFlows\": 5,\n    \"activeSeconds\": 240\n  }\n]"
+            },
+            {
+              "id": "92b1f535-dd35-41c4-8042-28f305fb038d",
+              "name": "Return a client events",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}",
+                    "disabled": false
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "name",
+                      "value": "Toni",
+                      "type": "text"
+                    },
+                    {
+                      "key": "orgAccess",
+                      "value": "full",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/networks/{{networkId}}/clients/{{clientMac}}/events?perPage=20",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "networks",
+                    "{{networkId}}",
+                    "clients",
+                    "{{clientMac}}",
+                    "events"
+                  ],
+                  "query": [
+                    {
+                      "key": "perPage",
+                      "value": "20",
+                      "equals": true
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate",
+                  "name": "Cache-Control",
+                  "description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": "Options that are desired for the connection"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "name": "Content-Encoding",
+                  "description": "The type of encoding used on the data."
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8",
+                  "name": "Content-Type",
+                  "description": "The mime type of this content"
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 06 Jun 2018 11:17:19 GMT",
+                  "name": "Date",
+                  "description": "The date and time that the message was sent"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT",
+                  "name": "Expires",
+                  "description": "Gives the date/time after which the response is considered stale"
+                },
+                {
+                  "key": "Link",
+                  "value": "<https://n149.meraki.com/api/v0/networks/N_646829496481145383/clients/8c:85:90:ab:f8:0b/events?perPage=20&startingAfter=1528057230.0>; rel=first, <https://n149.meraki.com/api/v0/networks/N_646829496481145383/clients/8c:85:90:ab:f8:0b/events?perPage=20&startingAfter=1528213747.872001>; rel=next, <https://n149.meraki.com/api/v0/networks/N_646829496481145383/clients/8c:85:90:ab:f8:0b/events?endingBefore=1528277759.0&perPage=20>; rel=last",
+                  "name": "Link",
+                  "description": "Used to express a typed relationship with another resource, where the relation type is defined by RFC 5988"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache",
+                  "name": "Pragma",
+                  "description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+                },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains",
+                  "name": "Strict-Transport-Security",
+                  "description": "A HSTS Policy informing the HTTP client how long to cache the HTTPS only policy and whether this applies to subdomains."
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding",
+                  "name": "Vary",
+                  "description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin",
+                  "name": "X-Frame-Options",
+                  "description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+                },
+                {
+                  "key": "X-Rack-Cache",
+                  "value": "miss",
+                  "name": "X-Rack-Cache",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "560edf2dd7d77a1c5f736a0e4af72e34",
+                  "name": "X-Request-Id",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "4.154914",
+                  "name": "X-Runtime",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1",
+                  "name": "X-UA-Compatible",
+                  "description": "Custom header"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n    {\n        \"deviceSerial\": \"Q2RD-3FEM-FFFF\",\n        \"occurredAt\": 1528057260.523001,\n        \"type\": \"Splash authentication\",\n        \"details\": {\n            \"mac\": \"AA:AA:AA:BB:BB:BB\",\n            \"duration\": \"86400\",\n            \"vap\": \"0\",\n            \"wiredVlan\": \"-1\",\n            \"download\": \"512000bps\",\n            \"upload\": \"512000bps\"\n        }\n    },\n    {\n        \"deviceSerial\": \"Q2RD-3FEM-FFFF\",\n        \"occurredAt\": 1528057453.760001,\n        \"type\": \"WPA deauthentication\",\n        \"details\": {\n            \"radio\": \"1\",\n            \"vap\": \"0\",\n            \"clientMac\": \"AA:AA:AA:BB:BB:BB\",\n            \"aid\": \"1129841019\"\n        }\n    },\n    {\n        \"deviceSerial\": \"Q2RD-3FEM-FFFF\",\n        \"occurredAt\": 1528057453.760011,\n        \"type\": \"802.11 disassociation\",\n        \"details\": {\n            \"radio\": \"1\",\n            \"vap\": \"0\",\n            \"clientMac\": \"AA:AA:AA:BB:BB:BB\",\n            \"channel\": \"108\",\n            \"reason\": \"8\",\n            \"instigator\": \"2\",\n            \"duration\": \"228.499999782\",\n            \"authNegDur\": \"0.020000\",\n            \"lastAuthAgo\": \"228.479999782\",\n            \"isWpa\": \"1\",\n            \"fullConn\": \"4.759999996\",\n            \"ipResp\": \"4.949999995\",\n            \"ipSrc\": \"192.168.0.113\",\n            \"httpResp\": \"4.759999996\",\n            \"arpResp\": \"4.069999996\",\n            \"dnsServer\": \"192.168.0.1\",\n            \"dnsReqRtt\": \"0.010000\",\n            \"dnsResp\": \"4.129999996\",\n            \"dhcpLeaseCompleted\": \"1.049999999\",\n            \"dhcpIp\": \"192.168.0.113\",\n            \"dhcpServer\": \"192.168.0.1\",\n            \"dhcpServerMac\": \"E0:55:3D:6C:C1:7A\",\n            \"dhcpResp\": \"1.049999999\",\n            \"aid\": \"1129841019\"\n        }\n    },\n    {\n        \"deviceSerial\": \"Q2RD-3FEM-FFFF\",\n        \"occurredAt\": 1528062573.909001,\n        \"type\": \"802.11 association\",\n        \"details\": {\n            \"radio\": \"1\",\n            \"vap\": \"0\",\n            \"clientMac\": \"AA:AA:AA:BB:BB:BB\",\n            \"clientIp\": \"192.168.0.113\",\n            \"channel\": \"108\",\n            \"rssi\": \"39\",\n            \"aid\": \"848702280\"\n        }\n    },\n    {\n        \"deviceSerial\": \"Q2RD-3FEM-FFFF\",\n        \"occurredAt\": 1528062573.929001,\n        \"type\": \"WPA authentication\",\n        \"details\": {\n            \"radio\": \"1\",\n            \"vap\": \"0\",\n            \"clientMac\": \"AA:AA:AA:BB:BB:BB\",\n            \"clientIp\": \"192.168.0.113\",\n            \"aid\": \"848702280\"\n        }\n    },\n    {\n        \"deviceSerial\": \"Q2RD-3FEM-FFFF\",\n        \"occurredAt\": 1528101188.980372,\n        \"type\": \"WPA deauthentication\",\n        \"details\": {\n            \"radio\": \"1\",\n            \"vap\": \"0\",\n            \"clientMac\": \"AA:AA:AA:BB:BB:BB\",\n            \"clientIp\": \"192.168.0.113\",\n            \"aid\": \"848702280\"\n        }\n    },\n    {\n        \"deviceSerial\": \"Q2RD-3FEM-FFFF\",\n        \"occurredAt\": 1528101188.980382,\n        \"type\": \"802.11 association\",\n        \"details\": {\n            \"radio\": \"1\",\n            \"vap\": \"0\",\n            \"clientMac\": \"AA:AA:AA:BB:BB:BB\",\n            \"clientIp\": \"192.168.0.113\",\n            \"channel\": \"108\",\n            \"rssi\": \"41\",\n            \"aid\": \"848702280\"\n        }\n    },\n    {\n        \"deviceSerial\": \"Q2RD-3FEM-FFFF\",\n        \"occurredAt\": 1528101188.990372,\n        \"type\": \"WPA authentication\",\n        \"details\": {\n            \"radio\": \"1\",\n            \"vap\": \"0\",\n            \"clientMac\": \"AA:AA:AA:BB:BB:BB\",\n            \"clientIp\": \"192.168.0.113\",\n            \"aid\": \"848702280\"\n        }\n    },\n    {\n        \"deviceSerial\": \"Q2RD-3FEM-FFFF\",\n        \"occurredAt\": 1528102629.556001,\n        \"type\": \"802.11 association\",\n        \"details\": {\n            \"radio\": \"0\",\n            \"vap\": \"0\",\n            \"clientMac\": \"AA:AA:AA:BB:BB:BB\",\n            \"clientIp\": \"192.168.0.113\",\n            \"channel\": \"1\",\n            \"rssi\": \"25\",\n            \"aid\": \"974324249\"\n        }\n    },\n    {\n        \"deviceSerial\": \"Q2RD-3FEM-FFFF\",\n        \"occurredAt\": 1528102629.566001,\n        \"type\": \"WPA authentication\",\n        \"details\": {\n            \"radio\": \"0\",\n            \"vap\": \"0\",\n            \"clientMac\": \"AA:AA:AA:BB:BB:BB\",\n            \"clientIp\": \"192.168.0.113\",\n            \"aid\": \"974324249\"\n        }\n    },\n    {\n        \"deviceSerial\": \"Q2RD-3FEM-FFFF\",\n        \"occurredAt\": 1528102659.556001,\n        \"type\": \"802.11 disassociation\",\n        \"details\": {\n            \"radio\": \"1\",\n            \"vap\": \"0\",\n            \"clientMac\": \"AA:AA:AA:BB:BB:BB\",\n            \"clientIp\": \"192.168.0.113\",\n            \"channel\": \"108\",\n            \"duration\": \"1460.583206607\",\n            \"authNegDur\": \"0.020000\",\n            \"lastAuthAgo\": \"1460.563206607\",\n            \"isWpa\": \"1\",\n            \"fullConn\": \"4.789999996\",\n            \"ipResp\": \"38625.094989485\",\n            \"ipSrc\": \"192.168.0.113\",\n            \"httpResp\": \"4.789999996\",\n            \"arpResp\": \"38835.305618284\",\n            \"arpSrc\": \"192.168.0.113\",\n            \"dnsServer\": \"192.168.0.1\",\n            \"dnsReqRtt\": \"0.000000\",\n            \"dnsResp\": \"4.779999996\",\n            \"dhcpLeaseCompleted\": \"1.029999999\",\n            \"dhcpIp\": \"192.168.0.113\",\n            \"dhcpServer\": \"192.168.0.1\",\n            \"dhcpServerMac\": \"E0:55:3D:6C:C1:7A\",\n            \"dhcpResp\": \"1.029999999\",\n            \"aid\": \"848702280\"\n        }\n    },\n    {\n        \"deviceSerial\": \"Q2RD-3FEM-FFFF\",\n        \"occurredAt\": 1528103091.899001,\n        \"type\": \"WPA deauthentication\",\n        \"details\": {\n            \"radio\": \"0\",\n            \"vap\": \"0\",\n            \"clientMac\": \"AA:AA:AA:BB:BB:BB\",\n            \"aid\": \"974324249\"\n        }\n    },\n    {\n        \"deviceSerial\": \"Q2RD-3FEM-FFFF\",\n        \"occurredAt\": 1528103091.899011,\n        \"type\": \"802.11 disassociation\",\n        \"details\": {\n            \"radio\": \"0\",\n            \"vap\": \"0\",\n            \"clientMac\": \"AA:AA:AA:BB:BB:BB\",\n            \"channel\": \"1\",\n            \"reason\": \"8\",\n            \"instigator\": \"2\",\n            \"duration\": \"462.309999559\",\n            \"authNegDur\": \"0.010000\",\n            \"lastAuthAgo\": \"462.289999559\",\n            \"isWpa\": \"1\",\n            \"fullConn\": \"0.209999999\",\n            \"ipResp\": \"0.209999999\",\n            \"ipSrc\": \"192.168.0.113\",\n            \"httpResp\": \"34.439999967\",\n            \"arpResp\": \"0.069999999\",\n            \"arpSrc\": \"192.168.0.113\",\n            \"dnsServer\": \"192.168.0.1\",\n            \"dnsReqRtt\": \"0.530000\",\n            \"dnsResp\": \"34.419999967\",\n            \"aid\": \"974324249\"\n        }\n    },\n    {\n        \"deviceSerial\": \"Q2RD-3FEM-FFFF\",\n        \"occurredAt\": 1528103091.909001,\n        \"type\": \"802.11 disassociation\",\n        \"details\": {\n            \"radio\": \"0\",\n            \"vap\": \"0\",\n            \"clientMac\": \"AA:AA:AA:BB:BB:BB\",\n            \"channel\": \"1\",\n            \"reason\": \"6\",\n            \"instigator\": \"1\",\n            \"duration\": \"462.319999559\",\n            \"authNegDur\": \"0.010000\",\n            \"lastAuthAgo\": \"462.299999559\",\n            \"isWpa\": \"1\",\n            \"fullConn\": \"0.209999999\",\n            \"ipResp\": \"0.209999999\",\n            \"ipSrc\": \"192.168.0.113\",\n            \"httpResp\": \"34.439999967\",\n            \"arpResp\": \"0.069999999\",\n            \"arpSrc\": \"192.168.0.113\",\n            \"dnsServer\": \"192.168.0.1\",\n            \"dnsReqRtt\": \"0.530000\",\n            \"dnsResp\": \"34.419999967\",\n            \"aid\": \"974324249\"\n        }\n    },\n    {\n        \"deviceSerial\": \"Q2RD-3FEM-FFFF\",\n        \"occurredAt\": 1528103091.919001,\n        \"type\": \"802.11 disassociation\",\n        \"details\": {\n            \"radio\": \"0\",\n            \"vap\": \"0\",\n            \"clientMac\": \"AA:AA:AA:BB:BB:BB\",\n            \"channel\": \"1\",\n            \"reason\": \"6\",\n            \"instigator\": \"1\",\n            \"duration\": \"462.329999559\",\n            \"authNegDur\": \"0.010000\",\n            \"lastAuthAgo\": \"462.309999559\",\n            \"isWpa\": \"1\",\n            \"fullConn\": \"0.209999999\",\n            \"ipResp\": \"0.209999999\",\n            \"ipSrc\": \"192.168.0.113\",\n            \"httpResp\": \"34.439999967\",\n            \"arpResp\": \"0.069999999\",\n            \"arpSrc\": \"192.168.0.113\",\n            \"dnsServer\": \"192.168.0.1\",\n            \"dnsReqRtt\": \"0.530000\",\n            \"dnsResp\": \"34.419999967\",\n            \"aid\": \"974324249\"\n        }\n    },\n    {\n        \"deviceSerial\": \"Q2RD-3FEM-FFFF\",\n        \"occurredAt\": 1528103091.939001,\n        \"type\": \"802.11 disassociation\",\n        \"details\": {\n            \"radio\": \"0\",\n            \"vap\": \"0\",\n            \"clientMac\": \"AA:AA:AA:BB:BB:BB\",\n            \"channel\": \"1\",\n            \"reason\": \"6\",\n            \"instigator\": \"1\",\n            \"duration\": \"462.349999559\",\n            \"authNegDur\": \"0.010000\",\n            \"lastAuthAgo\": \"462.329999559\",\n            \"isWpa\": \"1\",\n            \"fullConn\": \"0.209999999\",\n            \"ipResp\": \"0.209999999\",\n            \"ipSrc\": \"192.168.0.113\",\n            \"httpResp\": \"34.439999967\",\n            \"arpResp\": \"0.069999999\",\n            \"arpSrc\": \"192.168.0.113\",\n            \"dnsServer\": \"192.168.0.1\",\n            \"dnsReqRtt\": \"0.530000\",\n            \"dnsResp\": \"34.419999967\",\n            \"aid\": \"974324249\"\n        }\n    },\n    {\n        \"deviceSerial\": \"Q2RD-3FEM-FFFF\",\n        \"occurredAt\": 1528103091.949001,\n        \"type\": \"802.11 disassociation\",\n        \"details\": {\n            \"radio\": \"0\",\n            \"vap\": \"0\",\n            \"clientMac\": \"AA:AA:AA:BB:BB:BB\",\n            \"channel\": \"1\",\n            \"reason\": \"6\",\n            \"instigator\": \"1\",\n            \"duration\": \"462.359999559\",\n            \"authNegDur\": \"0.010000\",\n            \"lastAuthAgo\": \"462.339999559\",\n            \"isWpa\": \"1\",\n            \"fullConn\": \"0.209999999\",\n            \"ipResp\": \"0.209999999\",\n            \"ipSrc\": \"192.168.0.113\",\n            \"httpResp\": \"34.439999967\",\n            \"arpResp\": \"0.069999999\",\n            \"arpSrc\": \"192.168.0.113\",\n            \"dnsServer\": \"192.168.0.1\",\n            \"dnsReqRtt\": \"0.530000\",\n            \"dnsResp\": \"34.419999967\",\n            \"aid\": \"974324249\"\n        }\n    },\n    {\n        \"deviceSerial\": \"Q2RD-3FEM-FFFF\",\n        \"occurredAt\": 1528213427.426001,\n        \"type\": \"802.11 association\",\n        \"details\": {\n            \"radio\": \"1\",\n            \"vap\": \"0\",\n            \"clientMac\": \"AA:AA:AA:BB:BB:BB\",\n            \"clientIp\": \"0.0.0.0\",\n            \"channel\": \"108\",\n            \"rssi\": \"42\",\n            \"aid\": \"2083035957\"\n        }\n    },\n    {\n        \"deviceSerial\": \"Q2RD-3FEM-FFFF\",\n        \"occurredAt\": 1528213427.436001,\n        \"type\": \"WPA authentication\",\n        \"details\": {\n            \"radio\": \"1\",\n            \"vap\": \"0\",\n            \"clientMac\": \"AA:AA:AA:BB:BB:BB\",\n            \"clientIp\": \"0.0.0.0\",\n            \"aid\": \"2083035957\"\n        }\n    },\n    {\n        \"deviceSerial\": \"Q2RD-3FEM-FFFF\",\n        \"occurredAt\": 1528213747.872001,\n        \"type\": \"Splash authentication\",\n        \"details\": {\n            \"mac\": \"AA:AA:AA:BB:BB:BB\",\n            \"duration\": \"1800\",\n            \"vap\": \"0\",\n            \"wiredVlan\": \"-1\",\n            \"download\": \"512000bps\",\n            \"upload\": \"512000bps\"\n        }\n    }\n]"
+            }
+          ]
         }
       ]
     },
