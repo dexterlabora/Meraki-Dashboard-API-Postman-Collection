@@ -848,6 +848,70 @@
         }
       }
     },
+    "/networks/{networkId}/clients/{clientMac}/events": {
+      "get": {
+        "description": "## HTTP REQUEST\n```\nGET /networks/[networkId]/clients/[id_or_mac_or_ip]/events\n```\n## QUERY PARAMETERS\n**Parameter**|**Description of the parameter**\n :-------------: |:-------------:\nperPage| The number of entries per page returned\nstartingAfter| A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, next or prev page in the HTTP Link header should define it.\nendingBefore| A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, next or prev page in the HTTP Link header should define it.\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[networkId]/clients/[id_or_mac_or_ip]/events'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n[\n  {\n    \"deviceSerial\": \"Q234-ABCD-5678\",\n    \"occurredAt\": 1518365681,\n    \"type\": \"l3roaming_assoc_start\",\n    \"details\": {\n      \"vap\": \"1\",\n      \"on_packet\": \"true\"\n    }\n  }\n]\n```",
+        "summary": "Return a client events",
+        "tags": [
+          "Clients"
+        ],
+        "operationId": "NetworksClientsEventsByNetworkIdAndClientMacGet",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "perPage",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          },
+          {
+            "name": "X-Cisco-Meraki-API-Key",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "networkId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "clientMac",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ReturnAClientEvent"
+              }
+            },
+            "examples": {}
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
     "/organizations/{organizationId}/configTemplates": {
       "get": {
         "description": "## HTTP REQUEST\n```\nGET /organizations/[organizationId]/configTemplates\n```\n\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://dashboard.meraki.com/api/v0/organizations/[organizationId]/configTemplates'\n```\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n[\n  {\n    \"id\": \"N_1234\",\n    \"name\": \"Your config template\"\n  }\n]\n```",
@@ -10542,6 +10606,89 @@
         "activeSeconds"
       ]
     },
+    "ReturnAClientEvent": {
+      "title": "Return a client event",
+      "type": "object",
+      "properties": {
+        "deviceSerial": {
+          "description": "",
+          "example": "Q2RD-3FEM-FFFF",
+          "type": "string"
+        },
+        "occurredAt": {
+          "description": "",
+          "example": 1528057260.523,
+          "type": "number",
+          "format": "double"
+        },
+        "type": {
+          "description": "",
+          "example": "Splash authentication",
+          "type": "string"
+        },
+        "details": {
+          "$ref": "#/definitions/Details"
+        }
+      },
+      "required": [
+        "deviceSerial",
+        "occurredAt",
+        "type",
+        "details"
+      ]
+    },
+    "Details": {
+      "title": "Details",
+      "example": {
+        "mac": "AA:AA:AA:BB:BB:BB",
+        "duration": "86400",
+        "vap": "0",
+        "wiredVlan": "-1",
+        "download": "512000bps",
+        "upload": "512000bps"
+      },
+      "type": "object",
+      "properties": {
+        "mac": {
+          "description": "",
+          "example": "AA:AA:AA:BB:BB:BB",
+          "type": "string"
+        },
+        "duration": {
+          "description": "",
+          "example": "86400",
+          "type": "string"
+        },
+        "vap": {
+          "description": "",
+          "example": "0",
+          "type": "string"
+        },
+        "wiredVlan": {
+          "description": "",
+          "example": "-1",
+          "type": "string"
+        },
+        "download": {
+          "description": "",
+          "example": "512000bps",
+          "type": "string"
+        },
+        "upload": {
+          "description": "",
+          "example": "512000bps",
+          "type": "string"
+        }
+      },
+      "required": [
+        "mac",
+        "duration",
+        "vap",
+        "wiredVlan",
+        "download",
+        "upload"
+      ]
+    },
     "Config templates  list the config templates for this org": {
       "title": "Config Templates - List the config templates for this org",
       "example": {
@@ -11100,7 +11247,7 @@
           ],
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Rule29"
+            "$ref": "#/definitions/Rule31"
           }
         },
         "syslogDefaultRule": {
@@ -11114,8 +11261,8 @@
         "syslogDefaultRule"
       ]
     },
-    "Rule29": {
-      "title": "Rule29",
+    "Rule31": {
+      "title": "Rule31",
       "example": {
         "comment": "A note about the rule",
         "policy": "deny",
@@ -11366,7 +11513,7 @@
           ],
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Rule29"
+            "$ref": "#/definitions/Rule31"
           }
         }
       },
@@ -11409,7 +11556,7 @@
           ],
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Rule29"
+            "$ref": "#/definitions/Rule31"
           }
         },
         "syslogDefaultRule": {
