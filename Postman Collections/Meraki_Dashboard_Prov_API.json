@@ -9267,7 +9267,7 @@
                 }
               ]
             },
-            "description": "List the keys required to access Personally Identifiable Information (PII) for a given identifier. Exactly one identifier will be accepted. If the organization contains org-wide Systems Manager users matching the key provided then there will be an entry with the key \"0\" containing the applicable keys.\n## HTTP Request\n```\nGET /organizations/[organizationId]/pii/piiKeys\n```\n## Parameters\n\n**parameters**|**Description of the parameter**\n:-------------: |:-------------:\nusername| The username of a Systems Manager user\nemail| The email of a network user account or a Systems Manager device\nmac|The MAC of a network client device or a Systems Manager device\nserial| The serial of a Systems Manager device\nimei| The IMEI of a Systems Manager device"
+            "description": "List the keys required to access Personally Identifiable Information (PII) for a given identifier. Exactly one identifier will be accepted. If the organization contains org-wide Systems Manager users matching the key provided then there will be an entry with the key \"0\" containing the applicable keys.\n## HTTP Request\n```\nGET /networks/[networkId]/pii/piiKeys\nGET /organizations/[organizationId]/pii/piiKeys\n```\n## Parameters\n\n**parameters**|**Description of the parameter**\n:-------------: |:-------------:\nusername| The username of a Systems Manager user\nemail| The email of a network user account or a Systems Manager device\nmac|The MAC of a network client device or a Systems Manager device\nserial| The serial of a Systems Manager device\nimei| The IMEI of a Systems Manager device\nbluetoothMac| The MAC of a Bluetooth client"
           },
           "response": [
             {
