@@ -3,7 +3,7 @@
   "info": {
     "version": "1.0",
     "title": "Meraki Dashboard API",
-    "description": "This collection of API calls provides an easy way to interact with a Cisco Meraki network. Update your environment variables to efficiently use the collection.\n\n**Common Variables**\n* X-Cisco-Meraki-API-Key\n* organizationId\n* networkId\n* baseUrl\n\nA template has been provided that can be used to quickly import the variable names. You will still be responsible for filling in the values and missing variables as needed.\n\n\n# What's New?\n\n** May 2018 **\n- Personal Identifying Information endpoints (may require Meraki Support request)\n- General cleanup. Adjusted enpoint names by removing their endpoint group name (\"Networks - get all networks.. --> \"get all networks\")\n- Updated all endpoints with a `{{baseUrl}}` environment variable. This makes it easier to test API proxies, mocks, or target a Meraki Cloud shard (i.e. \"n123.meraki.com\")\n- Included a Template Environment for a quicker start\n\n** Apr 2018 **\n- Organization Device Summary Status \n  * List the status of every Meraki device in the organization. \n\t-Returns a single array of all devices.\n\n** Mar 2018 **\n- MX cellular firewall rules\n  * Return cellular firewall rules\n  * Update cellular firewall rules\n\n** Feb 2018 **\n- Clone Network\n  * Use the **Create a Network** endpoint with the `copyFromNetworkId` parameter to create a new network with the same settings as the source network.\n\n** Nov 2017 **\n- MX VPN Firewall Rules\n  * Return the firewall rules for an org\n  * Upate the firewall rules of an org\n\n** Oct 2017. **\n- Group Policy support\n  * Bind a client to a Group Policy\n  * List Group Policies for a Network\n- MX L3 Firewalls\n  * Return L3 Firewall Rules\n  * Update L3 Firewall Rules\n- Bluetooth Settings\n  * Return Bluetooth Settings\n  * Update Bluetooth Settings\n- Splash authorization\n  * Return Splash Authorization status\n  * Update Splash Authorization status\n- Update the SNMP settings for an organization\n- Phone Assignments\n  * List all phones in a network and their contact assignment\n  * Return a phone's contact assignment\n  * Assign a contact and number(s) to a phone\n  * Remove a phone assignment (unprovision a phone)\n\n## Documentation and Resources\nhttps://dashboard.meraki.com/api_docs\nhttp://developers.meraki.com/\n\n## Troubleshooting:\n- Check your profile permissions. If you can't do it in Dashboard, you won't be able to in the API.\n\n- Some calls seem to work better if you use the shard number instead of \"dashboard\" because of a required redirect. Just update the shard that matches when you login to the web Dashboard. It will be in the URL.\n\n**Original**\n\n```\n- https://dashboard.meraki.com/api/v0/networks/{{networkId}}/ssids/{{ssidNum}}?name=viaAPI345&number={{ssidNum}}\n```\n**With shard number**\n\n```\n- https://n123.meraki.com/api/v0/networks/{{networkId}}/ssids/{{ssidNum}}?name=viaAPI345&number={{ssidNum}}\n```"
+    "description": "This collection of API calls provides an easy way to interact with a Cisco Meraki network. Update your environment variables to efficiently use the collection.\n\n**Common Variables**\n* X-Cisco-Meraki-API-Key\n* organizationId\n* networkId\n* baseUrl\n\nA template has been provided that can be used to quickly import the variable names. You will still be responsible for filling in the values and missing variables as needed.\n\n\n# What's New?\n**June 2018**\n\n*Clients*\n- GET /networks/:id/clients/:mac/\n- GET /networks/:id/clients/:mac/usageHistory\n- GET /networks/:id/clients/:mac/trafficHistory\n- GET /networks/:id/clients/:mac/events\n- GET /networks/:id/clients/:mac/securityEvents\n\n*Bluetooth Clients*\n- GET /networks/:id/bluetoothClients[/:mac]\n\n*Meraki Auth*\n- GET /networks/:id/merakiAuthUsers[/:email]\n\n*Network*\n- GET /networks/:id/splashLoginAttempts?loginIdentifier=:email_or_username\n\n*PII*\n- updated endpoints to support both network and organization variations. \n\n** May 2018 **\n- Personal Identifying Information endpoints (may require Meraki Support request)\n- General cleanup. Adjusted enpoint names by removing their endpoint group name (\"Networks - get all networks.. --> \"get all networks\")\n- Updated all endpoints with a `{{baseUrl}}` environment variable. This makes it easier to test API proxies, mocks, or target a Meraki Cloud shard (i.e. \"n123.meraki.com\")\n- Included a Template Environment for a quicker start\n\n** Apr 2018 **\n- Organization Device Summary Status \n  * List the status of every Meraki device in the organization. \n\t-Returns a single array of all devices.\n\n** Mar 2018 **\n- MX cellular firewall rules\n  * Return cellular firewall rules\n  * Update cellular firewall rules\n\n** Feb 2018 **\n- Clone Network\n  * Use the **Create a Network** endpoint with the `copyFromNetworkId` parameter to create a new network with the same settings as the source network.\n\n** Nov 2017 **\n- MX VPN Firewall Rules\n  * Return the firewall rules for an org\n  * Upate the firewall rules of an org\n\n** Oct 2017. **\n- Group Policy support\n  * Bind a client to a Group Policy\n  * List Group Policies for a Network\n- MX L3 Firewalls\n  * Return L3 Firewall Rules\n  * Update L3 Firewall Rules\n- Bluetooth Settings\n  * Return Bluetooth Settings\n  * Update Bluetooth Settings\n- Splash authorization\n  * Return Splash Authorization status\n  * Update Splash Authorization status\n- Update the SNMP settings for an organization\n- Phone Assignments\n  * List all phones in a network and their contact assignment\n  * Return a phone's contact assignment\n  * Assign a contact and number(s) to a phone\n  * Remove a phone assignment (unprovision a phone)\n\n## Documentation and Resources\nhttps://dashboard.meraki.com/api_docs\nhttp://developers.meraki.com/\n\n## Troubleshooting:\n- Check your profile permissions. If you can't do it in Dashboard, you won't be able to in the API.\n\n- Some calls seem to work better if you use the shard number instead of \"dashboard\" because of a required redirect. Just update the shard that matches when you login to the web Dashboard. It will be in the URL.\n\n**Original**\n\n```\n- https://dashboard.meraki.com/api/v0/networks/{{networkId}}/ssids/{{ssidNum}}?name=viaAPI345&number={{ssidNum}}\n```\n**With shard number**\n\n```\n- https://n123.meraki.com/api/v0/networks/{{networkId}}/ssids/{{ssidNum}}?name=viaAPI345&number={{ssidNum}}\n```"
   },
   "host": "example.com",
   "basePath": "/",
@@ -258,6 +258,198 @@
         }
       }
     },
+    "/networks/{networkId}/bluetoothClients": {
+      "get": {
+        "description": "## HTTP REQUEST\n```\nGET /networks/[networkId]/bluetoothClients\n```\n## QUERY PARAMETERS\n**Parameter**|**Description**\n:-------------: |:-------------:\ntimespan| The timespan, in seconds, used to look back from now for bluetooth clients\nincludeConnectivityHistory| Include the connectivity history for this client\nperPage| The number of entries per page returned\nstartingAfter| A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, next or prev page in the HTTP Link header should define it.\nendingBefore| A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, next or prev page in the HTTP Link header should define it.\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[networkId]/bluetoothClients?perPage=20'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n[\n    {\n        \"id\": \"643451796760123123\",\n        \"mac\": \"7c:d1:c3:26:aa:aa\",\n        \"networkId\": \"L_643451796760560141\",\n        \"name\": null,\n        \"deviceName\": \"\",\n        \"manufacturer\": \"Apple\",\n        \"lastSeen\": 1528257331,\n        \"seenByDeviceMac\": \"88:15:44:60:aa:aa\",\n        \"inSightAlert\": false,\n        \"outOfSightAlert\": false,\n        \"tags\": []\n    },\n    {\n        \"id\": \"643451796760123124\",\n        \"mac\": \"7c:04:d0:d3:bb:bb\",\n        \"networkId\": \"L_643451796760500000\",\n        \"name\": null,\n        \"deviceName\": \"\",\n        \"manufacturer\": \"Apple\",\n        \"lastSeen\": 1528260960,\n        \"seenByDeviceMac\": \"88:15:44:60:aa:aa\",\n        \"inSightAlert\": false,\n        \"outOfSightAlert\": false,\n        \"tags\": []\n    },\n```",
+        "summary": "List the Bluetooth clients seen by APs in this network",
+        "tags": [
+          "Bluetooth Clients"
+        ],
+        "operationId": "NetworksBluetoothClientsByNetworkIdGet",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "perPage",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          },
+          {
+            "name": "X-Cisco-Meraki-API-Key",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "networkId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ListTheBluetoothClientsSeenByApsInThisNetwork"
+              }
+            },
+            "examples": {
+              "application/json": [
+                {
+                  "id": "643451796760837123",
+                  "mac": "7c:d1:c3:26:aa:aa",
+                  "networkId": "L_643451796760560000",
+                  "name": null,
+                  "deviceName": "",
+                  "manufacturer": "Apple",
+                  "lastSeen": 1528257331,
+                  "seenByDeviceMac": "88:15:44:60:1c:1a",
+                  "inSightAlert": false,
+                  "outOfSightAlert": false,
+                  "tags": []
+                },
+                {
+                  "id": "64345179676085124",
+                  "mac": "7c:04:d0:d3:cc:cc",
+                  "networkId": "L_643451796760560000",
+                  "name": null,
+                  "deviceName": "",
+                  "manufacturer": "Apple",
+                  "lastSeen": 1528260960,
+                  "seenByDeviceMac": "88:15:44:60:1c:1a",
+                  "inSightAlert": false,
+                  "outOfSightAlert": false,
+                  "tags": []
+                },
+                {
+                  "id": "643451796760943125",
+                  "mac": "ca:cf:63:b4:dd:dd",
+                  "networkId": "L_643451796760560000",
+                  "name": null,
+                  "deviceName": "Tile",
+                  "manufacturer": "Unknown",
+                  "lastSeen": 1528265743,
+                  "seenByDeviceMac": "88:15:44:60:1c:1a",
+                  "inSightAlert": false,
+                  "outOfSightAlert": false,
+                  "tags": []
+                },
+                {
+                  "id": "643451796761041126",
+                  "mac": "54:60:09:0f:ee:ee",
+                  "networkId": "L_643451796760560000",
+                  "name": null,
+                  "deviceName": "Veemkade",
+                  "manufacturer": "Google",
+                  "lastSeen": 1528292805,
+                  "seenByDeviceMac": "88:15:44:60:1c:1a",
+                  "inSightAlert": false,
+                  "outOfSightAlert": false,
+                  "tags": []
+                },
+                {
+                  "id": "643451796761165556",
+                  "mac": "f1:54:10:13:ff:ff",
+                  "networkId": "L_643451796760560000",
+                  "name": null,
+                  "deviceName": "Tile",
+                  "manufacturer": "Unknown",
+                  "lastSeen": 1528221104,
+                  "seenByDeviceMac": "88:15:44:60:1c:1a",
+                  "inSightAlert": false,
+                  "outOfSightAlert": false,
+                  "tags": []
+                }
+              ]
+            }
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/networks/{networkId}/bluetoothClients/{clientMac}": {
+      "get": {
+        "description": "## HTTP REQUEST\n```\nGET /networks/[networkId]/bluetoothClients/[id]\n```\n## PARAMETERS\n**Parameter**|**Description**\n:-------------: |:-------------:\nincludeConnectivityHistory| Include the connectivity history for this client\nconnectivityHistoryTimespan| The timespan, in seconds, for the connectivityHistory data. By default 1 day, 86400, will be used.\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[networkId]/bluetoothClients/[id]'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n{\n  \"mac\": \"00:11:22:33:44:55\",\n  \"networkId\": \"N_24329156\"\n}\n```",
+        "summary": "Return a Bluetooth client",
+        "tags": [
+          "Bluetooth Clients"
+        ],
+        "operationId": "NetworksBluetoothClientsByNetworkIdAndClientMacGet",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "X-Cisco-Meraki-API-Key",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "networkId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "clientMac",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ReturnABluetoothClient"
+            },
+            "examples": {
+              "application/json": {
+                "id": "643451796760943123",
+                "mac": "ca:cf:63:b4:aa:bb",
+                "networkId": "L_643451796760560000",
+                "name": null,
+                "deviceName": "Tile",
+                "manufacturer": "Unknown",
+                "lastSeen": 1528265743,
+                "seenByDeviceMac": "88:15:44:60:ff:ff",
+                "inSightAlert": false,
+                "outOfSightAlert": false,
+                "tags": []
+              }
+            }
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
     "/devices/{serial}/clients": {
       "get": {
         "description": "## HTTP REQUEST\n\n```\nGET /devices/[serial]/clients\n```\n\n## PARAMETERS\n\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\ntimespan|The timespan for which clients will be fetched. Must be in seconds and less than or equal to a month (2592000 seconds).\n\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X GET -H 'Content-Type: application/json' 'https://api.meraki.com/api/v0/devices/[serial]/clients?timespan=86400'\n```\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n[\n  {\n    \"description\": \"Hayg's Nexus 5\",\n    \"mdnsName\": \"Hayg's Nexus 5\",\n    \"dhcpHostname\": \"HaygNexus5\",\n    \"usage\": {\"sent\": 1337.0, \"recv\": 7331.0},\n    \"mac\": \"00:18:D3:AD:B3:3F\",\n    \"ip\": \"1.2.3.4\",\n    \"id\": \"lk12uq\",\n    \"switchport\": null\n  },\n  ...\n]\n```",
@@ -492,7 +684,11 @@
         ],
         "responses": {
           "200": {
-            "description": ""
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ReturnTheSplashAuthorizationForAClient,ForEachSsidThey'veAssociatedWithThroughSplash."
+            },
+            "examples": {}
           }
         },
         "security": [],
@@ -900,6 +1096,63 @@
               }
             },
             "examples": {}
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/networks/{networkId}/clients/{clientMac}/securityEvents": {
+      "get": {
+        "description": "## HTTP REQUEST\n```\nGET /networks/[networkId]/clients/[clientId]/securityEvents\n```\n## PARAMETERS\n**Parameter**|**Description of the parameter**\n :-------------: |:-------------:\ntimespan| The timespan, in seconds, to look back from now for events\nperPage| The number of entries per page returned\nstartingAfter| A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, next or prev page in the HTTP Link header should define it.\nendingBefore| A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, next or prev page in the HTTP Link header should define it.\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[networkId]/clients/[clientId]/securityEvents?timespan=7200'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n[\n  {\n    \"mac\": \"00:77:00:77:00:77\",\n    \"networkId\": \"N_1234\"\n  }\n]\n```",
+        "summary": "Return a client security events",
+        "tags": [
+          "Clients"
+        ],
+        "operationId": "NetworksClientsSecurityEventsByNetworkIdAndClientMacGet",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "perPage",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          },
+          {
+            "name": "X-Cisco-Meraki-API-Key",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "networkId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "clientMac",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
           }
         },
         "security": [],
@@ -1532,6 +1785,68 @@
                   "name": "VoIP"
                 }
               ]
+            }
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/networks/{networkId}/merakiAuthUsers": {
+      "get": {
+        "description": "## HTTP REQUEST\n```\nGET /networks/[id]/merakiAuthUsers/[id]\n```\n## PARAMETERS\n**None**\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[id]/merakiAuthUsers/[id]'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n{\n  \"id\": \"aGlAaGkuY29t\",\n  \"email\": \"miles@meraki.com\",\n  \"name\": \"Miles Meraki\",\n  \"createdAt\": 1518365681,\n  \"accountType\": \"Guest\",\n  \"authorizations\": [\n    {\n      \"authorizedZone\": \"Store WiFi\",\n      \"expiresAt\": 1526087474,\n      \"authorizedByName\": \"Miles Meraki\",\n      \"authorizedByEmail\": \"miles@meraki.com\"\n    }\n  ]\n}\n```",
+        "summary": "Return the Meraki Auth splash or RADIUS user",
+        "tags": [
+          "Meraki Auth"
+        ],
+        "operationId": "NetworksMerakiAuthUsersByNetworkIdGet2",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "X-Cisco-Meraki-API-Key",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "networkId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ReturnTheMerakiAuthSplashOrRadiusUser"
+            },
+            "examples": {
+              "application/json": {
+                "id": "MTE1bWlsZXNAbWVyYWtpLmNvb123",
+                "email": "miles@meraki.com",
+                "name": "Miles Meraki",
+                "createdAt": 1497593719,
+                "accountType": "Administrator",
+                "authorizations": [
+                  {
+                    "authorizedZone": "MR - Cafe -1",
+                    "expiresAt": 1512414963,
+                    "authorizedByName": "Admin User",
+                    "authorizedByEmail": "adminn@meraki.com"
+                  }
+                ]
+              }
             }
           }
         },
@@ -8100,7 +8415,7 @@
     },
     "/organizations/{organizationId}/pii/piiKeys": {
       "get": {
-        "description": "List the keys required to access Personally Identifiable Information (PII) for a given identifier. Exactly one identifier will be accepted. If the organization contains org-wide Systems Manager users matching the key provided then there will be an entry with the key \"0\" containing the applicable keys.\n## HTTP Request\n```\nGET /organizations/[organizationId]/pii/piiKeys\n```\n## Parameters\n\n**parameters**|**Description of the parameter**\n:-------------: |:-------------:\nusername| The username of a Systems Manager user\nemail| The email of a network user account or a Systems Manager device\nmac|The MAC of a network client device or a Systems Manager device\nserial| The serial of a Systems Manager device\nimei| The IMEI of a Systems Manager device",
+        "description": "List the keys required to access Personally Identifiable Information (PII) for a given identifier. Exactly one identifier will be accepted. If the organization contains org-wide Systems Manager users matching the key provided then there will be an entry with the key \"0\" containing the applicable keys.\n## HTTP Request\n```\nGET /networks/[networkId]/pii/piiKeys\nGET /organizations/[organizationId]/pii/piiKeys\n```\n## Parameters\n\n**parameters**|**Description of the parameter**\n:-------------: |:-------------:\nusername| The username of a Systems Manager user\nemail| The email of a network user account or a Systems Manager device\nmac|The MAC of a network client device or a Systems Manager device\nserial| The serial of a Systems Manager device\nimei| The IMEI of a Systems Manager device\nbluetoothMac| The MAC of a Bluetooth client",
         "summary": "List PII Keys for an Identifier",
         "tags": [
           "PII"
@@ -8167,7 +8482,7 @@
     },
     "/organizations/{organizationId}/pii/smDevicesForKey": {
       "get": {
-        "description": "Given a piece of Personally Identifiable Information (PII), return the Systems Manager device ID(s) associated with that identifier. These device IDs can be used with the Systems Manager API endpoints to retrieve device details. Exactly one identifier will be accepted.\n\n## HTTP Request\n```\nGET /organizations/[organizationId]/pii/smDevicesForKey\n```\n## Parameters\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\n username| The username of a Systems Manager user\n email| The email of a network user account or a Systems Manager device\n mac| The MAC of a network client device or a Systems Manager device\n serial| The serial of a Systems Manager device\n imei| The IMEI of a Systems Manager device \n\n## Sample Request\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X GET -H 'Content-Type: application/json' 'https://api.meraki.com/api/v0/organizations/[organizationId]/pii/smDevicesForKey'\n```\n## Sample Response\n```\nSuccessful HTTP Status: 200\n\n{\n  [networkId]:[\"1099541095293\", \"8348382288234\"]\n}\n```",
+        "description": "Given a piece of Personally Identifiable Information (PII), return the Systems Manager device ID(s) associated with that identifier. These device IDs can be used with the Systems Manager API endpoints to retrieve device details. Exactly one identifier will be accepted.\n\n## HTTP Request\n```\nGET /networks/[networkId]/pii/smDevicesForKey\nGET /organizations/[organizationId]/pii/smDevicesForKey\n```\n## Parameters\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\n username| The username of a Systems Manager user\n email| The email of a network user account or a Systems Manager device\n mac| The MAC of a network client device or a Systems Manager device\n serial| The serial of a Systems Manager device\n imei| The IMEI of a Systems Manager device \n bluetoothMac| The MAC of a Bluetooth client\n\n## Sample Request\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X GET -H 'Content-Type: application/json' 'https://api.meraki.com/api/v0/organizations/[organizationId]/pii/smDevicesForKey'\n```\n## Sample Response\n```\nSuccessful HTTP Status: 200\n\n{\n  [networkId]:[\"1099541095293\", \"8348382288234\"]\n}\n```",
         "summary": "Return device ID for PII key",
         "tags": [
           "PII"
@@ -8226,7 +8541,7 @@
     },
     "/organizations/{organizationId}/pii/smOwnersForKey": {
       "get": {
-        "description": "Given a piece of Personally Identifiable Information (PII), return the Systems Manager owner ID(s) associated with that identifier. These owner IDs can be used with the Systems Manager API endpoints to retrieve owner details. Exactly one identifier will be accepted.\n## HTTP Request\n```\nGET /organizations/[organizationId]/pii/smOwnersForKey\n```\n## Parameters\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\nusername| The username of a Systems Manager user\nemail| The email of a network user account or a Systems Manager device\nmac| The MAC of a network client device or a Systems Manager device\nserial| The serial of a Systems Manager device\nimei| The IMEI of a Systems Manager device \n\n## Sample Request\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X GET -H 'Content-Type: application/json' 'https://api.meraki.com/api/v0/organizations/[organizationId]/pii/smOwnersForKey'\n```\n## Sample Response\n```\nSuccessful HTTP Status: 200\n\n{\n  [networkId]:[\"1099541095293\"]\n}\n```",
+        "description": "Given a piece of Personally Identifiable Information (PII), return the Systems Manager owner ID(s) associated with that identifier. These owner IDs can be used with the Systems Manager API endpoints to retrieve owner details. Exactly one identifier will be accepted.\n## HTTP Request\n```\nGET /networks/[networkId]/pii/smOwnersForKey\nGET /organizations/[organizationId]/pii/smOwnersForKey\n```\n## Parameters\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\nusername| The username of a Systems Manager user\nemail| The email of a network user account or a Systems Manager device\nmac| The MAC of a network client device or a Systems Manager device\nserial| The serial of a Systems Manager device\nimei| The IMEI of a Systems Manager device \nbluetoothMac| The MAC of a Bluetooth client\n\n## Sample Request\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X GET -H 'Content-Type: application/json' 'https://api.meraki.com/api/v0/organizations/[organizationId]/pii/smOwnersForKey'\n```\n## Sample Response\n```\nSuccessful HTTP Status: 200\n\n{\n  [networkId]:[\"1099541095293\"]\n}\n```",
         "summary": "Return SM owners for PII key",
         "tags": [
           "PII"
@@ -8285,7 +8600,7 @@
     },
     "/organizations/{organizationId}/pii/requests": {
       "get": {
-        "description": "List the PII requests for this organization\n## HTTP Request\n```\nGET /organizations/[organizationId]/pii/requests\n```\n## Parameters\n\n**None**\n\n## Sample Request\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X GET -H 'Content-Type: application/json' 'https://api.meraki.com/api/v0/organizations/[organizationId]/pii/requests'\n```\n## Sample Response\n```\nSuccessful HTTP Status: 200\n\n[\n  {\n    \"id\": \"1234\",\n    \"organizationWide\": false,\n    \"networkId\": \"N_1234\",\n    \"type\": \"delete\",\n    \"mac\": \"00:77:00:77:00:77\",\n    \"datasets\": \"['usage', 'events']\",\n    \"createdAt\": 1524692227,\n    \"completedAt\": 1524702227\n  }\n]\n```",
+        "description": "List the PII requests for this organization\n## HTTP Request\n```\nGET /networks/[networkId]/pii/requests\nGET /organizations/[organizationId]/pii/requests\n```\n## Parameters\n\n**None**\n\n## Sample Request\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X GET -H 'Content-Type: application/json' 'https://api.meraki.com/api/v0/organizations/[organizationId]/pii/requests'\n```\n## Sample Response\n```\nSuccessful HTTP Status: 200\n\n[\n  {\n    \"id\": \"1234\",\n    \"organizationWide\": false,\n    \"networkId\": \"N_1234\",\n    \"type\": \"delete\",\n    \"mac\": \"00:77:00:77:00:77\",\n    \"datasets\": \"['usage', 'events']\",\n    \"createdAt\": 1524692227,\n    \"completedAt\": 1524702227\n  }\n]\n```",
         "summary": "List the PII requests for this organization",
         "tags": [
           "PII"
@@ -8332,7 +8647,7 @@
         }
       },
       "post": {
-        "description": "Submit a new delete or restrict processing PII request\n## HTTP Request\n```\nPOST /organizations/[organizationId]/pii/requests\n```\n## Parameters\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\ntype| One of **delete** or **restrict processing**\ndatasets|  The datasets related to the provided key that should be deleted. Only applies to **delete** requests. The value **\"all\"** will be expanded to all datasets applicable to this **pii_type**.\nusername| The username of a network log in. Only applies to **delete** requests.\nemail| The email of a network user account. Only applies to **delete** requests.\nmac| The MAC of a network client device. Applies to both **restrict processing** and **delete** requests.\nsmDeviceId| The **sm_device_id** of a Systems Manager device. The only way to **restrict processing** or **delete** a Systems Manager device. Must include **device** in the dataset for a **delete** request to destroy the device.\nsmUserId| The **sm_user_id** of a Systems Manager user. The only way to **restrict processing** or **delete** a Systems Manager user. Must include **user** in the dataset for a **delete** request to destroy the user. \n    \n#### datasets by type\n```\nmac: usage events traffic\nemail: users loginAttempts\nusername: users loginAttempts\nbluetoothMac: client connectivity\nsmDeviceId: device\nsmUserId: user\n```\n\n## Sample Request\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X POST -H 'Content-Type: application/json' --data-binary '{\"type\":\"delete\", \"datasets\":\"[\"usage\",\"events\"]\", \"mac\":\"00:77:00:77:00:77\"}' 'https://api.meraki.com/api/v0/organizations/[organizationId]/pii/requests'\n```\n## Sample Response\n```\nSuccessful HTTP Status: 201\n\n{\n  \"id\": \"1234\",\n  \"organizationWide\": false,\n  \"networkId\": \"N_1234\",\n  \"type\": \"delete\",\n  \"mac\": \"00:77:00:77:00:77\",\n  \"datasets\": \"['usage', 'events']\",\n  \"status\": \"in progress\"\n}\n```",
+        "description": "Submit a new delete or restrict processing PII request\n## HTTP Request\n```\nPOST /networks/[networkId]/pii/requests\nPOST /organizations/[organizationId]/pii/requests\n```\n## Parameters\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\ntype| One of **delete** or **restrict processing**\ndatasets|  The datasets related to the provided key that should be deleted. Only applies to **delete** requests. The value **\"all\"** will be expanded to all datasets applicable to this **pii_type**.\nusername| The username of a network log in. Only applies to **delete** requests.\nemail| The email of a network user account. Only applies to **delete** requests.\nmac| The MAC of a network client device. Applies to both **restrict processing** and **delete** requests.\nsmDeviceId| The **sm_device_id** of a Systems Manager device. The only way to **restrict processing** or **delete** a Systems Manager device. Must include **device** in the dataset for a **delete** request to destroy the device.\nsmUserId| The **sm_user_id** of a Systems Manager user. The only way to **restrict processing** or **delete** a Systems Manager user. Must include **user** in the dataset for a **delete** request to destroy the user. \n    \n#### datasets by type\n```\nmac: usage events traffic\nemail: users loginAttempts\nusername: users loginAttempts\nbluetoothMac: client connectivity\nsmDeviceId: device\nsmUserId: user\n```\n\n## Sample Request\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X POST -H 'Content-Type: application/json' --data-binary '{\"type\":\"delete\", \"datasets\":\"[\"usage\",\"events\"]\", \"mac\":\"00:77:00:77:00:77\"}' 'https://api.meraki.com/api/v0/organizations/[organizationId]/pii/requests'\n```\n## Sample Response\n```\nSuccessful HTTP Status: 201\n\n{\n  \"id\": \"1234\",\n  \"organizationWide\": false,\n  \"networkId\": \"N_1234\",\n  \"type\": \"delete\",\n  \"mac\": \"00:77:00:77:00:77\",\n  \"datasets\": \"['usage', 'events']\",\n  \"status\": \"in progress\"\n}\n```",
         "summary": "Submit a new delete or restrict processing PII request",
         "tags": [
           "PII"
@@ -8408,7 +8723,7 @@
     },
     "/organizations/{organizationId}/pii/requests/{piiRequestId}": {
       "get": {
-        "description": "Return a PII request\n## HTTP Request\n```\nGET /organizations/[organizationId]/pii/requests/[id]\n```\n## Parameters\n\n**None**\n\n## Sample Request\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X POST -H 'Content-Type: application/json' 'https://api.meraki.com/api/v0/organizations/[organizationId]/pii/requests/[id]'\n```\n## Sample Response\n```\nSuccessful HTTP Status: 200\n\n{\n  \"id\": \"1234\",\n  \"organizationWide\": false,\n  \"networkId\": \"N_1234\",\n  \"type\": \"delete\",\n  \"mac\": \"00:77:00:77:00:77\",\n  \"datasets\": \"['usage', 'events']\",\n  \"createdAt\": 1524692227,\n  \"completedAt\": 1524702227\n}\n```",
+        "description": "Return a PII request\n## HTTP Request\n```\nGET /networks/[networkId]/pii/requests/[id]\nGET /organizations/[organizationId]/pii/requests/[id]\n```\n## Parameters\n\n**None**\n\n## Sample Request\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X POST -H 'Content-Type: application/json' 'https://api.meraki.com/api/v0/organizations/[organizationId]/pii/requests/[id]'\n```\n## Sample Response\n```\nSuccessful HTTP Status: 200\n\n{\n  \"id\": \"1234\",\n  \"organizationWide\": false,\n  \"networkId\": \"N_1234\",\n  \"type\": \"delete\",\n  \"mac\": \"00:77:00:77:00:77\",\n  \"datasets\": \"['usage', 'events']\",\n  \"createdAt\": 1524692227,\n  \"completedAt\": 1524702227\n}\n```",
         "summary": "Return a PII request for this organization",
         "tags": [
           "PII"
@@ -8471,13 +8786,13 @@
           "IsMultiContentStreaming": false
         }
       },
-      "post": {
-        "description": "Delete a restrict processing PII request\n## HTTP Request\n```\nDELETE /organizations/[organizationId]/pii/requests/[id]\n```\n## Parameters\n\n **None**\n\n## Sample Request\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X DELETE -H 'Content-Type: application/json' 'https://api.meraki.com/api/v0/organizations/[organizationId]/pii/requests/[id]'\n\nSuccessful HTTP Status: 204\n```",
+      "delete": {
+        "description": "Delete a restrict processing PII request\n## HTTP Request\n```\nDELETE /networks/[networkId]/pii/requests/[id]\nDELETE /organizations/[organizationId]/pii/requests/[id]\n```\n## Parameters\n\n **None**\n\n## Sample Request\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X DELETE -H 'Content-Type: application/json' 'https://api.meraki.com/api/v0/organizations/[organizationId]/pii/requests/[id]'\n\nSuccessful HTTP Status: 204\n```",
         "summary": "Delete a restrict processing PII request",
         "tags": [
           "PII"
         ],
-        "operationId": "OrganizationsPiiRequestsByOrganizationIdAndPiiRequestIdPost",
+        "operationId": "OrganizationsPiiRequestsByOrganizationIdAndPiiRequestIdDelete",
         "produces": [
           "application/json"
         ],
@@ -10206,6 +10521,185 @@
         "tags"
       ]
     },
+    "ListTheBluetoothClientsSeenByApsInThisNetwork": {
+      "title": "List the Bluetooth clients seen by APs in this network",
+      "example": {
+        "id": "643451796760837123",
+        "mac": "7c:d1:c3:26:aa:aa",
+        "networkId": "L_643451796760560000",
+        "name": null,
+        "deviceName": "",
+        "manufacturer": "Apple",
+        "lastSeen": 1528257331,
+        "seenByDeviceMac": "88:15:44:60:1c:1a",
+        "inSightAlert": false,
+        "outOfSightAlert": false,
+        "tags": []
+      },
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "",
+          "example": "643451796760837123",
+          "type": "string"
+        },
+        "mac": {
+          "description": "",
+          "example": "7c:d1:c3:26:aa:aa",
+          "type": "string"
+        },
+        "networkId": {
+          "description": "",
+          "example": "L_643451796760560000",
+          "type": "string"
+        },
+        "name": {
+          "description": "",
+          "type": "string"
+        },
+        "deviceName": {
+          "description": "",
+          "type": "string"
+        },
+        "manufacturer": {
+          "description": "",
+          "example": "Apple",
+          "type": "string"
+        },
+        "lastSeen": {
+          "description": "",
+          "example": 1528257331,
+          "type": "integer",
+          "format": "int32"
+        },
+        "seenByDeviceMac": {
+          "description": "",
+          "example": "88:15:44:60:1c:1a",
+          "type": "string"
+        },
+        "inSightAlert": {
+          "description": "",
+          "example": false,
+          "type": "boolean"
+        },
+        "outOfSightAlert": {
+          "description": "",
+          "example": false,
+          "type": "boolean"
+        },
+        "tags": {
+          "description": "",
+          "example": [],
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "mac",
+        "networkId",
+        "name",
+        "deviceName",
+        "manufacturer",
+        "lastSeen",
+        "seenByDeviceMac",
+        "inSightAlert",
+        "outOfSightAlert",
+        "tags"
+      ]
+    },
+    "ReturnABluetoothClient": {
+      "title": "Return a Bluetooth client",
+      "example": {
+        "id": "643451796760943123",
+        "mac": "ca:cf:63:b4:aa:bb",
+        "networkId": "L_643451796760560000",
+        "name": null,
+        "deviceName": "Tile",
+        "manufacturer": "Unknown",
+        "lastSeen": 1528265743,
+        "seenByDeviceMac": "88:15:44:60:ff:ff",
+        "inSightAlert": false,
+        "outOfSightAlert": false,
+        "tags": []
+      },
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "",
+          "example": "643451796760943123",
+          "type": "string"
+        },
+        "mac": {
+          "description": "",
+          "example": "ca:cf:63:b4:aa:bb",
+          "type": "string"
+        },
+        "networkId": {
+          "description": "",
+          "example": "L_643451796760560000",
+          "type": "string"
+        },
+        "name": {
+          "description": "",
+          "type": "string"
+        },
+        "deviceName": {
+          "description": "",
+          "example": "Tile",
+          "type": "string"
+        },
+        "manufacturer": {
+          "description": "",
+          "example": "Unknown",
+          "type": "string"
+        },
+        "lastSeen": {
+          "description": "",
+          "example": 1528265743,
+          "type": "integer",
+          "format": "int32"
+        },
+        "seenByDeviceMac": {
+          "description": "",
+          "example": "88:15:44:60:ff:ff",
+          "type": "string"
+        },
+        "inSightAlert": {
+          "description": "",
+          "example": false,
+          "type": "boolean"
+        },
+        "outOfSightAlert": {
+          "description": "",
+          "example": false,
+          "type": "boolean"
+        },
+        "tags": {
+          "description": "",
+          "example": [],
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "mac",
+        "networkId",
+        "name",
+        "deviceName",
+        "manufacturer",
+        "lastSeen",
+        "seenByDeviceMac",
+        "inSightAlert",
+        "outOfSightAlert",
+        "tags"
+      ]
+    },
     "Clients  return the group policy that is assigned to a device in the network": {
       "title": "Clients - Return the group policy that is assigned to a device in the network",
       "example": {
@@ -10295,8 +10789,8 @@
         "groupPolicyId"
       ]
     },
-    "UpdateAClient'sSplashAuthorizationrequest": {
-      "title": "Update a client's splash authorizationRequest",
+    "ReturnTheSplashAuthorizationForAClient,ForEachSsidThey'veAssociatedWithThroughSplash.": {
+      "title": "Return the splash authorization for a client, for each SSID they've associated with through splash.",
       "type": "object",
       "properties": {
         "ssids": {
@@ -10313,6 +10807,53 @@
     },
     "GeneratedObject": {
       "title": "generatedObject",
+      "example": {
+        "isAuthorized": true,
+        "authorizedAt": "2018-06-06 14:52:55 UTC",
+        "expiresAt": "2018-06-06 15:22:55 UTC"
+      },
+      "type": "object",
+      "properties": {
+        "isAuthorized": {
+          "description": "",
+          "example": true,
+          "type": "boolean"
+        },
+        "authorizedAt": {
+          "description": "",
+          "example": "2018-06-06 14:52:55 UTC",
+          "type": "string"
+        },
+        "expiresAt": {
+          "description": "",
+          "example": "2018-06-06 15:22:55 UTC",
+          "type": "string"
+        }
+      },
+      "required": [
+        "isAuthorized",
+        "authorizedAt",
+        "expiresAt"
+      ]
+    },
+    "UpdateAClient'sSplashAuthorizationrequest": {
+      "title": "Update a client's splash authorizationRequest",
+      "type": "object",
+      "properties": {
+        "ssids": {
+          "description": "",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GeneratedObject15"
+          }
+        }
+      },
+      "required": [
+        "ssids"
+      ]
+    },
+    "GeneratedObject15": {
+      "title": "generatedObject15",
       "example": {
         "isAuthorized": true
       },
@@ -10336,43 +10877,12 @@
           "description": "",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/GeneratedObject13"
+            "$ref": "#/definitions/GeneratedObject"
           }
         }
       },
       "required": [
         "ssids"
-      ]
-    },
-    "GeneratedObject13": {
-      "title": "generatedObject13",
-      "example": {
-        "isAuthorized": true,
-        "authorizedAt": "2017-10-12 13:02:08 UTC",
-        "expiresAt": "2017-10-13 13:02:08 UTC"
-      },
-      "type": "object",
-      "properties": {
-        "isAuthorized": {
-          "description": "",
-          "example": true,
-          "type": "boolean"
-        },
-        "authorizedAt": {
-          "description": "",
-          "example": "2017-10-12 13:02:08 UTC",
-          "type": "string"
-        },
-        "expiresAt": {
-          "description": "",
-          "example": "2017-10-13 13:02:08 UTC",
-          "type": "string"
-        }
-      },
-      "required": [
-        "isAuthorized",
-        "authorizedAt",
-        "expiresAt"
       ]
     },
     "ReturnAClient": {
@@ -11013,6 +11523,170 @@
         "name"
       ]
     },
+    "ListTheSplashOrRadiusUser": {
+      "title": "List the splash or RADIUS user",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "",
+          "example": "MTE1bWlsZXNAbWVyYWtpLmNv1234",
+          "type": "string"
+        },
+        "email": {
+          "description": "",
+          "example": "miles@meraki.com",
+          "type": "string"
+        },
+        "name": {
+          "description": "",
+          "example": "Miles Meraki",
+          "type": "string"
+        },
+        "createdAt": {
+          "description": "",
+          "example": 1497593719,
+          "type": "integer",
+          "format": "int32"
+        },
+        "accountType": {
+          "description": "",
+          "example": "Administrator",
+          "type": "string"
+        },
+        "authorizations": {
+          "description": "",
+          "example": [
+            {
+              "authorizedZone": "MR-Cafe-1",
+              "expiresAt": 1512414963,
+              "authorizedByName": "Miles Meraki",
+              "authorizedByEmail": "milesAdmin@meraki.com"
+            }
+          ],
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Authorization"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "email",
+        "name",
+        "createdAt",
+        "accountType",
+        "authorizations"
+      ]
+    },
+    "Authorization": {
+      "title": "Authorization",
+      "example": {
+        "authorizedZone": "MR-Cafe-1",
+        "expiresAt": 1512414963,
+        "authorizedByName": "Miles Meraki",
+        "authorizedByEmail": "milesAdmin@meraki.com"
+      },
+      "type": "object",
+      "properties": {
+        "authorizedZone": {
+          "description": "",
+          "example": "MR-Cafe-1",
+          "type": "string"
+        },
+        "expiresAt": {
+          "description": "",
+          "example": 1512414963,
+          "type": "integer",
+          "format": "int32"
+        },
+        "authorizedByName": {
+          "description": "",
+          "example": "Miles Meraki",
+          "type": "string"
+        },
+        "authorizedByEmail": {
+          "description": "",
+          "example": "milesAdmin@meraki.com",
+          "type": "string"
+        }
+      },
+      "required": [
+        "authorizedZone",
+        "expiresAt",
+        "authorizedByName",
+        "authorizedByEmail"
+      ]
+    },
+    "ReturnTheMerakiAuthSplashOrRadiusUser": {
+      "title": "Return the Meraki Auth splash or RADIUS user",
+      "example": {
+        "id": "MTE1bWlsZXNAbWVyYWtpLmNvb123",
+        "email": "miles@meraki.com",
+        "name": "Miles Meraki",
+        "createdAt": 1497593719,
+        "accountType": "Administrator",
+        "authorizations": [
+          {
+            "authorizedZone": "MR - Cafe -1",
+            "expiresAt": 1512414963,
+            "authorizedByName": "Admin User",
+            "authorizedByEmail": "adminn@meraki.com"
+          }
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "",
+          "example": "MTE1bWlsZXNAbWVyYWtpLmNvb123",
+          "type": "string"
+        },
+        "email": {
+          "description": "",
+          "example": "miles@meraki.com",
+          "type": "string"
+        },
+        "name": {
+          "description": "",
+          "example": "Miles Meraki",
+          "type": "string"
+        },
+        "createdAt": {
+          "description": "",
+          "example": 1497593719,
+          "type": "integer",
+          "format": "int32"
+        },
+        "accountType": {
+          "description": "",
+          "example": "Administrator",
+          "type": "string"
+        },
+        "authorizations": {
+          "description": "",
+          "example": [
+            {
+              "authorizedZone": "MR - Cafe -1",
+              "expiresAt": 1512414963,
+              "authorizedByName": "Admin User",
+              "authorizedByEmail": "adminn@meraki.com"
+            }
+          ],
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Authorization"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "email",
+        "name",
+        "createdAt",
+        "accountType",
+        "authorizations"
+      ]
+    },
     "GetL3FirewallRule": {
       "title": "get L3 Firewall Rule",
       "example": {
@@ -11247,7 +11921,7 @@
           ],
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Rule31"
+            "$ref": "#/definitions/Rule39"
           }
         },
         "syslogDefaultRule": {
@@ -11261,8 +11935,8 @@
         "syslogDefaultRule"
       ]
     },
-    "Rule31": {
-      "title": "Rule31",
+    "Rule39": {
+      "title": "Rule39",
       "example": {
         "comment": "A note about the rule",
         "policy": "deny",
@@ -11513,7 +12187,7 @@
           ],
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Rule31"
+            "$ref": "#/definitions/Rule39"
           }
         }
       },
@@ -11556,7 +12230,7 @@
           ],
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Rule31"
+            "$ref": "#/definitions/Rule39"
           }
         },
         "syslogDefaultRule": {
