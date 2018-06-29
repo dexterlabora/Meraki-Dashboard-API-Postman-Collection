@@ -11681,19 +11681,24 @@
               ]
             },
             "url": {
-              "raw": "{{baseUrl}}/networks/{{networkId}}/traffic?timespan={{timespan}}",
+              "raw": "{{baseUrl}}/networks/{{networkId}}/splashLoginAttempts?timespan={{timespan}}&loginIdentifier={{loginIdentifier}}",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
                 "networks",
                 "{{networkId}}",
-                "traffic"
+                "splashLoginAttempts"
               ],
               "query": [
                 {
                   "key": "timespan",
                   "value": "{{timespan}}",
+                  "equals": true
+                },
+                {
+                  "key": "loginIdentifier",
+                  "value": "{{loginIdentifier}}",
                   "equals": true
                 }
               ]
