@@ -2321,7 +2321,167 @@
             },
             "description": "## HTTP REQUEST\n```\nGET /networks/[networkId]/clients/[clientId]/securityEvents\n```\n## PARAMETERS\n**Parameter**|**Description of the parameter**\n :-------------: |:-------------:\ntimespan| The timespan, in seconds, to look back from now for events\nperPage| The number of entries per page returned\nstartingAfter| A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, next or prev page in the HTTP Link header should define it.\nendingBefore| A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, next or prev page in the HTTP Link header should define it.\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[networkId]/clients/[clientId]/securityEvents?timespan=7200'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n[\n  {\n    \"mac\": \"00:77:00:77:00:77\",\n    \"networkId\": \"N_1234\"\n  }\n]\n```"
           },
-          "response": []
+          "response": [
+            {
+              "id": "f65b087c-8c0d-4f88-817e-89051fe12d3d",
+              "name": "Return a client security events",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}",
+                    "disabled": false
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "name",
+                      "value": "Toni",
+                      "type": "text"
+                    },
+                    {
+                      "key": "orgAccess",
+                      "value": "full",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/networks/{{networkId}}/clients/{{clientMac}}/securityEvents?perPage=20",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "networks",
+                    "{{networkId}}",
+                    "clients",
+                    "{{clientMac}}",
+                    "securityEvents"
+                  ],
+                  "query": [
+                    {
+                      "key": "perPage",
+                      "value": "20",
+                      "equals": true
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate",
+                  "name": "Cache-Control",
+                  "description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": "Options that are desired for the connection"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "name": "Content-Encoding",
+                  "description": "The type of encoding used on the data."
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8",
+                  "name": "Content-Type",
+                  "description": "The mime type of this content"
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 29 Jun 2018 09:50:45 GMT",
+                  "name": "Date",
+                  "description": "The date and time that the message was sent"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT",
+                  "name": "Expires",
+                  "description": "Gives the date/time after which the response is considered stale"
+                },
+                {
+                  "key": "Link",
+                  "value": "<https://n143.meraki.com/api/v0/networks/L_643451796760560141/clients/60:e3:ac:f7:48:08/securityEvents?perPage=20&startingAfter=1478526181.0>; rel=first, <https://n143.meraki.com/api/v0/networks/L_643451796760560141/clients/60:e3:ac:f7:48:08/securityEvents?endingBefore=1530265845.130895&perPage=20>; rel=last",
+                  "name": "Link",
+                  "description": "Used to express a typed relationship with another resource, where the relation type is defined by RFC 5988"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache",
+                  "name": "Pragma",
+                  "description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+                },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains",
+                  "name": "Strict-Transport-Security",
+                  "description": "A HSTS Policy informing the HTTP client how long to cache the HTTPS only policy and whether this applies to subdomains."
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding",
+                  "name": "Vary",
+                  "description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin",
+                  "name": "X-Frame-Options",
+                  "description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+                },
+                {
+                  "key": "X-Rack-Cache",
+                  "value": "miss",
+                  "name": "X-Rack-Cache",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "114298c316a6a05719bad6563dfe64b3",
+                  "name": "X-Request-Id",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.857791",
+                  "name": "X-Runtime",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1",
+                  "name": "X-UA-Compatible",
+                  "description": "Custom header"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n    {\n        \"ts\": 1527373700.277002,\n        \"deviceMac\": \"e0:55:aa:bb:c1:7a\",\n        \"clientMac\": \"d0:2b:20:aa:bb:cc\",\n        \"srcIp\": \"95.100.136.194:80\",\n        \"destIp\": \"192.168.0.192:54013\",\n        \"protocol\": \"tcp/ip\",\n        \"priority\": \"2\",\n        \"classification\": \"30\",\n        \"blocked\": false,\n        \"message\": \"PUA-OTHER Mineralt JavaScript cryptocurrency mining attempt\",\n        \"signature\": \"1:46413:2\",\n        \"sigSource\": \"\"\n    },\n    {\n        \"ts\": 1527715571.933001,\n        \"deviceMac\": \"e0:55:aa:bb:c1:7a\",\n        \"clientMac\": \"d0:2b:20:aa:bb:cc\",\n        \"srcIp\": \"95.100.136.194:80\",\n        \"destIp\": \"192.168.0.192:49584\",\n        \"protocol\": \"tcp/ip\",\n        \"priority\": \"2\",\n        \"classification\": \"30\",\n        \"blocked\": false,\n        \"message\": \"PUA-OTHER Mineralt JavaScript cryptocurrency mining attempt\",\n        \"signature\": \"1:46413:2\",\n        \"sigSource\": \"\"\n    }\n]"
+            }
+          ]
         }
       ]
     },
@@ -12263,6 +12423,56 @@
             "body": {},
             "url": "{{baseUrl}}/networks/{{networkId}}/vlans/{{vlanId}}",
             "description": "## HTTP REQUEST\n```\nDELETE /networks/[networkId]/vlans/[id]\n```\n\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X DELETE 'https://dashboard.meraki.com/api/v0/networks/[networkId]/vlans/[id]'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 204\n\n(empty)\n```"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "_postman_id": "05dec954-e989-4531-b13b-902a0e8d0d33",
+      "name": "Splash login attempts",
+      "description": "",
+      "item": [
+        {
+          "_postman_id": "0064cb29-a700-4862-9071-42f7b22eee0a",
+          "name": "List the splash login attempts for a network",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "order",
+                  "type": "text",
+                  "value": "234234234"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/networks/{{networkId}}/traffic?timespan={{timespan}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "networks",
+                "{{networkId}}",
+                "traffic"
+              ],
+              "query": [
+                {
+                  "key": "timespan",
+                  "value": "{{timespan}}",
+                  "equals": true
+                }
+              ]
+            },
+            "description": "## HTTP REQUEST\n```\nGET /networks/[id]/splashLoginAttempts\n```\n## PARAMETERS\n**ssidNumber**\nOnly return the login attempts for the specified SSID\n\n**loginIdentifier**\nThe username, email, or phone number used during login\n\n**timespan**\nThe timespan, in seconds, for the login attempts. The period will be from [timespan] seconds ago until now. The maximum timespan is 3 months\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[id]/splashLoginAttempts?timespan=7200'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n[\n  {\n    \"name\": \"Miles Meraki\",\n    \"login\": \"miles@meraki.com\",\n    \"ssid\": \"My SSID\",\n    \"loginAt\": 1518365681,\n    \"gatewayDeviceMac\": \"00:11:22:33:44:55\",\n    \"clientMac\": \"22:33:44:55:66:77\",\n    \"clientId\": \"k74272e\",\n    \"authorization\": \"success\"\n  }\n]\n```"
           },
           "response": []
         }
