@@ -11655,6 +11655,56 @@
       ]
     },
     {
+      "_postman_id": "05dec954-e989-4531-b13b-902a0e8d0d33",
+      "name": "Splash login attempts",
+      "description": "",
+      "item": [
+        {
+          "_postman_id": "0064cb29-a700-4862-9071-42f7b22eee0a",
+          "name": "List the splash login attempts for a network",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "order",
+                  "type": "text",
+                  "value": "234234234"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/networks/{{networkId}}/traffic?timespan={{timespan}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "networks",
+                "{{networkId}}",
+                "traffic"
+              ],
+              "query": [
+                {
+                  "key": "timespan",
+                  "value": "{{timespan}}",
+                  "equals": true
+                }
+              ]
+            },
+            "description": "## HTTP REQUEST\n```\nGET /networks/[id]/splashLoginAttempts\n```\n## PARAMETERS\n**ssidNumber**\nOnly return the login attempts for the specified SSID\n\n**loginIdentifier**\nThe username, email, or phone number used during login\n\n**timespan**\nThe timespan, in seconds, for the login attempts. The period will be from [timespan] seconds ago until now. The maximum timespan is 3 months\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[id]/splashLoginAttempts?timespan=7200'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n[\n  {\n    \"name\": \"Miles Meraki\",\n    \"login\": \"miles@meraki.com\",\n    \"ssid\": \"My SSID\",\n    \"loginAt\": 1518365681,\n    \"gatewayDeviceMac\": \"00:11:22:33:44:55\",\n    \"clientMac\": \"22:33:44:55:66:77\",\n    \"clientId\": \"k74272e\",\n    \"authorization\": \"success\"\n  }\n]\n```"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
       "_postman_id": "7dd177cd-4147-c987-68c2-2f64c11394bf",
       "name": "SSIDs",
       "description": "",
@@ -12423,56 +12473,6 @@
             "body": {},
             "url": "{{baseUrl}}/networks/{{networkId}}/vlans/{{vlanId}}",
             "description": "## HTTP REQUEST\n```\nDELETE /networks/[networkId]/vlans/[id]\n```\n\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X DELETE 'https://dashboard.meraki.com/api/v0/networks/[networkId]/vlans/[id]'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 204\n\n(empty)\n```"
-          },
-          "response": []
-        }
-      ]
-    },
-    {
-      "_postman_id": "05dec954-e989-4531-b13b-902a0e8d0d33",
-      "name": "Splash login attempts",
-      "description": "",
-      "item": [
-        {
-          "_postman_id": "0064cb29-a700-4862-9071-42f7b22eee0a",
-          "name": "List the splash login attempts for a network",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "X-Cisco-Meraki-API-Key",
-                "value": "{{X-Cisco-Meraki-API-Key}}"
-              }
-            ],
-            "body": {
-              "mode": "formdata",
-              "formdata": [
-                {
-                  "key": "order",
-                  "type": "text",
-                  "value": "234234234"
-                }
-              ]
-            },
-            "url": {
-              "raw": "{{baseUrl}}/networks/{{networkId}}/traffic?timespan={{timespan}}",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "networks",
-                "{{networkId}}",
-                "traffic"
-              ],
-              "query": [
-                {
-                  "key": "timespan",
-                  "value": "{{timespan}}",
-                  "equals": true
-                }
-              ]
-            },
-            "description": "## HTTP REQUEST\n```\nGET /networks/[id]/splashLoginAttempts\n```\n## PARAMETERS\n**ssidNumber**\nOnly return the login attempts for the specified SSID\n\n**loginIdentifier**\nThe username, email, or phone number used during login\n\n**timespan**\nThe timespan, in seconds, for the login attempts. The period will be from [timespan] seconds ago until now. The maximum timespan is 3 months\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[id]/splashLoginAttempts?timespan=7200'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n[\n  {\n    \"name\": \"Miles Meraki\",\n    \"login\": \"miles@meraki.com\",\n    \"ssid\": \"My SSID\",\n    \"loginAt\": 1518365681,\n    \"gatewayDeviceMac\": \"00:11:22:33:44:55\",\n    \"clientMac\": \"22:33:44:55:66:77\",\n    \"clientId\": \"k74272e\",\n    \"authorization\": \"success\"\n  }\n]\n```"
           },
           "response": []
         }
