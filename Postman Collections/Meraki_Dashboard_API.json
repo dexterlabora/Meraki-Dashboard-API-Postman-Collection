@@ -19,7 +19,7 @@
   "paths": {
     "/organizations/{organizationId}/admins": {
       "get": {
-        "description": "## HTTP REQUEST\n```\nGET /organizations/[organization_id]/admins\n```\n\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X GET -H 'Content-Type: application/json' 'https://dashboard.meraki.com/api/v0/organizations/1234/admins'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n[\n  {\n    \"id\":\"1\",\n    \"name\":\"Miles Meraki\",\n    \"email\":\"miles@meraki.com\",\n    \"orgAccess\":\"none\",\n    \"tags\":[\n      {\n        \"tag\":\"west\",\n        \"access\":\"read-only\"\n      }\n    ],\n    \"networks\":[\n      {\n        \"id\":\"N_249\",\n        \"access\":\"full\"\n      }\n    ]\n  }\n]\n```",
+        "description": "## HTTP REQUEST\n```\nGET /organizations/[organization_id]/admins\n```\n\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X GET -H 'Content-Type: application/json' 'https://api.meraki.com/api/v0/organizations/1234/admins'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n[\n  {\n    \"id\":\"1\",\n    \"name\":\"Miles Meraki\",\n    \"email\":\"miles@meraki.com\",\n    \"orgAccess\":\"none\",\n    \"tags\":[\n      {\n        \"tag\":\"west\",\n        \"access\":\"read-only\"\n      }\n    ],\n    \"networks\":[\n      {\n        \"id\":\"N_249\",\n        \"access\":\"full\"\n      }\n    ]\n  }\n]\n```",
         "summary": "List the dashboard administrators",
         "tags": [
           "Admins"
@@ -90,7 +90,7 @@
         }
       },
       "post": {
-        "description": "## HTTP REQUEST\n```\nPOST /organizations/[organization_id]/admins\n```\n\n## PARAMETERS\n\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\nemail|The email of the dashboard administrator. This attribute can not be updated.\nname|The name of the dashboard administrator\norgAccess|The privilege of the dashboard administrator on the organization (full, read-only, none)\ntags|The list of tags that the dashboard administrator has privileges on\ntag|The name of the tag\naccess|The privilege of the dashboard administrator on the tag\nnetworks|The list of networks that the dashboard administrator has privileges on\nid|The network ID\naccess|The privilege of the dashboard administrator on the network\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X POST -H 'Content-Type: application/json' --data-binary '{\"name\":\"Miles Meraki\", \"email\":\"miles@meraki.com\", \"orgAccess\":\"none\", \"tags\":[{\"tag\":\"west\", \"access\":\"read-only\"}]}' 'https://dashboard.meraki.com/api/v0/organizations/1234/admins'\n```\n\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 201\n{\n  \"id\":\"212406\",\n  \"name\":\"Miles Meraki\",\n  \"email\":\"miles@meraki.com\",\n  \"orgAccess\":\"none\",\n  \"tags\":[\n    {\n      \"tag\":\"west\",\n      \"access\":\"read-only\"\n    }\n  ],\n  \"networks\":[]\n}\n```",
+        "description": "## HTTP REQUEST\n```\nPOST /organizations/[organization_id]/admins\n```\n\n## PARAMETERS\n\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\nemail|The email of the dashboard administrator. This attribute can not be updated.\nname|The name of the dashboard administrator\norgAccess|The privilege of the dashboard administrator on the organization (full, read-only, none)\ntags|The list of tags that the dashboard administrator has privileges on\ntag|The name of the tag\naccess|The privilege of the dashboard administrator on the tag\nnetworks|The list of networks that the dashboard administrator has privileges on\nid|The network ID\naccess|The privilege of the dashboard administrator on the network\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X POST -H 'Content-Type: application/json' --data-binary '{\"name\":\"Miles Meraki\", \"email\":\"miles@meraki.com\", \"orgAccess\":\"none\", \"tags\":[{\"tag\":\"west\", \"access\":\"read-only\"}]}' 'https://api.meraki.com/api/v0/organizations/1234/admins'\n```\n\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 201\n{\n  \"id\":\"212406\",\n  \"name\":\"Miles Meraki\",\n  \"email\":\"miles@meraki.com\",\n  \"orgAccess\":\"none\",\n  \"tags\":[\n    {\n      \"tag\":\"west\",\n      \"access\":\"read-only\"\n    }\n  ],\n  \"networks\":[]\n}\n```",
         "summary": "Create a new dashboard administrator",
         "tags": [
           "Admins"
@@ -100,15 +100,6 @@
           "application/json"
         ],
         "parameters": [
-          {
-            "name": "Body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/CreateANewDashboardAdministratorrequest"
-            }
-          },
           {
             "name": "X-Cisco-Meraki-API-Key",
             "in": "header",
@@ -122,6 +113,15 @@
             "required": true,
             "type": "string",
             "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CreateANewDashboardAdministratorrequest"
+            }
           },
           {
             "name": "organizationId",
@@ -159,15 +159,6 @@
         ],
         "parameters": [
           {
-            "name": "Body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/UpdateAnAdministratorrequest"
-            }
-          },
-          {
             "name": "X-Cisco-Meraki-API-Key",
             "in": "header",
             "required": true,
@@ -180,6 +171,15 @@
             "required": true,
             "type": "string",
             "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UpdateAnAdministratorrequest"
+            }
           },
           {
             "name": "organizationId",
@@ -586,15 +586,6 @@
             "description": ""
           },
           {
-            "name": "Body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/UpdateTheGroupPolicyAssignedToADeviceInTheNetworkrequest"
-            }
-          },
-          {
             "name": "X-Cisco-Meraki-API-Key",
             "in": "header",
             "required": true,
@@ -607,6 +598,15 @@
             "required": true,
             "type": "string",
             "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UpdateTheGroupPolicyAssignedToADeviceInTheNetworkrequest"
+            }
           },
           {
             "name": "networkId",
@@ -712,18 +712,6 @@
         ],
         "parameters": [
           {
-            "name": "Body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/UpdateAClient'sSplashAuthorizationrequest"
-              }
-            }
-          },
-          {
             "name": "X-Cisco-Meraki-API-Key",
             "in": "header",
             "required": true,
@@ -736,6 +724,18 @@
             "required": true,
             "type": "string",
             "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/UpdateAClient'sSplashAuthorizationrequest"
+              }
+            }
           },
           {
             "name": "networkId",
@@ -7367,15 +7367,6 @@
         ],
         "parameters": [
           {
-            "name": "Body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/UpdateTheAttributesOfADevicerequest"
-            }
-          },
-          {
             "name": "X-Cisco-Meraki-API-Key",
             "in": "header",
             "required": true,
@@ -7388,6 +7379,15 @@
             "required": true,
             "type": "string",
             "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UpdateTheAttributesOfADevicerequest"
+            }
           },
           {
             "name": "networkId",
@@ -7552,15 +7552,6 @@
         ],
         "parameters": [
           {
-            "name": "Body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/ClaimADevicerequest"
-            }
-          },
-          {
             "name": "X-Cisco-Meraki-API-Key",
             "in": "header",
             "required": true,
@@ -7573,6 +7564,15 @@
             "required": true,
             "type": "string",
             "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ClaimADevicerequest"
+            }
           },
           {
             "name": "networkId",
@@ -7862,15 +7862,6 @@
         ],
         "parameters": [
           {
-            "name": "Body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/L3FirewallRulesUpdateAnSsidrequest"
-            }
-          },
-          {
             "name": "X-Cisco-Meraki-API-Key",
             "in": "header",
             "required": true,
@@ -7883,6 +7874,15 @@
             "required": true,
             "type": "string",
             "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/L3FirewallRulesUpdateAnSsidrequest"
+            }
           },
           {
             "name": "networkId",
@@ -7987,15 +7987,6 @@
         ],
         "parameters": [
           {
-            "name": "Body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/Update firewall rules of an organization's siteToSite vpnrequest"
-            }
-          },
-          {
             "name": "X-Cisco-Meraki-API-Key",
             "in": "header",
             "required": true,
@@ -8008,6 +7999,15 @@
             "required": true,
             "type": "string",
             "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Update firewall rules of an organization's siteToSite vpnrequest"
+            }
           },
           {
             "name": "organizationId",
@@ -8147,15 +8147,6 @@
         ],
         "parameters": [
           {
-            "name": "Body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/UpdateL3FirewallRulesrequest"
-            }
-          },
-          {
             "name": "X-Cisco-Meraki-API-Key",
             "in": "header",
             "required": true,
@@ -8168,6 +8159,15 @@
             "required": true,
             "type": "string",
             "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UpdateL3FirewallRulesrequest"
+            }
           },
           {
             "name": "networkId",
@@ -8245,15 +8245,6 @@
         ],
         "parameters": [
           {
-            "name": "Body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/UpdateCellularFirewallRulesrequest"
-            }
-          },
-          {
             "name": "X-Cisco-Meraki-API-Key",
             "in": "header",
             "required": true,
@@ -8266,6 +8257,15 @@
             "required": true,
             "type": "string",
             "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UpdateCellularFirewallRulesrequest"
+            }
           },
           {
             "name": "networkId",
@@ -8426,15 +8426,6 @@
         ],
         "parameters": [
           {
-            "name": "Body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/CreateANetworkrequest"
-            }
-          },
-          {
             "name": "X-Cisco-Meraki-API-Key",
             "in": "header",
             "required": true,
@@ -8447,6 +8438,15 @@
             "required": true,
             "type": "string",
             "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CreateANetworkrequest"
+            }
           },
           {
             "name": "organizationId",
@@ -8550,15 +8550,6 @@
         ],
         "parameters": [
           {
-            "name": "Body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/UpdateANetworkrequest"
-            }
-          },
-          {
             "name": "X-Cisco-Meraki-API-Key",
             "in": "header",
             "required": true,
@@ -8571,6 +8562,15 @@
             "required": true,
             "type": "string",
             "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UpdateANetworkrequest"
+            }
           },
           {
             "name": "networkId",
@@ -8650,15 +8650,6 @@
         ],
         "parameters": [
           {
-            "name": "Body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/BindToTemplaterequest"
-            }
-          },
-          {
             "name": "X-Cisco-Meraki-API-Key",
             "in": "header",
             "required": true,
@@ -8671,6 +8662,15 @@
             "required": true,
             "type": "string",
             "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/BindToTemplaterequest"
+            }
           },
           {
             "name": "networkId",
@@ -8809,15 +8809,6 @@
         ],
         "parameters": [
           {
-            "name": "Body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/Update the siteToSite vpn settingsrequest"
-            }
-          },
-          {
             "name": "X-Cisco-Meraki-API-Key",
             "in": "header",
             "required": true,
@@ -8830,6 +8821,15 @@
             "required": true,
             "type": "string",
             "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Update the siteToSite vpn settingsrequest"
+            }
           },
           {
             "name": "networkId",
@@ -9120,15 +9120,6 @@
         ],
         "parameters": [
           {
-            "name": "Body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/UpdateTheBluetoothSettings(mr)request"
-            }
-          },
-          {
             "name": "X-Cisco-Meraki-API-Key",
             "in": "header",
             "required": true,
@@ -9141,6 +9132,15 @@
             "required": true,
             "type": "string",
             "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UpdateTheBluetoothSettings(mr)request"
+            }
           },
           {
             "name": "networkId",
@@ -11436,15 +11436,6 @@
         ],
         "parameters": [
           {
-            "name": "Body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/CreateANewOrganizationrequest"
-            }
-          },
-          {
             "name": "X-Cisco-Meraki-API-Key",
             "in": "header",
             "required": true,
@@ -11457,6 +11448,15 @@
             "required": true,
             "type": "string",
             "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CreateANewOrganizationrequest"
+            }
           }
         ],
         "responses": {
@@ -11471,8 +11471,8 @@
               "method": "POST",
               "uri": "/organizations",
               "headers": {
-                "Content-Type": "application/json",
-                "X-Cisco-Meraki-API-Key": "{{X-Cisco-Meraki-API-Key}}"
+                "X-Cisco-Meraki-API-Key": "{{X-Cisco-Meraki-API-Key}}",
+                "Content-Type": "application/json"
               },
               "body": "{\"name\":\"Your org\"}"
             },
@@ -11564,15 +11564,6 @@
         ],
         "parameters": [
           {
-            "name": "Body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/UpdateAnOrganizationrequest"
-            }
-          },
-          {
             "name": "X-Cisco-Meraki-API-Key",
             "in": "header",
             "required": true,
@@ -11585,6 +11576,15 @@
             "required": true,
             "type": "string",
             "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UpdateAnOrganizationrequest"
+            }
           },
           {
             "name": "organizationId",
@@ -11622,15 +11622,6 @@
         ],
         "parameters": [
           {
-            "name": "Body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/CreateNewOrgByCloningrequest"
-            }
-          },
-          {
             "name": "X-Cisco-Meraki-API-Key",
             "in": "header",
             "required": true,
@@ -11643,6 +11634,15 @@
             "required": true,
             "type": "string",
             "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CreateNewOrgByCloningrequest"
+            }
           },
           {
             "name": "organizationId",
@@ -13361,15 +13361,6 @@
         ],
         "parameters": [
           {
-            "name": "Body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/UpdateTheSnmpSettingsrequest"
-            }
-          },
-          {
             "name": "X-Cisco-Meraki-API-Key",
             "in": "header",
             "required": true,
@@ -13382,6 +13373,15 @@
             "required": true,
             "type": "string",
             "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UpdateTheSnmpSettingsrequest"
+            }
           },
           {
             "name": "organizationId",
@@ -13474,18 +13474,6 @@
         ],
         "parameters": [
           {
-            "name": "Body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/UpdateTheThirdPartyVpnPeersrequest"
-              }
-            }
-          },
-          {
             "name": "X-Cisco-Meraki-API-Key",
             "in": "header",
             "required": true,
@@ -13498,6 +13486,18 @@
             "required": true,
             "type": "string",
             "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/UpdateTheThirdPartyVpnPeersrequest"
+              }
+            }
           },
           {
             "name": "organizationId",
@@ -13654,15 +13654,6 @@
         ],
         "parameters": [
           {
-            "name": "Body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/UpdateACallGrouprequest"
-            }
-          },
-          {
             "name": "X-Cisco-Meraki-API-Key",
             "in": "header",
             "required": true,
@@ -13675,6 +13666,15 @@
             "required": true,
             "type": "string",
             "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UpdateACallGrouprequest"
+            }
           },
           {
             "name": "networkId",
@@ -13788,15 +13788,6 @@
         ],
         "parameters": [
           {
-            "name": "Body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/CreateANewCallGrouprequest"
-            }
-          },
-          {
             "name": "X-Cisco-Meraki-API-Key",
             "in": "header",
             "required": true,
@@ -13809,6 +13800,15 @@
             "required": true,
             "type": "string",
             "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CreateANewCallGrouprequest"
+            }
           },
           {
             "name": "networkId",
@@ -13900,15 +13900,6 @@
         ],
         "parameters": [
           {
-            "name": "Body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/AddAPhoneContactrequest"
-            }
-          },
-          {
             "name": "X-Cisco-Meraki-API-Key",
             "in": "header",
             "required": true,
@@ -13921,6 +13912,15 @@
             "required": true,
             "type": "string",
             "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/AddAPhoneContactrequest"
+            }
           },
           {
             "name": "networkId",
@@ -13958,15 +13958,6 @@
         ],
         "parameters": [
           {
-            "name": "Body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/UpdateAPhoneContactrequest"
-            }
-          },
-          {
             "name": "X-Cisco-Meraki-API-Key",
             "in": "header",
             "required": true,
@@ -13979,6 +13970,15 @@
             "required": true,
             "type": "string",
             "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UpdateAPhoneContactrequest"
+            }
           },
           {
             "name": "networkId",
@@ -14195,15 +14195,6 @@
         ],
         "parameters": [
           {
-            "name": "Body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/AssignAContactAndNumber(s)ToAPhonerequest"
-            }
-          },
-          {
             "name": "X-Cisco-Meraki-API-Key",
             "in": "header",
             "required": true,
@@ -14216,6 +14207,15 @@
             "required": true,
             "type": "string",
             "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/AssignAContactAndNumber(s)ToAPhonerequest"
+            }
           },
           {
             "name": "networkId",
@@ -14574,15 +14574,6 @@
         ],
         "parameters": [
           {
-            "name": "Body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/SubmitANewDeleteOrRestrictProcessingPiiRequestrequest"
-            }
-          },
-          {
             "name": "X-Cisco-Meraki-API-Key",
             "in": "header",
             "required": true,
@@ -14595,6 +14586,15 @@
             "required": true,
             "type": "string",
             "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/SubmitANewDeleteOrRestrictProcessingPiiRequestrequest"
+            }
           },
           {
             "name": "organizationId",
@@ -14726,6 +14726,15 @@
             "required": true,
             "type": "string",
             "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "type": "string"
+            }
           },
           {
             "name": "organizationId",
@@ -14894,15 +14903,6 @@
         ],
         "parameters": [
           {
-            "name": "Body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/CreateASamlRolerequest"
-            }
-          },
-          {
             "name": "X-Cisco-Meraki-API-Key",
             "in": "header",
             "required": true,
@@ -14915,6 +14915,15 @@
             "required": true,
             "type": "string",
             "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CreateASamlRolerequest"
+            }
           },
           {
             "name": "organizationId",
@@ -14999,15 +15008,6 @@
         ],
         "parameters": [
           {
-            "name": "Body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/UpdateASamlRolerequest"
-            }
-          },
-          {
             "name": "X-Cisco-Meraki-API-Key",
             "in": "header",
             "required": true,
@@ -15020,6 +15020,15 @@
             "required": true,
             "type": "string",
             "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UpdateASamlRolerequest"
+            }
           },
           {
             "name": "organizationId",
@@ -15226,6 +15235,20 @@
         ],
         "parameters": [
           {
+            "name": "X-Cisco-Meraki-API-Key",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
             "name": "wifiMacs",
             "in": "formData",
             "required": true,
@@ -15256,20 +15279,6 @@
           {
             "name": "pin",
             "in": "formData",
-            "required": true,
-            "type": "string",
-            "description": ""
-          },
-          {
-            "name": "X-Cisco-Meraki-API-Key",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "description": ""
-          },
-          {
-            "name": "Content-Type",
-            "in": "header",
             "required": true,
             "type": "string",
             "description": ""
@@ -15546,15 +15555,6 @@
         ],
         "parameters": [
           {
-            "name": "Body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/UpdateTheAttributesOfAnSsidrequest"
-            }
-          },
-          {
             "name": "X-Cisco-Meraki-API-Key",
             "in": "header",
             "required": true,
@@ -15567,6 +15567,15 @@
             "required": true,
             "type": "string",
             "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UpdateTheAttributesOfAnSsidrequest"
+            }
           },
           {
             "name": "networkId",
@@ -15651,15 +15660,6 @@
         ],
         "parameters": [
           {
-            "name": "Body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/AddAStaticRouterequest"
-            }
-          },
-          {
             "name": "X-Cisco-Meraki-API-Key",
             "in": "header",
             "required": true,
@@ -15672,6 +15672,15 @@
             "required": true,
             "type": "string",
             "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/AddAStaticRouterequest"
+            }
           },
           {
             "name": "networkId",
@@ -15756,15 +15765,6 @@
         ],
         "parameters": [
           {
-            "name": "Body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/UpdateAStaticRouterequest"
-            }
-          },
-          {
             "name": "X-Cisco-Meraki-API-Key",
             "in": "header",
             "required": true,
@@ -15777,6 +15777,15 @@
             "required": true,
             "type": "string",
             "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UpdateAStaticRouterequest"
+            }
           },
           {
             "name": "networkId",
@@ -15819,15 +15828,6 @@
         ],
         "parameters": [
           {
-            "name": "Body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/DeleteAStaticRouteFromANetworkrequest"
-            }
-          },
-          {
             "name": "X-Cisco-Meraki-API-Key",
             "in": "header",
             "required": true,
@@ -15840,6 +15840,15 @@
             "required": true,
             "type": "string",
             "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/DeleteAStaticRouteFromANetworkrequest"
+            }
           },
           {
             "name": "networkId",
@@ -15973,15 +15982,6 @@
         ],
         "parameters": [
           {
-            "name": "Body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/UpdateASwitchPortrequest"
-            }
-          },
-          {
             "name": "X-Cisco-Meraki-API-Key",
             "in": "header",
             "required": true,
@@ -15994,6 +15994,15 @@
             "required": true,
             "type": "string",
             "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UpdateASwitchPortrequest"
+            }
           },
           {
             "name": "serial",
@@ -16078,15 +16087,6 @@
         ],
         "parameters": [
           {
-            "name": "Body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/AddAVlanrequest"
-            }
-          },
-          {
             "name": "X-Cisco-Meraki-API-Key",
             "in": "header",
             "required": true,
@@ -16099,6 +16099,15 @@
             "required": true,
             "type": "string",
             "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/AddAVlanrequest"
+            }
           },
           {
             "name": "networkId",
@@ -16198,15 +16207,6 @@
         ],
         "parameters": [
           {
-            "name": "Body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/UpdateAVlanrequest"
-            }
-          },
-          {
             "name": "X-Cisco-Meraki-API-Key",
             "in": "header",
             "required": true,
@@ -16219,6 +16219,15 @@
             "required": true,
             "type": "string",
             "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UpdateAVlanrequest"
+            }
           },
           {
             "name": "networkId",
