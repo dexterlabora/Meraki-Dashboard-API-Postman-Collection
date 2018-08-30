@@ -11690,6 +11690,15 @@
             "description": ""
           },
           {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ClaimOrder,LicenseKey,OrOrderIntoAnOrganizationrequest"
+            }
+          },
+          {
             "name": "organizationId",
             "in": "path",
             "required": true,
@@ -20461,6 +20470,44 @@
       },
       "required": [
         "name"
+      ]
+    },
+    "ClaimOrder,LicenseKey,OrOrderIntoAnOrganizationrequest": {
+      "title": "Claim order, license key, or order into an organizationRequest",
+      "example": {
+        "order": "order-number",
+        "serial": "serial-number",
+        "licenseKey": "license-key",
+        "licenseMode": "renew or addDevices"
+      },
+      "type": "object",
+      "properties": {
+        "order": {
+          "description": "",
+          "example": "order-number",
+          "type": "string"
+        },
+        "serial": {
+          "description": "",
+          "example": "serial-number",
+          "type": "string"
+        },
+        "licenseKey": {
+          "description": "",
+          "example": "license-key",
+          "type": "string"
+        },
+        "licenseMode": {
+          "description": "",
+          "example": "renew or addDevices",
+          "type": "string"
+        }
+      },
+      "required": [
+        "order",
+        "serial",
+        "licenseKey",
+        "licenseMode"
       ]
     },
     "GetOrgLicenseState": {
