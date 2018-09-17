@@ -3656,6 +3656,194 @@
             "description": "## HTTP REQUEST\n```\nPOST /networks/[networkId]/devices/[serial]/remove\n```\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X POST -H 'Content-Type: application/json' 'https://api.meraki.com/api/v0/networks/[networkId]/devices/[serial]/remove'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 204\n```"
           },
           "response": []
+        },
+        {
+          "_postman_id": "e411649f-8ae2-47e0-af61-576ff367fafc",
+          "name": "List LLDP and CDP information for a device",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "Turkcell",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/networks/{{networkId}}/devices/{{serial}}/lldp_cdp?timespan=7200",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "networks",
+                "{{networkId}}",
+                "devices",
+                "{{serial}}",
+                "lldp_cdp"
+              ],
+              "query": [
+                {
+                  "key": "timespan",
+                  "value": "7200",
+                  "equals": true
+                }
+              ]
+            },
+            "description": "## HTTP REQUEST\n```\nGET /networks/[networkId]/devices/[serial]/lldp_cdp\n```\n## PARAMETERS\n**parameters** | **description**\n :-------------: |:-------------:\ntimespan| The timespan for which LLDP and CDP information will be fetched. Must be in seconds and less than or equal to a month (2592000 seconds). LLDP and CDP information is sent to the Meraki dashboard every 10 minutes. In instances where this LLDP and CDP information matches an existing entry in the Meraki dashboard, the data is updated once every two hours. Meraki recommends querying LLDP and CDP information at an interval slightly greater than two hours, to ensure that unchanged CDP / LLDP information can be queried consistently.\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[networkId]/devices/[serial]/lldp_cdp?timespan=7200'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"sourceMac\": \"00:11:22:33:44:55\",\n  \"ports\": {\n    \"8\": {\n      \"cdp\": {\n        \"deviceId\": \"e0553d8cdf53\",\n        \"portId\": \"Port 10\",\n        \"address\": \"00:11:22:33:44:55\",\n        \"sourcePort\": \"8\"\n      }\n    },\n    \"12\": {\n      \"cdp\": {\n        \"deviceId\": \"e0553d8cdf53\",\n        \"portId\": \"Port 11\",\n        \"address\": \"00:11:22:33:44:55\",\n        \"sourcePort\": \"12\"\n      },\n      \"lldp\": {\n        \"systemName\": \"Meraki MS350-24X - Phineas\",\n        \"portId\": \"11\",\n        \"managementAddress\": \"00:11:22:33:44:55\",\n        \"sourcePort\": \"12\"\n      }\n    }\n  }\n}\n```"
+          },
+          "response": [
+            {
+              "id": "384ed3b7-296c-40df-905f-6afa26aa682c",
+              "name": "List LLDP and CDP information for a device",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}",
+                    "disabled": false
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "name",
+                      "value": "Turkcell",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/networks/{{networkId}}/devices/{{serial}}/lldp_cdp?timespan=7200",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "networks",
+                    "{{networkId}}",
+                    "devices",
+                    "{{serial}}",
+                    "lldp_cdp"
+                  ],
+                  "query": [
+                    {
+                      "key": "timespan",
+                      "value": "7200",
+                      "equals": true
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate",
+                  "name": "Cache-Control",
+                  "description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": "Options that are desired for the connection"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "name": "Content-Encoding",
+                  "description": "The type of encoding used on the data."
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8",
+                  "name": "Content-Type",
+                  "description": "The mime type of this content"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 17 Sep 2018 12:10:00 GMT",
+                  "name": "Date",
+                  "description": "The date and time that the message was sent"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT",
+                  "name": "Expires",
+                  "description": "Gives the date/time after which the response is considered stale"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache",
+                  "name": "Pragma",
+                  "description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+                },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains",
+                  "name": "Strict-Transport-Security",
+                  "description": "A HSTS Policy informing the HTTP client how long to cache the HTTPS only policy and whether this applies to subdomains."
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding",
+                  "name": "Vary",
+                  "description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin",
+                  "name": "X-Frame-Options",
+                  "description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "0dd4c62411ad8f473becbf35295be147",
+                  "name": "X-Request-Id",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.179252",
+                  "name": "X-Runtime",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1",
+                  "name": "X-UA-Compatible",
+                  "description": "Custom header"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"ports\": {\n        \"1\": {\n            \"lldp\": {\n                \"sourcePort\": \"1\",\n                \"systemName\": \"Meraki MS220-8P - Comms Room\",\n                \"managementAddress\": \"192.168.0.164\",\n                \"portId\": \"2\"\n            },\n            \"cdp\": {\n                \"sourcePort\": \"1\",\n                \"deviceId\": \"00180a7d4006\",\n                \"address\": \"192.168.0.164\",\n                \"portId\": \"Port 2\"\n            }\n        },\n        \"2\": {\n            \"cdp\": {\n                \"sourcePort\": \"2\",\n                \"deviceId\": \"3456fea30ff0\",\n                \"address\": \"192.168.0.144\",\n                \"portId\": \"Port 0\"\n            },\n            \"lldp\": {\n                \"sourcePort\": \"2\",\n                \"systemName\": \"mv12-0ff0\",\n                \"managementAddress\": \"192.168.0.144\",\n                \"portId\": \"0\"\n            }\n        },\n        \"3\": {\n            \"cdp\": {\n                \"sourcePort\": \"3\",\n                \"deviceId\": \"3456fea32406\",\n                \"address\": \"192.168.0.250\",\n                \"portId\": \"Port 0\"\n            },\n            \"lldp\": {\n                \"sourcePort\": \"3\",\n                \"systemName\": \"MV12w-desk-06\",\n                \"managementAddress\": \"192.168.0.250\",\n                \"portId\": \"0\"\n            }\n        },\n        \"4\": {\n            \"cdp\": {\n                \"sourcePort\": \"4\",\n                \"deviceId\": \"00180a32cc34\",\n                \"address\": \"192.168.0.252\",\n                \"portId\": \"Port 0\"\n            },\n            \"lldp\": {\n                \"sourcePort\": \"4\",\n                \"systemName\": \"Meraki MR16 - MR16-desk\",\n                \"portId\": \"0\"\n            }\n        },\n        \"8\": {\n            \"cdp\": {\n                \"sourcePort\": \"8\",\n                \"deviceId\": \"00180a13ddb0\",\n                \"address\": \"192.168.0.249\",\n                \"portId\": \"Port 0\"\n            },\n            \"lldp\": {\n                \"sourcePort\": \"8\",\n                \"systemName\": \"Meraki MR34 - Office\",\n                \"portId\": \"0\"\n            }\n        }\n    },\n    \"sourceMac\": \"88:15:44:e3:aa:aa\"\n}"
+            }
+          ]
         }
       ]
     },
