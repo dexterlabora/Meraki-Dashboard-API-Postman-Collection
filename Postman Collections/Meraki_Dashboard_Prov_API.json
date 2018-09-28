@@ -12491,6 +12491,71 @@
       ]
     },
     {
+      "_postman_id": "225cfe54-4668-6af1-3fda-e6eae28a9aba",
+      "name": "Switch ports",
+      "description": "",
+      "item": [
+        {
+          "_postman_id": "d5188697-85cd-7f6c-eead-4ca103c5c057",
+          "name": "List the switch ports for a switch",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "body": {},
+            "url": "{{baseUrl}}/devices/{{serial}}/switchPorts",
+            "description": "## HTTP REQUEST\n```\nGET /devices/[serial]/switchPorts\n```\n\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://dashboard.meraki.com/api/v0/devices/[serial]/switchPorts'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n[\n  {\n    \"number\": 1,\n    \"name\": \"my port\",\n    \"tags\": \"dorm-room limited\",\n    \"enabled\": true,\n    \"type\": \"access\",\n    \"vlan\": 10,\n    \"voiceVlan\": 20,\n    \"poeEnabled\": true,\n    \"isolationEnabled\": false,\n    \"rstpEnabled\": true,\n    \"stpGuard\": \"disabled\",\n    \"accessPolicyNumber\": \"asdf1234\"\n  }\n]\n```"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "3d03c9e7-145c-15d3-4230-686f848d8fff",
+          "name": "Return a switch port",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "body": {},
+            "url": "{{baseUrl}}/devices/{{serial}}/switchPorts/{{portNum}}",
+            "description": "## HTTP REQUEST\n```\nGET /devices/[serial]/switchPorts/[number]\n```\n\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://dashboard.meraki.com/api/v0/devices/[serial]/switchPorts/[number]'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"number\": 1,\n  \"name\": \"my port\",\n  \"tags\": \"dorm-room limited\",\n  \"enabled\": true,\n  \"type\": \"access\",\n  \"vlan\": 10,\n  \"voiceVlan\": 20,\n  \"poeEnabled\": true,\n  \"isolationEnabled\": false,\n  \"rstpEnabled\": true,\n  \"stpGuard\": \"disabled\",\n  \"accessPolicyNumber\": \"asdf1234\"\n}\n```"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "34a1dd64-081e-ab92-53f0-6564a7ee2444",
+          "name": "Update a switch port",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"test from Postman\",\n  \"tags\": \"API\",\n  \"enabled\": true,\n  \"poeEnabled\": true,\n  \"type\": \"trunk\",\n  \"vlan\": 1,\n  \"voiceVlan\": null,\n  \"allowedVlans\": \"all\",\n  \"isolationEnabled\": false,\n  \"rstpEnabled\": true,\n  \"stpGuard\": \"disabled\",\n  \"accessPolicyNumber\": null\n}"
+            },
+            "url": "{{baseUrl}}/devices/{{serial}}/switchPorts/{{portNum}}",
+            "description": "## HTTP REQUEST\n```\nPUT /devices/[serial]/switchPorts/[number]\n```\n\n## PARAMETERS\n\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\nname|The name of the switch port\ntags|The tags of the switch port\nenabled|The status of the switch port\ntype|The type of the switch port (\"access\" or \"trunk\")\nvlan|The VLAN of the switch port\nvoiceVlan|The voice VLAN of the switch port. Only applicable to access ports.\nallowedVlans|The VLANs allowed on the switch port. Only applicable to trunk ports.\npoeEnabled|The PoE status of the switch port\nisolationEnabled|The isolation status of the switch port\nrstpEnabled|The rapid spanning tree protocol status\nstpGuard|The state of the STP guard (\"disabled\", \"Root guard\", \"BPDU guard\", \"Loop guard\")\naccessPolicyNumber|The number of the access policy of the switch port. Only applicable to access ports. \n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X PUT 'https://dashboard.meraki.com/api/v0/devices/[serial]/switchPorts/[number]'\n```\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"number\": 1,\n  \"name\": \"my port\",\n  \"tags\": \"dorm-room limited\",\n  \"enabled\": true,\n  \"type\": \"access\",\n  \"vlan\": 10,\n  \"voiceVlan\": 20,\n  \"poeEnabled\": true,\n  \"isolationEnabled\": false,\n  \"rstpEnabled\": true,\n  \"stpGuard\": \"disabled\",\n  \"accessPolicyNumber\": \"asdf1234\"\n}\n```"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
       "_postman_id": "73fe827d-9080-479d-9a10-ccb9f295f36e",
       "name": "Syslog Servers",
       "description": "",
@@ -12774,71 +12839,6 @@
               "body": "[{\"host\":\"1.2.3.4\",\"port\":\"443\",\"roles\":[\"URLs\",\"Wireless event log\"]}]"
             }
           ]
-        }
-      ]
-    },
-    {
-      "_postman_id": "225cfe54-4668-6af1-3fda-e6eae28a9aba",
-      "name": "Switch ports",
-      "description": "",
-      "item": [
-        {
-          "_postman_id": "d5188697-85cd-7f6c-eead-4ca103c5c057",
-          "name": "List the switch ports for a switch",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "X-Cisco-Meraki-API-Key",
-                "value": "{{X-Cisco-Meraki-API-Key}}"
-              }
-            ],
-            "body": {},
-            "url": "{{baseUrl}}/devices/{{serial}}/switchPorts",
-            "description": "## HTTP REQUEST\n```\nGET /devices/[serial]/switchPorts\n```\n\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://dashboard.meraki.com/api/v0/devices/[serial]/switchPorts'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n[\n  {\n    \"number\": 1,\n    \"name\": \"my port\",\n    \"tags\": \"dorm-room limited\",\n    \"enabled\": true,\n    \"type\": \"access\",\n    \"vlan\": 10,\n    \"voiceVlan\": 20,\n    \"poeEnabled\": true,\n    \"isolationEnabled\": false,\n    \"rstpEnabled\": true,\n    \"stpGuard\": \"disabled\",\n    \"accessPolicyNumber\": \"asdf1234\"\n  }\n]\n```"
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "3d03c9e7-145c-15d3-4230-686f848d8fff",
-          "name": "Return a switch port",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "X-Cisco-Meraki-API-Key",
-                "value": "{{X-Cisco-Meraki-API-Key}}"
-              }
-            ],
-            "body": {},
-            "url": "{{baseUrl}}/devices/{{serial}}/switchPorts/{{portNum}}",
-            "description": "## HTTP REQUEST\n```\nGET /devices/[serial]/switchPorts/[number]\n```\n\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://dashboard.meraki.com/api/v0/devices/[serial]/switchPorts/[number]'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"number\": 1,\n  \"name\": \"my port\",\n  \"tags\": \"dorm-room limited\",\n  \"enabled\": true,\n  \"type\": \"access\",\n  \"vlan\": 10,\n  \"voiceVlan\": 20,\n  \"poeEnabled\": true,\n  \"isolationEnabled\": false,\n  \"rstpEnabled\": true,\n  \"stpGuard\": \"disabled\",\n  \"accessPolicyNumber\": \"asdf1234\"\n}\n```"
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "34a1dd64-081e-ab92-53f0-6564a7ee2444",
-          "name": "Update a switch port",
-          "request": {
-            "method": "PUT",
-            "header": [
-              {
-                "key": "X-Cisco-Meraki-API-Key",
-                "value": "{{X-Cisco-Meraki-API-Key}}"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"name\": \"test from Postman\",\n  \"tags\": \"API\",\n  \"enabled\": true,\n  \"poeEnabled\": true,\n  \"type\": \"trunk\",\n  \"vlan\": 1,\n  \"voiceVlan\": null,\n  \"allowedVlans\": \"all\",\n  \"isolationEnabled\": false,\n  \"rstpEnabled\": true,\n  \"stpGuard\": \"disabled\",\n  \"accessPolicyNumber\": null\n}"
-            },
-            "url": "{{baseUrl}}/devices/{{serial}}/switchPorts/{{portNum}}",
-            "description": "## HTTP REQUEST\n```\nPUT /devices/[serial]/switchPorts/[number]\n```\n\n## PARAMETERS\n\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\nname|The name of the switch port\ntags|The tags of the switch port\nenabled|The status of the switch port\ntype|The type of the switch port (\"access\" or \"trunk\")\nvlan|The VLAN of the switch port\nvoiceVlan|The voice VLAN of the switch port. Only applicable to access ports.\nallowedVlans|The VLANs allowed on the switch port. Only applicable to trunk ports.\npoeEnabled|The PoE status of the switch port\nisolationEnabled|The isolation status of the switch port\nrstpEnabled|The rapid spanning tree protocol status\nstpGuard|The state of the STP guard (\"disabled\", \"Root guard\", \"BPDU guard\", \"Loop guard\")\naccessPolicyNumber|The number of the access policy of the switch port. Only applicable to access ports. \n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X PUT 'https://dashboard.meraki.com/api/v0/devices/[serial]/switchPorts/[number]'\n```\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"number\": 1,\n  \"name\": \"my port\",\n  \"tags\": \"dorm-room limited\",\n  \"enabled\": true,\n  \"type\": \"access\",\n  \"vlan\": 10,\n  \"voiceVlan\": 20,\n  \"poeEnabled\": true,\n  \"isolationEnabled\": false,\n  \"rstpEnabled\": true,\n  \"stpGuard\": \"disabled\",\n  \"accessPolicyNumber\": \"asdf1234\"\n}\n```"
-          },
-          "response": []
         }
       ]
     },
