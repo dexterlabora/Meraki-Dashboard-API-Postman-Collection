@@ -2,7 +2,7 @@
   "info": {
     "_postman_id": "897512-d092a0e1-7632-9720-359e-d2366897b860",
     "name": "Meraki Dashboard API",
-    "description": "This collection of API calls provides an easy way to interact with a Cisco Meraki network. Update your environment variables to efficiently use the collection.\n\n**Common Variables**\n* X-Cisco-Meraki-API-Key\n* organizationId\n* networkId\n* baseUrl\n\nA template has been provided that can be used to quickly import the variable names. You will still be responsible for filling in the values and missing variables as needed.\n\n\n# What's New?\n** September 2018 **\n\nReturns video link for the specified camera. If a timestamp supplied, it links to that time.\n- GET /devices/[serial]/cameras/video_link\n\nList LLDP and CDP information for a device\n- GET /networks/[networkId]/devices/[serial]/lldp_cdp\n\n**June 2018**\n- GET /networks/[id]/splashLoginAttempts\n\n*Clients*\n- GET /networks/:id/clients/:mac/\n- GET /networks/:id/clients/:mac/usageHistory\n- GET /networks/:id/clients/:mac/trafficHistory\n- GET /networks/:id/clients/:mac/events\n- GET /networks/:id/clients/:mac/securityEvents\n- GET /networks/[networkId]/clients/[id_or_mac_or_ip]/latencyHistory\n\n*Bluetooth Clients*\n- GET /networks/:id/bluetoothClients[/:mac]\n\n*Meraki Auth*\n- GET /networks/:id/merakiAuthUsers[/:email]\n\n*Network*\n- GET /networks/:id/splashLoginAttempts?loginIdentifier=:email_or_username\n\n*PII*\n- updated endpoints to support both network and organization variations. \n\n** May 2018 **\n- Personal Identifying Information endpoints (may require Meraki Support request)\n- General cleanup. Adjusted enpoint names by removing their endpoint group name (\"Networks - get all networks.. --> \"get all networks\")\n- Updated all endpoints with a `{{baseUrl}}` environment variable. This makes it easier to test API proxies, mocks, or target a Meraki Cloud shard (i.e. \"n123.meraki.com\")\n- Included a Template Environment for a quicker start\n\n** Apr 2018 **\n- Organization Device Summary Status \n  * List the status of every Meraki device in the organization. \n\t-Returns a single array of all devices.\n\n** Mar 2018 **\n- MX cellular firewall rules\n  * Return cellular firewall rules\n  * Update cellular firewall rules\n\n** Feb 2018 **\n- Clone Network\n  * Use the **Create a Network** endpoint with the `copyFromNetworkId` parameter to create a new network with the same settings as the source network.\n\n** Nov 2017 **\n- MX VPN Firewall Rules\n  * Return the firewall rules for an org\n  * Upate the firewall rules of an org\n\n** Oct 2017. **\n- Group Policy support\n  * Bind a client to a Group Policy\n  * List Group Policies for a Network\n- MX L3 Firewalls\n  * Return L3 Firewall Rules\n  * Update L3 Firewall Rules\n- Bluetooth Settings\n  * Return Bluetooth Settings\n  * Update Bluetooth Settings\n- Splash authorization\n  * Return Splash Authorization status\n  * Update Splash Authorization status\n- Update the SNMP settings for an organization\n- Phone Assignments\n  * List all phones in a network and their contact assignment\n  * Return a phone's contact assignment\n  * Assign a contact and number(s) to a phone\n  * Remove a phone assignment (unprovision a phone)\n\n## Documentation and Resources\nhttps://dashboard.meraki.com/api_docs\nhttp://developers.meraki.com/\n\n## Troubleshooting:\n- Check your profile permissions. If you can't do it in Dashboard, you won't be able to in the API.\n\n- Some calls seem to work better if you use the shard number instead of \"dashboard\" because of a required redirect. Just update the shard that matches when you login to the web Dashboard. It will be in the URL.\n\n**Original**\n\n```\n- https://dashboard.meraki.com/api/v0/networks/{{networkId}}/ssids/{{ssidNum}}?name=viaAPI345&number={{ssidNum}}\n```\n**With shard number**\n\n```\n- https://n123.meraki.com/api/v0/networks/{{networkId}}/ssids/{{ssidNum}}?name=viaAPI345&number={{ssidNum}}\n```",
+    "description": "This collection of API calls provides an easy way to interact with a Cisco Meraki network. Update your environment variables to efficiently use the collection.\n\n**Common Variables**\n* X-Cisco-Meraki-API-Key\n* organizationId\n* networkId\n* baseUrl\n\nA template has been provided that can be used to quickly import the variable names. You will still be responsible for filling in the values and missing variables as needed.\n\n\n# What's New?\n** September 2018 **\nSyslog Servers\n- GET /networks/[networkId]/syslogServers\n- PUT /networks/[networkId]/syslogServers\n\nReturns video link for the specified camera. If a timestamp supplied, it links to that time.\n- GET /devices/[serial]/cameras/video_link\n\nList LLDP and CDP information for a device\n- GET /networks/[networkId]/devices/[serial]/lldp_cdp\n\n**June 2018**\n- GET /networks/[id]/splashLoginAttempts\n\n*Clients*\n- GET /networks/:id/clients/:mac/\n- GET /networks/:id/clients/:mac/usageHistory\n- GET /networks/:id/clients/:mac/trafficHistory\n- GET /networks/:id/clients/:mac/events\n- GET /networks/:id/clients/:mac/securityEvents\n- GET /networks/[networkId]/clients/[id_or_mac_or_ip]/latencyHistory\n\n*Bluetooth Clients*\n- GET /networks/:id/bluetoothClients[/:mac]\n\n*Meraki Auth*\n- GET /networks/:id/merakiAuthUsers[/:email]\n\n*Network*\n- GET /networks/:id/splashLoginAttempts?loginIdentifier=:email_or_username\n\n*PII*\n- updated endpoints to support both network and organization variations. \n\n** May 2018 **\n- Personal Identifying Information endpoints (may require Meraki Support request)\n- General cleanup. Adjusted enpoint names by removing their endpoint group name (\"Networks - get all networks.. --> \"get all networks\")\n- Updated all endpoints with a `{{baseUrl}}` environment variable. This makes it easier to test API proxies, mocks, or target a Meraki Cloud shard (i.e. \"n123.meraki.com\")\n- Included a Template Environment for a quicker start\n\n** Apr 2018 **\n- Organization Device Summary Status \n  * List the status of every Meraki device in the organization. \n\t-Returns a single array of all devices.\n\n** Mar 2018 **\n- MX cellular firewall rules\n  * Return cellular firewall rules\n  * Update cellular firewall rules\n\n** Feb 2018 **\n- Clone Network\n  * Use the **Create a Network** endpoint with the `copyFromNetworkId` parameter to create a new network with the same settings as the source network.\n\n** Nov 2017 **\n- MX VPN Firewall Rules\n  * Return the firewall rules for an org\n  * Upate the firewall rules of an org\n\n** Oct 2017. **\n- Group Policy support\n  * Bind a client to a Group Policy\n  * List Group Policies for a Network\n- MX L3 Firewalls\n  * Return L3 Firewall Rules\n  * Update L3 Firewall Rules\n- Bluetooth Settings\n  * Return Bluetooth Settings\n  * Update Bluetooth Settings\n- Splash authorization\n  * Return Splash Authorization status\n  * Update Splash Authorization status\n- Update the SNMP settings for an organization\n- Phone Assignments\n  * List all phones in a network and their contact assignment\n  * Return a phone's contact assignment\n  * Assign a contact and number(s) to a phone\n  * Remove a phone assignment (unprovision a phone)\n\n## Documentation and Resources\nhttps://dashboard.meraki.com/api_docs\nhttp://developers.meraki.com/\n\n## Troubleshooting:\n- Check your profile permissions. If you can't do it in Dashboard, you won't be able to in the API.\n\n- Some calls seem to work better if you use the shard number instead of \"dashboard\" because of a required redirect. Just update the shard that matches when you login to the web Dashboard. It will be in the URL.\n\n**Original**\n\n```\n- https://dashboard.meraki.com/api/v0/networks/{{networkId}}/ssids/{{ssidNum}}?name=viaAPI345&number={{ssidNum}}\n```\n**With shard number**\n\n```\n- https://n123.meraki.com/api/v0/networks/{{networkId}}/ssids/{{ssidNum}}?name=viaAPI345&number={{ssidNum}}\n```",
     "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
   },
   "item": [
@@ -12552,6 +12552,293 @@
             "description": "## HTTP REQUEST\n```\nPUT /devices/[serial]/switchPorts/[number]\n```\n\n## PARAMETERS\n\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\nname|The name of the switch port\ntags|The tags of the switch port\nenabled|The status of the switch port\ntype|The type of the switch port (\"access\" or \"trunk\")\nvlan|The VLAN of the switch port\nvoiceVlan|The voice VLAN of the switch port. Only applicable to access ports.\nallowedVlans|The VLANs allowed on the switch port. Only applicable to trunk ports.\npoeEnabled|The PoE status of the switch port\nisolationEnabled|The isolation status of the switch port\nrstpEnabled|The rapid spanning tree protocol status\nstpGuard|The state of the STP guard (\"disabled\", \"Root guard\", \"BPDU guard\", \"Loop guard\")\naccessPolicyNumber|The number of the access policy of the switch port. Only applicable to access ports. \n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X PUT 'https://dashboard.meraki.com/api/v0/devices/[serial]/switchPorts/[number]'\n```\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"number\": 1,\n  \"name\": \"my port\",\n  \"tags\": \"dorm-room limited\",\n  \"enabled\": true,\n  \"type\": \"access\",\n  \"vlan\": 10,\n  \"voiceVlan\": 20,\n  \"poeEnabled\": true,\n  \"isolationEnabled\": false,\n  \"rstpEnabled\": true,\n  \"stpGuard\": \"disabled\",\n  \"accessPolicyNumber\": \"asdf1234\"\n}\n```"
           },
           "response": []
+        }
+      ]
+    },
+    {
+      "_postman_id": "897512-73fe827d-9080-479d-9a10-ccb9f295f36e",
+      "name": "Syslog Servers",
+      "description": "",
+      "item": [
+        {
+          "_postman_id": "897512-4c00b680-151a-4c6e-be85-16ba3013a999",
+          "name": "List the syslog servers for a network",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "body": {},
+            "url": "{{baseUrl}}/networks/{{networkId}}/syslogServers",
+            "description": "## HTTP REQUEST\n```\nGET /networks/[networkId]/syslogServers\n```\n## PARAMETERS\n**None**\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[networkId]/syslogServers'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n[\n  {\n    \"host\": \"1.2.3.4\",\n    \"port\": 443,\n    \"roles\": [\n      \"Wireless event log\",\n      \"URLs\"\n    ]\n  }\n]\n```"
+          },
+          "response": [
+            {
+              "id": "897512-2a2d2735-9e95-41aa-9161-0695e6fc960c",
+              "name": "List the syslog servers for a network",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}",
+                    "disabled": false
+                  }
+                ],
+                "body": {},
+                "url": "{{baseUrl}}/networks/{{networkId}}/syslogServers"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate",
+                  "name": "Cache-Control",
+                  "description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": "Options that are desired for the connection"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "name": "Content-Encoding",
+                  "description": "The type of encoding used on the data."
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8",
+                  "name": "Content-Type",
+                  "description": "The mime type of this content"
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 28 Sep 2018 10:28:09 GMT",
+                  "name": "Date",
+                  "description": "The date and time that the message was sent"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT",
+                  "name": "Expires",
+                  "description": "Gives the date/time after which the response is considered stale"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache",
+                  "name": "Pragma",
+                  "description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+                },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains",
+                  "name": "Strict-Transport-Security",
+                  "description": "A HSTS Policy informing the HTTP client how long to cache the HTTPS only policy and whether this applies to subdomains."
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding",
+                  "name": "Vary",
+                  "description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin",
+                  "name": "X-Frame-Options",
+                  "description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "0dee9a6d084b200267743166a44023c5",
+                  "name": "X-Request-Id",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.158797",
+                  "name": "X-Runtime",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1",
+                  "name": "X-UA-Compatible",
+                  "description": "Custom header"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[{\"host\":\"192.168.128.2\",\"port\":\"1514\",\"roles\":[\"Wireless event log\"]}]"
+            }
+          ]
+        },
+        {
+          "_postman_id": "897512-6e36c61f-248d-4c94-880c-cc9dfdbe06d8",
+          "name": "Update the syslog servers for a network",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"servers\":[\n    {\n      \"host\":\"1.2.3.4\",\n      \"port\":443,\n      \"roles\":[\n        \"Wireless event log\",\n        \"URLs\"\n        ]\n    }]\n}"
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/syslogServers",
+            "description": "## HTTP REQUEST\n```\nPUT /networks/[networkId]/syslogServers\n```\n## PARAMETERS\n**parameters**|**description**\n:-------------: |:-------------:\nservers| A list of the syslog servers for this network\nhost| The IP address of the syslog server\nport|The port of the syslog server\nroles|A list of roles for the syslog server. *Options* (case-insensitive):'Wireless event log', 'Appliance event log', 'Switch event log', 'Air Marshal events', 'Flows', 'URLs', 'IDS alerts', 'Security events', 'NAT flow lifetime'\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X PUT --data-binary '{\"servers\":[{\"host\":\"1.2.3.4\",\"port\":443,\"roles\":[\"Wireless event log\",\"URLs\"]}]}' 'https://api.meraki.com/api/v0/networks/[networkId]/syslogServers'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n[\n  {\n    \"host\": \"1.2.3.4\",\n    \"port\": 443,\n    \"roles\": [\n      \"Wireless event log\",\n      \"URLs\"\n    ]\n  }\n]\n```"
+          },
+          "response": [
+            {
+              "id": "897512-efb73a29-b09d-4051-a5a5-32ff9598bb91",
+              "name": "Update the syslog servers for a network",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}",
+                    "disabled": false
+                  },
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "disabled": false
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"servers\":[\n    {\n      \"host\":\"1.2.3.4\",\n      \"port\":443,\n      \"roles\":[\n        \"Wireless event log\",\n        \"URLs\"\n        ]\n    }]\n}"
+                },
+                "url": "{{baseUrl}}/networks/{{networkId}}/syslogServers"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate",
+                  "name": "Cache-Control",
+                  "description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": "Options that are desired for the connection"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "name": "Content-Encoding",
+                  "description": "The type of encoding used on the data."
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8",
+                  "name": "Content-Type",
+                  "description": "The mime type of this content"
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 28 Sep 2018 10:36:55 GMT",
+                  "name": "Date",
+                  "description": "The date and time that the message was sent"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT",
+                  "name": "Expires",
+                  "description": "Gives the date/time after which the response is considered stale"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache",
+                  "name": "Pragma",
+                  "description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+                },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains",
+                  "name": "Strict-Transport-Security",
+                  "description": "A HSTS Policy informing the HTTP client how long to cache the HTTPS only policy and whether this applies to subdomains."
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding",
+                  "name": "Vary",
+                  "description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin",
+                  "name": "X-Frame-Options",
+                  "description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "f34703ecf1d279f2cefe6f5d9cab8c13",
+                  "name": "X-Request-Id",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.724614",
+                  "name": "X-Runtime",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1",
+                  "name": "X-UA-Compatible",
+                  "description": "Custom header"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[{\"host\":\"1.2.3.4\",\"port\":\"443\",\"roles\":[\"URLs\",\"Wireless event log\"]}]"
+            }
+          ]
         }
       ]
     },
