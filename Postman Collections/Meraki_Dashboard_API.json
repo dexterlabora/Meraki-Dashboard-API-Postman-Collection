@@ -2,7 +2,7 @@
   "info": {
     "_postman_id": "897512-d092a0e1-7632-9720-359e-d2366897b860",
     "name": "Meraki Dashboard API",
-    "description": "This collection of API calls provides an easy way to interact with a Cisco Meraki network. Update your environment variables to efficiently use the collection.\n\n**Common Variables**\n* X-Cisco-Meraki-API-Key\n* organizationId\n* networkId\n* baseUrl\n\nA template has been provided that can be used to quickly import the variable names. You will still be responsible for filling in the values and missing variables as needed.\n\n\n# What's New?\n## October 2018\n\n### Alert Settings\n\n **Return the alert configuration for this network**\n- GET /networks/[networkId]/alertSettings\n\n**Update the alert configuration for this network**\n- PUT /networks/[networkId]/alertSettings\n\n### HTTP Servers\n*Manage servers for Meraki Alerts with webhooks*\n\n**List the HTTP servers for a network**\n- GET /networks/[networkId]/httpServers\n\n**Return an HTTP server**\n- GET /networks/[networkId]/httpServers/[id]\n\n**Update an HTTP server**\n- PUT /networks/[networkId]/httpServers/[id]\n\n**Add an HTTP server**\n- POST /networks/[networkId]/httpServers\n\n**Delete an HTTP server**\n- DEL /networks/[networkId]/httpServers/[id]\n\n**Send a test webhook** \n- POST /networks/[networkId]/httpServers/webhookTests\n\n**Return the status of a webhook test**\n- GET /networks/[networkId]/httpServers/webhookTests/[id]\n\n### Wireless Health\n**Aggregated connectivity info for this network**\n- GET /networks/[networkId]/connectionStats\n\n**Aggregated connectivity info for this network, grouped by node**\n- GET /networks/[networkId]/devices/connectionStats\n\n**Aggregated connectivity info for a given AP on this network**\n- GET /networks/[networkId]/devices/[serial]/connectionStats\n\n**Aggregated connectivity info for this network, grouped by clients**\n- GET /networks/[networkId]/clients/connectionStats\n\n**Aggregated connectivity info for a given client on this network**\n- GET /networks/[networkId]/clients/[clientId]/connectionStats\n\n**Aggregated latency info for this network**\n- GET /networks/[networkId]/latencyStats\n\n**Aggregated latency info for this network, grouped by node**\n- GET /networks/[networkId]/devices/latencyStats\n\n**Aggregated latency info for a given AP on this network**\n- GET /networks/[networkId]/devices/[serial]/latencyStats\n\n**Aggregated latency info for this network, grouped by clients**\n- GET /networks/[networkId]/clients/latencyStats\n\n**Aggregated latency info for a given client on this network**\n- GET /networks/[networkId]/clients/[clientId]/latencyStats\n\n**List of all failed client connection events on this network in a given time**\n- GET /networks/[networkId]/failedConnections\n\n\n## September 2018\n\n### Syslog Servers\n**List the syslog servers for a network**\n- GET /networks/[networkId]/syslogServers\n\n**Update the syslog servers for a network**\n- PUT /networks/[networkId]/syslogServers\n\n**Returns video link for the specified camera. If a timestamp supplied, it links to that time.**\n- GET /devices/[serial]/cameras/video_link\n\n**List LLDP and CDP information for a device**\n- GET /networks/[networkId]/devices/[serial]/lldp_cdp\n\n## June 2018\n- GET /networks/[id]/splashLoginAttempts\n\n### Clients\n- GET /networks/:id/clients/:mac/\n- GET /networks/:id/clients/:mac/usageHistory\n- GET /networks/:id/clients/:mac/trafficHistory\n- GET /networks/:id/clients/:mac/events\n- GET /networks/:id/clients/:mac/securityEvents\n- GET /networks/[networkId]/clients/[id_or_mac_or_ip]/latencyHistory\n\n### Bluetooth Clients\n- GET /networks/:id/bluetoothClients[/:mac]\n\n### Meraki Auth\n- GET /networks/:id/merakiAuthUsers[/:email]\n\n### Network\n- GET /networks/:id/splashLoginAttempts?loginIdentifier=:email_or_username\n\n### PII (GDPR)\n- updated endpoints to support both network and organization variations. \n\n## May 2018\n- Personal Identifying Information endpoints (may require Meraki Support request)\n- General cleanup. Adjusted endpoint names by removing their endpoint group name (\"Networks - get all networks.. --> \"get all networks\")\n- Updated all endpoints with a `{{baseUrl}}` environment variable. This makes it easier to test API proxies, mocks, or target a Meraki Cloud shard (i.e. \"n123.meraki.com\")\n- Included a Template Environment for a quicker start\n\n## Apr 2018\n- Organization Device Summary Status \n  * List the status of every Meraki device in the organization. \n\t-Returns a single array of all devices.\n\n##  Mar 2018\n- MX cellular firewall rules\n  * Return cellular firewall rules\n  * Update cellular firewall rules\n\n## Feb 2018\n- Clone Network\n  * Use the **Create a Network** endpoint with the `copyFromNetworkId` parameter to create a new network with the same settings as the source network.\n\n## Nov 2017\n- MX VPN Firewall Rules\n  * Return the firewall rules for an org\n  * Upate the firewall rules of an org\n\n## Oct 2017\n- Group Policy support\n  * Bind a client to a Group Policy\n  * List Group Policies for a Network\n- MX L3 Firewalls\n  * Return L3 Firewall Rules\n  * Update L3 Firewall Rules\n- Bluetooth Settings\n  * Return Bluetooth Settings\n  * Update Bluetooth Settings\n- Splash authorization\n  * Return Splash Authorization status\n  * Update Splash Authorization status\n- Update the SNMP settings for an organization\n- Phone Assignments\n  * List all phones in a network and their contact assignment\n  * Return a phone's contact assignment\n  * Assign a contact and number(s) to a phone\n  * Remove a phone assignment (unprovision a phone)\n\n# Documentation and Resources\nhttps://dashboard.meraki.com/api_docs\nhttp://developers.meraki.com/\n\n# Troubleshooting\n- Check your profile permissions. If you can't do it in Dashboard, you won't be able to in the API.\n\n- Some calls seem to work better if you use the shard number instead of \"dashboard\" because of a required redirect. Just update the shard that matches when you login to the web Dashboard. It will be in the URL.\n\n**Original**\n\n```\n- https://dashboard.meraki.com/api/v0/networks/{{networkId}}/ssids/{{ssidNum}}?name=viaAPI345&number={{ssidNum}}\n```\n**With shard number**\n\n```\n- https://n123.meraki.com/api/v0/networks/{{networkId}}/ssids/{{ssidNum}}?name=viaAPI345&number={{ssidNum}}\n```",
+    "description": "This collection of API calls provides an easy way to interact with a Cisco Meraki network. Update your environment variables to efficiently use the collection.\n\n**Common Variables**\n* X-Cisco-Meraki-API-Key\n* organizationId\n* networkId\n* baseUrl\n\nA template has been provided that can be used to quickly import the variable names. You will still be responsible for filling in the values and missing variables as needed.\n\n\n# What's New?\n## October 2018\n\n### Alert Settings\n\n **Return the alert configuration for this network**\n- GET /networks/[networkId]/alertSettings\n\n**Update the alert configuration for this network**\n- PUT /networks/[networkId]/alertSettings\n\n### HTTP Servers\n*Manage servers for Meraki Alerts with webhooks*\n\n**List the HTTP servers for a network**\n- GET /networks/[networkId]/httpServers\n\n**Return an HTTP server**\n- GET /networks/[networkId]/httpServers/[id]\n\n**Update an HTTP server**\n- PUT /networks/[networkId]/httpServers/[id]\n\n**Add an HTTP server**\n- POST /networks/[networkId]/httpServers\n\n**Delete an HTTP server**\n- DEL /networks/[networkId]/httpServers/[id]\n\n**Send a test webhook** \n- POST /networks/[networkId]/httpServers/webhookTests\n\n**Return the status of a webhook test**\n- GET /networks/[networkId]/httpServers/webhookTests/[id]\n\n### Wireless Health\n**Aggregated connectivity info for this network**\n- GET /networks/[networkId]/connectionStats\n\n**Aggregated connectivity info for this network, grouped by node**\n- GET /networks/[networkId]/devices/connectionStats\n\n**Aggregated connectivity info for a given AP on this network**\n- GET /networks/[networkId]/devices/[serial]/connectionStats\n\n**Aggregated connectivity info for this network, grouped by clients**\n- GET /networks/[networkId]/clients/connectionStats\n\n**Aggregated connectivity info for a given client on this network**\n- GET /networks/[networkId]/clients/[clientId]/connectionStats\n\n**Aggregated latency info for this network**\n- GET /networks/[networkId]/latencyStats\n\n**Aggregated latency info for this network, grouped by node**\n- GET /networks/[networkId]/devices/latencyStats\n\n**Aggregated latency info for a given AP on this network**\n- GET /networks/[networkId]/devices/[serial]/latencyStats\n\n**Aggregated latency info for this network, grouped by clients**\n- GET /networks/[networkId]/clients/latencyStats\n\n**Aggregated latency info for a given client on this network**\n- GET /networks/[networkId]/clients/[clientId]/latencyStats\n\n**List of all failed client connection events on this network in a given time**\n- GET /networks/[networkId]/failedConnections\n\n### VLANs\n**Enable/Disable VLANs for the given network**\n- PUT /networks/[networkId]/vlansEnabledState\n\n\n## September 2018\n\n### Syslog Servers\n**List the syslog servers for a network**\n- GET /networks/[networkId]/syslogServers\n\n**Update the syslog servers for a network**\n- PUT /networks/[networkId]/syslogServers\n\n**Returns video link for the specified camera. If a timestamp supplied, it links to that time.**\n- GET /devices/[serial]/cameras/video_link\n\n**List LLDP and CDP information for a device**\n- GET /networks/[networkId]/devices/[serial]/lldp_cdp\n\n## June 2018\n- GET /networks/[id]/splashLoginAttempts\n\n### Clients\n- GET /networks/:id/clients/:mac/\n- GET /networks/:id/clients/:mac/usageHistory\n- GET /networks/:id/clients/:mac/trafficHistory\n- GET /networks/:id/clients/:mac/events\n- GET /networks/:id/clients/:mac/securityEvents\n- GET /networks/[networkId]/clients/[id_or_mac_or_ip]/latencyHistory\n\n### Bluetooth Clients\n- GET /networks/:id/bluetoothClients[/:mac]\n\n### Meraki Auth\n- GET /networks/:id/merakiAuthUsers[/:email]\n\n### Network\n- GET /networks/:id/splashLoginAttempts?loginIdentifier=:email_or_username\n\n### PII (GDPR)\n- updated endpoints to support both network and organization variations. \n\n## May 2018\n- Personal Identifying Information endpoints (may require Meraki Support request)\n- General cleanup. Adjusted endpoint names by removing their endpoint group name (\"Networks - get all networks.. --> \"get all networks\")\n- Updated all endpoints with a `{{baseUrl}}` environment variable. This makes it easier to test API proxies, mocks, or target a Meraki Cloud shard (i.e. \"n123.meraki.com\")\n- Included a Template Environment for a quicker start\n\n## Apr 2018\n- Organization Device Summary Status \n  * List the status of every Meraki device in the organization. \n\t-Returns a single array of all devices.\n\n##  Mar 2018\n- MX cellular firewall rules\n  * Return cellular firewall rules\n  * Update cellular firewall rules\n\n## Feb 2018\n- Clone Network\n  * Use the **Create a Network** endpoint with the `copyFromNetworkId` parameter to create a new network with the same settings as the source network.\n\n## Nov 2017\n- MX VPN Firewall Rules\n  * Return the firewall rules for an org\n  * Upate the firewall rules of an org\n\n## Oct 2017\n- Group Policy support\n  * Bind a client to a Group Policy\n  * List Group Policies for a Network\n- MX L3 Firewalls\n  * Return L3 Firewall Rules\n  * Update L3 Firewall Rules\n- Bluetooth Settings\n  * Return Bluetooth Settings\n  * Update Bluetooth Settings\n- Splash authorization\n  * Return Splash Authorization status\n  * Update Splash Authorization status\n- Update the SNMP settings for an organization\n- Phone Assignments\n  * List all phones in a network and their contact assignment\n  * Return a phone's contact assignment\n  * Assign a contact and number(s) to a phone\n  * Remove a phone assignment (unprovision a phone)\n\n# Documentation and Resources\nhttps://dashboard.meraki.com/api_docs\nhttp://developers.meraki.com/\n\n# Troubleshooting\n- Check your profile permissions. If you can't do it in Dashboard, you won't be able to in the API.\n\n- Some calls seem to work better if you use the shard number instead of \"dashboard\" because of a required redirect. Just update the shard that matches when you login to the web Dashboard. It will be in the URL.\n\n**Original**\n\n```\n- https://dashboard.meraki.com/api/v0/networks/{{networkId}}/ssids/{{ssidNum}}?name=viaAPI345&number={{ssidNum}}\n```\n**With shard number**\n\n```\n- https://n123.meraki.com/api/v0/networks/{{networkId}}/ssids/{{ssidNum}}?name=viaAPI345&number={{ssidNum}}\n```",
     "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
   },
   "item": [
@@ -14165,6 +14165,159 @@
       "name": "VLANs",
       "description": "**Product Support**: \n- MX Security Appliance",
       "item": [
+        {
+          "_postman_id": "897512-58d9dae7-8cdc-4574-95bc-5aa2369c6be3",
+          "name": "Enable/Disable VLANs for the given network",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"enabled\":true\n}"
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/vlansEnabledState",
+            "description": "## HTTP REQUEST\n```\nPUT /networks/[networkId]/vlansEnabledState\n```\n## PARAMETERS\n**Parameter**|**Description**\n :-------------: |:-------------:\nenabled| Boolean indicating whether to enable (true) or disable (false) VLANs for the network\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X PUT --data-binary '{\"enabled\":true}' \n'https://api.meraki.com/api/v0/networks/[networkId]/vlansEnabledState'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"enabled\": true,\n  \"networkId\": \"N_24329156\"\n}\n```"
+          },
+          "response": [
+            {
+              "id": "897512-780470c4-8dad-411d-93ec-69531b193fb1",
+              "name": "Enable/Disable VLANs for the given network",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}",
+                    "disabled": false
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "disabled": false
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n\t\"enabled\":true\n}"
+                },
+                "url": "{{baseUrl}}/networks/{{networkId}}/vlansEnabledState"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate",
+                  "name": "Cache-Control",
+                  "description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": "Options that are desired for the connection"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "name": "Content-Encoding",
+                  "description": "The type of encoding used on the data."
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8",
+                  "name": "Content-Type",
+                  "description": "The mime type of this content"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 29 Oct 2018 16:55:54 GMT",
+                  "name": "Date",
+                  "description": "The date and time that the message was sent"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT",
+                  "name": "Expires",
+                  "description": "Gives the date/time after which the response is considered stale"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache",
+                  "name": "Pragma",
+                  "description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+                },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains",
+                  "name": "Strict-Transport-Security",
+                  "description": "A HSTS Policy informing the HTTP client how long to cache the HTTPS only policy and whether this applies to subdomains."
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding",
+                  "name": "Vary",
+                  "description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin",
+                  "name": "X-Frame-Options",
+                  "description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "205094d0f76eb29794ef7ce4ac97d8fa",
+                  "name": "X-Request-Id",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-Robots-Tag",
+                  "value": "none",
+                  "name": "X-Robots-Tag",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.131434",
+                  "name": "X-Runtime",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1",
+                  "name": "X-UA-Compatible",
+                  "description": "Custom header"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"networkId\": \"L_643451796760559123\",\n    \"enabled\": true\n}"
+            }
+          ]
+        },
         {
           "_postman_id": "897512-eb081a13-3640-f6ae-30bc-6753a7ed04c1",
           "name": "List the VLANs for this network",
