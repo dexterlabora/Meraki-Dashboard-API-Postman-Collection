@@ -14811,23 +14811,18 @@
               }
             ],
             "body": {
-              "mode": "formdata",
-              "formdata": [
-                {
-                  "key": "name",
-                  "value": "Turkcell",
-                  "type": "text"
-                }
-              ]
+              "mode": "raw",
+              "raw": ""
             },
             "url": {
-              "raw": "{{baseUrl}}/networks/{{networkId}}/connectionStats?t0={{t0}}&t1={{t1}}",
+              "raw": "{{baseUrl}}/networks/{{networkId}}/devices/connectionStats?t0={{t0}}&t1={{t1}}",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
                 "networks",
                 "{{networkId}}",
+                "devices",
                 "connectionStats"
               ],
               "query": [
