@@ -17021,6 +17021,919 @@
       ]
     },
     {
+      "_postman_id": "0ea32868-8147-4ee4-9eab-876a37c4ec92",
+      "name": "Firewalled services",
+      "description": "",
+      "item": [
+        {
+          "_postman_id": "98427b0a-ee35-4dff-bdb4-44f453c2ee6e",
+          "name": "List the appliance services and their accessibility rules",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/firewalledServices",
+            "description": "## HTTP REQUEST\n```\nGET /networks/[networkId]/firewalledServices\n```\n## PARAMETERS\n**None**\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[networkId]/firewalledServices'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n[\n  {\n    \"service\": \"web\",\n    \"access\": \"restricted\",\n    \"allowedIps\": [\n      \"123.123.123.1\"\n    ]\n  }\n]\n```"
+          },
+          "response": [
+            {
+              "id": "21c50424-1fd5-4294-ad59-964a75b670f3",
+              "name": "List the appliance services and their accessibility rules",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{baseUrl}}/networks/{{networkId}}/firewalledServices"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 06 Nov 2018 08:24:12 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin"
+                },
+                {
+                  "key": "X-Robots-Tag",
+                  "value": "none"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "a53a60b8080fe6358fa903caa17e2ba5"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.311484"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n    {\n        \"service\": \"ICMP\",\n        \"access\": \"unrestricted\"\n    },\n    {\n        \"service\": \"web\",\n        \"access\": \"blocked\"\n    },\n    {\n        \"service\": \"SNMP\",\n        \"access\": \"blocked\"\n    }\n]"
+            }
+          ]
+        },
+        {
+          "_postman_id": "c2753826-63d4-4990-a813-6092db211154",
+          "name": "Return the accessibility settings of the given service ('ICMP', 'web', or 'SNMP')",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/firewalledServices",
+            "description": "## HTTP REQUEST\n```\nGET /networks/[networkId]/firewalledServices/[service]\n```\n## PARAMETERS\n**None**\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[networkId]/firewalledServices/[service]'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"service\": \"web\",\n  \"access\": \"restricted\",\n  \"allowedIps\": [\n    \"123.123.123.1\"\n  ]\n}\n```"
+          },
+          "response": [
+            {
+              "id": "b96c1d36-bb48-4c07-85a0-c5916d8e35ea",
+              "name": "List the appliance services and their accessibility rules",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{baseUrl}}/networks/{{networkId}}/firewalledServices"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 06 Nov 2018 08:24:12 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin"
+                },
+                {
+                  "key": "X-Robots-Tag",
+                  "value": "none"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "a53a60b8080fe6358fa903caa17e2ba5"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.311484"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n    {\n        \"service\": \"ICMP\",\n        \"access\": \"unrestricted\"\n    },\n    {\n        \"service\": \"web\",\n        \"access\": \"blocked\"\n    },\n    {\n        \"service\": \"SNMP\",\n        \"access\": \"blocked\"\n    }\n]"
+            }
+          ]
+        },
+        {
+          "_postman_id": "e28cf07a-893c-4e8f-800a-0616cf90aa97",
+          "name": "Return the accessibility settings for ICMP",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/firewalledServices/icmp",
+            "description": "## HTTP REQUEST\n```\nGET /networks/[networkId]/firewalledServices/icmp\n```\n## PARAMETERS\n**None**\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[networkId]/firewalledServices/icmp'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"service\": \"icmp\",\n  \"access\": \"restricted\",\n  \"allowedIps\": [\n    \"123.123.123.1\"\n  ]\n}\n```"
+          },
+          "response": [
+            {
+              "id": "4da59b3e-525b-4d76-a632-684faacbff84",
+              "name": "Return the accessibility settings for ICMP",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{baseUrl}}/networks/{{networkId}}/firewalledServices/icmp"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 06 Nov 2018 08:39:48 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin"
+                },
+                {
+                  "key": "X-Robots-Tag",
+                  "value": "none"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "571b5962824488298ddcbd83f74c9db2"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.310454"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"service\": \"ICMP\",\n    \"access\": \"unrestricted\"\n}"
+            }
+          ]
+        },
+        {
+          "_postman_id": "577b191b-5062-4a85-b7bb-d0d9c8d417f6",
+          "name": "Updates the accessibility settings for ICMP",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "type": "text",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"access\":\"restricted\",\n\t\"allowedIps\":[\"123.123.123.1\"]\n}"
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/firewalledServices/icmp",
+            "description": "## HTTP REQUEST\n```\nPUT /networks/[networkId]/firewalledServices/icmp\n```\n## PARAMETERS\n**Parameter**|**Description**\n :-------------: |:-------------:\naccess| A string indicating the rule for which IPs are allowed to use the specified service. Acceptable values are \"blocked\" (no remote IPs can access the service), \"restricted\" (only whitelisted IPs can access the service), and \"unrestriced\" (any remote IP can access the service). This field is required\nallowedIps| An array of whitelisted IPs that can access the service. This field is required if \"access\" is set to \"restricted\". Otherwise this field is ignored\n\n## SAMPLE REQUEST\n``` \ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X PUT --data-binary '{\"access\":\"restricted\",\"allowedIps\":[\"123.123.123.1\"]}' 'https://api.meraki.com/api/v0/networks/[networkId]/firewalledServices/icmp'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"service\": \"icmp\",\n  \"access\": \"restricted\",\n  \"allowedIps\": [\n    \"123.123.123.1\"\n  ]\n}\n```"
+          },
+          "response": [
+            {
+              "id": "97303b33-4e9f-4d18-b807-f160262a5607",
+              "name": "Return the accessibility settings for SNMP",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{baseUrl}}/networks/{{networkId}}/firewalledServices/snmp"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 06 Nov 2018 08:44:54 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin"
+                },
+                {
+                  "key": "X-Robots-Tag",
+                  "value": "none"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "02b1bdeb4b91cb0c66f654b0355419a5"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.195042"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"service\": \"SNMP\",\n    \"access\": \"blocked\"\n}"
+            }
+          ]
+        },
+        {
+          "_postman_id": "c008ff19-d0b9-4748-97f9-688d9547b1cb",
+          "name": "Return the accessibility settings for SNMP",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/firewalledServices/snmp",
+            "description": "## HTTP REQUEST\n```\nGET /networks/[networkId]/firewalledServices/snmp\n```\n## PARAMETERS\n**None**\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[networkId]/firewalledServices/snmp'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n    \"service\": \"SNMP\",\n    \"access\": \"blocked\"\n}\n```"
+          },
+          "response": [
+            {
+              "id": "9a11b47c-7cdc-4200-945d-d4b2e30c516e",
+              "name": "Return the accessibility settings for SNMP",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{baseUrl}}/networks/{{networkId}}/firewalledServices/snmp"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 06 Nov 2018 08:44:54 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin"
+                },
+                {
+                  "key": "X-Robots-Tag",
+                  "value": "none"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "02b1bdeb4b91cb0c66f654b0355419a5"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.195042"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"service\": \"SNMP\",\n    \"access\": \"blocked\"\n}"
+            }
+          ]
+        },
+        {
+          "_postman_id": "e6381d07-0a52-4163-aab3-f8c4833a58da",
+          "name": "Updates the accessibility settings for SNMP",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"access\":\"restricted\",\n\t\"allowedIps\":[\"123.123.123.1\"]\n}"
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/firewalledServices/snmp",
+            "description": "## HTTP REQUEST\n```\nPUT /networks/[networkId]/firewalledServices/snmp\n```\n## PARAMETERS\n**Parameter**|**Description**\n :-------------: |:-------------:\naccess| A string indicating the rule for which IPs are allowed to use the specified service. Acceptable values are \"blocked\" (no remote IPs can access the service), \"restricted\" (only whitelisted IPs can access the service), and \"unrestriced\" (any remote IP can access the service). This field is required\nallowedIps| An array of whitelisted IPs that can access the service. This field is required if \"access\" is set to \"restricted\". Otherwise this field is ignored\n\n## SAMPLE REQUEST\n``` \ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X PUT --data-binary '{\"access\":\"restricted\",\"allowedIps\":[\"123.123.123.1\"]}' 'https://api.meraki.com/api/v0/networks/[networkId]/firewalledServices/snmp'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"service\": \"SNMP\",\n  \"access\": \"restricted\",\n  \"allowedIps\": [\n    \"123.123.123.1\"\n  ]\n}\n```"
+          },
+          "response": [
+            {
+              "id": "6548e711-160d-482f-9f0d-6d3a0d2ad277",
+              "name": "Return the accessibility settings for SNMP",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{baseUrl}}/networks/{{networkId}}/firewalledServices/snmp"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 06 Nov 2018 08:44:54 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin"
+                },
+                {
+                  "key": "X-Robots-Tag",
+                  "value": "none"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "02b1bdeb4b91cb0c66f654b0355419a5"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.195042"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"service\": \"SNMP\",\n    \"access\": \"blocked\"\n}"
+            }
+          ]
+        },
+        {
+          "_postman_id": "cfb350a2-45d1-48ae-a982-9f8fbc06d648",
+          "name": "Return the accessibility settings for web",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/firewalledServices/web",
+            "description": "## HTTP REQUEST\n```\nGET /networks/[networkId]/firewalledServices/web\n```\n## PARAMETERS\n**None**\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[networkId]/firewalledServices/web'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n    \"service\": \"web\",\n    \"access\": \"blocked\"\n}\n```"
+          },
+          "response": [
+            {
+              "id": "67cd7a43-17f6-49f2-8313-ade710037215",
+              "name": "Return the accessibility settings for web",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{baseUrl}}/networks/{{networkId}}/firewalledServices/web"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 06 Nov 2018 08:43:39 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin"
+                },
+                {
+                  "key": "X-Robots-Tag",
+                  "value": "none"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "50595b7149c2f63fc1ad8270020e14d3"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.272138"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"service\": \"web\",\n    \"access\": \"blocked\"\n}"
+            }
+          ]
+        },
+        {
+          "_postman_id": "ae2f4439-1add-4429-a431-3aef8c168df5",
+          "name": "Updates the accessibility settings for web",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "type": "text",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"access\":\"restricted\",\n\t\"allowedIps\":[\"123.123.123.1\"]\n}"
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/firewalledServices/web",
+            "description": "## HTTP REQUEST\n```\nPUT /networks/[networkId]/firewalledServices/web\n```\n## PARAMETERS\n**Parameter**|**Description**\n :-------------: |:-------------:\naccess| A string indicating the rule for which IPs are allowed to use the specified service. Acceptable values are \"blocked\" (no remote IPs can access the service), \"restricted\" (only whitelisted IPs can access the service), and \"unrestriced\" (any remote IP can access the service). This field is required\nallowedIps| An array of whitelisted IPs that can access the service. This field is required if \"access\" is set to \"restricted\". Otherwise this field is ignored\n\n## SAMPLE REQUEST\n``` \ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X PUT --data-binary '{\"access\":\"restricted\",\"allowedIps\":[\"123.123.123.1\"]}' 'https://api.meraki.com/api/v0/networks/[networkId]/firewalledServices/web'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"service\": \"web\",\n  \"access\": \"restricted\",\n  \"allowedIps\": [\n    \"123.123.123.1\"\n  ]\n}\n```"
+          },
+          "response": [
+            {
+              "id": "3629c55f-1b6d-4eb4-9e7e-759153abb59d",
+              "name": "Return the accessibility settings for SNMP",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{baseUrl}}/networks/{{networkId}}/firewalledServices/snmp"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 06 Nov 2018 08:44:54 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin"
+                },
+                {
+                  "key": "X-Robots-Tag",
+                  "value": "none"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "02b1bdeb4b91cb0c66f654b0355419a5"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.195042"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"service\": \"SNMP\",\n    \"access\": \"blocked\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "_postman_id": "2dcf9b7d-c940-4f67-8dfc-dee1f43054c2",
       "name": "Returns an overview of aggregate analytics data for a timespan",
       "request": {
