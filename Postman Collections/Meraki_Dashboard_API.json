@@ -2,7 +2,7 @@
   "info": {
     "_postman_id": "897512-d092a0e1-7632-9720-359e-d2366897b860",
     "name": "Meraki Dashboard API",
-    "description": "This collection of API calls provides an easy way to interact with a Cisco Meraki network. Update your environment variables to efficiently use the collection.\n\n**Common Variables**\n* X-Cisco-Meraki-API-Key\n* organizationId\n* networkId\n* baseUrl\n\nA template has been provided that can be used to quickly import the variable names. You will still be responsible for filling in the values and missing variables as needed.\n\n\n# What's New?\n## October 2018\n\n### Alert Settings\n\n **Return the alert configuration for this network**\n- GET /networks/[networkId]/alertSettings\n\n**Update the alert configuration for this network**\n- PUT /networks/[networkId]/alertSettings\n\n### HTTP Servers\n*Manage servers for Meraki Alerts with webhooks*\n\n**List the HTTP servers for a network**\n- GET /networks/[networkId]/httpServers\n\n**Return an HTTP server**\n- GET /networks/[networkId]/httpServers/[id]\n\n**Update an HTTP server**\n- PUT /networks/[networkId]/httpServers/[id]\n\n**Add an HTTP server**\n- POST /networks/[networkId]/httpServers\n\n**Delete an HTTP server**\n- DEL /networks/[networkId]/httpServers/[id]\n\n**Send a test webhook** \n- POST /networks/[networkId]/httpServers/webhookTests\n\n**Return the status of a webhook test**\n- GET /networks/[networkId]/httpServers/webhookTests/[id]\n\n### Wireless Health\n**Aggregated connectivity info for this network**\n- GET /networks/[networkId]/connectionStats\n\n**Aggregated connectivity info for this network, grouped by node**\n- GET /networks/[networkId]/devices/connectionStats\n\n**Aggregated connectivity info for a given AP on this network**\n- GET /networks/[networkId]/devices/[serial]/connectionStats\n\n**Aggregated connectivity info for this network, grouped by clients**\n- GET /networks/[networkId]/clients/connectionStats\n\n**Aggregated connectivity info for a given client on this network**\n- GET /networks/[networkId]/clients/[clientId]/connectionStats\n\n**Aggregated latency info for this network**\n- GET /networks/[networkId]/latencyStats\n\n**Aggregated latency info for this network, grouped by node**\n- GET /networks/[networkId]/devices/latencyStats\n\n**Aggregated latency info for a given AP on this network**\n- GET /networks/[networkId]/devices/[serial]/latencyStats\n\n**Aggregated latency info for this network, grouped by clients**\n- GET /networks/[networkId]/clients/latencyStats\n\n**Aggregated latency info for a given client on this network**\n- GET /networks/[networkId]/clients/[clientId]/latencyStats\n\n**List of all failed client connection events on this network in a given time**\n- GET /networks/[networkId]/failedConnections\n\n### VLANs\n**Enable/Disable VLANs for the given network**\n- PUT /networks/[networkId]/vlansEnabledState\n\n\n## September 2018\n\n### Syslog Servers\n**List the syslog servers for a network**\n- GET /networks/[networkId]/syslogServers\n\n**Update the syslog servers for a network**\n- PUT /networks/[networkId]/syslogServers\n\n**Returns video link for the specified camera. If a timestamp supplied, it links to that time.**\n- GET /devices/[serial]/cameras/video_link\n\n**List LLDP and CDP information for a device**\n- GET /networks/[networkId]/devices/[serial]/lldp_cdp\n\n## June 2018\n- GET /networks/[id]/splashLoginAttempts\n\n### Clients\n- GET /networks/:id/clients/:mac/\n- GET /networks/:id/clients/:mac/usageHistory\n- GET /networks/:id/clients/:mac/trafficHistory\n- GET /networks/:id/clients/:mac/events\n- GET /networks/:id/clients/:mac/securityEvents\n- GET /networks/[networkId]/clients/[id_or_mac_or_ip]/latencyHistory\n\n### Bluetooth Clients\n- GET /networks/:id/bluetoothClients[/:mac]\n\n### Meraki Auth\n- GET /networks/:id/merakiAuthUsers[/:email]\n\n### Network\n- GET /networks/:id/splashLoginAttempts?loginIdentifier=:email_or_username\n\n### PII (GDPR)\n- updated endpoints to support both network and organization variations. \n\n## May 2018\n- Personal Identifying Information endpoints (may require Meraki Support request)\n- General cleanup. Adjusted endpoint names by removing their endpoint group name (\"Networks - get all networks.. --> \"get all networks\")\n- Updated all endpoints with a `{{baseUrl}}` environment variable. This makes it easier to test API proxies, mocks, or target a Meraki Cloud shard (i.e. \"n123.meraki.com\")\n- Included a Template Environment for a quicker start\n\n## Apr 2018\n- Organization Device Summary Status \n  * List the status of every Meraki device in the organization. \n\t-Returns a single array of all devices.\n\n##  Mar 2018\n- MX cellular firewall rules\n  * Return cellular firewall rules\n  * Update cellular firewall rules\n\n## Feb 2018\n- Clone Network\n  * Use the **Create a Network** endpoint with the `copyFromNetworkId` parameter to create a new network with the same settings as the source network.\n\n## Nov 2017\n- MX VPN Firewall Rules\n  * Return the firewall rules for an org\n  * Upate the firewall rules of an org\n\n## Oct 2017\n- Group Policy support\n  * Bind a client to a Group Policy\n  * List Group Policies for a Network\n- MX L3 Firewalls\n  * Return L3 Firewall Rules\n  * Update L3 Firewall Rules\n- Bluetooth Settings\n  * Return Bluetooth Settings\n  * Update Bluetooth Settings\n- Splash authorization\n  * Return Splash Authorization status\n  * Update Splash Authorization status\n- Update the SNMP settings for an organization\n- Phone Assignments\n  * List all phones in a network and their contact assignment\n  * Return a phone's contact assignment\n  * Assign a contact and number(s) to a phone\n  * Remove a phone assignment (unprovision a phone)\n\n# Documentation and Resources\nhttps://dashboard.meraki.com/api_docs\nhttp://developers.meraki.com/\n\n# Troubleshooting\n- Check your profile permissions. If you can't do it in Dashboard, you won't be able to in the API.\n\n- Some calls seem to work better if you use the shard number instead of \"dashboard\" because of a required redirect. Just update the shard that matches when you login to the web Dashboard. It will be in the URL.\n\n**Original**\n\n```\n- https://dashboard.meraki.com/api/v0/networks/{{networkId}}/ssids/{{ssidNum}}?name=viaAPI345&number={{ssidNum}}\n```\n**With shard number**\n\n```\n- https://n123.meraki.com/api/v0/networks/{{networkId}}/ssids/{{ssidNum}}?name=viaAPI345&number={{ssidNum}}\n```",
+    "description": "This collection of API calls provides an easy way to interact with a Cisco Meraki network. Update your environment variables to efficiently use the collection.\n\n**Common Variables**\n* X-Cisco-Meraki-API-Key\n* organizationId\n* networkId\n* baseUrl\n\nA template has been provided that can be used to quickly import the variable names. You will still be responsible for filling in the values and missing variables as needed.\n\nCheckout the [Meraki Postman Getting Started guide](https://create.meraki.io/build/meraki-postman-collection-getting-started/) for more information.\n\n\n# Change Log\nThis log represents the updates to this Postman Collection. For more information on what's new, check out https://create.meraki.io/whats-new/\n\n## December 2018\n\n### Devices\n**Get the uplink loss percentage and latency in milliseconds for a wired network device.** \n- GET /networks/[networkId]/devices/[serial]/lossAndLatencyHistory\n\n### Firewalled services\n\n**List the appliance services and their accessibility rules**\n- GET /networks/[networkId]/firewalledServices\n\n**Return the accessibility settings of the given service ('ICMP', 'web', or 'SNMP')**\n- GET /networks/[networkId]/firewalledServices/[service]\n\n**Updates the accessibility settings for the given service ('ICMP', 'web', or 'SNMP')**\n- PUT /networks/[networkId]/firewalledServices/[service]\n\n### Sense (MV Camera Analytics)\n**Returns an overview of aggregate analytics data for a timespan**\n- GET /devices/[serial]/camera/analytics/overview\n\n**Returns all configured analytic zones for this camera**\n- GET /devices/[serial]/camera/analytics/zones\n\n**Return historical records for analytic zones**\n- GET /devices/[serial]/camera/analytics/zones/[zoneId]/history\n\n**Returns most recent record for analytics zones**\n- GET /devices/[serial]/camera/analytics/recent\n\n**Returns live state from camera of analytics zones**\n- GET /devices/[serial]/camera/analytics/live\n\n### Splash settings\n**Display the splash page settings for the given SSID**\n- GET /networks/[networkId]/ssids/[number]/splashSettings\n\n**Modify the splash page settings for the given SSID**\n- PUT /networks/[networkId]/ssids/[number]/splashSettings\n\n\n## October 2018\n\n### Alert Settings\n\n**Return the alert configuration for this network**\n- GET /networks/[networkId]/alertSettings\n\n**Update the alert configuration for this network**\n- PUT /networks/[networkId]/alertSettings\n\n### HTTP Servers\n*Manage servers for Meraki Alerts with webhooks*\n\n**List the HTTP servers for a network**\n- GET /networks/[networkId]/httpServers\n\n**Return an HTTP server**\n- GET /networks/[networkId]/httpServers/[id]\n\n**Update an HTTP server**\n- PUT /networks/[networkId]/httpServers/[id]\n\n**Add an HTTP server**\n- POST /networks/[networkId]/httpServers\n\n**Delete an HTTP server**\n- DEL /networks/[networkId]/httpServers/[id]\n\n**Send a test webhook** \n- POST /networks/[networkId]/httpServers/webhookTests\n\n**Return the status of a webhook test**\n- GET /networks/[networkId]/httpServers/webhookTests/[id]\n\n### Wireless Health\n**Aggregated connectivity info for this network**\n- GET /networks/[networkId]/connectionStats\n\n**Aggregated connectivity info for this network, grouped by node**\n- GET /networks/[networkId]/devices/connectionStats\n\n**Aggregated connectivity info for a given AP on this network**\n- GET /networks/[networkId]/devices/[serial]/connectionStats\n\n**Aggregated connectivity info for this network, grouped by clients**\n- GET /networks/[networkId]/clients/connectionStats\n\n**Aggregated connectivity info for a given client on this network**\n- GET /networks/[networkId]/clients/[clientId]/connectionStats\n\n**Aggregated latency info for this network**\n- GET /networks/[networkId]/latencyStats\n\n**Aggregated latency info for this network, grouped by node**\n- GET /networks/[networkId]/devices/latencyStats\n\n**Aggregated latency info for a given AP on this network**\n- GET /networks/[networkId]/devices/[serial]/latencyStats\n\n**Aggregated latency info for this network, grouped by clients**\n- GET /networks/[networkId]/clients/latencyStats\n\n**Aggregated latency info for a given client on this network**\n- GET /networks/[networkId]/clients/[clientId]/latencyStats\n\n**List of all failed client connection events on this network in a given time**\n- GET /networks/[networkId]/failedConnections\n\n### VLANs\n**Enable/Disable VLANs for the given network**\n- PUT /networks/[networkId]/vlansEnabledState\n\n\n## September 2018\n\n### Syslog Servers\n**List the syslog servers for a network**\n- GET /networks/[networkId]/syslogServers\n\n**Update the syslog servers for a network**\n- PUT /networks/[networkId]/syslogServers\n\n**Returns video link for the specified camera. If a timestamp supplied, it links to that time.**\n- GET /devices/[serial]/cameras/video_link\n\n**List LLDP and CDP information for a device**\n- GET /networks/[networkId]/devices/[serial]/lldp_cdp\n\n## June 2018\n- GET /networks/[id]/splashLoginAttempts\n\n### Clients\n- GET /networks/:id/clients/:mac/\n- GET /networks/:id/clients/:mac/usageHistory\n- GET /networks/:id/clients/:mac/trafficHistory\n- GET /networks/:id/clients/:mac/events\n- GET /networks/:id/clients/:mac/securityEvents\n- GET /networks/[networkId]/clients/[id_or_mac_or_ip]/latencyHistory\n\n### Bluetooth Clients\n- GET /networks/:id/bluetoothClients[/:mac]\n\n### Meraki Auth\n- GET /networks/:id/merakiAuthUsers[/:email]\n\n### Network\n- GET /networks/:id/splashLoginAttempts?loginIdentifier=:email_or_username\n\n### PII (GDPR)\n- updated endpoints to support both network and organization variations. \n\n## May 2018\n- Personal Identifying Information endpoints (may require Meraki Support request)\n- General cleanup. Adjusted endpoint names by removing their endpoint group name (\"Networks - get all networks.. --> \"get all networks\")\n- Updated all endpoints with a `{{baseUrl}}` environment variable. This makes it easier to test API proxies, mocks, or target a Meraki Cloud shard (i.e. \"n123.meraki.com\")\n- Included a Template Environment for a quicker start\n\n## Apr 2018\n- Organization Device Summary Status \n  * List the status of every Meraki device in the organization. \n\t-Returns a single array of all devices.\n\n##  Mar 2018\n- MX cellular firewall rules\n  * Return cellular firewall rules\n  * Update cellular firewall rules\n\n## Feb 2018\n- Clone Network\n  * Use the **Create a Network** endpoint with the `copyFromNetworkId` parameter to create a new network with the same settings as the source network.\n\n## Nov 2017\n- MX VPN Firewall Rules\n  * Return the firewall rules for an org\n  * Upate the firewall rules of an org\n\n## Oct 2017\n- Group Policy support\n  * Bind a client to a Group Policy\n  * List Group Policies for a Network\n- MX L3 Firewalls\n  * Return L3 Firewall Rules\n  * Update L3 Firewall Rules\n- Bluetooth Settings\n  * Return Bluetooth Settings\n  * Update Bluetooth Settings\n- Splash authorization\n  * Return Splash Authorization status\n  * Update Splash Authorization status\n- Update the SNMP settings for an organization\n- Phone Assignments\n  * List all phones in a network and their contact assignment\n  * Return a phone's contact assignment\n  * Assign a contact and number(s) to a phone\n  * Remove a phone assignment (unprovision a phone)\n\n# Documentation and Resources\nhttps://dashboard.meraki.com/api_docs\nhttp://developers.meraki.com/\n\n# Troubleshooting\n- Check your profile permissions. If you can't do it in Dashboard, you won't be able to in the API.\n\n- Some calls seem to work better if you use the shard number instead of \"dashboard\" because of a required redirect. Just update the shard that matches when you login to the web Dashboard. It will be in the URL.\n\n**Original**\n\n```\n- https://dashboard.meraki.com/api/v0/networks/{{networkId}}/ssids/{{ssidNum}}?name=viaAPI345&number={{ssidNum}}\n```\n**With shard number**\n\n```\n- https://n123.meraki.com/api/v0/networks/{{networkId}}/ssids/{{ssidNum}}?name=viaAPI345&number={{ssidNum}}\n```",
     "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
   },
   "item": [
@@ -4294,6 +4294,1088 @@
             "description": "## HTTP REQUEST\n```\nPOST /networks/[networkId]/devices/[serial]/remove\n```\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X POST -H 'Content-Type: application/json' 'https://api.meraki.com/api/v0/networks/[networkId]/devices/[serial]/remove'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 204\n```"
           },
           "response": []
+        },
+        {
+          "_postman_id": "897512-b21e4599-cd8a-43b0-ac80-348b8aa58bbd",
+          "name": "Get the uplink loss percentage and latency in milliseconds for a wired network device.",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{baseUrl}}/networks/{{networkId}}/devices/{{serial}}/lossAndLatencyHistory?ip=8.8.8.8&timespan=7200&uplink=wan1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "networks",
+                "{{networkId}}",
+                "devices",
+                "{{serial}}",
+                "lossAndLatencyHistory"
+              ],
+              "query": [
+                {
+                  "key": "ip",
+                  "value": "8.8.8.8",
+                  "equals": true
+                },
+                {
+                  "key": "timespan",
+                  "value": "7200",
+                  "equals": true
+                },
+                {
+                  "key": "uplink",
+                  "value": "wan1",
+                  "equals": true
+                }
+              ]
+            },
+            "description": "## HTTP REQUEST\n```\nGET /networks/[networkId]/devices/[serial]/lossAndLatencyHistory\n```\n## PARAMETERS\n\n**Parameter**|**Description**\n :-------------: |:-------------:\nt0| The beginning of the timespan for the data. The maximum lookback period is 12 months from today.\nt1| The end of the timespan for the data. t1 can be a max of 1 month after t0.\ntimespan| The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and less than or equal to a month (2592000 seconds).\nresolution| The time resolution in seconds for returned data. The valid resolutions are 60, 600, 3600, 86400. Default is 60.\nuplink| The WAN uplink used to obtain the requested stats. Valid uplinks are wan1, wan2. Default is wan1.\nip| The destination IP used to obtain the requested stats. This is required.\n## SAMPLE REQUEST\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[networkId]/devices/[serial]/lossAndLatencyHistory?timespan=7200'\n## SAMPLE RESPONSE\nSuccessful HTTP Status: 200\n\n[\n  {\n    \"startTime\": \"2018-10-09T22:18:27Z\",\n    \"endTime\": \"2018-10-09T22:19:27Z\",\n    \"lossPercent\": 5,\n    \"latencyMs\": 324\n  },\n  {\n    \"startTime\": \"2018-10-09T22:19:27Z\",\n    \"endTime\": \"2018-10-09T22:20:27Z\",\n    \"lossPercent\": 1,\n    \"latencyMs\": 43\n  },\n  {\n    \"startTime\": \"2018-10-09T22:20:27Z\",\n    \"endTime\": \"2018-10-09T22:21:27Z\",\n    \"lossPercent\": 0,\n    \"latencyMs\": 44\n  }\n]"
+          },
+          "response": [
+            {
+              "id": "897512-7c98785b-ac47-497f-81c5-400e60bca57e",
+              "name": "Get the uplink loss percentage and latency in milliseconds for a wired network device.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/networks/{{networkId}}/devices/{{serial}}/lossAndLatencyHistory?ip=8.8.8.8&timespan=7200&uplink=wan1",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "networks",
+                    "{{networkId}}",
+                    "devices",
+                    "{{serial}}",
+                    "lossAndLatencyHistory"
+                  ],
+                  "query": [
+                    {
+                      "key": "ip",
+                      "value": "8.8.8.8",
+                      "equals": true
+                    },
+                    {
+                      "key": "timespan",
+                      "value": "7200",
+                      "equals": true
+                    },
+                    {
+                      "key": "uplink",
+                      "value": "wan1",
+                      "equals": true
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx"
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 07 Dec 2018 14:15:16 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin"
+                },
+                {
+                  "key": "X-Robots-Tag",
+                  "value": "none"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "a16770f9cb731d476a9cc19513e556ab"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.182861"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n    {\n        \"startTs\": \"2018-12-07T12:16:00Z\",\n        \"endTs\": \"2018-12-07T12:17:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T12:17:00Z\",\n        \"endTs\": \"2018-12-07T12:18:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.1\n    },\n    {\n        \"startTs\": \"2018-12-07T12:18:00Z\",\n        \"endTs\": \"2018-12-07T12:19:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T12:19:00Z\",\n        \"endTs\": \"2018-12-07T12:20:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T12:20:00Z\",\n        \"endTs\": \"2018-12-07T12:21:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T12:21:00Z\",\n        \"endTs\": \"2018-12-07T12:22:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T12:22:00Z\",\n        \"endTs\": \"2018-12-07T12:23:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T12:23:00Z\",\n        \"endTs\": \"2018-12-07T12:24:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.3\n    },\n    {\n        \"startTs\": \"2018-12-07T12:24:00Z\",\n        \"endTs\": \"2018-12-07T12:25:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.3\n    },\n    {\n        \"startTs\": \"2018-12-07T12:25:00Z\",\n        \"endTs\": \"2018-12-07T12:26:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T12:26:00Z\",\n        \"endTs\": \"2018-12-07T12:27:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T12:27:00Z\",\n        \"endTs\": \"2018-12-07T12:28:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T12:28:00Z\",\n        \"endTs\": \"2018-12-07T12:29:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.3\n    },\n    {\n        \"startTs\": \"2018-12-07T12:29:00Z\",\n        \"endTs\": \"2018-12-07T12:30:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.3\n    },\n    {\n        \"startTs\": \"2018-12-07T12:30:00Z\",\n        \"endTs\": \"2018-12-07T12:31:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T12:31:00Z\",\n        \"endTs\": \"2018-12-07T12:32:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.3\n    },\n    {\n        \"startTs\": \"2018-12-07T12:32:00Z\",\n        \"endTs\": \"2018-12-07T12:33:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.3\n    },\n    {\n        \"startTs\": \"2018-12-07T12:33:00Z\",\n        \"endTs\": \"2018-12-07T12:34:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T12:34:00Z\",\n        \"endTs\": \"2018-12-07T12:35:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T12:35:00Z\",\n        \"endTs\": \"2018-12-07T12:36:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T12:36:00Z\",\n        \"endTs\": \"2018-12-07T12:37:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T12:37:00Z\",\n        \"endTs\": \"2018-12-07T12:38:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.3\n    },\n    {\n        \"startTs\": \"2018-12-07T12:38:00Z\",\n        \"endTs\": \"2018-12-07T12:39:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T12:39:00Z\",\n        \"endTs\": \"2018-12-07T12:40:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.1\n    },\n    {\n        \"startTs\": \"2018-12-07T12:40:00Z\",\n        \"endTs\": \"2018-12-07T12:41:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.1\n    },\n    {\n        \"startTs\": \"2018-12-07T12:41:00Z\",\n        \"endTs\": \"2018-12-07T12:42:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T12:42:00Z\",\n        \"endTs\": \"2018-12-07T12:43:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T12:43:00Z\",\n        \"endTs\": \"2018-12-07T12:44:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T12:44:00Z\",\n        \"endTs\": \"2018-12-07T12:45:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T12:45:00Z\",\n        \"endTs\": \"2018-12-07T12:46:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T12:46:00Z\",\n        \"endTs\": \"2018-12-07T12:47:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T12:47:00Z\",\n        \"endTs\": \"2018-12-07T12:48:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.1\n    },\n    {\n        \"startTs\": \"2018-12-07T12:48:00Z\",\n        \"endTs\": \"2018-12-07T12:49:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.1\n    },\n    {\n        \"startTs\": \"2018-12-07T12:49:00Z\",\n        \"endTs\": \"2018-12-07T12:50:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 3.9\n    },\n    {\n        \"startTs\": \"2018-12-07T12:50:00Z\",\n        \"endTs\": \"2018-12-07T12:51:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4\n    },\n    {\n        \"startTs\": \"2018-12-07T12:51:00Z\",\n        \"endTs\": \"2018-12-07T12:52:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4\n    },\n    {\n        \"startTs\": \"2018-12-07T12:52:00Z\",\n        \"endTs\": \"2018-12-07T12:53:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T12:53:00Z\",\n        \"endTs\": \"2018-12-07T12:54:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T12:54:00Z\",\n        \"endTs\": \"2018-12-07T12:55:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.1\n    },\n    {\n        \"startTs\": \"2018-12-07T12:55:00Z\",\n        \"endTs\": \"2018-12-07T12:56:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T12:56:00Z\",\n        \"endTs\": \"2018-12-07T12:57:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T12:57:00Z\",\n        \"endTs\": \"2018-12-07T12:58:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T12:58:00Z\",\n        \"endTs\": \"2018-12-07T12:59:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.3\n    },\n    {\n        \"startTs\": \"2018-12-07T12:59:00Z\",\n        \"endTs\": \"2018-12-07T13:00:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.3\n    },\n    {\n        \"startTs\": \"2018-12-07T13:00:00Z\",\n        \"endTs\": \"2018-12-07T13:01:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.5\n    },\n    {\n        \"startTs\": \"2018-12-07T13:01:00Z\",\n        \"endTs\": \"2018-12-07T13:02:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.3\n    },\n    {\n        \"startTs\": \"2018-12-07T13:02:00Z\",\n        \"endTs\": \"2018-12-07T13:03:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.3\n    },\n    {\n        \"startTs\": \"2018-12-07T13:03:00Z\",\n        \"endTs\": \"2018-12-07T13:04:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T13:04:00Z\",\n        \"endTs\": \"2018-12-07T13:05:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T13:05:00Z\",\n        \"endTs\": \"2018-12-07T13:06:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T13:06:00Z\",\n        \"endTs\": \"2018-12-07T13:07:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.3\n    },\n    {\n        \"startTs\": \"2018-12-07T13:07:00Z\",\n        \"endTs\": \"2018-12-07T13:08:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T13:08:00Z\",\n        \"endTs\": \"2018-12-07T13:09:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T13:09:00Z\",\n        \"endTs\": \"2018-12-07T13:10:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T13:10:00Z\",\n        \"endTs\": \"2018-12-07T13:11:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T13:11:00Z\",\n        \"endTs\": \"2018-12-07T13:12:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T13:12:00Z\",\n        \"endTs\": \"2018-12-07T13:13:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.3\n    },\n    {\n        \"startTs\": \"2018-12-07T13:13:00Z\",\n        \"endTs\": \"2018-12-07T13:14:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.3\n    },\n    {\n        \"startTs\": \"2018-12-07T13:14:00Z\",\n        \"endTs\": \"2018-12-07T13:15:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.4\n    },\n    {\n        \"startTs\": \"2018-12-07T13:15:00Z\",\n        \"endTs\": \"2018-12-07T13:16:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.6\n    },\n    {\n        \"startTs\": \"2018-12-07T13:16:00Z\",\n        \"endTs\": \"2018-12-07T13:17:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.8\n    },\n    {\n        \"startTs\": \"2018-12-07T13:17:00Z\",\n        \"endTs\": \"2018-12-07T13:18:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.3\n    },\n    {\n        \"startTs\": \"2018-12-07T13:19:00Z\",\n        \"endTs\": \"2018-12-07T13:20:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T13:20:00Z\",\n        \"endTs\": \"2018-12-07T13:21:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T13:21:00Z\",\n        \"endTs\": \"2018-12-07T13:22:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T13:22:00Z\",\n        \"endTs\": \"2018-12-07T13:23:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T13:23:00Z\",\n        \"endTs\": \"2018-12-07T13:24:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.3\n    },\n    {\n        \"startTs\": \"2018-12-07T13:25:00Z\",\n        \"endTs\": \"2018-12-07T13:26:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.3\n    },\n    {\n        \"startTs\": \"2018-12-07T13:26:00Z\",\n        \"endTs\": \"2018-12-07T13:27:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.3\n    },\n    {\n        \"startTs\": \"2018-12-07T13:27:00Z\",\n        \"endTs\": \"2018-12-07T13:28:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T13:28:00Z\",\n        \"endTs\": \"2018-12-07T13:29:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T13:29:00Z\",\n        \"endTs\": \"2018-12-07T13:30:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T13:30:00Z\",\n        \"endTs\": \"2018-12-07T13:31:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T13:31:00Z\",\n        \"endTs\": \"2018-12-07T13:32:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T13:32:00Z\",\n        \"endTs\": \"2018-12-07T13:33:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.1\n    },\n    {\n        \"startTs\": \"2018-12-07T13:33:00Z\",\n        \"endTs\": \"2018-12-07T13:34:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T13:34:00Z\",\n        \"endTs\": \"2018-12-07T13:35:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T13:35:00Z\",\n        \"endTs\": \"2018-12-07T13:36:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T13:37:00Z\",\n        \"endTs\": \"2018-12-07T13:38:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T13:38:00Z\",\n        \"endTs\": \"2018-12-07T13:39:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T13:39:00Z\",\n        \"endTs\": \"2018-12-07T13:40:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T13:40:00Z\",\n        \"endTs\": \"2018-12-07T13:41:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.3\n    },\n    {\n        \"startTs\": \"2018-12-07T13:41:00Z\",\n        \"endTs\": \"2018-12-07T13:42:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T13:42:00Z\",\n        \"endTs\": \"2018-12-07T13:43:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T13:43:00Z\",\n        \"endTs\": \"2018-12-07T13:44:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T13:44:00Z\",\n        \"endTs\": \"2018-12-07T13:45:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.1\n    },\n    {\n        \"startTs\": \"2018-12-07T13:45:00Z\",\n        \"endTs\": \"2018-12-07T13:46:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T13:46:00Z\",\n        \"endTs\": \"2018-12-07T13:47:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T13:47:00Z\",\n        \"endTs\": \"2018-12-07T13:48:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T13:48:00Z\",\n        \"endTs\": \"2018-12-07T13:49:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.3\n    },\n    {\n        \"startTs\": \"2018-12-07T13:49:00Z\",\n        \"endTs\": \"2018-12-07T13:50:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.4\n    },\n    {\n        \"startTs\": \"2018-12-07T13:50:00Z\",\n        \"endTs\": \"2018-12-07T13:51:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.3\n    },\n    {\n        \"startTs\": \"2018-12-07T13:51:00Z\",\n        \"endTs\": \"2018-12-07T13:52:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4\n    },\n    {\n        \"startTs\": \"2018-12-07T13:52:00Z\",\n        \"endTs\": \"2018-12-07T13:53:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.1\n    },\n    {\n        \"startTs\": \"2018-12-07T13:53:00Z\",\n        \"endTs\": \"2018-12-07T13:54:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.3\n    },\n    {\n        \"startTs\": \"2018-12-07T13:54:00Z\",\n        \"endTs\": \"2018-12-07T13:55:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T13:55:00Z\",\n        \"endTs\": \"2018-12-07T13:56:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.3\n    },\n    {\n        \"startTs\": \"2018-12-07T13:56:00Z\",\n        \"endTs\": \"2018-12-07T13:57:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T13:57:00Z\",\n        \"endTs\": \"2018-12-07T13:58:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T13:58:00Z\",\n        \"endTs\": \"2018-12-07T13:59:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T13:59:00Z\",\n        \"endTs\": \"2018-12-07T14:00:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T14:01:00Z\",\n        \"endTs\": \"2018-12-07T14:02:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T14:02:00Z\",\n        \"endTs\": \"2018-12-07T14:03:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.3\n    },\n    {\n        \"startTs\": \"2018-12-07T14:03:00Z\",\n        \"endTs\": \"2018-12-07T14:04:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T14:04:00Z\",\n        \"endTs\": \"2018-12-07T14:05:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T14:05:00Z\",\n        \"endTs\": \"2018-12-07T14:06:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.1\n    },\n    {\n        \"startTs\": \"2018-12-07T14:06:00Z\",\n        \"endTs\": \"2018-12-07T14:07:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.1\n    },\n    {\n        \"startTs\": \"2018-12-07T14:07:00Z\",\n        \"endTs\": \"2018-12-07T14:08:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T14:08:00Z\",\n        \"endTs\": \"2018-12-07T14:09:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T14:09:00Z\",\n        \"endTs\": \"2018-12-07T14:10:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.3\n    },\n    {\n        \"startTs\": \"2018-12-07T14:10:00Z\",\n        \"endTs\": \"2018-12-07T14:11:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.2\n    },\n    {\n        \"startTs\": \"2018-12-07T14:11:00Z\",\n        \"endTs\": \"2018-12-07T14:12:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.3\n    },\n    {\n        \"startTs\": \"2018-12-07T14:12:00Z\",\n        \"endTs\": \"2018-12-07T14:13:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.3\n    },\n    {\n        \"startTs\": \"2018-12-07T14:13:00Z\",\n        \"endTs\": \"2018-12-07T14:14:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.3\n    },\n    {\n        \"startTs\": \"2018-12-07T14:14:00Z\",\n        \"endTs\": \"2018-12-07T14:15:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.4\n    },\n    {\n        \"startTs\": \"2018-12-07T14:15:00Z\",\n        \"endTs\": \"2018-12-07T14:16:00Z\",\n        \"lossPercent\": 0,\n        \"latencyMs\": 4.3\n    }\n]"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_postman_id": "897512-0ea32868-8147-4ee4-9eab-876a37c4ec92",
+      "name": "Firewalled services",
+      "description": "",
+      "item": [
+        {
+          "_postman_id": "897512-98427b0a-ee35-4dff-bdb4-44f453c2ee6e",
+          "name": "List the appliance services and their accessibility rules",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/firewalledServices",
+            "description": "## HTTP REQUEST\n```\nGET /networks/[networkId]/firewalledServices\n```\n## PARAMETERS\n**None**\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[networkId]/firewalledServices'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n[\n  {\n    \"service\": \"web\",\n    \"access\": \"restricted\",\n    \"allowedIps\": [\n      \"123.123.123.1\"\n    ]\n  }\n]\n```"
+          },
+          "response": [
+            {
+              "id": "897512-21c50424-1fd5-4294-ad59-964a75b670f3",
+              "name": "List the appliance services and their accessibility rules",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{baseUrl}}/networks/{{networkId}}/firewalledServices"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 06 Nov 2018 08:24:12 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin"
+                },
+                {
+                  "key": "X-Robots-Tag",
+                  "value": "none"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "a53a60b8080fe6358fa903caa17e2ba5"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.311484"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n    {\n        \"service\": \"ICMP\",\n        \"access\": \"unrestricted\"\n    },\n    {\n        \"service\": \"web\",\n        \"access\": \"blocked\"\n    },\n    {\n        \"service\": \"SNMP\",\n        \"access\": \"blocked\"\n    }\n]"
+            }
+          ]
+        },
+        {
+          "_postman_id": "897512-c2753826-63d4-4990-a813-6092db211154",
+          "name": "Return the accessibility settings of the given service ('ICMP', 'web', or 'SNMP')",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/firewalledServices",
+            "description": "## HTTP REQUEST\n```\nGET /networks/[networkId]/firewalledServices/[service]\n```\n## PARAMETERS\n**None**\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[networkId]/firewalledServices/[service]'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"service\": \"web\",\n  \"access\": \"restricted\",\n  \"allowedIps\": [\n    \"123.123.123.1\"\n  ]\n}\n```"
+          },
+          "response": [
+            {
+              "id": "897512-b96c1d36-bb48-4c07-85a0-c5916d8e35ea",
+              "name": "List the appliance services and their accessibility rules",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{baseUrl}}/networks/{{networkId}}/firewalledServices"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 06 Nov 2018 08:24:12 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin"
+                },
+                {
+                  "key": "X-Robots-Tag",
+                  "value": "none"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "a53a60b8080fe6358fa903caa17e2ba5"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.311484"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n    {\n        \"service\": \"ICMP\",\n        \"access\": \"unrestricted\"\n    },\n    {\n        \"service\": \"web\",\n        \"access\": \"blocked\"\n    },\n    {\n        \"service\": \"SNMP\",\n        \"access\": \"blocked\"\n    }\n]"
+            }
+          ]
+        },
+        {
+          "_postman_id": "897512-e28cf07a-893c-4e8f-800a-0616cf90aa97",
+          "name": "Return the accessibility settings for ICMP",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/firewalledServices/icmp",
+            "description": "## HTTP REQUEST\n```\nGET /networks/[networkId]/firewalledServices/icmp\n```\n## PARAMETERS\n**None**\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[networkId]/firewalledServices/icmp'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"service\": \"icmp\",\n  \"access\": \"restricted\",\n  \"allowedIps\": [\n    \"123.123.123.1\"\n  ]\n}\n```"
+          },
+          "response": [
+            {
+              "id": "897512-4da59b3e-525b-4d76-a632-684faacbff84",
+              "name": "Return the accessibility settings for ICMP",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{baseUrl}}/networks/{{networkId}}/firewalledServices/icmp"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 06 Nov 2018 08:39:48 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin"
+                },
+                {
+                  "key": "X-Robots-Tag",
+                  "value": "none"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "571b5962824488298ddcbd83f74c9db2"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.310454"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"service\": \"ICMP\",\n    \"access\": \"unrestricted\"\n}"
+            }
+          ]
+        },
+        {
+          "_postman_id": "897512-577b191b-5062-4a85-b7bb-d0d9c8d417f6",
+          "name": "Updates the accessibility settings for ICMP",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "type": "text",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"access\":\"restricted\",\n\t\"allowedIps\":[\"123.123.123.1\"]\n}"
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/firewalledServices/icmp",
+            "description": "## HTTP REQUEST\n```\nPUT /networks/[networkId]/firewalledServices/icmp\n```\n## PARAMETERS\n**Parameter**|**Description**\n :-------------: |:-------------:\naccess| A string indicating the rule for which IPs are allowed to use the specified service. Acceptable values are \"blocked\" (no remote IPs can access the service), \"restricted\" (only whitelisted IPs can access the service), and \"unrestriced\" (any remote IP can access the service). This field is required\nallowedIps| An array of whitelisted IPs that can access the service. This field is required if \"access\" is set to \"restricted\". Otherwise this field is ignored\n\n## SAMPLE REQUEST\n``` \ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X PUT --data-binary '{\"access\":\"restricted\",\"allowedIps\":[\"123.123.123.1\"]}' 'https://api.meraki.com/api/v0/networks/[networkId]/firewalledServices/icmp'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"service\": \"icmp\",\n  \"access\": \"restricted\",\n  \"allowedIps\": [\n    \"123.123.123.1\"\n  ]\n}\n```"
+          },
+          "response": [
+            {
+              "id": "897512-97303b33-4e9f-4d18-b807-f160262a5607",
+              "name": "Return the accessibility settings for SNMP",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{baseUrl}}/networks/{{networkId}}/firewalledServices/snmp"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 06 Nov 2018 08:44:54 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin"
+                },
+                {
+                  "key": "X-Robots-Tag",
+                  "value": "none"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "02b1bdeb4b91cb0c66f654b0355419a5"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.195042"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"service\": \"SNMP\",\n    \"access\": \"blocked\"\n}"
+            }
+          ]
+        },
+        {
+          "_postman_id": "897512-c008ff19-d0b9-4748-97f9-688d9547b1cb",
+          "name": "Return the accessibility settings for SNMP",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/firewalledServices/snmp",
+            "description": "## HTTP REQUEST\n```\nGET /networks/[networkId]/firewalledServices/snmp\n```\n## PARAMETERS\n**None**\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[networkId]/firewalledServices/snmp'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n    \"service\": \"SNMP\",\n    \"access\": \"blocked\"\n}\n```"
+          },
+          "response": [
+            {
+              "id": "897512-9a11b47c-7cdc-4200-945d-d4b2e30c516e",
+              "name": "Return the accessibility settings for SNMP",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{baseUrl}}/networks/{{networkId}}/firewalledServices/snmp"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 06 Nov 2018 08:44:54 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin"
+                },
+                {
+                  "key": "X-Robots-Tag",
+                  "value": "none"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "02b1bdeb4b91cb0c66f654b0355419a5"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.195042"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"service\": \"SNMP\",\n    \"access\": \"blocked\"\n}"
+            }
+          ]
+        },
+        {
+          "_postman_id": "897512-e6381d07-0a52-4163-aab3-f8c4833a58da",
+          "name": "Updates the accessibility settings for SNMP",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"access\":\"restricted\",\n\t\"allowedIps\":[\"123.123.123.1\"]\n}"
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/firewalledServices/snmp",
+            "description": "## HTTP REQUEST\n```\nPUT /networks/[networkId]/firewalledServices/snmp\n```\n## PARAMETERS\n**Parameter**|**Description**\n :-------------: |:-------------:\naccess| A string indicating the rule for which IPs are allowed to use the specified service. Acceptable values are \"blocked\" (no remote IPs can access the service), \"restricted\" (only whitelisted IPs can access the service), and \"unrestriced\" (any remote IP can access the service). This field is required\nallowedIps| An array of whitelisted IPs that can access the service. This field is required if \"access\" is set to \"restricted\". Otherwise this field is ignored\n\n## SAMPLE REQUEST\n``` \ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X PUT --data-binary '{\"access\":\"restricted\",\"allowedIps\":[\"123.123.123.1\"]}' 'https://api.meraki.com/api/v0/networks/[networkId]/firewalledServices/snmp'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"service\": \"SNMP\",\n  \"access\": \"restricted\",\n  \"allowedIps\": [\n    \"123.123.123.1\"\n  ]\n}\n```"
+          },
+          "response": [
+            {
+              "id": "897512-6548e711-160d-482f-9f0d-6d3a0d2ad277",
+              "name": "Return the accessibility settings for SNMP",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{baseUrl}}/networks/{{networkId}}/firewalledServices/snmp"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 06 Nov 2018 08:44:54 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin"
+                },
+                {
+                  "key": "X-Robots-Tag",
+                  "value": "none"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "02b1bdeb4b91cb0c66f654b0355419a5"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.195042"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"service\": \"SNMP\",\n    \"access\": \"blocked\"\n}"
+            }
+          ]
+        },
+        {
+          "_postman_id": "897512-cfb350a2-45d1-48ae-a982-9f8fbc06d648",
+          "name": "Return the accessibility settings for web",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/firewalledServices/web",
+            "description": "## HTTP REQUEST\n```\nGET /networks/[networkId]/firewalledServices/web\n```\n## PARAMETERS\n**None**\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[networkId]/firewalledServices/web'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n    \"service\": \"web\",\n    \"access\": \"blocked\"\n}\n```"
+          },
+          "response": [
+            {
+              "id": "897512-67cd7a43-17f6-49f2-8313-ade710037215",
+              "name": "Return the accessibility settings for web",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{baseUrl}}/networks/{{networkId}}/firewalledServices/web"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 06 Nov 2018 08:43:39 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin"
+                },
+                {
+                  "key": "X-Robots-Tag",
+                  "value": "none"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "50595b7149c2f63fc1ad8270020e14d3"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.272138"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"service\": \"web\",\n    \"access\": \"blocked\"\n}"
+            }
+          ]
+        },
+        {
+          "_postman_id": "897512-ae2f4439-1add-4429-a431-3aef8c168df5",
+          "name": "Updates the accessibility settings for web",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "type": "text",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"access\":\"restricted\",\n\t\"allowedIps\":[\"123.123.123.1\"]\n}"
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/firewalledServices/web",
+            "description": "## HTTP REQUEST\n```\nPUT /networks/[networkId]/firewalledServices/web\n```\n## PARAMETERS\n**Parameter**|**Description**\n :-------------: |:-------------:\naccess| A string indicating the rule for which IPs are allowed to use the specified service. Acceptable values are \"blocked\" (no remote IPs can access the service), \"restricted\" (only whitelisted IPs can access the service), and \"unrestriced\" (any remote IP can access the service). This field is required\nallowedIps| An array of whitelisted IPs that can access the service. This field is required if \"access\" is set to \"restricted\". Otherwise this field is ignored\n\n## SAMPLE REQUEST\n``` \ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X PUT --data-binary '{\"access\":\"restricted\",\"allowedIps\":[\"123.123.123.1\"]}' 'https://api.meraki.com/api/v0/networks/[networkId]/firewalledServices/web'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"service\": \"web\",\n  \"access\": \"restricted\",\n  \"allowedIps\": [\n    \"123.123.123.1\"\n  ]\n}\n```"
+          },
+          "response": [
+            {
+              "id": "897512-3629c55f-1b6d-4eb4-9e7e-759153abb59d",
+              "name": "Return the accessibility settings for SNMP",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{baseUrl}}/networks/{{networkId}}/firewalledServices/snmp"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 06 Nov 2018 08:44:54 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin"
+                },
+                {
+                  "key": "X-Robots-Tag",
+                  "value": "none"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "02b1bdeb4b91cb0c66f654b0355419a5"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.195042"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"service\": \"SNMP\",\n    \"access\": \"blocked\"\n}"
+            }
+          ]
         }
       ]
     },
@@ -13023,6 +14105,558 @@
       ]
     },
     {
+      "_postman_id": "897512-3a184f96-aa16-4e44-89f1-a6bc80097e89",
+      "name": "Sense",
+      "description": null,
+      "item": [
+        {
+          "_postman_id": "897512-2bfe5be0-e418-410f-a615-e0414b37204d",
+          "name": "Returns an overview of aggregate analytics data for a timespan",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{baseUrl}}/devices/{{serial}}/camera/analytics/overview?timespan=518400",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "devices",
+                "{{serial}}",
+                "camera",
+                "analytics",
+                "overview"
+              ],
+              "query": [
+                {
+                  "key": "timespan",
+                  "value": "518400",
+                  "equals": true
+                }
+              ]
+            },
+            "description": "# HTTP REQUEST\n```\nGET /devices/[serial]/camera/analytics/overview\n```\n# PARAMETERS\n**Parameter**|**Description**\n :-------------: |:-------------:\n**timespan**| Time in seconds from now (optional)\n\n# SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/devices/[serial]/camera/analytics/overview'\n```\n# SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n[\n  {\n    \"startTs\": \"2018-08-15T18:32:38.123Z\",\n    \"endTs\": \"2018-08-15T18:33:38.123Z\",\n    \"zoneId\": 0,\n    \"entrances\": 254,\n    \"averageCount\": 5\n  }\n]\n```"
+          },
+          "response": [
+            {
+              "id": "897512-d0e0dcb0-6199-4d4b-baf1-7753da1f2677",
+              "name": "Returns an overview of aggregate analytics data for a timespan",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "https://api.meraki.com/api/v0/devices/{{serial}}/camera/analytics/overview?timespan=518400",
+                  "protocol": "https",
+                  "host": [
+                    "api",
+                    "meraki",
+                    "com"
+                  ],
+                  "path": [
+                    "api",
+                    "v0",
+                    "devices",
+                    "{{serial}}",
+                    "camera",
+                    "analytics",
+                    "overview"
+                  ],
+                  "query": [
+                    {
+                      "key": "timespan",
+                      "value": "518400",
+                      "equals": true
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 04 Dec 2018 13:28:56 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin"
+                },
+                {
+                  "key": "X-Robots-Tag",
+                  "value": "none"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "3335aff2efd133bcf2c2000e038a4c3b"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.139781"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n    {\n        \"startTs\": \"2018-11-28T13:28:56.603Z\",\n        \"endTs\": \"2018-12-04T13:28:56.603Z\",\n        \"zoneId\": 0,\n        \"entrances\": 66726,\n        \"averageCount\": 2.9424011564871626\n    },\n    {\n        \"startTs\": \"2018-11-28T13:28:56.603Z\",\n        \"endTs\": \"2018-12-04T13:28:56.603Z\",\n        \"zoneId\": 643451796760559620,\n        \"entrances\": 14864,\n        \"averageCount\": 0.42393379604911835\n    }\n]"
+            }
+          ]
+        },
+        {
+          "_postman_id": "897512-ebb36fa9-f0cf-4dfd-b6bd-b8070e59b8b4",
+          "name": "Returns all configured analytic zones for this camera",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "{{baseUrl}}/v0/devices/{{serial}}/camera/analytics/zones",
+            "description": "# HTTP REQUEST\n```\nGET /devices/[serial]/camera/analytics/zones\n```\n# PARAMETERS\n**None**\n\n# SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/devices/[serial]/camera/analytics/zones'\n```\n# SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n[\n  {\n    \"id\": \"0\",\n    \"type\": \"occupancy\",\n    \"label\": \"Full Frame\"\n  }\n]\n```"
+          },
+          "response": [
+            {
+              "id": "897512-7937283a-27d5-454b-b947-cea51a6b3c56",
+              "name": "Returns all configured analytic zones for this camera",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://api.meraki.com/api/v0/devices/{{serial}}/camera/analytics/zones"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 04 Dec 2018 13:28:40 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin"
+                },
+                {
+                  "key": "X-Robots-Tag",
+                  "value": "none"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "f7563cf8a076de971a109bfc6dd28e08"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.300482"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n    {\n        \"zoneId\": \"0\",\n        \"type\": \"occupancy\",\n        \"label\": \"Full Frame\"\n    },\n    {\n        \"zoneId\": \"643451796760559620\",\n        \"type\": \"occupancy\",\n        \"label\": \"Meraki Demo\"\n    }\n]"
+            }
+          ]
+        },
+        {
+          "_postman_id": "897512-c4562d78-c33a-4c87-b3d3-042546705d13",
+          "name": "Return historical records for analytic zones",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{baseUrl}}/devices/{{serial}}/camera/analytics/zones/{{zoneId}}/history?perPage=10",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "devices",
+                "{{serial}}",
+                "camera",
+                "analytics",
+                "zones",
+                "{{zoneId}}",
+                "history"
+              ],
+              "query": [
+                {
+                  "key": "perPage",
+                  "value": "10",
+                  "equals": true
+                },
+                {
+                  "key": "startingAfter",
+                  "value": "",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "endingBefore",
+                  "value": "",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "# HTTP REQUEST\n```\nGET /devices/[serial]/camera/analytics/zones/[zoneId]/history\n```\n# PARAMETERS\n\n**Parameter**|**Description**\n :-------------: |:-------------:\nperPage| The number of entries per page returned\nstartingAfter| A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, next or prev page in the HTTP Link header should define it.\nendingBefore| A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, next or prev page in the HTTP Link header should define it.\n# SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/devices/[serial]/camera/analytics/zones/[zoneId]/history'\n```\n\n# SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n[\n  {\n    \"startTs\": \"2018-08-15T18:32:38.123Z\",\n    \"endTs\": \"2018-08-15T18:33:38.123Z\",\n    \"entrances\": 5,\n    \"averageCount\": 1.5\n  }\n]\n```"
+          },
+          "response": [
+            {
+              "id": "897512-f5214958-0975-411d-9ccf-8e85b6f2410b",
+              "name": "Response_200",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/devices/{{serial}}/camera/analytics/zones/{{zoneId}}/history?perPage=10",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "devices",
+                    "{{serial}}",
+                    "camera",
+                    "analytics",
+                    "zones",
+                    "{{zoneId}}",
+                    "history"
+                  ],
+                  "query": [
+                    {
+                      "key": "perPage",
+                      "value": "10",
+                      "equals": true
+                    },
+                    {
+                      "key": "startingAfter",
+                      "value": "",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "endingBefore",
+                      "value": "",
+                      "type": "text",
+                      "disabled": true
+                    }
+                  ]
+                },
+                "description": "# HTTP REQUEST\n```\nGET /devices/[serial]/camera/analytics/zones/[zoneId]/history\n```\n# PARAMETERS\n\n**Parameter**|**Description**\n :-------------: |:-------------:\nperPage| The number of entries per page returned\nstartingAfter| A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, next or prev page in the HTTP Link header should define it.\nendingBefore| A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, next or prev page in the HTTP Link header should define it.\n# SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/devices/[serial]/camera/analytics/zones/[zoneId]/history'\n```\n\n# SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n[\n  {\n    \"startTs\": \"2018-08-15T18:32:38.123Z\",\n    \"endTs\": \"2018-08-15T18:33:38.123Z\",\n    \"entrances\": 5,\n    \"averageCount\": 1.5\n  }\n]\n```"
+              },
+              "status": "Successful operation",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": ""
+            }
+          ]
+        },
+        {
+          "_postman_id": "897512-77c69164-0c6b-4bc8-830d-f101569087a2",
+          "name": "Returns most recent record for analytics zones",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "{{baseUrl}}/devices/{{serial}}/camera/analytics/recent",
+            "description": "# HTTP REQUEST\n```\nGET /devices/[serial]/camera/analytics/recent\n```\n# PARAMETERS\n**None**\n\n# SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/devices/[serial]/camera/analytics/recent'\n```\n# SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n[\n  {\n    \"startTs\": \"2018-08-15T18:32:38.123Z\",\n    \"endTs\": \"2018-08-15T18:33:38.123Z\",\n    \"zoneId\": 0,\n    \"entrances\": 10,\n    \"averageCount\": 2.54\n  }\n]\n```"
+          },
+          "response": [
+            {
+              "id": "897512-1b0a9df0-6b78-484c-a8dc-226ad71d6861",
+              "name": "Returns most recent record for analytics zones",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{baseUrl}}/devices/{{serial}}/camera/analytics/recent"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 04 Dec 2018 13:43:45 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin"
+                },
+                {
+                  "key": "X-Robots-Tag",
+                  "value": "none"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "2958c0318803121554a07ffe5c6ee896"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.135436"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n    {\n        \"zoneId\": 0,\n        \"error\": \"No updates in past 30 minutes\"\n    },\n    {\n        \"zoneId\": 643451796760559620,\n        \"error\": \"No updates in past 30 minutes\"\n    }\n]"
+            }
+          ]
+        },
+        {
+          "_postman_id": "897512-77a91772-c36b-43f7-bb4f-37f33bd56400",
+          "name": "Returns live state from camera of analytics zones",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "{{baseUrl}}/v0/devices/{{serial}}/camera/analytics/live",
+            "description": "# HTTP REQUEST\n```\nGET /devices/[serial]/camera/analytics/live\n```\n# PARAMETERS\n**None**\n\n# SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/devices/[serial]/camera/analytics/live'\n```\n# SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n[\n  {\n    \"ts\": \"2018-08-15T18:32:38.123Z\",\n    \"zones\": {\n      \"0\": {\n        \"person\": 0\n      }\n    }\n  }\n]\n```"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
       "_postman_id": "897512-aaaba09d-8c69-fe13-dcd4-7fe316991528",
       "name": "SM",
       "description": "",
@@ -13369,6 +15003,379 @@
             "description": "## HTTP REQUEST\n```\nGET /networks/[id]/splashLoginAttempts\n```\n## PARAMETERS\n**ssidNumber**\nOnly return the login attempts for the specified SSID\n\n**loginIdentifier**\nThe username, email, or phone number used during login\n\n**timespan**\nThe timespan, in seconds, for the login attempts. The period will be from [timespan] seconds ago until now. The maximum timespan is 3 months\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[id]/splashLoginAttempts?timespan=7200'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n[\n  {\n    \"name\": \"Miles Meraki\",\n    \"login\": \"miles@meraki.com\",\n    \"ssid\": \"My SSID\",\n    \"loginAt\": 1518365681,\n    \"gatewayDeviceMac\": \"00:11:22:33:44:55\",\n    \"clientMac\": \"22:33:44:55:66:77\",\n    \"clientId\": \"k74272e\",\n    \"authorization\": \"success\"\n  }\n]\n```"
           },
           "response": []
+        }
+      ]
+    },
+    {
+      "_postman_id": "897512-fc310014-9928-49c4-9d64-d59a87f1f37e",
+      "name": "Splash settings",
+      "description": "",
+      "item": [
+        {
+          "_postman_id": "897512-b6314ccd-9b92-42bd-b7af-5be4b7365700",
+          "name": "Display the splash page settings for the given SSID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/ssids/{{ssidNum}}/splashSettings",
+            "description": "## HTTP REQUEST\n```\nGET/networks/[networkId]/ssids/[number]/splashSettings\n```\n## PARAMETERS\n**None**\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[networkId]/ssids/[number]/splashSettings'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"ssidNumber\": 0,\n  \"splashPage\": \"Click-through splash page\",\n  \"splashUrl\": \"https://www.custom_splash_url.com\"\n}\n```"
+          },
+          "response": [
+            {
+              "id": "897512-be6d38b9-5159-4835-9be3-d5cc0ef00716",
+              "name": "Display the splash page settings for the given SSID",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{baseUrl}}/networks/{{networkId}}/ssids/{{ssidNum}}/splashSettings"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx"
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 07 Dec 2018 14:03:15 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin"
+                },
+                {
+                  "key": "X-Robots-Tag",
+                  "value": "none"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "cb889fed9a064f541786793690e080a2"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.604468"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"ssidNumber\": 2,\n    \"splashMethod\": \"Click-through splash page\",\n    \"splashUrl\": null\n}"
+            }
+          ]
+        },
+        {
+          "_postman_id": "897512-713fdbcb-9544-476a-a10a-b433edeef1c0",
+          "name": "Modify the splash page settings for the given SSID",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "95a09c50-65e1-4c09-9623-d6c66e9bb35f",
+                "exec": [
+                  "var jsonData = JSON.parse(responseBody);",
+                  "postman.setEnvironmentVariable(\"Del-Network\", jsonData.id);",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "  {\n\t\"splashPage\": \"Click-through splash page\",\n\t\"splashUrl\": \"https://www.custom_splash_url.com\",\n\t\"useCustomUrl\": true\n  }"
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/ssids/{{ssidNum}}/splashSettings",
+            "description": "## HTTP REQUEST\n```\nPOST /organizations/[organizationId]/networks\n```\n\n## PARAMETERS\n\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\nname|The name of the new network\ntype|The type of the new network. Valid types are 'wireless' (for MR), 'switch' (for MS), 'appliance' (for MX, Z1, or Z3), 'phone' (for MC), or a space-separated list of those for a combined network.\ntags|A space-separated list of tags to be applied to the network\ntimeZone|The timezone of the network. For a list of allowed timezones, please see the 'TZ' column in the table in this article.\ncopyFromNetworkId|The ID of the network to copy configuration from. Other provided parameters will override the copied configuration, except type which must match this network's type exactly.\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X POST -H 'Content-Type: application/json' --data-binary '{\"name\":\"My network\", \"type\":\"wireless\", \"tags\":\"tag1 tag2\"}' 'https://api.meraki.com/api/v0/organizations/[organizationId]/networks'\n```\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 201\n{\n  \"id\":\"N_1234\",\n  \"organizationId\":\"1234\",\n  \"type\": \"wireless\",\n  \"name\":\"My network\",\n  \"timeZone\": \"US/Pacific\",\n  \"tags\": \" tag1 tag2 \"\n}\n```"
+          },
+          "response": [
+            {
+              "id": "897512-6b91ec67-615e-4750-80c4-2f803cb953b4",
+              "name": "Modify the splash page settings for the given SSID",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "  {\n\t\"splashPage\": \"Click-through splash page\",\n\t\"splashUrl\": \"https://www.custom_splash_url.com\",\n\t\"useCustomUrl\": true\n  }"
+                },
+                "url": "{{baseUrl}}/networks/{{networkId}}/ssids/{{ssidNum}}/splashSettings"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx"
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 07 Dec 2018 14:07:17 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin"
+                },
+                {
+                  "key": "X-Robots-Tag",
+                  "value": "none"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "00f3e70736e93ee3cc27250b50691907"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.327638"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"ssidNumber\": 2,\n    \"splashMethod\": \"None\",\n    \"splashUrl\": \"https://www.custom_splash_url.com\"\n}"
+            },
+            {
+              "id": "897512-c715ee2d-51a6-4c40-b44b-b7e1f4aca527",
+              "name": "Networks -  Create a network",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}",
+                    "disabled": false
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "disabled": false
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "  {\n    \"name\": \"API Test - Postman 1242\",\n    \"timeZone\": \"Europe/Amsterdam\",\n    \"tags\": \"test\",\n    \"type\": \"wireless\"\n  }"
+                },
+                "url": "https://{{shard}}.meraki.com/api/v0/organizations/{{organizationId}}/networks"
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate",
+                  "name": "Cache-Control",
+                  "description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": "Options that are desired for the connection"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8",
+                  "name": "Content-Type",
+                  "description": "The mime type of this content"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 29 Mar 2018 22:42:48 GMT",
+                  "name": "Date",
+                  "description": "The date and time that the message was sent"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT",
+                  "name": "Expires",
+                  "description": "Gives the date/time after which the response is considered stale"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache",
+                  "name": "Pragma",
+                  "description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+                },
+                {
+                  "key": "Public-Key-Pins-Report-Only",
+                  "value": "max-age=1200; pin-sha256=\"2V5tfxXMLkn2kVg/Iv8FqL4JHcNVGEUFK27oSMYhHEU=\"; pin-sha256=\"8Rw90Ej3Ttt8RRkrg+WYDS9n7IS03bk5bjP/UXPtaY8=\"; pin-sha256=\"3YQf+D42t1/pQJhWTwYLRnFVnbBNXf9W5S6dmwq2+3g=\"; pin-sha256=\"klO23nT2ehFDXCfx3eHTDRESMz3asj1muO+4aIdjiuY=\"; pin-sha256=\"fake+hpkp+key+for+testing+report+only+QWERT=\"; includeSubDomains; report-uri=\"https://therealmerakidashboard.report-uri.io/r/default/hpkp/reportOnly\"",
+                  "name": "Public-Key-Pins-Report-Only",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains",
+                  "name": "Strict-Transport-Security",
+                  "description": "A HSTS Policy informing the HTTP client how long to cache the HTTPS only policy and whether this applies to subdomains."
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin",
+                  "name": "X-Frame-Options",
+                  "description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+                },
+                {
+                  "key": "X-Rack-Cache",
+                  "value": "invalidate, pass",
+                  "name": "X-Rack-Cache",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "a5b10caafea91ba45b2dee14c10bb15e",
+                  "name": "X-Request-Id",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.849779",
+                  "name": "X-Runtime",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1",
+                  "name": "X-UA-Compatible",
+                  "description": "Custom header"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\"id\":\"N_646829496481143886\",\"organizationId\":\"549236\",\"type\":\"wireless\",\"name\":\"API Test - Postman 1242\",\"timeZone\":\"Europe/Amsterdam\",\"tags\":\" test \"}"
+            }
+          ]
         }
       ]
     },
