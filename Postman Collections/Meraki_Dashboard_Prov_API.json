@@ -19217,7 +19217,7 @@
               "raw": ""
             },
             "url": "{{baseUrl}}/devices/{{serial}}/switchPorts/{{portNum}}",
-            "description": "## HTTP REQUEST\n```\nGET /devices/[serial]/switchPorts/[number]\n```\n\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://dashboard.meraki.com/api/v0/devices/[serial]/switchPorts/[number]'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"number\": 1,\n  \"name\": \"my port\",\n  \"tags\": \"dorm-room limited\",\n  \"enabled\": true,\n  \"type\": \"access\",\n  \"vlan\": 10,\n  \"voiceVlan\": 20,\n  \"poeEnabled\": true,\n  \"isolationEnabled\": false,\n  \"rstpEnabled\": true,\n  \"stpGuard\": \"disabled\",\n  \"accessPolicyNumber\": \"asdf1234\"\n}\n```"
+            "description": "## HTTP REQUEST\n```\nGET /networks/[networkId]/switch/settings\n```\n## PARAMETERS\n**None**\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[networkId]/switch/settings'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"networkId\": \"N_24329156\",\n  \"useCombinedPower\": false,\n  \"powerExceptions\": [\n    {\n      \"serial\": \"Q234-ABCD-0001\",\n      \"powerType\": \"redundant\"\n    },\n    {\n      \"serial\": \"Q234-ABCD-0002\",\n      \"powerType\": \"combined\"\n    },\n    {\n      \"serial\": \"Q234-ABCD-0003\",\n      \"powerType\": \"redundant\"\n    }\n  ]\n}\n```"
           },
           "response": []
         }
