@@ -15447,7 +15447,7 @@
               "raw": "  {\n\t\"splashPage\": \"Click-through splash page\",\n\t\"splashUrl\": \"https://www.custom_splash_url.com\",\n\t\"useCustomUrl\": true\n  }"
             },
             "url": "{{baseUrl}}/networks/{{networkId}}/ssids/{{ssidNum}}/splashSettings",
-            "description": "## HTTP REQUEST\n```\nPOST /organizations/[organizationId]/networks\n```\n\n## PARAMETERS\n\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\nname|The name of the new network\ntype|The type of the new network. Valid types are 'wireless' (for MR), 'switch' (for MS), 'appliance' (for MX, Z1, or Z3), 'phone' (for MC), or a space-separated list of those for a combined network.\ntags|A space-separated list of tags to be applied to the network\ntimeZone|The timezone of the network. For a list of allowed timezones, please see the 'TZ' column in the table in this article.\ncopyFromNetworkId|The ID of the network to copy configuration from. Other provided parameters will override the copied configuration, except type which must match this network's type exactly.\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X POST -H 'Content-Type: application/json' --data-binary '{\"name\":\"My network\", \"type\":\"wireless\", \"tags\":\"tag1 tag2\"}' 'https://api.meraki.com/api/v0/organizations/[organizationId]/networks'\n```\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 201\n{\n  \"id\":\"N_1234\",\n  \"organizationId\":\"1234\",\n  \"type\": \"wireless\",\n  \"name\":\"My network\",\n  \"timeZone\": \"US/Pacific\",\n  \"tags\": \" tag1 tag2 \"\n}\n```"
+            "description": "## HTTP REQUEST\n```\nPUT /networks/[networkId]/ssids/[number]/splashSettings\n```\n## PARAMETERS\n**Parameter**|**Description**\n :-------------: |:-------------:\nsplashUrl| The custom splash URL of the click-through splash page. Optional. Note that the URL can be configured without necessarily being used. In order to enable the custom URL, see 'useSplashUrl'\nuseSplashUrl| Boolean indicating whether the user will be redirected to the custom splash url. A custom splash URL must be set if this is true. Optional. Note that depending on your SSID's access control settings, it may not be possible to use the custom splash URL.\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X PUT --data-binary '{\"splashUrl\":\"https://www.custom_splash_url.com\",\"useSplashUrl\":true}' 'https://api.meraki.com/api/v0/networks/[networkId]/ssids/[number]/splashSettings'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"ssidNumber\": 0,\n  \"splashPage\": \"Click-through splash page\",\n  \"splashUrl\": \"https://www.custom_splash_url.com\",\n  \"useSplashUrl\": true\n}\n```"
           },
           "response": [
             {
@@ -15543,128 +15543,6 @@
               "cookie": [],
               "responseTime": null,
               "body": "{\n    \"ssidNumber\": 2,\n    \"splashMethod\": \"None\",\n    \"splashUrl\": \"https://www.custom_splash_url.com\"\n}"
-            },
-            {
-              "id": "c715ee2d-51a6-4c40-b44b-b7e1f4aca527",
-              "name": "Networks -  Create a network",
-              "originalRequest": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "X-Cisco-Meraki-API-Key",
-                    "value": "{{X-Cisco-Meraki-API-Key}}",
-                    "disabled": false
-                  },
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json",
-                    "disabled": false
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "  {\n    \"name\": \"API Test - Postman 1242\",\n    \"timeZone\": \"Europe/Amsterdam\",\n    \"tags\": \"test\",\n    \"type\": \"wireless\"\n  }"
-                },
-                "url": "https://{{shard}}.meraki.com/api/v0/organizations/{{organizationId}}/networks"
-              },
-              "status": "Created",
-              "code": 201,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Cache-Control",
-                  "value": "no-cache, no-store, max-age=0, must-revalidate",
-                  "name": "Cache-Control",
-                  "description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
-                },
-                {
-                  "key": "Connection",
-                  "value": "keep-alive",
-                  "name": "Connection",
-                  "description": "Options that are desired for the connection"
-                },
-                {
-                  "key": "Content-Type",
-                  "value": "application/json; charset=utf-8",
-                  "name": "Content-Type",
-                  "description": "The mime type of this content"
-                },
-                {
-                  "key": "Date",
-                  "value": "Thu, 29 Mar 2018 22:42:48 GMT",
-                  "name": "Date",
-                  "description": "The date and time that the message was sent"
-                },
-                {
-                  "key": "Expires",
-                  "value": "Fri, 01 Jan 1990 00:00:00 GMT",
-                  "name": "Expires",
-                  "description": "Gives the date/time after which the response is considered stale"
-                },
-                {
-                  "key": "Pragma",
-                  "value": "no-cache",
-                  "name": "Pragma",
-                  "description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
-                },
-                {
-                  "key": "Public-Key-Pins-Report-Only",
-                  "value": "max-age=1200; pin-sha256=\"2V5tfxXMLkn2kVg/Iv8FqL4JHcNVGEUFK27oSMYhHEU=\"; pin-sha256=\"8Rw90Ej3Ttt8RRkrg+WYDS9n7IS03bk5bjP/UXPtaY8=\"; pin-sha256=\"3YQf+D42t1/pQJhWTwYLRnFVnbBNXf9W5S6dmwq2+3g=\"; pin-sha256=\"klO23nT2ehFDXCfx3eHTDRESMz3asj1muO+4aIdjiuY=\"; pin-sha256=\"fake+hpkp+key+for+testing+report+only+QWERT=\"; includeSubDomains; report-uri=\"https://therealmerakidashboard.report-uri.io/r/default/hpkp/reportOnly\"",
-                  "name": "Public-Key-Pins-Report-Only",
-                  "description": "Custom header"
-                },
-                {
-                  "key": "Server",
-                  "value": "nginx",
-                  "name": "Server",
-                  "description": "A name for the server"
-                },
-                {
-                  "key": "Strict-Transport-Security",
-                  "value": "max-age=15552000; includeSubDomains",
-                  "name": "Strict-Transport-Security",
-                  "description": "A HSTS Policy informing the HTTP client how long to cache the HTTPS only policy and whether this applies to subdomains."
-                },
-                {
-                  "key": "Transfer-Encoding",
-                  "value": "chunked",
-                  "name": "Transfer-Encoding",
-                  "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
-                },
-                {
-                  "key": "X-Frame-Options",
-                  "value": "sameorigin",
-                  "name": "X-Frame-Options",
-                  "description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
-                },
-                {
-                  "key": "X-Rack-Cache",
-                  "value": "invalidate, pass",
-                  "name": "X-Rack-Cache",
-                  "description": "Custom header"
-                },
-                {
-                  "key": "X-Request-Id",
-                  "value": "a5b10caafea91ba45b2dee14c10bb15e",
-                  "name": "X-Request-Id",
-                  "description": "Custom header"
-                },
-                {
-                  "key": "X-Runtime",
-                  "value": "0.849779",
-                  "name": "X-Runtime",
-                  "description": "Custom header"
-                },
-                {
-                  "key": "X-UA-Compatible",
-                  "value": "IE=Edge,chrome=1",
-                  "name": "X-UA-Compatible",
-                  "description": "Custom header"
-                }
-              ],
-              "cookie": [],
-              "responseTime": null,
-              "body": "{\"id\":\"N_646829496481143886\",\"organizationId\":\"549236\",\"type\":\"wireless\",\"name\":\"API Test - Postman 1242\",\"timeZone\":\"Europe/Amsterdam\",\"tags\":\" test \"}"
             }
           ]
         }
