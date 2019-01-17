@@ -15901,6 +15901,148 @@
       ]
     },
     {
+      "_postman_id": "8f42676f-34c2-4bcf-a35c-32872dc97a75",
+      "name": "Switch settings",
+      "description": "",
+      "item": [
+        {
+          "_postman_id": "86be7267-71dd-4658-8ec9-c680ef36e9b6",
+          "name": "Returns the switch network settings",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/switch/settings",
+            "description": "## HTTP REQUEST\n```\nGET /networks/[networkId]/switch/settings\n```\n## PARAMETERS\n**None**\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[networkId]/switch/settings'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"networkId\": \"N_24329156\",\n  \"useCombinedPower\": false,\n  \"powerExceptions\": [\n    {\n      \"serial\": \"Q234-ABCD-0001\",\n      \"powerType\": \"redundant\"\n    },\n    {\n      \"serial\": \"Q234-ABCD-0002\",\n      \"powerType\": \"combined\"\n    },\n    {\n      \"serial\": \"Q234-ABCD-0003\",\n      \"powerType\": \"redundant\"\n    }\n  ]\n}\n```"
+          },
+          "response": [
+            {
+              "id": "1eb2478e-8930-41d7-a127-578a2edb4284",
+              "name": "Returns the switch network settings",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{baseUrl}}/networks/{{networkId}}/switch/settings"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 17 Jan 2019 12:46:04 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin"
+                },
+                {
+                  "key": "X-Robots-Tag",
+                  "value": "none"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "65804825e6ba5ae8ee8a656b90571267"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.156909"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"networkId\": \"N_24329156\",\n  \"useCombinedPower\": false,\n  \"powerExceptions\": [\n    {\n      \"serial\": \"Q234-ABCD-0001\",\n      \"powerType\": \"redundant\"\n    },\n    {\n      \"serial\": \"Q234-ABCD-0002\",\n      \"powerType\": \"combined\"\n    },\n    {\n      \"serial\": \"Q234-ABCD-0003\",\n      \"powerType\": \"redundant\"\n    }\n  ]\n}"
+            }
+          ]
+        },
+        {
+          "_postman_id": "9b2b626d-2886-4672-8862-af25bdc2a2df",
+          "name": "Update switch network settings",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"useCombinedPower\": true,\n    \"powerExceptions\": [\n        {\n            \"serial\": \"Q234-ABCD-0001\",\n            \"powerType\": \"redundant\"\n        },\n        {\n            \"serial\": \"Q234-ABCD-0002\",\n            \"powerType\": \"combined\"\n        },\n        {\n            \"serial\": \"Q234-ABCD-0003\",\n            \"powerType\": \"combined\"\n        },\n        {\n            \"serial\": \"Q234-ABCD-0004\",\n            \"powerType\": \"useNetworkSetting\"\n        }\n    ]\n}"
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/switch/settings",
+            "description": "## HTTP REQUEST\n```\nPUT /networks/[networkId]/switch/settings\n```\n## PARAMETERS\n**Parameter**|**Description**\n :-------------: |:-------------:\nuseCombinedPower| The behavior of secondary power supplies on supported devices (\"redundant\", \"combined\")\npowerExceptions| Exceptions on a per switch basis to \"useCombinedPower\"\nserial| Serial number of the switch\npowerType| Per switch exception (combined, redundant, useNetworkSetting)\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X PUT --data-binary '{\"useCombinedPower\":true,\"powerExceptions\":[{\"serial\":\"Q234-ABCD-0001\",\"powerType\":\"redundant\"},{\"serial\":\"Q234-ABCD-0002\",\"powerType\":\"combined\"},{\"serial\":\"Q234-ABCD-0003\",\"powerType\":\"combined\"},{\"serial\":\"Q234-ABCD-0004\",\"powerType\":\"useNetworkSetting\"}]}' 'https://api.meraki.com/api/v0/networks/[networkId]/switch/settings'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"useCombinedPower\": true,\n  \"powerExceptions\": [\n    {\n      \"serial\": \"Q234-ABCD-0001\",\n      \"powerType\": \"redundant\"\n    },\n    {\n      \"serial\": \"Q234-ABCD-0002\",\n      \"powerType\": \"combined\"\n    },\n    {\n      \"serial\": \"Q234-ABCD-0003\",\n      \"powerType\": \"combined\"\n    },\n    {\n      \"serial\": \"Q234-ABCD-0004\",\n      \"powerType\": \"useNetworkSetting\"\n    }\n  ]\n}\n```"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
       "_postman_id": "73fe827d-9080-479d-9a10-ccb9f295f36e",
       "name": "Syslog Servers",
       "description": "",
@@ -19044,148 +19186,6 @@
               "body": "[\n    {\n        \"vlan\": -1,\n        \"type\": \"WPA-PSK auth fail\",\n        \"ts\": 1540720663.490001,\n        \"clientMac\": \"d0:2b:20:91:90:aa\",\n        \"failureStep\": \"auth\",\n        \"ssidNumber\": 0,\n        \"serial\": \"Q2HD-XH88-AAAA\"\n    },\n    {\n        \"vlan\": -1,\n        \"type\": \"NO DNS response\",\n        \"ts\": 1540715703.838227,\n        \"clientMac\": \"24:18:1d:ae:4c:bb\",\n        \"failureStep\": \"dns\",\n        \"ssidNumber\": 0,\n        \"serial\": \"Q2KD-UFRQ-AAAA\"\n    },\n    {\n        \"vlan\": -1,\n        \"type\": \"WPA-PSK auth fail\",\n        \"ts\": 1540649743.686139,\n        \"clientMac\": \"d0:2b:20:91:90:cc\",\n        \"failureStep\": \"auth\",\n        \"ssidNumber\": 0,\n        \"serial\": \"Q2KD-UFRQ-AAAA\"\n    },\n    {\n        \"vlan\": -1,\n        \"type\": \"Association attempts\",\n        \"ts\": 1540649693.687835,\n        \"clientMac\": \"d0:2b:20:91:90:dd\",\n        \"failureStep\": \"assoc\",\n        \"ssidNumber\": 0,\n        \"serial\": \"Q2KD-UFRQ-AAAA\"\n    },\n    {\n        \"vlan\": -1,\n        \"type\": \"NO DHCP response\",\n        \"ts\": 1540589708.256806,\n        \"clientMac\": \"d0:2b:20:91:90:aa\",\n        \"failureStep\": \"dhcp\",\n        \"ssidNumber\": 0,\n        \"serial\": \"Q2FD-EGJM-AAAA\"\n    },\n    {\n        \"vlan\": -1,\n        \"type\": \"WPA-PSK auth fail\",\n        \"ts\": 1540577723.356001,\n        \"clientMac\": \"d0:2b:20:91:90:bb\",\n        \"failureStep\": \"auth\",\n        \"ssidNumber\": 0,\n        \"serial\": \"Q2HD-XH88-AAAA\"\n    },\n    {\n        \"vlan\": -1,\n        \"type\": \"WPA-PSK auth fail\",\n        \"ts\": 1540562552.260001,\n        \"clientMac\": \"d0:2b:20:91:90:cc\",\n        \"failureStep\": \"auth\",\n        \"ssidNumber\": 0,\n        \"serial\": \"Q2HD-XH88-AAAA\"\n    },\n    {\n        \"vlan\": -1,\n        \"type\": \"WPA-PSK auth fail\",\n        \"ts\": 1540536706.985924,\n        \"clientMac\": \"54:60:09:0f:4f:dd\",\n        \"failureStep\": \"auth\",\n        \"ssidNumber\": 0,\n        \"serial\": \"Q2FD-EGJM-AAAA\"\n    },\n    {\n        \"vlan\": -1,\n        \"type\": \"WPA-PSK auth fail\",\n        \"ts\": 1540536646.983868,\n        \"clientMac\": \"54:60:09:0f:4f:aa\",\n        \"failureStep\": \"auth\",\n        \"ssidNumber\": 0,\n        \"serial\": \"Q2FD-EGJM-AAAA\"\n    },\n    {\n        \"vlan\": -1,\n        \"type\": \"WPA-PSK auth fail\",\n        \"ts\": 1540505576.283449,\n        \"clientMac\": \"d0:2b:20:91:90:bb\",\n        \"failureStep\": \"auth\",\n        \"ssidNumber\": 0,\n        \"serial\": \"Q2FD-EGJM-AAAA\"\n    },\n    {\n        \"vlan\": -1,\n        \"type\": \"WPA-PSK auth fail\",\n        \"ts\": 1540490236.763001,\n        \"clientMac\": \"d0:2b:20:91:90:cc\",\n        \"failureStep\": \"auth\",\n        \"ssidNumber\": 0,\n        \"serial\": \"Q2HD-XH88-AAAA\"\n    },\n    {\n        \"vlan\": -1,\n        \"type\": \"NO DNS response\",\n        \"ts\": 1540489796.039902,\n        \"clientMac\": \"88:e8:7f:28:df:aa\",\n        \"failureStep\": \"dns\",\n        \"ssidNumber\": 0,\n        \"serial\": \"Q2FD-EGJM-AAAA\"\n    },\n    {\n        \"vlan\": -1,\n        \"type\": \"WPA-PSK auth fail\",\n        \"ts\": 1540487406.461012,\n        \"clientMac\": \"84:3a:4b:50:e2:bb\",\n        \"failureStep\": \"auth\",\n        \"ssidNumber\": 0,\n        \"serial\": \"Q2HD-XH88-AAAA\"\n    },\n    {\n        \"vlan\": -1,\n        \"type\": \"WPA-PSK auth fail\",\n        \"ts\": 1540461713.411183,\n        \"clientMac\": \"d0:2b:20:91:90:cc\",\n        \"failureStep\": \"auth\",\n        \"ssidNumber\": 0,\n        \"serial\": \"Q2KD-UFRQ-AAAA\"\n    },\n    {\n        \"vlan\": -1,\n        \"type\": \"WPA-PSK auth fail\",\n        \"ts\": 1540456767.368916,\n        \"clientMac\": \"e4:ce:8f:4e:1a:aa\",\n        \"failureStep\": \"auth\",\n        \"ssidNumber\": 0,\n        \"serial\": \"Q2FD-EGJM-AAAA\"\n    },\n    {\n        \"vlan\": -1,\n        \"type\": \"WPA-PSK auth fail\",\n        \"ts\": 1540449597.156822,\n        \"clientMac\": \"54:60:09:0f:4f:bb\",\n        \"failureStep\": \"auth\",\n        \"ssidNumber\": 0,\n        \"serial\": \"Q2FD-EGJM-AAAA\"\n    },\n    {\n        \"vlan\": -1,\n        \"type\": \"WPA-PSK auth fail\",\n        \"ts\": 1540377173.257,\n        \"clientMac\": \"88:e8:7f:28:df:cc\",\n        \"failureStep\": \"auth\",\n        \"ssidNumber\": 0,\n        \"serial\": \"Q2KD-UFRQ-AAAA\"\n    },\n    {\n        \"vlan\": -1,\n        \"type\": \"Association attempts\",\n        \"ts\": 1540376783.259896,\n        \"clientMac\": \"88:e8:7f:28:df:aa\",\n        \"failureStep\": \"assoc\",\n        \"ssidNumber\": 0,\n        \"serial\": \"Q2KD-UFRQ-AAAA\"\n    },\n    {\n        \"vlan\": -1,\n        \"type\": \"Association attempts\",\n        \"ts\": 1540376503.244087,\n        \"clientMac\": \"88:e8:7f:28:df:bb\",\n        \"failureStep\": \"assoc\",\n        \"ssidNumber\": 0,\n        \"serial\": \"Q2KD-UFRQ-AAAA\"\n    },\n    {\n        \"vlan\": -1,\n        \"type\": \"WPA-PSK auth fail\",\n        \"ts\": 1540376463.254966,\n        \"clientMac\": \"88:e8:7f:28:df:cc\",\n        \"failureStep\": \"auth\",\n        \"ssidNumber\": 0,\n        \"serial\": \"Q2KD-UFRQ-AAAA\"\n    },\n    {\n        \"vlan\": -1,\n        \"type\": \"WPA-PSK auth fail\",\n        \"ts\": 1540329513.10847,\n        \"clientMac\": \"54:60:09:0f:4f:dd\",\n        \"failureStep\": \"auth\",\n        \"ssidNumber\": 0,\n        \"serial\": \"Q2KD-UFRQ-AAAA\"\n    },\n    {\n        \"vlan\": -1,\n        \"type\": \"WPA-PSK auth fail\",\n        \"ts\": 1540302411.903001,\n        \"clientMac\": \"e4:ce:8f:4e:1a:aa\",\n        \"failureStep\": \"auth\",\n        \"ssidNumber\": 0,\n        \"serial\": \"Q2HD-XH88-AAAA\"\n    },\n    {\n        \"vlan\": -1,\n        \"type\": \"WPA-PSK auth fail\",\n        \"ts\": 1540272170.321927,\n        \"clientMac\": \"54:60:09:0f:4f:bb\",\n        \"failureStep\": \"auth\",\n        \"ssidNumber\": 0,\n        \"serial\": \"Q2FD-EGJM-AAAA\"\n    },\n    {\n        \"vlan\": -1,\n        \"type\": \"WPA-PSK auth fail\",\n        \"ts\": 1540238258.86493,\n        \"clientMac\": \"54:60:09:0f:4f:cc\",\n        \"failureStep\": \"auth\",\n        \"ssidNumber\": 0,\n        \"serial\": \"Q2FD-EGJM-AAAA\"\n    }\n]"
             }
           ]
-        }
-      ]
-    },
-    {
-      "_postman_id": "8f42676f-34c2-4bcf-a35c-32872dc97a75",
-      "name": "Switch settings",
-      "description": "",
-      "item": [
-        {
-          "_postman_id": "86be7267-71dd-4658-8ec9-c680ef36e9b6",
-          "name": "Returns the switch network settings",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "X-Cisco-Meraki-API-Key",
-                "value": "{{X-Cisco-Meraki-API-Key}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": "{{baseUrl}}/networks/{{networkId}}/switch/settings",
-            "description": "## HTTP REQUEST\n```\nGET /networks/[networkId]/switch/settings\n```\n## PARAMETERS\n**None**\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[networkId]/switch/settings'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"networkId\": \"N_24329156\",\n  \"useCombinedPower\": false,\n  \"powerExceptions\": [\n    {\n      \"serial\": \"Q234-ABCD-0001\",\n      \"powerType\": \"redundant\"\n    },\n    {\n      \"serial\": \"Q234-ABCD-0002\",\n      \"powerType\": \"combined\"\n    },\n    {\n      \"serial\": \"Q234-ABCD-0003\",\n      \"powerType\": \"redundant\"\n    }\n  ]\n}\n```"
-          },
-          "response": [
-            {
-              "id": "1eb2478e-8930-41d7-a127-578a2edb4284",
-              "name": "Returns the switch network settings",
-              "originalRequest": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "X-Cisco-Meraki-API-Key",
-                    "value": "{{X-Cisco-Meraki-API-Key}}"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": ""
-                },
-                "url": "{{baseUrl}}/networks/{{networkId}}/switch/settings"
-              },
-              "status": "OK",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Server",
-                  "value": "nginx"
-                },
-                {
-                  "key": "Date",
-                  "value": "Thu, 17 Jan 2019 12:46:04 GMT"
-                },
-                {
-                  "key": "Content-Type",
-                  "value": "application/json; charset=utf-8"
-                },
-                {
-                  "key": "Transfer-Encoding",
-                  "value": "chunked"
-                },
-                {
-                  "key": "Connection",
-                  "value": "keep-alive"
-                },
-                {
-                  "key": "Vary",
-                  "value": "Accept-Encoding"
-                },
-                {
-                  "key": "Cache-Control",
-                  "value": "no-cache, no-store, max-age=0, must-revalidate"
-                },
-                {
-                  "key": "Pragma",
-                  "value": "no-cache"
-                },
-                {
-                  "key": "Expires",
-                  "value": "Fri, 01 Jan 1990 00:00:00 GMT"
-                },
-                {
-                  "key": "X-Frame-Options",
-                  "value": "sameorigin"
-                },
-                {
-                  "key": "X-Robots-Tag",
-                  "value": "none"
-                },
-                {
-                  "key": "X-UA-Compatible",
-                  "value": "IE=Edge,chrome=1"
-                },
-                {
-                  "key": "X-Request-Id",
-                  "value": "65804825e6ba5ae8ee8a656b90571267"
-                },
-                {
-                  "key": "X-Runtime",
-                  "value": "0.156909"
-                },
-                {
-                  "key": "Strict-Transport-Security",
-                  "value": "max-age=15552000; includeSubDomains"
-                },
-                {
-                  "key": "Content-Encoding",
-                  "value": "gzip"
-                }
-              ],
-              "cookie": [],
-              "responseTime": null,
-              "body": "{\n  \"networkId\": \"N_24329156\",\n  \"useCombinedPower\": false,\n  \"powerExceptions\": [\n    {\n      \"serial\": \"Q234-ABCD-0001\",\n      \"powerType\": \"redundant\"\n    },\n    {\n      \"serial\": \"Q234-ABCD-0002\",\n      \"powerType\": \"combined\"\n    },\n    {\n      \"serial\": \"Q234-ABCD-0003\",\n      \"powerType\": \"redundant\"\n    }\n  ]\n}"
-            }
-          ]
-        },
-        {
-          "_postman_id": "9b2b626d-2886-4672-8862-af25bdc2a2df",
-          "name": "Update switch network settings",
-          "request": {
-            "method": "PUT",
-            "header": [
-              {
-                "key": "X-Cisco-Meraki-API-Key",
-                "value": "{{X-Cisco-Meraki-API-Key}}"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"useCombinedPower\": true,\n    \"powerExceptions\": [\n        {\n            \"serial\": \"Q234-ABCD-0001\",\n            \"powerType\": \"redundant\"\n        },\n        {\n            \"serial\": \"Q234-ABCD-0002\",\n            \"powerType\": \"combined\"\n        },\n        {\n            \"serial\": \"Q234-ABCD-0003\",\n            \"powerType\": \"combined\"\n        },\n        {\n            \"serial\": \"Q234-ABCD-0004\",\n            \"powerType\": \"useNetworkSetting\"\n        }\n    ]\n}"
-            },
-            "url": "{{baseUrl}}/networks/{{networkId}}/switch/settings",
-            "description": "## HTTP REQUEST\n```\nPUT /networks/[networkId]/switch/settings\n```\n## PARAMETERS\n**Parameter**|**Description**\n :-------------: |:-------------:\nuseCombinedPower| The behavior of secondary power supplies on supported devices (\"redundant\", \"combined\")\npowerExceptions| Exceptions on a per switch basis to \"useCombinedPower\"\nserial| Serial number of the switch\npowerType| Per switch exception (combined, redundant, useNetworkSetting)\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X PUT --data-binary '{\"useCombinedPower\":true,\"powerExceptions\":[{\"serial\":\"Q234-ABCD-0001\",\"powerType\":\"redundant\"},{\"serial\":\"Q234-ABCD-0002\",\"powerType\":\"combined\"},{\"serial\":\"Q234-ABCD-0003\",\"powerType\":\"combined\"},{\"serial\":\"Q234-ABCD-0004\",\"powerType\":\"useNetworkSetting\"}]}' 'https://api.meraki.com/api/v0/networks/[networkId]/switch/settings'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"useCombinedPower\": true,\n  \"powerExceptions\": [\n    {\n      \"serial\": \"Q234-ABCD-0001\",\n      \"powerType\": \"redundant\"\n    },\n    {\n      \"serial\": \"Q234-ABCD-0002\",\n      \"powerType\": \"combined\"\n    },\n    {\n      \"serial\": \"Q234-ABCD-0003\",\n      \"powerType\": \"combined\"\n    },\n    {\n      \"serial\": \"Q234-ABCD-0004\",\n      \"powerType\": \"useNetworkSetting\"\n    }\n  ]\n}\n```"
-          },
-          "response": []
         }
       ]
     }
