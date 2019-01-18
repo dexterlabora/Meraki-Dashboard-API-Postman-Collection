@@ -3273,10 +3273,43 @@
       ]
     },
     {
+      "_postman_id": "c04dff0c-7cbf-4495-9ffd-c0e19c2d36ad",
+      "name": "Content filtering categories",
+      "description": "",
+      "item": []
+    },
+    {
       "_postman_id": "2860c6f5-4c9b-48ce-874f-4af597e95be9",
       "name": "Content filtering rules",
       "description": "",
-      "item": []
+      "item": [
+        {
+          "_postman_id": "965b8eae-33f9-4ee1-82e5-68e80a85d6d0",
+          "name": "Update the content filtering settings for an MX network",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "type": "text",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"allowedUrlPatterns\": [\n\t\t\"http://www.example.org\",\n\t\t\"http://help.com.au\"\n\t],\n\t\"blockedUrlPatterns\": [\n\t\t\"http://www.example.com\",\n\t\t\"http://www.betting.com\"\n\t],\n\t\"blockedUrlCategories\": [\n\t\t{\n\t\t\t\"id\": \"meraki:contentFiltering/category/1\",\n\t\t\t\"name\":\"Real Estate\"\n\t\t},\n\t\t{\n\t\t\t\"id\":\"meraki:contentFiltering/category/7\",\n\t\t\t\"name\":\"Shopping\"\n\t\t}\n\t],\n\t\"urlCategoryListSize\": \"topSites\"\n}"
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/contentFiltering",
+            "description": "## HTTP REQUEST\n```\nPUT /networks/[networkId]/contentFiltering\n```\n\n## PARAMETERS\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\nallowedUrlPatterns|A whitelist of URL patterns to allow\nblockedUrlPatterns|A blacklist of URL patterns to block\nblockedUrlCategories|A list of URL categories to block\nurlCategoryListSize|URL category list size which is either 'topSites' or 'fullList'\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X PUT --data-binary '{\"allowedUrlPatterns\":[\"http://www.example.org\",\"http://help.com.au\"],\"blockedUrlPatterns\":[\"http://www.example.com\",\"http://www.betting.com\"],\"blockedUrlCategories\":[{\"id\":\"meraki:contentFiltering/category/1\",\"name\":\"Real Estate\"},{\"id\":\"meraki:contentFiltering/category/7\",\"name\":\"Shopping\"}],\"urlCategoryListSize\":\"topSites\"}' 'https://api.meraki.com/api/v0/networks/[networkId]/contentFiltering'\n```\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n{\n  \"allowedUrlPatterns\": [\n    \"http://www.example.org\",\n    \"http://help.com.au\"\n  ],\n  \"blockedUrlPatterns\": [\n    \"http://www.example.com\",\n    \"http://www.betting.com\"\n  ],\n  \"blockedUrlCategories\": [\n    {\n      \"id\": \"meraki:contentFiltering/category/1\",\n      \"name\": \"Real Estate\"\n    },\n    {\n      \"id\": \"meraki:contentFiltering/category/7\",\n      \"name\": \"Shopping\"\n    }\n  ],\n  \"urlCategoryListSize\": \"topSites\"\n}\n```"
+          },
+          "response": []
+        }
+      ]
     },
     {
       "_postman_id": "487a704c-112a-8309-7f31-db1624bb11dd",
@@ -11575,12 +11608,6 @@
           ]
         }
       ]
-    },
-    {
-      "_postman_id": "c04dff0c-7cbf-4495-9ffd-c0e19c2d36ad",
-      "name": "Content filtering categories",
-      "description": "",
-      "item": []
     },
     {
       "_postman_id": "b7baa037-f840-9d72-af4f-c9c31997913e",
