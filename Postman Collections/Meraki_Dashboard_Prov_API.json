@@ -3284,6 +3284,26 @@
       "description": "",
       "item": [
         {
+          "_postman_id": "c36d6db6-18c2-48da-88b0-e363ca29af4d",
+          "name": "Return the content filtering settings for an MX network",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/contentFiltering",
+            "description": "## HTTP REQUEST\n```\nGET /networks/[networkId]/contentFiltering\n```\n\n## PARAMETERS\n**None**\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[networkId]/contentFiltering'\n```\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n{\n  \"allowedUrlPatterns\": [\n    \"http://www.example.org\",\n    \"http://help.com.au\"\n  ],\n  \"blockedUrlPatterns\": [\n    \"http://www.example.com\",\n    \"http://www.betting.com\"\n  ],\n  \"blockedUrlCategories\": [\n    {\n      \"id\": \"meraki:contentFiltering/category/1\",\n      \"name\": \"Real Estate\"\n    },\n    {\n      \"id\": \"meraki:contentFiltering/category/7\",\n      \"name\": \"Shopping\"\n    }\n  ],\n  \"urlCategoryListSize\": \"topSites\"\n}\n```"
+          },
+          "response": []
+        },
+        {
           "_postman_id": "965b8eae-33f9-4ee1-82e5-68e80a85d6d0",
           "name": "Update the content filtering settings for an MX network",
           "request": {
@@ -3306,26 +3326,6 @@
             },
             "url": "{{baseUrl}}/networks/{{networkId}}/contentFiltering",
             "description": "## HTTP REQUEST\n```\nPUT /networks/[networkId]/contentFiltering\n```\n\n## PARAMETERS\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\nallowedUrlPatterns|A whitelist of URL patterns to allow\nblockedUrlPatterns|A blacklist of URL patterns to block\nblockedUrlCategories|A list of URL categories to block\nurlCategoryListSize|URL category list size which is either 'topSites' or 'fullList'\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X PUT --data-binary '{\"allowedUrlPatterns\":[\"http://www.example.org\",\"http://help.com.au\"],\"blockedUrlPatterns\":[\"http://www.example.com\",\"http://www.betting.com\"],\"blockedUrlCategories\":[{\"id\":\"meraki:contentFiltering/category/1\",\"name\":\"Real Estate\"},{\"id\":\"meraki:contentFiltering/category/7\",\"name\":\"Shopping\"}],\"urlCategoryListSize\":\"topSites\"}' 'https://api.meraki.com/api/v0/networks/[networkId]/contentFiltering'\n```\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n{\n  \"allowedUrlPatterns\": [\n    \"http://www.example.org\",\n    \"http://help.com.au\"\n  ],\n  \"blockedUrlPatterns\": [\n    \"http://www.example.com\",\n    \"http://www.betting.com\"\n  ],\n  \"blockedUrlCategories\": [\n    {\n      \"id\": \"meraki:contentFiltering/category/1\",\n      \"name\": \"Real Estate\"\n    },\n    {\n      \"id\": \"meraki:contentFiltering/category/7\",\n      \"name\": \"Shopping\"\n    }\n  ],\n  \"urlCategoryListSize\": \"topSites\"\n}\n```"
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "c36d6db6-18c2-48da-88b0-e363ca29af4d",
-          "name": "Return the content filtering settings for an MX network",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "X-Cisco-Meraki-API-Key",
-                "value": "{{X-Cisco-Meraki-API-Key}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": "{{baseUrl}}/networks/{{networkId}}/contentFiltering",
-            "description": "## HTTP REQUEST\n```\nGET /networks/[networkId]/contentFiltering\n```\n\n## PARAMETERS\n**None**\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[networkId]/contentFiltering'\n```\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n{\n  \"allowedUrlPatterns\": [\n    \"http://www.example.org\",\n    \"http://help.com.au\"\n  ],\n  \"blockedUrlPatterns\": [\n    \"http://www.example.com\",\n    \"http://www.betting.com\"\n  ],\n  \"blockedUrlCategories\": [\n    {\n      \"id\": \"meraki:contentFiltering/category/1\",\n      \"name\": \"Real Estate\"\n    },\n    {\n      \"id\": \"meraki:contentFiltering/category/7\",\n      \"name\": \"Shopping\"\n    }\n  ],\n  \"urlCategoryListSize\": \"topSites\"\n}\n```"
           },
           "response": []
         }
