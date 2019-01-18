@@ -3056,7 +3056,7 @@
     },
     {
       "_postman_id": "5595d746-713d-a5cf-9b8d-24283985908c",
-      "name": "Config Templates",
+      "name": "Config templates",
       "description": "",
       "item": [
         {
@@ -3247,6 +3247,28 @@
             "description": "## HTTP REQUEST\n```\nDELETE /organizations/[organizationId]/configTemplates/[id]\n```\n\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X DELETE 'https://dashboard.meraki.com/api/v0/organizations/[organizationId]/configTemplates/[id]'\n```\n\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n(empty)\n```"
           },
           "response": []
+        }
+      ],
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "99dcd86c-17c6-487c-bd6f-767e9511751c",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "d0959dfd-5889-4a32-a131-061126500193",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
         }
       ]
     },
