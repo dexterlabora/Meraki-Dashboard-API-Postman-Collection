@@ -14171,7 +14171,7 @@
               "mode": "raw",
               "raw": ""
             },
-            "url": "{{baseUrl}}/v0/devices/{{serial}}/camera/analytics/zones",
+            "url": "{{baseUrl}}/devices/{{serial}}/camera/analytics/zones",
             "description": "# HTTP REQUEST\n```\nGET /devices/[serial]/camera/analytics/zones\n```\n# PARAMETERS\n**None**\n\n# SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/devices/[serial]/camera/analytics/zones'\n```\n# SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n[\n  {\n    \"id\": \"0\",\n    \"type\": \"occupancy\",\n    \"label\": \"Full Frame\"\n  }\n]\n```"
           },
           "response": [
@@ -14389,6 +14389,30 @@
               "body": "[\n    {\n        \"zoneId\": 0,\n        \"error\": \"No updates in past 30 minutes\"\n    },\n    {\n        \"zoneId\": 643451796760559620,\n        \"error\": \"No updates in past 30 minutes\"\n    }\n]"
             }
           ]
+        },
+        {
+          "_postman_id": "77a91772-c36b-43f7-bb4f-37f33bd56400",
+          "name": "Returns live state from camera of analytics zones",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "{{baseUrl}}/v0/devices/{{serial}}/camera/analytics/live",
+            "description": "# HTTP REQUEST\n```\nGET /devices/[serial]/camera/analytics/live\n```\n# PARAMETERS\n**None**\n\n# SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/devices/[serial]/camera/analytics/live'\n```\n# SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n[\n  {\n    \"ts\": \"2018-08-15T18:32:38.123Z\",\n    \"zones\": {\n      \"0\": {\n        \"person\": 0\n      }\n    }\n  }\n]\n```"
+          },
+          "response": []
         },
         {
           "_postman_id": "2bfe5be0-e418-410f-a615-e0414b37204d",
@@ -14672,30 +14696,6 @@
               "body": ""
             }
           ]
-        },
-        {
-          "_postman_id": "77a91772-c36b-43f7-bb4f-37f33bd56400",
-          "name": "Returns live state from camera of analytics zones",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "X-Cisco-Meraki-API-Key",
-                "value": "{{X-Cisco-Meraki-API-Key}}"
-              },
-              {
-                "key": "Accept",
-                "value": "*/*"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": "{{baseUrl}}/v0/devices/{{serial}}/camera/analytics/live",
-            "description": "# HTTP REQUEST\n```\nGET /devices/[serial]/camera/analytics/live\n```\n# PARAMETERS\n**None**\n\n# SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/devices/[serial]/camera/analytics/live'\n```\n# SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n[\n  {\n    \"ts\": \"2018-08-15T18:32:38.123Z\",\n    \"zones\": {\n      \"0\": {\n        \"person\": 0\n      }\n    }\n  }\n]\n```"
-          },
-          "response": []
         }
       ],
       "event": [
