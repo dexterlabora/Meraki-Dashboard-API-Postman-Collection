@@ -183,7 +183,33 @@
             "url": "{{baseUrl}}/organizations/{{organizationId}}/admins/{{adminId}}",
             "description": "## HTTP REQUEST\n```\nDELETE /organizations/[organization_id]/admins/[id]\n```\n\n## PARAMETERS\n**None**\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X DELETE 'https://api.meraki.com/api/v0/organizations/[organization_id]/admins/[id]'\n```\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 204\n```"
           },
-          "response": []
+          "response": [
+            {
+              "id": "01247566-bb10-4aa9-a55e-1d438033eb0c",
+              "name": "Revoke all access for a dashboard administrator within this organization",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{baseUrl}}/organizations/{{organizationId}}/admins/{{adminId}}"
+              },
+              "status": "No Content",
+              "code": 204,
+              "_postman_previewlanguage": null,
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": null
+            }
+          ]
         }
       ]
     },
@@ -201,20 +227,7 @@
               "script": {
                 "id": "59315a50-6d1d-4402-9b71-e2fae317b115",
                 "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "",
-                  "var data = pm.response.json();",
-                  "pm.test(\"Data is non-empty\", function() {",
-                  "    pm.expect(data).to.be.an('object');",
-                  "})",
-                  "",
-                  "pm.test(\"Response has defaultDestinations\", function () {",
-                  "    pm.expect(data.defaultDestinations).to.be.an('object');",
-                  "});",
-                  "",
-                  "pm.test(\"Response has alerts\", function () {",
-                  "    pm.expect(data.alerts).to.be.an('array');",
-                  "});"
+                  ""
                 ],
                 "type": "text/javascript"
               }
@@ -232,17 +245,11 @@
               }
             ],
             "body": {
-              "mode": "formdata",
-              "formdata": [
-                {
-                  "key": "mac",
-                  "value": "{{pixel_mac}}",
-                  "type": "text"
-                }
-              ]
+              "mode": "raw",
+              "raw": ""
             },
             "url": "{{baseUrl}}/networks/{{networkId}}/alertSettings",
-            "description": "## HTTP REQUEST\n```\nGET /networks/[networkId]/alertSettings\n```\n## PARAMETERS\n**None**\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[networkId]/alertSettings'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"defaultDestinations\": {\n    \"emails\": [\n      \"miles@meraki.com\"\n    ],\n    \"allAdmins\": true,\n    \"snmp\": true\n  },\n  \"alerts\": [\n    {\n      \"type\": \"gatewayDown\",\n      \"enabled\": true,\n      \"alertDestinations\": {\n        \"emails\": [\n          \"miles@meraki.com\"\n        ],\n        \"allAdmins\": false,\n        \"snmp\": false\n      },\n      \"filters\": {\n        \"timeout\": 60\n      }\n    }\n  ]\n}\n```"
+            "description": "## HTTP REQUEST\n```\nGET /networks/[networkId]/alertSettings\n```\n\n## PARAMETERS\n**None**\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[networkId]/alertSettings'\n```\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n{\n  \"defaultDestinations\": {\n    \"emails\": [\n      \"miles@meraki.com\"\n    ],\n    \"allAdmins\": true,\n    \"snmp\": true\n  },\n  \"alerts\": [\n    {\n      \"type\": \"gatewayDown\",\n      \"enabled\": true,\n      \"alertDestinations\": {\n        \"emails\": [\n          \"miles@meraki.com\"\n        ],\n        \"allAdmins\": false,\n        \"snmp\": false\n      },\n      \"filters\": {\n        \"timeout\": 60\n      }\n    }\n  ]\n}\n```"
           },
           "response": [
             {
