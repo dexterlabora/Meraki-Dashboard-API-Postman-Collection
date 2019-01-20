@@ -280,67 +280,6 @@
           ]
         },
         {
-          "_postman_id": "dfe68620-59f4-4b7e-bdba-88bd051fbe29",
-          "name": "Return the alert configuration for this network Copy",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "59315a50-6d1d-4402-9b71-e2fae317b115",
-                "exec": [
-                  ""
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "request": {
-            "auth": {
-              "type": "noauth"
-            },
-            "method": "GET",
-            "header": [
-              {
-                "key": "X-Cisco-Meraki-API-Key",
-                "value": "{{X-Cisco-Meraki-API-Key}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": "{{baseUrl}}/networks/{{networkId}}/alertSettings",
-            "description": "## HTTP REQUEST\n```\nGET /networks/[networkId]/alertSettings\n```\n\n## PARAMETERS\n**None**\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[networkId]/alertSettings'\n```\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n{\n  \"defaultDestinations\": {\n    \"emails\": [\n      \"miles@meraki.com\"\n    ],\n    \"allAdmins\": true,\n    \"snmp\": true\n  },\n  \"alerts\": [\n    {\n      \"type\": \"gatewayDown\",\n      \"enabled\": true,\n      \"alertDestinations\": {\n        \"emails\": [\n          \"miles@meraki.com\"\n        ],\n        \"allAdmins\": false,\n        \"snmp\": false\n      },\n      \"filters\": {\n        \"timeout\": 60\n      }\n    }\n  ]\n}\n```"
-          },
-          "response": [
-            {
-              "id": "5c28e9b7-5a93-416d-b0f5-aa6dfa5c9d3d",
-              "name": "Return the alert configuration for this network",
-              "originalRequest": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "X-Cisco-Meraki-API-Key",
-                    "value": "{{X-Cisco-Meraki-API-Key}}"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": ""
-                },
-                "url": "{{baseUrl}}/networks/{{networkId}}/alertSettings"
-              },
-              "status": "OK",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": null,
-              "cookie": [],
-              "responseTime": null,
-              "body": "{\n    \"defaultDestinations\": {\n        \"emails\": [\n            \"miles@meraki.com\"\n        ],\n        \"allAdmins\": true,\n        \"snmp\": true\n    },\n    \"alerts\": [\n        {\n            \"type\": \"gatewayDown\",\n            \"enabled\": true,\n            \"alertDestinations\": {\n                \"emails\": [\n                    \"miles@meraki.com\"\n                ],\n                \"allAdmins\": false,\n                \"snmp\": false\n            },\n            \"filters\": {\n                \"timeout\": 60\n            }\n        }\n    ]\n}"
-            }
-          ]
-        },
-        {
           "_postman_id": "9d346284-3bc9-4c07-87f1-3c58e1177419",
           "name": "Update the alert configuration for this network",
           "event": [
