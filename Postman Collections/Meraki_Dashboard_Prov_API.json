@@ -14272,6 +14272,125 @@
           ]
         },
         {
+          "_postman_id": "77c69164-0c6b-4bc8-830d-f101569087a2",
+          "name": "Returns most recent record for analytics zones",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "{{baseUrl}}/devices/{{serial}}/camera/analytics/recent",
+            "description": "# HTTP REQUEST\n```\nGET /devices/[serial]/camera/analytics/recent\n```\n# PARAMETERS\n**None**\n\n# SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/devices/[serial]/camera/analytics/recent'\n```\n# SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n[\n  {\n    \"startTs\": \"2018-08-15T18:32:38.123Z\",\n    \"endTs\": \"2018-08-15T18:33:38.123Z\",\n    \"zoneId\": 0,\n    \"entrances\": 10,\n    \"averageCount\": 2.54\n  }\n]\n```"
+          },
+          "response": [
+            {
+              "id": "1b0a9df0-6b78-484c-a8dc-226ad71d6861",
+              "name": "Returns most recent record for analytics zones",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{baseUrl}}/devices/{{serial}}/camera/analytics/recent"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 04 Dec 2018 13:43:45 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin"
+                },
+                {
+                  "key": "X-Robots-Tag",
+                  "value": "none"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "2958c0318803121554a07ffe5c6ee896"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.135436"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n    {\n        \"zoneId\": 0,\n        \"error\": \"No updates in past 30 minutes\"\n    },\n    {\n        \"zoneId\": 643451796760559620,\n        \"error\": \"No updates in past 30 minutes\"\n    }\n]"
+            }
+          ]
+        },
+        {
           "_postman_id": "2bfe5be0-e418-410f-a615-e0414b37204d",
           "name": "Returns an overview of aggregate analytics data for a timespan",
           "request": {
@@ -14551,125 +14670,6 @@
               "cookie": [],
               "responseTime": null,
               "body": ""
-            }
-          ]
-        },
-        {
-          "_postman_id": "77c69164-0c6b-4bc8-830d-f101569087a2",
-          "name": "Returns most recent record for analytics zones",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "X-Cisco-Meraki-API-Key",
-                "value": "{{X-Cisco-Meraki-API-Key}}"
-              },
-              {
-                "key": "Accept",
-                "value": "*/*"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": "{{baseUrl}}/devices/{{serial}}/camera/analytics/recent",
-            "description": "# HTTP REQUEST\n```\nGET /devices/[serial]/camera/analytics/recent\n```\n# PARAMETERS\n**None**\n\n# SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/devices/[serial]/camera/analytics/recent'\n```\n# SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n[\n  {\n    \"startTs\": \"2018-08-15T18:32:38.123Z\",\n    \"endTs\": \"2018-08-15T18:33:38.123Z\",\n    \"zoneId\": 0,\n    \"entrances\": 10,\n    \"averageCount\": 2.54\n  }\n]\n```"
-          },
-          "response": [
-            {
-              "id": "1b0a9df0-6b78-484c-a8dc-226ad71d6861",
-              "name": "Returns most recent record for analytics zones",
-              "originalRequest": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "X-Cisco-Meraki-API-Key",
-                    "value": "{{X-Cisco-Meraki-API-Key}}"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "*/*"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": ""
-                },
-                "url": "{{baseUrl}}/devices/{{serial}}/camera/analytics/recent"
-              },
-              "status": "OK",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Server",
-                  "value": "nginx"
-                },
-                {
-                  "key": "Date",
-                  "value": "Tue, 04 Dec 2018 13:43:45 GMT"
-                },
-                {
-                  "key": "Content-Type",
-                  "value": "application/json; charset=utf-8"
-                },
-                {
-                  "key": "Transfer-Encoding",
-                  "value": "chunked"
-                },
-                {
-                  "key": "Connection",
-                  "value": "keep-alive"
-                },
-                {
-                  "key": "Vary",
-                  "value": "Accept-Encoding"
-                },
-                {
-                  "key": "Cache-Control",
-                  "value": "no-cache, no-store, max-age=0, must-revalidate"
-                },
-                {
-                  "key": "Pragma",
-                  "value": "no-cache"
-                },
-                {
-                  "key": "Expires",
-                  "value": "Fri, 01 Jan 1990 00:00:00 GMT"
-                },
-                {
-                  "key": "X-Frame-Options",
-                  "value": "sameorigin"
-                },
-                {
-                  "key": "X-Robots-Tag",
-                  "value": "none"
-                },
-                {
-                  "key": "X-UA-Compatible",
-                  "value": "IE=Edge,chrome=1"
-                },
-                {
-                  "key": "X-Request-Id",
-                  "value": "2958c0318803121554a07ffe5c6ee896"
-                },
-                {
-                  "key": "X-Runtime",
-                  "value": "0.135436"
-                },
-                {
-                  "key": "Strict-Transport-Security",
-                  "value": "max-age=15552000; includeSubDomains"
-                },
-                {
-                  "key": "Content-Encoding",
-                  "value": "gzip"
-                }
-              ],
-              "cookie": [],
-              "responseTime": null,
-              "body": "[\n    {\n        \"zoneId\": 0,\n        \"error\": \"No updates in past 30 minutes\"\n    },\n    {\n        \"zoneId\": 643451796760559620,\n        \"error\": \"No updates in past 30 minutes\"\n    }\n]"
             }
           ]
         },
