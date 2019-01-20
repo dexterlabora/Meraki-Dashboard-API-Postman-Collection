@@ -14149,7 +14149,7 @@
     },
     {
       "_postman_id": "d04d8671-3b1a-44c5-ace1-ae0cbc632836",
-      "name": "Analytics",
+      "name": "Analytics (MV Sense)",
       "description": "",
       "item": [
         {
@@ -14696,6 +14696,28 @@
             "description": "# HTTP REQUEST\n```\nGET /devices/[serial]/camera/analytics/live\n```\n# PARAMETERS\n**None**\n\n# SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/devices/[serial]/camera/analytics/live'\n```\n# SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n[\n  {\n    \"ts\": \"2018-08-15T18:32:38.123Z\",\n    \"zones\": {\n      \"0\": {\n        \"person\": 0\n      }\n    }\n  }\n]\n```"
           },
           "response": []
+        }
+      ],
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "1f76e136-a64d-4ae3-a686-4b69a7f73dc0",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "9778fecd-ad07-4720-9744-6d93095ac851",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
         }
       ]
     },
