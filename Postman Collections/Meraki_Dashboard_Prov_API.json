@@ -14149,9 +14149,128 @@
     },
     {
       "_postman_id": "d04d8671-3b1a-44c5-ace1-ae0cbc632836",
-      "name": "Analytics",
+      "name": "Analytics (MV Sense)",
       "description": "",
       "item": [
+        {
+          "_postman_id": "ebb36fa9-f0cf-4dfd-b6bd-b8070e59b8b4",
+          "name": "Returns all configured analytic zones for this camera",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "{{baseUrl}}/v0/devices/{{serial}}/camera/analytics/zones",
+            "description": "# HTTP REQUEST\n```\nGET /devices/[serial]/camera/analytics/zones\n```\n# PARAMETERS\n**None**\n\n# SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/devices/[serial]/camera/analytics/zones'\n```\n# SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n[\n  {\n    \"id\": \"0\",\n    \"type\": \"occupancy\",\n    \"label\": \"Full Frame\"\n  }\n]\n```"
+          },
+          "response": [
+            {
+              "id": "7937283a-27d5-454b-b947-cea51a6b3c56",
+              "name": "Returns all configured analytic zones for this camera",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://api.meraki.com/api/v0/devices/{{serial}}/camera/analytics/zones"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 04 Dec 2018 13:28:40 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin"
+                },
+                {
+                  "key": "X-Robots-Tag",
+                  "value": "none"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "f7563cf8a076de971a109bfc6dd28e08"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.300482"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n    {\n        \"zoneId\": \"0\",\n        \"type\": \"occupancy\",\n        \"label\": \"Full Frame\"\n    },\n    {\n        \"zoneId\": \"643451796760559620\",\n        \"type\": \"occupancy\",\n        \"label\": \"Meraki Demo\"\n    }\n]"
+            }
+          ]
+        },
         {
           "_postman_id": "2bfe5be0-e418-410f-a615-e0414b37204d",
           "name": "Returns an overview of aggregate analytics data for a timespan",
@@ -14311,125 +14430,6 @@
               "cookie": [],
               "responseTime": null,
               "body": "[\n    {\n        \"startTs\": \"2018-11-28T13:28:56.603Z\",\n        \"endTs\": \"2018-12-04T13:28:56.603Z\",\n        \"zoneId\": 0,\n        \"entrances\": 66726,\n        \"averageCount\": 2.9424011564871626\n    },\n    {\n        \"startTs\": \"2018-11-28T13:28:56.603Z\",\n        \"endTs\": \"2018-12-04T13:28:56.603Z\",\n        \"zoneId\": 643451796760559620,\n        \"entrances\": 14864,\n        \"averageCount\": 0.42393379604911835\n    }\n]"
-            }
-          ]
-        },
-        {
-          "_postman_id": "ebb36fa9-f0cf-4dfd-b6bd-b8070e59b8b4",
-          "name": "Returns all configured analytic zones for this camera",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "X-Cisco-Meraki-API-Key",
-                "value": "{{X-Cisco-Meraki-API-Key}}"
-              },
-              {
-                "key": "Accept",
-                "value": "*/*"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": "{{baseUrl}}/v0/devices/{{serial}}/camera/analytics/zones",
-            "description": "# HTTP REQUEST\n```\nGET /devices/[serial]/camera/analytics/zones\n```\n# PARAMETERS\n**None**\n\n# SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/devices/[serial]/camera/analytics/zones'\n```\n# SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n[\n  {\n    \"id\": \"0\",\n    \"type\": \"occupancy\",\n    \"label\": \"Full Frame\"\n  }\n]\n```"
-          },
-          "response": [
-            {
-              "id": "7937283a-27d5-454b-b947-cea51a6b3c56",
-              "name": "Returns all configured analytic zones for this camera",
-              "originalRequest": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "X-Cisco-Meraki-API-Key",
-                    "value": "{{X-Cisco-Meraki-API-Key}}"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "*/*"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": ""
-                },
-                "url": "https://api.meraki.com/api/v0/devices/{{serial}}/camera/analytics/zones"
-              },
-              "status": "OK",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Server",
-                  "value": "nginx"
-                },
-                {
-                  "key": "Date",
-                  "value": "Tue, 04 Dec 2018 13:28:40 GMT"
-                },
-                {
-                  "key": "Content-Type",
-                  "value": "application/json; charset=utf-8"
-                },
-                {
-                  "key": "Transfer-Encoding",
-                  "value": "chunked"
-                },
-                {
-                  "key": "Connection",
-                  "value": "keep-alive"
-                },
-                {
-                  "key": "Vary",
-                  "value": "Accept-Encoding"
-                },
-                {
-                  "key": "Cache-Control",
-                  "value": "no-cache, no-store, max-age=0, must-revalidate"
-                },
-                {
-                  "key": "Pragma",
-                  "value": "no-cache"
-                },
-                {
-                  "key": "Expires",
-                  "value": "Fri, 01 Jan 1990 00:00:00 GMT"
-                },
-                {
-                  "key": "X-Frame-Options",
-                  "value": "sameorigin"
-                },
-                {
-                  "key": "X-Robots-Tag",
-                  "value": "none"
-                },
-                {
-                  "key": "X-UA-Compatible",
-                  "value": "IE=Edge,chrome=1"
-                },
-                {
-                  "key": "X-Request-Id",
-                  "value": "f7563cf8a076de971a109bfc6dd28e08"
-                },
-                {
-                  "key": "X-Runtime",
-                  "value": "0.300482"
-                },
-                {
-                  "key": "Strict-Transport-Security",
-                  "value": "max-age=15552000; includeSubDomains"
-                },
-                {
-                  "key": "Content-Encoding",
-                  "value": "gzip"
-                }
-              ],
-              "cookie": [],
-              "responseTime": null,
-              "body": "[\n    {\n        \"zoneId\": \"0\",\n        \"type\": \"occupancy\",\n        \"label\": \"Full Frame\"\n    },\n    {\n        \"zoneId\": \"643451796760559620\",\n        \"type\": \"occupancy\",\n        \"label\": \"Meraki Demo\"\n    }\n]"
             }
           ]
         },
@@ -14696,6 +14696,28 @@
             "description": "# HTTP REQUEST\n```\nGET /devices/[serial]/camera/analytics/live\n```\n# PARAMETERS\n**None**\n\n# SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/devices/[serial]/camera/analytics/live'\n```\n# SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n[\n  {\n    \"ts\": \"2018-08-15T18:32:38.123Z\",\n    \"zones\": {\n      \"0\": {\n        \"person\": 0\n      }\n    }\n  }\n]\n```"
           },
           "response": []
+        }
+      ],
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "1f76e136-a64d-4ae3-a686-4b69a7f73dc0",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "9778fecd-ad07-4720-9744-6d93095ac851",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
         }
       ]
     },
