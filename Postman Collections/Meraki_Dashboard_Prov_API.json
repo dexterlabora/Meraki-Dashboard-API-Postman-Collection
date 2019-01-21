@@ -15367,6 +15367,125 @@
           ]
         }
       ]
+    },
+    {
+      "_postman_id": "9415b9fa-9384-4953-b488-78771ba0ab36",
+      "name": "Static routes",
+      "description": null,
+      "item": [
+        {
+          "_postman_id": "4dc47eb7-6d75-4e49-9b56-ce5f40ea3edc",
+          "name": "List the static routes for this network",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/staticRoutes",
+            "description": "## HTTP REQUEST\n```\nGET /networks/[networkId]/staticRoutes\n```\n\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://dashboard.meraki.com/api/v0/networks/[networkId]/staticRoutes'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n[\n  {\n    \"id\": \"10\",\n    \"networkId\": \"N_1234\",\n    \"name\": \"VOIP\",\n    \"gatewayIp\": \"10.8.0.5\",\n    \"subnet\": \"192.168.10.0/24\"\n  }\n]\n```"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "a6326835-4ae0-483c-bf55-b62b049ab3a9",
+          "name": "Return a static route",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/staticRoutes/{{srId}}",
+            "description": "## HTTP REQUEST\n```\nGET /networks/[networkId]/staticRoutes/[srId]\n```\n\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://dashboard.meraki.com/api/v0/networks/[networkId]/staticRoutes/[srId]'\n```\n## SAMPLE RESPONSE\n```\n\nSuccessful HTTP Status: 200\n\n{\n  \"id\": \"10\",\n  \"networkId\": \"N_1234\",\n  \"name\": \"VOIP\",\n  \"gatewayIp\": \"10.8.0.5\",\n  \"subnet\": \"192.168.10.0/24\"\n}\n```"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "1e024129-810a-49d5-bb39-c6a2cf6fe82c",
+          "name": "Update a static route",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\":\"test\",\n  \"subnet\":\"192.168.123.0/24\",\n  \"gatewayIp\":\"10.0.0.1\",\n  \"enabled\":\"true\"\n}"
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/staticRoutes/{{srId}}",
+            "description": "## HTTP REQUEST\n```\nPUT /networks/[networkId]/staticRoutes/[srId]\n```\n\n## PARAMETERS\n\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\nname|The name of the static route\nsubnet|The subnet of the static route\ngatewayIp|The gateway IP (next hop) of the static route\nenabled|The enabled state of the static route\nfixedIpAssignments|The DHCP fixed IP assignments on the static route\nreservedIpRanges|The DHCP reserved IP ranges on the static route \n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X PUT --data-binary '{\"name\":\"VOIP\",\"subnet\":\"192.168.10.0/24\",\"fixedIpAssignments\":{\"13:37:de:ad:be:ef\":{\"ip\":\"192.168.10.5\",\"name\":\"fixed\"}},\"reservedIpRanges\":[{\"start\":\"192.168.10.20\",\"end\":\"192.168.10.30\",\"comment\":\"reserved\"}]}' 'https://dashboard.meraki.com/api/v0/networks/[networkId]/staticRoutes/[srId]'\n```\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"id\": \"10\",\n  \"networkId\": \"N_1234\",\n  \"name\": \"VOIP\",\n  \"gatewayIp\": \"10.8.0.5\",\n  \"subnet\": \"192.168.10.0/24\"\n}\n```"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "efc30bb0-8e4b-48fb-90c9-905abbd3e39b",
+          "name": "Add a static route",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\":\"test\",\n  \"subnet\":\"192.168.123.0/24\",\n  \"gatewayIp\":\"10.0.0.1\",\n  \"enabled\":\"true\"\n}"
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/staticRoutes",
+            "description": "## HTTP REQUEST\n```\nPOST /networks/[networkId]/staticRoutes\n```\n\n## PARAMETERS\n\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\nname|The name of the new static route\nsubnet|The subnet of the static route\ngatewayIp|The gateway IP (next hop) of the static route \n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X POST --data-binary '{\"name\":\"VOIP\",\"subnet\":\"192.168.10.0/24\",\"gatewayIp\":\"10.0.13.37\"}' 'https://dashboard.meraki.com/api/v0/networks/[networkId]/staticRoutes'\n```\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 201\n\n{\n  \"id\": \"10\",\n  \"networkId\": \"N_1234\",\n  \"name\": \"VOIP\",\n  \"gatewayIp\": \"10.8.0.5\",\n  \"subnet\": \"192.168.10.0/24\"\n}\n```"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "fe64592d-4d09-4ae0-9d4e-c963f63e18a2",
+          "name": "Delete a static route from a network",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\":\"test\",\n  \"subnet\":\"192.168.123.0/24\",\n  \"gatewayIp\":\"10.0.0.1\",\n  \"enabled\":\"true\"\n}"
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/staticRoutes/{{srId}}",
+            "description": "## HTTP REQUEST\n```\nDELETE /networks/[networkId]/staticRoutes/[srId]\n```\n\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X DELETE 'https://dashboard.meraki.com/api/v0/networks/[networkId]/staticRoutes/[srId]'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 204\n\n(empty)\n```"
+          },
+          "response": []
+        }
+      ]
     }
   ],
   "event": [
