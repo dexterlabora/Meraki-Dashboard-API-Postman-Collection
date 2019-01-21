@@ -15116,6 +15116,257 @@
           "response": []
         }
       ]
+    },
+    {
+      "_postman_id": "3aa58d3e-4a62-42d3-8f01-2cec034a0db5",
+      "name": "Splash settings",
+      "description": null,
+      "item": [
+        {
+          "_postman_id": "dc3dfebf-3eac-4675-9caa-52f6306fbc9f",
+          "name": "Display the splash page settings for the given SSID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/ssids/{{ssidNum}}/splashSettings",
+            "description": "## HTTP REQUEST\n```\nGET/networks/[networkId]/ssids/[number]/splashSettings\n```\n## PARAMETERS\n**None**\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[networkId]/ssids/[number]/splashSettings'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"ssidNumber\": 0,\n  \"splashPage\": \"Click-through splash page\",\n  \"splashUrl\": \"https://www.custom_splash_url.com\"\n}\n```"
+          },
+          "response": [
+            {
+              "id": "0b898fe5-8dbe-4826-af6e-fd27b2874eae",
+              "name": "Display the splash page settings for the given SSID",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{baseUrl}}/networks/{{networkId}}/ssids/{{ssidNum}}/splashSettings"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx"
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 07 Dec 2018 14:03:15 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin"
+                },
+                {
+                  "key": "X-Robots-Tag",
+                  "value": "none"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "cb889fed9a064f541786793690e080a2"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.604468"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"ssidNumber\": 2,\n    \"splashMethod\": \"Click-through splash page\",\n    \"splashUrl\": null\n}"
+            }
+          ]
+        },
+        {
+          "_postman_id": "e8aa7b4b-49cf-4d46-bb6c-a84a4ebb7e6e",
+          "name": "Modify the splash page settings for the given SSID",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "95a09c50-65e1-4c09-9623-d6c66e9bb35f",
+                "exec": [
+                  "var jsonData = JSON.parse(responseBody);",
+                  "postman.setEnvironmentVariable(\"Del-Network\", jsonData.id);",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "  {\n\t\"splashPage\": \"Click-through splash page\",\n\t\"splashUrl\": \"https://www.custom_splash_url.com\",\n\t\"useCustomUrl\": true\n  }"
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/ssids/{{ssidNum}}/splashSettings",
+            "description": "## HTTP REQUEST\n```\nPUT /networks/[networkId]/ssids/[number]/splashSettings\n```\n## PARAMETERS\n**Parameter**|**Description**\n :-------------: |:-------------:\nsplashUrl| The custom splash URL of the click-through splash page. Optional. Note that the URL can be configured without necessarily being used. In order to enable the custom URL, see 'useSplashUrl'\nuseSplashUrl| Boolean indicating whether the user will be redirected to the custom splash url. A custom splash URL must be set if this is true. Optional. Note that depending on your SSID's access control settings, it may not be possible to use the custom splash URL.\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X PUT --data-binary '{\"splashUrl\":\"https://www.custom_splash_url.com\",\"useSplashUrl\":true}' 'https://api.meraki.com/api/v0/networks/[networkId]/ssids/[number]/splashSettings'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"ssidNumber\": 0,\n  \"splashPage\": \"Click-through splash page\",\n  \"splashUrl\": \"https://www.custom_splash_url.com\",\n  \"useSplashUrl\": true\n}\n```"
+          },
+          "response": [
+            {
+              "id": "2e67c946-dcac-4cba-94fc-890510607c3e",
+              "name": "Modify the splash page settings for the given SSID",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "  {\n\t\"splashPage\": \"Click-through splash page\",\n\t\"splashUrl\": \"https://www.custom_splash_url.com\",\n\t\"useCustomUrl\": true\n  }"
+                },
+                "url": "{{baseUrl}}/networks/{{networkId}}/ssids/{{ssidNum}}/splashSettings"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx"
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 07 Dec 2018 14:07:17 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin"
+                },
+                {
+                  "key": "X-Robots-Tag",
+                  "value": "none"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "00f3e70736e93ee3cc27250b50691907"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.327638"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"ssidNumber\": 2,\n    \"splashMethod\": \"None\",\n    \"splashUrl\": \"https://www.custom_splash_url.com\"\n}"
+            }
+          ]
+        }
+      ]
     }
   ],
   "event": [
