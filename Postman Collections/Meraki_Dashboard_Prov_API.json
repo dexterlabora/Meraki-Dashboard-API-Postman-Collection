@@ -15486,6 +15486,219 @@
           "response": []
         }
       ]
+    },
+    {
+      "_postman_id": "c90a95dc-7492-4a21-be2b-7271c3dade04",
+      "name": "Switch ports",
+      "description": null,
+      "item": [
+        {
+          "_postman_id": "735cc2c3-3944-4e93-a7ef-0576df8ad6aa",
+          "name": "List the switch ports for a switch",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "{{baseUrl}}/devices/{{serial}}/switchPorts",
+            "description": "## HTTP REQUEST\n```\nGET /devices/[serial]/switchPorts\n```\n\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://dashboard.meraki.com/api/v0/devices/[serial]/switchPorts'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n[\n  {\n    \"number\": 1,\n    \"name\": \"my port\",\n    \"tags\": \"dorm-room limited\",\n    \"enabled\": true,\n    \"type\": \"access\",\n    \"vlan\": 10,\n    \"voiceVlan\": 20,\n    \"poeEnabled\": true,\n    \"isolationEnabled\": false,\n    \"rstpEnabled\": true,\n    \"stpGuard\": \"disabled\",\n    \"accessPolicyNumber\": \"asdf1234\"\n  }\n]\n```"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "e355cca9-ecc9-49dc-b368-440386d0f2c0",
+          "name": "Return a switch port",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "{{baseUrl}}/devices/{{serial}}/switchPorts/{{portNum}}",
+            "description": "## HTTP REQUEST\n```\nGET /devices/[serial]/switchPorts/[number]\n```\n\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://dashboard.meraki.com/api/v0/devices/[serial]/switchPorts/[number]'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"number\": 1,\n  \"name\": \"my port\",\n  \"tags\": \"dorm-room limited\",\n  \"enabled\": true,\n  \"type\": \"access\",\n  \"vlan\": 10,\n  \"voiceVlan\": 20,\n  \"poeEnabled\": true,\n  \"isolationEnabled\": false,\n  \"rstpEnabled\": true,\n  \"stpGuard\": \"disabled\",\n  \"accessPolicyNumber\": \"asdf1234\"\n}\n```"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "a03bcc4e-0029-40d5-b243-96ea2b8f60a0",
+          "name": "Update a switch port",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"test from Postman\",\n  \"tags\": \"API\",\n  \"enabled\": true,\n  \"poeEnabled\": true,\n  \"type\": \"trunk\",\n  \"vlan\": 1,\n  \"voiceVlan\": null,\n  \"allowedVlans\": \"all\",\n  \"isolationEnabled\": false,\n  \"rstpEnabled\": true,\n  \"stpGuard\": \"disabled\",\n  \"accessPolicyNumber\": null\n}"
+            },
+            "url": "{{baseUrl}}/devices/{{serial}}/switchPorts/{{portNum}}",
+            "description": "## HTTP REQUEST\n```\nPUT /devices/[serial]/switchPorts/[number]\n```\n\n## PARAMETERS\n\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\nname|The name of the switch port\ntags|The tags of the switch port\nenabled|The status of the switch port\ntype|The type of the switch port (\"access\" or \"trunk\")\nvlan|The VLAN of the switch port\nvoiceVlan|The voice VLAN of the switch port. Only applicable to access ports.\nallowedVlans|The VLANs allowed on the switch port. Only applicable to trunk ports.\npoeEnabled|The PoE status of the switch port\nisolationEnabled|The isolation status of the switch port\nrstpEnabled|The rapid spanning tree protocol status\nstpGuard|The state of the STP guard (\"disabled\", \"Root guard\", \"BPDU guard\", \"Loop guard\")\naccessPolicyNumber|The number of the access policy of the switch port. Only applicable to access ports. \n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X PUT 'https://dashboard.meraki.com/api/v0/devices/[serial]/switchPorts/[number]'\n```\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"number\": 1,\n  \"name\": \"my port\",\n  \"tags\": \"dorm-room limited\",\n  \"enabled\": true,\n  \"type\": \"access\",\n  \"vlan\": 10,\n  \"voiceVlan\": 20,\n  \"poeEnabled\": true,\n  \"isolationEnabled\": false,\n  \"rstpEnabled\": true,\n  \"stpGuard\": \"disabled\",\n  \"accessPolicyNumber\": \"asdf1234\"\n}\n```"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "_postman_id": "d5475b6e-62bf-4395-a259-1d461d12e33a",
+      "name": "Switch settings",
+      "description": null,
+      "item": [
+        {
+          "_postman_id": "8869b99f-cb18-43da-b916-cebc9a36580f",
+          "name": "Returns the switch network settings",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/switch/settings",
+            "description": "## HTTP REQUEST\n```\nGET /networks/[networkId]/switch/settings\n```\n## PARAMETERS\n**None**\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[networkId]/switch/settings'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"networkId\": \"N_24329156\",\n  \"useCombinedPower\": false,\n  \"powerExceptions\": [\n    {\n      \"serial\": \"Q234-ABCD-0001\",\n      \"powerType\": \"redundant\"\n    },\n    {\n      \"serial\": \"Q234-ABCD-0002\",\n      \"powerType\": \"combined\"\n    },\n    {\n      \"serial\": \"Q234-ABCD-0003\",\n      \"powerType\": \"redundant\"\n    }\n  ]\n}\n```"
+          },
+          "response": [
+            {
+              "id": "2a027c38-c984-4b15-b7a2-2bc76fd8d1dc",
+              "name": "Returns the switch network settings",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{baseUrl}}/networks/{{networkId}}/switch/settings"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 17 Jan 2019 12:46:04 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin"
+                },
+                {
+                  "key": "X-Robots-Tag",
+                  "value": "none"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "65804825e6ba5ae8ee8a656b90571267"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.156909"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"networkId\": \"N_24329156\",\n  \"useCombinedPower\": false,\n  \"powerExceptions\": [\n    {\n      \"serial\": \"Q234-ABCD-0001\",\n      \"powerType\": \"redundant\"\n    },\n    {\n      \"serial\": \"Q234-ABCD-0002\",\n      \"powerType\": \"combined\"\n    },\n    {\n      \"serial\": \"Q234-ABCD-0003\",\n      \"powerType\": \"redundant\"\n    }\n  ]\n}"
+            }
+          ]
+        },
+        {
+          "_postman_id": "b9d94d8e-9698-4568-b18d-51b3552d2873",
+          "name": "Update switch network settings",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"useCombinedPower\": true,\n    \"powerExceptions\": [\n        {\n            \"serial\": \"Q234-ABCD-0001\",\n            \"powerType\": \"redundant\"\n        },\n        {\n            \"serial\": \"Q234-ABCD-0002\",\n            \"powerType\": \"combined\"\n        },\n        {\n            \"serial\": \"Q234-ABCD-0003\",\n            \"powerType\": \"combined\"\n        },\n        {\n            \"serial\": \"Q234-ABCD-0004\",\n            \"powerType\": \"useNetworkSetting\"\n        }\n    ]\n}"
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/switch/settings",
+            "description": "## HTTP REQUEST\n```\nPUT /networks/[networkId]/switch/settings\n```\n## PARAMETERS\n**Parameter**|**Description**\n :-------------: |:-------------:\nuseCombinedPower| The behavior of secondary power supplies on supported devices (\"redundant\", \"combined\")\npowerExceptions| Exceptions on a per switch basis to \"useCombinedPower\"\nserial| Serial number of the switch\npowerType| Per switch exception (combined, redundant, useNetworkSetting)\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X PUT --data-binary '{\"useCombinedPower\":true,\"powerExceptions\":[{\"serial\":\"Q234-ABCD-0001\",\"powerType\":\"redundant\"},{\"serial\":\"Q234-ABCD-0002\",\"powerType\":\"combined\"},{\"serial\":\"Q234-ABCD-0003\",\"powerType\":\"combined\"},{\"serial\":\"Q234-ABCD-0004\",\"powerType\":\"useNetworkSetting\"}]}' 'https://api.meraki.com/api/v0/networks/[networkId]/switch/settings'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"useCombinedPower\": true,\n  \"powerExceptions\": [\n    {\n      \"serial\": \"Q234-ABCD-0001\",\n      \"powerType\": \"redundant\"\n    },\n    {\n      \"serial\": \"Q234-ABCD-0002\",\n      \"powerType\": \"combined\"\n    },\n    {\n      \"serial\": \"Q234-ABCD-0003\",\n      \"powerType\": \"combined\"\n    },\n    {\n      \"serial\": \"Q234-ABCD-0004\",\n      \"powerType\": \"useNetworkSetting\"\n    }\n  ]\n}\n```"
+          },
+          "response": []
+        }
+      ]
     }
   ],
   "event": [
