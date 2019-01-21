@@ -16102,6 +16102,464 @@
           ]
         }
       ]
+    },
+    {
+      "_postman_id": "a86da0e7-b879-499e-ad70-625d268c3a82",
+      "name": "VLANs",
+      "description": "**Product Support**: \n- MX Security Appliance",
+      "item": [
+        {
+          "_postman_id": "6b9e7d02-6ca5-4422-a4a1-5ccde6a66df5",
+          "name": "List the VLANs for this network",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/vlans",
+            "description": "## HTTP REQUEST\n```\nGET /networks/[networkId]/vlans\n```\n\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://dashboard.meraki.com/api/v0/networks/[networkId]/vlans'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n[\n  {\n    \"id\": \"10\",\n    \"networkId\": \"N_1234\",\n    \"name\": \"VOIP\",\n    \"applianceIp\": \"192.168.10.1\",\n    \"subnet\": \"192.168.10.0/24\"\n  }\n]\n```"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "8cb000c5-0c0c-4659-ad8b-96f6992c4b56",
+          "name": "Return a VLAN",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/vlans/{{vlanId}}",
+            "description": "## HTTP REQUEST\n```\nGET /networks/[networkId]/vlans/[vlanId]\n```\n\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://dashboard.meraki.com/api/v0/networks/[networkId]/vlans/[vlanId]'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"id\": \"10\",\n  \"networkId\": \"N_1234\",\n  \"name\": \"VOIP\",\n  \"applianceIp\": \"192.168.10.1\",\n  \"subnet\": \"192.168.10.0/24\"\n}\n```"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "92f2418a-ad19-45b8-a81d-de254056f640",
+          "name": "Update a VLAN",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Test-VLAN-updated\",\n    \"applianceIp\": \"172.16.110.1\",\n    \"subnet\": \"172.16.110.0/24\",\n    \"fixedIpAssignments\": {},\n    \"reservedIpRanges\": [],\n    \"dnsNameservers\": \"upstream_dns\"\n}"
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/vlans/{{vlanId}}",
+            "description": "## HTTP REQUEST\n```\nPUT /networks/[networkId]/vlans/[vlanId]\n```\n\n## PARAMETERS\n\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\nname|The name of the VLAN\nsubnet|The subnet of the VLAN\napplianceIp|The local IP of the appliance on the VLAN\nfixedIpAssignments|The DHCP fixed IP assignments on the VLAN\nreservedIpRanges|The DHCP reserved IP ranges on the VLAN\nvpnNatSubnet|The translated VPN subnet if VPN and VPN subnet translation are enabled on the VLAN\ndnsNameservers|The DNS nameservers used for DHCP responses, either \"upstream_dns\", \"google_dns\", \"opendns\", or a newline seperated string of IP addresses or domain names \n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X PUT --data-binary '{\"name\":\"VOIP\",\"applianceIp\":\"192.168.10.1\",\"subnet\":\"192.168.10.0/24\",\"fixedIpAssignments\":{\"13:37:de:ad:be:ef\":{\"ip\":\"192.168.10.5\",\"name\":\"fixed\"}},\"reservedIpRanges\":[{\"start\":\"192.168.10.20\",\"end\":\"192.168.10.30\",\"comment\":\"reserved\"}],\"dnsNameservers\":\"google_dns\"}' 'https://dashboard.meraki.com/api/v0/networks/[networkId]/vlans/[vlanId]'\n```\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"id\": \"10\",\n  \"networkId\": \"N_1234\",\n  \"name\": \"VOIP\",\n  \"applianceIp\": \"192.168.10.1\",\n  \"subnet\": \"192.168.10.0/24\"\n}\n```"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "63dd7970-1b50-49d8-93ce-64dc117dedc9",
+          "name": "Add a VLAN",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"id\": 110,\n    \"name\": \"Test-VLAN\",\n    \"applianceIp\": \"172.16.110.1\",\n    \"subnet\": \"172.16.110.0/24\",\n    \"fixedIpAssignments\": {},\n    \"reservedIpRanges\": [],\n    \"dnsNameservers\": \"upstream_dns\"\n}"
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/vlans",
+            "description": "## HTTP REQUEST\n```\nPOST /networks/[networkId]/vlans\n```\n\n## PARAMETERS\n\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\nid|The VLAN ID of the new VLAN (must be between 1 and 4094)\nname|The name of the new VLAN\nsubnet|The subnet of the VLAN\napplianceIp|The local IP of the appliance on the VLAN \n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X POST --data-binary '{\"id\":\"10\",\"name\":\"VOIP\",\"applianceIp\":\"192.168.10.1\",\"subnet\":\"192.168.10.0/24\"}' 'https://dashboard.meraki.com/api/v0/networks/[networkId]/vlans'\n```\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 201\n\n{\n  \"id\": \"10\",\n  \"networkId\": \"N_1234\",\n  \"name\": \"VOIP\",\n  \"applianceIp\": \"192.168.10.1\",\n  \"subnet\": \"192.168.10.0/24\"\n}\n```"
+          },
+          "response": [
+            {
+              "id": "1e297c1a-f4ef-4011-927c-54098c82de91",
+              "name": "VLANs - Add a VLAN",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "name",
+                      "value": "Test-VLAN",
+                      "type": "text"
+                    },
+                    {
+                      "key": "applianceIp",
+                      "value": "172.16.110.1",
+                      "type": "text"
+                    },
+                    {
+                      "key": "subnet",
+                      "value": "172.16.110.0/24",
+                      "type": "text"
+                    },
+                    {
+                      "key": "id",
+                      "value": "110",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": "https://{{shard}}.meraki.com/api/v0/networks/{{networkId}}/vlans"
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate",
+                  "name": "Cache-Control",
+                  "description": ""
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8",
+                  "name": "Content-Type",
+                  "description": ""
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 21 Nov 2017 14:07:35 GMT",
+                  "name": "Date",
+                  "description": ""
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT",
+                  "name": "Expires",
+                  "description": ""
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache",
+                  "name": "Pragma",
+                  "description": ""
+                },
+                {
+                  "key": "Public-Key-Pins-Report-Only",
+                  "value": "max-age=1200; pin-sha256=\"2V5tfxXMLkn2kVg/Iv8FqL4JHcNVGEUFK27oSMYhHEU=\"; pin-sha256=\"8Rw90Ej3Ttt8RRkrg+WYDS9n7IS03bk5bjP/UXPtaY8=\"; pin-sha256=\"3YQf+D42t1/pQJhWTwYLRnFVnbBNXf9W5S6dmwq2+3g=\"; pin-sha256=\"klO23nT2ehFDXCfx3eHTDRESMz3asj1muO+4aIdjiuY=\"; pin-sha256=\"fake+hpkp+key+for+testing+report+only+QWERT=\"; includeSubDomains; report-uri=\"https://therealmerakidashboard.report-uri.io/r/default/hpkp/reportOnly\"",
+                  "name": "Public-Key-Pins-Report-Only",
+                  "description": ""
+                },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": ""
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains",
+                  "name": "Strict-Transport-Security",
+                  "description": ""
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": ""
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin",
+                  "name": "X-Frame-Options",
+                  "description": ""
+                },
+                {
+                  "key": "X-Rack-Cache",
+                  "value": "invalidate, pass",
+                  "name": "X-Rack-Cache",
+                  "description": ""
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "a8b52a52317b6c59e7a3392042794233",
+                  "name": "X-Request-Id",
+                  "description": ""
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.313889",
+                  "name": "X-Runtime",
+                  "description": ""
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1",
+                  "name": "X-UA-Compatible",
+                  "description": ""
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"id\": 110,\n    \"networkId\": \"L_6434517bogus560141\",\n    \"name\": \"Test-VLAN\",\n    \"applianceIp\": \"172.16.110.1\",\n    \"subnet\": \"172.16.110.0/24\",\n    \"fixedIpAssignments\": {},\n    \"reservedIpRanges\": [],\n    \"dnsNameservers\": \"upstream_dns\"\n}"
+            }
+          ]
+        },
+        {
+          "_postman_id": "308dfec9-aa90-447e-bc6e-e74baf9acb16",
+          "name": "Delete a VLAN",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/vlans/{{vlanId}}",
+            "description": "## HTTP REQUEST\n```\nDELETE /networks/[networkId]/vlans/[id]\n```\n\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X DELETE 'https://dashboard.meraki.com/api/v0/networks/[networkId]/vlans/[id]'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 204\n\n(empty)\n```"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "d4a6081d-8f7c-499c-a94e-688b43de9c52",
+          "name": "Returns the enabled status of VLANs for the network",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/vlansEnabledState",
+            "description": "## HTTP REQUEST\n```\nGET /networks/[networkId]/vlansEnabledState\n```\n\n## PARAMETERS\n**None**\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[networkId]/vlansEnabledState'\n```\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"enabled\": true,\n  \"networkId\": \"N_24329156\"\n}\n```"
+          },
+          "response": [
+            {
+              "id": "a8b5d494-0bab-4255-9b7f-76daa4394870",
+              "name": "Returns the enabled status of VLANs for the network",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{baseUrl}}/networks/{{networkId}}/vlansEnabledState"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"enabled\": true,\n    \"networkId\": \"N_24329156\"\n}"
+            }
+          ]
+        },
+        {
+          "_postman_id": "208342e6-7321-4b94-9879-64d59322d6e8",
+          "name": "Enable/Disable VLANs for the given network",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"enabled\":true\n}"
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/vlansEnabledState",
+            "description": "## HTTP REQUEST\n```\nPUT /networks/[networkId]/vlansEnabledState\n```\n## PARAMETERS\n**Parameter**|**Description**\n :-------------: |:-------------:\nenabled| Boolean indicating whether to enable (true) or disable (false) VLANs for the network\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X PUT --data-binary '{\"enabled\":true}' \n'https://api.meraki.com/api/v0/networks/[networkId]/vlansEnabledState'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"enabled\": true,\n  \"networkId\": \"N_24329156\"\n}\n```"
+          },
+          "response": [
+            {
+              "id": "b6f818f8-e44f-45e2-9380-27155a9608e5",
+              "name": "Enable/Disable VLANs for the given network",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n\t\"enabled\":true\n}"
+                },
+                "url": "{{baseUrl}}/networks/{{networkId}}/vlansEnabledState"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate",
+                  "name": "Cache-Control",
+                  "description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": "Options that are desired for the connection"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "name": "Content-Encoding",
+                  "description": "The type of encoding used on the data."
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8",
+                  "name": "Content-Type",
+                  "description": "The mime type of this content"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 29 Oct 2018 16:55:54 GMT",
+                  "name": "Date",
+                  "description": "The date and time that the message was sent"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT",
+                  "name": "Expires",
+                  "description": "Gives the date/time after which the response is considered stale"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache",
+                  "name": "Pragma",
+                  "description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+                },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains",
+                  "name": "Strict-Transport-Security",
+                  "description": "A HSTS Policy informing the HTTP client how long to cache the HTTPS only policy and whether this applies to subdomains."
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding",
+                  "name": "Vary",
+                  "description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin",
+                  "name": "X-Frame-Options",
+                  "description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "205094d0f76eb29794ef7ce4ac97d8fa",
+                  "name": "X-Request-Id",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-Robots-Tag",
+                  "value": "none",
+                  "name": "X-Robots-Tag",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.131434",
+                  "name": "X-Runtime",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1",
+                  "name": "X-UA-Compatible",
+                  "description": "Custom header"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"networkId\": \"L_643451796760559123\",\n    \"enabled\": true\n}"
+            }
+          ]
+        }
+      ]
     }
   ],
   "event": [
