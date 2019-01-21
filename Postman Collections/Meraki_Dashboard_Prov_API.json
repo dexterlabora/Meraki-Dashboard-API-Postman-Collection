@@ -15069,6 +15069,53 @@
           "response": []
         }
       ]
+    },
+    {
+      "_postman_id": "206aba98-cc05-4ee9-b0a5-1de170581512",
+      "name": "Splash login attempts",
+      "description": null,
+      "item": [
+        {
+          "_postman_id": "99043456-a5b2-4a63-9a24-b1c4eb0242a0",
+          "name": "List the splash login attempts for a network",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{baseUrl}}/networks/{{networkId}}/splashLoginAttempts?timespan={{timespan}}&loginIdentifier={{loginIdentifier}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "networks",
+                "{{networkId}}",
+                "splashLoginAttempts"
+              ],
+              "query": [
+                {
+                  "key": "timespan",
+                  "value": "{{timespan}}"
+                },
+                {
+                  "key": "loginIdentifier",
+                  "value": "{{loginIdentifier}}"
+                }
+              ]
+            },
+            "description": "## HTTP REQUEST\n```\nGET /networks/[id]/splashLoginAttempts\n```\n## PARAMETERS\n**ssidNumber**\nOnly return the login attempts for the specified SSID\n\n**loginIdentifier**\nThe username, email, or phone number used during login\n\n**timespan**\nThe timespan, in seconds, for the login attempts. The period will be from [timespan] seconds ago until now. The maximum timespan is 3 months\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[id]/splashLoginAttempts?timespan=7200'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n[\n  {\n    \"name\": \"Miles Meraki\",\n    \"login\": \"miles@meraki.com\",\n    \"ssid\": \"My SSID\",\n    \"loginAt\": 1518365681,\n    \"gatewayDeviceMac\": \"00:11:22:33:44:55\",\n    \"clientMac\": \"22:33:44:55:66:77\",\n    \"clientId\": \"k74272e\",\n    \"authorization\": \"success\"\n  }\n]\n```"
+          },
+          "response": []
+        }
+      ]
     }
   ],
   "event": [
