@@ -1167,6 +1167,190 @@
           ]
         }
       ]
+    },
+    {
+      "_postman_id": "de844141-5d03-4ba5-80f8-626f611db1ff",
+      "name": "Client security events",
+      "description": null,
+      "item": [
+        {
+          "_postman_id": "d8e11dcb-9372-4642-a013-ce95f7e19095",
+          "name": "List the security events",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{baseUrl}}/networks/{{networkId}}/clients/{{clientId}}/securityEvents?perPage=100",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "networks",
+                "{{networkId}}",
+                "clients",
+                "{{clientId}}",
+                "securityEvents"
+              ],
+              "query": [
+                {
+                  "key": "perPage",
+                  "value": "100"
+                }
+              ]
+            },
+            "description": "## HTTP REQUEST\n```\nGET /networks/[networkId]/clients/[clientId]/securityEvents\n```\n\n## PARAMETERS\n**Parameter**|**Description**\n :-------------: |:-------------:\ntimespan| The timespan, in seconds, to look back from now for events\nperPage| The number of entries per page returned\nstartingAfter| A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, next or prev page in the HTTP Link header should define it.\nendingBefore| A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, next or prev page in the HTTP Link header should define it.\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[networkId]/clients/[clientId]/securityEvents?timespan=7200'\n```\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n[\n  {\n    \"mac\": \"00:11:22:33:44:55\",\n    \"networkId\": \"N_24329156\"\n  }\n]\n```"
+          },
+          "response": [
+            {
+              "id": "3d04392d-f2e3-4c69-bdc8-8c067abfe0f7",
+              "name": "List the security events",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{baseUrl}}/networks/[networkId]/clients/{{clientId}}/securityEvents"
+              },
+              "_postman_previewlanguage": "json",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n    {\n        \"mac\": \"00:11:22:33:44:55\",\n        \"networkId\": \"N_24329156\"\n    }\n]"
+            },
+            {
+              "id": "9de24b07-84af-4ac7-9b9a-bc6edb873b64",
+              "name": "List the security events",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/networks/{{networkId}}/clients/{{clientId}}/securityEvents?perPage=10",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "networks",
+                    "{{networkId}}",
+                    "clients",
+                    "{{clientId}}",
+                    "securityEvents"
+                  ],
+                  "query": [
+                    {
+                      "key": "perPage",
+                      "value": "10"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 20 Jan 2019 14:30:07 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin"
+                },
+                {
+                  "key": "X-Robots-Tag",
+                  "value": "none"
+                },
+                {
+                  "key": "Link",
+                  "value": "<https://n118.meraki.com/api/v0/networks/L_629378047925029331/clients/k27d0cf/securityEvents?perPage=100&startingAfter=1486049773.0>; rel=first, <https://n118.meraki.com/api/v0/networks/L_629378047925029331/clients/k27d0cf/securityEvents?endingBefore=1547994607.2048817&perPage=100>; rel=last"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "1157a39e9d308f032276fa7312d6271f"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "1.374411"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n    {\n        \"ts\": 1545275324.930001,\n        \"deviceMac\": \"e0:55:3d:02:05:ad\",\n        \"clientMac\": \"b8:27:eb:33:a0:2c\",\n        \"srcIp\": \"122.143.7.147:52962\",\n        \"destIp\": \"172.31.20.2:80\",\n        \"protocol\": \"tcp/ip\",\n        \"priority\": \"1\",\n        \"classification\": \"12\",\n        \"blocked\": true,\n        \"message\": \"SERVER-APACHE Apache Struts remote code execution attempt\",\n        \"signature\": \"1:41818:3\",\n        \"sigSource\": \"\"\n    }\n]"
+            }
+          ]
+        }
+      ]
     }
   ],
   "event": [
