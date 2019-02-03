@@ -361,6 +361,106 @@
               "body": "[\n    {\n        \"startTs\": \"2018-08-15T18:32:38.123Z\",\n        \"endTs\": \"2018-08-15T18:33:38.123Z\",\n        \"zoneId\": 0,\n        \"entrances\": 254,\n        \"averageCount\": 5\n    }\n]"
             }
           ]
+        },
+        {
+          "_postman_id": "9da642f7-6269-4a8a-88dc-2301378772e0",
+          "name": "Return historical records for analytic zones",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{baseUrl}}/devices/{{serial}}/camera/analytics/zones/0/history?perPage=10",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "devices",
+                "{{serial}}",
+                "camera",
+                "analytics",
+                "zones",
+                "0",
+                "history"
+              ],
+              "query": [
+                {
+                  "key": "perPage",
+                  "value": "10"
+                },
+                {
+                  "key": "startingAfter",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "endingBefore",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "## HTTP REQUEST\n```\nGET /devices/{serial}/camera/analytics/zones/{zoneId}/history\n```\n\n## PARAMETERS\n**Parameter**|**Description**\n :-------------: |:-------------:\nt0| The beginning of the timespan for the data. The maximum lookback period is 12 months from today.\nt1| The end of the timespan for the data. t1 can be a maximum of 14 hours after t0.\ntimespan| The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 50400. The default is 3600.\nresolution| The time resolution in seconds for returned data. The valid resolutions are: 60. The default is 60.\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/devices/{serial}/camera/analytics/zones/{zoneId}/history'\n```\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n[\n  {\n    \"startTs\": \"2018-08-15T18:32:38.123Z\",\n    \"endTs\": \"2018-08-15T18:33:38.123Z\",\n    \"entrances\": 5,\n    \"averageCount\": 1.5\n  }\n]\n```"
+          },
+          "response": [
+            {
+              "id": "3632ed11-7beb-496d-bc95-665d2794e6b2",
+              "name": "Return historical records for analytic zones",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/devices/{{serial}}/camera/analytics/{{zoneId}}/0/history?",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "devices",
+                    "{{serial}}",
+                    "camera",
+                    "analytics",
+                    "{{zoneId}}",
+                    "0",
+                    "history"
+                  ],
+                  "query": [
+                    {
+                      "key": "startingAfter",
+                      "value": "",
+                      "disabled": true
+                    },
+                    {
+                      "key": "endingBefore",
+                      "value": "",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n    {\n        \"startTs\": \"2018-08-15T18:32:38.123Z\",\n        \"endTs\": \"2018-08-15T18:33:38.123Z\",\n        \"entrances\": 5,\n        \"averageCount\": 1.5\n    }\n]"
+            }
+          ]
         }
       ],
       "event": [
