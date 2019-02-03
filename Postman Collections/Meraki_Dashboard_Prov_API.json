@@ -18785,6 +18785,39 @@
           ]
         }
       ]
+    },
+    {
+      "_postman_id": "62b0b7d7-b4ab-49fa-bbb3-5b904ac4c267",
+      "name": "MX L7 firewall",
+      "description": null,
+      "item": [
+        {
+          "_postman_id": "03fce301-9e01-44ed-99c3-eb49db07c2e2",
+          "name": "List the MX L7 firewall rules for an MX network",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/l7FirewallRules",
+            "description": "## HTTP REQUEST\n```\nGET /networks/[networkId]/l7FirewallRules\n```\n\n## PARAMETERS\n**None**\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[networkId]/l7FirewallRules'\n```\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n[\n  {\n    \"policy\": \"deny\",\n    \"type\": \"application\",\n    \"value\": {\n      \"id\": \"meraki:layer7/application/125\",\n      \"name\": \"mlb.com\"\n    }\n  }\n]\n```"
+          },
+          "response": []
+        }
+      ]
     }
   ],
   "event": [
