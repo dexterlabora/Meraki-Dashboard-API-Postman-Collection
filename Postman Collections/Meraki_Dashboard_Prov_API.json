@@ -18818,6 +18818,345 @@
           "response": []
         }
       ]
+    },
+    {
+      "_postman_id": "dbf883a8-ab16-4143-8114-b066ca699c70",
+      "name": "Named tag scope",
+      "description": null,
+      "item": [
+        {
+          "_postman_id": "2eee8866-070a-477b-8d7f-ba15256b7419",
+          "name": "List the target groups in this network",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{baseUrl}}/networks/{{networkId}}/sm/targetGroups?withDetails=true",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "networks",
+                "{{networkId}}",
+                "sm",
+                "targetGroups"
+              ],
+              "query": [
+                {
+                  "key": "withDetails",
+                  "value": "true"
+                }
+              ]
+            },
+            "description": "## HTTP REQUEST\n```\nGET /networks/[networkId]/sm/targetGroups\n```\n\n## PARAMETERS\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\nwithDetails| Boolean indicating if the the ids of the devices or users scoped by the target group should be included in the response\n\n###\nSAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[networkId]/sm/targetGroups'\n```\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n[\n  {\n    \"name\": \"My target group\",\n    \"scope\": \"none\",\n    \"tags\": \"[]\",\n    \"type\": \"devices\"\n  }\n]\n```"
+          },
+          "response": [
+            {
+              "id": "2d41ef30-484d-4d09-9cce-b7c713434d42",
+              "name": "List the named tag scopes in this network",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/networks/{{networkId}}/sm/namedTagScopes?withDetails=true",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "networks",
+                    "{{networkId}}",
+                    "sm",
+                    "namedTagScopes"
+                  ],
+                  "query": [
+                    {
+                      "key": "withDetails",
+                      "value": "true"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n    {\n        \"id\": \"1234\",\n        \"networkId\": \"N_24329156\",\n        \"name\": \"My named tag scope\",\n        \"scope\": \"none\",\n        \"tags\": \"[]\",\n        \"type\": \"Devices\"\n    }\n]"
+            }
+          ]
+        },
+        {
+          "_postman_id": "e256f717-24ab-4f7c-aacc-9a54ca0bceee",
+          "name": "Return a target group",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{baseUrl}}/networks/{{networkId}}/sm/targetGroups/{{targetGroupId}}?withDetails=true",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "networks",
+                "{{networkId}}",
+                "sm",
+                "targetGroups",
+                "{{targetGroupId}}"
+              ],
+              "query": [
+                {
+                  "key": "withDetails",
+                  "value": "true"
+                }
+              ]
+            },
+            "description": "## HTTP REQUEST\n```\nGET /networks/[networkId]/sm/namedTagScopes/[targetGroupId]\n```\n\n## PARAMETERS\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\nwithDetails| Boolean indicating if the the ids of devices or users scoped by the target group should be included in the response\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[networkId]/sm/targetGroups/[targetGroupId]'\n```\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"name\": \"My target group\",\n  \"scope\": \"none\",\n  \"tags\": \"[]\",\n  \"type\": \"devices\"\n}"
+          },
+          "response": [
+            {
+              "id": "84b98a1d-defb-4a0a-b1f4-6a7c48f00642",
+              "name": "Return a named tag scope",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/networks/{{networkId}}/sm/namedTagScopes/{{namedTagScopeId}}?withDetails=true",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "networks",
+                    "{{networkId}}",
+                    "sm",
+                    "namedTagScopes",
+                    "{{namedTagScopeId}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "withDetails",
+                      "value": "true"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"id\": \"1234\",\n    \"networkId\": \"N_24329156\",\n    \"name\": \"My named tag scope\",\n    \"scope\": \"none\",\n    \"tags\": \"[]\",\n    \"type\": \"Devices\"\n}"
+            }
+          ]
+        },
+        {
+          "_postman_id": "c1ccbffe-f93f-406e-a9cd-a4a2bbe903a1",
+          "name": "Update a target group",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "type": "text",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"name\": \"My target group\",\n\t\"scope\": \"none\",\n\t\"tags\": \"[]\",\n\t\"type\": \"devices\"\n}"
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/sm/targetGroups/{{targetGroupId}}",
+            "description": "## HTTP REQUEST\n```\nPUT /networks/[networkId]/sm/targetGroups/[targetGroupId]\n```\n\n## PARAMETERS\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\nname| The name of this target group\nscope| The scope and tag options of the target group. Comma separated values beginning with one of withAny, withAll, withoutAny, withoutAll, all, none, followed by tags\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X PUT --data-binary '{\"name\":\"My target group\",\"scope\":\"none\",\"tags\":\"[]\",\"type\":\"devices\"}' 'https://api.meraki.com/api/v0/networks/[networkId]/sm/targetGroups/[targetGroupId]'\n```\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"name\": \"My target group\",\n  \"scope\": \"none\",\n  \"tags\": \"[]\",\n  \"type\": \"devices\"\n}\n```"
+          },
+          "response": [
+            {
+              "id": "546cd787-87b9-4a34-b037-319bf8205d67",
+              "name": "Update a named tag scope",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n\t\"name\": \"My named tag scope 2\",\n\t\"scope\": \"none\",\n\t\"tags\": \"[]\",\n\t\"type\": \"Devices\"\n}"
+                },
+                "url": "{{baseUrl}}/networks/{{networkId}}/sm/namedTagScopes/{{namedTagScopeId}}"
+              },
+              "_postman_previewlanguage": "json",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"id\": \"1234\",\n    \"networkId\": \"N_24329156\",\n    \"name\": \"My named tag scope\",\n    \"scope\": \"none\",\n    \"tags\": \"[]\",\n    \"type\": \"Devices\"\n}"
+            }
+          ]
+        },
+        {
+          "_postman_id": "e767738e-ebd7-454c-b46d-10ee419ba6a0",
+          "name": "Add a target group",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "type": "text",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"name\": \"My target group\",\n\t\"scope\": \"none\",\n\t\"tags\": \"[]\",\n\t\"type\": \"devices\"\n}"
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/sm/targetGroups",
+            "description": "## HTTP REQUEST\n```\nPOST /networks/[networkId]/sm/targetGroups\n```\n\n## PARAMETERS\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\nname| The name of this target group\nscope| The scope and tag options of the target group. Comma separated values beginning with one of withAny, withAll, withoutAny, withoutAll, all, none, followed by tags\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X POST --data-binary '{\"name\":\"My target group\",\"scope\":\"none\",\"tags\":\"[]\",\"type\":\"devices\"}' 'https://api.meraki.com/api/v0/networks/[networkId]/sm/targetGroups'\n```\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 201\n\n{\n  \"name\": \"My target group\",\n  \"scope\": \"none\",\n  \"tags\": \"[]\",\n  \"type\": \"devices\"\n}\n```"
+          },
+          "response": [
+            {
+              "id": "584c325e-f210-4ef9-8a9a-808c718f0883",
+              "name": "Add a named tag scope",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n\t\"name\": \"My named tag scope\",\n\t\"scope\": \"none\",\n\t\"tags\": \"[]\",\n\t\"type\": \"Devices\"\n}"
+                },
+                "url": "{{baseUrl}}/networks/{{networkId}}/sm/namedTagScopes"
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"id\": \"1234\",\n    \"networkId\": \"N_24329156\",\n    \"name\": \"My named tag scope\",\n    \"scope\": \"none\",\n    \"tags\": \"[]\",\n    \"type\": \"Devices\"\n}"
+            }
+          ]
+        },
+        {
+          "_postman_id": "0b03b5f4-f465-4d9f-96a0-2fe887b2befc",
+          "name": "Delete a target group from a network",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "type": "text",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/sm/targetGroups/{{targetGroupId}}",
+            "description": "## HTTP REQUEST\n```\nDELETE /networks/[networkId]/sm/targetGroups/[targetGroupId]\n```\n\n## PARAMETERS\n**None**\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X DELETE 'https://api.meraki.com/api/v0/networks/[networkId]/sm/targetGroups/[targetGroupId]'\n```\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 204\n\n(empty)\n```"
+          },
+          "response": [
+            {
+              "id": "620c2dc5-42d5-4c80-98f0-cc49171c1dd1",
+              "name": "Delete a named tag scope from a network",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{baseUrl}}/networks/{{networkId}}/sm/namedTagScopes/{{namedTagScopeId}}"
+              },
+              "status": "No Content",
+              "code": 204,
+              "_postman_previewlanguage": "Text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": ""
+            }
+          ]
+        }
+      ]
     }
   ],
   "event": [
