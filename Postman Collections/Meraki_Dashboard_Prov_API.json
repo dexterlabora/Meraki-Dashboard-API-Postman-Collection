@@ -18578,6 +18578,213 @@
           ]
         }
       ]
+    },
+    {
+      "_postman_id": "dedb24ca-ece8-47c1-9f61-cb0fcceffd39",
+      "name": "Admins",
+      "description": null,
+      "item": [
+        {
+          "_postman_id": "5611af79-ee49-4293-b035-8e07ea719ab2",
+          "name": "List the dashboard administrators in this organization",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "{{baseUrl}}/organizations/{{organizationId}}/admins",
+            "description": "## HTTP REQUEST\n```\nGET /organizations/[organization_id]/admins\n```\n\n## PARAMETERS\n**None**\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/organizations/[organization_id]/admins'\n```\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n[\n  {\n    \"id\": \"212406\",\n    \"name\": \"Miles Meraki\",\n    \"email\": \"miles@meraki.com\",\n    \"orgAccess\": \"none\",\n    \"accountStatus\": \"ok\",\n    \"twoFactorAuthEnabled\": false,\n    \"lastActive\": \"2019-01-28 14:58:56 -0800\",\n    \"tags\": [\n      {\n        \"tag\": \"west\",\n        \"access\": \"read-only\"\n      }\n    ],\n    \"networks\": [\n      {\n        \"id\": \"N_24329156\",\n        \"access\": \"full\"\n      }\n    ]\n  }\n]"
+          },
+          "response": [
+            {
+              "id": "5301e1c7-efc8-4079-815d-0a903adfb289",
+              "name": "List the dashboard administrators in this organization",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{baseUrl}}/organizations/{{organizationId}}/admins"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n    {\n        \"id\": \"212406\",\n        \"name\": \"Miles Meraki\",\n        \"email\": \"miles@meraki.com\",\n        \"orgAccess\": \"none\",\n        \"accountStatus\": \"ok\",\n        \"twoFactorAuthEnabled\": false,\n        \"lastActive\": \"2019-01-28 14:58:56 -0800\",\n        \"tags\": [\n            {\n                \"tag\": \"west\",\n                \"access\": \"read-only\"\n            }\n        ],\n        \"networks\": [\n            {\n                \"id\": \"N_24329156\",\n                \"access\": \"full\"\n            }\n        ]\n    }\n]"
+            }
+          ]
+        },
+        {
+          "_postman_id": "d43db4c2-f2c3-451c-a458-565f9e80f8f4",
+          "name": "Create a new dashboard administrator",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"name\": \"Miles Meraki\",\n\t\"email\": \"miles@meraki.com\",\n\t\"orgAccess\": \"none\",\n\t\"tags\": [\n\t\t{\n\t\t\t\"tag\": \"west\",\n\t\t\t\"access\": \"read-only\"\n\t\t}\n\t]\n}"
+            },
+            "url": "{{baseUrl}}/organizations/{{organizationId}}/admins",
+            "description": "## HTTP REQUEST\n```\nPOST /organizations/[organization_id]/admins\n```\n\n## PARAMETERS\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\nemail| The email of the dashboard administrator. This attribute can not be updated.\nname| The name of the dashboard administrator\norgAccess| The privilege of the dashboard administrator on the organization (full, read-only, none)\ntags| The list of tags that the dashboard administrator has privileges on\ntag| The name of the tag\naccess| The privilege of the dashboard administrator on the tag\nnetworks| The list of networks that the dashboard administrator has privileges on\nid| The network ID\naccess| The privilege of the dashboard administrator on the network\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X POST --data-binary '{\"name\":\"Miles Meraki\",\"email\":\"miles@meraki.com\",\"orgAccess\":\"none\",\"tags\":[{\"tag\":\"west\",\"access\":\"read-only\"}]}' 'https://api.meraki.com/api/v0/organizations/{organizationId}/admins'\n```\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 201\n\n{\n  \"id\": \"212406\",\n  \"name\": \"Miles Meraki\",\n  \"email\": \"miles@meraki.com\",\n  \"orgAccess\": \"none\",\n  \"accountStatus\": \"ok\",\n  \"twoFactorAuthEnabled\": false,\n  \"lastActive\": \"2019-01-28 14:58:56 -0800\",\n  \"tags\": [\n    {\n      \"tag\": \"west\",\n      \"access\": \"read-only\"\n    }\n  ],\n  \"networks\": [\n    {\n      \"id\": \"N_24329156\",\n      \"access\": \"full\"\n    }\n  ]\n}\n```"
+          },
+          "response": [
+            {
+              "id": "f99c87c6-24e9-4106-91c8-dfc772f1fdb7",
+              "name": "Create a new dashboard administrator",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n\t\"name\": \"Miles Meraki\",\n\t\"email\": \"miles@meraki.com\",\n\t\"orgAccess\": \"none\",\n\t\"tags\": [\n\t\t{\n\t\t\t\"tag\": \"west\",\n\t\t\t\"access\": \"read-only\"\n\t\t}\n\t]\n}"
+                },
+                "url": "{{baseUrl}}/organizations/{{organizationId}}/admins"
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"id\": \"212406\",\n    \"name\": \"Miles Meraki\",\n    \"email\": \"miles@meraki.com\",\n    \"orgAccess\": \"none\",\n    \"accountStatus\": \"ok\",\n    \"twoFactorAuthEnabled\": false,\n    \"lastActive\": \"2019-01-28 14:58:56 -0800\",\n    \"tags\": [\n        {\n            \"tag\": \"west\",\n            \"access\": \"read-only\"\n        }\n    ],\n    \"networks\": [\n        {\n            \"id\": \"N_24329156\",\n            \"access\": \"full\"\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "_postman_id": "e9db8b37-cb09-463c-bf5b-e1f9a4e4ea37",
+          "name": "Update an administrator",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"name\": \"Miles Meraki\",\n\t\"email\": \"miles@meraki.com\",\n\t\"orgAccess\": \"none\",\n\t\"tags\": [\n\t\t{\n\t\t\t\"tag\": \"west\",\n\t\t\t\"access\": \"read-only\"\n\t\t}\n\t]\n}"
+            },
+            "url": "{{baseUrl}}/organizations/{{organizationId}}/admins/{{adminId}}",
+            "description": "## HTTP REQUEST\n```\nPUT /organizations/[organization_id]/admins/[id]\n```\n\n## PARAMETERS\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\nemail| The email of the dashboard administrator. This attribute can not be updated.\nname| The name of the dashboard administrator\norgAccess| The privilege of the dashboard administrator on the organization (full, read-only, none)\ntags| The list of tags that the dashboard administrator has privileges on\ntag| The name of the tag\naccess| The privilege of the dashboard administrator on the tag\nnetworks| The list of networks that the dashboard administrator has privileges on\nid| The network ID\naccess| The privilege of the dashboard administrator on the network\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X PUT -H 'Content-Type: application/json' --data-binary '{\"name\":\"Miles Meraki\", \"email\":\"miles@meraki.com\", \"orgAccess\":\"read-only\", \"tags\":[{\"tag\":\"west\", \"access\":\"read-only\"}]}' 'https://api.meraki.com/api/v0/organizations/1234/admins/1234'\n```\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n{\n  \"id\":\"212406\",\n  \"name\":\"Miles Meraki\",\n  \"email\":\"miles@meraki.com\",\n  \"orgAccess\":\"read-only\",\n  \"accountStatus\": \"ok\",\n  \"twoFactorAuthEnabled\": false,\n  \"lastActive\": \"2019-01-28 14:58:56 -0800\",\n  \"tags\":[\n    {\n      \"tag\":\"west\",\n      \"access\":\"read-only\"\n    }\n  ],\n  \"networks\":[]\n}\n```"
+          },
+          "response": [
+            {
+              "id": "bfd3fc46-1640-491f-914b-9dfdeb2fd2e2",
+              "name": "Update an administrator",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n\t\"name\": \"Miles Meraki\",\n\t\"email\": \"miles@meraki.com\",\n\t\"orgAccess\": \"none\",\n\t\"tags\": [\n\t\t{\n\t\t\t\"tag\": \"west\",\n\t\t\t\"access\": \"read-only\"\n\t\t}\n\t]\n}"
+                },
+                "url": "{{baseUrl}}/organizations/{{organizationId}}/admins/{{adminId}}"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"id\": \"212406\",\n    \"name\": \"Miles Meraki\",\n    \"email\": \"miles@meraki.com\",\n    \"orgAccess\": \"read-only\",\n    \"accountStatus\": \"ok\",\n    \"twoFactorAuthEnabled\": false,\n    \"lastActive\": \"2019-01-28 14:58:56 -0800\",\n    \"tags\": [\n        {\n            \"tag\": \"west\",\n            \"access\": \"read-only\"\n        }\n    ],\n    \"networks\": []\n}"
+            }
+          ]
+        },
+        {
+          "_postman_id": "7e29e389-7f9d-463b-ae66-46fae95ea264",
+          "name": "Revoke all access for a dashboard administrator within this organization",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "{{baseUrl}}/organizations/{{organizationId}}/admins/{{adminId}}",
+            "description": "## HTTP REQUEST\n```\nDELETE /organizations/[organization_id]/admins/[id]\n```\n\n## PARAMETERS\n**None**\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X DELETE 'https://api.meraki.com/api/v0/organizations/[organization_id]/admins/[id]'\n```\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 204\n```"
+          },
+          "response": [
+            {
+              "id": "7d3ec42a-d00a-44ed-9bed-ca5c2607390f",
+              "name": "Revoke all access for a dashboard administrator within this organization",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{baseUrl}}/organizations/{{organizationId}}/admins/{{adminId}}"
+              },
+              "status": "No Content",
+              "code": 204,
+              "_postman_previewlanguage": "Text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": ""
+            }
+          ]
+        }
+      ]
     }
   ],
   "event": [
