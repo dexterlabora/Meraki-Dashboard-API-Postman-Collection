@@ -5488,6 +5488,32 @@
               "body": "[{\"groupPolicyId\":102,\"name\":\"WiFi-Verified\"},{\"groupPolicyId\":101,\"name\":\"IoT\"},{\"groupPolicyId\":100,\"name\":\"VoIP\"}]"
             }
           ]
+        },
+        {
+          "_postman_id": "6068e7da-7539-472f-b612-1cdee6b7c64c",
+          "name": "Delete a group policy",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "type": "text",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Content-Type",
+                "type": "text",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/groupPolicies/{{groupPolicyId}}",
+            "description": "## HTTP REQUEST\n```\nDELETE /networks/{networkId}/groupPolicies/{groupPolicyId}\n```\n\n## PARAMETERS\n**None**\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X DELETE 'https://api.meraki.com/api/v0/networks/{networkId}/groupPolicies/{groupPolicyId}'\n```\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 204\n\n(empty)\n```"
+          },
+          "response": []
         }
       ],
       "event": [
@@ -18818,32 +18844,6 @@
           ]
         }
       ]
-    },
-    {
-      "_postman_id": "6068e7da-7539-472f-b612-1cdee6b7c64c",
-      "name": "Delete a group policy",
-      "request": {
-        "method": "DELETE",
-        "header": [
-          {
-            "key": "X-Cisco-Meraki-API-Key",
-            "type": "text",
-            "value": "{{X-Cisco-Meraki-API-Key}}"
-          },
-          {
-            "key": "Content-Type",
-            "type": "text",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": ""
-        },
-        "url": "{{baseUrl}}/networks/{{networkId}}/groupPolicies/{{groupPolicyId}}",
-        "description": "## HTTP REQUEST\n```\nDELETE /networks/{networkId}/groupPolicies/{groupPolicyId}\n```\n\n## PARAMETERS\n**None**\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X DELETE 'https://api.meraki.com/api/v0/networks/{networkId}/groupPolicies/{groupPolicyId}'\n```\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 204\n\n(empty)\n```"
-      },
-      "response": []
     }
   ],
   "event": [
