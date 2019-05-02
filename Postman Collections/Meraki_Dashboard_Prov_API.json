@@ -5547,6 +5547,2081 @@
           }
         }
       ]
+    },
+    {
+      "name": "HTTP servers",
+      "item": [
+        {
+          "name": "List the HTTP servers for a network",
+          "_postman_id": "a7b62257-1b50-4f0e-bece-7caa1f8d90c3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "url": "{{baseUrl}}/networks/{{networkId}}/httpServers",
+            "description": "## HTTP REQUEST\n```\nGET /networks/[networkId]/httpServers\n```\n## PARAMETERS\n**None**\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[networkId]/httpServers'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n[\n  {\n    \"id\": \"ABC123\",\n    \"networkId\": \"N_123\",\n    \"name\": \"My HTTP server\",\n    \"url\": \"https://www.example.com/webhooks\",\n    \"sharedSecret\": \"foobar\"\n  }\n]\n```"
+          },
+          "response": [
+            {
+              "id": "ebd8b31e-c5f4-442a-ae2c-5d0024b4b4d7",
+              "name": "List the HTTP servers for a network",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  }
+                ],
+                "url": "{{baseUrl}}/networks/{{networkId}}/httpServers"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate",
+                  "name": "Cache-Control",
+                  "description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": "Options that are desired for the connection"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "name": "Content-Encoding",
+                  "description": "The type of encoding used on the data."
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8",
+                  "name": "Content-Type",
+                  "description": "The mime type of this content"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 29 Oct 2018 10:07:00 GMT",
+                  "name": "Date",
+                  "description": "The date and time that the message was sent"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT",
+                  "name": "Expires",
+                  "description": "Gives the date/time after which the response is considered stale"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache",
+                  "name": "Pragma",
+                  "description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+                },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains",
+                  "name": "Strict-Transport-Security",
+                  "description": "A HSTS Policy informing the HTTP client how long to cache the HTTPS only policy and whether this applies to subdomains."
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding",
+                  "name": "Vary",
+                  "description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin",
+                  "name": "X-Frame-Options",
+                  "description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "56ac1f7f561013b7393e9912772dcf3d",
+                  "name": "X-Request-Id",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-Robots-Tag",
+                  "value": "none",
+                  "name": "X-Robots-Tag",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.131626",
+                  "name": "X-Runtime",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1",
+                  "name": "X-UA-Compatible",
+                  "description": "Custom header"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n    {\n        \"name\": \"ngrok\",\n        \"url\": \"https://6a59f431.ngrok.io\",\n        \"sharedSecret\": \"supersecret\",\n        \"id\": \"aHR0cHM6Ly82YTU5ZjQzMS5uZ3Jvay5pb123\",\n        \"networkId\": \"N_643451796760561234\"\n    },\n    {\n        \"name\": \"node-red\",\n        \"url\": \"https://myservice.com/alerts\",\n        \"sharedSecret\": \"asdf1234\",\n        \"id\": \"aHR0cHM6Ly9tZXJha2lkZW1vLmludGVybmV0b2ZsZWdvLmNvbS9hbGVy123\",\n        \"networkId\": \"N_643451796760561234\"\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Return an HTTP server",
+          "_postman_id": "43f38942-45cc-4639-aa31-847dafbb7d36",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "url": "{{baseUrl}}/networks/{{networkId}}/httpServers/{{webhookId}}",
+            "description": "## HTTP REQUEST\n```\nGET /networks/[networkId]/httpServers/[id]\n```\n## PARAMETERS\n**None**\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[networkId]/httpServers/[id]'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"id\": \"ABC123\",\n  \"networkId\": \"N_123\",\n  \"name\": \"My HTTP server\",\n  \"url\": \"https://www.example.com/webhooks\",\n  \"sharedSecret\": \"foobar\"\n}\n```"
+          },
+          "response": [
+            {
+              "id": "6652fb6e-f902-4737-8fdb-6e660adf33be",
+              "name": "Return an HTTP server",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  }
+                ],
+                "url": "{{baseUrl}}/networks/{{networkId}}/httpServers/{{webhookId}}"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate",
+                  "name": "Cache-Control",
+                  "description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": "Options that are desired for the connection"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "name": "Content-Encoding",
+                  "description": "The type of encoding used on the data."
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8",
+                  "name": "Content-Type",
+                  "description": "The mime type of this content"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 29 Oct 2018 10:11:45 GMT",
+                  "name": "Date",
+                  "description": "The date and time that the message was sent"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT",
+                  "name": "Expires",
+                  "description": "Gives the date/time after which the response is considered stale"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache",
+                  "name": "Pragma",
+                  "description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+                },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains",
+                  "name": "Strict-Transport-Security",
+                  "description": "A HSTS Policy informing the HTTP client how long to cache the HTTPS only policy and whether this applies to subdomains."
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding",
+                  "name": "Vary",
+                  "description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin",
+                  "name": "X-Frame-Options",
+                  "description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "545f70507b9eac9224cbf31930004b06",
+                  "name": "X-Request-Id",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-Robots-Tag",
+                  "value": "none",
+                  "name": "X-Robots-Tag",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.140632",
+                  "name": "X-Runtime",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1",
+                  "name": "X-UA-Compatible",
+                  "description": "Custom header"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"name\": \"ngrok\",\n    \"url\": \"https://6a59f431.ngrok.io\",\n    \"sharedSecret\": \"supersecret\",\n    \"id\": \"aHR0cHM6Ly82YTU5ZjQzMS5uZ3Jvay5pb123\",\n    \"networkId\": \"N_643451796760563508\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update an HTTP server",
+          "_postman_id": "758728ef-3389-470b-b217-dea7debe8c1f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"name\":\"example 2\",\n\t\"url\":\"https://merakidemo.internetoflego.com/alerts2\",\n\t\"sharedSecret\":\"supersecret\"\n}"
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/httpServers/{{webhookId}}",
+            "description": "## HTTP REQUEST\n```\nPUT /networks/[networkId]/httpServers/[id]\n```\n## PARAMETERS\n**Name**|**Description**\n :-------------: |:-------------:\nname| A name for easy reference to the HTTP server\nurl| The URL of the HTTP server\nsharedSecret| A shared secret that will be included in POSTs sent to the HTTP server. This secret can be used to verify that the request was sent by Meraki.\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X PUT --data-binary '{\"name\":\"My HTTP server\",\"url\":\"https://www.example.com/webhooks\",\"sharedSecret\":\"foobar\"}' 'https://api.meraki.com/api/v0/networks/[networkId]/httpServers/[id]'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"id\": \"ABC123\",\n  \"networkId\": \"N_123\",\n  \"name\": \"My HTTP server\",\n  \"url\": \"https://www.example.com/webhooks\",\n  \"sharedSecret\": \"foobar\"\n}\n```"
+          },
+          "response": [
+            {
+              "id": "1d8fe2b6-a3db-4daf-8b26-30b9941b508f",
+              "name": "Update an HTTP server",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n\t\"name\":\"example 2\",\n\t\"url\":\"https://merakidemo.internetoflego.com/alerts\",\n\t\"sharedSecret\":\"supersecret\"\n}"
+                },
+                "url": "{{baseUrl}}/networks/{{networkId}}/httpServers/{{webhookId}}"
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate",
+                  "name": "Cache-Control",
+                  "description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": "Options that are desired for the connection"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8",
+                  "name": "Content-Type",
+                  "description": "The mime type of this content"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 29 Oct 2018 10:32:12 GMT",
+                  "name": "Date",
+                  "description": "The date and time that the message was sent"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT",
+                  "name": "Expires",
+                  "description": "Gives the date/time after which the response is considered stale"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache",
+                  "name": "Pragma",
+                  "description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+                },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin",
+                  "name": "X-Frame-Options",
+                  "description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "3a995d365432f8a19ea469d52e0d2fd3",
+                  "name": "X-Request-Id",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-Robots-Tag",
+                  "value": "none",
+                  "name": "X-Robots-Tag",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.206972",
+                  "name": "X-Runtime",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1",
+                  "name": "X-UA-Compatible",
+                  "description": "Custom header"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\"errors\":[\"Url An HTTP server with this URL already exists\"]}"
+            },
+            {
+              "id": "97153498-10dd-4215-a451-e81ae55932e5",
+              "name": "Update an HTTP server",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n\t\"name\":\"example 2\",\n\t\"url\":\"https://merakidemo.internetoflego.com/alerts2\",\n\t\"sharedSecret\":\"supersecret\"\n}"
+                },
+                "url": "{{baseUrl}}/networks/{{networkId}}/httpServers/{{webhookId}}"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate",
+                  "name": "Cache-Control",
+                  "description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": "Options that are desired for the connection"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "name": "Content-Encoding",
+                  "description": "The type of encoding used on the data."
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8",
+                  "name": "Content-Type",
+                  "description": "The mime type of this content"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 29 Oct 2018 10:32:37 GMT",
+                  "name": "Date",
+                  "description": "The date and time that the message was sent"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT",
+                  "name": "Expires",
+                  "description": "Gives the date/time after which the response is considered stale"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache",
+                  "name": "Pragma",
+                  "description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+                },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains",
+                  "name": "Strict-Transport-Security",
+                  "description": "A HSTS Policy informing the HTTP client how long to cache the HTTPS only policy and whether this applies to subdomains."
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding",
+                  "name": "Vary",
+                  "description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin",
+                  "name": "X-Frame-Options",
+                  "description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "e668bd3c4b45d248b8f4b87e4688a7f7",
+                  "name": "X-Request-Id",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-Robots-Tag",
+                  "value": "none",
+                  "name": "X-Robots-Tag",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.189887",
+                  "name": "X-Runtime",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1",
+                  "name": "X-UA-Compatible",
+                  "description": "Custom header"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"name\": \"example 2\",\n    \"url\": \"https://myserver.com/example\",\n    \"sharedSecret\": \"supersecret\",\n    \"id\": \"aHR0cHM6Ly9tZXJha2lkZW1vLmludGVybmV0b2ZsZWdvLmNvbS9hbGVyd123\",\n    \"networkId\": \"N_643451796760563123\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Add an HTTP server",
+          "_postman_id": "b0720b4c-ce64-4275-b051-1da488371050",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Example Server\",\n  \"url\": \"https://www.example.com/webhooks\",\n  \"sharedSecret\": \"foobar\"\n}"
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/httpServers",
+            "description": "## HTTP REQUEST\n```\nPOST /networks/[networkId]/httpServers\n```\n## PARAMETERS\n**Name**|**Description**\n :-------------: |:-------------:\nname| A name for easy reference to the HTTP server\nurl| The URL of the HTTP server\nsharedSecret| A shared secret that will be included in POSTs sent to the HTTP server. This secret can be used to verify that the request was sent by Meraki.\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X POST --data-binary '{\"name\":\"My HTTP server\",\"url\":\"https://www.example.com/webhooks\",\"sharedSecret\":\"foobar\"}' 'https://api.meraki.com/api/v0/networks/[networkId]/httpServers'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 201\n\n{\n  \"id\": \"ABC123\",\n  \"networkId\": \"N_123\",\n  \"name\": \"My HTTP server\",\n  \"url\": \"https://www.example.com/webhooks\",\n  \"sharedSecret\": \"foobar\"\n}\n```"
+          },
+          "response": [
+            {
+              "id": "e93222c6-fdba-4589-b012-efeea5d68115",
+              "name": "Add an HTTP server",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Example Server\",\n  \"url\": \"https://www.example.com/webhooks\",\n  \"sharedSecret\": \"foobar\"\n}"
+                },
+                "url": "{{baseUrl}}/networks/{{networkId}}/httpServers"
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate",
+                  "name": "Cache-Control",
+                  "description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": "Options that are desired for the connection"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8",
+                  "name": "Content-Type",
+                  "description": "The mime type of this content"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 29 Oct 2018 10:29:47 GMT",
+                  "name": "Date",
+                  "description": "The date and time that the message was sent"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT",
+                  "name": "Expires",
+                  "description": "Gives the date/time after which the response is considered stale"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache",
+                  "name": "Pragma",
+                  "description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+                },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains",
+                  "name": "Strict-Transport-Security",
+                  "description": "A HSTS Policy informing the HTTP client how long to cache the HTTPS only policy and whether this applies to subdomains."
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin",
+                  "name": "X-Frame-Options",
+                  "description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "f23892befc714e577074e72de2dd36a1",
+                  "name": "X-Request-Id",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-Robots-Tag",
+                  "value": "none",
+                  "name": "X-Robots-Tag",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.194973",
+                  "name": "X-Runtime",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1",
+                  "name": "X-UA-Compatible",
+                  "description": "Custom header"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"name\": \"Example Server\",\n    \"url\": \"https://www.example.com/webhooks\",\n    \"sharedSecret\": \"foobar\",\n    \"id\": \"aHR0cHM6Ly93d3cuZXhhbXBsZS5jb20vd2ViaG9va3M=\",\n    \"networkId\": \"N_643451796760563123\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete an HTTP server",
+          "_postman_id": "3e7da8b2-ffcc-4942-b6f2-b580c8a9d90b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/httpServers/{{webhookId}}",
+            "description": "## HTTP REQUEST\n```\nDELETE /networks/[networkId]/httpServers/[id]\n```\n## PARAMETERS\n**None**\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X DELETE 'https://api.meraki.com/api/v0/networks/[networkId]/httpServers/[id]'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 204\n\n(empty)\n```"
+          },
+          "response": []
+        },
+        {
+          "name": "Send a test webhook",
+          "_postman_id": "39f32d6f-1f43-401b-87e4-83ddc7cbece4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"url\": \"https://myserver.com/alerts\"\n}"
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/httpServers/webhookTests",
+            "description": "## HTTP REQUEST\n```\nPOST /networks/[networkId]/httpServers/webhookTests\n```\n## PARAMETERS\n**Name**|**Description**\n :-------------: |:-------------:\nurl| The URL where the test webhook will be sent\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X POST 'https://api.meraki.com/api/v0/networks/[networkId]/httpServers/webhookTests'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"id\": \"1234\",\n  \"url\": \"https://www.example.com/path\",\n  \"status\": \"enqueued\"\n}\n```"
+          },
+          "response": []
+        },
+        {
+          "name": "Return the status of a webhook test",
+          "_postman_id": "692f0783-cb08-4525-b13f-e51907f5d453",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "url": "{{baseUrl}}/networks/{{networkId}}/httpServers/webhookTests/{{webhookTestId}}",
+            "description": "## HTTP REQUEST\n```\nGET /networks/[networkId]/httpServers/webhookTests/[id]\n```\n## PARAMETERS\n**None**\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[networkId]/httpServers/webhookTests/[id]'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"id\": \"1234\",\n  \"url\": \"https://www.example.com/path\",\n  \"status\": \"delivered\"\n}\n```"
+          },
+          "response": [
+            {
+              "id": "4f6c3468-073e-4ca7-b5fe-5780c540856e",
+              "name": "Return the status of a webhook test",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  }
+                ],
+                "url": "{{baseUrl}}/networks/{{networkId}}/httpServers/webhookTests/{{webhookTestId}}"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate",
+                  "name": "Cache-Control",
+                  "description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": "Options that are desired for the connection"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "name": "Content-Encoding",
+                  "description": "The type of encoding used on the data."
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8",
+                  "name": "Content-Type",
+                  "description": "The mime type of this content"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 29 Oct 2018 10:28:08 GMT",
+                  "name": "Date",
+                  "description": "The date and time that the message was sent"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT",
+                  "name": "Expires",
+                  "description": "Gives the date/time after which the response is considered stale"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache",
+                  "name": "Pragma",
+                  "description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+                },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains",
+                  "name": "Strict-Transport-Security",
+                  "description": "A HSTS Policy informing the HTTP client how long to cache the HTTPS only policy and whether this applies to subdomains."
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding",
+                  "name": "Vary",
+                  "description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin",
+                  "name": "X-Frame-Options",
+                  "description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "86fe10f11b9ba7ea12f2f37a672fc64e",
+                  "name": "X-Request-Id",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-Robots-Tag",
+                  "value": "none",
+                  "name": "X-Robots-Tag",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.123584",
+                  "name": "X-Runtime",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1",
+                  "name": "X-UA-Compatible",
+                  "description": "Custom header"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"id\": \"643451796760573197\",\n    \"url\": \"https://myserver.com/alerts\",\n    \"status\": \"delivered\"\n}"
+            }
+          ]
+        }
+      ],
+      "_postman_id": "a94386fa-01ca-4ca9-8941-a134cfa8dc63",
+      "description": "Meraki Alerts with Webhooks. Use these endpoints to configure the HTTP servers that Meraki will send an HTTP post to.",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "0bb7906a-d9a6-40d8-9a43-941d8547af53",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "6cf607ce-ac6a-406e-a582-d1974a8a9449",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "MR L3 firewall",
+      "item": [
+        {
+          "name": "Return the L3 firewall rules for an SSID on an MR network",
+          "_postman_id": "7c79c8ce-40b4-472c-85b1-f85073a48cdf",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "url": "{{baseUrl}}/networks/{{networkId}}/ssids/{{ssidNum}}]/l3FirewallRules",
+            "description": "## HTTP REQUEST\n```\nGET /networks/[networkId]/ssids/[number]/l3FirewallRules\n```\n\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://dashboard.meraki.com/api/v0/networks/[networkId]/ssids/[number]/l3FirewallRules'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n[\n  {\n     \"comment\": \"TCP access for test servers\",\n     \"policy\": \"deny\",\n     \"protocol\": \"tcp\",\n     \"destPort\": \"Any\",\n     \"destCidr\": \"192.168.1.0/24\"\n  },\n  {\n     \"comment\": \"Wireless clients accessing LAN\",\n     \"policy\": \"allow\",\n     \"protocol\": \"Any\",\n     \"destPort\": \"Any\",\n     \"destCidr\": \"Local LAN\"\n  },\n  {\n     \"comment\": \"Default rule\",\n     \"policy\": \"allow\",\n     \"protocol\": \"Any\",\n     \"destPort\": \"Any\",\n     \"destCidr\": \"Any\"\n  }\n]\n```"
+          },
+          "response": [
+            {
+              "id": "c7c5ed45-d2e0-4259-9526-ed8b649e4004",
+              "name": "get L3 Firewall Rules",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  }
+                ],
+                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/ssids/{{ssidNum}}]/l3FirewallRules"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate",
+                  "name": "Cache-Control",
+                  "description": ""
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "name": "Content-Encoding",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8",
+                  "name": "Content-Type",
+                  "description": ""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 02 Jul 2017 00:27:42 GMT",
+                  "name": "Date",
+                  "description": ""
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT",
+                  "name": "Expires",
+                  "description": ""
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache",
+                  "name": "Pragma",
+                  "description": ""
+                },
+                {
+                  "key": "Public-Key-Pins-Report-Only",
+                  "value": "max-age=1200; pin-sha256=\"2V5tfxXMLkn2kVg/Iv8FqL4JHcNVGEUFK27oSMYhHEU=\"; pin-sha256=\"8Rw90Ej3Ttt8RRkrg+WYDS9n7IS03bk5bjP/UXPtaY8=\"; pin-sha256=\"3YQf+D42t1/pQJhWTwYLRnFVnbBNXf9W5S6dmwq2+3g=\"; pin-sha256=\"klO23nT2ehFDXCfx3eHTDRESMz3asj1muO+4aIdjiuY=\"; pin-sha256=\"fake+hpkp+key+for+testing+report+only+QWERT=\"; includeSubDomains; report-uri=\"https://therealmerakidashboard.report-uri.io/r/default/hpkp/reportOnly\"",
+                  "name": "Public-Key-Pins-Report-Only",
+                  "description": ""
+                },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": ""
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains",
+                  "name": "Strict-Transport-Security",
+                  "description": ""
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": ""
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding",
+                  "name": "Vary",
+                  "description": ""
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin",
+                  "name": "X-Frame-Options",
+                  "description": ""
+                },
+                {
+                  "key": "X-Rack-Cache",
+                  "value": "miss",
+                  "name": "X-Rack-Cache",
+                  "description": ""
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "72958aae009e8b17d9add986f19f20ab",
+                  "name": "X-Request-Id",
+                  "description": ""
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.305363",
+                  "name": "X-Runtime",
+                  "description": ""
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1",
+                  "name": "X-UA-Compatible",
+                  "description": ""
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[{\"comment\":\"Wireless clients accessing LAN\",\"policy\":\"allow\",\"proto\":\"Any\",\"dst_port\":\"Any\",\"dst_cidr\":\"Local LAN\"},{\"comment\":\"Default rule\",\"policy\":\"allow\",\"proto\":\"Any\",\"dst_port\":\"Any\",\"dst_cidr\":\"Any\"}]"
+            }
+          ]
+        },
+        {
+          "name": "Update the L3 firewall rules of an SSID on an MR network",
+          "_postman_id": "02793942-94cc-4c49-9db6-e2f85678f1ce",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rules\":[{\n  \"comment\":\"a note about the rule\",\n  \"policy\":\"deny\",\n  \"protocol\":\"tcp\",\n  \"destPort\":\"any\",\n  \"destCidr\":\"192.168.1.0/24\"\n  \n}],\n  \"allowLanAccess\":true\n}"
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/ssids/{{ssidNum}}/l3FirewallRules/",
+            "description": "## HTTP REQUEST\n```\nPUT /networks/[networkId]/ssids/[number]/l3FirewallRules\n```\n## PARAMETERS\n\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\n**rules**|**An ordered array of the firewall rules for this SSID (not including the local LAN access rule or the default rule)**\npolicy|'Allow' or 'Deny' traffic specified by this rule\nprotocol|The type of protocol (must be 'tcp', 'udp', 'icmp' or 'any')\ndestPort|Comma-separated list of destination port(s) (integer in the range 1-65535) or 'any'\ndestCidr|Comma-separated list of destination IP address(es) (in IP or CIDR notation) or 'any'\ncomment|Description of the rule (optional)\nallowLanAccess|Allow wireless client access to local LAN (boolean value - true allows access and false denies access) (optional)\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X PUT -H 'Content-Type: application/json' --data-binary '{\"rules\":[{\"comment\":\"a note about the rule\", \"policy\":\"deny\", \"protocol\":\"tcp\", \"destPort\":\"any\", \"destCidr\":\"192.168.1.0/24\"}], \"allowLanAccess\":true}' 'https://api.meraki.com/api/v0/networks/[networkId]/ssids/[number]/l3FirewallRules'\n```\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n[\n  {\n     \"comment\": \"A note about the rule\",\n     \"policy\": \"deny\",\n     \"protocol\": \"tcp\",\n     \"destPort\": \"Any\",\n     \"destCidr\": \"192.168.1.0/24\",\n  },\n  {\n     \"comment\": \"Wireless clients accessing LAN\",\n     \"policy\": \"allow\",\n     \"protocol\": \"Any\",\n     \"destPort\": \"Any\",\n     \"destCidr\": \"Local LAN\"\n  },\n  {\n     \"comment\": \"Default rule\",\n     \"policy\": \"allow\",\n     \"protocol\": \"Any\",\n     \"destPort\": \"Any\",\n     \"destCidr\": \"Any\"\n  }\n]\n```"
+          },
+          "response": []
+        }
+      ],
+      "_postman_id": "d572c83a-f193-4478-9df1-f9ebc33d96cd",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "782d2da2-ed9f-4ae3-9ac3-bb3fb27eeaf6",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "4bee899a-5070-4865-855b-e14936a2036b",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "MV Sense",
+      "item": [
+        {
+          "name": "Returns an overview of aggregate analytics data for a timespan",
+          "_postman_id": "f6552be7-c3ad-4b0d-9e70-e79453ace3a8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/devices/{{serial}}/camera/analytics/overview?timespan=86400",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "devices",
+                "{{serial}}",
+                "camera",
+                "analytics",
+                "overview"
+              ],
+              "query": [
+                {
+                  "key": "timespan",
+                  "value": "86400",
+                  "description": "The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 604800. The default is 3600."
+                },
+                {
+                  "key": "t0",
+                  "value": null,
+                  "description": "The beginning of the timespan for the data. The maximum lookback period is 12 months from today.",
+                  "disabled": true
+                },
+                {
+                  "key": "t1",
+                  "value": null,
+                  "description": "The end of the timespan for the data. t1 can be a maximum of 1 week after t0.",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "## HTTP REQUEST\n```\nGET /devices/[serial]/camera/analytics/overview\n```\n\n## PARAMETERS\n**Parameter**|**Description**\n :-------------: |:-------------:\nt0| The beginning of the timespan for the data. The maximum lookback period is 12 months from today.\nt1| The end of the timespan for the data. t1 can be a maximum of 1 week after t0.\ntimespan| The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 604800. The default is 3600.\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/devices/{serial}/camera/analytics/overview\n```\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n[\n  {\n    \"startTs\": \"2018-08-15T18:32:38.123Z\",\n    \"endTs\": \"2018-08-15T18:33:38.123Z\",\n    \"zoneId\": 0,\n    \"entrances\": 254,\n    \"averageCount\": 5\n  }\n]\n```"
+          },
+          "response": [
+            {
+              "id": "b3025e02-962a-437e-a45e-6e1ed81cfa04",
+              "name": "Returns an overview of aggregate analytics data for a timespan",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "url": "https://api.meraki.com/api/v0/devices/{{serial}}/camera/analytics/overview"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n    {\n        \"startTs\": \"2018-08-15T18:32:38.123Z\",\n        \"endTs\": \"2018-08-15T18:33:38.123Z\",\n        \"zoneId\": 0,\n        \"entrances\": 254,\n        \"averageCount\": 5\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Returns all configured analytic zones for this camera",
+          "_postman_id": "9dd36eb5-6f13-4920-b031-aa0b852a2694",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "url": "{{baseUrl}}/devices/{{serial}}/camera/analytics/zones",
+            "description": "## HTTP REQUEST\n```\nGET /devices/[serial]/camera/analytics/zones\n```\n\n## PARAMETERS\n**None**\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/devices/[serial]/camera/analytics/zones'\n```\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n[\n  {\n    \"id\": \"0\",\n    \"type\": \"occupancy\",\n    \"label\": \"Full Frame\"\n  }\n]\n```"
+          },
+          "response": [
+            {
+              "id": "a4198a4c-478c-4ae1-aa80-eb0d650df663",
+              "name": "Returns all configured analytic zones for this camera",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "url": "https://api.meraki.com/api/v0/devices/{{serial}}/camera/analytics/zones"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n    {\n        \"id\": \"0\",\n        \"type\": \"occupancy\",\n        \"label\": \"Full Frame\"\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Return historical records for analytic zones",
+          "_postman_id": "9ef95f6b-2a75-41a9-960c-2ef4d4085cff",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/devices/{{serial}}/camera/analytics/zones/{{zoneId}}/history?perPage=10",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "devices",
+                "{{serial}}",
+                "camera",
+                "analytics",
+                "zones",
+                "{{zoneId}}",
+                "history"
+              ],
+              "query": [
+                {
+                  "key": "perPage",
+                  "value": "10"
+                },
+                {
+                  "key": "startingAfter",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "endingBefore",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "## HTTP REQUEST\n```\nGET /devices/{serial}/camera/analytics/zones/{zoneId}/history\n```\n\n## PARAMETERS\n**Parameter**|**Description**\n :-------------: |:-------------:\nt0| The beginning of the timespan for the data. The maximum lookback period is 12 months from today.\nt1| The end of the timespan for the data. t1 can be a maximum of 14 hours after t0.\ntimespan| The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 50400. The default is 3600.\nresolution| The time resolution in seconds for returned data. The valid resolutions are: 60. The default is 60.\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/devices/{serial}/camera/analytics/zones/{zoneId}/history'\n```\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n[\n  {\n    \"startTs\": \"2018-08-15T18:32:38.123Z\",\n    \"endTs\": \"2018-08-15T18:33:38.123Z\",\n    \"entrances\": 5,\n    \"averageCount\": 1.5\n  }\n]\n```"
+          },
+          "response": [
+            {
+              "id": "5bc1813c-ec3e-4812-879d-b43954110089",
+              "name": "Return historical records for analytic zones",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/devices/{{serial}}/camera/analytics/{{zoneId}}/0/history?",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "devices",
+                    "{{serial}}",
+                    "camera",
+                    "analytics",
+                    "{{zoneId}}",
+                    "0",
+                    "history"
+                  ],
+                  "query": [
+                    {
+                      "key": "startingAfter",
+                      "value": "",
+                      "disabled": true
+                    },
+                    {
+                      "key": "endingBefore",
+                      "value": "",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n    {\n        \"startTs\": \"2018-08-15T18:32:38.123Z\",\n        \"endTs\": \"2018-08-15T18:33:38.123Z\",\n        \"entrances\": 5,\n        \"averageCount\": 1.5\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Returns most recent record for analytics zones",
+          "_postman_id": "0878bc1c-0bd6-448a-a848-8ae26f234708",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "url": "{{baseUrl}}/devices/{{serial}}/camera/analytics/recent",
+            "description": "## HTTP REQUEST\n```\nGET /devices/[serial]/camera/analytics/recent\n```\n\n## PARAMETERS\n**None**\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/devices/[serial]/camera/analytics/recent'\n```\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n[\n  {\n    \"startTs\": \"2018-08-15T18:32:38.123Z\",\n    \"endTs\": \"2018-08-15T18:33:38.123Z\",\n    \"zoneId\": 0,\n    \"entrances\": 10,\n    \"averageCount\": 2.54\n  }\n]\n```"
+          },
+          "response": [
+            {
+              "id": "1ed08f14-c2d3-4f02-b504-c976597c63d6",
+              "name": "Returns most recent record for analytics zones",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "url": "{{baseUrl}}/devices/{{serial}}/camera/analytics/recent"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n    {\n        \"startTs\": \"2018-08-15T18:32:38.123Z\",\n        \"endTs\": \"2018-08-15T18:33:38.123Z\",\n        \"zoneId\": 0,\n        \"entrances\": 10,\n        \"averageCount\": 2.54\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Returns live state from camera of analytics zones",
+          "_postman_id": "cfbe39b2-3b63-4e70-ac73-e3faf95c162e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "url": "{{baseUrl}}/devices/{{serial}}/camera/analytics/live",
+            "description": "## HTTP REQUEST\n```\nGET /devices/[serial]/camera/analytics/live\n```\n\n## PARAMETERS\n**None**\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/devices/[serial]/camera/analytics/live'\n```\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n[\n  {\n    \"ts\": \"2018-08-15T18:32:38.123Z\",\n    \"zones\": {\n      \"0\": {\n        \"person\": 0\n      }\n    }\n  }\n]\n```"
+          },
+          "response": [
+            {
+              "id": "2b2c2859-1750-41ff-b01a-f10514578072",
+              "name": "Returns live state from camera of analytics zones",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  }
+                ],
+                "url": "{{baseUrl}}/devices/{{serial}}/camera/analytics/live"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n    {\n        \"ts\": \"2018-08-15T18:32:38.123Z\",\n        \"zones\": {\n            \"0\": {\n                \"person\": 0\n            }\n        }\n    }\n]"
+            }
+          ]
+        }
+      ],
+      "_postman_id": "ed231585-9f27-468c-aec8-97ae2ef0dd67",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "1f76e136-a64d-4ae3-a686-4b69a7f73dc0",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "9778fecd-ad07-4720-9744-6d93095ac851",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "MX 1:1 NAT rules",
+      "item": [
+        {
+          "name": "Return the 1:1 NAT mapping rules for an MX network",
+          "_postman_id": "e0179aca-129c-43ab-8573-9b3bc1370b83",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "url": "{{baseUrl}}/networks/{{networkId}}/oneToOneNatRules",
+            "description": "## HTTP REQUEST\n```\nGET /networks/[networkId]/oneToOneNatRules\n```\n\n## PARAMETERS\n**None**\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[networkId]/oneToOneNatRules'\n```\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"rules\": [\n    {\n      \"name\": \"Service behind NAT\",\n      \"lanIp\": \"192.168.128.22\",\n      \"publicIp\": \"146.12.3.33\",\n      \"uplink\": \"internet1\",\n      \"allowedInbound\": [\n        {\n          \"protocol\": \"tcp\",\n          \"destinationPorts\": [\n            \"80\"\n          ],\n          \"allowedIps\": [\n            \"10.82.112.0/24\",\n            \"10.82.0.0/16\"\n          ]\n        },\n        {\n          \"protocol\": \"udp\",\n          \"destinationPorts\": [\n            \"8080\"\n          ],\n          \"allowedIps\": [\n            \"10.81.110.5\",\n            \"10.81.0.0/16\"\n          ]\n        }\n      ]\n    }\n  ]\n}\n```"
+          },
+          "response": [
+            {
+              "id": "dc5b0a79-9975-4440-8ca6-42b8ef07d7cd",
+              "name": "Return the 1:1 NAT mapping rules for an MX network",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  }
+                ],
+                "url": "{{baseUrl}}/networks/{{networkId}}/oneToOneNatRules"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx"
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 16 Jan 2019 15:09:46 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin"
+                },
+                {
+                  "key": "X-Robots-Tag",
+                  "value": "none"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "af227b9e4d5af732d13243e1e9a49eb8"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.259813"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n    {\n        \"name\": \"test\",\n        \"publicIp\": \"1.1.1.1\",\n        \"lanIp\": \"192.168.0.99\",\n        \"uplink\": \"internet1\",\n        \"allowedInbound\": [\n            {\n                \"protocol\": \"icmp-ping\",\n                \"destinationPorts\": [\n                    \"n/a\"\n                ],\n                \"allowedIps\": [\n                    \"any\"\n                ]\n            }\n        ]\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Set the 1:1 NAT mapping rules for an MX network",
+          "_postman_id": "88bff53d-3f74-4a1f-b4a5-672a8ce753c3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"rules\": [\n\t\t{\n\t\t\t\"name\": \"Service behind NAT\",\n\t\t\t\"lanIp\": \"192.168.128.22\",\n\t\t\t\"publicIp\": \"146.12.3.33\",\n\t\t\t\"uplink\": \"internet1\",\n\t\t\t\"allowedInbound\": [\n\t\t\t\t{\n\t\t\t\t\t\"protocol\": \"tcp\",\n\t\t\t\t\t\"destinationPorts\": [\n\t\t\t\t\t\t\"80\"\n\t\t\t\t\t],\n\t\t\t\t\t\"allowedIps\": [\n\t\t\t\t\t\t\"10.82.112.0/24\",\n\t\t\t\t\t\t\"10.82.0.0/16\"\n\t\t\t\t\t]\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"protocol\": \"udp\",\n\t\t\t\t\t\"destinationPorts\": [\n\t\t\t\t\t\t\"8080\"\n\t\t\t\t\t],\n\t\t\t\t\t\"allowedIps\": [\n\t\t\t\t\t\t\"10.81.110.5\",\n\t\t\t\t\t\t\"10.81.0.0/16\"\n\t\t\t\t\t]\n\t\t\t\t}\n\t\t\t]\n\t\t}\n\t]\n}"
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/oneToOneNatRules",
+            "description": "## HTTP REQUEST\n```\nPUT /networks/[networkId]/oneToOneNatRules\n```\n\n## PARAMETERS\n**Parameter**|**Description**\n:-------------: |:-------------:\nrules| An array of 1:1 nat rules\nname| A descriptive name for the rule\npublicIp| The IP address that will be used to access the internal resource from the WAN\nlanIp| The IP address of the server or device that hosts the internal resource that you wish to make available on the WAN\nuplink| The physical WAN interface on which the traffic will arrive ('internet1' or, if available, 'internet2')\nallowedInbound| The ports this mapping will provide access on, and the remote IPs that will be allowed access to the resource\nprotocol| Either of the following: 'tcp', 'udp', 'icmp-ping' or 'any'\ndestinationPorts| An array of ports or port ranges that will be forwarded to the host on the LAN\nallowedIps| An array of ranges of WAN IP addresses that are allowed to make inbound connections on the specified ports or port ranges, or 'any'\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X PUT --data-binary '{\"rules\":[{\"name\":\"Service behind NAT\",\"lanIp\":\"192.168.128.22\",\"publicIp\":\"146.12.3.33\",\"uplink\":\"internet1\",\"allowedInbound\":[{\"protocol\":\"tcp\",\"destinationPorts\":[\"80\"],\"allowedIps\":[\"10.82.112.0/24\",\"10.82.0.0/16\"]},{\"protocol\":\"udp\",\"destinationPorts\":[\"8080\"],\"allowedIps\":[\"10.81.110.5\",\"10.81.0.0/16\"]}]}]}' 'https://api.meraki.com/api/v0/networks/[networkId]/oneToOneNatRules'\n```\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"rules\": [\n    {\n      \"name\": \"Service behind NAT\",\n      \"lanIp\": \"192.168.128.22\",\n      \"publicIp\": \"146.12.3.33\",\n      \"uplink\": \"internet1\",\n      \"allowedInbound\": [\n        {\n          \"protocol\": \"tcp\",\n          \"destinationPorts\": [\n            \"80\"\n          ],\n          \"allowedIps\": [\n            \"10.82.112.0/24\",\n            \"10.82.0.0/16\"\n          ]\n        },\n        {\n          \"protocol\": \"udp\",\n          \"destinationPorts\": [\n            \"8080\"\n          ],\n          \"allowedIps\": [\n            \"10.81.110.5\",\n            \"10.81.0.0/16\"\n          ]\n        }\n      ]\n    }\n  ]\n}\n```"
+          },
+          "response": [
+            {
+              "id": "a2d7cc58-2eff-431e-a899-a0d55448e19d",
+              "name": "Set the 1:1 NAT mapping rules for an MX network",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rules\": [\n    {\n        \"name\": \"Service behind NAT\",\n        \"lanIp\": \"192.168.0.22\",\n        \"publicIp\": \"146.12.3.33\",\n        \"uplink\": \"internet1\",\n        \"allowedInbound\": [\n            {\n                \"protocol\": \"tcp\",\n                \"destinationPorts\": [\n                    \"80\"\n                ],\n                \"allowedIps\": [\n                    \"10.82.112.0/24\",\n                    \"10.82.0.0/16\"\n                ]\n            },\n            {\n                \"protocol\": \"udp\",\n                \"destinationPorts\": [\n                    \"8080\"\n                ],\n                \"allowedIps\": [\n                    \"10.81.110.5\",\n                    \"10.81.0.0/16\"\n                ]\n            }\n        ]\n    }\n    ]\n}"
+                },
+                "url": "{{baseUrl}}/networks/{{networkId}}/oneToOneNatRules"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx"
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 16 Jan 2019 15:16:15 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin"
+                },
+                {
+                  "key": "X-Robots-Tag",
+                  "value": "none"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "9d6ccb33423fd276c150f28c510c3f10"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.325219"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n    {\n        \"name\": \"Service behind NAT\",\n        \"publicIp\": \"146.12.3.33\",\n        \"lanIp\": \"192.168.0.22\",\n        \"uplink\": \"internet1\",\n        \"allowedInbound\": [\n            {\n                \"protocol\": \"tcp\",\n                \"destinationPorts\": [\n                    \"80\"\n                ],\n                \"allowedIps\": [\n                    \"10.82.112.0/24\",\n                    \"10.82.0.0/16\"\n                ]\n            },\n            {\n                \"protocol\": \"udp\",\n                \"destinationPorts\": [\n                    \"8080\"\n                ],\n                \"allowedIps\": [\n                    \"10.81.110.5\",\n                    \"10.81.0.0/16\"\n                ]\n            }\n        ]\n    }\n]"
+            }
+          ]
+        }
+      ],
+      "_postman_id": "6719eeaa-b36c-4455-a161-e415e4f7e32b"
+    },
+    {
+      "name": "MX 1:Many NAT rules",
+      "item": [
+        {
+          "name": "Return the 1:Many NAT mapping rules for an MX network",
+          "_postman_id": "6d541112-28d7-49ee-857f-c9819c62ab07",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "url": "{{baseUrl}}/networks/{{networkId}}/oneToManyNatRules",
+            "description": "## HTTP REQUEST\n```\nGET /networks/[networkId]/oneToManyNatRules\n```\n\n## PARAMETERS\n**None**\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[networkId]/oneToManyNatRules'\n```\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"rules\": [\n    {\n      \"publicIp\": \"146.11.11.13\",\n      \"uplink\": \"internet1\",\n      \"portRules\": [\n        {\n          \"name\": \"Rule 1\",\n          \"protocol\": \"tcp\",\n          \"publicPort\": \"9443\",\n          \"localIp\": \"192.168.128.1\",\n          \"localPort\": \"443\",\n          \"allowedIps\": [\n            \"any\"\n          ]\n        },\n        {\n          \"name\": \"Rule 2\",\n          \"protocol\": \"tcp\",\n          \"publicPort\": \"8080\",\n          \"localIp\": \"192.168.128.1\",\n          \"localPort\": \"80\",\n          \"allowedIps\": [\n            \"10.82.110.0/24\",\n            \"10.82.111.0/24\"\n          ]\n        }\n      ]\n    }\n  ]\n}\n```"
+          },
+          "response": [
+            {
+              "id": "2e014b9d-633c-452b-81bd-cb9efbea508a",
+              "name": "Return the 1:Many NAT mapping rules for an MX network",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  }
+                ],
+                "url": "{{baseUrl}}/networks/{{networkId}}/oneToManyNatRules"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx"
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 16 Jan 2019 15:25:01 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin"
+                },
+                {
+                  "key": "X-Robots-Tag",
+                  "value": "none"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "77934abe4e1609f6bb56ac79a087c813"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.125523"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n    {\n        \"publicIp\": \"1.1.1.1\",\n        \"uplink\": \"internet1\",\n        \"portRules\": [\n            {\n                \"name\": \"test\",\n                \"protocol\": \"tcp\",\n                \"publicPort\": \"8080\",\n                \"localIp\": \"192.168.0.99\",\n                \"localPort\": \"80\",\n                \"allowedIps\": [\n                    \"10.1.5.1\"\n                ]\n            },\n            {\n                \"name\": \"test 2\",\n                \"protocol\": \"tcp\",\n                \"publicPort\": \"8081\",\n                \"localIp\": \"192.168.0.99\",\n                \"localPort\": \"81\",\n                \"allowedIps\": [\n                    \"10.1.5.1\"\n                ]\n            }\n        ]\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Set the 1:Many NAT mapping rules for an MX network",
+          "_postman_id": "d1838e91-f709-4f8a-9749-b51e4355a500",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"rules\": [\n\t\t{\n\t\t\t\"publicIp\": \"146.11.11.13\",\n\t\t\t\"uplink\": \"internet1\",\n\t\t\t\"portRules\": [\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"Rule 1\",\n\t\t\t\t\t\"protocol\": \"tcp\",\n\t\t\t\t\t\"publicPort\": \"9443\",\n\t\t\t\t\t\"localIp\": \"192.168.128.1\",\n\t\t\t\t\t\"localPort\": \"443\",\n\t\t\t\t\t\"allowedIps\": [\n\t\t\t\t\t\t\"any\"\n\t\t\t\t\t]\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"Rule 2\",\n\t\t\t\t\t\"protocol\": \"tcp\",\n\t\t\t\t\t\"publicPort\": \"8080\",\n\t\t\t\t\t\"localIp\": \"192.168.128.1\",\n\t\t\t\t\t\"localPort\": \"80\",\n\t\t\t\t\t\"allowedIps\": [\n\t\t\t\t\t\t\"10.82.110.0/24\",\n\t\t\t\t\t\t\"10.82.111.0/24\"\n\t\t\t\t\t]\n\t\t\t\t}\n\t\t\t]\n\t\t}\n\t]\n}"
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/oneToManyNatRules",
+            "description": "## HTTP REQUEST\n```\nPUT /networks/[networkId]/oneToManyNatRules\n```\n\n## PARAMETERS\n**Parameter**|**Description**\n:-------------: |:-------------:\nrules| An array of 1:Many nat rules\npublicIp| The IP address that will be used to access the internal resource from the WAN\nuplink| The physical WAN interface on which the traffic will arrive ('internet1' or, if available, 'internet2')\nportRules| An array of associated forwarding rules\nname| A description of the rule\nprotocol| 'tcp' or 'udp'\npublicPort| Destination port of the traffic that is arriving on the WAN\nlocalIp| Local IP address to which traffic will be forwarded\nlocalPort| Destination port of the forwarded traffic that will be sent from the MX to the specified host on the LAN. If you simply wish to forward the traffic without translating the port, this should be the same as the Public port\nallowedIps| Remote IP addresses or ranges that are permitted to access the internal resource via this port forwarding rule, or 'any'\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X PUT --data-binary '{\"rules\":[{\"publicIp\":\"146.11.11.13\",\"uplink\":\"internet1\",\"portRules\":[{\"name\":\"Rule 1\",\"protocol\":\"tcp\",\"publicPort\":\"9443\",\"localIp\":\"192.168.128.1\",\"localPort\":\"443\",\"allowedIps\":[\"any\"]},{\"name\":\"Rule 2\",\"protocol\":\"tcp\",\"publicPort\":\"8080\",\"localIp\":\"192.168.128.1\",\"localPort\":\"80\",\"allowedIps\":[\"10.82.110.0/24\",\"10.82.111.0/24\"]}]}]}' 'https://api.meraki.com/api/v0/networks/[networkId]/oneToManyNatRules'\n```\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"rules\": [\n    {\n      \"publicIp\": \"146.11.11.13\",\n      \"uplink\": \"internet1\",\n      \"portRules\": [\n        {\n          \"name\": \"Rule 1\",\n          \"protocol\": \"tcp\",\n          \"publicPort\": \"9443\",\n          \"localIp\": \"192.168.128.1\",\n          \"localPort\": \"443\",\n          \"allowedIps\": [\n            \"any\"\n          ]\n        },\n        {\n          \"name\": \"Rule 2\",\n          \"protocol\": \"tcp\",\n          \"publicPort\": \"8080\",\n          \"localIp\": \"192.168.128.1\",\n          \"localPort\": \"80\",\n          \"allowedIps\": [\n            \"10.82.110.0/24\",\n            \"10.82.111.0/24\"\n          ]\n        }\n      ]\n    }\n  ]\n}\n```"
+          },
+          "response": [
+            {
+              "id": "5f106d75-3b30-4095-a74e-09d8dcfa334d",
+              "name": "Set the 1:Many NAT mapping rules for an MX network",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"rules\": [\n      {\n        \"publicIp\": \"146.11.11.13\",\n        \"uplink\": \"internet1\",\n        \"portRules\": [\n          {\n            \"name\": \"Rule 1\",\n            \"protocol\": \"tcp\",\n            \"publicPort\": \"9443\",\n            \"localIp\": \"192.168.128.1\",\n            \"localPort\": \"443\",\n            \"allowedIps\": [\n              \"any\"\n            ]\n          },\n          {\n            \"name\": \"Rule 2\",\n            \"protocol\": \"tcp\",\n            \"publicPort\": \"8080\",\n            \"localIp\": \"192.168.128.1\",\n            \"localPort\": \"80\",\n            \"allowedIps\": [\n              \"10.82.110.0/24\",\n              \"10.82.111.0/24\"\n            ]\n          }\n        ]\n      }\n    ]\n}"
+                },
+                "url": "{{baseUrl}}/networks/{{networkId}}/oneToManyNatRules"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx"
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 16 Jan 2019 15:29:38 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin"
+                },
+                {
+                  "key": "X-Robots-Tag",
+                  "value": "none"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "6172c5b8351ad04f9117c6a346108811"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.348753"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n    {\n        \"publicIp\": \"146.11.11.13\",\n        \"uplink\": \"internet1\",\n        \"portRules\": [\n            {\n                \"name\": \"Rule 1\",\n                \"protocol\": \"tcp\",\n                \"publicPort\": \"9443\",\n                \"localIp\": \"192.168.128.1\",\n                \"localPort\": \"443\",\n                \"allowedIps\": [\n                    \"any\"\n                ]\n            },\n            {\n                \"name\": \"Rule 2\",\n                \"protocol\": \"tcp\",\n                \"publicPort\": \"8080\",\n                \"localIp\": \"192.168.128.1\",\n                \"localPort\": \"80\",\n                \"allowedIps\": [\n                    \"10.82.110.0/24\",\n                    \"10.82.111.0/24\"\n                ]\n            }\n        ]\n    }\n]"
+            }
+          ]
+        }
+      ],
+      "_postman_id": "0afff053-d342-4811-a35b-7d377e7b3d08"
+    },
+    {
+      "name": "MX L3 firewall",
+      "item": [
+        {
+          "name": "Return the L3 firewall rules for an MX network",
+          "_postman_id": "80ee84bc-f349-44c1-b7df-feabb0d1f072",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "url": "{{baseUrl}}/networks/{{networkId}}/l3FirewallRules",
+            "description": "## HTTP REQUEST\n```GET /networks/[networkId]/l3FirewallRules```\n## PARAMETERS\nNone\n\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X GET -H 'Content-Type: application/json' 'https://dashboard.meraki.com/api/v0/networks/[networkId]/l3FirewallRules'\n```\n\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n[\n  {\n     \"comment\": \"Allow tcp traffic to subnet with http servers.\",\n     \"policy\": \"allow\",\n     \"protocol\": \"tcp\",\n     \"destPort\": \"80,443\",\n     \"destCidr\": \"10.1.333/24\",\n     \"srcPort\": \"Any\",\n     \"srcCidr\": \"Any\",\n     \"syslogEnabled\": false\n  },\n  {\n     \"comment\": \"Block all tcp to http/https ports.\",\n     \"policy\": \"deny\",\n     \"protocol\": \"http\",\n     \"destPort\": \"80,443\",\n     \"destCidr\": \"10.1.1.0/24,10.1.2.0/24\",\n     \"srcPort\": \"Any\",\n     \"srcCidr\": \"Any\",\n     \"syslogEnabled\": false\n  },\n  {\n     \"comment\": \"Default rule\",\n     \"policy\": \"allow\",\n     \"protocol\": \"Any\",\n     \"destPort\": \"Any\",\n     \"destCidr\": \"Any\",\n     \"srcPort\": \"Any\",\n     \"srcCidr\": \"Any\",\n     \"syslogEnabled\": false\n  }\n]\n```"
+          },
+          "response": [
+            {
+              "id": "8998fc55-5cc4-4cad-bdcb-2076ecfae190",
+              "name": "MX - Return L3 Firewall Rules",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  }
+                ],
+                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/l3FirewallRules"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate",
+                  "name": "Cache-Control",
+                  "description": ""
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "name": "Content-Encoding",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8",
+                  "name": "Content-Type",
+                  "description": ""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 12 Oct 2017 09:51:49 GMT",
+                  "name": "Date",
+                  "description": ""
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT",
+                  "name": "Expires",
+                  "description": ""
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache",
+                  "name": "Pragma",
+                  "description": ""
+                },
+                {
+                  "key": "Public-Key-Pins-Report-Only",
+                  "value": "max-age=1200; pin-sha256=\"2V5tfxXMLkn2kVg/Iv8FqL4JHcNVGEUFK27oSMYhHEU=\"; pin-sha256=\"8Rw90Ej3Ttt8RRkrg+WYDS9n7IS03bk5bjP/UXPtaY8=\"; pin-sha256=\"3YQf+D42t1/pQJhWTwYLRnFVnbBNXf9W5S6dmwq2+3g=\"; pin-sha256=\"klO23nT2ehFDXCfx3eHTDRESMz3asj1muO+4aIdjiuY=\"; pin-sha256=\"fake+hpkp+key+for+testing+report+only+QWERT=\"; includeSubDomains; report-uri=\"https://therealmerakidashboard.report-uri.io/r/default/hpkp/reportOnly\"",
+                  "name": "Public-Key-Pins-Report-Only",
+                  "description": ""
+                },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": ""
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains",
+                  "name": "Strict-Transport-Security",
+                  "description": ""
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": ""
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding",
+                  "name": "Vary",
+                  "description": ""
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin",
+                  "name": "X-Frame-Options",
+                  "description": ""
+                },
+                {
+                  "key": "X-Rack-Cache",
+                  "value": "miss",
+                  "name": "X-Rack-Cache",
+                  "description": ""
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "c1cc756d80ca4834b33294ee22581294",
+                  "name": "X-Request-Id",
+                  "description": ""
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.079556",
+                  "name": "X-Runtime",
+                  "description": ""
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1",
+                  "name": "X-UA-Compatible",
+                  "description": ""
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[{\"comment\":\"Private FTP Server\",\"policy\":\"deny\",\"protocol\":\"tcp\",\"srcPort\":\"Any\",\"srcCidr\":\"Any\",\"destPort\":\"21\",\"destCidr\":\"192.168.21.123/32\",\"syslogEnabled\":false},{\"comment\":\"Default rule\",\"policy\":\"allow\",\"protocol\":\"Any\",\"srcPort\":\"Any\",\"srcCidr\":\"Any\",\"destPort\":\"Any\",\"destCidr\":\"Any\",\"syslogEnabled\":false}]"
+            }
+          ]
+        },
+        {
+          "name": "Update the L3 firewall rules of an MX network",
+          "_postman_id": "7fa65270-ce26-4f60-ba78-cc3ef6175c19",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rules\": [\n      {\n          \"comment\": \"Private FTP Server\",\n          \"policy\": \"deny\",\n          \"protocol\": \"tcp\",\n          \"srcPort\": \"Any\",\n          \"srcCidr\": \"Any\",\n          \"destPort\": \"21,22\",\n          \"destCidr\": \"192.168.21.123/32\",\n          \"syslogEnabled\": false\n      },\n      {\n          \"comment\": \"Default rule\",\n          \"policy\": \"allow\",\n          \"protocol\": \"Any\",\n          \"srcPort\": \"Any\",\n          \"srcCidr\": \"Any\",\n          \"destPort\": \"Any\",\n          \"destCidr\": \"Any\",\n          \"syslogEnabled\": false\n      }\n  ]\n}"
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/l3FirewallRules/",
+            "description": "## HTTP REQUEST\n```\nPUT /networks/[networkId]/l3FirewallRules\n```\n\n## PARAMETERS\n**rules**\n\nAn ordered array of the firewall rules (not including the default rule)\n\n**comment**|**Description of the rule (optional)**\n:-----:|:-----:\npolicy|Allow' or 'Deny' traffic specified by this rule\nprotocol|The type of protocol (must be 'tcp', 'udp', 'icmp' or 'any')\nsrcPort|Comma-separated list of source port(s) (integer in the range 1-65535), or 'any'\nsrcCidr|Comma-separated list of source IP address(es) (in IP or CIDR notation), or 'any' (note: FQDN not supported for source addresses)\ndestPort|Comma-separated list of destination port(s) (integer in the range 1-65535), or 'any'\ndestCidr|Comma-separated list of destination IP address(es) (in IP or CIDR notation), fully-qualified domain names (FQDN) or 'any'\nsyslogEnabled|Log this rule to syslog (true or false, boolean value) - only applicable if a syslog has been configured (optional)\n\n\n**syslogDefaultRule**\n\nLog the special default rule (boolean value - enable only if you've configured a syslog server) (optional)\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n[\n  {\n     \"comment\": \"a note about the rule\",\n     \"policy\": \"deny\",\n     \"protocol\": \"tcp\",\n     \"destPort\": \"80,443\",\n     \"destCidr\": \"192.168.1.0/24,192.168.2.0/24\",\n     \"srcPort\": \"Any\",\n     \"srcCidr\": \"Any\",\n     \"syslogEnabled\": true\n  },\n  {\n     \"comment\": \"Default rule\",\n     \"policy\": \"allow\",\n     \"protocol\": \"Any\",\n     \"destPort\": \"Any\",\n     \"destCidr\": \"Any\",\n     \"srcPort\": \"Any\",\n     \"srcCidr\": \"Any\",\n     \"syslogEnabled\": true\n  }\n]\n```"
+          },
+          "response": []
+        }
+      ],
+      "_postman_id": "839b7afc-9db0-4a5a-9273-04ead452ab14"
     }
   ],
   "event": [
