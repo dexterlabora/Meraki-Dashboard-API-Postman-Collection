@@ -3452,6 +3452,192 @@
         }
       ],
       "_postman_id": "147f4119-944c-4df0-b7fa-05fed3b1e743"
+    },
+    {
+      "name": "API usage",
+      "item": [
+        {
+          "name": "List the API requests made by an organization",
+          "_postman_id": "fcf19195-0e83-45c2-aca0-4723a5f66c4c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "description": "API key",
+                "key": "X-Cisco-Meraki-API-Key",
+                "type": "text",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/organizations/{{organizationId}}/apiRequests?",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "organizations",
+                "{{organizationId}}",
+                "apiRequests"
+              ],
+              "query": [
+                {
+                  "key": "t0",
+                  "value": null,
+                  "description": "The beginning of the timespan for the data. The maximum lookback period is 31 days from today.",
+                  "disabled": true
+                },
+                {
+                  "key": "t1",
+                  "value": null,
+                  "description": "The end of the timespan for the data. t1 can be a maximum of 31 days after t0.",
+                  "disabled": true
+                },
+                {
+                  "key": "timespan",
+                  "value": null,
+                  "description": "The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 31 days.",
+                  "disabled": true
+                },
+                {
+                  "key": "perPage",
+                  "value": null,
+                  "description": "The number of entries per page returned. Acceptable range is 3 - 1000. Default is 50.",
+                  "disabled": true
+                },
+                {
+                  "key": "startingAfter",
+                  "value": null,
+                  "description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.",
+                  "disabled": true
+                },
+                {
+                  "key": "endingBefore",
+                  "value": null,
+                  "description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.",
+                  "disabled": true
+                },
+                {
+                  "key": "adminId",
+                  "value": null,
+                  "description": "Filter the results by the ID of the admin who made the API requests",
+                  "disabled": true
+                },
+                {
+                  "key": "path",
+                  "value": null,
+                  "description": "Filter the results by the path of the API requests",
+                  "disabled": true
+                },
+                {
+                  "key": "method",
+                  "value": null,
+                  "description": "Filter the results by the method of the API requests (must be 'GET', 'PUT', 'POST' or 'DELETE')",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "## HTTP REQUEST\n```\nGET /organizations/{organizationId}/apiRequests\n```\n\n## PARAMETERS\n**Parameter**| **Description**\n:-------------:| :-------------:\nt0| The beginning of the timespan for the data. The maximum lookback period is 1 month from today.\nt1| The end of the timespan for the data. t1 can be a maximum of 1 month after t0.\ntimespan| The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 2592000. The default is 2592000.\nperPage| The number of entries per page returned. Acceptable range is 3 - 1000. Default is 50.\nstartingAfter| A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.\nendingBefore| A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.\nadminId| Filter the results by the ID of the admin who made the API requests\npath| Filter the results by the path of the API requests\nmethod| Filter the results by the method of the API requests (must be 'GET', 'PUT', 'POST' or 'DELETE')\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/organizations/{organizationId}/apiRequests'\n```\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n[\n  {\n    \"adminId\": \"212406\",\n    \"method\": \"GET\",\n    \"host\": \"api.meraki.com\",\n    \"path\": \"/api/v0/organizations/33349/apiRequests\",\n    \"queryString\": \"timespan=604800\",\n    \"userAgent\": \"PostmanRuntime/7.6.0\",\n    \"ts\": \"2019-02-20T17:31:23Z\"\n  }\n]\n```"
+          },
+          "response": [
+            {
+              "id": "f7e5017c-c474-4996-b775-f74052fc6c12",
+              "name": "List the API requests made by an organization",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}",
+                    "description": "API token",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{baseUrl}}/organizations/{{organizationId}}/apiRequests"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx"
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 13 Mar 2019 15:32:19 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin"
+                },
+                {
+                  "key": "X-Robots-Tag",
+                  "value": "none"
+                },
+                {
+                  "key": "Link",
+                  "value": "<https://n149.meraki.com/api/v0/admins/docs?perPage=50&startingAfter=1550075537.746735>; rel=first, <https://n149.meraki.com/api/v0/admins/docs?perPage=50&startingAfter=1550106772.681996>; rel=next, <https://n149.meraki.com/api/v0/admins/docs?endingBefore=1552491137.7467356&perPage=50>; rel=last"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "40cfd29fe6bf7ea1f6f573b5b130aa62"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "2.212479"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/organizations/549236/networks\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.19.1\",\n        \"ts\": \"2019-02-14T01:08:05Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/organizations/549236/deviceStatuses\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.19.1\",\n        \"ts\": \"2019-02-14T01:08:06Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/organizations/549236/networks\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.19.1\",\n        \"ts\": \"2019-02-14T01:10:04Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/organizations/549236/deviceStatuses\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.19.1\",\n        \"ts\": \"2019-02-14T01:10:05Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/organizations/549236/deviceStatuses\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:10:52Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/organizations/549236/inventory\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:10:59Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/organizations/549236/configTemplates\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:11:07Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/organizations/549236/admins\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:11:16Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/organizations/549236/networks\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:11:23Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/organizations/549236/licenseState\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:11:31Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/organizations/549236\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:11:37Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/organizations/549236/inventory\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:11:48Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/devices/Q2PD-GP6W-ZGBC/clients\",\n        \"queryString\": \"timespan=86400\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:11:50Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/devices/Q2RD-6YRX-3EJV/clients\",\n        \"queryString\": \"timespan=86400\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:11:50Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/devices/Q2GD-T8Q9-ZNJA/clients\",\n        \"queryString\": \"timespan=86400\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:11:50Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/devices/Q2KN-23L5-G9Z4/clients\",\n        \"queryString\": \"timespan=86400\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:11:50Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/devices/Q2MD-BHHS-5FDL/clients\",\n        \"queryString\": \"timespan=86400\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:11:55Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/devices/Q2PD-PWC9-2KW4/clients\",\n        \"queryString\": \"timespan=86400\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:11:55Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/devices/Q2MD-9PJD-E9L7/clients\",\n        \"queryString\": \"timespan=86400\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:11:55Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/devices/Q2LD-98WJ-743V/clients\",\n        \"queryString\": \"timespan=86400\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:11:55Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/organizations/549236/inventory\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:01Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/networks/L_646829496481101057/traffic\",\n        \"queryString\": \"timespan=86400&deviceType=combined\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:08Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/networks/L_646829496481101103/traffic\",\n        \"queryString\": \"timespan=86400&deviceType=combined\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:08Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/networks/L_646829496481099586/traffic\",\n        \"queryString\": \"timespan=86400&deviceType=combined\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:08Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/networks/L_646829496481100889/traffic\",\n        \"queryString\": \"timespan=86400&deviceType=combined\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:08Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/organizations/549236/networks\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.19.1\",\n        \"ts\": \"2019-02-14T01:12:11Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/organizations/549236/deviceStatuses\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.19.1\",\n        \"ts\": \"2019-02-14T01:12:12Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/networks/L_646829496481101091/traffic\",\n        \"queryString\": \"timespan=86400&deviceType=combined\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:15Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/organizations/549236/inventory\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:20Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/networks/L_646829496481101057/devices/Q2RD-6YRX-3EJV\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:23Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/networks/L_646829496481101057/devices/Q2GD-T8Q9-ZNJA\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:23Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/networks/L_646829496481101057/devices/Q2PD-GP6W-ZGBC\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:23Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/networks/L_646829496481101057/devices/Q2KN-23L5-G9Z4\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:23Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/networks/L_646829496481101103/devices/Q2MD-9PJD-E9L7\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:28Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/networks/L_646829496481101057/devices/Q2PD-PWC9-2KW4\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:29Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/networks/L_646829496481101057/devices/Q2LD-98WJ-743V\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:29Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/networks/L_646829496481100889/devices/Q2MD-BHHS-5FDL\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:29Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/organizations/549236/inventory\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:36Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/networks/L_646829496481101057/bluetoothClients\",\n        \"queryString\": \"perPage=1000timespan=7200\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:38Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/networks/L_646829496481101057/bluetoothClients\",\n        \"queryString\": \"perPage=1000timespan=7200\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:38Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/networks/L_646829496481101057/bluetoothClients\",\n        \"queryString\": \"perPage=1000timespan=7200\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:38Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/networks/L_646829496481101057/bluetoothClients\",\n        \"queryString\": \"perPage=1000timespan=7200\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:38Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/networks/L_646829496481101057/bluetoothClients\",\n        \"queryString\": \"perPage=1000timespan=7200\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:44Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/networks/L_646829496481100889/bluetoothClients\",\n        \"queryString\": \"perPage=1000timespan=7200\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:44Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/networks/L_646829496481101103/bluetoothClients\",\n        \"queryString\": \"perPage=1000timespan=7200\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:44Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/networks/L_646829496481101091/bluetoothClients\",\n        \"queryString\": \"perPage=1000timespan=7200\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:44Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/organizations/549236/inventory\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:50Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/networks/L_646829496481101103/siteToSiteVpn\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:52Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/networks/L_646829496481100889/siteToSiteVpn\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:52Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/networks/L_646829496481101057/siteToSiteVpn\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:52Z\"\n    }\n]"
+            }
+          ]
+        }
+      ],
+      "_postman_id": "53519728-e571-4bb6-8993-3889a29074a0"
     }
   ],
   "event": [
