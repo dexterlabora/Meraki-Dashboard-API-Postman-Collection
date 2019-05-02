@@ -7,77 +7,6 @@
   },
   "item": [
     {
-      "name": "Switch ports",
-      "item": [
-        {
-          "name": "List the switch ports for a switch",
-          "_postman_id": "735cc2c3-3944-4e93-a7ef-0576df8ad6aa",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "X-Cisco-Meraki-API-Key",
-                "value": "{{X-Cisco-Meraki-API-Key}}"
-              }
-            ],
-            "url": "{{baseUrl}}/devices/{{serial}}/switchPorts",
-            "description": "## HTTP REQUEST\n```\nGET /devices/[serial]/switchPorts\n```\n\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://dashboard.meraki.com/api/v0/devices/[serial]/switchPorts'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n[\n  {\n    \"number\": 1,\n    \"name\": \"my port\",\n    \"tags\": \"dorm-room limited\",\n    \"enabled\": true,\n    \"type\": \"access\",\n    \"vlan\": 10,\n    \"voiceVlan\": 20,\n    \"poeEnabled\": true,\n    \"isolationEnabled\": false,\n    \"rstpEnabled\": true,\n    \"stpGuard\": \"disabled\",\n    \"accessPolicyNumber\": \"asdf1234\"\n  }\n]\n```"
-          },
-          "response": []
-        },
-        {
-          "name": "Return a switch port",
-          "_postman_id": "e355cca9-ecc9-49dc-b368-440386d0f2c0",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "X-Cisco-Meraki-API-Key",
-                "value": "{{X-Cisco-Meraki-API-Key}}"
-              }
-            ],
-            "url": "{{baseUrl}}/devices/{{serial}}/switchPorts/{{portNum}}",
-            "description": "## HTTP REQUEST\n```\nGET /devices/[serial]/switchPorts/[number]\n```\n\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://dashboard.meraki.com/api/v0/devices/[serial]/switchPorts/[number]'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"number\": 1,\n  \"name\": \"my port\",\n  \"tags\": \"dorm-room limited\",\n  \"enabled\": true,\n  \"type\": \"access\",\n  \"vlan\": 10,\n  \"voiceVlan\": 20,\n  \"poeEnabled\": true,\n  \"isolationEnabled\": false,\n  \"rstpEnabled\": true,\n  \"stpGuard\": \"disabled\",\n  \"accessPolicyNumber\": \"asdf1234\"\n}\n```"
-          },
-          "response": []
-        },
-        {
-          "name": "Update a switch port",
-          "_postman_id": "a03bcc4e-0029-40d5-b243-96ea2b8f60a0",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "PUT",
-            "header": [
-              {
-                "key": "X-Cisco-Meraki-API-Key",
-                "value": "{{X-Cisco-Meraki-API-Key}}"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"name\": \"test from Postman\",\n  \"tags\": \"API\",\n  \"enabled\": true,\n  \"poeEnabled\": true,\n  \"type\": \"trunk\",\n  \"vlan\": 1,\n  \"voiceVlan\": null,\n  \"allowedVlans\": \"all\",\n  \"isolationEnabled\": false,\n  \"rstpEnabled\": true,\n  \"stpGuard\": \"disabled\",\n  \"accessPolicyNumber\": null\n}"
-            },
-            "url": "{{baseUrl}}/devices/{{serial}}/switchPorts/{{portNum}}",
-            "description": "## HTTP REQUEST\n```\nPUT /devices/[serial]/switchPorts/[number]\n```\n\n## PARAMETERS\n\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\nname|The name of the switch port\ntags|The tags of the switch port\nenabled|The status of the switch port\ntype|The type of the switch port (\"access\" or \"trunk\")\nvlan|The VLAN of the switch port\nvoiceVlan|The voice VLAN of the switch port. Only applicable to access ports.\nallowedVlans|The VLANs allowed on the switch port. Only applicable to trunk ports.\npoeEnabled|The PoE status of the switch port\nisolationEnabled|The isolation status of the switch port\nrstpEnabled|The rapid spanning tree protocol status\nstpGuard|The state of the STP guard (\"disabled\", \"Root guard\", \"BPDU guard\", \"Loop guard\")\naccessPolicyNumber|The number of the access policy of the switch port. Only applicable to access ports. \n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X PUT 'https://dashboard.meraki.com/api/v0/devices/[serial]/switchPorts/[number]'\n```\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"number\": 1,\n  \"name\": \"my port\",\n  \"tags\": \"dorm-room limited\",\n  \"enabled\": true,\n  \"type\": \"access\",\n  \"vlan\": 10,\n  \"voiceVlan\": 20,\n  \"poeEnabled\": true,\n  \"isolationEnabled\": false,\n  \"rstpEnabled\": true,\n  \"stpGuard\": \"disabled\",\n  \"accessPolicyNumber\": \"asdf1234\"\n}\n```"
-          },
-          "response": []
-        }
-      ],
-      "_postman_id": "c90a95dc-7492-4a21-be2b-7271c3dade04"
-    },
-    {
       "name": "Switch settings",
       "item": [
         {
@@ -3452,6 +3381,536 @@
         }
       ],
       "_postman_id": "147f4119-944c-4df0-b7fa-05fed3b1e743"
+    },
+    {
+      "name": "API usage",
+      "item": [
+        {
+          "name": "List the API requests made by an organization",
+          "_postman_id": "fcf19195-0e83-45c2-aca0-4723a5f66c4c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "description": "API key",
+                "key": "X-Cisco-Meraki-API-Key",
+                "type": "text",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/organizations/{{organizationId}}/apiRequests?",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "organizations",
+                "{{organizationId}}",
+                "apiRequests"
+              ],
+              "query": [
+                {
+                  "key": "t0",
+                  "value": null,
+                  "description": "The beginning of the timespan for the data. The maximum lookback period is 31 days from today.",
+                  "disabled": true
+                },
+                {
+                  "key": "t1",
+                  "value": null,
+                  "description": "The end of the timespan for the data. t1 can be a maximum of 31 days after t0.",
+                  "disabled": true
+                },
+                {
+                  "key": "timespan",
+                  "value": null,
+                  "description": "The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 31 days.",
+                  "disabled": true
+                },
+                {
+                  "key": "perPage",
+                  "value": null,
+                  "description": "The number of entries per page returned. Acceptable range is 3 - 1000. Default is 50.",
+                  "disabled": true
+                },
+                {
+                  "key": "startingAfter",
+                  "value": null,
+                  "description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.",
+                  "disabled": true
+                },
+                {
+                  "key": "endingBefore",
+                  "value": null,
+                  "description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.",
+                  "disabled": true
+                },
+                {
+                  "key": "adminId",
+                  "value": null,
+                  "description": "Filter the results by the ID of the admin who made the API requests",
+                  "disabled": true
+                },
+                {
+                  "key": "path",
+                  "value": null,
+                  "description": "Filter the results by the path of the API requests",
+                  "disabled": true
+                },
+                {
+                  "key": "method",
+                  "value": null,
+                  "description": "Filter the results by the method of the API requests (must be 'GET', 'PUT', 'POST' or 'DELETE')",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "## HTTP REQUEST\n```\nGET /organizations/{organizationId}/apiRequests\n```\n\n## PARAMETERS\n**Parameter**| **Description**\n:-------------:| :-------------:\nt0| The beginning of the timespan for the data. The maximum lookback period is 1 month from today.\nt1| The end of the timespan for the data. t1 can be a maximum of 1 month after t0.\ntimespan| The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 2592000. The default is 2592000.\nperPage| The number of entries per page returned. Acceptable range is 3 - 1000. Default is 50.\nstartingAfter| A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.\nendingBefore| A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.\nadminId| Filter the results by the ID of the admin who made the API requests\npath| Filter the results by the path of the API requests\nmethod| Filter the results by the method of the API requests (must be 'GET', 'PUT', 'POST' or 'DELETE')\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/organizations/{organizationId}/apiRequests'\n```\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n[\n  {\n    \"adminId\": \"212406\",\n    \"method\": \"GET\",\n    \"host\": \"api.meraki.com\",\n    \"path\": \"/api/v0/organizations/33349/apiRequests\",\n    \"queryString\": \"timespan=604800\",\n    \"userAgent\": \"PostmanRuntime/7.6.0\",\n    \"ts\": \"2019-02-20T17:31:23Z\"\n  }\n]\n```"
+          },
+          "response": [
+            {
+              "id": "f7e5017c-c474-4996-b775-f74052fc6c12",
+              "name": "List the API requests made by an organization",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}",
+                    "description": "API token",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{baseUrl}}/organizations/{{organizationId}}/apiRequests"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx"
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 13 Mar 2019 15:32:19 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin"
+                },
+                {
+                  "key": "X-Robots-Tag",
+                  "value": "none"
+                },
+                {
+                  "key": "Link",
+                  "value": "<https://n149.meraki.com/api/v0/admins/docs?perPage=50&startingAfter=1550075537.746735>; rel=first, <https://n149.meraki.com/api/v0/admins/docs?perPage=50&startingAfter=1550106772.681996>; rel=next, <https://n149.meraki.com/api/v0/admins/docs?endingBefore=1552491137.7467356&perPage=50>; rel=last"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "40cfd29fe6bf7ea1f6f573b5b130aa62"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "2.212479"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/organizations/549236/networks\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.19.1\",\n        \"ts\": \"2019-02-14T01:08:05Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/organizations/549236/deviceStatuses\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.19.1\",\n        \"ts\": \"2019-02-14T01:08:06Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/organizations/549236/networks\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.19.1\",\n        \"ts\": \"2019-02-14T01:10:04Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/organizations/549236/deviceStatuses\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.19.1\",\n        \"ts\": \"2019-02-14T01:10:05Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/organizations/549236/deviceStatuses\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:10:52Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/organizations/549236/inventory\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:10:59Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/organizations/549236/configTemplates\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:11:07Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/organizations/549236/admins\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:11:16Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/organizations/549236/networks\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:11:23Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/organizations/549236/licenseState\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:11:31Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/organizations/549236\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:11:37Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/organizations/549236/inventory\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:11:48Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/devices/Q2PD-GP6W-ZGBC/clients\",\n        \"queryString\": \"timespan=86400\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:11:50Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/devices/Q2RD-6YRX-3EJV/clients\",\n        \"queryString\": \"timespan=86400\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:11:50Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/devices/Q2GD-T8Q9-ZNJA/clients\",\n        \"queryString\": \"timespan=86400\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:11:50Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/devices/Q2KN-23L5-G9Z4/clients\",\n        \"queryString\": \"timespan=86400\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:11:50Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/devices/Q2MD-BHHS-5FDL/clients\",\n        \"queryString\": \"timespan=86400\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:11:55Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/devices/Q2PD-PWC9-2KW4/clients\",\n        \"queryString\": \"timespan=86400\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:11:55Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/devices/Q2MD-9PJD-E9L7/clients\",\n        \"queryString\": \"timespan=86400\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:11:55Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/devices/Q2LD-98WJ-743V/clients\",\n        \"queryString\": \"timespan=86400\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:11:55Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/organizations/549236/inventory\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:01Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/networks/L_646829496481101057/traffic\",\n        \"queryString\": \"timespan=86400&deviceType=combined\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:08Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/networks/L_646829496481101103/traffic\",\n        \"queryString\": \"timespan=86400&deviceType=combined\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:08Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/networks/L_646829496481099586/traffic\",\n        \"queryString\": \"timespan=86400&deviceType=combined\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:08Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/networks/L_646829496481100889/traffic\",\n        \"queryString\": \"timespan=86400&deviceType=combined\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:08Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/organizations/549236/networks\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.19.1\",\n        \"ts\": \"2019-02-14T01:12:11Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/organizations/549236/deviceStatuses\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.19.1\",\n        \"ts\": \"2019-02-14T01:12:12Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/networks/L_646829496481101091/traffic\",\n        \"queryString\": \"timespan=86400&deviceType=combined\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:15Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/organizations/549236/inventory\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:20Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/networks/L_646829496481101057/devices/Q2RD-6YRX-3EJV\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:23Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/networks/L_646829496481101057/devices/Q2GD-T8Q9-ZNJA\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:23Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/networks/L_646829496481101057/devices/Q2PD-GP6W-ZGBC\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:23Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/networks/L_646829496481101057/devices/Q2KN-23L5-G9Z4\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:23Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/networks/L_646829496481101103/devices/Q2MD-9PJD-E9L7\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:28Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/networks/L_646829496481101057/devices/Q2PD-PWC9-2KW4\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:29Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/networks/L_646829496481101057/devices/Q2LD-98WJ-743V\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:29Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/networks/L_646829496481100889/devices/Q2MD-BHHS-5FDL\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:29Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/organizations/549236/inventory\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:36Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/networks/L_646829496481101057/bluetoothClients\",\n        \"queryString\": \"perPage=1000timespan=7200\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:38Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/networks/L_646829496481101057/bluetoothClients\",\n        \"queryString\": \"perPage=1000timespan=7200\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:38Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/networks/L_646829496481101057/bluetoothClients\",\n        \"queryString\": \"perPage=1000timespan=7200\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:38Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/networks/L_646829496481101057/bluetoothClients\",\n        \"queryString\": \"perPage=1000timespan=7200\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:38Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/networks/L_646829496481101057/bluetoothClients\",\n        \"queryString\": \"perPage=1000timespan=7200\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:44Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/networks/L_646829496481100889/bluetoothClients\",\n        \"queryString\": \"perPage=1000timespan=7200\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:44Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/networks/L_646829496481101103/bluetoothClients\",\n        \"queryString\": \"perPage=1000timespan=7200\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:44Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/networks/L_646829496481101091/bluetoothClients\",\n        \"queryString\": \"perPage=1000timespan=7200\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:44Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/organizations/549236/inventory\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:50Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/networks/L_646829496481101103/siteToSiteVpn\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:52Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/networks/L_646829496481100889/siteToSiteVpn\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:52Z\"\n    },\n    {\n        \"adminId\": \"646829496481137276\",\n        \"method\": \"GET\",\n        \"host\": \"n149.meraki.com\",\n        \"path\": \"/api/v0/networks/L_646829496481101057/siteToSiteVpn\",\n        \"queryString\": \"\",\n        \"userAgent\": \"python-requests/2.21.0\",\n        \"ts\": \"2019-02-14T01:12:52Z\"\n    }\n]"
+            }
+          ]
+        }
+      ],
+      "_postman_id": "53519728-e571-4bb6-8993-3889a29074a0"
+    },
+    {
+      "name": "Admins",
+      "item": [
+        {
+          "name": "List the dashboard administrators in this organization",
+          "_postman_id": "9234d6cc-86a5-4f11-8226-28389d7a978d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "url": "{{baseUrl}}/organizations/{{organizationId}}/admins",
+            "description": "## HTTP REQUEST\n```\nGET /organizations/{organization_id}/admins\n```\n\n## PARAMETERS\n**None**\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/organizations/{organization_id}/admins'\n```\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n[\n  {\n    \"id\": \"212406\",\n    \"name\": \"Miles Meraki\",\n    \"email\": \"miles@meraki.com\",\n    \"orgAccess\": \"none\",\n    \"accountStatus\": \"ok\",\n    \"twoFactorAuthEnabled\": false,\n    \"hasApiKey\": true,\n    \"lastActive\": \"2019-01-28 14:58:56 -0800\",\n    \"tags\": [\n      {\n        \"tag\": \"west\",\n        \"access\": \"read-only\"\n      }\n    ],\n    \"networks\": [\n      {\n        \"id\": \"N_24329156\",\n        \"access\": \"full\"\n      }\n    ]\n  }\n]"
+          },
+          "response": [
+            {
+              "id": "00bce54f-c9af-406b-b53f-89448a9ea193",
+              "name": "List the dashboard administrators in this organization",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  }
+                ],
+                "url": "{{baseUrl}}/organizations/{{organizationId}}/admins"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"id\": \"212406\",\n    \"name\": \"Miles Meraki\",\n    \"email\": \"miles@meraki.com\",\n    \"orgAccess\": \"none\",\n    \"accountStatus\": \"ok\",\n    \"twoFactorAuthEnabled\": false,\n    \"hasApiKey\": true,\n    \"lastActive\": \"2019-01-28 14:58:56 -0800\",\n    \"tags\": [\n      {\n        \"tag\": \"west\",\n        \"access\": \"read-only\"\n      }\n    ],\n    \"networks\": [\n      {\n        \"id\": \"N_24329156\",\n        \"access\": \"full\"\n      }\n    ]\n  }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Create a new dashboard administrator",
+          "_postman_id": "36dd3eea-6fbb-48d9-a528-f62e5202821a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"name\": \"Miles Meraki\",\n\t\"email\": \"miles@meraki.com\",\n\t\"orgAccess\": \"none\",\n\t\"tags\": [\n\t\t{\n\t\t\t\"tag\": \"west\",\n\t\t\t\"access\": \"read-only\"\n\t\t}\n\t]\n}"
+            },
+            "url": "{{baseUrl}}/organizations/{{organizationId}}/admins",
+            "description": "## HTTP REQUEST\n```\nPOST /organizations/{organization_id}/admins\n```\n\n## PARAMETERS\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\nemail| The email of the dashboard administrator. This attribute can not be updated.\nname| The name of the dashboard administrator\norgAccess| The privilege of the dashboard administrator on the organization (full, read-only, none)\ntags| The list of tags that the dashboard administrator has privileges on\ntag| The name of the tag\naccess| The privilege of the dashboard administrator on the tag\nnetworks| The list of networks that the dashboard administrator has privileges on\nid| The network ID\naccess| The privilege of the dashboard administrator on the network\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X POST --data-binary '{\"name\":\"Miles Meraki\",\"email\":\"miles@meraki.com\",\"orgAccess\":\"none\",\"tags\":[{\"tag\":\"west\",\"access\":\"read-only\"}]}' 'https://api.meraki.com/api/v0/organizations/{organizationId}/admins'\n```\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 201\n\n{\n  \"id\": \"212406\",\n  \"name\": \"Miles Meraki\",\n  \"email\": \"miles@meraki.com\",\n  \"orgAccess\": \"none\",\n  \"accountStatus\": \"ok\",\n  \"twoFactorAuthEnabled\": false,\n  \"hasApiKey\": true,\n  \"lastActive\": \"2019-01-28 14:58:56 -0800\",\n  \"tags\": [\n    {\n      \"tag\": \"west\",\n      \"access\": \"read-only\"\n    }\n  ],\n  \"networks\": [\n    {\n      \"id\": \"N_24329156\",\n      \"access\": \"full\"\n    }\n  ]\n}\n```"
+          },
+          "response": [
+            {
+              "id": "f5de546e-c7be-414c-b1dc-0dd6f288d075",
+              "name": "Create a new dashboard administrator",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n\t\"name\": \"Miles Meraki\",\n\t\"email\": \"miles@meraki.com\",\n\t\"orgAccess\": \"none\",\n\t\"tags\": [\n\t\t{\n\t\t\t\"tag\": \"west\",\n\t\t\t\"access\": \"read-only\"\n\t\t}\n\t]\n}"
+                },
+                "url": "{{baseUrl}}/organizations/{{organizationId}}/admins"
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"212406\",\n  \"name\": \"Miles Meraki\",\n  \"email\": \"miles@meraki.com\",\n  \"orgAccess\": \"none\",\n  \"accountStatus\": \"ok\",\n  \"twoFactorAuthEnabled\": false,\n  \"hasApiKey\": true,\n  \"lastActive\": \"2019-01-28 14:58:56 -0800\",\n  \"tags\": [\n    {\n      \"tag\": \"west\",\n      \"access\": \"read-only\"\n    }\n  ],\n  \"networks\": [\n    {\n      \"id\": \"N_24329156\",\n      \"access\": \"full\"\n    }\n  ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update an administrator",
+          "_postman_id": "48336520-b542-440a-bdc8-d88d58f8f0b8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"name\": \"Miles Meraki\",\n\t\"email\": \"miles@meraki.com\",\n\t\"orgAccess\": \"none\",\n\t\"tags\": [\n\t\t{\n\t\t\t\"tag\": \"west\",\n\t\t\t\"access\": \"read-only\"\n\t\t}\n\t]\n}"
+            },
+            "url": "{{baseUrl}}/organizations/{{organizationId}}/admins/{{adminId}}",
+            "description": "## HTTP REQUEST\n```\nPUT /organizations/{organization_id}/admins/{id}\n```\n\n## PARAMETERS\n**parameters**|**Description of the parameter**\n :-------------: |:-------------:\nemail| The email of the dashboard administrator. This attribute can not be updated.\nname| The name of the dashboard administrator\norgAccess| The privilege of the dashboard administrator on the organization (full, read-only, none)\ntags| The list of tags that the dashboard administrator has privileges on\ntag| The name of the tag\naccess| The privilege of the dashboard administrator on the tag\nnetworks| The list of networks that the dashboard administrator has privileges on\nid| The network ID\naccess| The privilege of the dashboard administrator on the network\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X PUT --data-binary '{\"name\":\"Miles Meraki\",\"email\":\"miles@meraki.com\",\"orgAccess\":\"none\",\"tags\":[{\"tag\":\"west\",\"access\":\"read-only\"}]}' 'https://api.meraki.com/api/v0/organizations/{organizationId}/admins/{id}'\n```\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"id\": \"212406\",\n  \"name\": \"Miles Meraki\",\n  \"email\": \"miles@meraki.com\",\n  \"orgAccess\": \"none\",\n  \"accountStatus\": \"ok\",\n  \"twoFactorAuthEnabled\": false,\n  \"hasApiKey\": true,\n  \"lastActive\": \"2019-01-28 14:58:56 -0800\",\n  \"tags\": [\n    {\n      \"tag\": \"west\",\n      \"access\": \"read-only\"\n    }\n  ],\n  \"networks\": [\n    {\n      \"id\": \"N_24329156\",\n      \"access\": \"full\"\n    }\n  ]\n}\n```"
+          },
+          "response": [
+            {
+              "id": "34e65e21-6fe5-4d0f-849d-799ba2606514",
+              "name": "Update an administrator",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n\t\"name\": \"Miles Meraki\",\n\t\"email\": \"miles@meraki.com\",\n\t\"orgAccess\": \"none\",\n\t\"tags\": [\n\t\t{\n\t\t\t\"tag\": \"west\",\n\t\t\t\"access\": \"read-only\"\n\t\t}\n\t]\n}"
+                },
+                "url": "{{baseUrl}}/organizations/{{organizationId}}/admins/{{adminId}}"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"212406\",\n  \"name\": \"Miles Meraki\",\n  \"email\": \"miles@meraki.com\",\n  \"orgAccess\": \"none\",\n  \"accountStatus\": \"ok\",\n  \"twoFactorAuthEnabled\": false,\n  \"hasApiKey\": true,\n  \"lastActive\": \"2019-01-28 14:58:56 -0800\",\n  \"tags\": [\n    {\n      \"tag\": \"west\",\n      \"access\": \"read-only\"\n    }\n  ],\n  \"networks\": [\n    {\n      \"id\": \"N_24329156\",\n      \"access\": \"full\"\n    }\n  ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Revoke all access for a dashboard administrator within this organization",
+          "_postman_id": "bcf13ce3-031f-4f10-b90e-5938578eaa03",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "{{baseUrl}}/organizations/{{organizationId}}/admins/{{adminId}}",
+            "description": "## HTTP REQUEST\n```\nDELETE /organizations/{organizationId}/admins/{id}\n```\n\n## PARAMETERS\n**None**\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X DELETE 'https://api.meraki.com/api/v0/organizations/{organizationId}/admins/{id}'\n```\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 204\n```"
+          },
+          "response": [
+            {
+              "id": "394150f0-86fc-4ed1-8459-b9aa52b92294",
+              "name": "Revoke all access for a dashboard administrator within this organization",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{baseUrl}}/organizations/{{organizationId}}/admins/{{adminId}}"
+              },
+              "status": "No Content",
+              "code": 204,
+              "_postman_previewlanguage": "Text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": ""
+            }
+          ]
+        }
+      ],
+      "_postman_id": "7e8e9a70-b603-437e-83c9-fce92869f2f7"
+    },
+    {
+      "name": "Alert settings",
+      "item": [
+        {
+          "name": "Return the alert configuration for this network",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "59315a50-6d1d-4402-9b71-e2fae317b115",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "fd84c585-d21a-4c61-8a3d-bd4faeb7d37c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "url": "{{baseUrl}}/networks/{{networkId}}/alertSettings",
+            "description": "## HTTP REQUEST\n```\nGET /networks/[networkId]/alertSettings\n```\n\n## PARAMETERS\n**None**\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[networkId]/alertSettings'\n```\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n{\n  \"defaultDestinations\": {\n    \"emails\": [\n      \"miles@meraki.com\"\n    ],\n    \"allAdmins\": true,\n    \"snmp\": true\n  },\n  \"alerts\": [\n    {\n      \"type\": \"gatewayDown\",\n      \"enabled\": true,\n      \"alertDestinations\": {\n        \"emails\": [\n          \"miles@meraki.com\"\n        ],\n        \"allAdmins\": false,\n        \"snmp\": false\n      },\n      \"filters\": {\n        \"timeout\": 60\n      }\n    }\n  ]\n}\n```"
+          },
+          "response": [
+            {
+              "id": "35c0155b-8cb8-4a3c-90d7-553487b68b36",
+              "name": "Return the alert configuration for this network",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  }
+                ],
+                "url": "{{baseUrl}}/networks/{{networkId}}/alertSettings"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"defaultDestinations\": {\n        \"emails\": [\n            \"miles@meraki.com\"\n        ],\n        \"allAdmins\": true,\n        \"snmp\": true\n    },\n    \"alerts\": [\n        {\n            \"type\": \"gatewayDown\",\n            \"enabled\": true,\n            \"alertDestinations\": {\n                \"emails\": [\n                    \"miles@meraki.com\"\n                ],\n                \"allAdmins\": false,\n                \"snmp\": false\n            },\n            \"filters\": {\n                \"timeout\": 60\n            }\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update the alert configuration for this network",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "59315a50-6d1d-4402-9b71-e2fae317b115",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "d8b7e06d-4a7b-4368-9ffd-def99cc77e9e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"defaultDestinations\": {\n        \"emails\": [\"test@test.com\"],\n        \"snmp\": true,\n        \"allAdmins\": false,\n        \"httpServerIds\": [\"\"]\n    },\n    \"alerts\": [\n        {\n            \"type\": \"cameraDown\",\n            \"enabled\": true,\n            \"alertDestinations\": {\n                \"emails\": [\n                    \"test@test.com\"\n                ],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\"\"]\n            },\n            \"filters\": {\n                \"timeout\": 5\n            }\n        },\n        {\n            \"type\": \"settingsChanged\",\n            \"enabled\": true,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\"\"]\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"customMotionAlertRecipients\",\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\"\"]\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"switchDown\",\n            \"enabled\": true,\n            \"alertDestinations\": {\n                \"emails\": [\n                    \"test@test.com\"\n                ],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\"\"]\n            },\n            \"filters\": {\n                \"timeout\": 5\n            }\n        },\n        {\n            \"type\": \"portSpeed\",\n            \"enabled\": false,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\"\"]\n            },\n            \"filters\": {\n                \"selector\": \"any port\"\n            }\n        },\n        {\n            \"type\": \"portError\",\n            \"enabled\": true,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\"\"]\n            },\n            \"filters\": {\n                \"selector\": \"any port\"\n            }\n        },\n        {\n            \"type\": \"portDown\",\n            \"enabled\": true,\n            \"alertDestinations\": {\n                \"emails\": [\n                    \"\"\n                ],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\"\"]\n            },\n            \"filters\": {\n                \"timeout\": 5,\n                \"selector\": \"important\"\n            }\n        },\n        {\n            \"type\": \"switchCriticalTemperature\",\n            \"enabled\": false,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\"\"]\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"udldError\",\n            \"enabled\": false,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\"\"]\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"rpsBackup\",\n            \"enabled\": false,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\"\"]\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"powerSupplyDown\",\n            \"enabled\": false,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\"\"]\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"newDhcpServer\",\n            \"enabled\": true,\n            \"alertDestinations\": {\n                \"emails\": [\n                    \"test@test.com\"\n                ],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\"\"]\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"usageAlert\",\n            \"enabled\": true,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\"\"]\n            },\n            \"filters\": {\n                \"threshold\": 5242880,\n                \"period\": 1200\n            }\n        },\n        {\n            \"type\": \"rogueAp\",\n            \"enabled\": true,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\"\"]\n            },\n            \"filters\": {\n                \"priority\": \"high\"\n            }\n        },\n        {\n            \"type\": \"repeaterDown\",\n            \"enabled\": true,\n            \"alertDestinations\": {\n                \"emails\": [\n                    \"test@test.com\"\n                ],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\"\"]\n            },\n            \"filters\": {\n                \"timeout\": 5\n            }\n        },\n        {\n            \"type\": \"gatewayDown\",\n            \"enabled\": true,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": true,\n                \"allAdmins\": true,\n                \"httpServerIds\": [\"\"]\n            },\n            \"filters\": {\n                \"timeout\": 5\n            }\n        },\n        {\n            \"type\": \"vpnConnectivityChange\",\n            \"enabled\": false,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": []\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"gatewayToRepeater\",\n            \"enabled\": false,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": []\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"applianceDown\",\n            \"enabled\": true,\n            \"alertDestinations\": {\n                \"emails\": [\n                    \"test@test.com\"\n                ],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\"\"]\n            },\n            \"filters\": {\n                \"timeout\": 5\n            }\n        },\n        {\n            \"type\": \"rogueDhcp\",\n            \"enabled\": false,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\"\"]\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"vrrp\",\n            \"enabled\": false,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\"\"]\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"clientConnectivity\",\n            \"enabled\": true,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\"\"]\n            },\n            \"filters\": {\n                \"clients\": [\n                    {\n                        \"mac\": \"aa:bb:cc:dd:ee:ff\",\n                        \"name\": \"test-client\"\n                    }\n                ]\n            }\n        },\n        {\n            \"type\": \"cellularUpDown\",\n            \"enabled\": true,\n            \"alertDestinations\": {\n                \"emails\": [\"test@test.com\"],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\"\"]\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"ipConflict\",\n            \"enabled\": true,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\"\"]\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"dhcpNoLeases\",\n            \"enabled\": false,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\"\"]\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"failoverEvent\",\n            \"enabled\": true,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\"\"]\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"ampMalwareBlocked\",\n            \"enabled\": true,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": []\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"ampMalwareDetected\",\n            \"enabled\": true,\n            \"alertDestinations\": {\n                \"emails\": [\n                    \"test@test.com\"\n                ],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": []\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"pccOutage\",\n            \"enabled\": false,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": []\n            },\n            \"filters\": {\n                \"timeout\": 60,\n                \"tag\": \"- any -\"\n            }\n        },\n        {\n            \"type\": \"swFound\",\n            \"enabled\": false,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": []\n            },\n            \"filters\": {\n                \"regex\": \"\"\n            }\n        },\n        {\n            \"type\": \"pccEnrollment\",\n            \"enabled\": false,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": []\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"geofencingIn\",\n            \"enabled\": false,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": []\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"geofencingOut\",\n            \"enabled\": false,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": []\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"pccUnmanaged\",\n            \"enabled\": false,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": []\n            },\n            \"filters\": {}\n        }\n    ]\n}"
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/alertSettings",
+            "description": "## HTTP REQUEST\n```\nPUT /networks/[networkId]/alertSettings\n```\n## PARAMETERS\n**Name**|**Description**\n :-------------: |:-------------:\ndefaultDestinations| The network_wide destinations for all alerts on the network.\nemails| A list of emails that will recieve the alert(s).\nallAdmins| If true, then all network admins will receive emails.\nsnmp| If true, then an SNMP trap will be sent if there is an SNMP trap server configured for this network.\nalerts| Alert-specific configuration for each type. Only alerts that pertain to the network can be updated.\ntype| The type of alert\nenabled| A boolean depicting if the alert is turned on or off\nalertDestinations| A hash of destinations for this specific alert. Keys include: emails: A list of emails that will recieve information about the alert, allAdmins: If true, then all network admins will receive emails, and snmp: If true, then an SNMP trap will be sent if there is an SNMP trap server configured for this network.\nfilters| A hash of specific configuration data for the alert. Only filters specific to the alert will be updated.\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X PUT --data-binary '{\"defaultDestinations\":{\"emails\":[\"miles@meraki.com\"],\"allAdmins\":true,\"snmp\":true},\"alerts\":[{\"type\":\"gatewayDown\",\"enabled\":true,\"alertDestinations\":{\"emails\":[\"miles@meraki.com\"],\"allAdmins\":false,\"snmp\":false},\"filters\":{\"timeout\":60}}]}' 'https://api.meraki.com/api/v0/networks/[networkId]/alertSettings'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"defaultDestinations\": {\n    \"emails\": [\n      \"miles@meraki.com\"\n    ],\n    \"allAdmins\": true,\n    \"snmp\": true\n  },\n  \"alerts\": [\n    {\n      \"type\": \"gatewayDown\",\n      \"enabled\": true,\n      \"alertDestinations\": {\n        \"emails\": [\n          \"miles@meraki.com\"\n        ],\n        \"allAdmins\": false,\n        \"snmp\": false\n      },\n      \"filters\": {\n        \"timeout\": 60\n      }\n    }\n  ]\n}\n```"
+          },
+          "response": [
+            {
+              "id": "0406d0b6-5f04-4f38-b7fa-0c472e51c0bb",
+              "name": "Update the alert configuration for this network",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"defaultDestinations\": {\n        \"emails\": [\"test@test.com\"],\n        \"snmp\": true,\n        \"allAdmins\": false,\n        \"httpServerIds\": [\"\"]\n    },\n    \"alerts\": [\n        {\n            \"type\": \"cameraDown\",\n            \"enabled\": true,\n            \"alertDestinations\": {\n                \"emails\": [\n                    \"test@test.com\"\n                ],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\"\"]\n            },\n            \"filters\": {\n                \"timeout\": 5\n            }\n        },\n        {\n            \"type\": \"settingsChanged\",\n            \"enabled\": true,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\"\"]\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"customMotionAlertRecipients\",\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\"\"]\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"switchDown\",\n            \"enabled\": true,\n            \"alertDestinations\": {\n                \"emails\": [\n                    \"test@test.com\"\n                ],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\"\"]\n            },\n            \"filters\": {\n                \"timeout\": 5\n            }\n        },\n        {\n            \"type\": \"portSpeed\",\n            \"enabled\": false,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\"\"]\n            },\n            \"filters\": {\n                \"selector\": \"any port\"\n            }\n        },\n        {\n            \"type\": \"portError\",\n            \"enabled\": true,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\"\"]\n            },\n            \"filters\": {\n                \"selector\": \"any port\"\n            }\n        },\n        {\n            \"type\": \"portDown\",\n            \"enabled\": true,\n            \"alertDestinations\": {\n                \"emails\": [\n                    \"\"\n                ],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\"\"]\n            },\n            \"filters\": {\n                \"timeout\": 5,\n                \"selector\": \"important\"\n            }\n        },\n        {\n            \"type\": \"switchCriticalTemperature\",\n            \"enabled\": false,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\"\"]\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"udldError\",\n            \"enabled\": false,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\"\"]\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"rpsBackup\",\n            \"enabled\": false,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\"\"]\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"powerSupplyDown\",\n            \"enabled\": false,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\"\"]\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"newDhcpServer\",\n            \"enabled\": true,\n            \"alertDestinations\": {\n                \"emails\": [\n                    \"test@test.com\"\n                ],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\"\"]\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"usageAlert\",\n            \"enabled\": true,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\"\"]\n            },\n            \"filters\": {\n                \"threshold\": 5242880,\n                \"period\": 1200\n            }\n        },\n        {\n            \"type\": \"rogueAp\",\n            \"enabled\": true,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\"\"]\n            },\n            \"filters\": {\n                \"priority\": \"high\"\n            }\n        },\n        {\n            \"type\": \"repeaterDown\",\n            \"enabled\": true,\n            \"alertDestinations\": {\n                \"emails\": [\n                    \"test@test.com\"\n                ],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\"\"]\n            },\n            \"filters\": {\n                \"timeout\": 5\n            }\n        },\n        {\n            \"type\": \"gatewayDown\",\n            \"enabled\": true,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": true,\n                \"allAdmins\": true,\n                \"httpServerIds\": [\"\"]\n            },\n            \"filters\": {\n                \"timeout\": 5\n            }\n        },\n        {\n            \"type\": \"vpnConnectivityChange\",\n            \"enabled\": false,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": []\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"gatewayToRepeater\",\n            \"enabled\": false,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": []\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"applianceDown\",\n            \"enabled\": true,\n            \"alertDestinations\": {\n                \"emails\": [\n                    \"test@test.com\"\n                ],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\"\"]\n            },\n            \"filters\": {\n                \"timeout\": 5\n            }\n        },\n        {\n            \"type\": \"rogueDhcp\",\n            \"enabled\": false,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\"\"]\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"vrrp\",\n            \"enabled\": false,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\"\"]\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"clientConnectivity\",\n            \"enabled\": true,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\"\"]\n            },\n            \"filters\": {\n                \"clients\": [\n                    {\n                        \"mac\": \"aa:bb:cc:dd:ee:ff\",\n                        \"name\": \"test-client\"\n                    }\n                ]\n            }\n        },\n        {\n            \"type\": \"cellularUpDown\",\n            \"enabled\": true,\n            \"alertDestinations\": {\n                \"emails\": [\"test@test.com\"],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\"\"]\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"ipConflict\",\n            \"enabled\": true,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\"\"]\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"dhcpNoLeases\",\n            \"enabled\": false,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\"\"]\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"failoverEvent\",\n            \"enabled\": true,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\"\"]\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"ampMalwareBlocked\",\n            \"enabled\": true,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": []\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"ampMalwareDetected\",\n            \"enabled\": true,\n            \"alertDestinations\": {\n                \"emails\": [\n                    \"test@test.com\"\n                ],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": []\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"pccOutage\",\n            \"enabled\": false,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": []\n            },\n            \"filters\": {\n                \"timeout\": 60,\n                \"tag\": \"- any -\"\n            }\n        },\n        {\n            \"type\": \"swFound\",\n            \"enabled\": false,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": []\n            },\n            \"filters\": {\n                \"regex\": \"\"\n            }\n        },\n        {\n            \"type\": \"pccEnrollment\",\n            \"enabled\": false,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": []\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"geofencingIn\",\n            \"enabled\": false,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": []\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"geofencingOut\",\n            \"enabled\": false,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": []\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"pccUnmanaged\",\n            \"enabled\": false,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": []\n            },\n            \"filters\": {}\n        }\n    ]\n}"
+                },
+                "url": "{{baseUrl}}/networks/{{networkId}}/alertSettings"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"defaultDestinations\": {\n        \"emails\": [\n            \"miles@meraki.com\"\n        ],\n        \"snmp\": true,\n        \"allAdmins\": false,\n        \"httpServerIds\": [\n            \"\"\n        ]\n    },\n    \"alerts\": [\n        {\n            \"type\": \"cameraDown\",\n            \"enabled\": true,\n            \"alertDestinations\": {\n                \"emails\": [\n                    \"test@test.com\"\n                ],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\n                    \"\"\n                ]\n            },\n            \"filters\": {\n                \"timeout\": 5\n            }\n        },\n        {\n            \"type\": \"settingsChanged\",\n            \"enabled\": true,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\n                    \"\"\n                ]\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"customMotionAlertRecipients\",\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\n                    \"\"\n                ]\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"switchDown\",\n            \"enabled\": true,\n            \"alertDestinations\": {\n                \"emails\": [\n                    \"test@test.com\"\n                ],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\n                    \"\"\n                ]\n            },\n            \"filters\": {\n                \"timeout\": 5\n            }\n        },\n        {\n            \"type\": \"portSpeed\",\n            \"enabled\": false,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\n                    \"\"\n                ]\n            },\n            \"filters\": {\n                \"selector\": \"any port\"\n            }\n        },\n        {\n            \"type\": \"portError\",\n            \"enabled\": true,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\n                    \"\"\n                ]\n            },\n            \"filters\": {\n                \"selector\": \"any port\"\n            }\n        },\n        {\n            \"type\": \"portDown\",\n            \"enabled\": true,\n            \"alertDestinations\": {\n                \"emails\": [\n                    \"\"\n                ],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\n                    \"\"\n                ]\n            },\n            \"filters\": {\n                \"timeout\": 5,\n                \"selector\": \"important\"\n            }\n        },\n        {\n            \"type\": \"switchCriticalTemperature\",\n            \"enabled\": false,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\n                    \"\"\n                ]\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"udldError\",\n            \"enabled\": false,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\n                    \"\"\n                ]\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"rpsBackup\",\n            \"enabled\": false,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\n                    \"\"\n                ]\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"powerSupplyDown\",\n            \"enabled\": false,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\n                    \"\"\n                ]\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"newDhcpServer\",\n            \"enabled\": true,\n            \"alertDestinations\": {\n                \"emails\": [\n                    \"test@test.com\"\n                ],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\n                    \"\"\n                ]\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"usageAlert\",\n            \"enabled\": true,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\n                    \"\"\n                ]\n            },\n            \"filters\": {\n                \"threshold\": 5242880,\n                \"period\": 1200\n            }\n        },\n        {\n            \"type\": \"rogueAp\",\n            \"enabled\": true,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\n                    \"\"\n                ]\n            },\n            \"filters\": {\n                \"priority\": \"high\"\n            }\n        },\n        {\n            \"type\": \"repeaterDown\",\n            \"enabled\": true,\n            \"alertDestinations\": {\n                \"emails\": [\n                    \"test@test.com\"\n                ],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\n                    \"\"\n                ]\n            },\n            \"filters\": {\n                \"timeout\": 5\n            }\n        },\n        {\n            \"type\": \"gatewayDown\",\n            \"enabled\": true,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": true,\n                \"allAdmins\": true,\n                \"httpServerIds\": [\n                    \"\"\n                ]\n            },\n            \"filters\": {\n                \"timeout\": 5\n            }\n        },\n        {\n            \"type\": \"vpnConnectivityChange\",\n            \"enabled\": false,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": []\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"gatewayToRepeater\",\n            \"enabled\": false,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": []\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"applianceDown\",\n            \"enabled\": true,\n            \"alertDestinations\": {\n                \"emails\": [\n                    \"test@test.com\"\n                ],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\n                    \"\"\n                ]\n            },\n            \"filters\": {\n                \"timeout\": 5\n            }\n        },\n        {\n            \"type\": \"rogueDhcp\",\n            \"enabled\": false,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\n                    \"\"\n                ]\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"vrrp\",\n            \"enabled\": false,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\n                    \"\"\n                ]\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"clientConnectivity\",\n            \"enabled\": true,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\n                    \"\"\n                ]\n            },\n            \"filters\": {\n                \"clients\": [\n                    {\n                        \"mac\": \"aa:bb:cc:dd:ee:ff\",\n                        \"name\": \"Test client\"\n                    }\n                ]\n            }\n        },\n        {\n            \"type\": \"cellularUpDown\",\n            \"enabled\": true,\n            \"alertDestinations\": {\n                \"emails\": [\n                    \"evjmtpe7@robot.zapier.com\"\n                ],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\n                    \"\"\n                ]\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"ipConflict\",\n            \"enabled\": true,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\n                    \"\"\n                ]\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"dhcpNoLeases\",\n            \"enabled\": false,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\n                    \"\"\n                ]\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"failoverEvent\",\n            \"enabled\": true,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": [\n                    \"\"\n                ]\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"ampMalwareBlocked\",\n            \"enabled\": true,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": []\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"ampMalwareDetected\",\n            \"enabled\": true,\n            \"alertDestinations\": {\n                \"emails\": [\n                    \"test@test.com\"\n                ],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": []\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"pccOutage\",\n            \"enabled\": false,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": []\n            },\n            \"filters\": {\n                \"timeout\": 60,\n                \"tag\": \"- any -\"\n            }\n        },\n        {\n            \"type\": \"swFound\",\n            \"enabled\": false,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": []\n            },\n            \"filters\": {\n                \"regex\": \"\"\n            }\n        },\n        {\n            \"type\": \"pccEnrollment\",\n            \"enabled\": false,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": []\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"geofencingIn\",\n            \"enabled\": false,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": []\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"geofencingOut\",\n            \"enabled\": false,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": []\n            },\n            \"filters\": {}\n        },\n        {\n            \"type\": \"pccUnmanaged\",\n            \"enabled\": false,\n            \"alertDestinations\": {\n                \"emails\": [],\n                \"snmp\": false,\n                \"allAdmins\": false,\n                \"httpServerIds\": []\n            },\n            \"filters\": {}\n        }\n    ]\n}"
+            }
+          ]
+        }
+      ],
+      "_postman_id": "ba7abdfa-b8a5-4115-a439-737408032bd7"
     }
   ],
   "event": [
