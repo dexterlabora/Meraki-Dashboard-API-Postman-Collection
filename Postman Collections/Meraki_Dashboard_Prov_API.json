@@ -3044,53 +3044,6 @@
           }
         }
       ]
-    },
-    {
-      "name": "Content filtering categories",
-      "item": [
-        {
-          "name": "List all available content filtering categories for an MX network",
-          "_postman_id": "45adc07b-99d5-42d1-8ef7-a47da3a68fa0",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "X-Cisco-Meraki-API-Key",
-                "value": "{{X-Cisco-Meraki-API-Key}}"
-              }
-            ],
-            "url": "{{baseUrl}}/networks/{{networkId}}/contentFiltering/categories",
-            "description": "## HTTP REQUEST\n```\nGET /networks/[networkId]/contentFiltering/categories\n```\n\n## PARAMETERS\n**None**\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[networkId]/contentFiltering/categories'\n```\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"categories\": [\n    {\n      \"id\": \"meraki:contentFiltering/category/1\",\n      \"name\": \"Real Estate\"\n    },\n    {\n      \"id\": \"meraki:contentFiltering/category/3\",\n      \"name\": \"Financial Services\"\n    },\n    \"...\",\n    {\n      \"id\": \"meraki:contentFiltering/category/11\",\n      \"name\": \"Adult and Pornography\"\n    }\n  ]\n}\n```"
-          },
-          "response": [
-            {
-              "id": "be3993ee-3bc1-4805-a7b3-50814bd58990",
-              "name": "List all available content filtering categories for an MX network",
-              "originalRequest": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "X-Cisco-Meraki-API-Key",
-                    "value": "{{X-Cisco-Meraki-API-Key}}"
-                  }
-                ],
-                "url": "{{baseUrl}}/networks/{{networkId}}/contentFiltering/categories"
-              },
-              "status": "OK",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [],
-              "cookie": [],
-              "responseTime": null,
-              "body": "{\n    \"categories\": [\n        {\n            \"id\": \"meraki:contentFiltering/category/1\",\n            \"name\": \"Real Estate\"\n        },\n        {\n            \"id\": \"meraki:contentFiltering/category/3\",\n            \"name\": \"Financial Services\"\n        },\n        \"...\",\n        {\n            \"id\": \"meraki:contentFiltering/category/11\",\n            \"name\": \"Adult and Pornography\"\n        }\n    ]\n}"
-            }
-          ]
-        }
-      ],
-      "_postman_id": "98817ceb-6899-4b7e-8d1d-c918969aff4e"
     }
   ],
   "event": [
