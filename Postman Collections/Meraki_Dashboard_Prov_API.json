@@ -5263,6 +5263,290 @@
         }
       ],
       "_postman_id": "6e79e377-956e-4e7a-86aa-90c2ecea6120"
+    },
+    {
+      "name": "Group policies",
+      "item": [
+        {
+          "name": "List the group policies in a network",
+          "_postman_id": "18c24bc7-e9d0-4ac4-9ae3-2771d68a8158",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "url": "{{baseUrl}}/networks/{{networkId}}/groupPolicies",
+            "description": "## HTTP REQUEST\n```\nGET /networks/[id]/groupPolicies\n```\n\n## PARAMETERS\n**None**\n\n## SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X GET -H 'Content-Type: application/json' 'https://dashboard.meraki.com/api/v0/networks/[id]/groupPolicies'\n```\n## SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n[\n  {\n    \"name\": \"No video streaming\",\n    \"groupPolicyId\": 102\n  }\n  ...\n]\n```"
+          },
+          "response": [
+            {
+              "id": "b1f3f91c-0141-41ec-a156-ac264a94eda0",
+              "name": "GP - List the Group Policies",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  }
+                ],
+                "url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/groupPolicies"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "cache-control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate",
+                  "name": "cache-control",
+                  "description": ""
+                },
+                {
+                  "key": "connection",
+                  "value": "keep-alive",
+                  "name": "connection",
+                  "description": ""
+                },
+                {
+                  "key": "content-encoding",
+                  "value": "gzip",
+                  "name": "content-encoding",
+                  "description": ""
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8",
+                  "name": "content-type",
+                  "description": ""
+                },
+                {
+                  "key": "date",
+                  "value": "Fri, 08 Sep 2017 10:20:01 GMT",
+                  "name": "date",
+                  "description": ""
+                },
+                {
+                  "key": "expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT",
+                  "name": "expires",
+                  "description": ""
+                },
+                {
+                  "key": "pragma",
+                  "value": "no-cache",
+                  "name": "pragma",
+                  "description": ""
+                },
+                {
+                  "key": "public-key-pins-report-only",
+                  "value": "max-age=1200; pin-sha256=\"2V5tfxXMLkn2kVg/Iv8FqL4JHcNVGEUFK27oSMYhHEU=\"; pin-sha256=\"8Rw90Ej3Ttt8RRkrg+WYDS9n7IS03bk5bjP/UXPtaY8=\"; pin-sha256=\"3YQf+D42t1/pQJhWTwYLRnFVnbBNXf9W5S6dmwq2+3g=\"; pin-sha256=\"klO23nT2ehFDXCfx3eHTDRESMz3asj1muO+4aIdjiuY=\"; pin-sha256=\"fake+hpkp+key+for+testing+report+only+QWERT=\"; includeSubDomains; report-uri=\"https://therealmerakidashboard.report-uri.io/r/default/hpkp/reportOnly\"",
+                  "name": "public-key-pins-report-only",
+                  "description": ""
+                },
+                {
+                  "key": "server",
+                  "value": "nginx",
+                  "name": "server",
+                  "description": ""
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=15552000; includeSubDomains",
+                  "name": "strict-transport-security",
+                  "description": ""
+                },
+                {
+                  "key": "transfer-encoding",
+                  "value": "chunked",
+                  "name": "transfer-encoding",
+                  "description": ""
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept-Encoding",
+                  "name": "vary",
+                  "description": ""
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "sameorigin",
+                  "name": "x-frame-options",
+                  "description": ""
+                },
+                {
+                  "key": "x-rack-cache",
+                  "value": "miss",
+                  "name": "x-rack-cache",
+                  "description": ""
+                },
+                {
+                  "key": "x-request-id",
+                  "value": "6e39f1f205468de5105452ec9e48349f",
+                  "name": "x-request-id",
+                  "description": ""
+                },
+                {
+                  "key": "x-runtime",
+                  "value": "0.091271",
+                  "name": "x-runtime",
+                  "description": ""
+                },
+                {
+                  "key": "x-ua-compatible",
+                  "value": "IE=Edge,chrome=1",
+                  "name": "x-ua-compatible",
+                  "description": ""
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[{\"groupPolicyId\":102,\"name\":\"WiFi-Verified\"},{\"groupPolicyId\":101,\"name\":\"IoT\"},{\"groupPolicyId\":100,\"name\":\"VoIP\"}]"
+            }
+          ]
+        },
+        {
+          "name": "Create a group policy",
+          "_postman_id": "e3617d2d-bc3d-412e-aa79-d0a899964969",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "type": "text",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Content-Type",
+                "type": "text",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"No video streaming\",\n    \"scheduling\": {\n        \"enabled\": true,\n        \"monday\": {\n            \"active\": true,\n            \"from\": \"9:00\",\n            \"to\": \"17:00\"\n        },\n        \"tuesday\": {\n            \"active\": true,\n            \"from\": \"9:00\",\n            \"to\": \"17:00\"\n        },\n        \"wednesday\": {\n            \"active\": true,\n            \"from\": \"9:00\",\n            \"to\": \"17:00\"\n        },\n        \"thursday\": {\n            \"active\": true,\n            \"from\": \"9:00\",\n            \"to\": \"17:00\"\n        },\n        \"friday\": {\n            \"active\": true,\n            \"from\": \"9:00\",\n            \"to\": \"17:00\"\n        },\n        \"saturday\": {\n            \"active\": false,\n            \"from\": \"0:00\",\n            \"to\": \"24:00\"\n        },\n        \"sunday\": {\n            \"active\": false,\n            \"from\": \"0:00\",\n            \"to\": \"24:00\"\n        }\n    },\n    \"bandwidth\": {\n        \"settings\": \"custom\",\n        \"bandwidthLimits\": {\n            \"limitUp\": 1000000,\n            \"limitDown\": 1000000\n        }\n    }\n}"
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/groupPolicies",
+            "description": "## HTTP REQUEST\n```\nPOST /networks/{networkId}/groupPolicies\n```\n\n## PARAMETERS\n**Parameter**| **Description**\n:-------------:| :-------------:\nname| The name for your group policy. Required.\nname| The name for your group policy. Required.\nscheduling| The schedule for the group policy. Schedules are applied to days of the week. Schedule objects have the form of { \"active\": <bool>, \"from\": \"hh:mm\", \"to\": \"hh:mm\" }, specifying when the group policy is active (true) or inactive (false). Only 30 minute increments are allowed for 'from' and 'to'. Unset days are given a default schedule of {\"active\":true,\"from\":\"00:00\",\"to\":\"24:00\"}\"\nenabled| Whether scheduling is enabled (true) or disabled (false). Defaults to false. If true, the schedule objects for each day of the week (monday - sunday) are parsed.\nmonday| The schedule object for Monday.\ntuesday| The schedule object for Tuesday.\nwednesday| The schedule object for Wednesday.\nthursday| The schedule object for Thursday.\nfriday| The schedule object for Friday.\nsaturday| The schedule object for Saturday.\nsunday| The schedule object for Sunday.\nbandwidth| The bandwidth settings for clients bound to your group policy. Bandwidth settings can be set to 'network default', 'ignore' or 'custom'. Bandwidth limit objects have the form of { \"limitUp\": <integer>, \"limitDown\": <integer> }, specifying the upload and download limit for clients, respectively. null indicates no limit. Bandwidth limits are in Kb/s.\nsettings| How bandwidth limits are enforced. Can be 'network default', 'ignore' or 'custom'.\nbandwidthLimits| The bandwidth limits object, specifying upload and download speed for clients bound to the group policy. These are only enforced if 'settings' is set to 'custom'.\n\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X POST --data-binary '{\"name\":\"No video streaming\",\"scheduling\":{\"enabled\":true,\"monday\":{\"active\":true,\"from\":\"9:00\",\"to\":\"17:00\"},\"tuesday\":{\"active\":true,\"from\":\"9:00\",\"to\":\"17:00\"},\"wednesday\":{\"active\":true,\"from\":\"9:00\",\"to\":\"17:00\"},\"thursday\":{\"active\":true,\"from\":\"9:00\",\"to\":\"17:00\"},\"friday\":{\"active\":true,\"from\":\"9:00\",\"to\":\"17:00\"},\"saturday\":{\"active\":false,\"from\":\"0:00\",\"to\":\"24:00\"},\"sunday\":{\"active\":false,\"from\":\"0:00\",\"to\":\"24:00\"}},\"bandwidth\":{\"settings\":\"custom\",\"bandwidthLimits\":{\"limitUp\":1000000,\"limitDown\":1000000}}}' 'https://api.meraki.com/api/v0/networks/{networkId}/groupPolicies'\n```\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 201\n\n{\n  \"name\": \"No video streaming\",\n  \"groupPolicyId\": \"101\",\n  \"scheduling\": {\n    \"enabled\": true,\n    \"monday\": {\n      \"active\": true,\n      \"from\": \"9:00\",\n      \"to\": \"17:00\"\n    },\n    \"tuesday\": {\n      \"active\": true,\n      \"from\": \"9:00\",\n      \"to\": \"17:00\"\n    },\n    \"wednesday\": {\n      \"active\": true,\n      \"from\": \"9:00\",\n      \"to\": \"17:00\"\n    },\n    \"thursday\": {\n      \"active\": true,\n      \"from\": \"9:00\",\n      \"to\": \"17:00\"\n    },\n    \"friday\": {\n      \"active\": true,\n      \"from\": \"9:00\",\n      \"to\": \"17:00\"\n    },\n    \"saturday\": {\n      \"active\": false,\n      \"from\": \"0:00\",\n      \"to\": \"24:00\"\n    },\n    \"sunday\": {\n      \"active\": false,\n      \"from\": \"0:00\",\n      \"to\": \"24:00\"\n    }\n  },\n  \"bandwidth\": {\n    \"settings\": \"custom\",\n    \"bandwidthLimits\": {\n      \"limitUp\": 1000000,\n      \"limitDown\": 1000000\n    }\n  }\n}\n```"
+          },
+          "response": []
+        },
+        {
+          "name": "Display a group policy",
+          "_postman_id": "78136740-ecab-4163-aacd-9f0ed817f56e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "type": "text",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Content-Type",
+                "type": "text",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/networks/{{networkId}}/groupPolicies/{{groupPolicyId}}",
+            "description": "## HTTP REQUEST\n```\nGET /networks/{networkId}/groupPolicies/{groupPolicyId}\n```\n\n## PARAMETERS\n**None**\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/{networkId}/groupPolicies/{groupPolicyId}'\n```\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"name\": \"No video streaming\",\n  \"groupPolicyId\": \"101\",\n  \"scheduling\": {\n    \"enabled\": true,\n    \"monday\": {\n      \"active\": true,\n      \"from\": \"9:00\",\n      \"to\": \"17:00\"\n    },\n    \"tuesday\": {\n      \"active\": true,\n      \"from\": \"9:00\",\n      \"to\": \"17:00\"\n    },\n    \"wednesday\": {\n      \"active\": true,\n      \"from\": \"9:00\",\n      \"to\": \"17:00\"\n    },\n    \"thursday\": {\n      \"active\": true,\n      \"from\": \"9:00\",\n      \"to\": \"17:00\"\n    },\n    \"friday\": {\n      \"active\": true,\n      \"from\": \"9:00\",\n      \"to\": \"17:00\"\n    },\n    \"saturday\": {\n      \"active\": false,\n      \"from\": \"0:00\",\n      \"to\": \"24:00\"\n    },\n    \"sunday\": {\n      \"active\": false,\n      \"from\": \"0:00\",\n      \"to\": \"24:00\"\n    }\n  },\n  \"bandwidth\": {\n    \"settings\": \"custom\",\n    \"bandwidthLimits\": {\n      \"limitUp\": 1000000,\n      \"limitDown\": 1000000\n    }\n  }\n}\n```"
+          },
+          "response": []
+        },
+        {
+          "name": "Update a group policy",
+          "_postman_id": "a38b5d4e-9638-4f9d-8ee8-8469285282ba",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "type": "text",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Content-Type",
+                "type": "text",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"No video streaming\",\n    \"scheduling\": {\n        \"enabled\": true,\n        \"monday\": {\n            \"active\": true,\n            \"from\": \"9:00\",\n            \"to\": \"17:00\"\n        },\n        \"tuesday\": {\n            \"active\": true,\n            \"from\": \"9:00\",\n            \"to\": \"17:00\"\n        },\n        \"wednesday\": {\n            \"active\": true,\n            \"from\": \"9:00\",\n            \"to\": \"17:00\"\n        },\n        \"thursday\": {\n            \"active\": true,\n            \"from\": \"9:00\",\n            \"to\": \"17:00\"\n        },\n        \"friday\": {\n            \"active\": true,\n            \"from\": \"9:00\",\n            \"to\": \"17:00\"\n        },\n        \"saturday\": {\n            \"active\": false,\n            \"from\": \"0:00\",\n            \"to\": \"24:00\"\n        },\n        \"sunday\": {\n            \"active\": false,\n            \"from\": \"0:00\",\n            \"to\": \"24:00\"\n        }\n    },\n    \"bandwidth\": {\n        \"settings\": \"custom\",\n        \"bandwidthLimits\": {\n            \"limitUp\": 1000000,\n            \"limitDown\": 1000000\n        }\n    }\n}"
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/groupPolicies/{{groupPolicyId}}",
+            "description": "## HTTP REQUEST\n```\nPUT /networks/{networkId}/groupPolicies/{groupPolicyId}\n```\n\n## PARAMETERS\n**Parameter**| **Description**\n:-------------:| :-------------:\nname| The name for your group policy.\nscheduling| The schedule for the group policy. Schedules are applied to days of the week. Schedule objects have the form of { \"active\": <bool>, \"from\": \"hh:mm\", \"to\": \"hh:mm\" }, specifying when the group policy is active (true) or inactive (false). Only 30 minute increments are allowed for 'from' and 'to'. Unset days are given a default schedule of {\"active\":true,\"from\":\"00:00\",\"to\":\"24:00\"}\"\nenabled| Whether scheduling is enabled (true) or disabled (false). Defaults to false. If true, the schedule objects for each day of the week (monday - sunday) are parsed.\nmonday| The schedule object for Monday.\ntuesday| The schedule object for Tuesday.\nwednesday| The schedule object for Wednesday.\nthursday| The schedule object for Thursday.\nfriday| The schedule object for Friday.\nsaturday| The schedule object for Saturday.\nsunday| The schedule object for Sunday.\nbandwidth| The bandwidth settings for clients bound to your group policy. Bandwidth settings can be set to 'network default', 'ignore' or 'custom'. Bandwidth limit objects have the form of { \"limitUp\": <integer>, \"limitDown\": <integer> }, specifying the upload and download limit for clients, respectively. null indicates no limit. Bandwidth limits are in Kb/s.\nsettings| How bandwidth limits are enforced. Can be 'network default', 'ignore' or 'custom'.\nbandwidthLimits| The bandwidth limits object, specifying upload and download speed for clients bound to the group policy. These are only enforced if 'settings' is set to 'custom'.\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X PUT --data-binary '{\"name\":\"No video streaming\",\"scheduling\":{\"enabled\":true,\"monday\":{\"active\":true,\"from\":\"9:00\",\"to\":\"17:00\"},\"tuesday\":{\"active\":true,\"from\":\"9:00\",\"to\":\"17:00\"},\"wednesday\":{\"active\":true,\"from\":\"9:00\",\"to\":\"17:00\"},\"thursday\":{\"active\":true,\"from\":\"9:00\",\"to\":\"17:00\"},\"friday\":{\"active\":true,\"from\":\"9:00\",\"to\":\"17:00\"},\"saturday\":{\"active\":false,\"from\":\"0:00\",\"to\":\"24:00\"},\"sunday\":{\"active\":false,\"from\":\"0:00\",\"to\":\"24:00\"}},\"bandwidth\":{\"settings\":\"custom\",\"bandwidthLimits\":{\"limitUp\":1000000,\"limitDown\":1000000}}}' 'https://api.meraki.com/api/v0/networks/{networkId}/groupPolicies/{groupPolicyId}'\n```\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"name\": \"No video streaming\",\n  \"groupPolicyId\": \"101\",\n  \"scheduling\": {\n    \"enabled\": true,\n    \"monday\": {\n      \"active\": true,\n      \"from\": \"9:00\",\n      \"to\": \"17:00\"\n    },\n    \"tuesday\": {\n      \"active\": true,\n      \"from\": \"9:00\",\n      \"to\": \"17:00\"\n    },\n    \"wednesday\": {\n      \"active\": true,\n      \"from\": \"9:00\",\n      \"to\": \"17:00\"\n    },\n    \"thursday\": {\n      \"active\": true,\n      \"from\": \"9:00\",\n      \"to\": \"17:00\"\n    },\n    \"friday\": {\n      \"active\": true,\n      \"from\": \"9:00\",\n      \"to\": \"17:00\"\n    },\n    \"saturday\": {\n      \"active\": false,\n      \"from\": \"0:00\",\n      \"to\": \"24:00\"\n    },\n    \"sunday\": {\n      \"active\": false,\n      \"from\": \"0:00\",\n      \"to\": \"24:00\"\n    }\n  },\n  \"bandwidth\": {\n    \"settings\": \"custom\",\n    \"bandwidthLimits\": {\n      \"limitUp\": 1000000,\n      \"limitDown\": 1000000\n    }\n  }\n}\n```"
+          },
+          "response": []
+        },
+        {
+          "name": "Delete a group policy",
+          "_postman_id": "37d6cb6d-555b-4b20-a684-ad929b502768",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "type": "text",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Content-Type",
+                "type": "text",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/groupPolicies/{{groupPolicyId}}",
+            "description": "## HTTP REQUEST\n```\nDELETE /networks/{networkId}/groupPolicies/{groupPolicyId}\n```\n\n## PARAMETERS\n**None**\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X DELETE 'https://api.meraki.com/api/v0/networks/{networkId}/groupPolicies/{groupPolicyId}'\n```\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 204\n\n(empty)\n```"
+          },
+          "response": []
+        }
+      ],
+      "_postman_id": "f7507b53-ff5d-4992-a41e-3a46ea3d76e0",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "4281a688-cb0c-4a21-a351-799e849af952",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "0b7d1c67-7e3d-4f94-84d9-35c716fca69f",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
     }
   ],
   "event": [
