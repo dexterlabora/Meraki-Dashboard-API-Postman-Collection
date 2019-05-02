@@ -7681,6 +7681,67 @@
         }
       ],
       "_postman_id": "40fc0330-9204-4b2e-9196-0107d355ea7b"
+    },
+    {
+      "name": "MX L7 firewall",
+      "item": [
+        {
+          "name": "List the MX L7 firewall rules for an MX network",
+          "_postman_id": "ad64ba46-acb3-4933-82b5-2e79f5044b3a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "type": "text",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Content-Type",
+                "type": "text",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/networks/{{networkId}}/l7FirewallRules",
+            "description": "## HTTP REQUEST\n```\nGET /networks/{networkId}/l7FirewallRules\n```\n\n## PARAMETERS\n**None**\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/{networkId}/l7FirewallRules'\n```\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"rules\": [\n    {\n      \"policy\": \"deny\",\n      \"type\": \"application\",\n      \"value\": {\n        \"id\": \"meraki:layer7/application/67\",\n        \"name\": \"Xbox LIVE\"\n      }\n    },\n    {\n      \"policy\": \"deny\",\n      \"type\": \"applicationCategory\",\n      \"value\": {\n        \"id\": \"meraki:layer7/category/2\",\n        \"name\": \"Blogging\"\n      }\n    },\n    {\n      \"policy\": \"deny\",\n      \"type\": \"host\",\n      \"value\": \"google.com\"\n    },\n    {\n      \"policy\": \"deny\",\n      \"type\": \"port\",\n      \"value\": \"23\"\n    },\n    {\n      \"policy\": \"deny\",\n      \"type\": \"ipRange\",\n      \"value\": \"10.11.12.00/24\"\n    },\n    {\n      \"policy\": \"deny\",\n      \"type\": \"ipRange\",\n      \"value\": \"10.11.12.00/24:5555\"\n    },\n    {\n      \"policy\": \"deny\",\n      \"type\": \"blacklistedCountries\",\n      \"value\": [\n        \"AX\",\n        \"CA\"\n      ]\n    },\n    {\n      \"policy\": \"deny\",\n      \"type\": \"whitelistedCountries\",\n      \"value\": [\n        \"US\"\n      ]\n    }\n  ]\n}\n```"
+          },
+          "response": []
+        },
+        {
+          "name": "Update the MX L7 firewall rules for an MX network",
+          "_postman_id": "ea63cdf0-c9b5-4e0d-a3ca-b5eb6235ac3d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "type": "text",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "type": "text",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"rules\": [\n        {\n            \"policy\": \"deny\",\n            \"type\": \"application\",\n            \"value\": {\n                \"id\": \"meraki:layer7/application/67\",\n                \"name\": \"Xbox LIVE\"\n            }\n        },\n        {\n            \"policy\": \"deny\",\n            \"type\": \"applicationCategory\",\n            \"value\": {\n                \"id\": \"meraki:layer7/category/2\",\n                \"name\": \"Blogging\"\n            }\n        },\n        {\n            \"policy\": \"deny\",\n            \"type\": \"host\",\n            \"value\": \"google.com\"\n        },\n        {\n            \"policy\": \"deny\",\n            \"type\": \"port\",\n            \"value\": \"23\"\n        },\n        {\n            \"policy\": \"deny\",\n            \"type\": \"ipRange\",\n            \"value\": \"10.11.12.00/24\"\n        },\n        {\n            \"policy\": \"deny\",\n            \"type\": \"ipRange\",\n            \"value\": \"10.11.12.00/24:5555\"\n        },\n        {\n            \"policy\": \"deny\",\n            \"type\": \"blacklistedCountries\",\n            \"value\": [\n                \"AX\",\n                \"CA\"\n            ]\n        },\n        {\n            \"policy\": \"deny\",\n            \"type\": \"whitelistedCountries\",\n            \"value\": [\n                \"US\"\n            ]\n        }\n    ]\n}"
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/l7FirewallRules",
+            "description": "## HTTP REQUEST\n```\nPUT /networks/{networkId}/l7FirewallRules\n```\n\n## PARAMETERS\n**Parameter**| **Description**\n:-------------:| :-------------:\nrules| An ordered array of the MX L7 firewall rules\npolicy| 'Deny' traffic specified by this rule\ntype| Type of the L7 rule. One of: 'application', 'applicationCategory', 'host', 'port', 'ipRange'\nvalue| The 'value' of what you want to block. Format of 'value' varies depending on type of the rule. See sample request. The application categories and application ids can be retrieved from the the 'MX L7 application categories' endpoint. The countries follow the two-letter ISO 3166-1 alpha-2 format.\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X PUT --data-binary '{\"rules\":[{\"policy\":\"deny\",\"type\":\"application\",\"value\":{\"id\":\"meraki:layer7/application/67\",\"name\":\"Xbox LIVE\"}},{\"policy\":\"deny\",\"type\":\"applicationCategory\",\"value\":{\"id\":\"meraki:layer7/category/2\",\"name\":\"Blogging\"}},{\"policy\":\"deny\",\"type\":\"host\",\"value\":\"google.com\"},{\"policy\":\"deny\",\"type\":\"port\",\"value\":\"23\"},{\"policy\":\"deny\",\"type\":\"ipRange\",\"value\":\"10.11.12.00/24\"},{\"policy\":\"deny\",\"type\":\"ipRange\",\"value\":\"10.11.12.00/24:5555\"},{\"policy\":\"deny\",\"type\":\"blacklistedCountries\",\"value\":[\"AX\",\"CA\"]},{\"policy\":\"deny\",\"type\":\"whitelistedCountries\",\"value\":[\"US\"]}]}' 'https://api.meraki.com/api/v0/networks/{networkId}/l7FirewallRules'\n```\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"rules\": [\n    {\n      \"policy\": \"deny\",\n      \"type\": \"application\",\n      \"value\": {\n        \"id\": \"meraki:layer7/application/67\",\n        \"name\": \"Xbox LIVE\"\n      }\n    },\n    {\n      \"policy\": \"deny\",\n      \"type\": \"applicationCategory\",\n      \"value\": {\n        \"id\": \"meraki:layer7/category/2\",\n        \"name\": \"Blogging\"\n      }\n    },\n    {\n      \"policy\": \"deny\",\n      \"type\": \"host\",\n      \"value\": \"google.com\"\n    },\n    {\n      \"policy\": \"deny\",\n      \"type\": \"port\",\n      \"value\": \"23\"\n    },\n    {\n      \"policy\": \"deny\",\n      \"type\": \"ipRange\",\n      \"value\": \"10.11.12.00/24\"\n    },\n    {\n      \"policy\": \"deny\",\n      \"type\": \"ipRange\",\n      \"value\": \"10.11.12.00/24:5555\"\n    },\n    {\n      \"policy\": \"deny\",\n      \"type\": \"blacklistedCountries\",\n      \"value\": [\n        \"AX\",\n        \"CA\"\n      ]\n    },\n    {\n      \"policy\": \"deny\",\n      \"type\": \"whitelistedCountries\",\n      \"value\": [\n        \"US\"\n      ]\n    }\n  ]\n}\n```"
+          },
+          "response": []
+        }
+      ],
+      "_postman_id": "1c35a206-cf93-49a5-a1ca-90e256e31f63"
     }
   ],
   "event": [
