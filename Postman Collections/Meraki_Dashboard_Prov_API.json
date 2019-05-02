@@ -855,6 +855,258 @@
         }
       ],
       "_postman_id": "2b917312-ee3b-404d-baeb-a55cddbe9f18"
+    },
+    {
+      "name": "Cameras",
+      "item": [
+        {
+          "name": "Returns video link for the specified camera. If a timestamp supplied, it links to that time.",
+          "_postman_id": "291434a6-96c4-4598-8dcb-44b66e7f620d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/networks/{{networkId}}/cameras/{{serial}}/videoLink?timestamp=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "networks",
+                "{{networkId}}",
+                "cameras",
+                "{{serial}}",
+                "videoLink"
+              ],
+              "query": [
+                {
+                  "key": "timestamp",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "## HTTP REQUEST\n```\nGET /networks/[networkId]/cameras/[serial]/videoLink\n```\n## PARAMETERS\n**Parameter**|**Description**\n:-------------: |:-------------:\ntimestamp| The video link will start at this timestamp. The timestamp is in UNIX Epoch time (milliseconds).\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X GET 'https://api.meraki.com/api/v0/networks/[networkId]/cameras/[serial]/videoLink'\n```\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 200\n\n{\n  \"url\": \"https://nxx.meraki.com/office-cameras/n/bs0a1k/manage/nodes/new_list/29048243992402?timestamp=1535732570077\"\n}\n```"
+          },
+          "response": [
+            {
+              "id": "7aed7f86-dfaa-4081-9fbf-0eb634a2622b",
+              "name": "Returns video link for the specified camera. If a timestamp supplied, it links to that time.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}"
+                  }
+                ],
+                "url": "{{baseUrl}}/devices/{{serial}}/cameras/videoLink"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate",
+                  "name": "Cache-Control",
+                  "description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": "Options that are desired for the connection"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "name": "Content-Encoding",
+                  "description": "The type of encoding used on the data."
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8",
+                  "name": "Content-Type",
+                  "description": "The mime type of this content"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 17 Sep 2018 11:59:10 GMT",
+                  "name": "Date",
+                  "description": "The date and time that the message was sent"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT",
+                  "name": "Expires",
+                  "description": "Gives the date/time after which the response is considered stale"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache",
+                  "name": "Pragma",
+                  "description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+                },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains",
+                  "name": "Strict-Transport-Security",
+                  "description": "A HSTS Policy informing the HTTP client how long to cache the HTTPS only policy and whether this applies to subdomains."
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding",
+                  "name": "Vary",
+                  "description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "sameorigin",
+                  "name": "X-Frame-Options",
+                  "description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "65255b96cf7e49e44cbaa822754182d9",
+                  "name": "X-Request-Id",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.348546",
+                  "name": "X-Runtime",
+                  "description": "Custom header"
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=Edge,chrome=1",
+                  "name": "X-UA-Compatible",
+                  "description": "Custom header"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "\"https://n143.meraki.com/Miles-Test/n/RSv2xapc/manage/nodes/new_list/57548243936123\""
+            }
+          ]
+        },
+        {
+          "name": "Generate a snapshot of what the camera sees at the specified time and return a link to that image.",
+          "_postman_id": "53147d40-de79-4695-882a-f57c8a975709",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Cisco-Meraki-API-Key",
+                "type": "text",
+                "value": "{{X-Cisco-Meraki-API-Key}}"
+              },
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "type": "text",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"timestamp\": \"2019-02-03T01:23:45Z\"\n}"
+            },
+            "url": "{{baseUrl}}/networks/{{networkId}}/cameras/{{serial}}/snapshot",
+            "description": "## HTTP REQUEST\n```\nPOST /networks/[networkId]/cameras/[serial]/snapshot\n```\n\n## PARAMETERS\n**Parameter**| **Description**\n:-------------:| :-------------:\ntimestamp| [optional] The snapshot will be taken from this time on the camera. The timestamp is expected to be in ISO 8601 format. If no timestamp is specified, we will assume current time.\n\n### SAMPLE REQUEST\n```\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -H 'Content-Type: application/json' -X POST 'https://api.meraki.com/api/v0/networks/[networkId]/cameras/[serial]/snapshot'\n```\n\n### SAMPLE RESPONSE\n```\nSuccessful HTTP Status: 202\n\n{\n  \"url\": \"https://spn4.meraki.com/stream/jpeg/snapshot/b2d123asdf423qd22d2\",\n  \"expiry\": \"Access to the image will expire at 2018-12-11T03:12:39Z.\"\n}\n```"
+          },
+          "response": [
+            {
+              "id": "d248d6e0-7053-49ae-a7c5-4e1540ced52b",
+              "name": "Returns a link to a snapshot of what the camera sees at the specified time",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "{{X-Cisco-Meraki-API-Key}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n\t\"timestamp\": \"2019-01-31T14:57:33-05:00\"\n}"
+                },
+                "url": "{{baseUrl}}/networks/{{networkId}}/cameras/{{serial}}/snapshot"
+              },
+              "status": "Accepted",
+              "code": 202,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 31 Jan 2019 20:02:53 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/json;charset=UTF-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Fri, 01 Jan 1990 00:00:00 GMT"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"url\": \"https://spn5.meraki.com/stream/jpeg/snapshot/bd6b561d9c374de0VHZmFmYTc4NDJhMzRkOTNmMjg1Y2Y2NWIwYWQ2YzRhNDczZWE2OGU4MzQ4YjRhMjAxNjQzOWI4ZGFhNjE0MGNlYdGt9OFcP89nKa_4wDb0DKoUylJEEmJUYtUlqIp0dFZdj66A7ZJ26eJVJHrqMm0dbnHCBAFQey8tQDloIFRTMS3kBgp4y88Q_ZK1t__iSmWWPTz5yCJ_ck127SMRpSl9ZV4ff2IAKamHpe-w9RjJBWBlUpunXjtObxcVKZxnMRBqGMH8LuDPHRqW9mpAoONO3FatawrEXK5kuCZb0pLre9-y8tVk_-owidseQz_6g6KF\",\n    \"expiry\": \"Access to the image will expire at 2019-01-31T13:02:51-08:00\"\n}"
+            }
+          ]
+        }
+      ],
+      "_postman_id": "436e71d1-be10-43d1-9e06-2d8f468953db"
     }
   ],
   "event": [
