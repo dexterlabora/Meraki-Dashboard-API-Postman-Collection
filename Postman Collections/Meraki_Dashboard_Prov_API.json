@@ -2,7 +2,7 @@
   "info": {
     "_postman_id": "d092a0e1-7632-9720-359e-d2366897b860",
     "name": "Meraki Dashboard API",
-    "description": "The Cisco Meraki Dashboard API is a modern REST API based on the [OpenAPI](https://swagger.io/docs/specification/about/) specification.\n--\n\n> Collection generated from Dashboard API **v0.3.0**\n> [Dashboard API Changelog](https://developer.cisco.com/meraki/whats-new/)\n\n## What can the API be used for?\nThe Dashboard API can be used for many purposes. It's meant to be an open-ended tool. Here are some examples of use cases:\n\n* Add new organizations, admins, networks, devices, VLANs, and more\n* Configure networks at scale\n* Automatically on-board and off-board new employees' teleworker setups\n* Build your own dashboard for store managers, field techs, or unique use cases\n\n## Enabling the Dashboard API\n1. Begin by logging into [Meraki Dashboard](https://dashboard.meraki.com) and navigating to **Organization > Settings**\n\n2. Locate the section titled **Dashboard API access** and select **Enable Access**, then **Save** your changes\n\n3. After enabling the API, choose your username at the top-right of the Meraki Dashboard and select **my profile**\n\n4. Locate the section titled **Dashboard API access** and select **Generate new API key**\n\n*Note: The API key is associated with a Dashboard administrator account. You can generate, revoke, and regenerate your API key on your profile.*\n\n**Keep your API key safe as it provides authentication to all of your organizations with the API enabled. If your API key is shared, you can regenerate your API key at any time. This will revoke the existing API key.**\n\nCopy and store your API key in a safe place. Dashboard does not store API keys in plaintext for security reasons, so this is the only time you will be able to record it. If you lose or forget your API key, you will have to revoke it and generate a new one.\n\nEvery request must specify an API key via a request header.\n\nThe API key must be specified in the URL header. The API will return a 404 (rather than a 403) in response to a request with a missing or incorrect API key in order to prevent leaking the existence of resources to unauthorized users.\n\n`X-Cisco-Meraki-API-Key: <secret key>`\n\nRead more about API [authorization](../api/#/python/getting-started/authorizing-your-client)\n\n\n## Versioning\nOnce an API version is released, we will make only backwards-compatible changes to it. Backwards-compatible changes include:\n\n* Adding new API resources\n\n* Adding new optional request parameters to existing API methods\n\n* Adding new properties to existing API responses\n\n* Changing the order of properties in existing API responses\n\n## Rate Limit\n* The Dashboard API is limited to **5 calls per second**, per organization.\n* A burst of 5 additional calls are allowed in the first second, so a maximum of 15 calls in the first 2 seconds.\n* The rate limiting technique is based off of the [token bucket model](https://en.wikipedia.org/wiki/Token_bucket).\n* An error with a `429` status code will be returned when the rate limit has been exceeded.\n* Expect to backoff for 1 - 2 seconds if the limit has been exceeded. You may have to wait potentially longer if a large number of requests were made within this timeframe.\n\n\n## Additional Details\nIdentifiers in the API are opaque strings. A `{networkId}`, for example, might be the string \"126043\", whereas an `{orderId}` might contain characters, such as \"4S1234567\". Client applications must not try to parse them as numbers. Even identifiers that look like numbers might be too long to encode without loss of precision in Javascript, where the only numeric type is IEEE 754 floating point.\n\nVerbs in the API follow the usual REST conventions:\n\n`GET` returns the value of a resource or a list of resources, depending on whether an identifier is specified. For example, a `GET` of `/organizations` returns a list of organizations, whereas a `GET` of `/organizations/{organizationId}` returns a particular organization.\n\n`POST` adds a new resource, as in a `POST` to `/organizations/{organizationId}/admins`, or performs some other non-idempotent change.\n\n`PUT` updates a resource. `PUTs` are idempotent; they update a resource, creating it first if it does not already exist. A `PUT` should specify all the fields of a resource; the API will revert omitted fields to their default value.\n\n`DELETE` removes a resource.\n",
+    "description": "The Cisco Meraki Dashboard API is a modern REST API based on the [OpenAPI](https://swagger.io/docs/specification/about/) specification.\n---\n\n\n> Collection generated from Dashboard API **v0.3.0**\n>\n> [Dashboard API Changelog](https://developer.cisco.com/meraki/whats-new/)\n\n## What can the API be used for?\nThe Dashboard API can be used for many purposes. It's meant to be an open-ended tool. Here are some examples of use cases:\n\n* Add new organizations, admins, networks, devices, VLANs, and more\n* Configure networks at scale\n* Automatically on-board and off-board new employees' teleworker setups\n* Build your own dashboard for store managers, field techs, or unique use cases\n\n## Enabling the Dashboard API\n1. Begin by logging into [Meraki Dashboard](https://dashboard.meraki.com) and navigating to **Organization > Settings**\n\n2. Locate the section titled **Dashboard API access** and select **Enable Access**, then **Save** your changes\n\n3. After enabling the API, choose your username at the top-right of the Meraki Dashboard and select **my profile**\n\n4. Locate the section titled **Dashboard API access** and select **Generate new API key**\n\n*Note: The API key is associated with a Dashboard administrator account. You can generate, revoke, and regenerate your API key on your profile.*\n\n**Keep your API key safe as it provides authentication to all of your organizations with the API enabled. If your API key is shared, you can regenerate your API key at any time. This will revoke the existing API key.**\n\nCopy and store your API key in a safe place. Dashboard does not store API keys in plaintext for security reasons, so this is the only time you will be able to record it. If you lose or forget your API key, you will have to revoke it and generate a new one.\n\nEvery request must specify an API key via a request header.\n\nThe API key must be specified in the URL header. The API will return a 404 (rather than a 403) in response to a request with a missing or incorrect API key in order to prevent leaking the existence of resources to unauthorized users.\n\n`X-Cisco-Meraki-API-Key: <secret key>`\n\nRead more about API [authorization](../api/#/python/getting-started/authorizing-your-client)\n\n\n## Versioning\nOnce an API version is released, we will make only backwards-compatible changes to it. Backwards-compatible changes include:\n\n* Adding new API resources\n\n* Adding new optional request parameters to existing API methods\n\n* Adding new properties to existing API responses\n\n* Changing the order of properties in existing API responses\n\n## Rate Limit\n* The Dashboard API is limited to **5 calls per second**, per organization.\n* A burst of 5 additional calls are allowed in the first second, so a maximum of 15 calls in the first 2 seconds.\n* The rate limiting technique is based off of the [token bucket model](https://en.wikipedia.org/wiki/Token_bucket).\n* An error with a `429` status code will be returned when the rate limit has been exceeded.\n* Expect to backoff for 1 - 2 seconds if the limit has been exceeded. You may have to wait potentially longer if a large number of requests were made within this timeframe.\n\n\n## Additional Details\nIdentifiers in the API are opaque strings. A `{networkId}`, for example, might be the string \"126043\", whereas an `{orderId}` might contain characters, such as \"4S1234567\". Client applications must not try to parse them as numbers. Even identifiers that look like numbers might be too long to encode without loss of precision in Javascript, where the only numeric type is IEEE 754 floating point.\n\nVerbs in the API follow the usual REST conventions:\n\n`GET` returns the value of a resource or a list of resources, depending on whether an identifier is specified. For example, a `GET` of `/organizations` returns a list of organizations, whereas a `GET` of `/organizations/{organizationId}` returns a particular organization.\n\n`POST` adds a new resource, as in a `POST` to `/organizations/{organizationId}/admins`, or performs some other non-idempotent change.\n\n`PUT` updates a resource. `PUTs` are idempotent; they update a resource, creating it first if it does not already exist. A `PUT` should specify all the fields of a resource; the API will revert omitted fields to their default value.\n\n`DELETE` removes a resource.\n",
     "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
   },
   "item": [
@@ -29310,415 +29310,415 @@
   ],
   "variable": [
     {
-      "id": "bfdf9477-468f-4531-9b78-0d051ad0a07f",
+      "id": "4940aac1-3124-4362-8ab8-fab7700737bf",
       "key": "X-Cisco-Meraki-API-Key",
       "value": "X-Cisco-Meraki-API-Key28",
       "type": "string"
     },
     {
-      "id": "6a5c7e77-a32a-4bc8-a34e-62d93c132bb2",
+      "id": "f851c0e1-8621-464e-9681-4627b669d972",
       "key": "t0",
       "value": "t028",
       "type": "string"
     },
     {
-      "id": "8bcae860-dd18-41a2-a446-30e8d8d35b13",
+      "id": "066373b8-c707-470b-87e9-e8baa1ddc404",
       "key": "t1",
       "value": "t168",
       "type": "string"
     },
     {
-      "id": "8d3244db-3e3c-4a62-b694-75218623d82e",
+      "id": "fca74c4c-4f50-42e0-a28e-7a3636b6452f",
       "key": "timespan",
       "value": "176",
       "type": "string"
     },
     {
-      "id": "66c2fbbe-1b6f-4b99-b82e-c510c0044ac1",
+      "id": "52c66968-cd5c-41b4-8cb7-083b962eb2ae",
       "key": "perPage",
       "value": "176",
       "type": "string"
     },
     {
-      "id": "ce8890ab-b08f-4e98-bb6a-350b0bcdfc3c",
+      "id": "23512b46-cac9-4340-b315-aacfd4a2092a",
       "key": "startingAfter",
       "value": "startingAfter68",
       "type": "string"
     },
     {
-      "id": "147f6c9d-c255-4e86-ae9d-76d372260180",
+      "id": "a05472bb-e79a-4dcc-b135-1f3e80a5b272",
       "key": "endingBefore",
       "value": "endingBefore68",
       "type": "string"
     },
     {
-      "id": "505e78d0-2c7a-4397-99ce-d02e5a2814ff",
+      "id": "fc9353c1-870d-4930-a890-29e8f7c275ff",
       "key": "adminId",
       "value": "adminId68",
       "type": "string"
     },
     {
-      "id": "c8ec4586-c167-4772-b020-c2dfb6652dcf",
+      "id": "f2b8a547-c2a0-4da5-ae60-0ea214a62e90",
       "key": "path",
       "value": "path68",
       "type": "string"
     },
     {
-      "id": "6dacc582-3e2a-4f48-9d0d-a707417ff4f0",
+      "id": "1d40a276-b842-4ee1-8dcc-4cc0a316e85a",
       "key": "method",
       "value": "method68",
       "type": "string"
     },
     {
-      "id": "578e823d-6498-40ae-bcfd-e27aff6078bd",
+      "id": "1dffecf2-4252-40f3-abd6-104b5771b929",
       "key": "responseCode",
       "value": "176",
       "type": "string"
     },
     {
-      "id": "7a41293b-a4cb-4c28-84f9-6a3be751d53e",
+      "id": "85e80621-364c-4d56-8342-df6b98f164c2",
       "key": "organizationId",
       "value": "organizationId68",
       "type": "string"
     },
     {
-      "id": "9c10f256-83f4-4049-b428-66ccafc330c2",
+      "id": "f000d714-6c81-44bf-83de-7f344cfe64b3",
       "key": "actionBatchId",
       "value": "actionBatchId68",
       "type": "string"
     },
     {
-      "id": "bff8e150-e33c-4c81-a2bf-97fd33739fed",
+      "id": "8ede954f-f925-4e5b-a77a-069fe4179f7b",
       "key": "id",
       "value": "id38",
       "type": "string"
     },
     {
-      "id": "9de128da-aad4-4518-a97b-d6c5a0cb649d",
+      "id": "755100c3-a76b-46a5-8d31-3812d3574ee4",
       "key": "networkId",
       "value": "networkId38",
       "type": "string"
     },
     {
-      "id": "33604a01-84bd-4098-be0e-d3c61fbe6ed6",
+      "id": "c9277421-4598-4434-ab81-558b31128e82",
       "key": "includeConnectivityHistory",
       "value": "true",
       "type": "string"
     },
     {
-      "id": "95d98921-e9e8-4906-844c-d433737d90c4",
+      "id": "44c39342-e758-40bd-8ffc-b72959faa721",
       "key": "connectivityHistoryTimespan",
       "value": "98",
       "type": "string"
     },
     {
-      "id": "f00af182-c5bf-4cac-b72b-b4c3025dff8c",
+      "id": "0c7fa9b0-c26b-42a3-99b9-7dd6ffc1fbb4",
       "key": "bluetoothClientId",
       "value": "bluetoothClientId38",
       "type": "string"
     },
     {
-      "id": "ae85b16a-7efa-46cf-8239-96fcf23897e0",
+      "id": "0cb4bffe-8eb9-4ff5-83c6-10422e85b91c",
       "key": "serial",
       "value": "serial38",
       "type": "string"
     },
     {
-      "id": "303121de-3235-4bd3-96a1-43f1bda3feb1",
+      "id": "2cf5579c-72e8-4075-b16b-053500a6550a",
       "key": "timestamp",
       "value": "timestamp38",
       "type": "string"
     },
     {
-      "id": "570efad0-d44c-436e-81e0-7c71899531b5",
+      "id": "02cd68d9-cec0-4f24-ac52-8e31691fed56",
       "key": "clientId",
       "value": "clientId38",
       "type": "string"
     },
     {
-      "id": "79ea5878-9f22-43ba-bbf8-c57390c6d381",
+      "id": "e5b3a735-3fef-4601-9f6f-be0ad711ece2",
       "key": "resolution",
       "value": "98",
       "type": "string"
     },
     {
-      "id": "2b7246df-7309-4905-92a9-83075c16913f",
+      "id": "7fc6753f-2d68-44d4-ad5e-5691b28b9afe",
       "key": "configTemplateId",
       "value": "configTemplateId38",
       "type": "string"
     },
     {
-      "id": "45d1e3bb-1577-442b-9f08-932190257919",
+      "id": "9e5e32cd-d8c3-4224-a144-38e44eac0bc8",
       "key": "uplink",
       "value": "wan1",
       "type": "string"
     },
     {
-      "id": "b123fce9-027c-4ac8-8674-8707ef3e0096",
+      "id": "bb2d21e7-6d36-4691-9dba-a41920e6bd5a",
       "key": "ip",
       "value": "1.2.3.4",
       "type": "string"
     },
     {
-      "id": "6cb13c70-1498-4ab9-94cb-cc8cde0173c6",
+      "id": "5d076d1d-cdbb-47fc-924d-4574da994fb2",
       "key": "service",
       "value": "service38",
       "type": "string"
     },
     {
-      "id": "174d16f9-17bc-4e05-8093-823647b24ec1",
+      "id": "e8cef4fb-d85e-4ef2-a59d-ab89b90239ac",
       "key": "groupPolicyId",
       "value": "groupPolicyId38",
       "type": "string"
     },
     {
-      "id": "ced2ec6a-12c0-4aa7-8608-ba43b041f3c9",
+      "id": "f8fb6967-8ae7-4e27-8288-09ba458b220e",
       "key": "number",
       "value": "number38",
       "type": "string"
     },
     {
-      "id": "568e32d3-1291-49a7-8ece-6924471ffa45",
+      "id": "0e9e6ce5-88f6-46ba-be1c-295d53c76832",
       "key": "objectType",
       "value": "person",
       "type": "string"
     },
     {
-      "id": "3fbeb45f-0246-43d6-b88f-fa96ea841ead",
+      "id": "92b4e9cf-8244-4304-90fe-0aa29dd2d25b",
       "key": "zoneId",
       "value": "zoneId38",
       "type": "string"
     },
     {
-      "id": "652fb5fb-31ac-4f34-b226-f78bab2eba9f",
+      "id": "bf2bfa7f-ad55-4481-aeee-8e6de2ac6d92",
       "key": "appliancePortId",
       "value": "appliancePortId38",
       "type": "string"
     },
     {
-      "id": "c6ad84c0-3b5f-416c-8b67-3ee364d0a0d3",
+      "id": "b568b636-604f-4629-9148-f9e60459cda4",
       "key": "merakiAuthUserId",
       "value": "merakiAuthUserId38",
       "type": "string"
     },
     {
-      "id": "8ab74fc4-404a-4d9c-a01e-0eab908d8068",
+      "id": "c6f1d1ca-0486-4172-97ef-5525df28bf37",
       "key": "withDetails",
       "value": "true",
       "type": "string"
     },
     {
-      "id": "7053d8ad-2a24-4fd8-85bf-562ef25f7276",
+      "id": "91e0fcee-db4d-4b1e-800d-8302b5fd686e",
       "key": "targetGroupId",
       "value": "targetGroupId38",
       "type": "string"
     },
     {
-      "id": "f30004db-0eb6-468a-b6e0-221ee6b6a4b8",
+      "id": "b680fe79-d199-477e-a989-272b28d7e669",
       "key": "deviceType",
       "value": "deviceType38",
       "type": "string"
     },
     {
-      "id": "85b7bb08-b443-47e2-aa96-b7fa1ca270c5",
+      "id": "0ca4ee7e-2c09-41bf-a7c6-8aa5562c306a",
       "key": "username",
       "value": "username7",
       "type": "string"
     },
     {
-      "id": "a4734644-8640-4976-9ed9-fdc196ec2d77",
+      "id": "1d129966-52ad-4d1a-bc03-6874f706935d",
       "key": "email",
       "value": "email7",
       "type": "string"
     },
     {
-      "id": "fd524bb9-29cf-437f-8f8d-d7c19541625f",
+      "id": "f75ce4a3-3cc8-4bf6-9753-45d07355bfb3",
       "key": "mac",
       "value": "mac7",
       "type": "string"
     },
     {
-      "id": "a61be9c6-754d-47aa-ac4b-59b053ec2a1b",
+      "id": "a13733f4-2e4b-4d21-9d23-8c0b84596301",
       "key": "imei",
       "value": "imei7",
       "type": "string"
     },
     {
-      "id": "37e1dfd3-7a7d-438c-9743-f9e4c8fcbce5",
+      "id": "6b78db73-7f67-4e5e-9886-4079cc4e1d5f",
       "key": "bluetoothMac",
       "value": "bluetoothMac7",
       "type": "string"
     },
     {
-      "id": "3be48d69-c4f5-4e11-9f44-87dfb19cbde8",
+      "id": "83c144f7-4cef-4ff2-ad23-a796c75807f1",
       "key": "requestId",
       "value": "requestId7",
       "type": "string"
     },
     {
-      "id": "c7d7169a-7ce9-429d-9d6e-e9d83de1661c",
+      "id": "3fdf7468-2bdf-451e-b573-5c29270c6b5e",
       "key": "includeTemplateProfiles",
       "value": "false",
       "type": "string"
     },
     {
-      "id": "fcf95151-b6c2-4829-9112-aea6dab7a1a8",
+      "id": "abc60370-ae5d-4c62-b1c8-7ad3e2dcd7ad",
       "key": "rfProfileId",
       "value": "rfProfileId7",
       "type": "string"
     },
     {
-      "id": "9bc49de0-136d-4fe3-81cd-6547e09e092b",
+      "id": "de548515-c1ff-4cd6-9b64-b69f7ff84654",
       "key": "bundleId",
       "value": "com.cisco.polaris",
       "type": "string"
     },
     {
-      "id": "5164eebb-9dd3-4dbf-a989-8205e445b734",
+      "id": "6ba8450c-38fc-45d5-89ab-9b4adf0c840c",
       "key": "appId",
       "value": "appId7",
       "type": "string"
     },
     {
-      "id": "d4abbce8-1c0a-410a-9e0d-86ea68595f5b",
+      "id": "03626610-e420-44dd-b9be-51431d09ab95",
       "key": "attemptId",
       "value": "attemptId7",
       "type": "string"
     },
     {
-      "id": "1ae64b40-dd24-4170-8cb8-392b699347b1",
+      "id": "46c8da05-5261-4850-a736-86bb4db5998a",
       "key": "fields",
       "value": "fields7",
       "type": "string"
     },
     {
-      "id": "847207fc-de16-4895-abb3-3e8edf364573",
+      "id": "11e95643-aab1-4935-8ee4-e4ba05b80b1b",
       "key": "wifiMacs",
       "value": "wifiMacs7",
       "type": "string"
     },
     {
-      "id": "4c4a2786-dd15-4bd4-89f2-dfca4f94dea0",
+      "id": "4be8699f-effd-4ed3-8840-43289f47374a",
       "key": "serials",
       "value": "serials7",
       "type": "string"
     },
     {
-      "id": "555012dd-e993-4f7e-8055-7db029cdc18f",
+      "id": "007e29fb-3c4d-4453-9717-bb528d53114a",
       "key": "ids",
       "value": "ids7",
       "type": "string"
     },
     {
-      "id": "f8d2ce8b-f153-4559-9f9c-d2f6b1b8184b",
+      "id": "83efe0a5-d8a7-4490-a4df-1d0f35360b36",
       "key": "scope",
       "value": "scope7",
       "type": "string"
     },
     {
-      "id": "94197654-4430-498f-9919-8075f6a886db",
+      "id": "23e24702-e922-47a8-9614-028a7e2e6727",
       "key": "batchToken",
       "value": "batchToken7",
       "type": "string"
     },
     {
-      "id": "11730d4d-aa3a-4956-ab8d-e01aa0ba3fcd",
+      "id": "ed537c69-9fe6-4bcc-a073-d00103e95ba9",
       "key": "deviceId",
       "value": "deviceId7",
       "type": "string"
     },
     {
-      "id": "cbc158b4-ecf2-4300-9de5-c2f5811e4137",
+      "id": "29b41c5d-b2c7-49ca-a67a-398b0eb54ca6",
       "key": "profileId",
       "value": "profileId7",
       "type": "string"
     },
     {
-      "id": "bf81c153-ffca-4053-b323-87df6be8060a",
+      "id": "101d0a51-1d68-4abc-b058-1ec339ed700c",
       "key": "userId",
       "value": "userId7",
       "type": "string"
     },
     {
-      "id": "70e635e8-c884-4f4a-9517-29ff7c80792c",
+      "id": "9fe9f8fd-adc7-4f99-9eb3-6e92f059d796",
       "key": "usernames",
       "value": "usernames7",
       "type": "string"
     },
     {
-      "id": "6059c8d4-73bb-4502-b46a-c459d89e1897",
+      "id": "d6f7a482-1db8-410f-bb04-96635b8dad4a",
       "key": "emails",
       "value": "emails7",
       "type": "string"
     },
     {
-      "id": "f2f362a3-5d86-4713-b43b-686143872bb9",
+      "id": "3ea71226-a4d0-48cb-a5bd-43fb814e3109",
       "key": "network_id",
       "value": "network_id7",
       "type": "string"
     },
     {
-      "id": "489181c5-65e5-45eb-aecc-7191c3bfbe20",
+      "id": "9102c619-2857-4ac2-990a-8095bddf0c49",
       "key": "ssidNumber",
       "value": "0",
       "type": "string"
     },
     {
-      "id": "d6108014-65e8-46ff-b581-d301831c623e",
+      "id": "1025953c-b85f-428d-a761-2a0a7d86552b",
       "key": "loginIdentifier",
       "value": "loginIdentifier7",
       "type": "string"
     },
     {
-      "id": "4759b921-a273-47e6-9624-0a515ba08f74",
+      "id": "e4245803-94e8-4de7-b297-eb8d473d2e15",
       "key": "srId",
       "value": "srId7",
       "type": "string"
     },
     {
-      "id": "8edda38c-1608-47e1-b4fe-c26c3d1c8397",
+      "id": "6e7caffc-33dd-4b6e-93f7-9ff104755054",
       "key": "portScheduleId",
       "value": "portScheduleId7",
       "type": "string"
     },
     {
-      "id": "45882471-5e26-4ba2-bca8-e55bb28be155",
+      "id": "838bc2ec-e90f-425e-8b71-470324931ae5",
       "key": "networkID",
       "value": "networkID7",
       "type": "string"
     },
     {
-      "id": "3e032b74-fe75-4e09-85b4-e758b456be9c",
+      "id": "a769d11f-fa63-400c-addb-61cc2428b2c5",
       "key": "switchStackId",
       "value": "switchStackId7",
       "type": "string"
     },
     {
-      "id": "11f0cff6-717f-4979-9400-003ec968e2c3",
+      "id": "f274f15c-8458-48f5-a172-931170d26f1b",
       "key": "vlanId",
       "value": "vlanId7",
       "type": "string"
     },
     {
-      "id": "61d2dced-9fc0-479a-9466-e113c49f6a69",
+      "id": "267514f2-de0c-41d5-835a-a36eb8751073",
       "key": "url",
       "value": "url7",
       "type": "string"
     },
     {
-      "id": "696d5387-c6a8-4548-9c43-94d7a1e6ac30",
+      "id": "8c700dc3-2454-4401-bd88-93d87c3700e4",
       "key": "ssid",
       "value": "20",
       "type": "string"
     },
     {
-      "id": "0cbf5179-dc91-444b-aeff-7e6cf1d6b546",
+      "id": "443e3b53-8675-471e-8518-86f001b603ec",
       "key": "vlan",
       "value": "20",
       "type": "string"
     },
     {
-      "id": "f6bebee1-08d9-491e-93b9-f612afa06f5c",
+      "id": "7256267f-21c0-4c83-bb1b-603afce98589",
       "key": "apTag",
       "value": "apTag7",
       "type": "string"
