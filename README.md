@@ -1,4 +1,4 @@
-# Meraki-Dashboard-API-Postman-Collection
+# Meraki-Postman-Collections
 
 The complete Meraki Dashboard API in a Postman Collection
 
