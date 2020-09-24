@@ -20,6 +20,10 @@ The Collection JSON source files can be found in the [Postman Collections](https
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/6d2de8ccf871e0182c13)
 
+## Dashboard API v0
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/482e1b499c2b0162402b)
+
 ## Location Scanning API Samples
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/c751ca894f2eed4c4cbd)
