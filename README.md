@@ -32,7 +32,15 @@ The Collection JSON source files can be found in the [Postman Collections](https
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9a280d254dcccfa21075)
 
+## Meraki Public Utilities
 
+- Meraki Postman Collection generator. 
+Use this to create a collection unique to your organization's open API spec
+
+- Meraki Changelog generator.
+Use this to create a changelog and JSON diff of two Meraki OpenAPI specs
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/efb81060c5f855a4c72c)
 
 
 ~~
