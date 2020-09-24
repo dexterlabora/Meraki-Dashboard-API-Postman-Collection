@@ -14,6 +14,12 @@ The Collection JSON source files can be found in the [Postman Collections](https
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/a1762196c8be8baabf56)
 
+## Dashboard API v1-beta Diff
+
+*Only contains new operations and default root shortcuts*
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/6d2de8ccf871e0182c13)
+
 ## Location Scanning API Samples
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/c751ca894f2eed4c4cbd)
