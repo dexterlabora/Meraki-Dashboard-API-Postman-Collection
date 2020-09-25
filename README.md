@@ -1,6 +1,5 @@
 # Meraki-Postman-Collections
 
-The complete Meraki Dashboard API in a Postman Collection
 
 The Collection JSON source files can be found in the [Postman Collections](https://github.com/dexterlabora/Meraki-Dashboard-API-Postman-Collection/tree/master/Postman%20Collections) directory.
 
