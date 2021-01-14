@@ -574,6 +574,33 @@
             "description": "Generates a changelog using the latest Meraki API specification in GitHub Releases\n\n- Latest v1 BETA"
           },
           "response": []
+        },
+        {
+          "name": "Meraki API - v1.0.0 to v1 latest GA",
+          "_postman_id": "0e7d251f-83a9-4459-867e-09c4a2404d1d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "type": "text",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"oldSpec\": \"https://raw.githubusercontent.com/meraki/openapi/v1.0.0/openapi/spec2.json\",\n    \"newSpec\": \"https://raw.githubusercontent.com/meraki/openapi/master/openapi/spec2.json\"\n}",
+              "options": {
+                "raw": {}
+              }
+            },
+            "url": "https://us-central1-focal-rig-261016.cloudfunctions.net/app/swagger/diff"
+          },
+          "response": []
         }
       ],
       "_postman_id": "c63ef6c6-60f2-4957-835d-aa398354ae88"
@@ -610,7 +637,7 @@
   ],
   "variable": [
     {
-      "id": "6e5f1636-3887-460f-8158-292ec003c161",
+      "id": "81230b73-0ef0-4716-a92c-f5908a1f84da",
       "key": "viz-template-url",
       "value": "",
       "type": "string"
