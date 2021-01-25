@@ -1,8 +1,8 @@
 {
   "info": {
     "_postman_id": "5368b2fb-18fe-4b29-8490-1fd8a5ce1421",
-    "name": "Meraki Dashboard API - v1.1.0-beta.2  - Diff Stub",
-    "description": "The Cisco Meraki Dashboard API is a modern REST API based on the OpenAPI specification.\n\n> Date: 16 September, 2020\n>\n> [What's New](https://meraki.io/whats-new/)\n\n---\n\n[API Documentation](https://meraki.io/api)\n\n[Community Support](https://meraki.io/community)\n\n[Meraki Homepage](https://www.meraki.com)\n",
+    "name": "Meraki Dashboard API - v1.5.0-beta.2 - Diff",
+    "description": "The Cisco Meraki Dashboard API is a modern REST API based on the OpenAPI specification.\n\n> Date: 20 January, 2021\n>\n> [What's New](https://meraki.io/whats-new/)\n\n---\n\n[API Documentation](https://meraki.io/api)\n\n[Community Support](https://meraki.io/community)\n\n[Meraki Homepage](https://www.meraki.com)\n",
     "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
   },
   "item": [
@@ -10,90 +10,56 @@
       "name": "GENERAL",
       "item": [
         {
-          "name": "Networks",
+          "name": "networks",
           "item": [
             {
-              "name": "Monitor",
+              "name": "configure",
               "item": [
                 {
-                  "name": "environmental",
+                  "name": "Firmware Upgrades",
                   "item": [
                     {
-                      "name": "events",
+                      "name": "rollbacks",
                       "item": [
                         {
-                          "name": "List the environmental events for the network",
-                          "_postman_id": "557abcc9-3787-4a7d-bb7a-b92f4a46039f",
+                          "name": "Rollback a Firmware Upgrade For A Network",
+                          "_postman_id": "a41e1360-c1fe-43e9-9247-4a773a2f7f0b",
                           "protocolProfileBehavior": {
-                            "followAuthorizationHeader": true,
-                            "disableBodyPruning": true
+                            "followAuthorizationHeader": true
                           },
                           "request": {
-                            "method": "GET",
+                            "method": "POST",
                             "header": [
                               {
                                 "key": "X-Cisco-Meraki-API-Key",
                                 "value": ""
+                              },
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
                               }
                             ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n    \"reasons\": [\n        {\n            \"category\": \"<string>\",\n            \"comment\": \"<string>\"\n        },\n        {\n            \"category\": \"<string>\",\n            \"comment\": \"<string>\"\n        }\n    ],\n    \"product\": \"<string>\",\n    \"scheduledFor\": \"<dateTime>\"\n}",
+                              "options": {
+                                "raw": {}
+                              }
+                            },
                             "url": {
-                              "raw": "{{baseUrl}}/networks/:networkId/environmental/events",
+                              "raw": "{{baseUrl}}/networks/:networkId/firmwareUpgrades/rollbacks",
                               "host": [
                                 "{{baseUrl}}"
                               ],
                               "path": [
                                 "networks",
                                 ":networkId",
-                                "environmental",
-                                "events"
-                              ],
-                              "query": [
-                                {
-                                  "description": "A list of event types. The returned events will be filtered to only include events with these types.",
-                                  "key": "includedEventTypes[]",
-                                  "value": "{{includedEventTypes[]}}",
-                                  "disabled": true
-                                },
-                                {
-                                  "description": "A list of event types. The returned events will be filtered to exclude events with these types.",
-                                  "key": "excludedEventTypes[]",
-                                  "value": "{{excludedEventTypes[]}}",
-                                  "disabled": true
-                                },
-                                {
-                                  "description": "The serial of the sensor device which the list of events will be filtered with",
-                                  "key": "sensorSerial",
-                                  "value": "{{sensorSerial}}",
-                                  "disabled": true
-                                },
-                                {
-                                  "description": "The serial of the environmental gateway device which the list of events will be filtered with",
-                                  "key": "gatewaySerial",
-                                  "value": "{{gatewaySerial}}",
-                                  "disabled": true
-                                },
-                                {
-                                  "description": "The number of entries per page returned. Acceptable range is 3 - 1000. Default is 10.",
-                                  "key": "perPage",
-                                  "value": "{{perPage}}",
-                                  "disabled": true
-                                },
-                                {
-                                  "description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.",
-                                  "key": "startingAfter",
-                                  "value": "{{startingAfter}}",
-                                  "disabled": true
-                                },
-                                {
-                                  "description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.",
-                                  "key": "endingBefore",
-                                  "value": "{{endingBefore}}",
-                                  "disabled": true
-                                }
+                                "firmwareUpgrades",
+                                "rollbacks"
                               ],
                               "variable": [
                                 {
-                                  "id": "70e20081-ad97-44de-9982-71c6cbaf3ead",
+                                  "id": "3e0a04b2-99f5-41e1-97d1-f4c941b126bb",
                                   "key": "networkId",
                                   "value": "{{networkId}}",
                                   "type": "string",
@@ -101,55 +67,29 @@
                                 }
                               ]
                             },
-                            "description": "List the environmental events for the network"
+                            "description": "Rollback a Firmware Upgrade For A Network\n #### Body Parameters \n**Parameter**|**Type**|**Description** \n :-------------: |:-------------: |:-------------: \nproduct| string| Product type to rollback (if the network is a combined network)\nscheduledFor| string| Scheduled time for the rollback\nreasons| array| Reasons for the rollback\n\n#### Supports Action Batches\n\n**Resource**|**Operation**\n:-------------: |:-------------:\n`/networks/{networkId}/firmwareUpgrades/rollbacks` | create\n\n"
                           },
                           "response": [
                             {
-                              "id": "12da442d-48f1-42a9-b3c8-b941ca53211f",
+                              "id": "7b7a8a85-4142-4255-9e27-b6c245c5d592",
                               "name": "Successful operation",
                               "originalRequest": {
-                                "method": "GET",
+                                "method": "POST",
                                 "header": [],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n    \"product\": \"wireless\",\n    \"scheduledFor\": \"2020-10-21T02:00:00Z\",\n    \"reasons\": [\n        {\n            \"category\": \"performance\",\n            \"comment\": \"Network was slower with the upgrade\"\n        },\n        {\n            \"category\": \"stability\",\n            \"comment\": \"We saw some errors in the logs we didn't expect\"\n        }\n    ]\n}"
+                                },
                                 "url": {
-                                  "raw": "{{baseUrl}}/networks/:networkId/environmental/events?includedEventTypes=<string>,<string>&excludedEventTypes=<string>,<string>&sensorSerial=<string>&gatewaySerial=<string>&perPage=<integer>&startingAfter=<string>&endingBefore=<string>",
+                                  "raw": "{{baseUrl}}/networks/:networkId/firmwareUpgrades/rollbacks",
                                   "host": [
                                     "{{baseUrl}}"
                                   ],
                                   "path": [
                                     "networks",
                                     ":networkId",
-                                    "environmental",
-                                    "events"
-                                  ],
-                                  "query": [
-                                    {
-                                      "key": "includedEventTypes",
-                                      "value": "<string>,<string>"
-                                    },
-                                    {
-                                      "key": "excludedEventTypes",
-                                      "value": "<string>,<string>"
-                                    },
-                                    {
-                                      "key": "sensorSerial",
-                                      "value": "<string>"
-                                    },
-                                    {
-                                      "key": "gatewaySerial",
-                                      "value": "<string>"
-                                    },
-                                    {
-                                      "key": "perPage",
-                                      "value": "<integer>"
-                                    },
-                                    {
-                                      "key": "startingAfter",
-                                      "value": "<string>"
-                                    },
-                                    {
-                                      "key": "endingBefore",
-                                      "value": "<string>"
-                                    }
+                                    "firmwareUpgrades",
+                                    "rollbacks"
                                   ],
                                   "variable": [
                                     {
@@ -163,163 +103,35 @@
                               "_postman_previewlanguage": "json",
                               "header": [
                                 {
-                                  "key": "Link",
-                                  "value": "<string>",
-                                  "description": "A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests."
-                                },
-                                {
                                   "key": "Content-Type",
                                   "value": "application/json"
                                 }
                               ],
                               "cookie": [],
                               "responseTime": null,
-                              "body": "{\n \"pageStartAt\": \"2018-02-11T00:00:00.090210Z\",\n \"pageEndAt\": \"2018-02-11T00:00:00.090210Z\",\n \"events\": [\n  {\n   \"occurredAt\": \"2018-02-11T00:00:00.090210Z\",\n   \"networkId\": \"N_24329156\",\n   \"type\": \"mt_application_upgraded\",\n   \"description\": \"Application upgraded\",\n   \"sensorSerial\": \"Q234-ABCD-5678\",\n   \"gatewaySerial\": \"Q234-ABCD-5678\",\n   \"eventData\": {\n    \"version\": \"mt_1_1\"\n   }\n  }\n ]\n}"
+                              "body": "{\n \"product\": \"wireless\",\n \"status\": \"pending\",\n \"upgradeBatchId\": 23456,\n \"scheduledFor\": \"2020-10-21T02:00:00Z\",\n \"reasons\": [\n  {\n   \"category\": \"performance\",\n   \"comment\": \"Network was slower with the upgrade\"\n  },\n  {\n   \"category\": \"stability\",\n   \"comment\": \"We saw some errors in the logs we didn't expect\"\n  }\n ]\n}"
                             }
                           ]
                         }
                       ],
-                      "_postman_id": "4468146e-cb7f-4c61-ab8a-1d247eda619f",
+                      "_postman_id": "bf3a981b-e666-4471-87be-7d97dc12cd73",
                       "_postman_isSubFolder": true
                     }
                   ],
-                  "_postman_id": "009ac3b9-393b-41bd-a154-93a134454147",
+                  "_postman_id": "073d2c1f-f86a-4370-af72-b5bbe92f444c",
                   "_postman_isSubFolder": true
-                }
-              ],
-              "_postman_id": "9f841f12-a03b-4c4f-a994-245c3f0d54d9",
-              "_postman_isSubFolder": true
-            },
-            {
-              "name": "Configure",
-              "item": [
+                },
                 {
-                  "name": "environmental",
+                  "name": "Location Scanning",
                   "item": [
                     {
-                      "name": "events",
+                      "name": "Http Servers",
                       "item": [
                         {
-                          "name": "eventTypes",
-                          "item": [
-                            {
-                              "name": "List the event type to human-readable description",
-                              "_postman_id": "de689721-5bf2-435f-b030-c47cc27ade82",
-                              "protocolProfileBehavior": {
-                                "followAuthorizationHeader": true,
-                                "disableBodyPruning": true
-                              },
-                              "request": {
-                                "method": "GET",
-                                "header": [
-                                  {
-                                    "key": "X-Cisco-Meraki-API-Key",
-                                    "value": ""
-                                  }
-                                ],
-                                "url": {
-                                  "raw": "{{baseUrl}}/networks/:networkId/environmental/events/eventTypes",
-                                  "host": [
-                                    "{{baseUrl}}"
-                                  ],
-                                  "path": [
-                                    "networks",
-                                    ":networkId",
-                                    "environmental",
-                                    "events",
-                                    "eventTypes"
-                                  ],
-                                  "variable": [
-                                    {
-                                      "id": "db4baf7d-f630-4e32-9a08-829c8f6ec849",
-                                      "key": "networkId",
-                                      "value": "{{networkId}}",
-                                      "type": "string",
-                                      "description": "(Required) "
-                                    }
-                                  ]
-                                },
-                                "description": "List the event type to human-readable description"
-                              },
-                              "response": [
-                                {
-                                  "id": "c486bb68-841a-457c-b7f9-0fd6977ff230",
-                                  "name": "Successful operation",
-                                  "originalRequest": {
-                                    "method": "GET",
-                                    "header": [],
-                                    "url": {
-                                      "raw": "{{baseUrl}}/networks/:networkId/environmental/events/eventTypes",
-                                      "host": [
-                                        "{{baseUrl}}"
-                                      ],
-                                      "path": [
-                                        "networks",
-                                        ":networkId",
-                                        "environmental",
-                                        "events",
-                                        "eventTypes"
-                                      ],
-                                      "variable": [
-                                        {
-                                          "key": "networkId"
-                                        }
-                                      ]
-                                    }
-                                  },
-                                  "status": "OK",
-                                  "code": 200,
-                                  "_postman_previewlanguage": "json",
-                                  "header": [
-                                    {
-                                      "key": "Content-Type",
-                                      "value": "application/json"
-                                    }
-                                  ],
-                                  "cookie": [],
-                                  "responseTime": null,
-                                  "body": "[\n {\n  \"category\": \"Environmental\",\n  \"type\": \"mt_application_upgraded\",\n  \"description\": \"Application upgraded\"\n }\n]"
-                                }
-                              ]
-                            }
-                          ],
-                          "_postman_id": "468ef4bc-675f-4574-af90-a31b29a44151",
-                          "_postman_isSubFolder": true
-                        }
-                      ],
-                      "_postman_id": "68e69cad-f6ea-4074-9578-1e1778b844d7",
-                      "_postman_isSubFolder": true
-                    }
-                  ],
-                  "_postman_id": "c8a2f5ec-c939-44ca-b454-543cd9915a11",
-                  "_postman_isSubFolder": true
-                }
-              ],
-              "_postman_id": "20eef6b8-684f-4268-9d4c-5e084f2df332",
-              "_postman_isSubFolder": true
-            }
-          ],
-          "_postman_id": "d1eaf41f-2f89-4b66-b158-ab1fc92a9c6e",
-          "_postman_isSubFolder": true
-        },
-        {
-          "name": "Organizations",
-          "item": [
-            {
-              "name": "configure",
-              "item": [
-                {
-                  "name": "webhooks",
-                  "item": [
-                    {
-                      "name": "alertTypes",
-                      "item": [
-                        {
-                          "name": "Return a list of alert types to be used with managing webhook alerts",
-                          "_postman_id": "1440fa57-3ed9-46cc-9f17-802c12c5c052",
+                          "name": "Return List Of Scanning API Receivers",
+                          "_postman_id": "a5b45ee5-e5b7-44e0-89c8-8d121c5d4af7",
                           "protocolProfileBehavior": {
-                            "followAuthorizationHeader": true,
-                            "disableBodyPruning": true
+                            "followAuthorizationHeader": true
                           },
                           "request": {
                             "method": "GET",
@@ -330,49 +142,49 @@
                               }
                             ],
                             "url": {
-                              "raw": "{{baseUrl}}/organizations/:organizationId/webhooks/alertTypes",
+                              "raw": "{{baseUrl}}/networks/:networkId/locationScanning/httpServers",
                               "host": [
                                 "{{baseUrl}}"
                               ],
                               "path": [
-                                "organizations",
-                                ":organizationId",
-                                "webhooks",
-                                "alertTypes"
+                                "networks",
+                                ":networkId",
+                                "locationScanning",
+                                "httpServers"
                               ],
                               "variable": [
                                 {
-                                  "id": "a7591e3b-a7fe-4ffc-bb30-07279f1bf3db",
-                                  "key": "organizationId",
-                                  "value": "{{organizationId}}",
+                                  "id": "1818758e-76d5-4437-af4e-67ef5ce5cbd4",
+                                  "key": "networkId",
+                                  "value": "{{networkId}}",
                                   "type": "string",
                                   "description": "(Required) "
                                 }
                               ]
                             },
-                            "description": "Return a list of alert types to be used with managing webhook alerts"
+                            "description": "Return list of scanning API receivers"
                           },
                           "response": [
                             {
-                              "id": "2d4d8b0b-5242-4ce6-afa4-7d3670cea7c5",
+                              "id": "758348f6-8603-4761-b7e1-5551fa9ca299",
                               "name": "Successful operation",
                               "originalRequest": {
                                 "method": "GET",
                                 "header": [],
                                 "url": {
-                                  "raw": "{{baseUrl}}/organizations/:organizationId/webhooks/alertTypes",
+                                  "raw": "{{baseUrl}}/networks/:networkId/locationScanning/httpServers",
                                   "host": [
                                     "{{baseUrl}}"
                                   ],
                                   "path": [
-                                    "organizations",
-                                    ":organizationId",
-                                    "webhooks",
-                                    "alertTypes"
+                                    "networks",
+                                    ":networkId",
+                                    "locationScanning",
+                                    "httpServers"
                                   ],
                                   "variable": [
                                     {
-                                      "key": "organizationId"
+                                      "key": "networkId"
                                     }
                                   ]
                                 }
@@ -388,237 +200,111 @@
                               ],
                               "cookie": [],
                               "responseTime": null,
-                              "body": "[\n {\n  \"alertType\": \"stopped_reporting\",\n  \"alertName\": \"APs went down\",\n  \"example\": {\n   \"version\": \"0.1\",\n   \"sharedSecret\": \"secret\",\n   \"sentAt\": \"2020-07-11T00:03:12.331789Z\",\n   \"alertId\": \"0000000000000000\",\n   \"alertType\": \"APs went down\",\n   \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n   \"alertData\": {}\n  },\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My AP\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n   \"tag1\",\n   \"tag2\"\n  ],\n  \"deviceModel\": \"MR34\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\"\n }\n]"
+                              "body": "[\n {\n  \"endpoints\": [\n   {\n    \"httpServer\": {\n     \"id\": \"1284392014819\",\n     \"name\": \"What's in a name, anyway?\",\n     \"url\": \"https://example.com/path\",\n     \"sharedSecret\": \"secret\",\n     \"validator\": \"xxx\",\n     \"validatedAt\": \"2018-02-11T00:00:00Z\",\n     \"payloadTemplate\": \"Meraki\"\n    },\n    \"successAt\": \"2018-05-12T00:00:00Z\",\n    \"errorAt\": \"2018-02-11T00:00:00Z\",\n    \"postErrors\": \"[{\\\"code\\\":200,\\\"delay\\\":{\\\"inMillis\\\":612},\\\"timestamp\\\":{\\\"millisFromEpoch\\\":1597255325467}}]\"\n   }\n  ]\n }\n]"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "Set The List Of Scanning API Receivers",
+                          "_postman_id": "22b35b5f-e443-4031-b733-2e2a51204acc",
+                          "protocolProfileBehavior": {
+                            "followAuthorizationHeader": true
+                          },
+                          "request": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "X-Cisco-Meraki-API-Key",
+                                "value": ""
+                              },
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n    \"endpoints\": [\n        {\n            \"scanningApiVersion\": \"<integer>\",\n            \"radioType\": \"<string>\",\n            \"httpServer\": {\n                \"url\": \"<string>\",\n                \"sharedSecret\": \"<string>\"\n            }\n        },\n        {\n            \"scanningApiVersion\": \"<integer>\",\n            \"radioType\": \"<string>\",\n            \"httpServer\": {\n                \"url\": \"<string>\",\n                \"sharedSecret\": \"<string>\"\n            }\n        }\n    ]\n}",
+                              "options": {
+                                "raw": {}
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/networks/:networkId/locationScanning/httpServers",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "networks",
+                                ":networkId",
+                                "locationScanning",
+                                "httpServers"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "79322c7b-fee7-4571-9640-d2090873c145",
+                                  "key": "networkId",
+                                  "value": "{{networkId}}",
+                                  "type": "string",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Set the list of scanning API receivers. Old receivers will be removed"
+                          },
+                          "response": [
+                            {
+                              "id": "3d34abe1-0f7c-48e1-a7f6-fffba6087e49",
+                              "name": "Successful operation",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n    \"endpoints\": [\n        {\n            \"httpServer\": {\n                \"url\": \"https://example.com\",\n                \"sharedSecret\": \"shhh\"\n            },\n            \"scanningApiVersion\": 3,\n            \"radioType\": \"WiFi\"\n        }\n    ]\n}"
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/networks/:networkId/locationScanning/httpServers",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "networks",
+                                    ":networkId",
+                                    "locationScanning",
+                                    "httpServers"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "networkId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n \"endpoints\": [\n  {\n   \"httpServer\": {\n    \"id\": \"1284392014819\",\n    \"name\": \"What's in a name, anyway?\",\n    \"url\": \"https://example.com/path\",\n    \"sharedSecret\": \"secret\",\n    \"validator\": \"xxx\",\n    \"validatedAt\": \"2018-02-11T00:00:00Z\",\n    \"payloadTemplate\": \"Meraki\"\n   },\n   \"successAt\": \"2018-05-12T00:00:00Z\",\n   \"errorAt\": \"2018-02-11T00:00:00Z\",\n   \"postErrors\": \"[{\\\"code\\\":200,\\\"delay\\\":{\\\"inMillis\\\":612},\\\"timestamp\\\":{\\\"millisFromEpoch\\\":1597255325467}}]\"\n  }\n ]\n}"
                             }
                           ]
                         }
                       ],
-                      "_postman_id": "2864bcb1-75fb-4d40-9f0e-6221dbbb4f90",
+                      "_postman_id": "c8bb9ff2-2725-4632-ab2f-ea2091cea9e1",
                       "_postman_isSubFolder": true
-                    }
-                  ],
-                  "_postman_id": "fc82fbfb-af04-40b4-8cf9-e6de1637392d",
-                  "_postman_isSubFolder": true
-                }
-              ],
-              "_postman_id": "732997bf-0b33-4603-9445-7415d55d7d2a",
-              "_postman_isSubFolder": true
-            }
-          ],
-          "_postman_id": "5b0f7216-f7c4-46b0-8bf3-0ac281ee9819",
-          "_postman_isSubFolder": true
-        }
-      ],
-      "_postman_id": "cdcfc6a8-9a3b-4dba-9839-9687f6a93673"
-    },
-    {
-      "name": "PRODUCTS",
-      "item": [
-        {
-          "name": "Sm",
-          "item": [
-            {
-              "name": "configure",
-              "item": [
-                {
-                  "name": "Devices",
-                  "item": [
-                    {
-                      "name": "Add Delete Or Update The Tags Of A Set Of Devices",
-                      "_postman_id": "38502d7d-c031-4e15-96ce-7eb6bd091434",
-                      "protocolProfileBehavior": {
-                        "followAuthorizationHeader": true,
-                        "disableBodyPruning": true
-                      },
-                      "request": {
-                        "method": "POST",
-                        "header": [
-                          {
-                            "key": "X-Cisco-Meraki-API-Key",
-                            "value": ""
-                          },
-                          {
-                            "key": "Content-Type",
-                            "value": "application/json"
-                          }
-                        ],
-                        "body": {
-                          "mode": "raw",
-                          "raw": "{\n    \"tags\": [\n        \"<string>\",\n        \"<string>\"\n    ],\n    \"updateAction\": \"<string>\",\n    \"wifiMacs\": [\n        \"<string>\",\n        \"<string>\"\n    ],\n    \"ids\": [\n        \"<string>\",\n        \"<string>\"\n    ],\n    \"serials\": [\n        \"<string>\",\n        \"<string>\"\n    ],\n    \"scope\": [\n        \"<string>\",\n        \"<string>\"\n    ]\n}",
-                          "options": {
-                            "raw": {}
-                          }
-                        },
-                        "url": {
-                          "raw": "{{baseUrl}}/networks/:networkId/sm/devices/modifyTags",
-                          "host": [
-                            "{{baseUrl}}"
-                          ],
-                          "path": [
-                            "networks",
-                            ":networkId",
-                            "sm",
-                            "devices",
-                            "modifyTags"
-                          ],
-                          "variable": [
-                            {
-                              "id": "08698589-68ce-4c7e-b218-be5b975d2340",
-                              "key": "networkId",
-                              "value": "{{networkId}}",
-                              "type": "string",
-                              "description": "(Required) "
-                            }
-                          ]
-                        },
-                        "description": "Add, delete, or update the tags of a set of devices\n #### Body Parameters \n**Parameter**|**Type**|**Description** \n :-------------: |:-------------: |:-------------: \nwifiMacs| array| The wifiMacs of the devices to be modified.\nids| array| The ids of the devices to be modified.\nserials| array| The serials of the devices to be modified.\nscope| array| The scope (one of all, none, withAny, withAll, withoutAny, or withoutAll) and a set of tags of the devices to be modified.\ntags| array| The tags to be added, deleted, or updated.\nupdateAction| string| One of add, delete, or update. Only devices that have been modified will be returned.\n"
-                      },
-                      "response": [
-                        {
-                          "id": "b9beb974-1df2-4507-b510-3cf872dee898",
-                          "name": "Successful operation",
-                          "originalRequest": {
-                            "method": "POST",
-                            "header": [],
-                            "body": {
-                              "mode": "raw",
-                              "raw": "{\n    \"scope\": \"withAny, old_tag\",\n    \"updateAction\": \"add\",\n    \"tags\": [\n        \"tag1\",\n        \"tag2\"\n    ]\n}"
-                            },
-                            "url": {
-                              "raw": "{{baseUrl}}/networks/:networkId/sm/devices/modifyTags",
-                              "host": [
-                                "{{baseUrl}}"
-                              ],
-                              "path": [
-                                "networks",
-                                ":networkId",
-                                "sm",
-                                "devices",
-                                "modifyTags"
-                              ],
-                              "variable": [
-                                {
-                                  "key": "networkId"
-                                }
-                              ]
-                            }
-                          },
-                          "status": "OK",
-                          "code": 200,
-                          "_postman_previewlanguage": "json",
-                          "header": [
-                            {
-                              "key": "Content-Type",
-                              "value": "application/json"
-                            }
-                          ],
-                          "cookie": [],
-                          "responseTime": null,
-                          "body": "[\n {\n  \"id\": \"1284392014819\",\n  \"serial\": \"F5XKHEBX\",\n  \"wifiMac\": \"00:11:22:33:44:55\",\n  \"tags\": [\n   \"tag1\",\n   \"tag2\"\n  ]\n }\n]"
-                        }
-                      ]
                     },
                     {
-                      "name": "Force Check In A Set Of Devices",
-                      "_postman_id": "891f2a09-02fd-4ad1-a846-260dcff2e281",
+                      "name": "Return Scanning API Settings",
+                      "_postman_id": "0616e85f-115f-4209-80b0-e70332030b12",
                       "protocolProfileBehavior": {
-                        "followAuthorizationHeader": true,
-                        "disableBodyPruning": true
-                      },
-                      "request": {
-                        "method": "POST",
-                        "header": [
-                          {
-                            "key": "X-Cisco-Meraki-API-Key",
-                            "value": ""
-                          },
-                          {
-                            "key": "Content-Type",
-                            "value": "application/json"
-                          }
-                        ],
-                        "body": {
-                          "mode": "raw",
-                          "raw": "{\n    \"wifiMacs\": [\n        \"<string>\",\n        \"<string>\"\n    ],\n    \"ids\": [\n        \"<string>\",\n        \"<string>\"\n    ],\n    \"serials\": [\n        \"<string>\",\n        \"<string>\"\n    ],\n    \"scope\": [\n        \"<string>\",\n        \"<string>\"\n    ]\n}",
-                          "options": {
-                            "raw": {}
-                          }
-                        },
-                        "url": {
-                          "raw": "{{baseUrl}}/networks/:networkId/sm/devices/checkin",
-                          "host": [
-                            "{{baseUrl}}"
-                          ],
-                          "path": [
-                            "networks",
-                            ":networkId",
-                            "sm",
-                            "devices",
-                            "checkin"
-                          ],
-                          "variable": [
-                            {
-                              "id": "81c8b986-c62b-4329-b77f-921e28ff23e4",
-                              "key": "networkId",
-                              "value": "{{networkId}}",
-                              "type": "string",
-                              "description": "(Required) "
-                            }
-                          ]
-                        },
-                        "description": "Force check-in a set of devices\n #### Body Parameters \n**Parameter**|**Type**|**Description** \n :-------------: |:-------------: |:-------------: \nwifiMacs| array| The wifiMacs of the devices to be checked-in.\nids| array| The ids of the devices to be checked-in.\nserials| array| The serials of the devices to be checked-in.\nscope| array| The scope (one of all, none, withAny, withAll, withoutAny, or withoutAll) and a set of tags of the devices to be checked-in.\n"
-                      },
-                      "response": [
-                        {
-                          "id": "9d0dff77-0f21-4aa5-a71b-b6f25758824e",
-                          "name": "Successful operation",
-                          "originalRequest": {
-                            "method": "POST",
-                            "header": [],
-                            "body": {
-                              "mode": "raw",
-                              "raw": "{\n    \"ids\": \"\\\"1284392014819\\\"\"\n}"
-                            },
-                            "url": {
-                              "raw": "{{baseUrl}}/networks/:networkId/sm/devices/checkin",
-                              "host": [
-                                "{{baseUrl}}"
-                              ],
-                              "path": [
-                                "networks",
-                                ":networkId",
-                                "sm",
-                                "devices",
-                                "checkin"
-                              ],
-                              "variable": [
-                                {
-                                  "key": "networkId"
-                                }
-                              ]
-                            }
-                          },
-                          "status": "OK",
-                          "code": 200,
-                          "_postman_previewlanguage": "json",
-                          "header": [
-                            {
-                              "key": "Content-Type",
-                              "value": "application/json"
-                            }
-                          ],
-                          "cookie": [],
-                          "responseTime": null,
-                          "body": "{\n \"ids\": \"\\\"1284392014819\\\"\"\n}"
-                        }
-                      ]
-                    },
-                    {
-                      "name": "List The Devices Enrolled In An SM Network With Various Specified Fields And Filters",
-                      "_postman_id": "0341cc9d-357e-4c64-8534-a687f994658f",
-                      "protocolProfileBehavior": {
-                        "followAuthorizationHeader": true,
-                        "disableBodyPruning": true
+                        "followAuthorizationHeader": true
                       },
                       "request": {
                         "method": "GET",
@@ -629,69 +315,18 @@
                           }
                         ],
                         "url": {
-                          "raw": "{{baseUrl}}/networks/:networkId/sm/devices",
+                          "raw": "{{baseUrl}}/networks/:networkId/locationScanning",
                           "host": [
                             "{{baseUrl}}"
                           ],
                           "path": [
                             "networks",
                             ":networkId",
-                            "sm",
-                            "devices"
-                          ],
-                          "query": [
-                            {
-                              "description": "Additional fields that will be displayed for each device.\n    The default fields are: id, name, tags, ssid, wifiMac, osName, systemModel, uuid, and serialNumber. The additional fields are: ip,\n    systemType, availableDeviceCapacity, kioskAppName, biosVersion, lastConnected, missingAppsCount, userSuppliedAddress, location, lastUser,\n    ownerEmail, ownerUsername, osBuild, publicIp, phoneNumber, diskInfoJson, deviceCapacity, isManaged, hadMdm, isSupervised, meid, imei, iccid,\n    simCarrierNetwork, cellularDataUsed, isHotspotEnabled, createdAt, batteryEstCharge, quarantined, avName, avRunning, asName, fwName,\n    isRooted, loginRequired, screenLockEnabled, screenLockDelay, autoLoginDisabled, autoTags, hasMdm, hasDesktopAgent, diskEncryptionEnabled,\n    hardwareEncryptionCaps, passCodeLock, usesHardwareKeystore, and androidSecurityPatchVersion.",
-                              "key": "fields",
-                              "value": "{{fields}}",
-                              "disabled": true
-                            },
-                            {
-                              "description": "Filter devices by wifi mac(s).",
-                              "key": "wifiMacs",
-                              "value": "{{wifiMacs}}",
-                              "disabled": true
-                            },
-                            {
-                              "description": "Filter devices by serial(s).",
-                              "key": "serials",
-                              "value": "{{serials}}",
-                              "disabled": true
-                            },
-                            {
-                              "description": "Filter devices by id(s).",
-                              "key": "ids",
-                              "value": "{{ids}}",
-                              "disabled": true
-                            },
-                            {
-                              "description": "Specify a scope (one of all, none, withAny, withAll, withoutAny, or withoutAll) and a set of tags.",
-                              "key": "scope",
-                              "value": "{{scope}}",
-                              "disabled": true
-                            },
-                            {
-                              "description": "The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000.",
-                              "key": "perPage",
-                              "value": "{{perPage}}",
-                              "disabled": true
-                            },
-                            {
-                              "description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.",
-                              "key": "startingAfter",
-                              "value": "{{startingAfter}}",
-                              "disabled": true
-                            },
-                            {
-                              "description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.",
-                              "key": "endingBefore",
-                              "value": "{{endingBefore}}",
-                              "disabled": true
-                            }
+                            "locationScanning"
                           ],
                           "variable": [
                             {
-                              "id": "48e8a822-a2f6-43d5-af8d-fe420138bccd",
+                              "id": "7c84992b-98ed-45c5-be3f-02b561358406",
                               "key": "networkId",
                               "value": "{{networkId}}",
                               "type": "string",
@@ -699,159 +334,24 @@
                             }
                           ]
                         },
-                        "description": "List the devices enrolled in an SM network with various specified fields and filters"
+                        "description": "Return scanning API settings"
                       },
                       "response": [
                         {
-                          "id": "bcd2eb4d-d24c-4b79-931c-e8b13aebe16b",
+                          "id": "6a6d1682-a370-4227-904b-7bf2fd1b1e4b",
                           "name": "Successful operation",
                           "originalRequest": {
                             "method": "GET",
                             "header": [],
                             "url": {
-                              "raw": "{{baseUrl}}/networks/:networkId/sm/devices?fields=<string>,<string>&wifiMacs=<string>,<string>&serials=<string>,<string>&ids=<string>,<string>&scope=<string>,<string>&perPage=<integer>&startingAfter=<string>&endingBefore=<string>",
+                              "raw": "{{baseUrl}}/networks/:networkId/locationScanning",
                               "host": [
                                 "{{baseUrl}}"
                               ],
                               "path": [
                                 "networks",
                                 ":networkId",
-                                "sm",
-                                "devices"
-                              ],
-                              "query": [
-                                {
-                                  "key": "fields",
-                                  "value": "<string>,<string>"
-                                },
-                                {
-                                  "key": "wifiMacs",
-                                  "value": "<string>,<string>"
-                                },
-                                {
-                                  "key": "serials",
-                                  "value": "<string>,<string>"
-                                },
-                                {
-                                  "key": "ids",
-                                  "value": "<string>,<string>"
-                                },
-                                {
-                                  "key": "scope",
-                                  "value": "<string>,<string>"
-                                },
-                                {
-                                  "key": "perPage",
-                                  "value": "<integer>"
-                                },
-                                {
-                                  "key": "startingAfter",
-                                  "value": "<string>"
-                                },
-                                {
-                                  "key": "endingBefore",
-                                  "value": "<string>"
-                                }
-                              ],
-                              "variable": [
-                                {
-                                  "key": "networkId"
-                                }
-                              ]
-                            }
-                          },
-                          "status": "OK",
-                          "code": 200,
-                          "_postman_previewlanguage": "json",
-                          "header": [
-                            {
-                              "key": "Link",
-                              "value": "<string>",
-                              "description": "A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests."
-                            },
-                            {
-                              "key": "Content-Type",
-                              "value": "application/json"
-                            }
-                          ],
-                          "cookie": [],
-                          "responseTime": null,
-                          "body": "{\n \"id\": \"1284392014819\",\n \"name\": \"Miles's phone\",\n \"tags\": [\n  \"tag1\",\n  \"tag2\"\n ],\n \"ssid\": \"My SSID\",\n \"wifiMac\": \"00:11:22:33:44:55\",\n \"osName\": \"iOS 9.3.5\",\n \"systemModel\": \"iPhone\",\n \"uuid\": \"3d990628ede4c628d52\",\n \"serialNumber\": \"F5XKHEBX\",\n \"serial\": \"F5XKHEBX\",\n \"ip\": \"1.2.3.4\",\n \"notes\": \"Here's some info about my device\"\n}"
-                        }
-                      ]
-                    },
-                    {
-                      "name": "Lock A Set Of Devices",
-                      "_postman_id": "426cf8fe-932c-460b-bc98-53007a6957f3",
-                      "protocolProfileBehavior": {
-                        "followAuthorizationHeader": true,
-                        "disableBodyPruning": true
-                      },
-                      "request": {
-                        "method": "POST",
-                        "header": [
-                          {
-                            "key": "X-Cisco-Meraki-API-Key",
-                            "value": ""
-                          },
-                          {
-                            "key": "Content-Type",
-                            "value": "application/json"
-                          }
-                        ],
-                        "body": {
-                          "mode": "raw",
-                          "raw": "{\n    \"wifiMacs\": [\n        \"<string>\",\n        \"<string>\"\n    ],\n    \"ids\": [\n        \"<string>\",\n        \"<string>\"\n    ],\n    \"serials\": [\n        \"<string>\",\n        \"<string>\"\n    ],\n    \"scope\": [\n        \"<string>\",\n        \"<string>\"\n    ],\n    \"pin\": \"<integer>\"\n}",
-                          "options": {
-                            "raw": {}
-                          }
-                        },
-                        "url": {
-                          "raw": "{{baseUrl}}/networks/:networkId/sm/devices/lock",
-                          "host": [
-                            "{{baseUrl}}"
-                          ],
-                          "path": [
-                            "networks",
-                            ":networkId",
-                            "sm",
-                            "devices",
-                            "lock"
-                          ],
-                          "variable": [
-                            {
-                              "id": "5dcebc96-1dfa-499a-8bce-68c5e5364f96",
-                              "key": "networkId",
-                              "value": "{{networkId}}",
-                              "type": "string",
-                              "description": "(Required) "
-                            }
-                          ]
-                        },
-                        "description": "Lock a set of devices\n #### Body Parameters \n**Parameter**|**Type**|**Description** \n :-------------: |:-------------: |:-------------: \nwifiMacs| array| The wifiMacs of the devices to be locked.\nids| array| The ids of the devices to be locked.\nserials| array| The serials of the devices to be locked.\nscope| array| The scope (one of all, none, withAny, withAll, withoutAny, or withoutAll) and a set of tags of the devices to be wiped.\npin| integer| The pin number for locking macOS devices (a six digit number). Required only for macOS devices.\n"
-                      },
-                      "response": [
-                        {
-                          "id": "ca24a593-203a-4c5a-92c0-58f5934bc48b",
-                          "name": "Successful operation",
-                          "originalRequest": {
-                            "method": "POST",
-                            "header": [],
-                            "body": {
-                              "mode": "raw",
-                              "raw": "{\n    \"ids\": \"\\\"1284392014819\\\"\"\n}"
-                            },
-                            "url": {
-                              "raw": "{{baseUrl}}/networks/:networkId/sm/devices/lock",
-                              "host": [
-                                "{{baseUrl}}"
-                              ],
-                              "path": [
-                                "networks",
-                                ":networkId",
-                                "sm",
-                                "devices",
-                                "lock"
+                                "locationScanning"
                               ],
                               "variable": [
                                 {
@@ -871,612 +371,15 @@
                           ],
                           "cookie": [],
                           "responseTime": null,
-                          "body": "{\n \"ids\": \"\\\"1284392014819\\\"\"\n}"
+                          "body": "{\n \"analyticsEnabled\": true,\n \"scanningApiEnabled\": true,\n \"validator\": \"xxyzzy\"\n}"
                         }
                       ]
                     },
                     {
-                      "name": "Move A Set Of Devices To A New Network",
-                      "_postman_id": "7d5aa180-1c97-45e3-a094-57b53de92874",
+                      "name": "Change Scanning API Settings",
+                      "_postman_id": "8b76777a-a9bb-498e-853d-463c5f64670f",
                       "protocolProfileBehavior": {
-                        "followAuthorizationHeader": true,
-                        "disableBodyPruning": true
-                      },
-                      "request": {
-                        "method": "POST",
-                        "header": [
-                          {
-                            "key": "X-Cisco-Meraki-API-Key",
-                            "value": ""
-                          },
-                          {
-                            "key": "Content-Type",
-                            "value": "application/json"
-                          }
-                        ],
-                        "body": {
-                          "mode": "raw",
-                          "raw": "{\n    \"newNetwork\": \"<string>\",\n    \"wifiMacs\": [\n        \"<string>\",\n        \"<string>\"\n    ],\n    \"ids\": [\n        \"<string>\",\n        \"<string>\"\n    ],\n    \"serials\": [\n        \"<string>\",\n        \"<string>\"\n    ],\n    \"scope\": [\n        \"<string>\",\n        \"<string>\"\n    ]\n}",
-                          "options": {
-                            "raw": {}
-                          }
-                        },
-                        "url": {
-                          "raw": "{{baseUrl}}/networks/:networkId/sm/devices/move",
-                          "host": [
-                            "{{baseUrl}}"
-                          ],
-                          "path": [
-                            "networks",
-                            ":networkId",
-                            "sm",
-                            "devices",
-                            "move"
-                          ],
-                          "variable": [
-                            {
-                              "id": "4bb11d76-578d-461c-955f-12540f6f39b9",
-                              "key": "networkId",
-                              "value": "{{networkId}}",
-                              "type": "string",
-                              "description": "(Required) "
-                            }
-                          ]
-                        },
-                        "description": "Move a set of devices to a new network\n #### Body Parameters \n**Parameter**|**Type**|**Description** \n :-------------: |:-------------: |:-------------: \nwifiMacs| array| The wifiMacs of the devices to be moved.\nids| array| The ids of the devices to be moved.\nserials| array| The serials of the devices to be moved.\nscope| array| The scope (one of all, none, withAny, withAll, withoutAny, or withoutAll) and a set of tags of the devices to be moved.\nnewNetwork| string| The new network to which the devices will be moved.\n"
-                      },
-                      "response": [
-                        {
-                          "id": "2565de79-e751-4ac7-bee2-86839c97a884",
-                          "name": "Successful operation",
-                          "originalRequest": {
-                            "method": "POST",
-                            "header": [],
-                            "body": {
-                              "mode": "raw",
-                              "raw": "{\n    \"ids\": \"\\\"1284392014819\\\"\",\n    \"newNetwork\": \"N_24329156\"\n}"
-                            },
-                            "url": {
-                              "raw": "{{baseUrl}}/networks/:networkId/sm/devices/move",
-                              "host": [
-                                "{{baseUrl}}"
-                              ],
-                              "path": [
-                                "networks",
-                                ":networkId",
-                                "sm",
-                                "devices",
-                                "move"
-                              ],
-                              "variable": [
-                                {
-                                  "key": "networkId"
-                                }
-                              ]
-                            }
-                          },
-                          "status": "OK",
-                          "code": 200,
-                          "_postman_previewlanguage": "json",
-                          "header": [
-                            {
-                              "key": "Content-Type",
-                              "value": "application/json"
-                            }
-                          ],
-                          "cookie": [],
-                          "responseTime": null,
-                          "body": "{\n \"ids\": \"\\\"1284392014819\\\"\",\n \"newNetwork\": \"N_24329156\"\n}"
-                        }
-                      ]
-                    }
-                  ],
-                  "_postman_id": "d588456e-4f0c-4820-9af8-d38409109631",
-                  "_postman_isSubFolder": true
-                },
-                {
-                  "name": "Users",
-                  "item": [
-                    {
-                      "name": "List the owners in an SM network with various specified fields and filters",
-                      "_postman_id": "37c32e48-dfda-42eb-a836-295eecd02cf1",
-                      "protocolProfileBehavior": {
-                        "followAuthorizationHeader": true,
-                        "disableBodyPruning": true
-                      },
-                      "request": {
-                        "method": "GET",
-                        "header": [
-                          {
-                            "key": "X-Cisco-Meraki-API-Key",
-                            "value": ""
-                          }
-                        ],
-                        "url": {
-                          "raw": "{{baseUrl}}/networks/:networkId/sm/users",
-                          "host": [
-                            "{{baseUrl}}"
-                          ],
-                          "path": [
-                            "networks",
-                            ":networkId",
-                            "sm",
-                            "users"
-                          ],
-                          "query": [
-                            {
-                              "description": "Filter users by id(s).",
-                              "key": "ids",
-                              "value": "{{ids}}",
-                              "disabled": true
-                            },
-                            {
-                              "description": "Filter users by username(s).",
-                              "key": "usernames",
-                              "value": "{{usernames}}",
-                              "disabled": true
-                            },
-                            {
-                              "description": "Filter users by email(s).",
-                              "key": "emails",
-                              "value": "{{emails}}",
-                              "disabled": true
-                            },
-                            {
-                              "description": "Specifiy a scope (one of all, none, withAny, withAll, withoutAny, withoutAll) and a set of tags.",
-                              "key": "scope",
-                              "value": "{{scope}}",
-                              "disabled": true
-                            }
-                          ],
-                          "variable": [
-                            {
-                              "id": "ee1960cb-81be-49d0-8f8c-c4e93b97ee54",
-                              "key": "networkId",
-                              "value": "{{networkId}}",
-                              "type": "string",
-                              "description": "(Required) "
-                            }
-                          ]
-                        },
-                        "description": "List the owners in an SM network with various specified fields and filters"
-                      },
-                      "response": [
-                        {
-                          "id": "e32d4d73-af12-4c5d-99fe-c49f6eab7090",
-                          "name": "Successful operation",
-                          "originalRequest": {
-                            "method": "GET",
-                            "header": [],
-                            "url": {
-                              "raw": "{{baseUrl}}/networks/:networkId/sm/users?ids=<string>,<string>&usernames=<string>,<string>&emails=<string>,<string>&scope=<string>,<string>",
-                              "host": [
-                                "{{baseUrl}}"
-                              ],
-                              "path": [
-                                "networks",
-                                ":networkId",
-                                "sm",
-                                "users"
-                              ],
-                              "query": [
-                                {
-                                  "key": "ids",
-                                  "value": "<string>,<string>"
-                                },
-                                {
-                                  "key": "usernames",
-                                  "value": "<string>,<string>"
-                                },
-                                {
-                                  "key": "emails",
-                                  "value": "<string>,<string>"
-                                },
-                                {
-                                  "key": "scope",
-                                  "value": "<string>,<string>"
-                                }
-                              ],
-                              "variable": [
-                                {
-                                  "key": "networkId"
-                                }
-                              ]
-                            }
-                          },
-                          "status": "OK",
-                          "code": 200,
-                          "_postman_previewlanguage": "json",
-                          "header": [
-                            {
-                              "key": "Content-Type",
-                              "value": "application/json"
-                            }
-                          ],
-                          "cookie": [],
-                          "responseTime": null,
-                          "body": "[\n {\n  \"id\": \"1234\",\n  \"email\": \"miles@meraki.com\",\n  \"fullName\": \"Miles Meraki\",\n  \"username\": \"\",\n  \"hasPassword\": false,\n  \"tags\": [\n   \"tag1\",\n   \"tag2\"\n  ],\n  \"adGroups\": [],\n  \"asmGroups\": [],\n  \"isExternal\": false,\n  \"displayName\": \"Miles Meraki <miles@meraki.com>\",\n  \"hasIdentityCertificate\": false,\n  \"userThumbnail\": \"https://s3.amazonaws.com/image.extension\"\n }\n]"
-                        }
-                      ]
-                    }
-                  ],
-                  "_postman_id": "1d736e08-3a56-4381-95a0-d40896f1dda3",
-                  "_postman_isSubFolder": true
-                }
-              ],
-              "_postman_id": "47c91c57-20b6-4db4-923d-1d9548b9af53",
-              "_postman_isSubFolder": true
-            }
-          ],
-          "_postman_id": "d3e34e5c-5905-4211-9227-c6119f46989c",
-          "_postman_isSubFolder": true
-        },
-        {
-          "name": "Switch",
-          "item": [
-            {
-              "name": "configure",
-              "item": [
-                {
-                  "name": "Access Policies",
-                  "item": [
-                    {
-                      "name": "Create An Access Policy For A Switch Network",
-                      "_postman_id": "cc8a7593-e0a0-4619-8ea3-2c1d015f5e9c",
-                      "protocolProfileBehavior": {
-                        "followAuthorizationHeader": true,
-                        "disableBodyPruning": true
-                      },
-                      "request": {
-                        "method": "POST",
-                        "header": [
-                          {
-                            "key": "X-Cisco-Meraki-API-Key",
-                            "value": ""
-                          },
-                          {
-                            "key": "Content-Type",
-                            "value": "application/json"
-                          }
-                        ],
-                        "body": {
-                          "mode": "raw",
-                          "raw": "{\n    \"name\": \"<string>\",\n    \"radiusServers\": [\n        {\n            \"host\": \"<string>\",\n            \"port\": \"<integer>\",\n            \"secret\": \"<string>\"\n        },\n        {\n            \"host\": \"<string>\",\n            \"port\": \"<integer>\",\n            \"secret\": \"<string>\"\n        }\n    ],\n    \"radiusTestingEnabled\": \"<boolean>\",\n    \"radiusCoaSupportEnabled\": \"<boolean>\",\n    \"radiusAccountingEnabled\": \"<boolean>\",\n    \"hostMode\": \"<string>\",\n    \"urlRedirectWalledGardenEnabled\": \"<boolean>\",\n    \"radiusAccountingServers\": [\n        {\n            \"host\": \"<string>\",\n            \"port\": \"<integer>\",\n            \"secret\": \"<string>\"\n        },\n        {\n            \"host\": \"<string>\",\n            \"port\": \"<integer>\",\n            \"secret\": \"<string>\"\n        }\n    ],\n    \"accessPolicyType\": \"<string>\",\n    \"increaseAccessSpeed\": \"<boolean>\",\n    \"guestVlanId\": \"<integer>\",\n    \"voiceVlanClients\": \"<boolean>\",\n    \"urlRedirectWalledGardenRanges\": [\n        \"<string>\",\n        \"<string>\"\n    ]\n}",
-                          "options": {
-                            "raw": {}
-                          }
-                        },
-                        "url": {
-                          "raw": "{{baseUrl}}/networks/:networkId/switch/accessPolicies",
-                          "host": [
-                            "{{baseUrl}}"
-                          ],
-                          "path": [
-                            "networks",
-                            ":networkId",
-                            "switch",
-                            "accessPolicies"
-                          ],
-                          "variable": [
-                            {
-                              "id": "dd5023ec-fbad-4109-b169-1e5f07790b1d",
-                              "key": "networkId",
-                              "value": "{{networkId}}",
-                              "type": "string",
-                              "description": "(Required) "
-                            }
-                          ]
-                        },
-                        "description": "Create an access policy for a switch network. This endpoint only supports access policies with 'My RADIUS server' as authentication method."
-                      },
-                      "response": [
-                        {
-                          "id": "cd220522-9c4a-4572-8ca6-94c8859e224f",
-                          "name": "Successful operation",
-                          "originalRequest": {
-                            "method": "POST",
-                            "header": [],
-                            "body": {
-                              "mode": "raw",
-                              "raw": "{\n    \"name\": \"Access policy #1\",\n    \"radiusServers\": [\n        {\n            \"host\": \"1.2.3.4\",\n            \"port\": 22,\n            \"secret\": \"password1\"\n        }\n    ],\n    \"radiusTestingEnabled\": false,\n    \"radiusCoaSupportEnabled\": false,\n    \"radiusAccountingEnabled\": true,\n    \"radiusAccountingServers\": [\n        {\n            \"host\": \"1.2.3.4\",\n            \"port\": 22,\n            \"secret\": \"password1\"\n        }\n    ],\n    \"hostMode\": \"Single-Host\",\n    \"accessPolicyType\": \"Hybrid authentication\",\n    \"increaseAccessSpeed\": false,\n    \"guestVlanId\": 100,\n    \"voiceVlanClients\": true,\n    \"urlRedirectWalledGardenEnabled\": true,\n    \"urlRedirectWalledGardenRanges\": \"192.168.1.0/24\"\n}"
-                            },
-                            "url": {
-                              "raw": "{{baseUrl}}/networks/:networkId/switch/accessPolicies",
-                              "host": [
-                                "{{baseUrl}}"
-                              ],
-                              "path": [
-                                "networks",
-                                ":networkId",
-                                "switch",
-                                "accessPolicies"
-                              ],
-                              "variable": [
-                                {
-                                  "key": "networkId"
-                                }
-                              ]
-                            }
-                          },
-                          "status": "Created",
-                          "code": 201,
-                          "_postman_previewlanguage": "json",
-                          "header": [
-                            {
-                              "key": "Content-Type",
-                              "value": "application/json"
-                            }
-                          ],
-                          "cookie": [],
-                          "responseTime": null,
-                          "body": "{\n \"accessPolicyNumber\": \"1234\",\n \"name\": \"Access policy #1\",\n \"radiusServers\": [\n  {\n   \"host\": \"1.2.3.4\",\n   \"port\": 22,\n   \"secret\": \"password1\"\n  }\n ],\n \"radiusTestingEnabled\": false,\n \"radiusCoaSupportEnabled\": false,\n \"radiusAccountingEnabled\": true,\n \"radiusAccountingServers\": [\n  {\n   \"host\": \"1.2.3.4\",\n   \"port\": 22,\n   \"secret\": \"password1\"\n  }\n ],\n \"hostMode\": \"Single-Host\",\n \"accessPolicyType\": \"Hybrid authentication\",\n \"increaseAccessSpeed\": false,\n \"guestVlanId\": 100,\n \"voiceVlanClients\": true,\n \"urlRedirectWalledGardenEnabled\": true,\n \"urlRedirectWalledGardenRanges\": \"192.168.1.0/24\"\n}"
-                        }
-                      ]
-                    },
-                    {
-                      "name": "Delete An Access Policy For A Switch Network",
-                      "_postman_id": "5f8e210f-37db-4281-9e52-09972b174a2b",
-                      "protocolProfileBehavior": {
-                        "followAuthorizationHeader": true,
-                        "disableBodyPruning": true
-                      },
-                      "request": {
-                        "method": "DELETE",
-                        "header": [
-                          {
-                            "key": "X-Cisco-Meraki-API-Key",
-                            "value": ""
-                          }
-                        ],
-                        "url": {
-                          "raw": "{{baseUrl}}/networks/:networkId/switch/accessPolicies/:accessPolicyNumber",
-                          "host": [
-                            "{{baseUrl}}"
-                          ],
-                          "path": [
-                            "networks",
-                            ":networkId",
-                            "switch",
-                            "accessPolicies",
-                            ":accessPolicyNumber"
-                          ],
-                          "variable": [
-                            {
-                              "id": "12d5ef07-d6c8-4d5c-83eb-f536bb71d9d9",
-                              "key": "networkId",
-                              "value": "{{networkId}}",
-                              "type": "string",
-                              "description": "(Required) "
-                            },
-                            {
-                              "id": "dd2fb8b5-8e7d-42cc-bd75-1a900929ca3c",
-                              "key": "accessPolicyNumber",
-                              "value": "{{accessPolicyNumber}}",
-                              "type": "string",
-                              "description": "(Required) "
-                            }
-                          ]
-                        },
-                        "description": "Delete an access policy for a switch network\n#### Supports Action Batches\n\n**Resource**|**Operation**\n:-------------: |:-------------:\n`/networks/{networkId}/switch/accessPolicies/{accessPolicyNumber}` | destroy\n\n"
-                      },
-                      "response": [
-                        {
-                          "id": "888ebdfb-c106-4c14-a6c5-bd5670311dbd",
-                          "name": "Successful operation",
-                          "originalRequest": {
-                            "method": "DELETE",
-                            "header": [],
-                            "url": {
-                              "raw": "{{baseUrl}}/networks/:networkId/switch/accessPolicies/:accessPolicyNumber",
-                              "host": [
-                                "{{baseUrl}}"
-                              ],
-                              "path": [
-                                "networks",
-                                ":networkId",
-                                "switch",
-                                "accessPolicies",
-                                ":accessPolicyNumber"
-                              ],
-                              "variable": [
-                                {
-                                  "key": "networkId"
-                                },
-                                {
-                                  "key": "accessPolicyNumber"
-                                }
-                              ]
-                            }
-                          },
-                          "status": "No Content",
-                          "code": 204,
-                          "_postman_previewlanguage": "text",
-                          "header": [
-                            {
-                              "key": "Content-Type",
-                              "value": "text/plain"
-                            }
-                          ],
-                          "cookie": [],
-                          "responseTime": null,
-                          "body": ""
-                        }
-                      ]
-                    },
-                    {
-                      "name": "List The Access Policies For A Switch Network",
-                      "_postman_id": "c4a5d9f4-e58f-48e7-8119-8bb39ce967d8",
-                      "protocolProfileBehavior": {
-                        "followAuthorizationHeader": true,
-                        "disableBodyPruning": true
-                      },
-                      "request": {
-                        "method": "GET",
-                        "header": [
-                          {
-                            "key": "X-Cisco-Meraki-API-Key",
-                            "value": ""
-                          }
-                        ],
-                        "url": {
-                          "raw": "{{baseUrl}}/networks/:networkId/switch/accessPolicies",
-                          "host": [
-                            "{{baseUrl}}"
-                          ],
-                          "path": [
-                            "networks",
-                            ":networkId",
-                            "switch",
-                            "accessPolicies"
-                          ],
-                          "variable": [
-                            {
-                              "id": "dec106d8-de66-4ece-8a49-e1bb0ef02e40",
-                              "key": "networkId",
-                              "value": "{{networkId}}",
-                              "type": "string",
-                              "description": "(Required) "
-                            }
-                          ]
-                        },
-                        "description": "List the access policies for a switch network. Only returns access policies with 'my RADIUS server' as authentication method"
-                      },
-                      "response": [
-                        {
-                          "id": "2b5acc3b-4023-45ad-9ffa-a2ef7984541e",
-                          "name": "Successful operation",
-                          "originalRequest": {
-                            "method": "GET",
-                            "header": [],
-                            "url": {
-                              "raw": "{{baseUrl}}/networks/:networkId/switch/accessPolicies",
-                              "host": [
-                                "{{baseUrl}}"
-                              ],
-                              "path": [
-                                "networks",
-                                ":networkId",
-                                "switch",
-                                "accessPolicies"
-                              ],
-                              "variable": [
-                                {
-                                  "key": "networkId"
-                                }
-                              ]
-                            }
-                          },
-                          "status": "OK",
-                          "code": 200,
-                          "_postman_previewlanguage": "json",
-                          "header": [
-                            {
-                              "key": "Content-Type",
-                              "value": "application/json"
-                            }
-                          ],
-                          "cookie": [],
-                          "responseTime": null,
-                          "body": "[\n {\n  \"accessPolicyNumber\": \"1234\",\n  \"name\": \"Access policy #1\",\n  \"radiusServers\": [\n   {\n    \"host\": \"1.2.3.4\",\n    \"port\": 22,\n    \"secret\": \"password1\"\n   }\n  ],\n  \"radiusTestingEnabled\": false,\n  \"radiusCoaSupportEnabled\": false,\n  \"radiusAccountingEnabled\": true,\n  \"radiusAccountingServers\": [\n   {\n    \"host\": \"1.2.3.4\",\n    \"port\": 22,\n    \"secret\": \"password1\"\n   }\n  ],\n  \"hostMode\": \"Single-Host\",\n  \"accessPolicyType\": \"Hybrid authentication\",\n  \"increaseAccessSpeed\": false,\n  \"guestVlanId\": 100,\n  \"voiceVlanClients\": true,\n  \"urlRedirectWalledGardenEnabled\": true,\n  \"urlRedirectWalledGardenRanges\": \"192.168.1.0/24\"\n }\n]"
-                        }
-                      ]
-                    },
-                    {
-                      "name": "Return A Specific Access Policy For A Switch Network",
-                      "_postman_id": "2c382a08-494c-4ab1-826c-5d583cb69bb1",
-                      "protocolProfileBehavior": {
-                        "followAuthorizationHeader": true,
-                        "disableBodyPruning": true
-                      },
-                      "request": {
-                        "method": "GET",
-                        "header": [
-                          {
-                            "key": "X-Cisco-Meraki-API-Key",
-                            "value": ""
-                          }
-                        ],
-                        "url": {
-                          "raw": "{{baseUrl}}/networks/:networkId/switch/accessPolicies/:accessPolicyNumber",
-                          "host": [
-                            "{{baseUrl}}"
-                          ],
-                          "path": [
-                            "networks",
-                            ":networkId",
-                            "switch",
-                            "accessPolicies",
-                            ":accessPolicyNumber"
-                          ],
-                          "variable": [
-                            {
-                              "id": "90795e20-c222-4ffa-ac16-e33f595fd239",
-                              "key": "networkId",
-                              "value": "{{networkId}}",
-                              "type": "string",
-                              "description": "(Required) "
-                            },
-                            {
-                              "id": "a86be52a-0d02-4518-b745-320acd704833",
-                              "key": "accessPolicyNumber",
-                              "value": "{{accessPolicyNumber}}",
-                              "type": "string",
-                              "description": "(Required) "
-                            }
-                          ]
-                        },
-                        "description": "Return a specific access policy for a switch network"
-                      },
-                      "response": [
-                        {
-                          "id": "4146ddfd-63ae-455d-b3d4-630ea3acc433",
-                          "name": "Successful operation",
-                          "originalRequest": {
-                            "method": "GET",
-                            "header": [],
-                            "url": {
-                              "raw": "{{baseUrl}}/networks/:networkId/switch/accessPolicies/:accessPolicyNumber",
-                              "host": [
-                                "{{baseUrl}}"
-                              ],
-                              "path": [
-                                "networks",
-                                ":networkId",
-                                "switch",
-                                "accessPolicies",
-                                ":accessPolicyNumber"
-                              ],
-                              "variable": [
-                                {
-                                  "key": "networkId"
-                                },
-                                {
-                                  "key": "accessPolicyNumber"
-                                }
-                              ]
-                            }
-                          },
-                          "status": "OK",
-                          "code": 200,
-                          "_postman_previewlanguage": "json",
-                          "header": [
-                            {
-                              "key": "Content-Type",
-                              "value": "application/json"
-                            }
-                          ],
-                          "cookie": [],
-                          "responseTime": null,
-                          "body": "{\n \"accessPolicyNumber\": \"1234\",\n \"name\": \"Access policy #1\",\n \"radiusServers\": [\n  {\n   \"host\": \"1.2.3.4\",\n   \"port\": 22,\n   \"secret\": \"password1\"\n  }\n ],\n \"radiusTestingEnabled\": false,\n \"radiusCoaSupportEnabled\": false,\n \"radiusAccountingEnabled\": true,\n \"radiusAccountingServers\": [\n  {\n   \"host\": \"1.2.3.4\",\n   \"port\": 22,\n   \"secret\": \"password1\"\n  }\n ],\n \"hostMode\": \"Single-Host\",\n \"accessPolicyType\": \"Hybrid authentication\",\n \"increaseAccessSpeed\": false,\n \"guestVlanId\": 100,\n \"voiceVlanClients\": true,\n \"urlRedirectWalledGardenEnabled\": true,\n \"urlRedirectWalledGardenRanges\": \"192.168.1.0/24\"\n}"
-                        }
-                      ]
-                    },
-                    {
-                      "name": "Update An Access Policy For A Switch Network",
-                      "_postman_id": "348597e2-1ae9-4f22-8923-46047b223900",
-                      "protocolProfileBehavior": {
-                        "followAuthorizationHeader": true,
-                        "disableBodyPruning": true
+                        "followAuthorizationHeader": true
                       },
                       "request": {
                         "method": "PUT",
@@ -1492,71 +395,57 @@
                         ],
                         "body": {
                           "mode": "raw",
-                          "raw": "{\n    \"name\": \"<string>\",\n    \"radiusServers\": [\n        {\n            \"host\": \"<string>\",\n            \"port\": \"<integer>\",\n            \"secret\": \"<string>\"\n        },\n        {\n            \"host\": \"<string>\",\n            \"port\": \"<integer>\",\n            \"secret\": \"<string>\"\n        }\n    ],\n    \"radiusTestingEnabled\": \"<boolean>\",\n    \"radiusCoaSupportEnabled\": \"<boolean>\",\n    \"radiusAccountingEnabled\": \"<boolean>\",\n    \"radiusAccountingServers\": [\n        {\n            \"host\": \"<string>\",\n            \"port\": \"<integer>\",\n            \"secret\": \"<string>\"\n        },\n        {\n            \"host\": \"<string>\",\n            \"port\": \"<integer>\",\n            \"secret\": \"<string>\"\n        }\n    ],\n    \"hostMode\": \"<string>\",\n    \"accessPolicyType\": \"<string>\",\n    \"increaseAccessSpeed\": \"<boolean>\",\n    \"guestVlanId\": \"<integer>\",\n    \"voiceVlanClients\": \"<boolean>\",\n    \"urlRedirectWalledGardenEnabled\": \"<boolean>\",\n    \"urlRedirectWalledGardenRanges\": [\n        \"<string>\",\n        \"<string>\"\n    ]\n}",
+                          "raw": "{\n    \"analyticsEnabled\": \"<boolean>\",\n    \"scanningApiEnabled\": \"<boolean>\"\n}",
                           "options": {
                             "raw": {}
                           }
                         },
                         "url": {
-                          "raw": "{{baseUrl}}/networks/:networkId/switch/accessPolicies/:accessPolicyNumber",
+                          "raw": "{{baseUrl}}/networks/:networkId/locationScanning",
                           "host": [
                             "{{baseUrl}}"
                           ],
                           "path": [
                             "networks",
                             ":networkId",
-                            "switch",
-                            "accessPolicies",
-                            ":accessPolicyNumber"
+                            "locationScanning"
                           ],
                           "variable": [
                             {
-                              "id": "579f98a5-0d08-41b5-af62-b5855a556030",
+                              "id": "d6f6062c-0d8d-4cc8-95eb-98b98a10b3df",
                               "key": "networkId",
                               "value": "{{networkId}}",
-                              "type": "string",
-                              "description": "(Required) "
-                            },
-                            {
-                              "id": "e6f5897e-26f5-4975-8315-21c59fb2090d",
-                              "key": "accessPolicyNumber",
-                              "value": "{{accessPolicyNumber}}",
                               "type": "string",
                               "description": "(Required) "
                             }
                           ]
                         },
-                        "description": "Update an access policy for a switch network. This endpoint only supports access policies with 'My RADIUS server' as authentication method."
+                        "description": "Change scanning API settings\n #### Body Parameters \n**Parameter**|**Type**|**Description** \n :-------------: |:-------------: |:-------------: \nanalyticsEnabled| boolean| Collect location and scanning analytics\nscanningApiEnabled| boolean| Enable push API for scanning events, analytics must be enabled\n\n#### Supports Action Batches\n\n**Resource**|**Operation**\n:-------------: |:-------------:\n`/networks/{networkId}/locationScanning` | update\n\n"
                       },
                       "response": [
                         {
-                          "id": "92791772-9cc0-47d6-9630-29f107ad78f1",
+                          "id": "0dc7f8c0-b2ec-4924-a693-9ec42e10b694",
                           "name": "Successful operation",
                           "originalRequest": {
                             "method": "PUT",
                             "header": [],
                             "body": {
                               "mode": "raw",
-                              "raw": "{\n    \"name\": \"Access policy #1\",\n    \"radiusServers\": [\n        {\n            \"host\": \"1.2.3.4\",\n            \"port\": 22,\n            \"secret\": \"password1\"\n        }\n    ],\n    \"radiusTestingEnabled\": false,\n    \"radiusCoaSupportEnabled\": false,\n    \"radiusAccountingEnabled\": true,\n    \"radiusAccountingServers\": [\n        {\n            \"host\": \"1.2.3.4\",\n            \"port\": 22,\n            \"secret\": \"password1\"\n        }\n    ],\n    \"hostMode\": \"Single-Host\",\n    \"accessPolicyType\": \"Hybrid authentication\",\n    \"increaseAccessSpeed\": false,\n    \"guestVlanId\": 100,\n    \"voiceVlanClients\": true,\n    \"urlRedirectWalledGardenEnabled\": true,\n    \"urlRedirectWalledGardenRanges\": \"192.168.1.0/24\"\n}"
+                              "raw": "{\n    \"analyticsEnabled\": true,\n    \"scanningApiEnabled\": true,\n    \"validator\": \"xxyzzy\"\n}"
                             },
                             "url": {
-                              "raw": "{{baseUrl}}/networks/:networkId/switch/accessPolicies/:accessPolicyNumber",
+                              "raw": "{{baseUrl}}/networks/:networkId/locationScanning",
                               "host": [
                                 "{{baseUrl}}"
                               ],
                               "path": [
                                 "networks",
                                 ":networkId",
-                                "switch",
-                                "accessPolicies",
-                                ":accessPolicyNumber"
+                                "locationScanning"
                               ],
                               "variable": [
                                 {
                                   "key": "networkId"
-                                },
-                                {
-                                  "key": "accessPolicyNumber"
                                 }
                               ]
                             }
@@ -1572,26 +461,122 @@
                           ],
                           "cookie": [],
                           "responseTime": null,
-                          "body": "{\n \"accessPolicyNumber\": \"1234\",\n \"name\": \"Access policy #1\",\n \"radiusServers\": [\n  {\n   \"host\": \"1.2.3.4\",\n   \"port\": 22,\n   \"secret\": \"password1\"\n  }\n ],\n \"radiusTestingEnabled\": false,\n \"radiusCoaSupportEnabled\": false,\n \"radiusAccountingEnabled\": true,\n \"radiusAccountingServers\": [\n  {\n   \"host\": \"1.2.3.4\",\n   \"port\": 22,\n   \"secret\": \"password1\"\n  }\n ],\n \"hostMode\": \"Single-Host\",\n \"accessPolicyType\": \"Hybrid authentication\",\n \"increaseAccessSpeed\": false,\n \"guestVlanId\": 100,\n \"voiceVlanClients\": true,\n \"urlRedirectWalledGardenEnabled\": true,\n \"urlRedirectWalledGardenRanges\": \"192.168.1.0/24\"\n}"
+                          "body": "{\n \"analyticsEnabled\": true,\n \"scanningApiEnabled\": true,\n \"validator\": \"xxyzzy\"\n}"
                         }
                       ]
                     }
                   ],
-                  "_postman_id": "2e0d1988-14db-43e5-a70b-7d80ac04df49",
+                  "_postman_id": "2b51da2c-f2be-4cf3-bddc-27f56fe31ff4",
                   "_postman_isSubFolder": true
-                },
+                }
+              ],
+              "_postman_id": "fef99bdc-e09d-48e2-9318-17d287c64b46",
+              "_postman_isSubFolder": true
+            }
+          ],
+          "_postman_id": "83a276da-edf4-412e-a7c7-9ee4f6e7f07e",
+          "_postman_isSubFolder": true
+        }
+      ],
+      "_postman_id": "44abee1d-0599-4dab-ab00-c24f34e73ab3"
+    },
+    {
+      "name": "PRODUCTS",
+      "item": [
+        {
+          "name": "wireless",
+          "item": [
+            {
+              "name": "Configure",
+              "item": [
                 {
-                  "name": "Devices",
+                  "name": "billing",
                   "item": [
                     {
-                      "name": "Clone port-level and some switch-level configuration settings from a source switch to one or more target switches",
-                      "_postman_id": "29ca8c46-e514-4241-9ec2-178cc06edf51",
+                      "name": "Return The Billing Settings Of This Network",
+                      "_postman_id": "8cfae609-6c6c-4891-a94c-0340907db1ac",
                       "protocolProfileBehavior": {
-                        "followAuthorizationHeader": true,
-                        "disableBodyPruning": true
+                        "followAuthorizationHeader": true
                       },
                       "request": {
-                        "method": "POST",
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "X-Cisco-Meraki-API-Key",
+                            "value": ""
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/networks/:networkId/wireless/billing",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "networks",
+                            ":networkId",
+                            "wireless",
+                            "billing"
+                          ],
+                          "variable": [
+                            {
+                              "id": "82bb7ca2-983a-4f4c-8267-2850f2c0926e",
+                              "key": "networkId",
+                              "value": "{{networkId}}",
+                              "type": "string",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Return the billing settings of this network"
+                      },
+                      "response": [
+                        {
+                          "id": "7cf9cae3-e035-4b32-a3fe-37d3e78242c1",
+                          "name": "Successful operation",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/networks/:networkId/wireless/billing",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "networks",
+                                ":networkId",
+                                "wireless",
+                                "billing"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "networkId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n \"currency\": \"USD\",\n \"plans\": [\n  {\n   \"id\": \"1\",\n   \"price\": \"5\",\n   \"bandwidthLimits\": {\n    \"limitUp\": 1000,\n    \"limitDown\": 1000\n   },\n   \"timeLimit\": \"1 hour\"\n  }\n ]\n}"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Update The Billing Settings",
+                      "_postman_id": "8ca180b4-28cd-4f1a-ad1a-5b5e56f55866",
+                      "protocolProfileBehavior": {
+                        "followAuthorizationHeader": true
+                      },
+                      "request": {
+                        "method": "PUT",
                         "header": [
                           {
                             "key": "X-Cisco-Meraki-API-Key",
@@ -1604,61 +589,59 @@
                         ],
                         "body": {
                           "mode": "raw",
-                          "raw": "{\n    \"sourceSerial\": \"<string>\",\n    \"targetSerials\": [\n        \"<string>\",\n        \"<string>\"\n    ]\n}",
+                          "raw": "{\n    \"currency\": \"<string>\",\n    \"plans\": [\n        {\n            \"price\": \"<float>\",\n            \"bandwidthLimits\": {\n                \"limitUp\": \"<integer>\",\n                \"limitDown\": \"<integer>\"\n            },\n            \"timeLimit\": \"<string>\",\n            \"id\": \"<string>\"\n        },\n        {\n            \"price\": \"<float>\",\n            \"bandwidthLimits\": {\n                \"limitUp\": \"<integer>\",\n                \"limitDown\": \"<integer>\"\n            },\n            \"timeLimit\": \"<string>\",\n            \"id\": \"<string>\"\n        }\n    ]\n}",
                           "options": {
                             "raw": {}
                           }
                         },
                         "url": {
-                          "raw": "{{baseUrl}}/organizations/:organizationId/switch/devices/clone",
+                          "raw": "{{baseUrl}}/networks/:networkId/wireless/billing",
                           "host": [
                             "{{baseUrl}}"
                           ],
                           "path": [
-                            "organizations",
-                            ":organizationId",
-                            "switch",
-                            "devices",
-                            "clone"
+                            "networks",
+                            ":networkId",
+                            "wireless",
+                            "billing"
                           ],
                           "variable": [
                             {
-                              "id": "d9a21d82-c57b-48e4-afed-e5b5b3b9ed50",
-                              "key": "organizationId",
-                              "value": "{{organizationId}}",
+                              "id": "34c6a0aa-9094-4828-903a-0a173cf1f1f6",
+                              "key": "networkId",
+                              "value": "{{networkId}}",
                               "type": "string",
                               "description": "(Required) "
                             }
                           ]
                         },
-                        "description": "Clone port-level and some switch-level configuration settings from a source switch to one or more target switches. Cloned settings include: Aggregation Groups, Power Settings, Multicast Settings, MTU Configuration, STP Bridge priority, Port Mirroring"
+                        "description": "Update the billing settings\n #### Body Parameters \n**Parameter**|**Type**|**Description** \n :-------------: |:-------------: |:-------------: \ncurrency| string| The currency code of this node group's billing plans\nplans| array| Array of billing plans in the node group. (Can configure a maximum of 5)\n\n#### Supports Action Batches\n\n**Resource**|**Operation**\n:-------------: |:-------------:\n`/networks/{networkId}/wireless/billing` | update\n\n"
                       },
                       "response": [
                         {
-                          "id": "428fa5ea-c1a2-4937-896d-df6732891036",
+                          "id": "81c25674-dd56-47d5-8928-28d6d5cb478e",
                           "name": "Successful operation",
                           "originalRequest": {
-                            "method": "POST",
+                            "method": "PUT",
                             "header": [],
                             "body": {
                               "mode": "raw",
-                              "raw": "{\n    \"sourceSerial\": \"Q234-ABCD-5678\",\n    \"targetSerials\": [\n        \"Q234-ABCD-0001\",\n        \"Q234-ABCD-0002\",\n        \"Q234-ABCD-0003\"\n    ]\n}"
+                              "raw": "{\n    \"currency\": \"USD\",\n    \"plans\": [\n        {\n            \"price\": \"5\",\n            \"bandwidthLimits\": {\n                \"limitUp\": 1000,\n                \"limitDown\": 1000\n            },\n            \"timeLimit\": \"1 hour\"\n        }\n    ]\n}"
                             },
                             "url": {
-                              "raw": "{{baseUrl}}/organizations/:organizationId/switch/devices/clone",
+                              "raw": "{{baseUrl}}/networks/:networkId/wireless/billing",
                               "host": [
                                 "{{baseUrl}}"
                               ],
                               "path": [
-                                "organizations",
-                                ":organizationId",
-                                "switch",
-                                "devices",
-                                "clone"
+                                "networks",
+                                ":networkId",
+                                "wireless",
+                                "billing"
                               ],
                               "variable": [
                                 {
-                                  "key": "organizationId"
+                                  "key": "networkId"
                                 }
                               ]
                             }
@@ -1674,31 +657,194 @@
                           ],
                           "cookie": [],
                           "responseTime": null,
-                          "body": "{\n \"sourceSerial\": \"Q234-ABCD-5678\",\n \"targetSerials\": [\n  \"Q234-ABCD-0001\",\n  \"Q234-ABCD-0002\",\n  \"Q234-ABCD-0003\"\n ]\n}"
+                          "body": "{\n \"currency\": \"USD\",\n \"plans\": [\n  {\n   \"id\": \"1\",\n   \"price\": \"5\",\n   \"bandwidthLimits\": {\n    \"limitUp\": 1000,\n    \"limitDown\": 1000\n   },\n   \"timeLimit\": \"1 hour\"\n  }\n ]\n}"
                         }
                       ]
                     }
                   ],
-                  "_postman_id": "473a0070-5f3a-4d93-a96e-1658e0fa9b0b",
+                  "_postman_id": "24932147-baad-4441-b022-597758db13f0",
                   "_postman_isSubFolder": true
                 }
               ],
-              "_postman_id": "eb1eae80-75f8-4f73-8100-6af111562a0c",
+              "_postman_id": "fda7ef6c-e1e3-48ee-b618-613928c8e53d",
+              "_postman_isSubFolder": true
+            },
+            {
+              "name": "Monitor",
+              "item": [
+                {
+                  "name": "clients",
+                  "item": [
+                    {
+                      "name": "onboardingHistory",
+                      "item": [
+                        {
+                          "name": "Return counts of distinct wireless clients connecting to a network over time",
+                          "_postman_id": "4f2f782d-0fd9-4f69-a598-e8e1a6c6af2c",
+                          "protocolProfileBehavior": {
+                            "followAuthorizationHeader": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "X-Cisco-Meraki-API-Key",
+                                "value": ""
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/networks/:networkId/wireless/clients/onboardingHistory",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "networks",
+                                ":networkId",
+                                "wireless",
+                                "clients",
+                                "onboardingHistory"
+                              ],
+                              "query": [
+                                {
+                                  "description": "The beginning of the timespan for the data. The maximum lookback period is 31 days from today.",
+                                  "key": "t0",
+                                  "value": "{{t0}}",
+                                  "disabled": true
+                                },
+                                {
+                                  "description": "The end of the timespan for the data. t1 can be a maximum of 31 days after t0.",
+                                  "key": "t1",
+                                  "value": "{{t1}}",
+                                  "disabled": true
+                                },
+                                {
+                                  "description": "The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 7 days.",
+                                  "key": "timespan",
+                                  "value": "{{timespan}}",
+                                  "disabled": true
+                                },
+                                {
+                                  "description": "The time resolution in seconds for returned data. The valid resolutions are: 300. The default is 300.",
+                                  "key": "resolution",
+                                  "value": "{{resolution}}",
+                                  "disabled": true
+                                },
+                                {
+                                  "description": "Filter results by band (either '2.4' or '5'); this cannot be combined with the SSID filter.",
+                                  "key": "band",
+                                  "value": "{{band}}",
+                                  "disabled": true
+                                },
+                                {
+                                  "description": "Filter results by SSID number; this cannot be combined with the band filter.",
+                                  "key": "ssid",
+                                  "value": "{{ssid}}",
+                                  "disabled": true
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "4b302960-74b2-4254-a374-445a39a95a6d",
+                                  "key": "networkId",
+                                  "value": "{{networkId}}",
+                                  "type": "string",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Return counts of distinct wireless clients connecting to a network over time"
+                          },
+                          "response": [
+                            {
+                              "id": "23dac45f-f6e9-4e95-b3bf-f1883e5cca6b",
+                              "name": "Successful operation",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/networks/:networkId/wireless/clients/onboardingHistory?t0=<string>&t1=<string>&timespan=<float>&resolution=<integer>&band=<string>&ssid=<integer>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "networks",
+                                    ":networkId",
+                                    "wireless",
+                                    "clients",
+                                    "onboardingHistory"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "t0",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "t1",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "timespan",
+                                      "value": "<float>"
+                                    },
+                                    {
+                                      "key": "resolution",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "key": "band",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "ssid",
+                                      "value": "<integer>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "networkId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "[\n {\n  \"startTs\": \"2020-01-01T00:00:00Z\",\n  \"endTs\": \"2020-01-01T00:05:00Z\",\n  \"clientCounts\": {\n   \"summary\": {\n    \"prospective\": 100,\n    \"successful\": 75,\n    \"failed\": 25\n   },\n   \"connectionSteps\": {\n    \"association\": {\n     \"prospective\": 100,\n     \"successful\": 97,\n     \"failed\": 3\n    },\n    \"authentication\": {\n     \"prospective\": 97,\n     \"successful\": 81,\n     \"failed\": 16\n    },\n    \"dhcp\": {\n     \"prospective\": 81,\n     \"successful\": 75,\n     \"failed\": 6\n    },\n    \"dns\": {\n     \"prospective\": 75,\n     \"successful\": 75,\n     \"failed\": 0\n    }\n   }\n  }\n }\n]"
+                            }
+                          ]
+                        }
+                      ],
+                      "_postman_id": "7f03310c-3192-417e-a381-b27d43295dc8",
+                      "_postman_isSubFolder": true
+                    }
+                  ],
+                  "_postman_id": "f5d8ceda-10cc-49c0-939f-e6a118c06c93",
+                  "_postman_isSubFolder": true
+                }
+              ],
+              "_postman_id": "98ee3535-002c-498d-a8a5-2bce651cde8e",
               "_postman_isSubFolder": true
             }
           ],
-          "_postman_id": "f89de35f-4a24-48c8-a85f-dd311a0d22a1",
+          "_postman_id": "9d4cfb9b-8320-467e-8891-568a58b54755",
           "_postman_isSubFolder": true
         }
       ],
-      "_postman_id": "540a3a33-16c6-4fd2-9911-b71cc7d46c5d"
+      "_postman_id": "938712b0-7d96-4924-b69d-b86153d89b3c"
     },
     {
       "name": "List the Organizations",
-      "_postman_id": "31551b4f-2695-49e3-8482-39096502bc9e",
+      "_postman_id": "7bd688b4-2663-4273-823d-c339992aaf76",
       "protocolProfileBehavior": {
-        "followAuthorizationHeader": true,
-        "disableBodyPruning": true
+        "followAuthorizationHeader": true
       },
       "request": {
         "method": "GET",
@@ -1713,7 +859,7 @@
       },
       "response": [
         {
-          "id": "143ad4d5-ccee-4303-b582-d6294a8b94c9",
+          "id": "f273dfa1-c706-46ca-b4b2-395bff19de88",
           "name": "Successful operation",
           "originalRequest": {
             "method": "GET",
@@ -1737,10 +883,9 @@
     },
     {
       "name": "List the Networks in an Organization ",
-      "_postman_id": "01f3c7fb-b515-4280-af0c-8b17d334fefb",
+      "_postman_id": "e6402d22-1e5d-43ff-b5ca-e32e35fb6386",
       "protocolProfileBehavior": {
-        "followAuthorizationHeader": true,
-        "disableBodyPruning": true
+        "followAuthorizationHeader": true
       },
       "request": {
         "method": "GET",
@@ -1800,7 +945,7 @@
           ],
           "variable": [
             {
-              "id": "e5547dc7-7341-4d88-8f5d-d010f1d61c88",
+              "id": "9d1ae27a-0491-472d-959c-54be8752a986",
               "key": "organizationId",
               "value": "{{organizationId}}",
               "type": "string",
@@ -1812,7 +957,7 @@
       },
       "response": [
         {
-          "id": "62e90a2f-c0da-4ec4-a5db-a98095dca338",
+          "id": "4f96c01f-7572-4806-a860-d598ad0e062f",
           "name": "Successful operation",
           "originalRequest": {
             "method": "GET",
@@ -1882,10 +1027,9 @@
     },
     {
       "name": "List the Devices in an Organization",
-      "_postman_id": "436545c0-8d2c-49aa-9529-184f88e16e01",
+      "_postman_id": "eb9ed3bb-3eb8-4ff4-8810-f17aa6d73408",
       "protocolProfileBehavior": {
-        "followAuthorizationHeader": true,
-        "disableBodyPruning": true
+        "followAuthorizationHeader": true
       },
       "request": {
         "method": "GET",
@@ -1933,7 +1077,7 @@
           ],
           "variable": [
             {
-              "id": "f1cbc89a-456d-48a9-9d1f-10afa1ceb185",
+              "id": "87362e7c-accc-4b5c-b7fb-d7cad68ff86a",
               "key": "organizationId",
               "value": "{{organizationId}}",
               "type": "string",
@@ -1945,7 +1089,7 @@
       },
       "response": [
         {
-          "id": "979aa3a9-2dbd-448f-a04f-179499758c9e",
+          "id": "0fa0a666-0dff-4ed9-a473-26c210f9f251",
           "name": "Successful operation",
           "originalRequest": {
             "method": "GET",
@@ -2007,10 +1151,9 @@
     },
     {
       "name": "List the Clients in a Network",
-      "_postman_id": "c0fe8676-eb4c-4e03-ae22-f747300da1d6",
+      "_postman_id": "387466e3-e29c-4ba2-ba16-6947b8b77ea1",
       "protocolProfileBehavior": {
-        "followAuthorizationHeader": true,
-        "disableBodyPruning": true
+        "followAuthorizationHeader": true
       },
       "request": {
         "method": "GET",
@@ -2064,7 +1207,7 @@
           ],
           "variable": [
             {
-              "id": "2cbbc67b-8dc0-45b4-8d7f-bc18d9b7c846",
+              "id": "60f89033-62e3-4417-84aa-42691609bc88",
               "key": "networkId",
               "value": "{{networkId}}",
               "type": "string",
@@ -2076,7 +1219,7 @@
       },
       "response": [
         {
-          "id": "ba9484c8-d34c-414c-bae0-d7de748bb507",
+          "id": "ebd43adf-89ee-4d36-b1ef-78187a3e00ce",
           "name": "Successful operation",
           "originalRequest": {
             "method": "GET",
@@ -2144,7 +1287,7 @@
   "auth": {
     "type": "apikey",
     "apikey": {
-      "value": "{{apiKey}}",
+      "value": "45c6bb85564047d3a926615d2f084ceb",
       "key": "X-Cisco-Meraki-API-Key"
     }
   },
@@ -2152,7 +1295,7 @@
     {
       "listen": "prerequest",
       "script": {
-        "id": "587c8006-7a4b-42c0-b688-d3c223fc87d6",
+        "id": "994c5204-f14d-4756-8676-f20ec1f149fa",
         "type": "text/javascript",
         "exec": [
           ""
@@ -2162,7 +1305,7 @@
     {
       "listen": "test",
       "script": {
-        "id": "7fca1a24-3edc-46fc-87e6-75665e3309fa",
+        "id": "2e25165a-7bd7-4dd7-8368-6e0d16f7baf2",
         "type": "text/javascript",
         "exec": [
           "// JSON Magic Postman Template",
@@ -2180,8 +1323,8 @@
   ],
   "variable": [
     {
-      "id": "accessPolicyNumber",
-      "key": "accessPolicyNumber",
+      "id": "band",
+      "key": "band",
       "type": "any"
     },
     {
@@ -2191,83 +1334,33 @@
       "type": "string"
     },
     {
-      "id": "emails",
-      "key": "emails",
-      "type": "any"
-    },
-    {
-      "id": "endingBefore",
-      "key": "endingBefore",
-      "type": "any"
-    },
-    {
-      "id": "excludedEventTypes[]",
-      "key": "excludedEventTypes[]",
-      "type": "any"
-    },
-    {
-      "id": "fields",
-      "key": "fields",
-      "type": "any"
-    },
-    {
-      "id": "gatewaySerial",
-      "key": "gatewaySerial",
-      "type": "any"
-    },
-    {
-      "id": "ids",
-      "key": "ids",
-      "type": "any"
-    },
-    {
-      "id": "includedEventTypes[]",
-      "key": "includedEventTypes[]",
-      "type": "any"
-    },
-    {
       "id": "networkId",
       "key": "networkId",
       "type": "any"
     },
     {
-      "id": "organizationId",
-      "key": "organizationId",
+      "id": "resolution",
+      "key": "resolution",
       "type": "any"
     },
     {
-      "id": "perPage",
-      "key": "perPage",
+      "id": "ssid",
+      "key": "ssid",
       "type": "any"
     },
     {
-      "id": "scope",
-      "key": "scope",
+      "id": "t0",
+      "key": "t0",
       "type": "any"
     },
     {
-      "id": "sensorSerial",
-      "key": "sensorSerial",
+      "id": "t1",
+      "key": "t1",
       "type": "any"
     },
     {
-      "id": "serials",
-      "key": "serials",
-      "type": "any"
-    },
-    {
-      "id": "startingAfter",
-      "key": "startingAfter",
-      "type": "any"
-    },
-    {
-      "id": "usernames",
-      "key": "usernames",
-      "type": "any"
-    },
-    {
-      "id": "wifiMacs",
-      "key": "wifiMacs",
+      "id": "timespan",
+      "key": "timespan",
       "type": "any"
     }
   ]
