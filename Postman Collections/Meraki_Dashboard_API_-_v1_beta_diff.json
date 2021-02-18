@@ -1,8 +1,8 @@
 {
   "info": {
     "_postman_id": "5368b2fb-18fe-4b29-8490-1fd8a5ce1421",
-    "name": "Meraki Dashboard API - v1.6.0-beta.1 -Diff",
-    "description": "The Cisco Meraki Dashboard API is a modern REST API based on the OpenAPI specification.\n\n> Date: 10 February, 2021\n>\n> [What's New](https://meraki.io/whats-new/)\n\n---\n\n[API Documentation](https://meraki.io/api)\n\n[Community Support](https://meraki.io/community)\n\n[Meraki Homepage](https://www.meraki.com)\n",
+    "name": "Meraki Dashboard API - v1.6.0-beta.2 -Diff",
+    "description": "The Cisco Meraki Dashboard API is a modern REST API based on the OpenAPI specification.\n\n> Date: 17 February, 2021\n>\n> [What's New](https://meraki.io/whats-new/)\n\n---\n\n[API Documentation](https://meraki.io/api)\n\n[Community Support](https://meraki.io/community)\n\n[Meraki Homepage](https://www.meraki.com)\n",
     "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
   },
   "item": [
@@ -13,7 +13,381 @@
           "name": "networks",
           "item": [
             {
-              "name": "configure",
+              "name": "Monitor",
+              "item": [
+                {
+                  "name": "clients",
+                  "item": [
+                    {
+                      "name": "Application Usage",
+                      "item": [
+                        {
+                          "name": "Return the application usage data for clients",
+                          "id": "492dcf19-1be1-48e4-ad42-46d947a08762",
+                          "protocolProfileBehavior": {
+                            "followAuthorizationHeader": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "X-Cisco-Meraki-API-Key",
+                                "value": ""
+                              }
+                            ],
+                            "url": {
+                              "raw": "https://api-mp.meraki.com/api/v1/networks/:networkId/clients/applicationUsage",
+                              "protocol": "https",
+                              "host": [
+                                "api-mp",
+                                "meraki",
+                                "com"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "networks",
+                                ":networkId",
+                                "clients",
+                                "applicationUsage"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) A list of client keys, MACs or IPs separated by comma.",
+                                  "key": "clients",
+                                  "value": "{{clients}}",
+                                  "disabled": true
+                                },
+                                {
+                                  "description": "An SSID number to include. If not specified, eveusage histories application usagents for all SSIDs will be returned.",
+                                  "key": "ssidNumber",
+                                  "value": "{{ssidNumber}}",
+                                  "disabled": true
+                                },
+                                {
+                                  "description": "The number of entries per page returned. Acceptable range is 3 - 1000.",
+                                  "key": "perPage",
+                                  "value": "100",
+                                  "disabled": true
+                                },
+                                {
+                                  "description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.",
+                                  "key": "startingAfter",
+                                  "value": "{{startingAfter}}",
+                                  "disabled": true
+                                },
+                                {
+                                  "description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.",
+                                  "key": "endingBefore",
+                                  "value": "{{endingBefore}}",
+                                  "disabled": true
+                                },
+                                {
+                                  "description": "The beginning of the timespan for the data. The maximum lookback period is 31 days from today.",
+                                  "key": "t0",
+                                  "value": "1543561109",
+                                  "disabled": true
+                                },
+                                {
+                                  "description": "The end of the timespan for the data. t1 can be a maximum of 31 days after t0.",
+                                  "key": "t1",
+                                  "value": "1543568309",
+                                  "disabled": true
+                                },
+                                {
+                                  "description": "The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 1 day.",
+                                  "key": "timespan",
+                                  "value": "86400",
+                                  "disabled": true
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "cfe8ed54-16be-46d0-ad4e-f5eee212459a",
+                                  "key": "networkId",
+                                  "value": "L_643451796760561416",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Return the application usage data for clients. Usage data is in kilobytes. Clients can be identified by client keys or either the MACs or IPs depending on whether the network uses Track-by-IP."
+                          },
+                          "response": [
+                            {
+                              "id": "728563da-3679-40a0-9c9a-e8646936976e",
+                              "name": "Successful operation",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                  "raw": "https://api-mp.meraki.com/api/v1/networks/:networkId/clients/applicationUsage?clients=<string>&ssidNumber=<integer>&perPage=<integer>&startingAfter=<string>&endingBefore=<string>&t0=<string>&t1=<string>&timespan=<float>",
+                                  "protocol": "https",
+                                  "host": [
+                                    "api-mp",
+                                    "meraki",
+                                    "com"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "networks",
+                                    ":networkId",
+                                    "clients",
+                                    "applicationUsage"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "clients",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "ssidNumber",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "key": "perPage",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "key": "startingAfter",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "endingBefore",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "t0",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "t1",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "timespan",
+                                      "value": "<float>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "networkId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Link",
+                                  "value": "<string>",
+                                  "description": "A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests."
+                                },
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "[\n {\n  \"clientId\": \"k74272e\",\n  \"clientIp\": \"1.2.3.4\",\n  \"clientMac\": \"00:11:22:33:44:55\",\n  \"applicationUsage\": [\n   {\n    \"application\": \"Google\",\n    \"recv\": 383,\n    \"sent\": 56\n   }\n  ]\n }\n]"
+                            }
+                          ]
+                        }
+                      ],
+                      "id": "4226b88d-0038-4d4b-9a7e-44a03f311110"
+                    },
+                    {
+                      "name": "Usage Histories",
+                      "item": [
+                        {
+                          "name": "Return the usage histories for clients",
+                          "id": "e0634907-ed90-4873-a50a-e9345f032d28",
+                          "protocolProfileBehavior": {
+                            "followAuthorizationHeader": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "X-Cisco-Meraki-API-Key",
+                                "value": ""
+                              }
+                            ],
+                            "url": {
+                              "raw": "https://api-mp.meraki.com/api/v1/networks/:networkId/clients/usageHistories",
+                              "protocol": "https",
+                              "host": [
+                                "api-mp",
+                                "meraki",
+                                "com"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "networks",
+                                ":networkId",
+                                "clients",
+                                "usageHistories"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) A list of client keys, MACs or IPs separated by comma.",
+                                  "key": "clients",
+                                  "value": "{{clients}}",
+                                  "disabled": true
+                                },
+                                {
+                                  "description": "An SSID number to include. If not specified, events for all SSIDs will be returned.",
+                                  "key": "ssidNumber",
+                                  "value": "{{ssidNumber}}",
+                                  "disabled": true
+                                },
+                                {
+                                  "description": "The number of entries per page returned. Acceptable range is 3 - 1000.",
+                                  "key": "perPage",
+                                  "value": "100",
+                                  "disabled": true
+                                },
+                                {
+                                  "description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.",
+                                  "key": "startingAfter",
+                                  "value": "{{startingAfter}}",
+                                  "disabled": true
+                                },
+                                {
+                                  "description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.",
+                                  "key": "endingBefore",
+                                  "value": "{{endingBefore}}",
+                                  "disabled": true
+                                },
+                                {
+                                  "description": "The beginning of the timespan for the data. The maximum lookback period is 31 days from today.",
+                                  "key": "t0",
+                                  "value": "1543561109",
+                                  "disabled": true
+                                },
+                                {
+                                  "description": "The end of the timespan for the data. t1 can be a maximum of 31 days after t0.",
+                                  "key": "t1",
+                                  "value": "1543568309",
+                                  "disabled": true
+                                },
+                                {
+                                  "description": "The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 1 day.",
+                                  "key": "timespan",
+                                  "value": "86400",
+                                  "disabled": true
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "fc3a40a8-e4fa-4f56-a023-70af611598ac",
+                                  "key": "networkId",
+                                  "value": "L_643451796760561416",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Return the usage histories for clients. Usage data is in kilobytes. Clients can be identified by client keys or either the MACs or IPs depending on whether the network uses Track-by-IP."
+                          },
+                          "response": [
+                            {
+                              "id": "c7624204-c04b-4e51-bc12-253741ca32a1",
+                              "name": "Successful operation",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                  "raw": "https://api-mp.meraki.com/api/v1/networks/:networkId/clients/usageHistories?clients=<string>&ssidNumber=<integer>&perPage=<integer>&startingAfter=<string>&endingBefore=<string>&t0=<string>&t1=<string>&timespan=<float>",
+                                  "protocol": "https",
+                                  "host": [
+                                    "api-mp",
+                                    "meraki",
+                                    "com"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "networks",
+                                    ":networkId",
+                                    "clients",
+                                    "usageHistories"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "clients",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "ssidNumber",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "key": "perPage",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "key": "startingAfter",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "endingBefore",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "t0",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "t1",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "timespan",
+                                      "value": "<float>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "networkId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Link",
+                                  "value": "<string>",
+                                  "description": "A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests."
+                                },
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "[\n {\n  \"clientId\": \"k74272e\",\n  \"clientIp\": \"1.2.3.4\",\n  \"clientMac\": \"00:11:22:33:44:55\",\n  \"usageHistory\": [\n   {\n    \"ts\": \"2018-02-11T00:00:00.090210Z\",\n    \"recv\": 383,\n    \"sent\": 56\n   }\n  ]\n }\n]"
+                            }
+                          ]
+                        }
+                      ],
+                      "id": "b816dc75-0aed-47f3-9cee-5cb0a6918018"
+                    }
+                  ],
+                  "id": "cd782a6f-f314-49a3-9301-5f802988d6cd"
+                }
+              ],
+              "id": "da6899a8-e454-429f-bedf-9026014e5cf3"
+            },
+            {
+              "name": "Configure",
               "item": [
                 {
                   "name": "Firmware Upgrades",
@@ -23,7 +397,7 @@
                       "item": [
                         {
                           "name": "Rollback a Firmware Upgrade For A Network",
-                          "id": "5a02874c-3b23-4ef2-a369-a1ecfa29c72c",
+                          "id": "dd10d5a5-50f4-44ca-a6f4-3698fb00cce8",
                           "protocolProfileBehavior": {
                             "followAuthorizationHeader": true
                           },
@@ -61,7 +435,7 @@
                               ],
                               "variable": [
                                 {
-                                  "id": "dabd525b-95ec-4922-a61e-a40cf140155c",
+                                  "id": "71e8ecdb-c25b-4c89-b024-0f37fda38384",
                                   "key": "networkId",
                                   "value": "L_643451796760561416",
                                   "description": "(Required) "
@@ -72,7 +446,7 @@
                           },
                           "response": [
                             {
-                              "id": "58441b5e-28f8-45ec-8b9d-534d97924c35",
+                              "id": "0264f0a0-2011-4f88-a585-0b156de67cbc",
                               "name": "Successful operation",
                               "originalRequest": {
                                 "method": "POST",
@@ -120,10 +494,10 @@
                           ]
                         }
                       ],
-                      "id": "fa8f6acc-9e03-487d-ba40-f018f4e137a5"
+                      "id": "5938eae0-4826-4427-9508-074953dc03e9"
                     }
                   ],
-                  "id": "b494f2f5-0e0c-4744-b1a8-7795cb910b41"
+                  "id": "9539a4f9-890c-443d-9f66-88cd112682f9"
                 },
                 {
                   "name": "Location Scanning",
@@ -133,7 +507,7 @@
                       "item": [
                         {
                           "name": "Return List Of Scanning API Receivers",
-                          "id": "e7f75432-b227-4db9-9460-84cf834d277d",
+                          "id": "0b9e0748-1773-46bd-847e-1f71d5df2046",
                           "protocolProfileBehavior": {
                             "followAuthorizationHeader": true
                           },
@@ -163,7 +537,7 @@
                               ],
                               "variable": [
                                 {
-                                  "id": "c5c50ff1-0c9d-41d8-b9d1-a29e9af4fb50",
+                                  "id": "f2e95648-c1a2-46fa-822e-b512acca6e5c",
                                   "key": "networkId",
                                   "value": "L_643451796760561416",
                                   "description": "(Required) "
@@ -174,7 +548,7 @@
                           },
                           "response": [
                             {
-                              "id": "fe43c95e-0cf3-47c2-beb9-823337d85146",
+                              "id": "3bb1a340-5377-4914-b28b-379758f73261",
                               "name": "Successful operation",
                               "originalRequest": {
                                 "method": "GET",
@@ -219,7 +593,7 @@
                         },
                         {
                           "name": "Set The List Of Scanning API Receivers",
-                          "id": "24411c54-7407-45bb-8d28-a3e8527f2884",
+                          "id": "ffb3e420-a34c-49e2-b516-98ebe71f8cf7",
                           "protocolProfileBehavior": {
                             "followAuthorizationHeader": true
                           },
@@ -257,7 +631,7 @@
                               ],
                               "variable": [
                                 {
-                                  "id": "bebc4ede-6752-45e0-937a-52ea26e99678",
+                                  "id": "a8568543-6236-4582-af64-9c7673e8250c",
                                   "key": "networkId",
                                   "value": "L_643451796760561416",
                                   "description": "(Required) "
@@ -268,7 +642,7 @@
                           },
                           "response": [
                             {
-                              "id": "dc4bbee4-7502-4f08-b7d3-3beb0b23a364",
+                              "id": "620ecacb-8711-4f28-8e1e-8820f5ce2582",
                               "name": "Successful operation",
                               "originalRequest": {
                                 "method": "PUT",
@@ -316,11 +690,11 @@
                           ]
                         }
                       ],
-                      "id": "0211c1f8-3363-4d7b-824b-d4db6afef2cb"
+                      "id": "8056413b-3cb6-4351-bad0-6825f1a43432"
                     },
                     {
                       "name": "Return Scanning API Settings",
-                      "id": "d6a4633d-c7e3-4e32-a2d7-71948068455b",
+                      "id": "38cdcd64-298f-4023-9da1-b16297dddad7",
                       "protocolProfileBehavior": {
                         "followAuthorizationHeader": true
                       },
@@ -349,7 +723,7 @@
                           ],
                           "variable": [
                             {
-                              "id": "cee6f456-18ea-4c3b-b9e1-eff83957c569",
+                              "id": "7a067aef-9a33-41e2-97bb-123a4a70c7ec",
                               "key": "networkId",
                               "value": "L_643451796760561416",
                               "description": "(Required) "
@@ -360,7 +734,7 @@
                       },
                       "response": [
                         {
-                          "id": "9d7760c7-1cb8-46d3-bfbf-e51f5bc2a491",
+                          "id": "77f73b50-8551-44e7-9a20-2a39929d76e2",
                           "name": "Successful operation",
                           "originalRequest": {
                             "method": "GET",
@@ -404,7 +778,7 @@
                     },
                     {
                       "name": "Change Scanning API Settings",
-                      "id": "23ffdddc-718d-41c0-83e7-93e11c5cf9cd",
+                      "id": "c1b2a6bf-c590-434e-947a-fb80a57c41f7",
                       "protocolProfileBehavior": {
                         "followAuthorizationHeader": true
                       },
@@ -441,7 +815,7 @@
                           ],
                           "variable": [
                             {
-                              "id": "b1daf1e1-fc64-43bd-98c9-fc4ade20af70",
+                              "id": "f5a740d5-83ea-48db-9e3d-702d2376c80d",
                               "key": "networkId",
                               "value": "L_643451796760561416",
                               "description": "(Required) "
@@ -452,7 +826,7 @@
                       },
                       "response": [
                         {
-                          "id": "599bfbf3-e213-4c97-89c4-e32b125f0d47",
+                          "id": "6e10bd20-6d60-4ac4-8f7e-4a9b296859f8",
                           "name": "Successful operation",
                           "originalRequest": {
                             "method": "PUT",
@@ -499,16 +873,16 @@
                       ]
                     }
                   ],
-                  "id": "778b9464-3128-4ba8-9ed9-c06856b6d38d"
+                  "id": "3b4d4ae2-2e9c-4f58-878f-5ec7a7669e67"
                 }
               ],
-              "id": "93613b84-6260-4eec-949d-3b753acc7c8a"
+              "id": "b1942f4a-a57d-4824-bda3-7354f5e9ae00"
             }
           ],
-          "id": "045feb48-b997-4d40-aea8-755b4fccd542"
+          "id": "862c8a13-f152-4c03-aa88-47b85d55f686"
         }
       ],
-      "id": "9914951a-f0ee-4f65-9e10-d273f18f22e4"
+      "id": "1e16e0bf-cc6a-4dbf-9089-dc176b8bf2a1"
     },
     {
       "name": "PRODUCTS",
@@ -517,7 +891,235 @@
           "name": "wireless",
           "item": [
             {
-              "name": "monitor",
+              "name": "Configure",
+              "item": [
+                {
+                  "name": "ssids",
+                  "item": [
+                    {
+                      "name": "schedules",
+                      "item": [
+                        {
+                          "name": "List The Outage Schedule For The SSID",
+                          "id": "d7f92831-deab-4e84-85d1-c4be7f240c1b",
+                          "protocolProfileBehavior": {
+                            "followAuthorizationHeader": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "X-Cisco-Meraki-API-Key",
+                                "value": ""
+                              }
+                            ],
+                            "url": {
+                              "raw": "https://api-mp.meraki.com/api/v1/networks/:networkId/wireless/ssids/:number/schedules",
+                              "protocol": "https",
+                              "host": [
+                                "api-mp",
+                                "meraki",
+                                "com"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "networks",
+                                ":networkId",
+                                "wireless",
+                                "ssids",
+                                ":number",
+                                "schedules"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "e70a54e3-c04f-41ac-b794-141772e28b8b",
+                                  "key": "networkId",
+                                  "value": "L_643451796760561416",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "cdee045b-c261-4f4e-b0e9-5c8173abcdcc",
+                                  "key": "number",
+                                  "value": "1",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "List the outage schedule for the SSID"
+                          },
+                          "response": [
+                            {
+                              "id": "cd0bf473-5b18-456c-bfe8-941e4e613025",
+                              "name": "Successful operation",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                  "raw": "https://api-mp.meraki.com/api/v1/networks/:networkId/wireless/ssids/:number/schedules",
+                                  "protocol": "https",
+                                  "host": [
+                                    "api-mp",
+                                    "meraki",
+                                    "com"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "networks",
+                                    ":networkId",
+                                    "wireless",
+                                    "ssids",
+                                    ":number",
+                                    "schedules"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "networkId"
+                                    },
+                                    {
+                                      "key": "number"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n \"enabled\": true,\n \"ranges\": [\n  {\n   \"startDay\": \"Tuesday\",\n   \"startTime\": \"01:00\",\n   \"endDay\": \"Tuesday\",\n   \"endTime\": \"05:00\"\n  },\n  {\n   \"startDay\": \"Fri\",\n   \"startTime\": \"19:00\",\n   \"endDay\": \"monday\",\n   \"endTime\": \"05:00\"\n  }\n ]\n}"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "Update The Outage Schedule For The SSID",
+                          "id": "19d54cff-ff00-437f-8259-fbcd1e736215",
+                          "protocolProfileBehavior": {
+                            "followAuthorizationHeader": true
+                          },
+                          "request": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "X-Cisco-Meraki-API-Key",
+                                "value": ""
+                              },
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n    \"enabled\": \"<boolean>\",\n    \"ranges\": [\n        {\n            \"startDay\": \"<string>\",\n            \"startTime\": \"<string>\",\n            \"endDay\": \"<string>\",\n            \"endTime\": \"<string>\"\n        },\n        {\n            \"startDay\": \"<string>\",\n            \"startTime\": \"<string>\",\n            \"endDay\": \"<string>\",\n            \"endTime\": \"<string>\"\n        }\n    ],\n    \"rangesInSeconds\": [\n        {\n            \"start\": \"<integer>\",\n            \"end\": \"<integer>\"\n        },\n        {\n            \"start\": \"<integer>\",\n            \"end\": \"<integer>\"\n        }\n    ]\n}"
+                            },
+                            "url": {
+                              "raw": "https://api-mp.meraki.com/api/v1/networks/:networkId/wireless/ssids/:number/schedules",
+                              "protocol": "https",
+                              "host": [
+                                "api-mp",
+                                "meraki",
+                                "com"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "networks",
+                                ":networkId",
+                                "wireless",
+                                "ssids",
+                                ":number",
+                                "schedules"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "288bce84-cf76-40f7-ab31-7793f163d244",
+                                  "key": "networkId",
+                                  "value": "L_643451796760561416",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "624ff1d8-85df-476c-9cea-656fb367bf25",
+                                  "key": "number",
+                                  "value": "1",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Update the outage schedule for the SSID\n #### Body Parameters \n**Parameter**|**Type**|**Description** \n :-------------: |:-------------: |:-------------: \nenabled| boolean| If true, the SSID outage schedule is enabled.\nranges| array| List of outage ranges. Has a start date and time, and end date and time. If this parameter is passed in along with rangesInSeconds parameter, this will take precedence.\nrangesInSeconds| array| List of outage ranges in seconds since Sunday at Midnight. Has a start and end. If this parameter is passed in along with the ranges parameter, ranges will take precedence.\n\n#### Supports Action Batches\n\n**Resource**|**Operation**\n:-------------: |:-------------:\n`/networks/{networkId}/wireless/ssids/{number}/schedules` | update\n\n"
+                          },
+                          "response": [
+                            {
+                              "id": "873c656a-5e3b-4bcb-888d-49ab56f43fb5",
+                              "name": "Successful operation",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n    \"enabled\": true,\n    \"ranges\": [\n        {\n            \"startDay\": \"Tuesday\",\n            \"startTime\": \"01:00\",\n            \"endDay\": \"Tuesday\",\n            \"endTime\": \"05:00\"\n        },\n        {\n            \"startDay\": \"Fri\",\n            \"startTime\": \"19:00\",\n            \"endDay\": \"monday\",\n            \"endTime\": \"05:00\"\n        }\n    ]\n}"
+                                },
+                                "url": {
+                                  "raw": "https://api-mp.meraki.com/api/v1/networks/:networkId/wireless/ssids/:number/schedules",
+                                  "protocol": "https",
+                                  "host": [
+                                    "api-mp",
+                                    "meraki",
+                                    "com"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "networks",
+                                    ":networkId",
+                                    "wireless",
+                                    "ssids",
+                                    ":number",
+                                    "schedules"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "networkId"
+                                    },
+                                    {
+                                      "key": "number"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n \"enabled\": true,\n \"ranges\": [\n  {\n   \"startDay\": \"Tuesday\",\n   \"startTime\": \"01:00\",\n   \"endDay\": \"Tuesday\",\n   \"endTime\": \"05:00\"\n  },\n  {\n   \"startDay\": \"Fri\",\n   \"startTime\": \"19:00\",\n   \"endDay\": \"monday\",\n   \"endTime\": \"05:00\"\n  }\n ]\n}"
+                            }
+                          ]
+                        }
+                      ],
+                      "id": "a37f66db-1f1d-4a08-a9b5-4b5eb579b0d7"
+                    }
+                  ],
+                  "id": "1914b9e3-d45e-443e-8556-38879191c7cf"
+                }
+              ],
+              "id": "82b59004-ebe5-4c0c-bb3b-375662680dea"
+            },
+            {
+              "name": "Monitor",
               "item": [
                 {
                   "name": "clients",
@@ -527,7 +1129,7 @@
                       "item": [
                         {
                           "name": "Return counts of distinct wireless clients connecting to a network over time",
-                          "id": "653516cd-cea7-4ae3-8b59-05495c4e0f55",
+                          "id": "0dcfb3b4-2717-4515-8523-5bfe833bf0f0",
                           "protocolProfileBehavior": {
                             "followAuthorizationHeader": true
                           },
@@ -596,7 +1198,7 @@
                               ],
                               "variable": [
                                 {
-                                  "id": "38f46c4d-59a4-4bb0-a628-df332dda099c",
+                                  "id": "f394cd1b-e249-4ee4-85af-d2e7994d1e4c",
                                   "key": "networkId",
                                   "value": "L_643451796760561416",
                                   "description": "(Required) "
@@ -607,7 +1209,7 @@
                           },
                           "response": [
                             {
-                              "id": "36acc1c2-938c-4f9a-8a64-b24d32013b2c",
+                              "id": "eedada30-e9de-41ba-9090-dbfcb384d9cb",
                               "name": "Successful operation",
                               "originalRequest": {
                                 "method": "GET",
@@ -678,23 +1280,23 @@
                           ]
                         }
                       ],
-                      "id": "6f210984-a69a-4bc5-b0c6-9895ae3be2d9"
+                      "id": "a77d7381-6a14-4450-b0f8-a4d4d2d3edbd"
                     }
                   ],
-                  "id": "32e927fc-128a-4b50-a57d-7b3f207de29e"
+                  "id": "1f2dd6cd-8253-4346-badb-1a47d3d36063"
                 }
               ],
-              "id": "145283c9-d645-48ba-a33b-9a03448a63bc"
+              "id": "d025a84c-a6c5-4fac-97c1-b41c0861401e"
             }
           ],
-          "id": "f47142bd-491e-487d-b529-adcc5f68426a"
+          "id": "4c964a3b-2e97-46cf-b974-caafdcbe2de7"
         }
       ],
-      "id": "2bea9bbb-aad3-4202-8119-0226d93a500f"
+      "id": "68cd6347-4c64-4a75-ae49-51895c6e0f23"
     },
     {
       "name": "List the Organizations",
-      "id": "6f6bf9d6-021f-4703-b2bf-1a420609342e",
+      "id": "18515622-304d-4f07-baa4-3eb92f51158b",
       "protocolProfileBehavior": {
         "followAuthorizationHeader": true
       },
@@ -711,7 +1313,7 @@
       },
       "response": [
         {
-          "id": "3c084149-0443-4a8a-bf4f-92d3fa44015b",
+          "id": "3c1ff13e-86b0-411b-9c53-a804227e7ee2",
           "name": "Successful operation",
           "originalRequest": {
             "method": "GET",
@@ -735,7 +1337,7 @@
     },
     {
       "name": "List the Networks in an Organization ",
-      "id": "40154a4c-bcaa-49fb-b941-398d63321b46",
+      "id": "93f05f08-2b84-4277-b771-ce4ce99721ef",
       "protocolProfileBehavior": {
         "followAuthorizationHeader": true
       },
@@ -802,7 +1404,7 @@
           ],
           "variable": [
             {
-              "id": "c9271242-0b36-4208-bca9-dd034452e950",
+              "id": "bfb597cd-b07e-4940-b9b2-1cd24f549405",
               "key": "organizationId",
               "value": "306267",
               "description": "(Required) "
@@ -813,7 +1415,7 @@
       },
       "response": [
         {
-          "id": "022b332a-5b06-45f7-9f42-c8a2c3f697bc",
+          "id": "5678e958-8ff9-4004-999a-b471a772ecfa",
           "name": "Successful operation",
           "originalRequest": {
             "method": "GET",
@@ -888,7 +1490,7 @@
     },
     {
       "name": "List the Devices in an Organization",
-      "id": "229ce6f5-2f62-4494-a5e9-5737b57fe334",
+      "id": "972721f9-6b26-4aee-b103-39151c96546c",
       "protocolProfileBehavior": {
         "followAuthorizationHeader": true
       },
@@ -943,7 +1545,7 @@
           ],
           "variable": [
             {
-              "id": "4ebe39c2-d2f4-4fe6-b931-a9d3519d3765",
+              "id": "e84917d4-350b-4ef3-b4ac-241b506bef28",
               "key": "organizationId",
               "value": "306267",
               "description": "(Required) "
@@ -954,7 +1556,7 @@
       },
       "response": [
         {
-          "id": "5c029af8-48e6-465a-9632-2ea98c2cbcd0",
+          "id": "46421aaa-64b8-4f46-bc07-570e5e6a2a03",
           "name": "Successful operation",
           "originalRequest": {
             "method": "GET",
@@ -1021,7 +1623,7 @@
     },
     {
       "name": "List the Clients in a Network",
-      "id": "79e7a250-750f-4e3d-a044-f8d81e13d25d",
+      "id": "0e30eb7d-220a-4038-a7bc-f143397ce6b2",
       "protocolProfileBehavior": {
         "followAuthorizationHeader": true
       },
@@ -1082,7 +1684,7 @@
           ],
           "variable": [
             {
-              "id": "8d6bbbd5-6b9f-4e33-8214-c5f582e4e7bb",
+              "id": "adc8bddd-47d7-4a48-92f8-c992b809badd",
               "key": "networkId",
               "value": "L_643451796760561416",
               "description": "(Required) "
@@ -1093,7 +1695,7 @@
       },
       "response": [
         {
-          "id": "54e3054c-030b-4b02-9e65-5cc73d061877",
+          "id": "c879d165-adf6-4afb-bfac-0b6fe28c810f",
           "name": "Successful operation",
           "originalRequest": {
             "method": "GET",
@@ -1166,7 +1768,7 @@
   "auth": {
     "type": "apikey",
     "apikey": {
-      "value": "{{apiKey}}",
+      "value": "be647eed3046542a895ea9ad07b7f7cef4c002de",
       "key": "X-Cisco-Meraki-API-Key"
     }
   },
@@ -1174,7 +1776,7 @@
     {
       "listen": "prerequest",
       "script": {
-        "id": "bc36e2a6-6e05-45bf-b4c1-3e852a9ba76a",
+        "id": "994c5204-f14d-4756-8676-f20ec1f149fa",
         "type": "text/javascript",
         "exec": [
           ""
@@ -1184,7 +1786,7 @@
     {
       "listen": "test",
       "script": {
-        "id": "89f6bd61-6741-46ee-9c34-dbd008999bb6",
+        "id": "2e25165a-7bd7-4dd7-8368-6e0d16f7baf2",
         "type": "text/javascript",
         "exec": [
           "// JSON Magic Postman Template",
@@ -1202,44 +1804,64 @@
   ],
   "variable": [
     {
-      "id": "a61aab3d-99da-48f0-bcea-ceb4b6795dc0",
-      "key": "band",
-      "value": ""
+      "id": "band",
+      "key": "band"
     },
     {
-      "id": "4cd588f0-de3c-4f5e-a8a3-6a8a6341c774",
+      "id": "baseUrl",
       "key": "baseUrl",
-      "value": "https://api-mp.meraki.com/api/v1"
+      "value": "https://api-mp.meraki.com/api/v1",
+      "type": "string"
     },
     {
-      "id": "391d7ab1-32b6-4b4b-92df-cdcb1f88cf79",
+      "id": "clients",
+      "key": "clients"
+    },
+    {
+      "id": "endingBefore",
+      "key": "endingBefore"
+    },
+    {
+      "id": "networkId",
       "key": "networkId",
-      "value": ""
+      "type": "any"
     },
     {
-      "id": "1baa8127-1aa8-42c9-b726-4769215a66d3",
-      "key": "resolution",
-      "value": ""
+      "id": "number",
+      "key": "number",
+      "type": "any"
     },
     {
-      "id": "df364f6f-f72b-4f93-ad47-c806c24f535f",
-      "key": "ssid",
-      "value": ""
+      "id": "perPage",
+      "key": "perPage"
     },
     {
-      "id": "faac3c62-db4f-4b78-a5a4-75f3eeb7659a",
-      "key": "t0",
-      "value": ""
+      "id": "resolution",
+      "key": "resolution"
     },
     {
-      "id": "d0901751-4607-4f58-8198-647936cfe017",
-      "key": "t1",
-      "value": ""
+      "id": "ssid",
+      "key": "ssid"
     },
     {
-      "id": "636a90e7-6dc4-4b61-baaf-9d13b828c88b",
-      "key": "timespan",
-      "value": ""
+      "id": "ssidNumber",
+      "key": "ssidNumber"
+    },
+    {
+      "id": "startingAfter",
+      "key": "startingAfter"
+    },
+    {
+      "id": "t0",
+      "key": "t0"
+    },
+    {
+      "id": "t1",
+      "key": "t1"
+    },
+    {
+      "id": "timespan",
+      "key": "timespan"
     }
   ]
 }
