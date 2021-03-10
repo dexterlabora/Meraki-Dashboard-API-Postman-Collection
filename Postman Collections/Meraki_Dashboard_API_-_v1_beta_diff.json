@@ -23,7 +23,7 @@
                       "item": [
                         {
                           "name": "Rollback a Firmware Upgrade For A Network",
-                          "id": "a089888b-031d-4cc0-9e60-f9702ef7989c",
+                          "_postman_id": "a089888b-031d-4cc0-9e60-f9702ef7989c",
                           "protocolProfileBehavior": {
                             "followAuthorizationHeader": true
                           },
@@ -41,7 +41,10 @@
                             ],
                             "body": {
                               "mode": "raw",
-                              "raw": "{\n    \"reasons\": [\n        {\n            \"category\": \"<string>\",\n            \"comment\": \"<string>\"\n        },\n        {\n            \"category\": \"<string>\",\n            \"comment\": \"<string>\"\n        }\n    ],\n    \"product\": \"<string>\",\n    \"scheduledFor\": \"<dateTime>\"\n}"
+                              "raw": "{\n    \"reasons\": [\n        {\n            \"category\": \"<string>\",\n            \"comment\": \"<string>\"\n        },\n        {\n            \"category\": \"<string>\",\n            \"comment\": \"<string>\"\n        }\n    ],\n    \"product\": \"<string>\",\n    \"scheduledFor\": \"<dateTime>\"\n}",
+                              "options": {
+                                "raw": {}
+                              }
                             },
                             "url": {
                               "raw": "{{baseUrl}}/networks/:networkId/firmwareUpgrades/rollbacks",
@@ -59,7 +62,8 @@
                                   "id": "d6ad6c86-61a9-4400-b019-d4205eb86e20",
                                   "key": "networkId",
                                   "value": "{{networkId}}",
-                                  "description": "(Required) "
+                                  "description": "(Required) ",
+                                  "type": "string"
                                 }
                               ]
                             },
@@ -110,10 +114,12 @@
                           ]
                         }
                       ],
-                      "id": "aff70eb5-b9e4-44e0-94fa-25dbf3594c82"
+                      "_postman_id": "aff70eb5-b9e4-44e0-94fa-25dbf3594c82",
+                      "_postman_isSubFolder": true
                     }
                   ],
-                  "id": "46291e18-2f65-4e95-89ed-1fa537e75c5b"
+                  "_postman_id": "46291e18-2f65-4e95-89ed-1fa537e75c5b",
+                  "_postman_isSubFolder": true
                 },
                 {
                   "name": "Location Scanning",
@@ -123,7 +129,7 @@
                       "item": [
                         {
                           "name": "Return List Of Scanning API Receivers",
-                          "id": "8464fe58-92dd-45aa-b439-0e4e97ed2c4c",
+                          "_postman_id": "8464fe58-92dd-45aa-b439-0e4e97ed2c4c",
                           "protocolProfileBehavior": {
                             "followAuthorizationHeader": true
                           },
@@ -151,7 +157,8 @@
                                   "id": "98860e39-04fb-442a-8f92-10e42519e6f0",
                                   "key": "networkId",
                                   "value": "{{networkId}}",
-                                  "description": "(Required) "
+                                  "description": "(Required) ",
+                                  "type": "string"
                                 }
                               ]
                             },
@@ -199,7 +206,7 @@
                         },
                         {
                           "name": "Set The List Of Scanning API Receivers",
-                          "id": "f1c5b0c7-aa5b-468a-a5f9-10936bb0a03d",
+                          "_postman_id": "f1c5b0c7-aa5b-468a-a5f9-10936bb0a03d",
                           "protocolProfileBehavior": {
                             "followAuthorizationHeader": true
                           },
@@ -217,7 +224,10 @@
                             ],
                             "body": {
                               "mode": "raw",
-                              "raw": "{\n    \"endpoints\": [\n        {\n            \"scanningApiVersion\": \"<integer>\",\n            \"radioType\": \"<string>\",\n            \"httpServer\": {\n                \"url\": \"<string>\",\n                \"sharedSecret\": \"<string>\"\n            }\n        },\n        {\n            \"scanningApiVersion\": \"<integer>\",\n            \"radioType\": \"<string>\",\n            \"httpServer\": {\n                \"url\": \"<string>\",\n                \"sharedSecret\": \"<string>\"\n            }\n        }\n    ]\n}"
+                              "raw": "{\n    \"endpoints\": [\n        {\n            \"scanningApiVersion\": \"<integer>\",\n            \"radioType\": \"<string>\",\n            \"httpServer\": {\n                \"url\": \"<string>\",\n                \"sharedSecret\": \"<string>\"\n            }\n        },\n        {\n            \"scanningApiVersion\": \"<integer>\",\n            \"radioType\": \"<string>\",\n            \"httpServer\": {\n                \"url\": \"<string>\",\n                \"sharedSecret\": \"<string>\"\n            }\n        }\n    ]\n}",
+                              "options": {
+                                "raw": {}
+                              }
                             },
                             "url": {
                               "raw": "{{baseUrl}}/networks/:networkId/locationScanning/httpServers",
@@ -235,7 +245,8 @@
                                   "id": "5386642e-ecdd-4f57-9912-2b6022824154",
                                   "key": "networkId",
                                   "value": "{{networkId}}",
-                                  "description": "(Required) "
+                                  "description": "(Required) ",
+                                  "type": "string"
                                 }
                               ]
                             },
@@ -286,11 +297,12 @@
                           ]
                         }
                       ],
-                      "id": "40d0defc-d217-4f0d-814a-c691f16c5374"
+                      "_postman_id": "40d0defc-d217-4f0d-814a-c691f16c5374",
+                      "_postman_isSubFolder": true
                     },
                     {
                       "name": "Return Scanning API Settings",
-                      "id": "7aa834db-5ae1-48cb-b283-4499837f76b9",
+                      "_postman_id": "7aa834db-5ae1-48cb-b283-4499837f76b9",
                       "protocolProfileBehavior": {
                         "followAuthorizationHeader": true
                       },
@@ -317,7 +329,8 @@
                               "id": "aceb86b2-4dde-483c-abec-21a4299d359f",
                               "key": "networkId",
                               "value": "{{networkId}}",
-                              "description": "(Required) "
+                              "description": "(Required) ",
+                              "type": "string"
                             }
                           ]
                         },
@@ -364,7 +377,7 @@
                     },
                     {
                       "name": "Change Scanning API Settings",
-                      "id": "7c2e727f-aa35-4324-a70b-73a59a6283c4",
+                      "_postman_id": "7c2e727f-aa35-4324-a70b-73a59a6283c4",
                       "protocolProfileBehavior": {
                         "followAuthorizationHeader": true
                       },
@@ -382,7 +395,10 @@
                         ],
                         "body": {
                           "mode": "raw",
-                          "raw": "{\n    \"analyticsEnabled\": \"<boolean>\",\n    \"scanningApiEnabled\": \"<boolean>\"\n}"
+                          "raw": "{\n    \"analyticsEnabled\": \"<boolean>\",\n    \"scanningApiEnabled\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {}
+                          }
                         },
                         "url": {
                           "raw": "{{baseUrl}}/networks/:networkId/locationScanning",
@@ -399,7 +415,8 @@
                               "id": "0aedccf8-f755-47d8-ac61-c919a67e6f2a",
                               "key": "networkId",
                               "value": "{{networkId}}",
-                              "description": "(Required) "
+                              "description": "(Required) ",
+                              "type": "string"
                             }
                           ]
                         },
@@ -449,16 +466,19 @@
                       ]
                     }
                   ],
-                  "id": "38dc68af-b645-458a-b14e-3859267833e8"
+                  "_postman_id": "38dc68af-b645-458a-b14e-3859267833e8",
+                  "_postman_isSubFolder": true
                 }
               ],
-              "id": "8ac1811c-07e1-4a3e-b6b3-5ac2a6d6a409"
+              "_postman_id": "8ac1811c-07e1-4a3e-b6b3-5ac2a6d6a409",
+              "_postman_isSubFolder": true
             }
           ],
-          "id": "88d99419-f511-4b71-8658-f1f539ecaee3"
+          "_postman_id": "88d99419-f511-4b71-8658-f1f539ecaee3",
+          "_postman_isSubFolder": true
         }
       ],
-      "id": "c7cf3d55-2b41-463f-bd3f-07f788400362"
+      "_postman_id": "c7cf3d55-2b41-463f-bd3f-07f788400362"
     },
     {
       "name": "PRODUCTS",
@@ -477,7 +497,7 @@
                       "item": [
                         {
                           "name": "List The Outage Schedule For The SSID",
-                          "id": "88f8948f-b3bc-4ad4-94cc-c0cb4f7e30df",
+                          "_postman_id": "88f8948f-b3bc-4ad4-94cc-c0cb4f7e30df",
                           "protocolProfileBehavior": {
                             "followAuthorizationHeader": true
                           },
@@ -507,13 +527,15 @@
                                   "id": "cba051b9-4b76-494e-8a48-b2bd8a28f20a",
                                   "key": "networkId",
                                   "value": "{{networkId}}",
-                                  "description": "(Required) "
+                                  "description": "(Required) ",
+                                  "type": "string"
                                 },
                                 {
                                   "id": "f37863f3-4666-4509-b022-26991d8aecf4",
                                   "key": "number",
                                   "value": "{{number}}",
-                                  "description": "(Required) "
+                                  "description": "(Required) ",
+                                  "type": "string"
                                 }
                               ]
                             },
@@ -566,7 +588,7 @@
                         },
                         {
                           "name": "Update The Outage Schedule For The SSID",
-                          "id": "ce14dbaf-b79a-4a63-89ae-9e87350353ef",
+                          "_postman_id": "ce14dbaf-b79a-4a63-89ae-9e87350353ef",
                           "protocolProfileBehavior": {
                             "followAuthorizationHeader": true
                           },
@@ -584,7 +606,10 @@
                             ],
                             "body": {
                               "mode": "raw",
-                              "raw": "{\n    \"enabled\": \"<boolean>\",\n    \"ranges\": [\n        {\n            \"startDay\": \"<string>\",\n            \"startTime\": \"<string>\",\n            \"endDay\": \"<string>\",\n            \"endTime\": \"<string>\"\n        },\n        {\n            \"startDay\": \"<string>\",\n            \"startTime\": \"<string>\",\n            \"endDay\": \"<string>\",\n            \"endTime\": \"<string>\"\n        }\n    ],\n    \"rangesInSeconds\": [\n        {\n            \"start\": \"<integer>\",\n            \"end\": \"<integer>\"\n        },\n        {\n            \"start\": \"<integer>\",\n            \"end\": \"<integer>\"\n        }\n    ]\n}"
+                              "raw": "{\n    \"enabled\": \"<boolean>\",\n    \"ranges\": [\n        {\n            \"startDay\": \"<string>\",\n            \"startTime\": \"<string>\",\n            \"endDay\": \"<string>\",\n            \"endTime\": \"<string>\"\n        },\n        {\n            \"startDay\": \"<string>\",\n            \"startTime\": \"<string>\",\n            \"endDay\": \"<string>\",\n            \"endTime\": \"<string>\"\n        }\n    ],\n    \"rangesInSeconds\": [\n        {\n            \"start\": \"<integer>\",\n            \"end\": \"<integer>\"\n        },\n        {\n            \"start\": \"<integer>\",\n            \"end\": \"<integer>\"\n        }\n    ]\n}",
+                              "options": {
+                                "raw": {}
+                              }
                             },
                             "url": {
                               "raw": "{{baseUrl}}/networks/:networkId/wireless/ssids/:number/schedules",
@@ -604,13 +629,15 @@
                                   "id": "2aa17384-8870-4780-b1d8-cb7c84537bb2",
                                   "key": "networkId",
                                   "value": "{{networkId}}",
-                                  "description": "(Required) "
+                                  "description": "(Required) ",
+                                  "type": "string"
                                 },
                                 {
                                   "id": "6c8ce2a6-12c0-44a3-a61f-572db38175b8",
                                   "key": "number",
                                   "value": "{{number}}",
-                                  "description": "(Required) "
+                                  "description": "(Required) ",
+                                  "type": "string"
                                 }
                               ]
                             },
@@ -666,13 +693,16 @@
                           ]
                         }
                       ],
-                      "id": "541e1711-b62f-4d1e-8c4b-cbb73173ad8f"
+                      "_postman_id": "541e1711-b62f-4d1e-8c4b-cbb73173ad8f",
+                      "_postman_isSubFolder": true
                     }
                   ],
-                  "id": "a2c3efd4-ecea-4682-bb0b-6533b3c71098"
+                  "_postman_id": "a2c3efd4-ecea-4682-bb0b-6533b3c71098",
+                  "_postman_isSubFolder": true
                 }
               ],
-              "id": "3497e50d-3c2c-4825-a853-cd66d989fa5a"
+              "_postman_id": "3497e50d-3c2c-4825-a853-cd66d989fa5a",
+              "_postman_isSubFolder": true
             },
             {
               "name": "Monitor",
@@ -685,7 +715,7 @@
                       "item": [
                         {
                           "name": "Return counts of distinct wireless clients connecting to a network over time",
-                          "id": "1dc3ea98-b84b-404c-b9a6-5445a3491a42",
+                          "_postman_id": "1dc3ea98-b84b-404c-b9a6-5445a3491a42",
                           "protocolProfileBehavior": {
                             "followAuthorizationHeader": true
                           },
@@ -752,7 +782,8 @@
                                   "id": "004b5ccc-c68e-4846-80f1-197ad3618b31",
                                   "key": "networkId",
                                   "value": "{{networkId}}",
-                                  "description": "(Required) "
+                                  "description": "(Required) ",
+                                  "type": "string"
                                 }
                               ]
                             },
@@ -826,23 +857,27 @@
                           ]
                         }
                       ],
-                      "id": "dcefffab-9d90-4b17-9fb4-a02556c7f306"
+                      "_postman_id": "dcefffab-9d90-4b17-9fb4-a02556c7f306",
+                      "_postman_isSubFolder": true
                     }
                   ],
-                  "id": "dfe0c948-d152-4d3e-adda-4d6203598e6d"
+                  "_postman_id": "dfe0c948-d152-4d3e-adda-4d6203598e6d",
+                  "_postman_isSubFolder": true
                 }
               ],
-              "id": "2040ad89-ee91-4e60-8904-98fbd7e31b0c"
+              "_postman_id": "2040ad89-ee91-4e60-8904-98fbd7e31b0c",
+              "_postman_isSubFolder": true
             }
           ],
-          "id": "c9318403-2d77-4601-82c1-8a69605a944c"
+          "_postman_id": "c9318403-2d77-4601-82c1-8a69605a944c",
+          "_postman_isSubFolder": true
         }
       ],
-      "id": "afb47b59-5b77-4c92-89aa-b8f097769926"
+      "_postman_id": "afb47b59-5b77-4c92-89aa-b8f097769926"
     },
     {
       "name": "List the Organizations",
-      "id": "23923db8-694c-4923-85cc-ab883705c0c2",
+      "_postman_id": "23923db8-694c-4923-85cc-ab883705c0c2",
       "protocolProfileBehavior": {
         "followAuthorizationHeader": true
       },
@@ -883,7 +918,7 @@
     },
     {
       "name": "List the Networks in an Organization ",
-      "id": "9476e1e8-4644-492b-a0aa-9e4b04c162a9",
+      "_postman_id": "9476e1e8-4644-492b-a0aa-9e4b04c162a9",
       "protocolProfileBehavior": {
         "followAuthorizationHeader": true
       },
@@ -948,7 +983,8 @@
               "id": "cce03912-01d5-4946-8086-96e6256e3b5b",
               "key": "organizationId",
               "value": "306267",
-              "description": "(Required) "
+              "description": "(Required) ",
+              "type": "string"
             }
           ]
         },
@@ -1026,7 +1062,7 @@
     },
     {
       "name": "List the Devices in an Organization",
-      "id": "261d437e-3f0e-4196-bc1d-215ab831de34",
+      "_postman_id": "261d437e-3f0e-4196-bc1d-215ab831de34",
       "protocolProfileBehavior": {
         "followAuthorizationHeader": true
       },
@@ -1079,7 +1115,8 @@
               "id": "1e97e01e-204b-46b1-963c-43741b8b836c",
               "key": "organizationId",
               "value": "306267",
-              "description": "(Required) "
+              "description": "(Required) ",
+              "type": "string"
             }
           ]
         },
@@ -1149,7 +1186,7 @@
     },
     {
       "name": "List the Clients in a Network",
-      "id": "4c4b05ae-bfd5-463a-bfc0-36e475f2f395",
+      "_postman_id": "4c4b05ae-bfd5-463a-bfc0-36e475f2f395",
       "protocolProfileBehavior": {
         "followAuthorizationHeader": true
       },
@@ -1208,7 +1245,8 @@
               "id": "89d3fd9a-f047-4bd1-a849-f09fa8b94bbf",
               "key": "networkId",
               "value": "{{networkId}}",
-              "description": "(Required) "
+              "description": "(Required) ",
+              "type": "string"
             }
           ]
         },
@@ -1284,7 +1322,7 @@
   "auth": {
     "type": "apikey",
     "apikey": {
-      "value": "be647eed3046542a895ea9ad07b7f7cef4c002de",
+      "value": "",
       "key": "X-Cisco-Meraki-API-Key"
     }
   },
@@ -1292,7 +1330,7 @@
     {
       "listen": "prerequest",
       "script": {
-        "id": "994c5204-f14d-4756-8676-f20ec1f149fa",
+        "id": "1bf3fffc-b3a3-4a72-9d0c-e5f1d600ad66",
         "type": "text/javascript",
         "exec": [
           ""
@@ -1302,7 +1340,7 @@
     {
       "listen": "test",
       "script": {
-        "id": "2e25165a-7bd7-4dd7-8368-6e0d16f7baf2",
+        "id": "5959a8cd-e251-43d7-95f2-793485dcd73b",
         "type": "text/javascript",
         "exec": [
           "// JSON Magic Postman Template",
@@ -1320,44 +1358,58 @@
   ],
   "variable": [
     {
-      "id": "band",
-      "key": "band"
+      "id": "fad3f2b4-2816-454f-940e-d2783ed7653e",
+      "key": "band",
+      "value": "",
+      "type": "string"
     },
     {
-      "id": "baseUrl",
+      "id": "36c7de9e-5055-4d9e-9215-e4dacd8bff2c",
       "key": "baseUrl",
       "value": "https://api-mp.meraki.com/api/v1",
       "type": "string"
     },
     {
-      "id": "networkId",
+      "id": "cc38a25b-f839-4ba1-88d4-e5d13f919f6c",
       "key": "networkId",
-      "type": "any"
+      "value": "",
+      "type": "string"
     },
     {
-      "id": "number",
+      "id": "916ee444-46c4-4d52-8bb5-2dba97c26ef9",
       "key": "number",
-      "type": "any"
+      "value": "",
+      "type": "string"
     },
     {
-      "id": "resolution",
-      "key": "resolution"
+      "id": "0d62306c-ff38-4ec9-93d6-134c96d21ccd",
+      "key": "resolution",
+      "value": "",
+      "type": "string"
     },
     {
-      "id": "ssid",
-      "key": "ssid"
+      "id": "2a642389-08b1-4845-91ae-3e7446faa81d",
+      "key": "ssid",
+      "value": "",
+      "type": "string"
     },
     {
-      "id": "t0",
-      "key": "t0"
+      "id": "6e5022fe-5d02-40c9-914f-ca8d986d728e",
+      "key": "t0",
+      "value": "",
+      "type": "string"
     },
     {
-      "id": "t1",
-      "key": "t1"
+      "id": "6f981900-5015-4940-9705-928517e33b55",
+      "key": "t1",
+      "value": "",
+      "type": "string"
     },
     {
-      "id": "timespan",
-      "key": "timespan"
+      "id": "599cf5d9-e3ff-4bef-9eff-64461c8fbfbd",
+      "key": "timespan",
+      "value": "",
+      "type": "string"
     }
   ]
 }
