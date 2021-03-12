@@ -1,8 +1,8 @@
 {
   "info": {
     "_postman_id": "5368b2fb-18fe-4b29-8490-1fd8a5ce1421",
-    "name": "Meraki Dashboard API - v1.7.0-beta.0 -Diff",
-    "description": "The Cisco Meraki Dashboard API is a modern REST API based on the OpenAPI specification.\n\n> Date: 03 March, 2021\n>\n> [What's New](https://meraki.io/whats-new/)\n\n---\n\n[API Documentation](https://meraki.io/api)\n\n[Community Support](https://meraki.io/community)\n\n[Meraki Homepage](https://www.meraki.com)\n",
+    "name": "Meraki Dashboard API - v1.7.0-beta.1 -Diff",
+    "description": "The Cisco Meraki Dashboard API is a modern REST API based on the OpenAPI specification.\n\n> Date: 10 March, 2021\n>\n> [What's New](https://meraki.io/whats-new/)\n\n---\n\n[API Documentation](https://meraki.io/api)\n\n[Community Support](https://meraki.io/community)\n\n[Meraki Homepage](https://www.meraki.com)\n",
     "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
   },
   "item": [
@@ -23,7 +23,7 @@
                       "item": [
                         {
                           "name": "Rollback a Firmware Upgrade For A Network",
-                          "_postman_id": "a089888b-031d-4cc0-9e60-f9702ef7989c",
+                          "id": "267c3e28-6967-450e-a154-c1e4e3483fad",
                           "protocolProfileBehavior": {
                             "followAuthorizationHeader": true
                           },
@@ -41,17 +41,19 @@
                             ],
                             "body": {
                               "mode": "raw",
-                              "raw": "{\n    \"reasons\": [\n        {\n            \"category\": \"<string>\",\n            \"comment\": \"<string>\"\n        },\n        {\n            \"category\": \"<string>\",\n            \"comment\": \"<string>\"\n        }\n    ],\n    \"product\": \"<string>\",\n    \"scheduledFor\": \"<dateTime>\"\n}",
-                              "options": {
-                                "raw": {}
-                              }
+                              "raw": "{\n    \"reasons\": [\n        {\n            \"category\": \"<string>\",\n            \"comment\": \"<string>\"\n        },\n        {\n            \"category\": \"<string>\",\n            \"comment\": \"<string>\"\n        }\n    ],\n    \"product\": \"<string>\",\n    \"time\": \"<dateTime>\"\n}"
                             },
                             "url": {
-                              "raw": "{{baseUrl}}/networks/:networkId/firmwareUpgrades/rollbacks",
+                              "raw": "https://api-mp.meraki.com/api/v0/networks/:networkId/firmwareUpgrades/rollbacks",
+                              "protocol": "https",
                               "host": [
-                                "{{baseUrl}}"
+                                "api-mp",
+                                "meraki",
+                                "com"
                               ],
                               "path": [
+                                "api",
+                                "v0",
                                 "networks",
                                 ":networkId",
                                 "firmwareUpgrades",
@@ -59,33 +61,37 @@
                               ],
                               "variable": [
                                 {
-                                  "id": "d6ad6c86-61a9-4400-b019-d4205eb86e20",
+                                  "id": "fd74ce3c-98c6-4aa0-8dca-64b5db6e6fd3",
                                   "key": "networkId",
-                                  "value": "{{networkId}}",
-                                  "description": "(Required) ",
-                                  "type": "string"
+                                  "value": "L_643451796760561416",
+                                  "description": "(Required) "
                                 }
                               ]
                             },
-                            "description": "Rollback a Firmware Upgrade For A Network\n #### Body Parameters \n**Parameter**|**Type**|**Description** \n :-------------: |:-------------: |:-------------: \nproduct| string| Product type to rollback (if the network is a combined network)\nscheduledFor| string| Scheduled time for the rollback\nreasons| array| Reasons for the rollback\n\n#### Supports Action Batches\n\n**Resource**|**Operation**\n:-------------: |:-------------:\n`/networks/{networkId}/firmwareUpgrades/rollbacks` | create\n\n"
+                            "description": "Rollback a Firmware Upgrade For A Network\n #### Body Parameters \n**Parameter**|**Type**|**Description** \n :-------------: |:-------------: |:-------------: \nproduct| string| Product type to rollback (if the network is a combined network)\ntime| string| Scheduled time for the rollback\nreasons| array| Reasons for the rollback\n\n#### Supports Action Batches\n\n**Resource**|**Operation**\n:-------------: |:-------------:\n`/networks/{networkId}/firmwareUpgrades/rollbacks` | create\n\n"
                           },
                           "response": [
                             {
-                              "id": "e9b25618-303e-43d9-8047-c5d884f9d9da",
+                              "id": "7b430825-d81d-401b-89e9-2c15bd4299f2",
                               "name": "Successful operation",
                               "originalRequest": {
                                 "method": "POST",
                                 "header": [],
                                 "body": {
                                   "mode": "raw",
-                                  "raw": "{\n    \"product\": \"wireless\",\n    \"scheduledFor\": \"2020-10-21T02:00:00Z\",\n    \"reasons\": [\n        {\n            \"category\": \"performance\",\n            \"comment\": \"Network was slower with the upgrade\"\n        },\n        {\n            \"category\": \"stability\",\n            \"comment\": \"We saw some errors in the logs we didn't expect\"\n        }\n    ]\n}"
+                                  "raw": "{\n    \"product\": \"wireless\",\n    \"time\": \"2020-10-21T02:00:00Z\",\n    \"reasons\": [\n        {\n            \"category\": \"performance\",\n            \"comment\": \"Network was slower with the upgrade\"\n        },\n        {\n            \"category\": \"stability\",\n            \"comment\": \"We saw some errors in the logs we didn't expect\"\n        }\n    ],\n    \"toVersion\": {\n        \"id\": 7857\n    }\n}"
                                 },
                                 "url": {
-                                  "raw": "{{baseUrl}}/networks/:networkId/firmwareUpgrades/rollbacks",
+                                  "raw": "https://api-mp.meraki.com/api/v0/networks/:networkId/firmwareUpgrades/rollbacks",
+                                  "protocol": "https",
                                   "host": [
-                                    "{{baseUrl}}"
+                                    "api-mp",
+                                    "meraki",
+                                    "com"
                                   ],
                                   "path": [
+                                    "api",
+                                    "v0",
                                     "networks",
                                     ":networkId",
                                     "firmwareUpgrades",
@@ -109,17 +115,15 @@
                               ],
                               "cookie": [],
                               "responseTime": null,
-                              "body": "{\n \"product\": \"wireless\",\n \"status\": \"pending\",\n \"upgradeBatchId\": 23456,\n \"scheduledFor\": \"2020-10-21T02:00:00Z\",\n \"reasons\": [\n  {\n   \"category\": \"performance\",\n   \"comment\": \"Network was slower with the upgrade\"\n  },\n  {\n   \"category\": \"stability\",\n   \"comment\": \"We saw some errors in the logs we didn't expect\"\n  }\n ]\n}"
+                              "body": "{\n \"product\": \"wireless\",\n \"status\": \"pending\",\n \"upgradeBatchId\": 23456,\n \"time\": \"2020-10-21T02:00:00Z\",\n \"toVersion\": {\n  \"id\": 7857,\n  \"firmware\": \"switch-15-5-2\",\n  \"shortName\": \"MS 25.5.2\",\n  \"releaseType\": \"stable\"\n },\n \"reasons\": [\n  {\n   \"category\": \"performance\",\n   \"comment\": \"Network was slower with the upgrade\"\n  },\n  {\n   \"category\": \"stability\",\n   \"comment\": \"We saw some errors in the logs we didn't expect\"\n  }\n ]\n}"
                             }
                           ]
                         }
                       ],
-                      "_postman_id": "aff70eb5-b9e4-44e0-94fa-25dbf3594c82",
-                      "_postman_isSubFolder": true
+                      "id": "cf8dc1cd-aaf7-43f0-8172-b72f57343528"
                     }
                   ],
-                  "_postman_id": "46291e18-2f65-4e95-89ed-1fa537e75c5b",
-                  "_postman_isSubFolder": true
+                  "id": "0011446b-6433-405b-99f1-c825080fe23b"
                 },
                 {
                   "name": "Location Scanning",
@@ -129,7 +133,7 @@
                       "item": [
                         {
                           "name": "Return List Of Scanning API Receivers",
-                          "_postman_id": "8464fe58-92dd-45aa-b439-0e4e97ed2c4c",
+                          "id": "c2603341-6d75-43f6-a421-76151b07a3e8",
                           "protocolProfileBehavior": {
                             "followAuthorizationHeader": true
                           },
@@ -142,11 +146,16 @@
                               }
                             ],
                             "url": {
-                              "raw": "{{baseUrl}}/networks/:networkId/locationScanning/httpServers",
+                              "raw": "https://api-mp.meraki.com/api/v0/networks/:networkId/locationScanning/httpServers",
+                              "protocol": "https",
                               "host": [
-                                "{{baseUrl}}"
+                                "api-mp",
+                                "meraki",
+                                "com"
                               ],
                               "path": [
+                                "api",
+                                "v0",
                                 "networks",
                                 ":networkId",
                                 "locationScanning",
@@ -154,11 +163,10 @@
                               ],
                               "variable": [
                                 {
-                                  "id": "98860e39-04fb-442a-8f92-10e42519e6f0",
+                                  "id": "79c15cdc-44ab-476d-85be-8eac479a425b",
                                   "key": "networkId",
-                                  "value": "{{networkId}}",
-                                  "description": "(Required) ",
-                                  "type": "string"
+                                  "value": "L_643451796760561416",
+                                  "description": "(Required) "
                                 }
                               ]
                             },
@@ -166,17 +174,22 @@
                           },
                           "response": [
                             {
-                              "id": "09ed31f5-7ffd-4279-aaf8-cd98086bdbb8",
+                              "id": "0b94100d-0118-433a-8031-1e3162b73c69",
                               "name": "Successful operation",
                               "originalRequest": {
                                 "method": "GET",
                                 "header": [],
                                 "url": {
-                                  "raw": "{{baseUrl}}/networks/:networkId/locationScanning/httpServers",
+                                  "raw": "https://api-mp.meraki.com/api/v0/networks/:networkId/locationScanning/httpServers",
+                                  "protocol": "https",
                                   "host": [
-                                    "{{baseUrl}}"
+                                    "api-mp",
+                                    "meraki",
+                                    "com"
                                   ],
                                   "path": [
+                                    "api",
+                                    "v0",
                                     "networks",
                                     ":networkId",
                                     "locationScanning",
@@ -200,13 +213,13 @@
                               ],
                               "cookie": [],
                               "responseTime": null,
-                              "body": "[\n {\n  \"endpoints\": [\n   {\n    \"httpServer\": {\n     \"id\": \"1284392014819\",\n     \"name\": \"What's in a name, anyway?\",\n     \"url\": \"https://example.com/path\",\n     \"sharedSecret\": \"secret\",\n     \"validator\": \"xxx\",\n     \"validatedAt\": \"2018-02-11T00:00:00Z\",\n     \"payloadTemplate\": \"Meraki\"\n    },\n    \"successAt\": \"2018-05-12T00:00:00Z\",\n    \"errorAt\": \"2018-02-11T00:00:00Z\",\n    \"postErrors\": \"[{\\\"code\\\":200,\\\"delay\\\":{\\\"inMillis\\\":612},\\\"timestamp\\\":{\\\"millisFromEpoch\\\":1597255325467}}]\"\n   }\n  ]\n }\n]"
+                              "body": "[\n {\n  \"endpoints\": [\n   {\n    \"httpServer\": {\n     \"id\": \"1284392014819\",\n     \"name\": \"What's in a name, anyway?\",\n     \"url\": \"https://example.com/path\",\n     \"sharedSecret\": \"secret\",\n     \"validator\": \"xxx\",\n     \"validatedAt\": \"2018-02-11T00:00:00Z\",\n     \"payloadTemplateId\": \"wpt_00001\"\n    },\n    \"successAt\": \"2018-05-12T00:00:00Z\",\n    \"errorAt\": \"2018-02-11T00:00:00Z\",\n    \"postErrors\": \"[{\\\"code\\\":200,\\\"delay\\\":{\\\"inMillis\\\":612},\\\"timestamp\\\":{\\\"millisFromEpoch\\\":1597255325467}}]\"\n   }\n  ]\n }\n]"
                             }
                           ]
                         },
                         {
                           "name": "Set The List Of Scanning API Receivers",
-                          "_postman_id": "f1c5b0c7-aa5b-468a-a5f9-10936bb0a03d",
+                          "id": "d0a05089-202e-41dd-8461-03e815b9e3ef",
                           "protocolProfileBehavior": {
                             "followAuthorizationHeader": true
                           },
@@ -224,17 +237,19 @@
                             ],
                             "body": {
                               "mode": "raw",
-                              "raw": "{\n    \"endpoints\": [\n        {\n            \"scanningApiVersion\": \"<integer>\",\n            \"radioType\": \"<string>\",\n            \"httpServer\": {\n                \"url\": \"<string>\",\n                \"sharedSecret\": \"<string>\"\n            }\n        },\n        {\n            \"scanningApiVersion\": \"<integer>\",\n            \"radioType\": \"<string>\",\n            \"httpServer\": {\n                \"url\": \"<string>\",\n                \"sharedSecret\": \"<string>\"\n            }\n        }\n    ]\n}",
-                              "options": {
-                                "raw": {}
-                              }
+                              "raw": "{\n    \"endpoints\": [\n        {\n            \"scanningApiVersion\": \"<integer>\",\n            \"radioType\": \"<string>\",\n            \"httpServer\": {\n                \"url\": \"<string>\",\n                \"sharedSecret\": \"<string>\"\n            }\n        },\n        {\n            \"scanningApiVersion\": \"<integer>\",\n            \"radioType\": \"<string>\",\n            \"httpServer\": {\n                \"url\": \"<string>\",\n                \"sharedSecret\": \"<string>\"\n            }\n        }\n    ]\n}"
                             },
                             "url": {
-                              "raw": "{{baseUrl}}/networks/:networkId/locationScanning/httpServers",
+                              "raw": "https://api-mp.meraki.com/api/v0/networks/:networkId/locationScanning/httpServers",
+                              "protocol": "https",
                               "host": [
-                                "{{baseUrl}}"
+                                "api-mp",
+                                "meraki",
+                                "com"
                               ],
                               "path": [
+                                "api",
+                                "v0",
                                 "networks",
                                 ":networkId",
                                 "locationScanning",
@@ -242,11 +257,10 @@
                               ],
                               "variable": [
                                 {
-                                  "id": "5386642e-ecdd-4f57-9912-2b6022824154",
+                                  "id": "2b1cbfe3-7be5-4039-bd0c-65512d79a13b",
                                   "key": "networkId",
-                                  "value": "{{networkId}}",
-                                  "description": "(Required) ",
-                                  "type": "string"
+                                  "value": "L_643451796760561416",
+                                  "description": "(Required) "
                                 }
                               ]
                             },
@@ -254,7 +268,7 @@
                           },
                           "response": [
                             {
-                              "id": "4b87e4e8-79b2-45e0-b76d-e57b00332d20",
+                              "id": "415cc353-411a-4900-94f9-9848a197f1f3",
                               "name": "Successful operation",
                               "originalRequest": {
                                 "method": "PUT",
@@ -264,11 +278,16 @@
                                   "raw": "{\n    \"endpoints\": [\n        {\n            \"httpServer\": {\n                \"url\": \"https://example.com\",\n                \"sharedSecret\": \"shhh\"\n            },\n            \"scanningApiVersion\": 3,\n            \"radioType\": \"WiFi\"\n        }\n    ]\n}"
                                 },
                                 "url": {
-                                  "raw": "{{baseUrl}}/networks/:networkId/locationScanning/httpServers",
+                                  "raw": "https://api-mp.meraki.com/api/v0/networks/:networkId/locationScanning/httpServers",
+                                  "protocol": "https",
                                   "host": [
-                                    "{{baseUrl}}"
+                                    "api-mp",
+                                    "meraki",
+                                    "com"
                                   ],
                                   "path": [
+                                    "api",
+                                    "v0",
                                     "networks",
                                     ":networkId",
                                     "locationScanning",
@@ -292,17 +311,16 @@
                               ],
                               "cookie": [],
                               "responseTime": null,
-                              "body": "{\n \"endpoints\": [\n  {\n   \"httpServer\": {\n    \"id\": \"1284392014819\",\n    \"name\": \"What's in a name, anyway?\",\n    \"url\": \"https://example.com/path\",\n    \"sharedSecret\": \"secret\",\n    \"validator\": \"xxx\",\n    \"validatedAt\": \"2018-02-11T00:00:00Z\",\n    \"payloadTemplate\": \"Meraki\"\n   },\n   \"successAt\": \"2018-05-12T00:00:00Z\",\n   \"errorAt\": \"2018-02-11T00:00:00Z\",\n   \"postErrors\": \"[{\\\"code\\\":200,\\\"delay\\\":{\\\"inMillis\\\":612},\\\"timestamp\\\":{\\\"millisFromEpoch\\\":1597255325467}}]\"\n  }\n ]\n}"
+                              "body": "{\n \"endpoints\": [\n  {\n   \"httpServer\": {\n    \"id\": \"1284392014819\",\n    \"name\": \"What's in a name, anyway?\",\n    \"url\": \"https://example.com/path\",\n    \"sharedSecret\": \"secret\",\n    \"validator\": \"xxx\",\n    \"validatedAt\": \"2018-02-11T00:00:00Z\",\n    \"payloadTemplateId\": \"wpt_00001\"\n   },\n   \"successAt\": \"2018-05-12T00:00:00Z\",\n   \"errorAt\": \"2018-02-11T00:00:00Z\",\n   \"postErrors\": \"[{\\\"code\\\":200,\\\"delay\\\":{\\\"inMillis\\\":612},\\\"timestamp\\\":{\\\"millisFromEpoch\\\":1597255325467}}]\"\n  }\n ]\n}"
                             }
                           ]
                         }
                       ],
-                      "_postman_id": "40d0defc-d217-4f0d-814a-c691f16c5374",
-                      "_postman_isSubFolder": true
+                      "id": "93549391-6cc3-4d6f-9460-26c35ea31197"
                     },
                     {
                       "name": "Return Scanning API Settings",
-                      "_postman_id": "7aa834db-5ae1-48cb-b283-4499837f76b9",
+                      "id": "99455855-248e-4b35-8c48-3d1df86b118d",
                       "protocolProfileBehavior": {
                         "followAuthorizationHeader": true
                       },
@@ -315,22 +333,26 @@
                           }
                         ],
                         "url": {
-                          "raw": "{{baseUrl}}/networks/:networkId/locationScanning",
+                          "raw": "https://api-mp.meraki.com/api/v0/networks/:networkId/locationScanning",
+                          "protocol": "https",
                           "host": [
-                            "{{baseUrl}}"
+                            "api-mp",
+                            "meraki",
+                            "com"
                           ],
                           "path": [
+                            "api",
+                            "v0",
                             "networks",
                             ":networkId",
                             "locationScanning"
                           ],
                           "variable": [
                             {
-                              "id": "aceb86b2-4dde-483c-abec-21a4299d359f",
+                              "id": "dd58e787-faf6-4a97-9ea0-9490cd7c303c",
                               "key": "networkId",
-                              "value": "{{networkId}}",
-                              "description": "(Required) ",
-                              "type": "string"
+                              "value": "L_643451796760561416",
+                              "description": "(Required) "
                             }
                           ]
                         },
@@ -338,17 +360,22 @@
                       },
                       "response": [
                         {
-                          "id": "ec2c5c10-f846-42ca-9711-b79c99fe788c",
+                          "id": "309408c6-dc83-4ad2-b678-f33b19ad3a0c",
                           "name": "Successful operation",
                           "originalRequest": {
                             "method": "GET",
                             "header": [],
                             "url": {
-                              "raw": "{{baseUrl}}/networks/:networkId/locationScanning",
+                              "raw": "https://api-mp.meraki.com/api/v0/networks/:networkId/locationScanning",
+                              "protocol": "https",
                               "host": [
-                                "{{baseUrl}}"
+                                "api-mp",
+                                "meraki",
+                                "com"
                               ],
                               "path": [
+                                "api",
+                                "v0",
                                 "networks",
                                 ":networkId",
                                 "locationScanning"
@@ -377,7 +404,7 @@
                     },
                     {
                       "name": "Change Scanning API Settings",
-                      "_postman_id": "7c2e727f-aa35-4324-a70b-73a59a6283c4",
+                      "id": "4fc784fd-14b1-4497-b233-b833793e7d0a",
                       "protocolProfileBehavior": {
                         "followAuthorizationHeader": true
                       },
@@ -395,28 +422,29 @@
                         ],
                         "body": {
                           "mode": "raw",
-                          "raw": "{\n    \"analyticsEnabled\": \"<boolean>\",\n    \"scanningApiEnabled\": \"<boolean>\"\n}",
-                          "options": {
-                            "raw": {}
-                          }
+                          "raw": "{\n    \"analyticsEnabled\": \"<boolean>\",\n    \"scanningApiEnabled\": \"<boolean>\"\n}"
                         },
                         "url": {
-                          "raw": "{{baseUrl}}/networks/:networkId/locationScanning",
+                          "raw": "https://api-mp.meraki.com/api/v0/networks/:networkId/locationScanning",
+                          "protocol": "https",
                           "host": [
-                            "{{baseUrl}}"
+                            "api-mp",
+                            "meraki",
+                            "com"
                           ],
                           "path": [
+                            "api",
+                            "v0",
                             "networks",
                             ":networkId",
                             "locationScanning"
                           ],
                           "variable": [
                             {
-                              "id": "0aedccf8-f755-47d8-ac61-c919a67e6f2a",
+                              "id": "5d0de550-a6b8-4f29-9da4-a0d4d45dd36c",
                               "key": "networkId",
-                              "value": "{{networkId}}",
-                              "description": "(Required) ",
-                              "type": "string"
+                              "value": "L_643451796760561416",
+                              "description": "(Required) "
                             }
                           ]
                         },
@@ -424,7 +452,7 @@
                       },
                       "response": [
                         {
-                          "id": "67f35a89-e2ee-48b9-9105-db6b64622289",
+                          "id": "53d49e5e-ab61-4ad3-9ef5-30e9eda693cb",
                           "name": "Successful operation",
                           "originalRequest": {
                             "method": "PUT",
@@ -434,11 +462,16 @@
                               "raw": "{\n    \"analyticsEnabled\": true,\n    \"scanningApiEnabled\": true,\n    \"validator\": \"xxyzzy\"\n}"
                             },
                             "url": {
-                              "raw": "{{baseUrl}}/networks/:networkId/locationScanning",
+                              "raw": "https://api-mp.meraki.com/api/v0/networks/:networkId/locationScanning",
+                              "protocol": "https",
                               "host": [
-                                "{{baseUrl}}"
+                                "api-mp",
+                                "meraki",
+                                "com"
                               ],
                               "path": [
+                                "api",
+                                "v0",
                                 "networks",
                                 ":networkId",
                                 "locationScanning"
@@ -466,19 +499,16 @@
                       ]
                     }
                   ],
-                  "_postman_id": "38dc68af-b645-458a-b14e-3859267833e8",
-                  "_postman_isSubFolder": true
+                  "id": "9c28ae09-6d54-426f-821d-8e7fb59cc935"
                 }
               ],
-              "_postman_id": "8ac1811c-07e1-4a3e-b6b3-5ac2a6d6a409",
-              "_postman_isSubFolder": true
+              "id": "57d8c7d7-143b-4487-b077-1d7555548d3e"
             }
           ],
-          "_postman_id": "88d99419-f511-4b71-8658-f1f539ecaee3",
-          "_postman_isSubFolder": true
+          "id": "b3a08c05-1b05-42d0-93bc-153a53345102"
         }
       ],
-      "_postman_id": "c7cf3d55-2b41-463f-bd3f-07f788400362"
+      "id": "23c8e72d-5c56-4bf4-94aa-cd2e08bb5cb0"
     },
     {
       "name": "PRODUCTS",
@@ -497,7 +527,7 @@
                       "item": [
                         {
                           "name": "List The Outage Schedule For The SSID",
-                          "_postman_id": "88f8948f-b3bc-4ad4-94cc-c0cb4f7e30df",
+                          "id": "07c992f9-5bbc-4466-844a-8d674cc50990",
                           "protocolProfileBehavior": {
                             "followAuthorizationHeader": true
                           },
@@ -510,11 +540,16 @@
                               }
                             ],
                             "url": {
-                              "raw": "{{baseUrl}}/networks/:networkId/wireless/ssids/:number/schedules",
+                              "raw": "https://api-mp.meraki.com/api/v0/networks/:networkId/wireless/ssids/:number/schedules",
+                              "protocol": "https",
                               "host": [
-                                "{{baseUrl}}"
+                                "api-mp",
+                                "meraki",
+                                "com"
                               ],
                               "path": [
+                                "api",
+                                "v0",
                                 "networks",
                                 ":networkId",
                                 "wireless",
@@ -524,18 +559,16 @@
                               ],
                               "variable": [
                                 {
-                                  "id": "cba051b9-4b76-494e-8a48-b2bd8a28f20a",
+                                  "id": "109492a8-362a-4e5c-bd2d-3fd5899348cc",
                                   "key": "networkId",
-                                  "value": "{{networkId}}",
-                                  "description": "(Required) ",
-                                  "type": "string"
+                                  "value": "L_643451796760561416",
+                                  "description": "(Required) "
                                 },
                                 {
-                                  "id": "f37863f3-4666-4509-b022-26991d8aecf4",
+                                  "id": "efa71305-40e5-4263-b358-ccdb32b970a7",
                                   "key": "number",
-                                  "value": "{{number}}",
-                                  "description": "(Required) ",
-                                  "type": "string"
+                                  "value": "1",
+                                  "description": "(Required) "
                                 }
                               ]
                             },
@@ -543,17 +576,22 @@
                           },
                           "response": [
                             {
-                              "id": "013d8251-fd88-4a3d-bc75-09f28e75811d",
+                              "id": "2cde8af2-d11b-43cc-a8c0-cee1d387bd95",
                               "name": "Successful operation",
                               "originalRequest": {
                                 "method": "GET",
                                 "header": [],
                                 "url": {
-                                  "raw": "{{baseUrl}}/networks/:networkId/wireless/ssids/:number/schedules",
+                                  "raw": "https://api-mp.meraki.com/api/v0/networks/:networkId/wireless/ssids/:number/schedules",
+                                  "protocol": "https",
                                   "host": [
-                                    "{{baseUrl}}"
+                                    "api-mp",
+                                    "meraki",
+                                    "com"
                                   ],
                                   "path": [
+                                    "api",
+                                    "v0",
                                     "networks",
                                     ":networkId",
                                     "wireless",
@@ -588,7 +626,7 @@
                         },
                         {
                           "name": "Update The Outage Schedule For The SSID",
-                          "_postman_id": "ce14dbaf-b79a-4a63-89ae-9e87350353ef",
+                          "id": "f06b56f7-a562-4b38-a305-ff3cb3380dfe",
                           "protocolProfileBehavior": {
                             "followAuthorizationHeader": true
                           },
@@ -606,17 +644,19 @@
                             ],
                             "body": {
                               "mode": "raw",
-                              "raw": "{\n    \"enabled\": \"<boolean>\",\n    \"ranges\": [\n        {\n            \"startDay\": \"<string>\",\n            \"startTime\": \"<string>\",\n            \"endDay\": \"<string>\",\n            \"endTime\": \"<string>\"\n        },\n        {\n            \"startDay\": \"<string>\",\n            \"startTime\": \"<string>\",\n            \"endDay\": \"<string>\",\n            \"endTime\": \"<string>\"\n        }\n    ],\n    \"rangesInSeconds\": [\n        {\n            \"start\": \"<integer>\",\n            \"end\": \"<integer>\"\n        },\n        {\n            \"start\": \"<integer>\",\n            \"end\": \"<integer>\"\n        }\n    ]\n}",
-                              "options": {
-                                "raw": {}
-                              }
+                              "raw": "{\n    \"enabled\": \"<boolean>\",\n    \"ranges\": [\n        {\n            \"startDay\": \"<string>\",\n            \"startTime\": \"<string>\",\n            \"endDay\": \"<string>\",\n            \"endTime\": \"<string>\"\n        },\n        {\n            \"startDay\": \"<string>\",\n            \"startTime\": \"<string>\",\n            \"endDay\": \"<string>\",\n            \"endTime\": \"<string>\"\n        }\n    ],\n    \"rangesInSeconds\": [\n        {\n            \"start\": \"<integer>\",\n            \"end\": \"<integer>\"\n        },\n        {\n            \"start\": \"<integer>\",\n            \"end\": \"<integer>\"\n        }\n    ]\n}"
                             },
                             "url": {
-                              "raw": "{{baseUrl}}/networks/:networkId/wireless/ssids/:number/schedules",
+                              "raw": "https://api-mp.meraki.com/api/v0/networks/:networkId/wireless/ssids/:number/schedules",
+                              "protocol": "https",
                               "host": [
-                                "{{baseUrl}}"
+                                "api-mp",
+                                "meraki",
+                                "com"
                               ],
                               "path": [
+                                "api",
+                                "v0",
                                 "networks",
                                 ":networkId",
                                 "wireless",
@@ -626,18 +666,16 @@
                               ],
                               "variable": [
                                 {
-                                  "id": "2aa17384-8870-4780-b1d8-cb7c84537bb2",
+                                  "id": "1165906a-aad8-439d-b97a-e442adeb1b50",
                                   "key": "networkId",
-                                  "value": "{{networkId}}",
-                                  "description": "(Required) ",
-                                  "type": "string"
+                                  "value": "L_643451796760561416",
+                                  "description": "(Required) "
                                 },
                                 {
-                                  "id": "6c8ce2a6-12c0-44a3-a61f-572db38175b8",
+                                  "id": "d1f1f0cd-3cc5-4d6b-bb12-395ec43dcecd",
                                   "key": "number",
-                                  "value": "{{number}}",
-                                  "description": "(Required) ",
-                                  "type": "string"
+                                  "value": "1",
+                                  "description": "(Required) "
                                 }
                               ]
                             },
@@ -645,7 +683,7 @@
                           },
                           "response": [
                             {
-                              "id": "b42b8778-7c8a-4a56-adc6-72566c1afe66",
+                              "id": "9e0e620b-f231-41da-a52a-6144824eee6b",
                               "name": "Successful operation",
                               "originalRequest": {
                                 "method": "PUT",
@@ -655,11 +693,16 @@
                                   "raw": "{\n    \"enabled\": true,\n    \"ranges\": [\n        {\n            \"startDay\": \"Tuesday\",\n            \"startTime\": \"01:00\",\n            \"endDay\": \"Tuesday\",\n            \"endTime\": \"05:00\"\n        },\n        {\n            \"startDay\": \"Fri\",\n            \"startTime\": \"19:00\",\n            \"endDay\": \"monday\",\n            \"endTime\": \"05:00\"\n        }\n    ]\n}"
                                 },
                                 "url": {
-                                  "raw": "{{baseUrl}}/networks/:networkId/wireless/ssids/:number/schedules",
+                                  "raw": "https://api-mp.meraki.com/api/v0/networks/:networkId/wireless/ssids/:number/schedules",
+                                  "protocol": "https",
                                   "host": [
-                                    "{{baseUrl}}"
+                                    "api-mp",
+                                    "meraki",
+                                    "com"
                                   ],
                                   "path": [
+                                    "api",
+                                    "v0",
                                     "networks",
                                     ":networkId",
                                     "wireless",
@@ -693,16 +736,13 @@
                           ]
                         }
                       ],
-                      "_postman_id": "541e1711-b62f-4d1e-8c4b-cbb73173ad8f",
-                      "_postman_isSubFolder": true
+                      "id": "d3bb90c7-b88f-4338-b38a-38933735ec13"
                     }
                   ],
-                  "_postman_id": "a2c3efd4-ecea-4682-bb0b-6533b3c71098",
-                  "_postman_isSubFolder": true
+                  "id": "dbcae654-6e53-4c0c-9ae4-7537bcb8da6c"
                 }
               ],
-              "_postman_id": "3497e50d-3c2c-4825-a853-cd66d989fa5a",
-              "_postman_isSubFolder": true
+              "id": "06be9730-2054-46c6-a2f0-9db056f9d6db"
             },
             {
               "name": "Monitor",
@@ -715,7 +755,7 @@
                       "item": [
                         {
                           "name": "Return counts of distinct wireless clients connecting to a network over time",
-                          "_postman_id": "1dc3ea98-b84b-404c-b9a6-5445a3491a42",
+                          "id": "88c32464-1c7e-46ad-b407-0c0a557037fe",
                           "protocolProfileBehavior": {
                             "followAuthorizationHeader": true
                           },
@@ -728,11 +768,16 @@
                               }
                             ],
                             "url": {
-                              "raw": "{{baseUrl}}/networks/:networkId/wireless/clients/onboardingHistory",
+                              "raw": "https://api-mp.meraki.com/api/v0/networks/:networkId/wireless/clients/onboardingHistory",
+                              "protocol": "https",
                               "host": [
-                                "{{baseUrl}}"
+                                "api-mp",
+                                "meraki",
+                                "com"
                               ],
                               "path": [
+                                "api",
+                                "v0",
                                 "networks",
                                 ":networkId",
                                 "wireless",
@@ -743,19 +788,19 @@
                                 {
                                   "description": "The beginning of the timespan for the data. The maximum lookback period is 31 days from today.",
                                   "key": "t0",
-                                  "value": "{{t0}}",
+                                  "value": "1543561109",
                                   "disabled": true
                                 },
                                 {
                                   "description": "The end of the timespan for the data. t1 can be a maximum of 31 days after t0.",
                                   "key": "t1",
-                                  "value": "{{t1}}",
+                                  "value": "1543568309",
                                   "disabled": true
                                 },
                                 {
                                   "description": "The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 7 days.",
                                   "key": "timespan",
-                                  "value": "{{timespan}}",
+                                  "value": "86400",
                                   "disabled": true
                                 },
                                 {
@@ -779,11 +824,10 @@
                               ],
                               "variable": [
                                 {
-                                  "id": "004b5ccc-c68e-4846-80f1-197ad3618b31",
+                                  "id": "3027e0f0-05f5-416b-9f09-72648e41b89f",
                                   "key": "networkId",
-                                  "value": "{{networkId}}",
-                                  "description": "(Required) ",
-                                  "type": "string"
+                                  "value": "L_643451796760561416",
+                                  "description": "(Required) "
                                 }
                               ]
                             },
@@ -791,17 +835,22 @@
                           },
                           "response": [
                             {
-                              "id": "867bf4f3-f1cb-41a5-9162-ab56118e0c8f",
+                              "id": "0cbb07da-a67f-4bd1-a558-2852eb24871f",
                               "name": "Successful operation",
                               "originalRequest": {
                                 "method": "GET",
                                 "header": [],
                                 "url": {
-                                  "raw": "{{baseUrl}}/networks/:networkId/wireless/clients/onboardingHistory?t0=<string>&t1=<string>&timespan=<float>&resolution=<integer>&band=<string>&ssid=<integer>",
+                                  "raw": "https://api-mp.meraki.com/api/v0/networks/:networkId/wireless/clients/onboardingHistory?t0=<string>&t1=<string>&timespan=<float>&resolution=<integer>&band=<string>&ssid=<integer>",
+                                  "protocol": "https",
                                   "host": [
-                                    "{{baseUrl}}"
+                                    "api-mp",
+                                    "meraki",
+                                    "com"
                                   ],
                                   "path": [
+                                    "api",
+                                    "v0",
                                     "networks",
                                     ":networkId",
                                     "wireless",
@@ -857,27 +906,23 @@
                           ]
                         }
                       ],
-                      "_postman_id": "dcefffab-9d90-4b17-9fb4-a02556c7f306",
-                      "_postman_isSubFolder": true
+                      "id": "55a2cc14-bd13-41f9-add5-57d4af4ae332"
                     }
                   ],
-                  "_postman_id": "dfe0c948-d152-4d3e-adda-4d6203598e6d",
-                  "_postman_isSubFolder": true
+                  "id": "6a265258-af88-4ed3-b177-8bf2a7a0f365"
                 }
               ],
-              "_postman_id": "2040ad89-ee91-4e60-8904-98fbd7e31b0c",
-              "_postman_isSubFolder": true
+              "id": "da944959-0749-497d-8c2c-f2ec35f494be"
             }
           ],
-          "_postman_id": "c9318403-2d77-4601-82c1-8a69605a944c",
-          "_postman_isSubFolder": true
+          "id": "593f3983-50d6-43d0-a6c1-6b0dc8038ada"
         }
       ],
-      "_postman_id": "afb47b59-5b77-4c92-89aa-b8f097769926"
+      "id": "16b3970a-690f-473c-b98f-ca6e7029dace"
     },
     {
       "name": "List the Organizations",
-      "_postman_id": "23923db8-694c-4923-85cc-ab883705c0c2",
+      "id": "c62b50c8-1d47-4e43-aaa9-cc96a1386c37",
       "protocolProfileBehavior": {
         "followAuthorizationHeader": true
       },
@@ -889,17 +934,17 @@
             "value": ""
           }
         ],
-        "url": "{{baseUrl}}/organizations",
+        "url": "https://api-mp.meraki.com/api/v0/organizations",
         "description": "List the organizations that the user has privileges on"
       },
       "response": [
         {
-          "id": "ffdef6b9-ea10-4be0-a1c2-fb5fdf78c674",
+          "id": "283820ab-f920-4c77-983a-f33b2b698f09",
           "name": "Successful operation",
           "originalRequest": {
             "method": "GET",
             "header": [],
-            "url": "{{baseUrl}}/organizations"
+            "url": "https://api-mp.meraki.com/api/v0/organizations"
           },
           "status": "OK",
           "code": 200,
@@ -918,7 +963,7 @@
     },
     {
       "name": "List the Networks in an Organization ",
-      "_postman_id": "9476e1e8-4644-492b-a0aa-9e4b04c162a9",
+      "id": "69b049c9-6e61-4efe-8091-76fdc50d92ff",
       "protocolProfileBehavior": {
         "followAuthorizationHeader": true
       },
@@ -931,11 +976,16 @@
           }
         ],
         "url": {
-          "raw": "{{baseUrl}}/organizations/:organizationId/networks",
+          "raw": "https://api-mp.meraki.com/api/v0/organizations/:organizationId/networks",
+          "protocol": "https",
           "host": [
-            "{{baseUrl}}"
+            "api-mp",
+            "meraki",
+            "com"
           ],
           "path": [
+            "api",
+            "v0",
             "organizations",
             ":organizationId",
             "networks"
@@ -961,7 +1011,7 @@
             },
             {
               "key": "perPage",
-              "value": "{{perPage}}",
+              "value": "100",
               "description": "The number of entries per page returned. Acceptable range is 3 - 100000. Default is 1000.",
               "disabled": true
             },
@@ -980,11 +1030,10 @@
           ],
           "variable": [
             {
-              "id": "cce03912-01d5-4946-8086-96e6256e3b5b",
+              "id": "9217014f-8b67-4153-90e7-d661fca4c93b",
               "key": "organizationId",
               "value": "306267",
-              "description": "(Required) ",
-              "type": "string"
+              "description": "(Required) "
             }
           ]
         },
@@ -992,17 +1041,22 @@
       },
       "response": [
         {
-          "id": "e15a7a51-317a-40cf-aee5-b03862d77e8d",
+          "id": "7d12973d-81db-4dfc-956b-2bc50fb5a161",
           "name": "Successful operation",
           "originalRequest": {
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{baseUrl}}/organizations/:organizationId/networks?configTemplateId=<string>&tags=<string>,<string>&tagsFilterType=<string>&perPage=<integer>&startingAfter=<string>&endingBefore=<string>",
+              "raw": "https://api-mp.meraki.com/api/v0/organizations/:organizationId/networks?configTemplateId=<string>&tags=<string>,<string>&tagsFilterType=<string>&perPage=<integer>&startingAfter=<string>&endingBefore=<string>",
+              "protocol": "https",
               "host": [
-                "{{baseUrl}}"
+                "api-mp",
+                "meraki",
+                "com"
               ],
               "path": [
+                "api",
+                "v0",
                 "organizations",
                 ":organizationId",
                 "networks"
@@ -1062,7 +1116,7 @@
     },
     {
       "name": "List the Devices in an Organization",
-      "_postman_id": "261d437e-3f0e-4196-bc1d-215ab831de34",
+      "id": "85baf212-2f34-4834-8c48-cf5f4dc93eff",
       "protocolProfileBehavior": {
         "followAuthorizationHeader": true
       },
@@ -1075,11 +1129,16 @@
           }
         ],
         "url": {
-          "raw": "{{baseUrl}}/organizations/:organizationId/devices",
+          "raw": "https://api-mp.meraki.com/api/v0/organizations/:organizationId/devices",
+          "protocol": "https",
           "host": [
-            "{{baseUrl}}"
+            "api-mp",
+            "meraki",
+            "com"
           ],
           "path": [
+            "api",
+            "v0",
             "organizations",
             ":organizationId",
             "devices"
@@ -1087,7 +1146,7 @@
           "query": [
             {
               "key": "perPage",
-              "value": "{{perPage}}",
+              "value": "100",
               "description": "The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000.",
               "disabled": true
             },
@@ -1112,11 +1171,10 @@
           ],
           "variable": [
             {
-              "id": "1e97e01e-204b-46b1-963c-43741b8b836c",
+              "id": "0f1ab2c3-a257-4513-bc21-740945587198",
               "key": "organizationId",
               "value": "306267",
-              "description": "(Required) ",
-              "type": "string"
+              "description": "(Required) "
             }
           ]
         },
@@ -1124,17 +1182,22 @@
       },
       "response": [
         {
-          "id": "da386bf1-c41d-4830-ae96-788375731874",
+          "id": "8ab96c91-0b76-474b-b974-195e89d9cbc0",
           "name": "Successful operation",
           "originalRequest": {
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{baseUrl}}/organizations/:organizationId/devices?perPage=<integer>&startingAfter=<string>&endingBefore=<string>&configurationUpdatedAfter=<string>",
+              "raw": "https://api-mp.meraki.com/api/v0/organizations/:organizationId/devices?perPage=<integer>&startingAfter=<string>&endingBefore=<string>&configurationUpdatedAfter=<string>",
+              "protocol": "https",
               "host": [
-                "{{baseUrl}}"
+                "api-mp",
+                "meraki",
+                "com"
               ],
               "path": [
+                "api",
+                "v0",
                 "organizations",
                 ":organizationId",
                 "devices"
@@ -1186,7 +1249,7 @@
     },
     {
       "name": "List the Clients in a Network",
-      "_postman_id": "4c4b05ae-bfd5-463a-bfc0-36e475f2f395",
+      "id": "78946450-d4c0-4ff8-b296-1b0eec4c303c",
       "protocolProfileBehavior": {
         "followAuthorizationHeader": true
       },
@@ -1199,11 +1262,16 @@
           }
         ],
         "url": {
-          "raw": "{{baseUrl}}/networks/:networkId/clients",
+          "raw": "https://api-mp.meraki.com/api/v0/networks/:networkId/clients",
+          "protocol": "https",
           "host": [
-            "{{baseUrl}}"
+            "api-mp",
+            "meraki",
+            "com"
           ],
           "path": [
+            "api",
+            "v0",
             "networks",
             ":networkId",
             "clients"
@@ -1211,19 +1279,19 @@
           "query": [
             {
               "key": "t0",
-              "value": "{{t0}}",
+              "value": "1543561109",
               "description": "The beginning of the timespan for the data. The maximum lookback period is 31 days from today.",
               "disabled": true
             },
             {
               "key": "timespan",
-              "value": "{{timespan}}",
+              "value": "86400",
               "description": "The timespan for which the information will be fetched. If specifying timespan, do not specify parameter t0. The value must be in seconds and be less than or equal to 31 days. The default is 1 day.",
               "disabled": true
             },
             {
               "key": "perPage",
-              "value": "{{perPage}}",
+              "value": "100",
               "description": "The number of entries per page returned. Acceptable range is 3 - 1000. Default is 10.",
               "disabled": true
             },
@@ -1242,11 +1310,10 @@
           ],
           "variable": [
             {
-              "id": "89d3fd9a-f047-4bd1-a849-f09fa8b94bbf",
+              "id": "15609384-f820-41e9-b63d-60572f87de06",
               "key": "networkId",
-              "value": "{{networkId}}",
-              "description": "(Required) ",
-              "type": "string"
+              "value": "L_643451796760561416",
+              "description": "(Required) "
             }
           ]
         },
@@ -1254,17 +1321,22 @@
       },
       "response": [
         {
-          "id": "effea70a-695a-4adc-a243-defdb8649abd",
+          "id": "23e095dc-62b4-44dc-920e-1c91b052de00",
           "name": "Successful operation",
           "originalRequest": {
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{baseUrl}}/networks/:networkId/clients?t0=<string>&timespan=<float>&perPage=<integer>&startingAfter=<string>&endingBefore=<string>",
+              "raw": "https://api-mp.meraki.com/api/v0/networks/:networkId/clients?t0=<string>&timespan=<float>&perPage=<integer>&startingAfter=<string>&endingBefore=<string>",
+              "protocol": "https",
               "host": [
-                "{{baseUrl}}"
+                "api-mp",
+                "meraki",
+                "com"
               ],
               "path": [
+                "api",
+                "v0",
                 "networks",
                 ":networkId",
                 "clients"
@@ -1322,7 +1394,7 @@
   "auth": {
     "type": "apikey",
     "apikey": {
-      "value": "{{apiKey}}",
+      "value": "be647eed3046542a895ea9ad07b7f7cef4c002de",
       "key": "X-Cisco-Meraki-API-Key"
     }
   },
@@ -1330,7 +1402,7 @@
     {
       "listen": "prerequest",
       "script": {
-        "id": "53030ef9-7030-4010-abe4-b32fe0f02ab6",
+        "id": "994c5204-f14d-4756-8676-f20ec1f149fa",
         "type": "text/javascript",
         "exec": [
           ""
@@ -1340,7 +1412,7 @@
     {
       "listen": "test",
       "script": {
-        "id": "44f7c0e3-5cb5-4176-b3ad-6fb17c6444a5",
+        "id": "2e25165a-7bd7-4dd7-8368-6e0d16f7baf2",
         "type": "text/javascript",
         "exec": [
           "// JSON Magic Postman Template",
@@ -1358,58 +1430,44 @@
   ],
   "variable": [
     {
-      "id": "ff27b3c8-8a3a-44d5-bd25-ac501c7662fb",
-      "key": "band",
-      "value": "",
-      "type": "string"
+      "id": "band",
+      "key": "band"
     },
     {
-      "id": "1a411cab-70c3-4ab4-a7f8-83525d4c20d6",
+      "id": "baseUrl",
       "key": "baseUrl",
       "value": "https://api-mp.meraki.com/api/v1",
       "type": "string"
     },
     {
-      "id": "4af432e1-d19e-4335-89a2-e3201f482e03",
+      "id": "networkId",
       "key": "networkId",
-      "value": "",
-      "type": "string"
+      "type": "any"
     },
     {
-      "id": "19528915-5bd5-46eb-b2da-674cb2f1045b",
+      "id": "number",
       "key": "number",
-      "value": "",
-      "type": "string"
+      "type": "any"
     },
     {
-      "id": "f59e580b-a178-4b77-85e1-52627399919f",
-      "key": "resolution",
-      "value": "",
-      "type": "string"
+      "id": "resolution",
+      "key": "resolution"
     },
     {
-      "id": "b50b9f0e-648b-41dd-a824-50bbbdd3b2a5",
-      "key": "ssid",
-      "value": "",
-      "type": "string"
+      "id": "ssid",
+      "key": "ssid"
     },
     {
-      "id": "04a15182-5eaf-4ce2-8fda-1bc815e19063",
-      "key": "t0",
-      "value": "",
-      "type": "string"
+      "id": "t0",
+      "key": "t0"
     },
     {
-      "id": "5ae61027-5c86-4bbc-b2c4-5d3c3ba364bb",
-      "key": "t1",
-      "value": "",
-      "type": "string"
+      "id": "t1",
+      "key": "t1"
     },
     {
-      "id": "dd3f293f-4e7e-4313-9061-9bde0705ad08",
-      "key": "timespan",
-      "value": "",
-      "type": "string"
+      "id": "timespan",
+      "key": "timespan"
     }
   ]
 }
