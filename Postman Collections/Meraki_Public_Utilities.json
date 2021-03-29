@@ -22,7 +22,7 @@
               }
             }
           ],
-          "id": "ef281c19-55da-40ea-b0b5-a8810c87ba20",
+          "_postman_id": "ef281c19-55da-40ea-b0b5-a8810c87ba20",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
           },
@@ -57,7 +57,7 @@
               }
             }
           ],
-          "id": "61619f7b-b977-4a5d-a381-b6a80984baf9",
+          "_postman_id": "61619f7b-b977-4a5d-a381-b6a80984baf9",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
           },
@@ -92,7 +92,7 @@
               }
             }
           ],
-          "id": "b7c12f6d-de76-4c98-b126-ae3418aea33a",
+          "_postman_id": "b7c12f6d-de76-4c98-b126-ae3418aea33a",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
           },
@@ -148,7 +148,7 @@
               }
             }
           ],
-          "id": "0903d72e-3704-42dc-ab23-334dba211412",
+          "_postman_id": "0903d72e-3704-42dc-ab23-334dba211412",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
           },
@@ -242,7 +242,7 @@
               }
             }
           ],
-          "id": "23f7bba5-78de-4191-bfea-18b4ebb53479",
+          "_postman_id": "23f7bba5-78de-4191-bfea-18b4ebb53479",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
           },
@@ -332,7 +332,7 @@
               }
             }
           ],
-          "id": "b1757208-3584-4c02-a96f-5e03bc2652ec",
+          "_postman_id": "b1757208-3584-4c02-a96f-5e03bc2652ec",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
           },
@@ -354,7 +354,7 @@
           "response": []
         }
       ],
-      "id": "6f323bcc-231c-43b8-931a-7f2c0a7c9edf"
+      "_postman_id": "6f323bcc-231c-43b8-931a-7f2c0a7c9edf"
     },
     {
       "name": "Meraki API Changelog",
@@ -414,7 +414,7 @@
               }
             }
           ],
-          "id": "883bf11c-6a00-472f-b0b2-20c4d8f8c795",
+          "_postman_id": "883bf11c-6a00-472f-b0b2-20c4d8f8c795",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
           },
@@ -430,7 +430,10 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"oldSpec\": \"https://raw.githubusercontent.com/meraki/openapi/{{prevApiRelease}}/openapi/spec2.json\",\n    \"newSpec\": \"https://raw.githubusercontent.com/meraki/openapi/{{latestApiRelease}}/openapi/spec2.json\"\n}"
+              "raw": "{\n    \"oldSpec\": \"https://raw.githubusercontent.com/meraki/openapi/{{prevApiRelease}}/openapi/spec2.json\",\n    \"newSpec\": \"https://raw.githubusercontent.com/meraki/openapi/{{latestApiRelease}}/openapi/spec2.json\"\n}",
+              "options": {
+                "raw": {}
+              }
             },
             "url": "https://us-central1-focal-rig-261016.cloudfunctions.net/app/swagger/diff",
             "description": "Generates a changelog using the latest Meraki API specification in GitHub Releases\n- Latest v1 GA"
@@ -439,7 +442,7 @@
         },
         {
           "name": "Meraki API - v1 to v1 Beta",
-          "id": "4dc403b9-d5b5-43f5-875f-dd3110028341",
+          "_postman_id": "4dc403b9-d5b5-43f5-875f-dd3110028341",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
           },
@@ -455,31 +458,10 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"oldSpec\": \"https://raw.githubusercontent.com/meraki/openapi/master/openapi/spec2.json\",\n    \"newSpec\": \"https://raw.githubusercontent.com/meraki/openapi/v1-beta/openapi/spec2.json\"\n}"
-            },
-            "url": "https://us-central1-focal-rig-261016.cloudfunctions.net/app/swagger/diff"
-          },
-          "response": []
-        },
-        {
-          "name": "Meraki API - v0 to v1",
-          "id": "0c3ad044-2f17-4aff-9b99-1fe35f6329d6",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "name": "Content-Type",
-                "type": "text",
-                "value": "application/json"
+              "raw": "{\n    \"oldSpec\": \"https://raw.githubusercontent.com/meraki/openapi/master/openapi/spec2.json\",\n    \"newSpec\": \"https://raw.githubusercontent.com/meraki/openapi/v1-beta/openapi/spec2.json\"\n}",
+              "options": {
+                "raw": {}
               }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"oldSpec\": \"https://raw.githubusercontent.com/meraki/openapi/v0/openapi/spec2.json\",\n    \"newSpec\": \"https://raw.githubusercontent.com/meraki/openapi/master/openapi/spec2.json\"\n}"
             },
             "url": "https://us-central1-focal-rig-261016.cloudfunctions.net/app/swagger/diff"
           },
@@ -540,7 +522,7 @@
               }
             }
           ],
-          "id": "f173d8db-e94c-4672-a613-23af3787aab9",
+          "_postman_id": "f173d8db-e94c-4672-a613-23af3787aab9",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
           },
@@ -556,7 +538,10 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"oldSpec\": \"https://raw.githubusercontent.com/meraki/openapi/{{prevApiRelease}}/openapi/spec2.json\",\n    \"newSpec\": \"https://raw.githubusercontent.com/meraki/openapi/{{latestApiRelease}}/openapi/spec2.json\"\n}"
+              "raw": "{\n    \"oldSpec\": \"https://raw.githubusercontent.com/meraki/openapi/{{prevApiRelease}}/openapi/spec2.json\",\n    \"newSpec\": \"https://raw.githubusercontent.com/meraki/openapi/{{latestApiRelease}}/openapi/spec2.json\"\n}",
+              "options": {
+                "raw": {}
+              }
             },
             "url": "https://us-central1-focal-rig-261016.cloudfunctions.net/app/swagger/diff",
             "description": "Generates a changelog using the latest Meraki API specification in GitHub Releases\n\n- Latest v1 BETA"
@@ -565,7 +550,7 @@
         },
         {
           "name": "Meraki API - v1.0.0 to v1 latest GA",
-          "id": "0e7d251f-83a9-4459-867e-09c4a2404d1d",
+          "_postman_id": "0e7d251f-83a9-4459-867e-09c4a2404d1d",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
           },
@@ -581,14 +566,44 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"oldSpec\": \"https://raw.githubusercontent.com/meraki/openapi/v1.0.0/openapi/spec2.json\",\n    \"newSpec\": \"https://raw.githubusercontent.com/meraki/openapi/master/openapi/spec2.json\"\n}"
+              "raw": "{\n    \"oldSpec\": \"https://raw.githubusercontent.com/meraki/openapi/v1.0.0/openapi/spec2.json\",\n    \"newSpec\": \"https://raw.githubusercontent.com/meraki/openapi/master/openapi/spec2.json\"\n}",
+              "options": {
+                "raw": {}
+              }
+            },
+            "url": "https://us-central1-focal-rig-261016.cloudfunctions.net/app/swagger/diff"
+          },
+          "response": []
+        },
+        {
+          "name": "Meraki API - v0 to v1",
+          "_postman_id": "0c3ad044-2f17-4aff-9b99-1fe35f6329d6",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "type": "text",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"oldSpec\": \"https://raw.githubusercontent.com/meraki/openapi/v0/openapi/spec2.json\",\n    \"newSpec\": \"https://raw.githubusercontent.com/meraki/openapi/master/openapi/spec2.json\"\n}",
+              "options": {
+                "raw": {}
+              }
             },
             "url": "https://us-central1-focal-rig-261016.cloudfunctions.net/app/swagger/diff"
           },
           "response": []
         }
       ],
-      "id": "c63ef6c6-60f2-4957-835d-aa398354ae88"
+      "_postman_id": "c63ef6c6-60f2-4957-835d-aa398354ae88"
     }
   ],
   "event": [
@@ -622,9 +637,10 @@
   ],
   "variable": [
     {
-      "id": "86e470c7-fa7e-4e6c-8b77-1f46e3565a5f",
+      "id": "ebc8e64c-170a-42a7-a5fd-03794a97b422",
       "key": "viz-template-url",
-      "value": ""
+      "value": "",
+      "type": "string"
     }
   ]
 }
