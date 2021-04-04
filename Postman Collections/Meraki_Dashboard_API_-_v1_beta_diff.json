@@ -20,7 +20,7 @@
                   "item": [
                     {
                       "name": "Return current delegated IPv6 prefixes on an appliance.",
-                      "_postman_id": "5868cc1e-894c-4272-aff4-89915f889975",
+                      "id": "995471f1-a15a-46bd-bd91-3672e7010de8",
                       "protocolProfileBehavior": {
                         "followAuthorizationHeader": true
                       },
@@ -45,11 +45,10 @@
                           ],
                           "variable": [
                             {
-                              "id": "1b926c5c-5e69-4424-a324-41b407147afe",
+                              "id": "fd85246d-293e-4ba0-b7d3-9e416c8b8272",
                               "key": "serial",
                               "value": "{{serial}}",
-                              "description": "(Required) ",
-                              "type": "string"
+                              "description": "(Required) "
                             }
                           ]
                         },
@@ -57,7 +56,7 @@
                       },
                       "response": [
                         {
-                          "id": "6c6dd1ac-5690-4c84-a874-6bcff61f81df",
+                          "id": "7ecf3246-d93c-4964-a289-bc4511d98e2e",
                           "name": "Successful operation",
                           "originalRequest": {
                             "method": "GET",
@@ -96,15 +95,14 @@
                       ]
                     }
                   ],
-                  "_postman_id": "175afd10-1f0f-4b37-bb75-5b4c93579d0c",
-                  "_postman_isSubFolder": true
+                  "id": "14673393-9d84-4e37-9e63-aa6ffc27fb9b"
                 },
                 {
                   "name": "Vlan Prefix Assignments",
                   "item": [
                     {
                       "name": "Return prefixes assigned to all IPv6 enabled VLANs on an appliance.",
-                      "_postman_id": "19b8c8c2-84ff-4607-a6aa-8923d4785ca7",
+                      "id": "c66d221d-266c-44ac-a7dd-beff4d0e7071",
                       "protocolProfileBehavior": {
                         "followAuthorizationHeader": true
                       },
@@ -129,11 +127,10 @@
                           ],
                           "variable": [
                             {
-                              "id": "5bea41d8-bffe-4975-9d56-d3f0ddfb9e4c",
+                              "id": "7cea2d3b-f968-41bf-910d-479a3069e208",
                               "key": "serial",
                               "value": "{{serial}}",
-                              "description": "(Required) ",
-                              "type": "string"
+                              "description": "(Required) "
                             }
                           ]
                         },
@@ -141,7 +138,7 @@
                       },
                       "response": [
                         {
-                          "id": "f757534f-4858-4739-8182-44388c60c477",
+                          "id": "7b0f3c2f-0ac9-4666-8209-259bccc03440",
                           "name": "Successful operation",
                           "originalRequest": {
                             "method": "GET",
@@ -180,12 +177,10 @@
                       ]
                     }
                   ],
-                  "_postman_id": "c0394bfd-4ee8-4b9e-a079-5b24dc9a0276",
-                  "_postman_isSubFolder": true
+                  "id": "ce3f8346-86bb-46da-a9ca-ce33fb5ca4f2"
                 }
               ],
-              "_postman_id": "7acb6039-7a2d-4770-8e28-0bd425af3b5e",
-              "_postman_isSubFolder": true
+              "id": "0a41baaf-51d5-418c-97fa-a5c69159448f"
             },
             {
               "name": "Configure",
@@ -195,7 +190,7 @@
                   "item": [
                     {
                       "name": "List Static Delegated Prefixes For A Network",
-                      "_postman_id": "97975266-4569-4d51-92e7-729907cd290d",
+                      "id": "c9ae51f3-dd5c-4da9-9af5-de62bd5e5721",
                       "protocolProfileBehavior": {
                         "followAuthorizationHeader": true
                       },
@@ -220,11 +215,10 @@
                           ],
                           "variable": [
                             {
-                              "id": "415358fa-1c89-4bda-9565-f29e5821e277",
+                              "id": "fe807c44-ebb6-48d9-83bf-6dba0a753ae2",
                               "key": "networkId",
                               "value": "{{networkId}}",
-                              "description": "(Required) ",
-                              "type": "string"
+                              "description": "(Required) "
                             }
                           ]
                         },
@@ -232,7 +226,7 @@
                       },
                       "response": [
                         {
-                          "id": "8dc1e089-d8d3-4b58-9a0c-4e8ddb466711",
+                          "id": "83248e3d-d60f-420c-95a1-c73d783237fd",
                           "name": "Successful operation",
                           "originalRequest": {
                             "method": "GET",
@@ -272,7 +266,7 @@
                     },
                     {
                       "name": "Add A Static Delegated Prefix From A Network",
-                      "_postman_id": "3115281c-4166-47f5-8c2f-d67fea3ca723",
+                      "id": "661926ec-ced7-4a99-ade6-09f52aac986a",
                       "protocolProfileBehavior": {
                         "followAuthorizationHeader": true
                       },
@@ -290,10 +284,7 @@
                         ],
                         "body": {
                           "mode": "raw",
-                          "raw": "{\n    \"prefix\": \"<string>\",\n    \"origin\": {\n        \"type\": \"<string>\",\n        \"interfaces\": [\n            \"<string>\",\n            \"<string>\"\n        ]\n    },\n    \"description\": \"<string>\"\n}",
-                          "options": {
-                            "raw": {}
-                          }
+                          "raw": "{\n    \"prefix\": \"<string>\",\n    \"origin\": {\n        \"type\": \"<string>\",\n        \"interfaces\": [\n            \"<string>\",\n            \"<string>\"\n        ]\n    },\n    \"description\": \"<string>\"\n}"
                         },
                         "url": {
                           "raw": "{{baseUrl}}/networks/:networkId/appliance/staticDelegatedPrefixes",
@@ -308,11 +299,10 @@
                           ],
                           "variable": [
                             {
-                              "id": "488530cb-4d3d-42fe-8fd4-7cab1262d2d3",
+                              "id": "b221ec30-876f-462b-9885-1dc64df93756",
                               "key": "networkId",
                               "value": "{{networkId}}",
-                              "description": "(Required) ",
-                              "type": "string"
+                              "description": "(Required) "
                             }
                           ]
                         },
@@ -320,7 +310,7 @@
                       },
                       "response": [
                         {
-                          "id": "52882fb8-d79b-47b9-b953-bcac18fcbfb2",
+                          "id": "77ada555-0bc4-485e-b52e-cd8a3fd2ff06",
                           "name": "Successful operation",
                           "originalRequest": {
                             "method": "POST",
@@ -364,7 +354,7 @@
                     },
                     {
                       "name": "Return A Static Delegated Prefix From A Network",
-                      "_postman_id": "02931004-8900-4d28-9813-2cd34168c9df",
+                      "id": "814d67d7-5c01-4067-92e2-f204f6897068",
                       "protocolProfileBehavior": {
                         "followAuthorizationHeader": true
                       },
@@ -390,18 +380,16 @@
                           ],
                           "variable": [
                             {
-                              "id": "e40b6b52-c54a-4f71-a9a9-f9ac66bf3318",
+                              "id": "234b572d-835b-4dd3-ae96-a3947299e04b",
                               "key": "networkId",
                               "value": "{{networkId}}",
-                              "description": "(Required) ",
-                              "type": "string"
+                              "description": "(Required) "
                             },
                             {
-                              "id": "336bccb8-8be4-4291-8544-dd561ee1ef2b",
+                              "id": "bf018b51-5bb8-4a6f-a1e7-b4461e559b64",
                               "key": "staticDelegatedPrefixId",
                               "value": "{{staticDelegatedPrefixId}}",
-                              "description": "(Required) ",
-                              "type": "string"
+                              "description": "(Required) "
                             }
                           ]
                         },
@@ -409,7 +397,7 @@
                       },
                       "response": [
                         {
-                          "id": "5ffec0e3-64b9-47a5-83f5-69bef2bf9067",
+                          "id": "17b22fe7-b58f-4ffe-9736-62c93e3fbca8",
                           "name": "Successful operation",
                           "originalRequest": {
                             "method": "GET",
@@ -453,7 +441,7 @@
                     },
                     {
                       "name": "Update A Static Delegated Prefix From A Network",
-                      "_postman_id": "51645cb8-46bc-4c5c-8118-d8bd36bbbe3b",
+                      "id": "17573d0a-dcca-4a29-a363-5e971a898b45",
                       "protocolProfileBehavior": {
                         "followAuthorizationHeader": true
                       },
@@ -471,10 +459,7 @@
                         ],
                         "body": {
                           "mode": "raw",
-                          "raw": "{\n    \"prefix\": \"<string>\",\n    \"origin\": {\n        \"type\": \"<string>\",\n        \"interfaces\": [\n            \"<string>\",\n            \"<string>\"\n        ]\n    },\n    \"description\": \"<string>\"\n}",
-                          "options": {
-                            "raw": {}
-                          }
+                          "raw": "{\n    \"prefix\": \"<string>\",\n    \"origin\": {\n        \"type\": \"<string>\",\n        \"interfaces\": [\n            \"<string>\",\n            \"<string>\"\n        ]\n    },\n    \"description\": \"<string>\"\n}"
                         },
                         "url": {
                           "raw": "{{baseUrl}}/networks/:networkId/appliance/staticDelegatedPrefixes/:staticDelegatedPrefixId",
@@ -490,18 +475,16 @@
                           ],
                           "variable": [
                             {
-                              "id": "22245184-bbaf-42ee-8ad4-5e22dbd4180b",
+                              "id": "3337ff1e-11c6-406f-892f-f19e2941cae0",
                               "key": "networkId",
                               "value": "{{networkId}}",
-                              "description": "(Required) ",
-                              "type": "string"
+                              "description": "(Required) "
                             },
                             {
-                              "id": "a9e05744-9424-4ca2-b65c-e64b32531416",
+                              "id": "1ea24dca-fc48-4050-98c7-4420e9da5a58",
                               "key": "staticDelegatedPrefixId",
                               "value": "{{staticDelegatedPrefixId}}",
-                              "description": "(Required) ",
-                              "type": "string"
+                              "description": "(Required) "
                             }
                           ]
                         },
@@ -509,7 +492,7 @@
                       },
                       "response": [
                         {
-                          "id": "a01e8844-42e0-4716-88e5-fb88fea94194",
+                          "id": "70547540-9bcf-4318-8778-effd2ccf8209",
                           "name": "Successful operation",
                           "originalRequest": {
                             "method": "PUT",
@@ -557,7 +540,7 @@
                     },
                     {
                       "name": "Delete A Static Delegated Prefix From A Network",
-                      "_postman_id": "d4030bac-d11b-4b7e-b6e1-4a73a0f12985",
+                      "id": "472033e6-3cd9-4449-b296-246d930627b2",
                       "protocolProfileBehavior": {
                         "followAuthorizationHeader": true
                       },
@@ -583,18 +566,16 @@
                           ],
                           "variable": [
                             {
-                              "id": "d37d8eab-e4f2-47d6-903b-4985cae3201e",
+                              "id": "b6a2ab3d-4a29-4e29-8c68-00eace305e1b",
                               "key": "networkId",
                               "value": "{{networkId}}",
-                              "description": "(Required) ",
-                              "type": "string"
+                              "description": "(Required) "
                             },
                             {
-                              "id": "2dbaecc7-b917-4523-81f9-b77f9663cbec",
+                              "id": "f60a4989-376e-4f7c-ae97-206edab3d5c4",
                               "key": "staticDelegatedPrefixId",
                               "value": "{{staticDelegatedPrefixId}}",
-                              "description": "(Required) ",
-                              "type": "string"
+                              "description": "(Required) "
                             }
                           ]
                         },
@@ -602,7 +583,7 @@
                       },
                       "response": [
                         {
-                          "id": "c3afa494-ca4d-400f-8d9e-9ddb7196e2e4",
+                          "id": "2fbb82bc-5b43-4c72-89fa-367ee0454a5c",
                           "name": "Successful operation",
                           "originalRequest": {
                             "method": "DELETE",
@@ -645,16 +626,13 @@
                       ]
                     }
                   ],
-                  "_postman_id": "ffe30702-1790-4ab0-bc93-a2fcee4647fa",
-                  "_postman_isSubFolder": true
+                  "id": "fae7dda8-9b00-4b77-8d88-032596168fbb"
                 }
               ],
-              "_postman_id": "c53012d8-1fe6-4d1b-8dca-1cb87ddb814a",
-              "_postman_isSubFolder": true
+              "id": "f4b7426f-ea55-4946-afcd-00e49b1478e5"
             }
           ],
-          "_postman_id": "92103a05-1b98-42f6-99c2-828290018df7",
-          "_postman_isSubFolder": true
+          "id": "148f4861-0127-409e-90db-d0c220aca5a2"
         },
         {
           "name": "GENERAL",
@@ -673,7 +651,7 @@
                           "item": [
                             {
                               "name": "Return A Ping Job",
-                              "_postman_id": "2343f6d5-56e6-4bd0-944f-57bb42d88d1f",
+                              "id": "e0d2ff4c-d5fa-45dd-8c64-da167bf55a40",
                               "protocolProfileBehavior": {
                                 "followAuthorizationHeader": true
                               },
@@ -699,18 +677,16 @@
                                   ],
                                   "variable": [
                                     {
-                                      "id": "0b080dc0-3df0-4c2e-b6cb-17cb86352345",
+                                      "id": "21a29d2e-83ef-481c-9949-39d577ca76fc",
                                       "key": "serial",
                                       "value": "{{serial}}",
-                                      "description": "(Required) ",
-                                      "type": "string"
+                                      "description": "(Required) "
                                     },
                                     {
-                                      "id": "f3a75006-ae40-4ae5-9a6e-f9dfbd57d2c6",
+                                      "id": "1cfae985-7fae-44ac-b920-8d9df58dfede",
                                       "key": "id",
                                       "value": "",
-                                      "description": "(Required) ",
-                                      "type": "string"
+                                      "description": "(Required) "
                                     }
                                   ]
                                 },
@@ -718,7 +694,7 @@
                               },
                               "response": [
                                 {
-                                  "id": "6b6054ab-1e13-4a96-8901-12e4268d7e28",
+                                  "id": "8a5c5fe8-1e5b-4585-aee2-be48c4489c12",
                                   "name": "Successful operation",
                                   "originalRequest": {
                                     "method": "GET",
@@ -762,7 +738,7 @@
                             },
                             {
                               "name": "Return A Ping Job",
-                              "_postman_id": "258e5302-5425-4892-be78-376851b596cf",
+                              "id": "95376bcc-8753-4dfa-a79d-b10e44a137d7",
                               "protocolProfileBehavior": {
                                 "followAuthorizationHeader": true
                               },
@@ -788,18 +764,16 @@
                                   ],
                                   "variable": [
                                     {
-                                      "id": "b53c400b-c15e-457b-84b1-d0a8dfac2d9b",
+                                      "id": "b964abe0-da25-40e4-8358-710a233ef582",
                                       "key": "serial",
                                       "value": "{{serial}}",
-                                      "description": "(Required) ",
-                                      "type": "string"
+                                      "description": "(Required) "
                                     },
                                     {
-                                      "id": "5bd26e1b-d698-400d-8315-f352400453c4",
+                                      "id": "f7a5a77f-8ddb-403f-9cdd-0a23b80ac3b1",
                                       "key": "id",
                                       "value": "",
-                                      "description": "(Required) ",
-                                      "type": "string"
+                                      "description": "(Required) "
                                     }
                                   ]
                                 },
@@ -807,7 +781,7 @@
                               },
                               "response": [
                                 {
-                                  "id": "976eb227-4893-40f6-b5b2-32c8c3b318ea",
+                                  "id": "a8c31633-f00f-4961-b95a-17b25e4f9486",
                                   "name": "Successful operation",
                                   "originalRequest": {
                                     "method": "GET",
@@ -850,24 +824,19 @@
                               ]
                             }
                           ],
-                          "_postman_id": "2da7dd42-57b8-491f-8788-e8f7026ab4ef",
-                          "_postman_isSubFolder": true
+                          "id": "b632c712-92ca-4432-bb7d-3a466c0fe881"
                         }
                       ],
-                      "_postman_id": "f0a27d68-cfa8-4814-abb1-5b57565675aa",
-                      "_postman_isSubFolder": true
+                      "id": "cff92f30-7ed0-43d8-ad7f-7d8b227e167c"
                     }
                   ],
-                  "_postman_id": "c38fc3b2-914f-4149-bc44-6b2bcf5a8d33",
-                  "_postman_isSubFolder": true
+                  "id": "18279441-d60c-43a0-ab9d-ba7e0430f1c5"
                 }
               ],
-              "_postman_id": "9acd6c7e-676a-4bde-a4a1-a203511d75ef",
-              "_postman_isSubFolder": true
+              "id": "6c95910a-71bf-4f12-96db-73c27443089c"
             }
           ],
-          "_postman_id": "0e0487a3-d0c2-44bd-bd41-219a9311163c",
-          "_postman_isSubFolder": true
+          "id": "cbe007c1-0467-4269-a0de-f54427428d73"
         },
         {
           "name": "Wireless",
@@ -880,7 +849,7 @@
                   "item": [
                     {
                       "name": "Fetch the health scores for a given AP on this network",
-                      "_postman_id": "09588cf2-0ae7-4cab-bb61-2d7c1b943de8",
+                      "id": "7efa87c9-3632-47f8-804a-245fd501cee5",
                       "protocolProfileBehavior": {
                         "followAuthorizationHeader": true
                       },
@@ -905,11 +874,10 @@
                           ],
                           "variable": [
                             {
-                              "id": "a16372d0-51ce-4b98-b6ad-6e02f4c06ea5",
+                              "id": "a64c806a-6e91-4992-a6fb-40472eb6a037",
                               "key": "serial",
                               "value": "{{serial}}",
-                              "description": "(Required) ",
-                              "type": "string"
+                              "description": "(Required) "
                             }
                           ]
                         },
@@ -917,7 +885,7 @@
                       },
                       "response": [
                         {
-                          "id": "e42a5b07-aa28-469c-8efa-dd403ab17ad3",
+                          "id": "6443529d-2012-4bc5-98cf-be788ec17633",
                           "name": "Successful operation",
                           "originalRequest": {
                             "method": "GET",
@@ -956,8 +924,7 @@
                       ]
                     }
                   ],
-                  "_postman_id": "b8fbc250-7112-45ca-9e84-1a15e7cac27c",
-                  "_postman_isSubFolder": true
+                  "id": "b3e6327b-040b-4719-bbce-cac6189bf7c0"
                 },
                 {
                   "name": "Clients",
@@ -967,7 +934,7 @@
                       "item": [
                         {
                           "name": "Fetch The Health Scores For All Clients On This Network",
-                          "_postman_id": "782d7c43-c202-4099-8413-ab6e48ed261e",
+                          "id": "77e5f7a5-74aa-4b86-bde5-8cf46e0c3349",
                           "protocolProfileBehavior": {
                             "followAuthorizationHeader": true
                           },
@@ -993,11 +960,10 @@
                               ],
                               "variable": [
                                 {
-                                  "id": "ceeb9118-463d-4668-b9ff-f741fad6f773",
+                                  "id": "39dbabe4-b8aa-46ff-a041-cbef63938b2d",
                                   "key": "networkId",
                                   "value": "{{networkId}}",
-                                  "description": "(Required) ",
-                                  "type": "string"
+                                  "description": "(Required) "
                                 }
                               ]
                             },
@@ -1005,7 +971,7 @@
                           },
                           "response": [
                             {
-                              "id": "05a2414d-0284-4f44-a667-49a173e0d626",
+                              "id": "e8a0d3d0-4449-4ed2-970d-4f06ecf51bbc",
                               "name": "Successful operation",
                               "originalRequest": {
                                 "method": "GET",
@@ -1046,7 +1012,7 @@
                         },
                         {
                           "name": "Fetch The Health Scores For A Given Client On This Network",
-                          "_postman_id": "66d07c2e-99d0-4bdb-8939-3a2504f4fd4a",
+                          "id": "51efd281-7c56-4683-8077-5abeaa51efb1",
                           "protocolProfileBehavior": {
                             "followAuthorizationHeader": true
                           },
@@ -1073,18 +1039,16 @@
                               ],
                               "variable": [
                                 {
-                                  "id": "617c20e6-dd3f-4d88-973c-cbabd1d88602",
+                                  "id": "f67478e0-1b61-45c3-8e2e-3eab11f73140",
                                   "key": "networkId",
                                   "value": "{{networkId}}",
-                                  "description": "(Required) ",
-                                  "type": "string"
+                                  "description": "(Required) "
                                 },
                                 {
-                                  "id": "40fa235f-fe03-4f9d-864f-e64534181390",
+                                  "id": "300263f1-e0c7-42ba-9845-a9e5c55c30e1",
                                   "key": "clientId",
                                   "value": "{{clientId}}",
-                                  "description": "(Required) ",
-                                  "type": "string"
+                                  "description": "(Required) "
                                 }
                               ]
                             },
@@ -1092,7 +1056,7 @@
                           },
                           "response": [
                             {
-                              "id": "3b2e1406-dea4-4ef3-9b1a-559453e6698b",
+                              "id": "9126d31a-c24f-46dd-92a6-e814e49038f7",
                               "name": "Successful operation",
                               "originalRequest": {
                                 "method": "GET",
@@ -1136,15 +1100,14 @@
                           ]
                         }
                       ],
-                      "_postman_id": "ff15bae1-9603-41ee-8ac7-789caefe8d14",
-                      "_postman_isSubFolder": true
+                      "id": "6543bd33-8cd0-4966-bbdf-32342bd8d643"
                     },
                     {
                       "name": "Onboarding History",
                       "item": [
                         {
                           "name": "Return counts of distinct wireless clients connecting to a network over time",
-                          "_postman_id": "8d51e692-3684-4757-bbd7-01b74c3425e0",
+                          "id": "4007a722-dd6d-48c4-a75f-7cc3499b1e6c",
                           "protocolProfileBehavior": {
                             "followAuthorizationHeader": true
                           },
@@ -1208,11 +1171,10 @@
                               ],
                               "variable": [
                                 {
-                                  "id": "9ffad103-b650-420d-ae44-702a3378f8c5",
+                                  "id": "384aaa2a-a287-4114-ba08-25d978d56319",
                                   "key": "networkId",
                                   "value": "{{networkId}}",
-                                  "description": "(Required) ",
-                                  "type": "string"
+                                  "description": "(Required) "
                                 }
                               ]
                             },
@@ -1220,7 +1182,7 @@
                           },
                           "response": [
                             {
-                              "id": "05d5a22b-7307-4526-b9d9-677d3ecb4c0f",
+                              "id": "c46a1a01-a8d7-411a-8c88-82201c00f0d1",
                               "name": "Successful operation",
                               "originalRequest": {
                                 "method": "GET",
@@ -1286,12 +1248,10 @@
                           ]
                         }
                       ],
-                      "_postman_id": "e2c8fef0-be63-4768-8568-7b5d4df35833",
-                      "_postman_isSubFolder": true
+                      "id": "d01b1905-c24b-4c35-b457-915db7ed5643"
                     }
                   ],
-                  "_postman_id": "301da05f-3e1a-4a32-aa8a-abdd3291589e",
-                  "_postman_isSubFolder": true
+                  "id": "b94964ef-8a62-4786-8d9c-48dc3dbf96c2"
                 },
                 {
                   "name": "Devices",
@@ -1301,7 +1261,7 @@
                       "item": [
                         {
                           "name": "Fetch the health scores of all APs on this network",
-                          "_postman_id": "c298dee5-fc80-4a3a-afd9-a78103f0aceb",
+                          "id": "a8abdf0f-8542-42f3-957b-ffe9754e5e60",
                           "protocolProfileBehavior": {
                             "followAuthorizationHeader": true
                           },
@@ -1327,11 +1287,10 @@
                               ],
                               "variable": [
                                 {
-                                  "id": "fab66046-c918-4087-bdac-45580488cbc7",
+                                  "id": "c2221e52-532d-419d-85fb-f18442ee00e3",
                                   "key": "networkId",
                                   "value": "{{networkId}}",
-                                  "description": "(Required) ",
-                                  "type": "string"
+                                  "description": "(Required) "
                                 }
                               ]
                             },
@@ -1339,7 +1298,7 @@
                           },
                           "response": [
                             {
-                              "id": "50396431-9f0d-4016-b1b5-bdec452472a3",
+                              "id": "2173d128-927a-4f60-805b-068ae3d9010e",
                               "name": "Successful operation",
                               "originalRequest": {
                                 "method": "GET",
@@ -1379,16 +1338,13 @@
                           ]
                         }
                       ],
-                      "_postman_id": "2099a595-57b2-4b39-851d-f2687bfdce9f",
-                      "_postman_isSubFolder": true
+                      "id": "fc3c0440-0ed1-4d6d-944d-4842b3d6ba06"
                     }
                   ],
-                  "_postman_id": "027e49b9-b9a7-453d-a01f-e0c1a545a635",
-                  "_postman_isSubFolder": true
+                  "id": "cb7ca75d-0e2c-41a5-b0a5-8fedda14506e"
                 }
               ],
-              "_postman_id": "33c96af7-ea75-4b35-81c7-632c29220ca5",
-              "_postman_isSubFolder": true
+              "id": "70c3064a-7517-49db-a013-36b3609a67c1"
             },
             {
               "name": "Configure",
@@ -1401,7 +1357,7 @@
                       "item": [
                         {
                           "name": "List The Bonjour Forwarding Setting And Rules For The SSID",
-                          "_postman_id": "03450d35-48f4-4d9d-b6a2-907a2d9577a3",
+                          "id": "8d35eb0c-4243-4e8e-929b-f2c5dbc2028f",
                           "protocolProfileBehavior": {
                             "followAuthorizationHeader": true
                           },
@@ -1428,18 +1384,16 @@
                               ],
                               "variable": [
                                 {
-                                  "id": "894e140f-de7e-44c9-803c-9a17c372c863",
+                                  "id": "1eaaf679-82b2-42f2-a659-70eb94dc8f0f",
                                   "key": "networkId",
                                   "value": "{{networkId}}",
-                                  "description": "(Required) ",
-                                  "type": "string"
+                                  "description": "(Required) "
                                 },
                                 {
-                                  "id": "3a5e3811-4116-4e0a-895f-a4d783320c43",
+                                  "id": "07282036-d2f7-486e-82f2-a26fa6573559",
                                   "key": "number",
                                   "value": "{{number}}",
-                                  "description": "(Required) ",
-                                  "type": "string"
+                                  "description": "(Required) "
                                 }
                               ]
                             },
@@ -1447,7 +1401,7 @@
                           },
                           "response": [
                             {
-                              "id": "0959a24f-d0f1-4b55-9ee5-83be02eea442",
+                              "id": "c4880a87-cf47-458b-adce-eb4e307e4646",
                               "name": "Successful operation",
                               "originalRequest": {
                                 "method": "GET",
@@ -1492,7 +1446,7 @@
                         },
                         {
                           "name": "Update The Bonjour Forwarding Setting And Rules For The SSID",
-                          "_postman_id": "e2463175-e7e1-4ba1-b9ff-0b66aa51468c",
+                          "id": "1c12ef5d-b2f9-4eb3-bd20-0cf59b5244a5",
                           "protocolProfileBehavior": {
                             "followAuthorizationHeader": true
                           },
@@ -1510,10 +1464,7 @@
                             ],
                             "body": {
                               "mode": "raw",
-                              "raw": "{\n    \"enabled\": \"<boolean>\",\n    \"rules\": [\n        {\n            \"vlanId\": \"<string>\",\n            \"services\": [\n                \"<string>\",\n                \"<string>\"\n            ],\n            \"description\": \"<string>\"\n        },\n        {\n            \"vlanId\": \"<string>\",\n            \"services\": [\n                \"<string>\",\n                \"<string>\"\n            ],\n            \"description\": \"<string>\"\n        }\n    ]\n}",
-                              "options": {
-                                "raw": {}
-                              }
+                              "raw": "{\n    \"enabled\": \"<boolean>\",\n    \"rules\": [\n        {\n            \"vlanId\": \"<string>\",\n            \"services\": [\n                \"<string>\",\n                \"<string>\"\n            ],\n            \"description\": \"<string>\"\n        },\n        {\n            \"vlanId\": \"<string>\",\n            \"services\": [\n                \"<string>\",\n                \"<string>\"\n            ],\n            \"description\": \"<string>\"\n        }\n    ]\n}"
                             },
                             "url": {
                               "raw": "{{baseUrl}}/networks/:networkId/wireless/ssids/:number/bonjourForwarding",
@@ -1530,18 +1481,16 @@
                               ],
                               "variable": [
                                 {
-                                  "id": "c067b82a-ec79-4639-ae8f-9c598c879b05",
+                                  "id": "7e8dc5a9-e176-4dff-823e-0dd5a2f182cd",
                                   "key": "networkId",
                                   "value": "{{networkId}}",
-                                  "description": "(Required) ",
-                                  "type": "string"
+                                  "description": "(Required) "
                                 },
                                 {
-                                  "id": "070210aa-8b50-4706-9fa7-6dde87611096",
+                                  "id": "152893af-ca58-4641-9d06-077074ea5a9f",
                                   "key": "number",
                                   "value": "{{number}}",
-                                  "description": "(Required) ",
-                                  "type": "string"
+                                  "description": "(Required) "
                                 }
                               ]
                             },
@@ -1549,7 +1498,7 @@
                           },
                           "response": [
                             {
-                              "id": "fee4bdef-8b48-4aee-b867-449173c4c952",
+                              "id": "00bd1112-8e3a-4a15-a589-0d9ae3b5dea4",
                               "name": "Successful operation",
                               "originalRequest": {
                                 "method": "PUT",
@@ -1597,15 +1546,14 @@
                           ]
                         }
                       ],
-                      "_postman_id": "1d546be5-a74d-413e-b8cc-bdaa989564eb",
-                      "_postman_isSubFolder": true
+                      "id": "06d8d2e5-9ab9-41c4-90dd-3c82aa03dc5b"
                     },
                     {
                       "name": "Schedules",
                       "item": [
                         {
                           "name": "List The Outage Schedule For The SSID",
-                          "_postman_id": "6ef05856-873b-4edf-80d4-b35466d7c83b",
+                          "id": "f32de017-e4b3-429e-919d-f40cb350023e",
                           "protocolProfileBehavior": {
                             "followAuthorizationHeader": true
                           },
@@ -1632,18 +1580,16 @@
                               ],
                               "variable": [
                                 {
-                                  "id": "33bc615d-2282-4878-8107-985d46b848c4",
+                                  "id": "2bffd5d4-0f3d-4009-98d9-3a11dfaa6b56",
                                   "key": "networkId",
                                   "value": "{{networkId}}",
-                                  "description": "(Required) ",
-                                  "type": "string"
+                                  "description": "(Required) "
                                 },
                                 {
-                                  "id": "cbf270da-9ac0-4d1e-bfab-7e5d5490547c",
+                                  "id": "637eb5ba-621b-49f8-bd6f-fdf85769517c",
                                   "key": "number",
                                   "value": "{{number}}",
-                                  "description": "(Required) ",
-                                  "type": "string"
+                                  "description": "(Required) "
                                 }
                               ]
                             },
@@ -1651,7 +1597,7 @@
                           },
                           "response": [
                             {
-                              "id": "4baa4753-353d-498e-9a04-cd059023650d",
+                              "id": "55a26061-5804-40b2-bdcd-7176369111e1",
                               "name": "Successful operation",
                               "originalRequest": {
                                 "method": "GET",
@@ -1696,7 +1642,7 @@
                         },
                         {
                           "name": "Update The Outage Schedule For The SSID",
-                          "_postman_id": "f3a1bad7-1dbe-4fbb-a09f-a8db1f4ecb3f",
+                          "id": "2c1d9fe4-3b7a-491d-9db5-ef43b1a73dba",
                           "protocolProfileBehavior": {
                             "followAuthorizationHeader": true
                           },
@@ -1714,10 +1660,7 @@
                             ],
                             "body": {
                               "mode": "raw",
-                              "raw": "{\n    \"enabled\": \"<boolean>\",\n    \"ranges\": [\n        {\n            \"startDay\": \"<string>\",\n            \"startTime\": \"<string>\",\n            \"endDay\": \"<string>\",\n            \"endTime\": \"<string>\"\n        },\n        {\n            \"startDay\": \"<string>\",\n            \"startTime\": \"<string>\",\n            \"endDay\": \"<string>\",\n            \"endTime\": \"<string>\"\n        }\n    ],\n    \"rangesInSeconds\": [\n        {\n            \"start\": \"<integer>\",\n            \"end\": \"<integer>\"\n        },\n        {\n            \"start\": \"<integer>\",\n            \"end\": \"<integer>\"\n        }\n    ]\n}",
-                              "options": {
-                                "raw": {}
-                              }
+                              "raw": "{\n    \"enabled\": \"<boolean>\",\n    \"ranges\": [\n        {\n            \"startDay\": \"<string>\",\n            \"startTime\": \"<string>\",\n            \"endDay\": \"<string>\",\n            \"endTime\": \"<string>\"\n        },\n        {\n            \"startDay\": \"<string>\",\n            \"startTime\": \"<string>\",\n            \"endDay\": \"<string>\",\n            \"endTime\": \"<string>\"\n        }\n    ],\n    \"rangesInSeconds\": [\n        {\n            \"start\": \"<integer>\",\n            \"end\": \"<integer>\"\n        },\n        {\n            \"start\": \"<integer>\",\n            \"end\": \"<integer>\"\n        }\n    ]\n}"
                             },
                             "url": {
                               "raw": "{{baseUrl}}/networks/:networkId/wireless/ssids/:number/schedules",
@@ -1734,18 +1677,16 @@
                               ],
                               "variable": [
                                 {
-                                  "id": "11f5c631-6fef-450e-b823-1f3366f6fcca",
+                                  "id": "f9862011-96fc-4da9-854d-56e5ac8daedc",
                                   "key": "networkId",
                                   "value": "{{networkId}}",
-                                  "description": "(Required) ",
-                                  "type": "string"
+                                  "description": "(Required) "
                                 },
                                 {
-                                  "id": "b4b8ad7d-f078-4eef-8eaf-c119e7855ae1",
+                                  "id": "2b06f7cc-4ae9-4bd4-8163-8e9be44b2160",
                                   "key": "number",
                                   "value": "{{number}}",
-                                  "description": "(Required) ",
-                                  "type": "string"
+                                  "description": "(Required) "
                                 }
                               ]
                             },
@@ -1753,7 +1694,7 @@
                           },
                           "response": [
                             {
-                              "id": "64f4eba7-28b4-46ea-bdfe-998d78a12834",
+                              "id": "f8aa73f9-4ca0-4549-8128-4bf097626e46",
                               "name": "Successful operation",
                               "originalRequest": {
                                 "method": "PUT",
@@ -1801,15 +1742,14 @@
                           ]
                         }
                       ],
-                      "_postman_id": "8c0b1ca0-c567-4962-9397-0ef661a6d3e5",
-                      "_postman_isSubFolder": true
+                      "id": "96ae5386-eef5-43f0-aad0-99d8d887f890"
                     },
                     {
                       "name": "Vpn",
                       "item": [
                         {
                           "name": "List The VPN Settings For The SSID",
-                          "_postman_id": "11e00039-851b-4a97-afed-77627e50461e",
+                          "id": "8cd83b7f-f05f-45e9-89be-b91993c9b629",
                           "protocolProfileBehavior": {
                             "followAuthorizationHeader": true
                           },
@@ -1836,18 +1776,16 @@
                               ],
                               "variable": [
                                 {
-                                  "id": "4ab21955-7b9a-4ce8-b156-b62eb1013c10",
+                                  "id": "370b9cdf-0f0e-4a77-893d-f1dc95d8ab29",
                                   "key": "networkId",
                                   "value": "{{networkId}}",
-                                  "description": "(Required) ",
-                                  "type": "string"
+                                  "description": "(Required) "
                                 },
                                 {
-                                  "id": "8fe535f8-23bf-4f2f-a868-e2c1ef86c653",
+                                  "id": "0ac92266-46ee-4849-8492-6b3112ae3cc7",
                                   "key": "number",
                                   "value": "{{number}}",
-                                  "description": "(Required) ",
-                                  "type": "string"
+                                  "description": "(Required) "
                                 }
                               ]
                             },
@@ -1855,7 +1793,7 @@
                           },
                           "response": [
                             {
-                              "id": "4340e24e-e940-4e74-b811-eaa20b82b18e",
+                              "id": "9899f62f-ea54-4337-84ca-1a4a5070ca64",
                               "name": "Successful operation",
                               "originalRequest": {
                                 "method": "GET",
@@ -1900,7 +1838,7 @@
                         },
                         {
                           "name": "Update The VPN Settings For The SSID",
-                          "_postman_id": "aa4d1eb8-a961-4e3b-b3ae-b985f21acf16",
+                          "id": "b0e7c617-c24c-438b-b07f-3b51cdfbcf15",
                           "protocolProfileBehavior": {
                             "followAuthorizationHeader": true
                           },
@@ -1918,10 +1856,7 @@
                             ],
                             "body": {
                               "mode": "raw",
-                              "raw": "{\n    \"splitTunnel\": {\n        \"enabled\": \"<boolean>\",\n        \"rules\": [\n            {\n                \"destCidr\": \"<string>\",\n                \"policy\": \"<string>\",\n                \"protocol\": \"<string>\",\n                \"destPort\": \"<string>\",\n                \"comment\": \"<string>\"\n            },\n            {\n                \"destCidr\": \"<string>\",\n                \"policy\": \"<string>\",\n                \"protocol\": \"<string>\",\n                \"destPort\": \"<string>\",\n                \"comment\": \"<string>\"\n            }\n        ]\n    }\n}",
-                              "options": {
-                                "raw": {}
-                              }
+                              "raw": "{\n    \"splitTunnel\": {\n        \"enabled\": \"<boolean>\",\n        \"rules\": [\n            {\n                \"destCidr\": \"<string>\",\n                \"policy\": \"<string>\",\n                \"protocol\": \"<string>\",\n                \"destPort\": \"<string>\",\n                \"comment\": \"<string>\"\n            },\n            {\n                \"destCidr\": \"<string>\",\n                \"policy\": \"<string>\",\n                \"protocol\": \"<string>\",\n                \"destPort\": \"<string>\",\n                \"comment\": \"<string>\"\n            }\n        ]\n    }\n}"
                             },
                             "url": {
                               "raw": "{{baseUrl}}/networks/:networkId/wireless/ssids/:number/vpn",
@@ -1938,18 +1873,16 @@
                               ],
                               "variable": [
                                 {
-                                  "id": "4f1b0f43-ad5f-433d-a03b-8bbccbec0f9b",
+                                  "id": "f7757ba5-cbdb-4825-8a33-cb2f67a91ea5",
                                   "key": "networkId",
                                   "value": "{{networkId}}",
-                                  "description": "(Required) ",
-                                  "type": "string"
+                                  "description": "(Required) "
                                 },
                                 {
-                                  "id": "67f0c2e4-a108-4c0d-a8dd-67fe8c554aa3",
+                                  "id": "052800b8-f191-49e9-871d-b4241b09df64",
                                   "key": "number",
                                   "value": "{{number}}",
-                                  "description": "(Required) ",
-                                  "type": "string"
+                                  "description": "(Required) "
                                 }
                               ]
                             },
@@ -1957,7 +1890,7 @@
                           },
                           "response": [
                             {
-                              "id": "16d56ade-90db-41a4-875c-26f13b42b3c5",
+                              "id": "dfaa9292-dddd-4cdc-83f1-9989699cd75a",
                               "name": "Successful operation",
                               "originalRequest": {
                                 "method": "PUT",
@@ -2005,23 +1938,19 @@
                           ]
                         }
                       ],
-                      "_postman_id": "5b8aff33-992c-4988-8d75-4134fe30d510",
-                      "_postman_isSubFolder": true
+                      "id": "af061dff-da13-4221-9851-734091670e5d"
                     }
                   ],
-                  "_postman_id": "09da8515-ffff-4e4b-ac1b-871132ee5af9",
-                  "_postman_isSubFolder": true
+                  "id": "16046235-24c7-4d51-802d-62a87a20cba9"
                 }
               ],
-              "_postman_id": "9536ef34-7599-4b06-84c9-256b32a4f055",
-              "_postman_isSubFolder": true
+              "id": "c15fdeb0-6001-4298-85eb-f0f6bf0fa17e"
             }
           ],
-          "_postman_id": "29d1ac1f-8488-4558-8327-5316507aeaa6",
-          "_postman_isSubFolder": true
+          "id": "59658e3a-81b5-47be-a8a2-39fdaa257ecf"
         }
       ],
-      "_postman_id": "b4bedf20-1d36-4e1f-ad3c-f99bf67fc78c"
+      "id": "273aa32a-2746-45be-87a3-e0801276e598"
     },
     {
       "name": "GENERAL",
@@ -2040,7 +1969,7 @@
                       "item": [
                         {
                           "name": "Enqueue a job to ping a target host from the device",
-                          "_postman_id": "1a85551a-39a9-4f6a-a0b2-66c7e4f5a273",
+                          "id": "3a88fb37-bcc6-4ec3-b832-4ff731d23b58",
                           "protocolProfileBehavior": {
                             "followAuthorizationHeader": true
                           },
@@ -2058,10 +1987,7 @@
                             ],
                             "body": {
                               "mode": "raw",
-                              "raw": "{\n    \"target\": \"<string>\",\n    \"count\": \"<integer>\"\n}",
-                              "options": {
-                                "raw": {}
-                              }
+                              "raw": "{\n    \"target\": \"<string>\",\n    \"count\": \"<integer>\"\n}"
                             },
                             "url": {
                               "raw": "{{baseUrl}}/devices/:serial/liveTools/ping",
@@ -2076,11 +2002,10 @@
                               ],
                               "variable": [
                                 {
-                                  "id": "fa6b9253-9716-4d09-8f45-789096d780d7",
+                                  "id": "cbd2e53b-7956-44bc-8493-7958c7676b7c",
                                   "key": "serial",
                                   "value": "{{serial}}",
-                                  "description": "(Required) ",
-                                  "type": "string"
+                                  "description": "(Required) "
                                 }
                               ]
                             },
@@ -2088,7 +2013,7 @@
                           },
                           "response": [
                             {
-                              "id": "93288a95-2504-48f2-9400-b676475ff9cf",
+                              "id": "afca11db-363e-40d1-9482-2f8fcc5d70f4",
                               "name": "Successful operation",
                               "originalRequest": {
                                 "method": "POST",
@@ -2131,15 +2056,14 @@
                           ]
                         }
                       ],
-                      "_postman_id": "0f2c2844-f124-4057-8b59-232190eb88e8",
-                      "_postman_isSubFolder": true
+                      "id": "ba208c47-b4da-48d2-b149-ca1fae59218c"
                     },
                     {
                       "name": "Ping Device",
                       "item": [
                         {
                           "name": "Enqueue a job to check connectivity status to the device",
-                          "_postman_id": "77fbd579-baed-4151-978a-48fe918c2847",
+                          "id": "4b127e1d-db66-4993-90a3-7b81c55dac85",
                           "protocolProfileBehavior": {
                             "followAuthorizationHeader": true
                           },
@@ -2157,10 +2081,7 @@
                             ],
                             "body": {
                               "mode": "raw",
-                              "raw": "{\n    \"count\": \"<integer>\"\n}",
-                              "options": {
-                                "raw": {}
-                              }
+                              "raw": "{\n    \"count\": \"<integer>\"\n}"
                             },
                             "url": {
                               "raw": "{{baseUrl}}/devices/:serial/liveTools/pingDevice",
@@ -2175,11 +2096,10 @@
                               ],
                               "variable": [
                                 {
-                                  "id": "2c371e0e-51a9-448d-aa3d-f09ee4c208b2",
+                                  "id": "574b038f-fe3e-494f-9f4f-e2a99581a662",
                                   "key": "serial",
                                   "value": "{{serial}}",
-                                  "description": "(Required) ",
-                                  "type": "string"
+                                  "description": "(Required) "
                                 }
                               ]
                             },
@@ -2187,7 +2107,7 @@
                           },
                           "response": [
                             {
-                              "id": "e1f68712-d6f1-4a17-87e9-0bb39c35223c",
+                              "id": "60d0f008-59de-4344-aa2a-277b05643b8c",
                               "name": "Successful operation",
                               "originalRequest": {
                                 "method": "POST",
@@ -2230,20 +2150,16 @@
                           ]
                         }
                       ],
-                      "_postman_id": "9f547726-0af1-4556-9805-cbf9c1df38cf",
-                      "_postman_isSubFolder": true
+                      "id": "14fb0b8a-c367-43ab-a1b0-24dc05d04d55"
                     }
                   ],
-                  "_postman_id": "39c27b63-664a-4455-9b8f-04d3363990c5",
-                  "_postman_isSubFolder": true
+                  "id": "1331b478-c1e8-471c-91af-9cd1733ca882"
                 }
               ],
-              "_postman_id": "29a1a5d8-9ec7-434f-9b2b-bb1a705ef0fd",
-              "_postman_isSubFolder": true
+              "id": "cb7e18cf-53d3-474e-a11a-9fd2fd397257"
             }
           ],
-          "_postman_id": "8c0b826c-8b25-4e3c-b3af-e55e4e1b6af1",
-          "_postman_isSubFolder": true
+          "id": "2e0480e6-5dc3-4cba-a6a5-1d47a9d27ac2"
         },
         {
           "name": "Networks",
@@ -2259,7 +2175,7 @@
                       "item": [
                         {
                           "name": "Rollback a Firmware Upgrade For A Network",
-                          "_postman_id": "d61c2559-ff93-410d-adea-be8f9d49855a",
+                          "id": "f5a7c41b-d6cf-4091-be79-8c4c8b0f2930",
                           "protocolProfileBehavior": {
                             "followAuthorizationHeader": true
                           },
@@ -2277,10 +2193,7 @@
                             ],
                             "body": {
                               "mode": "raw",
-                              "raw": "{\n    \"reasons\": [\n        {\n            \"category\": \"<string>\",\n            \"comment\": \"<string>\"\n        },\n        {\n            \"category\": \"<string>\",\n            \"comment\": \"<string>\"\n        }\n    ],\n    \"product\": \"<string>\",\n    \"time\": \"<dateTime>\",\n    \"toVersion\": {\n        \"id\": \"<string>\"\n    }\n}",
-                              "options": {
-                                "raw": {}
-                              }
+                              "raw": "{\n    \"reasons\": [\n        {\n            \"category\": \"<string>\",\n            \"comment\": \"<string>\"\n        },\n        {\n            \"category\": \"<string>\",\n            \"comment\": \"<string>\"\n        }\n    ],\n    \"product\": \"<string>\",\n    \"time\": \"<dateTime>\",\n    \"toVersion\": {\n        \"id\": \"<string>\"\n    }\n}"
                             },
                             "url": {
                               "raw": "{{baseUrl}}/networks/:networkId/firmwareUpgrades/rollbacks",
@@ -2295,11 +2208,10 @@
                               ],
                               "variable": [
                                 {
-                                  "id": "a372efe7-7788-4e93-8b4a-974ff074bd87",
+                                  "id": "ce4053c7-e419-4e0c-900c-9728548ef0ce",
                                   "key": "networkId",
                                   "value": "{{networkId}}",
-                                  "description": "(Required) ",
-                                  "type": "string"
+                                  "description": "(Required) "
                                 }
                               ]
                             },
@@ -2307,7 +2219,7 @@
                           },
                           "response": [
                             {
-                              "id": "147c8691-9a00-43bd-b117-9684261b1add",
+                              "id": "4310db0c-903c-41aa-bcac-8463a820f838",
                               "name": "Successful operation",
                               "originalRequest": {
                                 "method": "POST",
@@ -2350,12 +2262,10 @@
                           ]
                         }
                       ],
-                      "_postman_id": "7cd7f3b7-99d2-4c87-a4a8-8327c766ed6c",
-                      "_postman_isSubFolder": true
+                      "id": "b884b6ab-2324-4ba4-81e9-c83e2903b82e"
                     }
                   ],
-                  "_postman_id": "6815ee00-762c-49f8-9b3c-f38622c18a96",
-                  "_postman_isSubFolder": true
+                  "id": "968a499e-6f89-4586-b3aa-502c25fae7fc"
                 },
                 {
                   "name": "Location Scanning",
@@ -2365,7 +2275,7 @@
                       "item": [
                         {
                           "name": "Return List Of Scanning API Receivers",
-                          "_postman_id": "91796717-6cbb-4ec0-944a-eb7f126d8823",
+                          "id": "ea47307c-5b3f-4028-b59c-34e962baee97",
                           "protocolProfileBehavior": {
                             "followAuthorizationHeader": true
                           },
@@ -2390,11 +2300,10 @@
                               ],
                               "variable": [
                                 {
-                                  "id": "db2849e9-24e5-4db5-9835-a510ccbbfb06",
+                                  "id": "16a72afd-32ef-44f0-b708-e1245105246e",
                                   "key": "networkId",
                                   "value": "{{networkId}}",
-                                  "description": "(Required) ",
-                                  "type": "string"
+                                  "description": "(Required) "
                                 }
                               ]
                             },
@@ -2402,7 +2311,7 @@
                           },
                           "response": [
                             {
-                              "id": "a92bbb3d-6bce-42ec-a30e-1afcb5bf634b",
+                              "id": "fa2225c8-d4fb-4627-b595-696b583f0e96",
                               "name": "Successful operation",
                               "originalRequest": {
                                 "method": "GET",
@@ -2442,7 +2351,7 @@
                         },
                         {
                           "name": "Set The List Of Scanning API Receivers",
-                          "_postman_id": "1437ad2a-60f8-41f9-8aa0-81aaa0618eb0",
+                          "id": "27dc81d3-0167-4ff6-bcbc-3fef0d5fc4ab",
                           "protocolProfileBehavior": {
                             "followAuthorizationHeader": true
                           },
@@ -2460,10 +2369,7 @@
                             ],
                             "body": {
                               "mode": "raw",
-                              "raw": "{\n    \"endpoints\": [\n        {\n            \"scanningApiVersion\": \"<integer>\",\n            \"radioType\": \"<string>\",\n            \"httpServer\": {\n                \"url\": \"<string>\",\n                \"sharedSecret\": \"<string>\"\n            }\n        },\n        {\n            \"scanningApiVersion\": \"<integer>\",\n            \"radioType\": \"<string>\",\n            \"httpServer\": {\n                \"url\": \"<string>\",\n                \"sharedSecret\": \"<string>\"\n            }\n        }\n    ]\n}",
-                              "options": {
-                                "raw": {}
-                              }
+                              "raw": "{\n    \"endpoints\": [\n        {\n            \"scanningApiVersion\": \"<integer>\",\n            \"radioType\": \"<string>\",\n            \"httpServer\": {\n                \"url\": \"<string>\",\n                \"sharedSecret\": \"<string>\"\n            }\n        },\n        {\n            \"scanningApiVersion\": \"<integer>\",\n            \"radioType\": \"<string>\",\n            \"httpServer\": {\n                \"url\": \"<string>\",\n                \"sharedSecret\": \"<string>\"\n            }\n        }\n    ]\n}"
                             },
                             "url": {
                               "raw": "{{baseUrl}}/networks/:networkId/locationScanning/httpServers",
@@ -2478,11 +2384,10 @@
                               ],
                               "variable": [
                                 {
-                                  "id": "23346064-051f-4936-94b6-cfa7964227f1",
+                                  "id": "40a6d0fd-2681-4892-9e93-81ae9bdc76b3",
                                   "key": "networkId",
                                   "value": "{{networkId}}",
-                                  "description": "(Required) ",
-                                  "type": "string"
+                                  "description": "(Required) "
                                 }
                               ]
                             },
@@ -2490,7 +2395,7 @@
                           },
                           "response": [
                             {
-                              "id": "3e33d557-2283-4ca5-91e5-7bf8d1261edb",
+                              "id": "adfb7c63-6d78-4128-a6be-9742448ee23f",
                               "name": "Successful operation",
                               "originalRequest": {
                                 "method": "PUT",
@@ -2533,12 +2438,11 @@
                           ]
                         }
                       ],
-                      "_postman_id": "3b62ea0f-8412-4a79-94d3-82d9189d9e06",
-                      "_postman_isSubFolder": true
+                      "id": "f9e96d20-b5ef-42e8-8086-720442c9d6dd"
                     },
                     {
                       "name": "Change Scanning API Settings",
-                      "_postman_id": "d4facd9b-30e4-4237-987e-81a4a1f706e8",
+                      "id": "1301bdb8-7e50-4f44-ac13-a0daa7f2e0e2",
                       "protocolProfileBehavior": {
                         "followAuthorizationHeader": true
                       },
@@ -2556,10 +2460,7 @@
                         ],
                         "body": {
                           "mode": "raw",
-                          "raw": "{\n    \"analyticsEnabled\": \"<boolean>\",\n    \"scanningApiEnabled\": \"<boolean>\"\n}",
-                          "options": {
-                            "raw": {}
-                          }
+                          "raw": "{\n    \"analyticsEnabled\": \"<boolean>\",\n    \"scanningApiEnabled\": \"<boolean>\"\n}"
                         },
                         "url": {
                           "raw": "{{baseUrl}}/networks/:networkId/locationScanning",
@@ -2573,11 +2474,10 @@
                           ],
                           "variable": [
                             {
-                              "id": "135ced6a-ddc2-47ca-87af-a00112df1c35",
+                              "id": "89330b9b-ae86-4804-827e-ff337d1c95d7",
                               "key": "networkId",
                               "value": "{{networkId}}",
-                              "description": "(Required) ",
-                              "type": "string"
+                              "description": "(Required) "
                             }
                           ]
                         },
@@ -2585,7 +2485,7 @@
                       },
                       "response": [
                         {
-                          "id": "8b487d49-07ba-4761-b7f1-92c43ffb9e84",
+                          "id": "978758f6-492f-428e-a9ba-0f2d15e08b16",
                           "name": "Successful operation",
                           "originalRequest": {
                             "method": "PUT",
@@ -2628,7 +2528,7 @@
                     },
                     {
                       "name": "Return Scanning API Settings",
-                      "_postman_id": "244ef56b-551b-433c-9372-13246444a3d6",
+                      "id": "3affee41-0ef0-498c-bbf4-1a7cbd84b516",
                       "protocolProfileBehavior": {
                         "followAuthorizationHeader": true
                       },
@@ -2652,11 +2552,10 @@
                           ],
                           "variable": [
                             {
-                              "id": "60d45d44-fec9-4759-b722-2a687f2a78e2",
+                              "id": "b8ed789d-6f6b-4a5a-bb47-ba3672d3041c",
                               "key": "networkId",
                               "value": "{{networkId}}",
-                              "description": "(Required) ",
-                              "type": "string"
+                              "description": "(Required) "
                             }
                           ]
                         },
@@ -2664,7 +2563,7 @@
                       },
                       "response": [
                         {
-                          "id": "f1d4e17b-55a9-4a38-ab21-19b68120d689",
+                          "id": "63554e60-20ae-40a5-a17e-d9a905d2cfb1",
                           "name": "Successful operation",
                           "originalRequest": {
                             "method": "GET",
@@ -2702,23 +2601,20 @@
                       ]
                     }
                   ],
-                  "_postman_id": "84dcde54-6641-4c06-992d-c4eb20002543",
-                  "_postman_isSubFolder": true
+                  "id": "36dc3b10-e7d5-48af-81bb-2ce144253c66"
                 }
               ],
-              "_postman_id": "38da94a5-8c83-4fd9-8b54-ffb602c1a73d",
-              "_postman_isSubFolder": true
+              "id": "264facee-42fe-41e5-b229-259b3d592973"
             }
           ],
-          "_postman_id": "a97fdb24-705e-42b4-9825-851b7b3ed51c",
-          "_postman_isSubFolder": true
+          "id": "3fbcd2c3-8b64-4e9d-b70e-33fd959be7e3"
         }
       ],
-      "_postman_id": "5aa3b37e-6bee-48de-858e-14e5e596255f"
+      "id": "11072f61-9551-42e2-acd8-d40176bcbbe1"
     },
     {
       "name": "List the Organizations",
-      "_postman_id": "9f01e3c1-def6-4021-a948-b5bcba1eb593",
+      "id": "5985dc8d-b323-4fd9-9c5f-985f915127fc",
       "protocolProfileBehavior": {
         "followAuthorizationHeader": true
       },
@@ -2735,7 +2631,7 @@
       },
       "response": [
         {
-          "id": "38c63fc3-16d1-42ac-bd59-b576ad25255f",
+          "id": "9b954999-fce3-48c7-9ec7-28f199e58cd8",
           "name": "Successful operation",
           "originalRequest": {
             "method": "GET",
@@ -2759,7 +2655,7 @@
     },
     {
       "name": "List the Networks in an Organization ",
-      "_postman_id": "de8918c4-a72d-4d72-bb33-3b89e2e6c571",
+      "id": "a1603bec-6825-4c62-80ff-072a96e64465",
       "protocolProfileBehavior": {
         "followAuthorizationHeader": true
       },
@@ -2821,11 +2717,10 @@
           ],
           "variable": [
             {
-              "id": "080ea98d-d1d9-4709-b57a-a43650f001cf",
+              "id": "285f4082-c18a-433c-a6c5-86fcbe3f5e2d",
               "key": "organizationId",
               "value": "{{organizationId}}",
-              "description": "(Required) ",
-              "type": "string"
+              "description": "(Required) "
             }
           ]
         },
@@ -2833,7 +2728,7 @@
       },
       "response": [
         {
-          "id": "2e4eb709-1c13-44fb-b029-e46f638b7781",
+          "id": "49de3a30-5f94-4934-885e-e84ecda53ec4",
           "name": "Successful operation",
           "originalRequest": {
             "method": "GET",
@@ -2903,7 +2798,7 @@
     },
     {
       "name": "List the Devices in an Organization",
-      "_postman_id": "88beb08e-b494-4044-99a8-8f220af5aa50",
+      "id": "4a29a7f6-4bc8-4b05-9f0f-080d91178634",
       "protocolProfileBehavior": {
         "followAuthorizationHeader": true
       },
@@ -2953,11 +2848,10 @@
           ],
           "variable": [
             {
-              "id": "14e65a16-96e1-404b-92cd-7203f7dc0564",
+              "id": "5c3b728d-88ce-4006-895f-c24c3443b7f2",
               "key": "organizationId",
               "value": "{{organizationId}}",
-              "description": "(Required) ",
-              "type": "string"
+              "description": "(Required) "
             }
           ]
         },
@@ -2965,7 +2859,7 @@
       },
       "response": [
         {
-          "id": "87d64a5d-2cc0-4a38-bc57-93e46a529ec4",
+          "id": "51d60b7a-d572-479b-ae57-8aa730a7d0bc",
           "name": "Successful operation",
           "originalRequest": {
             "method": "GET",
@@ -3027,7 +2921,7 @@
     },
     {
       "name": "List the Clients in a Network",
-      "_postman_id": "61dc77d2-aaba-4c46-ae70-dae898366bf7",
+      "id": "a2704e6c-3875-4780-a64f-2ed44df27d71",
       "protocolProfileBehavior": {
         "followAuthorizationHeader": true
       },
@@ -3083,11 +2977,10 @@
           ],
           "variable": [
             {
-              "id": "d247ccc0-9f5b-43f4-819e-598c1be6347e",
+              "id": "8e31edcb-daba-4a8b-b6a2-7a9ce57996bc",
               "key": "networkId",
               "value": "{{networkId}}",
-              "description": "(Required) ",
-              "type": "string"
+              "description": "(Required) "
             }
           ]
         },
@@ -3095,7 +2988,7 @@
       },
       "response": [
         {
-          "id": "8d22a5f1-c4c9-413a-a1f9-50750717288c",
+          "id": "f57e3a71-fbc3-4210-9663-204227983f5f",
           "name": "Successful operation",
           "originalRequest": {
             "method": "GET",
@@ -3200,8 +3093,7 @@
   "variable": [
     {
       "id": "band",
-      "key": "band",
-      "type": "any"
+      "key": "band"
     },
     {
       "id": "baseUrl",
@@ -3231,8 +3123,7 @@
     },
     {
       "id": "resolution",
-      "key": "resolution",
-      "type": "any"
+      "key": "resolution"
     },
     {
       "id": "serial",
@@ -3241,8 +3132,7 @@
     },
     {
       "id": "ssid",
-      "key": "ssid",
-      "type": "any"
+      "key": "ssid"
     },
     {
       "id": "staticDelegatedPrefixId",
@@ -3251,18 +3141,15 @@
     },
     {
       "id": "t0",
-      "key": "t0",
-      "type": "any"
+      "key": "t0"
     },
     {
       "id": "t1",
-      "key": "t1",
-      "type": "any"
+      "key": "t1"
     },
     {
       "id": "timespan",
-      "key": "timespan",
-      "type": "any"
+      "key": "timespan"
     }
   ]
 }
