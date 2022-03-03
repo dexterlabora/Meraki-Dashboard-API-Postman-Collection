@@ -614,6 +614,93 @@
                           "body": "{\n \"pingId\": \"1\",\n \"url\": \"/devices/SERIAL/liveTools/ping/1284392014819\",\n \"request\": {\n  \"serial\": \"Q234-ABCD-5678\",\n  \"target\": \"75.75.75.75\",\n  \"count\": 2\n },\n \"status\": \"complete\",\n \"results\": {\n  \"sent\": 5,\n  \"received\": 5,\n  \"loss\": {\n   \"percentage\": 0\n  },\n  \"latencies\": {\n   \"minimum\": 15.8,\n   \"average\": 15.8,\n   \"maximum\": 15.9\n  },\n  \"replies\": [\n   {\n    \"sequenceId\": 1,\n    \"size\": 84,\n    \"latency\": 15.7\n   },\n   {\n    \"sequenceId\": 0,\n    \"size\": 84,\n    \"latency\": 15.9\n   }\n  ]\n }\n}"
                         }
                       ]
+                    },
+                    {
+                      "name": "Return A Ping Job",
+                      "id": "65a1d139-ced3-44ae-8f3c-d4487502deca",
+                      "protocolProfileBehavior": {
+                        "followAuthorizationHeader": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "X-Cisco-Meraki-API-Key",
+                            "value": ""
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/devices/:serial/liveTools/pingDevice/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "devices",
+                            ":serial",
+                            "liveTools",
+                            "pingDevice",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "236e8c9f-78c1-4194-81c5-4d9b0f190387",
+                              "key": "serial",
+                              "value": "{{serial}}",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "d4012f14-8ee3-4b64-a914-64ea9721bd93",
+                              "key": "id",
+                              "value": "",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Return a ping job. Latency unit in response is in milliseconds. Size is in bytes."
+                      },
+                      "response": [
+                        {
+                          "id": "3123285e-165d-490b-b85c-c7546aae89e2",
+                          "name": "Successful operation",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/devices/:serial/liveTools/pingDevice/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "devices",
+                                ":serial",
+                                "liveTools",
+                                "pingDevice",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "serial"
+                                },
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n \"pingId\": \"1\",\n \"url\": \"/devices/SERIAL/liveTools/ping/1284392014819\",\n \"request\": {\n  \"serial\": \"Q234-ABCD-5678\",\n  \"target\": \"75.75.75.75\",\n  \"count\": 2\n },\n \"status\": \"complete\",\n \"results\": {\n  \"sent\": 5,\n  \"received\": 5,\n  \"loss\": {\n   \"percentage\": 0\n  },\n  \"latencies\": {\n   \"minimum\": 15.8,\n   \"average\": 15.8,\n   \"maximum\": 15.9\n  },\n  \"replies\": [\n   {\n    \"sequenceId\": 1,\n    \"size\": 84,\n    \"latency\": 15.7\n   },\n   {\n    \"sequenceId\": 0,\n    \"size\": 84,\n    \"latency\": 15.9\n   }\n  ]\n }\n}"
+                        }
+                      ]
                     }
                   ],
                   "id": "dab0ef3c-986a-4ce3-a658-ad65c9560ed6"
@@ -31369,95 +31456,7 @@
                   "item": [
                     {
                       "name": "pingDevice",
-                      "item": [
-                        {
-                          "name": "Return A Ping Job",
-                          "id": "65a1d139-ced3-44ae-8f3c-d4487502deca",
-                          "protocolProfileBehavior": {
-                            "followAuthorizationHeader": true
-                          },
-                          "request": {
-                            "method": "GET",
-                            "header": [
-                              {
-                                "key": "X-Cisco-Meraki-API-Key",
-                                "value": ""
-                              }
-                            ],
-                            "url": {
-                              "raw": "{{baseUrl}}/devices/:serial/liveTools/pingDevice/:id",
-                              "host": [
-                                "{{baseUrl}}"
-                              ],
-                              "path": [
-                                "devices",
-                                ":serial",
-                                "liveTools",
-                                "pingDevice",
-                                ":id"
-                              ],
-                              "variable": [
-                                {
-                                  "id": "236e8c9f-78c1-4194-81c5-4d9b0f190387",
-                                  "key": "serial",
-                                  "value": "{{serial}}",
-                                  "description": "(Required) "
-                                },
-                                {
-                                  "id": "d4012f14-8ee3-4b64-a914-64ea9721bd93",
-                                  "key": "id",
-                                  "value": "",
-                                  "description": "(Required) "
-                                }
-                              ]
-                            },
-                            "description": "Return a ping job. Latency unit in response is in milliseconds. Size is in bytes."
-                          },
-                          "response": [
-                            {
-                              "id": "3123285e-165d-490b-b85c-c7546aae89e2",
-                              "name": "Successful operation",
-                              "originalRequest": {
-                                "method": "GET",
-                                "header": [],
-                                "url": {
-                                  "raw": "{{baseUrl}}/devices/:serial/liveTools/pingDevice/:id",
-                                  "host": [
-                                    "{{baseUrl}}"
-                                  ],
-                                  "path": [
-                                    "devices",
-                                    ":serial",
-                                    "liveTools",
-                                    "pingDevice",
-                                    ":id"
-                                  ],
-                                  "variable": [
-                                    {
-                                      "key": "serial"
-                                    },
-                                    {
-                                      "key": "id"
-                                    }
-                                  ]
-                                }
-                              },
-                              "status": "OK",
-                              "code": 200,
-                              "_postman_previewlanguage": "json",
-                              "header": [
-                                {
-                                  "key": "Content-Type",
-                                  "value": "application/json"
-                                }
-                              ],
-                              "cookie": [],
-                              "responseTime": null,
-                              "body": "{\n \"pingId\": \"1\",\n \"url\": \"/devices/SERIAL/liveTools/ping/1284392014819\",\n \"request\": {\n  \"serial\": \"Q234-ABCD-5678\",\n  \"target\": \"75.75.75.75\",\n  \"count\": 2\n },\n \"status\": \"complete\",\n \"results\": {\n  \"sent\": 5,\n  \"received\": 5,\n  \"loss\": {\n   \"percentage\": 0\n  },\n  \"latencies\": {\n   \"minimum\": 15.8,\n   \"average\": 15.8,\n   \"maximum\": 15.9\n  },\n  \"replies\": [\n   {\n    \"sequenceId\": 1,\n    \"size\": 84,\n    \"latency\": 15.7\n   },\n   {\n    \"sequenceId\": 0,\n    \"size\": 84,\n    \"latency\": 15.9\n   }\n  ]\n }\n}"
-                            }
-                          ]
-                        }
-                      ],
+                      "item": [],
                       "id": "34b38dc9-6469-42e8-a655-b9f7ceed3910"
                     }
                   ],
