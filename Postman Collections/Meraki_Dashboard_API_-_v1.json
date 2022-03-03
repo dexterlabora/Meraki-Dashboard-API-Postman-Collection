@@ -14159,92 +14159,6 @@
                     },
                     {
                       "name": "Claim A List Of Devices Licenses And Or Orders Into An Organization",
-                      "id": "3a41a678-8ecc-4957-9432-19c6ca1e206c",
-                      "protocolProfileBehavior": {
-                        "followAuthorizationHeader": true
-                      },
-                      "request": {
-                        "method": "POST",
-                        "header": [
-                          {
-                            "key": "X-Cisco-Meraki-API-Key",
-                            "value": ""
-                          },
-                          {
-                            "key": "Content-Type",
-                            "value": "application/json"
-                          }
-                        ],
-                        "body": {
-                          "mode": "raw",
-                          "raw": "{\n    \"orders\": [\n        \"<string>\",\n        \"<string>\"\n    ],\n    \"serials\": [\n        \"<string>\",\n        \"<string>\"\n    ],\n    \"licenses\": [\n        {\n            \"key\": \"<string>\",\n            \"mode\": \"<string>\"\n        },\n        {\n            \"key\": \"<string>\",\n            \"mode\": \"<string>\"\n        }\n    ]\n}"
-                        },
-                        "url": {
-                          "raw": "{{baseUrl}}/organizations/:organizationId/claim",
-                          "host": [
-                            "{{baseUrl}}"
-                          ],
-                          "path": [
-                            "organizations",
-                            ":organizationId",
-                            "claim"
-                          ],
-                          "variable": [
-                            {
-                              "id": "f5aa99d0-f6d6-4b07-97eb-12513f9f05ea",
-                              "key": "organizationId",
-                              "value": "{{organizationId}}",
-                              "description": "(Required) "
-                            }
-                          ]
-                        },
-                        "description": "Claim a list of devices, licenses, and/or orders into an organization. When claiming by order, all devices and licenses in the order will be claimed; licenses will be added to the organization and devices will be placed in the organization's inventory."
-                      },
-                      "response": [
-                        {
-                          "id": "53441634-0370-45b8-96d8-91342244ca6b",
-                          "name": "Successful operation",
-                          "originalRequest": {
-                            "method": "POST",
-                            "header": [],
-                            "body": {
-                              "mode": "raw",
-                              "raw": "{\n    \"orders\": [\n        \"4CXXXXXXX\"\n    ],\n    \"serials\": [\n        \"Q234-ABCD-5678\"\n    ],\n    \"licenses\": [\n        {\n            \"key\": \"Z2XXXXXXXXXX\",\n            \"mode\": \"addDevices\"\n        }\n    ]\n}"
-                            },
-                            "url": {
-                              "raw": "{{baseUrl}}/organizations/:organizationId/claim",
-                              "host": [
-                                "{{baseUrl}}"
-                              ],
-                              "path": [
-                                "organizations",
-                                ":organizationId",
-                                "claim"
-                              ],
-                              "variable": [
-                                {
-                                  "key": "organizationId"
-                                }
-                              ]
-                            }
-                          },
-                          "status": "OK",
-                          "code": 200,
-                          "_postman_previewlanguage": "json",
-                          "header": [
-                            {
-                              "key": "Content-Type",
-                              "value": "application/json"
-                            }
-                          ],
-                          "cookie": [],
-                          "responseTime": null,
-                          "body": "{\n \"orders\": [\n  \"4CXXXXXXX\"\n ],\n \"serials\": [\n  \"Q234-ABCD-5678\"\n ],\n \"licenses\": [\n  {\n   \"key\": \"Z2XXXXXXXXXX\",\n   \"mode\": \"addDevices\"\n  }\n ]\n}"
-                        }
-                      ]
-                    },
-                    {
-                      "name": "Claim A List Of Devices Licenses And Or Orders Into An Organization",
                       "id": "b568bbf5-f73e-4465-920b-8bd265d4027b",
                       "protocolProfileBehavior": {
                         "followAuthorizationHeader": true
@@ -14307,6 +14221,92 @@
                                 "organizations",
                                 ":organizationId",
                                 "inventory",
+                                "claim"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "organizationId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n \"orders\": [\n  \"4CXXXXXXX\"\n ],\n \"serials\": [\n  \"Q234-ABCD-5678\"\n ],\n \"licenses\": [\n  {\n   \"key\": \"Z2XXXXXXXXXX\",\n   \"mode\": \"addDevices\"\n  }\n ]\n}"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Claim A List Of Devices Licenses And Or Orders Into An Organization",
+                      "id": "3a41a678-8ecc-4957-9432-19c6ca1e206c",
+                      "protocolProfileBehavior": {
+                        "followAuthorizationHeader": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "X-Cisco-Meraki-API-Key",
+                            "value": ""
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n    \"orders\": [\n        \"<string>\",\n        \"<string>\"\n    ],\n    \"serials\": [\n        \"<string>\",\n        \"<string>\"\n    ],\n    \"licenses\": [\n        {\n            \"key\": \"<string>\",\n            \"mode\": \"<string>\"\n        },\n        {\n            \"key\": \"<string>\",\n            \"mode\": \"<string>\"\n        }\n    ]\n}"
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/organizations/:organizationId/claim",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "organizations",
+                            ":organizationId",
+                            "claim"
+                          ],
+                          "variable": [
+                            {
+                              "id": "f5aa99d0-f6d6-4b07-97eb-12513f9f05ea",
+                              "key": "organizationId",
+                              "value": "{{organizationId}}",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Claim a list of devices, licenses, and/or orders into an organization. When claiming by order, all devices and licenses in the order will be claimed; licenses will be added to the organization and devices will be placed in the organization's inventory."
+                      },
+                      "response": [
+                        {
+                          "id": "53441634-0370-45b8-96d8-91342244ca6b",
+                          "name": "Successful operation",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n    \"orders\": [\n        \"4CXXXXXXX\"\n    ],\n    \"serials\": [\n        \"Q234-ABCD-5678\"\n    ],\n    \"licenses\": [\n        {\n            \"key\": \"Z2XXXXXXXXXX\",\n            \"mode\": \"addDevices\"\n        }\n    ]\n}"
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/organizations/:organizationId/claim",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "organizations",
+                                ":organizationId",
                                 "claim"
                               ],
                               "variable": [
@@ -31471,13 +31471,7 @@
               "item": [
                 {
                   "name": "configure",
-                  "item": [
-                    {
-                      "name": "inventory",
-                      "item": [],
-                      "id": "33094deb-85f8-473d-a1a9-a54601603bde"
-                    }
-                  ],
+                  "item": [],
                   "id": "78e69737-d1f8-453d-bc02-6c69a420056a"
                 }
               ],
