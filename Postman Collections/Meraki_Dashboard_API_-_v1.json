@@ -12169,204 +12169,6 @@
 					"id": "3be2182d-a635-4ee2-bd3e-5196ad2ee248"
 				},
 				{
-					"name": "GENERAL",
-					"item": [
-						{
-							"name": "Organizations",
-							"item": [
-								{
-									"name": "configure",
-									"item": [
-										{
-											"name": "inventory",
-											"item": [
-												{
-													"name": "Claim A List Of Devices Licenses And Or Orders Into An Organization",
-													"id": "b236b22b-1b85-4767-82bb-7e55e71ead79",
-													"protocolProfileBehavior": {
-														"followAuthorizationHeader": true
-													},
-													"request": {
-														"method": "POST",
-														"header": [
-															{
-																"key": "X-Cisco-Meraki-API-Key",
-																"value": ""
-															},
-															{
-																"key": "Content-Type",
-																"value": "application/json"
-															}
-														],
-														"body": {
-															"mode": "raw",
-															"raw": "{\n    \"orders\": [\n        \"<string>\",\n        \"<string>\"\n    ],\n    \"serials\": [\n        \"<string>\",\n        \"<string>\"\n    ],\n    \"licenses\": [\n        {\n            \"key\": \"<string>\",\n            \"mode\": \"<string>\"\n        },\n        {\n            \"key\": \"<string>\",\n            \"mode\": \"<string>\"\n        }\n    ]\n}"
-														},
-														"url": {
-															"raw": "{{baseUrl}}/organizations/:organizationId/claim",
-															"host": [
-																"{{baseUrl}}"
-															],
-															"path": [
-																"organizations",
-																":organizationId",
-																"claim"
-															],
-															"variable": [
-																{
-																	"id": "52904e5a-8f0a-459d-b507-6a19fa6ab21d",
-																	"key": "organizationId",
-																	"value": "{{organizationId}}",
-																	"description": "(Required) "
-																}
-															]
-														},
-														"description": "Claim a list of devices, licenses, and/or orders into an organization. When claiming by order, all devices and licenses in the order will be claimed; licenses will be added to the organization and devices will be placed in the organization's inventory."
-													},
-													"response": [
-														{
-															"id": "10a7c13e-61d9-4a26-a95c-582f7d3563f0",
-															"name": "Successful operation",
-															"originalRequest": {
-																"method": "POST",
-																"header": [],
-																"body": {
-																	"mode": "raw",
-																	"raw": "{\n    \"orders\": [\n        \"4CXXXXXXX\"\n    ],\n    \"serials\": [\n        \"Q234-ABCD-5678\"\n    ],\n    \"licenses\": [\n        {\n            \"key\": \"Z2XXXXXXXXXX\",\n            \"mode\": \"addDevices\"\n        }\n    ]\n}"
-																},
-																"url": {
-																	"raw": "{{baseUrl}}/organizations/:organizationId/claim",
-																	"host": [
-																		"{{baseUrl}}"
-																	],
-																	"path": [
-																		"organizations",
-																		":organizationId",
-																		"claim"
-																	],
-																	"variable": [
-																		{
-																			"key": "organizationId"
-																		}
-																	]
-																}
-															},
-															"status": "OK",
-															"code": 200,
-															"_postman_previewlanguage": "json",
-															"header": [
-																{
-																	"key": "Content-Type",
-																	"value": "application/json"
-																}
-															],
-															"cookie": [],
-															"responseTime": null,
-															"body": "{\n \"orders\": [\n  \"4CXXXXXXX\"\n ],\n \"serials\": [\n  \"Q234-ABCD-5678\"\n ],\n \"licenses\": [\n  {\n   \"key\": \"Z2XXXXXXXXXX\",\n   \"mode\": \"addDevices\"\n  }\n ]\n}"
-														}
-													]
-												},
-												{
-													"name": "Claim A List Of Devices Licenses And Or Orders Into An Organization",
-													"id": "4cfdad72-5fdc-4dd3-b951-4703b55e50f0",
-													"protocolProfileBehavior": {
-														"followAuthorizationHeader": true
-													},
-													"request": {
-														"method": "POST",
-														"header": [
-															{
-																"key": "X-Cisco-Meraki-API-Key",
-																"value": ""
-															},
-															{
-																"key": "Content-Type",
-																"value": "application/json"
-															}
-														],
-														"body": {
-															"mode": "raw",
-															"raw": "{\n    \"orders\": [\n        \"<string>\",\n        \"<string>\"\n    ],\n    \"serials\": [\n        \"<string>\",\n        \"<string>\"\n    ],\n    \"licenses\": [\n        {\n            \"key\": \"<string>\",\n            \"mode\": \"<string>\"\n        },\n        {\n            \"key\": \"<string>\",\n            \"mode\": \"<string>\"\n        }\n    ]\n}"
-														},
-														"url": {
-															"raw": "{{baseUrl}}/organizations/:organizationId/inventory/claim",
-															"host": [
-																"{{baseUrl}}"
-															],
-															"path": [
-																"organizations",
-																":organizationId",
-																"inventory",
-																"claim"
-															],
-															"variable": [
-																{
-																	"id": "b7d499ed-97ab-4da3-b4b0-0dd074372b12",
-																	"key": "organizationId",
-																	"value": "{{organizationId}}",
-																	"description": "(Required) "
-																}
-															]
-														},
-														"description": "Claim a list of devices, licenses, and/or orders into an organization. When claiming by order, all devices and licenses in the order will be claimed; licenses will be added to the organization and devices will be placed in the organization's inventory. Use /organizations/{organizationId}/inventory/release to release devices from an organization."
-													},
-													"response": [
-														{
-															"id": "67daac18-efd8-4371-82e3-a5e492d53ae5",
-															"name": "Successful operation",
-															"originalRequest": {
-																"method": "POST",
-																"header": [],
-																"body": {
-																	"mode": "raw",
-																	"raw": "{\n    \"orders\": [\n        \"4CXXXXXXX\"\n    ],\n    \"serials\": [\n        \"Q234-ABCD-5678\"\n    ],\n    \"licenses\": [\n        {\n            \"key\": \"Z2XXXXXXXXXX\",\n            \"mode\": \"addDevices\"\n        }\n    ]\n}"
-																},
-																"url": {
-																	"raw": "{{baseUrl}}/organizations/:organizationId/inventory/claim",
-																	"host": [
-																		"{{baseUrl}}"
-																	],
-																	"path": [
-																		"organizations",
-																		":organizationId",
-																		"inventory",
-																		"claim"
-																	],
-																	"variable": [
-																		{
-																			"key": "organizationId"
-																		}
-																	]
-																}
-															},
-															"status": "OK",
-															"code": 200,
-															"_postman_previewlanguage": "json",
-															"header": [
-																{
-																	"key": "Content-Type",
-																	"value": "application/json"
-																}
-															],
-															"cookie": [],
-															"responseTime": null,
-															"body": "{\n \"orders\": [\n  \"4CXXXXXXX\"\n ],\n \"serials\": [\n  \"Q234-ABCD-5678\"\n ],\n \"licenses\": [\n  {\n   \"key\": \"Z2XXXXXXXXXX\",\n   \"mode\": \"addDevices\"\n  }\n ]\n}"
-														}
-													]
-												}
-											],
-											"id": "0921f0e7-a777-43f6-abfb-7dfdca79f384"
-										}
-									],
-									"id": "bc0bc10c-1dc3-4a9f-9d1a-b619e2e14a4f"
-								}
-							],
-							"id": "30fd7725-bdba-4390-a4c7-6d78852ae44e"
-						}
-					],
-					"id": "e99c6519-9e26-40a7-a81d-05a4f2795cdf"
-				},
-				{
 					"name": "Switch",
 					"item": [
 						{
@@ -49239,6 +49041,94 @@
 													"body": "{\n \"serials\": [\n  \"Q234-ABCD-5678\"\n ]\n}"
 												}
 											]
+										},
+										{
+											"name": "Claim A List Of Devices Licenses And Or Orders Into An Organization",
+											"id": "4cfdad72-5fdc-4dd3-b951-4703b55e50f0",
+											"protocolProfileBehavior": {
+												"followAuthorizationHeader": true
+											},
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "X-Cisco-Meraki-API-Key",
+														"value": ""
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"orders\": [\n        \"<string>\",\n        \"<string>\"\n    ],\n    \"serials\": [\n        \"<string>\",\n        \"<string>\"\n    ],\n    \"licenses\": [\n        {\n            \"key\": \"<string>\",\n            \"mode\": \"<string>\"\n        },\n        {\n            \"key\": \"<string>\",\n            \"mode\": \"<string>\"\n        }\n    ]\n}"
+												},
+												"url": {
+													"raw": "{{baseUrl}}/organizations/:organizationId/inventory/claim",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"organizations",
+														":organizationId",
+														"inventory",
+														"claim"
+													],
+													"variable": [
+														{
+															"id": "b7d499ed-97ab-4da3-b4b0-0dd074372b12",
+															"key": "organizationId",
+															"value": "{{organizationId}}",
+															"description": "(Required) "
+														}
+													]
+												},
+												"description": "Claim a list of devices, licenses, and/or orders into an organization. When claiming by order, all devices and licenses in the order will be claimed; licenses will be added to the organization and devices will be placed in the organization's inventory. Use /organizations/{organizationId}/inventory/release to release devices from an organization."
+											},
+											"response": [
+												{
+													"id": "67daac18-efd8-4371-82e3-a5e492d53ae5",
+													"name": "Successful operation",
+													"originalRequest": {
+														"method": "POST",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n    \"orders\": [\n        \"4CXXXXXXX\"\n    ],\n    \"serials\": [\n        \"Q234-ABCD-5678\"\n    ],\n    \"licenses\": [\n        {\n            \"key\": \"Z2XXXXXXXXXX\",\n            \"mode\": \"addDevices\"\n        }\n    ]\n}"
+														},
+														"url": {
+															"raw": "{{baseUrl}}/organizations/:organizationId/inventory/claim",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"organizations",
+																":organizationId",
+																"inventory",
+																"claim"
+															],
+															"variable": [
+																{
+																	"key": "organizationId"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"responseTime": null,
+													"body": "{\n \"orders\": [\n  \"4CXXXXXXX\"\n ],\n \"serials\": [\n  \"Q234-ABCD-5678\"\n ],\n \"licenses\": [\n  {\n   \"key\": \"Z2XXXXXXXXXX\",\n   \"mode\": \"addDevices\"\n  }\n ]\n}"
+												}
+											]
 										}
 									],
 									"id": "9205be03-d474-4c54-939f-0269afb204d8"
@@ -52038,6 +51928,92 @@
 											"cookie": [],
 											"responseTime": null,
 											"body": "{\n \"id\": \"2930418\",\n \"name\": \"My organization\",\n \"url\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n \"api\": {\n  \"enabled\": true\n },\n \"licensing\": {\n  \"model\": \"co-term\"\n },\n \"cloud\": {\n  \"region\": {\n   \"name\": \"North America\"\n  }\n }\n}"
+										}
+									]
+								},
+								{
+									"name": "Claim A List Of Devices Licenses And Or Orders Into An Organization",
+									"id": "b236b22b-1b85-4767-82bb-7e55e71ead79",
+									"protocolProfileBehavior": {
+										"followAuthorizationHeader": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "X-Cisco-Meraki-API-Key",
+												"value": ""
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"orders\": [\n        \"<string>\",\n        \"<string>\"\n    ],\n    \"serials\": [\n        \"<string>\",\n        \"<string>\"\n    ],\n    \"licenses\": [\n        {\n            \"key\": \"<string>\",\n            \"mode\": \"<string>\"\n        },\n        {\n            \"key\": \"<string>\",\n            \"mode\": \"<string>\"\n        }\n    ]\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/organizations/:organizationId/claim",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"organizations",
+												":organizationId",
+												"claim"
+											],
+											"variable": [
+												{
+													"id": "52904e5a-8f0a-459d-b507-6a19fa6ab21d",
+													"key": "organizationId",
+													"value": "{{organizationId}}",
+													"description": "(Required) "
+												}
+											]
+										},
+										"description": "Claim a list of devices, licenses, and/or orders into an organization. When claiming by order, all devices and licenses in the order will be claimed; licenses will be added to the organization and devices will be placed in the organization's inventory."
+									},
+									"response": [
+										{
+											"id": "10a7c13e-61d9-4a26-a95c-582f7d3563f0",
+											"name": "Successful operation",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"orders\": [\n        \"4CXXXXXXX\"\n    ],\n    \"serials\": [\n        \"Q234-ABCD-5678\"\n    ],\n    \"licenses\": [\n        {\n            \"key\": \"Z2XXXXXXXXXX\",\n            \"mode\": \"addDevices\"\n        }\n    ]\n}"
+												},
+												"url": {
+													"raw": "{{baseUrl}}/organizations/:organizationId/claim",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"organizations",
+														":organizationId",
+														"claim"
+													],
+													"variable": [
+														{
+															"key": "organizationId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n \"orders\": [\n  \"4CXXXXXXX\"\n ],\n \"serials\": [\n  \"Q234-ABCD-5678\"\n ],\n \"licenses\": [\n  {\n   \"key\": \"Z2XXXXXXXXXX\",\n   \"mode\": \"addDevices\"\n  }\n ]\n}"
 										}
 									]
 								}
@@ -55474,552 +55450,552 @@
 	],
 	"variable": [
 		{
-			"id": "483bf609-3664-4465-8123-c3875e32133a",
+			"id": "64e420fe-b4f4-4ff2-967e-df248d55c584",
 			"key": "accessCategory"
 		},
 		{
-			"id": "523537f2-d229-40c1-9f9e-510d6f28d83b",
+			"id": "052f02cd-2bfa-4f2c-8be4-5479d460253e",
 			"key": "accessPolicyNumber"
 		},
 		{
-			"id": "d0de1102-581b-4c61-bfec-0e1ccee733a9",
+			"id": "7721f236-d778-4fef-8c54-f407e6088166",
 			"key": "actionBatchId"
 		},
 		{
-			"id": "2ec9f0ad-3c79-4ccd-b921-ec9a3d62d13e",
+			"id": "f787972c-efd4-41a4-a999-3eb6b95ffc5f",
 			"key": "adaptivePolicyId"
 		},
 		{
-			"id": "35aad24e-9e3e-4c2d-9515-3543b4ada2a2",
+			"id": "84bae2dc-dbc0-4edc-b940-6a74cfce753f",
 			"key": "adminId"
 		},
 		{
-			"id": "852fcc65-25a2-4dfd-9b76-d34eebaa27c8",
+			"id": "543851dd-c79a-4d07-b4fd-e8ae722c1a5d",
 			"key": "alertConfigId"
 		},
 		{
-			"id": "bac0ae13-ef58-4e00-86aa-d27f97a2d598",
+			"id": "53c418e8-f467-4574-9a29-ffe8eb1deac3",
 			"key": "apTag"
 		},
 		{
-			"id": "702c571e-d0e0-418a-91cd-a9b401650458",
+			"id": "ed2ed13e-d258-4540-ae84-71c388996edf",
 			"key": "applicationId"
 		},
 		{
-			"id": "5e3338ce-ac3b-49a1-aa3d-06a13864e0cf",
+			"id": "1d433b35-9800-4280-81ea-7a5fc1594eca",
 			"key": "artifactId"
 		},
 		{
-			"id": "cba5e07e-adb8-44e9-a945-167fc700a275",
+			"id": "b067c0a8-8585-46f2-b3ed-7ca670146d35",
 			"key": "attemptId"
 		},
 		{
-			"id": "6f3af62f-70ca-430f-ba39-49f3676f28ad",
+			"id": "680104e2-2741-4f56-bc99-719f21ac43d5",
 			"key": "autoResolution"
 		},
 		{
-			"id": "72e49826-3fe5-4b79-b61b-3247c54d1088",
+			"id": "daf1994d-a705-4e57-9caa-1aed58e5689b",
 			"key": "band"
 		},
 		{
-			"id": "e59d390c-633b-4bc7-b6e9-71747d95deef",
+			"id": "7869a4c5-79ba-4fc6-b524-7694c4b16272",
 			"key": "baseUrl",
 			"value": "https://api.meraki.com/api/v1"
 		},
 		{
-			"id": "4278e299-b5a0-4454-966a-d32ede778d53",
+			"id": "e7ba593a-8248-41cd-8a34-27a7a448586b",
 			"key": "bluetoothClientId"
 		},
 		{
-			"id": "d139ddfb-c7f4-4688-8d3f-59f821fdc0c0",
+			"id": "26d4f41e-595b-4e1d-a6ba-2021d47d5f51",
 			"key": "bluetoothMac"
 		},
 		{
-			"id": "e8084156-9bdd-4d3d-9640-ae54c9537ba6",
+			"id": "3272b0ac-0ad0-4d7a-bb1a-05b63344bf8b",
 			"key": "brandingPolicyId"
 		},
 		{
-			"id": "78786e03-39a9-4b25-8bb7-ec328a81561a",
+			"id": "adf1e718-8b78-4e84-8470-862f624e74df",
 			"key": "clientId"
 		},
 		{
-			"id": "41a82e7f-c1f7-4d8a-8d20-f35901749d50",
+			"id": "6cc61698-7cd8-4c6f-895f-f28f167906a4",
 			"key": "clientIp"
 		},
 		{
-			"id": "e2bfd118-1039-487b-9c32-61fc0904d58c",
+			"id": "b1eb3e98-d6e0-4246-b14a-c633f7fedc59",
 			"key": "clientMac"
 		},
 		{
-			"id": "b2122e18-089c-4f95-8097-b10f6294fefd",
+			"id": "488b5105-8ece-42a6-b3c8-d7076f33e7d1",
 			"key": "clientName"
 		},
 		{
-			"id": "18563f22-1fba-45a7-a309-ef5173db8dc3",
+			"id": "afca18b9-156f-4b51-916b-7cfd2709f152",
 			"key": "clients"
 		},
 		{
-			"id": "d345d7b3-94d5-467c-ba15-9f126ea4147c",
+			"id": "37af86c7-34c2-4932-a78f-2d450a95a31f",
 			"key": "configTemplateId"
 		},
 		{
-			"id": "4b84ed1b-289a-4f49-9d0f-1d3a8529bcb7",
+			"id": "d3e9c1ec-c956-43cf-8377-d57b4d9f4a4a",
 			"key": "configurationUpdatedAfter"
 		},
 		{
-			"id": "e9d4b883-6c16-4bc8-a947-661a891b757e",
+			"id": "043b69cd-06b6-4e9e-ab6e-ca303bea8c90",
 			"key": "connectivityHistoryTimespan"
 		},
 		{
-			"id": "2b9bab8a-226f-40bd-87d6-e3f7c20c5d06",
+			"id": "eaa23268-f71e-4561-b801-f6dade6c7085",
 			"key": "customPerformanceClassId"
 		},
 		{
-			"id": "0142ce20-58f9-4ccd-bfc6-787da13a874f",
+			"id": "0418ce44-369a-418e-b936-47bd7b0a4ad0",
 			"key": "description"
 		},
 		{
-			"id": "7c94c587-b196-4249-8e56-463cae1f1821",
+			"id": "049ad6c6-2227-423b-a0e4-94f2b5ce1f23",
 			"key": "deviceId"
 		},
 		{
-			"id": "af9ea51a-05c2-43e0-ac9a-aeb13c5aaaa7",
+			"id": "1bbb184c-c876-4e03-a0ed-f64b2df572f7",
 			"key": "deviceMac"
 		},
 		{
-			"id": "13392079-d7c3-4259-a042-efc58ba8b660",
+			"id": "ec8b498b-8aa1-4741-958a-1fb649847e80",
 			"key": "deviceName"
 		},
 		{
-			"id": "ded05370-8d2e-4efc-908f-5df6b360984b",
+			"id": "af538e9b-371a-4a21-a557-c385d8a96832",
 			"key": "deviceSerial"
 		},
 		{
-			"id": "2869fd09-946d-4303-9d4a-ff6694bac2cf",
+			"id": "b454d145-eff0-4bbf-bc6b-569886702547",
 			"key": "deviceType"
 		},
 		{
-			"id": "cc7dc8f5-06bd-41a9-8636-44da317a7c72",
+			"id": "75f691b9-1494-4412-826d-b2c7032e011d",
 			"key": "email"
 		},
 		{
-			"id": "33cca9b6-90b2-44a3-a000-43a4a79c9239",
+			"id": "404e64a8-5b4f-4020-b56a-e2b14eb1349c",
 			"key": "emails"
 		},
 		{
-			"id": "3a5e7cbe-24e2-43f2-abf4-c55e22747146",
+			"id": "d18d3a33-aaa2-4487-8511-8727de665f09",
 			"key": "endingBefore"
 		},
 		{
-			"id": "7684a3e9-7e17-49f3-80a2-18207c3ec947",
+			"id": "5786a090-0c64-491c-a61e-9af35e4b6c93",
 			"key": "excludedEventTypes[]"
 		},
 		{
-			"id": "f925ed9c-44a4-45fc-8980-5017e86f0791",
+			"id": "a5312d42-2c17-42ca-a849-1c9d96c3004e",
 			"key": "fields"
 		},
 		{
-			"id": "ba7a154a-9625-438c-bee7-95b77a9953a9",
+			"id": "6a71662a-dac7-4c1e-a6ae-49bc57963fd4",
 			"key": "floorPlanId"
 		},
 		{
-			"id": "aa1087ab-1605-4210-9162-7736d51a591f",
+			"id": "b2c6a1bd-925a-403f-86ba-64cf3eac0b3e",
 			"key": "groupPolicyId"
 		},
 		{
-			"id": "e453a986-5363-4666-9c1b-1b69caf68b02",
+			"id": "dcd0be62-8185-4eb8-a8db-c96b4d1f566a",
 			"key": "httpServerId"
 		},
 		{
-			"id": "ca0584d8-1c25-4177-a255-7709dcdff403",
+			"id": "97cc333e-7be8-4cc8-b474-1b14710680e5",
 			"key": "iccids"
 		},
 		{
-			"id": "2c84fca8-b8d1-43d3-88f8-0f9fb504a998",
+			"id": "16eef573-c922-4f32-bf3b-39814f21800c",
 			"key": "id"
 		},
 		{
-			"id": "946480a1-888d-4c38-8c01-cc99f62e7aad",
+			"id": "b1e00a57-6c57-4c7f-bf2a-33613e305b71",
 			"key": "identityPskId"
 		},
 		{
-			"id": "9fa33f1f-87fd-4466-a0d9-9314d073b09d",
+			"id": "a21a7bcd-34f0-472a-8b96-a8111e8556db",
 			"key": "idpId"
 		},
 		{
-			"id": "3287d87a-9195-4903-a7f4-49be99cc17f4",
+			"id": "8a8dd3bf-ad43-4991-995d-771a78c0da8a",
 			"key": "ids"
 		},
 		{
-			"id": "a5e1fcaa-75bb-4683-9909-c65d667fb520",
+			"id": "52835522-ecff-47be-a465-2f56f9b70af8",
 			"key": "imei"
 		},
 		{
-			"id": "5f07ab24-81e5-48dd-bc24-f952d0cbe98c",
+			"id": "23b30e39-b4cb-4f74-a505-03c960b87a7d",
 			"key": "includeConnectivityHistory"
 		},
 		{
-			"id": "8fd5ac85-8ec5-49ac-90f4-dc0f116299c3",
+			"id": "a965dc68-607e-456b-a853-b9c3fd82012f",
 			"key": "includeTemplateProfiles"
 		},
 		{
-			"id": "6cd02aca-0326-4250-9931-3c354ba289f9",
+			"id": "cad8fed9-4314-48ed-b192-0b190b81d021",
 			"key": "includedEventTypes[]"
 		},
 		{
-			"id": "ec6a77ae-d936-4117-a9b9-2ae73b7123a6",
+			"id": "7bff9d34-75ac-4f4e-95e4-50f11d99ca00",
 			"key": "includedSeverities"
 		},
 		{
-			"id": "2dc3f15b-fc49-4831-b86a-fdf59a3d5147",
+			"id": "58fd89ca-3ea1-4819-ae42-cc516a1d0cb9",
 			"key": "interfaceId"
 		},
 		{
-			"id": "dba62c7d-65c1-4358-a64f-ad44c4a5aa78",
+			"id": "55544506-0c9b-4300-8024-b989238853f9",
 			"key": "ip"
 		},
 		{
-			"id": "f169702d-e798-484d-a38b-0ec7a3533a09",
+			"id": "96cd6475-d113-4326-9190-064b5b1abc5c",
 			"key": "ip6"
 		},
 		{
-			"id": "e2ce70ed-5f2b-4510-8033-41293c8031e9",
+			"id": "56002bca-f66d-45ea-af9b-dfe7ee269fe3",
 			"key": "ip6Local"
 		},
 		{
-			"id": "fe16cdd0-80f6-4698-aeb8-07fdf11174f2",
+			"id": "c0438048-4754-41c6-a1d7-499f2eeb90ca",
 			"key": "isBoundToConfigTemplate"
 		},
 		{
-			"id": "eaa52932-e3c7-4e62-b3c1-9f2358da8519",
+			"id": "75312569-563f-4067-9701-1a744de51cf0",
 			"key": "licenseId"
 		},
 		{
-			"id": "a306de89-d732-4fbb-b48c-e9883a10639b",
+			"id": "3bdb7212-5330-44b0-8df2-2c572e02646f",
 			"key": "linkAggregationId"
 		},
 		{
-			"id": "d5ba3886-a84a-4550-a0ad-9246de0479dc",
+			"id": "83d5fbff-db76-485c-9384-498e1ad9ce5b",
 			"key": "loginIdentifier"
 		},
 		{
-			"id": "2e0e6b95-ac49-4d62-af27-66b4ecd2d84e",
+			"id": "9181b5e3-5c03-4f76-b608-fa6fd88b3b40",
 			"key": "mac"
 		},
 		{
-			"id": "63065999-7c89-460d-aa61-7268d242f30a",
+			"id": "25ae8146-c6e4-4764-8cb1-d4b760939ea3",
 			"key": "macs"
 		},
 		{
-			"id": "a902db96-0920-4d1e-a9d4-5b3e361b3173",
+			"id": "577e0c5c-2840-4b07-a73c-606d8e114716",
 			"key": "merakiAuthUserId"
 		},
 		{
-			"id": "cfacf158-308b-4f07-ac86-30552298f4f7",
+			"id": "2ee2dbbf-2bb0-48a5-b87d-5f5e269e07a7",
 			"key": "method"
 		},
 		{
-			"id": "9414cfd1-5a89-4783-851c-023bd9df7c94",
+			"id": "4b0ca2b0-c32b-410e-b02f-6815fa1957f9",
 			"key": "metrics"
 		},
 		{
-			"id": "014ccb92-955e-4345-a4fb-c8f2f87ad8ea",
+			"id": "f6d334e3-f8c2-4254-86fa-49b097580bae",
 			"key": "model"
 		},
 		{
-			"id": "f8fcf13e-9bb9-42dd-a178-678fbaeaddb9",
+			"id": "77d2bc8f-0fe3-4ec6-8f03-87c50a9b55e1",
 			"key": "models"
 		},
 		{
-			"id": "8b755d3a-0fe7-411c-bab2-8a33e529ffe8",
+			"id": "bf6f4640-c655-4c68-b012-62462633df8e",
 			"key": "monitoredMediaServerId"
 		},
 		{
-			"id": "962193b1-0672-4a4c-bb93-3d162c8984f2",
+			"id": "74029c71-f87b-4e33-8b38-1506c4308ad2",
 			"key": "mqttBrokerId"
 		},
 		{
-			"id": "c24898af-f245-4221-a923-1b0d0534a1e4",
+			"id": "1ae4b9ed-0edb-4e6c-9af5-2132fc2b5877",
 			"key": "name"
 		},
 		{
-			"id": "d174e444-6024-4b5d-a5a5-860696d02552",
+			"id": "d293b252-3d34-4f36-9cac-480323053c6b",
 			"key": "networkId"
 		},
 		{
-			"id": "71242cc3-540c-4456-ad66-6b8aedf69d51",
+			"id": "3b28aabb-4213-4a52-a8bc-d614453bd378",
 			"key": "networkIds"
 		},
 		{
-			"id": "4143f5d5-60c9-4a22-86a8-404631c6fac6",
+			"id": "68489a32-66b4-4b70-8337-ba535d85e7f5",
 			"key": "number"
 		},
 		{
-			"id": "205c2704-f5d4-4d24-8894-5e6499819232",
+			"id": "9db15dfa-fdf9-416b-accc-ffc231d20c81",
 			"key": "objectType"
 		},
 		{
-			"id": "fb7ed6a1-c4ca-4ce6-9fbe-40b3b18e4c05",
+			"id": "c3a15720-7985-4ddf-8517-013bea3c3361",
 			"key": "operationIds"
 		},
 		{
-			"id": "50904444-b3d5-401b-8b85-006b9975df40",
+			"id": "84942e73-05c8-40b2-b8a2-3334ba09b890",
 			"key": "optInId"
 		},
 		{
-			"id": "1553642d-9345-47e1-b87f-561b706b1c0f",
+			"id": "c7998d58-63b1-408f-b3cc-86dfaa39ecb7",
 			"key": "organizationId"
 		},
 		{
-			"id": "78ae5176-6b6f-41fb-be27-3d81a3c6dbe8",
+			"id": "5258a4ce-8e6e-4c99-93b9-a41f734995f0",
 			"key": "os"
 		},
 		{
-			"id": "e7cca8cd-1bd1-44cc-890e-44a180d1772c",
+			"id": "52a1ec0a-fba8-47a7-b3c2-342abd09cfa9",
 			"key": "path"
 		},
 		{
-			"id": "efeedf60-aa6d-4ee8-84cb-c4531392a68f",
+			"id": "ec8bf305-c87f-4e3f-b4b5-fab4f562c460",
 			"key": "payloadTemplateId"
 		},
 		{
-			"id": "8f5938b4-190b-4fd5-8b9b-f0e3c53ba992",
+			"id": "037e4b0e-6fa8-48b5-b331-8f05ab061a9d",
 			"key": "perPage"
 		},
 		{
-			"id": "cdd7d082-a01d-4432-9efc-7226d423183b",
+			"id": "7a76156c-8374-403a-ad27-3b522be3d176",
 			"key": "portId"
 		},
 		{
-			"id": "889df33f-1d0a-4abe-ac9e-53244e2b51d5",
+			"id": "91c64654-cc84-41cc-8d70-83b1748cf32d",
 			"key": "portScheduleId"
 		},
 		{
-			"id": "ac9a10c7-902b-4599-a6f4-78244e8d3557",
+			"id": "68d2bc31-577c-4ef6-ae13-bd0aa4779b8d",
 			"key": "productType"
 		},
 		{
-			"id": "7b3c9ba8-fb77-45b8-85d2-d00abc817f86",
+			"id": "af20c49d-b561-4247-b073-e7b07431c749",
 			"key": "productTypes"
 		},
 		{
-			"id": "a2dc1916-17fb-41ce-9679-8770ff866b4b",
+			"id": "2e0e412b-2a1d-486c-973b-7f02ec0813e2",
 			"key": "profileId"
 		},
 		{
-			"id": "8ab7225c-12ba-4ed6-a0fd-b8cef578d51e",
+			"id": "aebbaf0a-078e-4391-8e02-48e8d893999d",
 			"key": "qosRuleId"
 		},
 		{
-			"id": "19ed5ba7-f6c9-4405-96c4-dceb412de891",
+			"id": "86c1c812-5193-49ba-95d4-f2ed112ec94a",
 			"key": "qualityRetentionProfileId"
 		},
 		{
-			"id": "6579909a-fb6e-438c-8dc1-21a28a211d18",
+			"id": "4583d21d-4159-4134-b0a6-638e629a9cce",
 			"key": "recentDeviceConnections"
 		},
 		{
-			"id": "0265b7d4-3987-4f30-9cac-6cf4809f44dc",
+			"id": "1c4d55a5-b434-4d14-968d-c12d61d578df",
 			"key": "rendezvousPointId"
 		},
 		{
-			"id": "f2e135f8-cfb9-419c-aff5-547a8793441f",
+			"id": "789cca4a-a976-45ad-92ae-b2824065d058",
 			"key": "requestId"
 		},
 		{
-			"id": "fa990502-2694-4937-9faf-a74cccfa1a0b",
+			"id": "e392bd17-76d5-4891-b441-074d9ca8585d",
 			"key": "resolution"
 		},
 		{
-			"id": "fcaf4aaa-3bce-4d48-b4ac-64aa3cdc2858",
+			"id": "2d6d2537-b797-4ee6-8200-e414ce5229d5",
 			"key": "responseCode"
 		},
 		{
-			"id": "07974213-11f4-432f-91a7-14ffe1139019",
+			"id": "f4174f3a-cf49-4154-bae5-18a8360e7b60",
 			"key": "rfProfileId"
 		},
 		{
-			"id": "1435ffee-3d8e-4d71-840f-fc49ac08b12c",
+			"id": "d685a288-7ce3-42a3-b568-9ea82ff191cc",
 			"key": "samlRoleId"
 		},
 		{
-			"id": "21b02b2f-6ff6-407b-94fd-12d1068f6a6b",
+			"id": "d71003f1-b93e-48e9-80e3-b0cb9d168dd9",
 			"key": "scope"
 		},
 		{
-			"id": "0e203936-c3bb-4bfa-8290-58de81ed3382",
+			"id": "8cf4057b-189b-4f86-bfbe-d73d99b497dd",
 			"key": "search"
 		},
 		{
-			"id": "00206dc2-9ad3-481b-bd2d-2dc11c751589",
+			"id": "31d0378d-91e5-4a61-856d-5178c4b2c3f9",
 			"key": "sensorAlertProfileIds"
 		},
 		{
-			"id": "acb36cb4-87e3-429a-b713-d5021e0cb151",
+			"id": "c3956d68-3848-4911-a84d-2ee131856965",
 			"key": "sensorMetrics"
 		},
 		{
-			"id": "0b257f80-ae8e-4576-bf11-9e0f3e236fea",
+			"id": "3c60b528-3978-42bf-ad12-b40d21290f67",
 			"key": "serial"
 		},
 		{
-			"id": "0870529d-13e6-4565-976b-eaa53698282d",
+			"id": "95c5197b-d75d-4951-ad51-56d1805ed6a6",
 			"key": "serials"
 		},
 		{
-			"id": "4d901707-1af3-4178-959d-697a46650a5e",
+			"id": "a87fde78-5b94-4117-9771-6fdd1a6cbbbe",
 			"key": "service"
 		},
 		{
-			"id": "76c3a5d1-b8ef-4b69-9f7c-314149b49205",
+			"id": "99377b3e-cde2-4d34-9bba-d1982c283f82",
 			"key": "smDeviceMac"
 		},
 		{
-			"id": "487e9d75-9060-42a9-a126-e59070c1f1ec",
+			"id": "4d7d5f96-752f-41ac-81e9-e4f84c07b426",
 			"key": "smDeviceName"
 		},
 		{
-			"id": "492f69a5-9039-4c9e-9efd-c151e3bdb2bd",
+			"id": "448c315a-3c43-4bd1-9429-23ad3729d2e8",
 			"key": "sortOrder"
 		},
 		{
-			"id": "e24e133c-463a-4c65-bdf4-7255b83b68cf",
+			"id": "4d57caed-ed05-4fe6-87c0-65a3d04666db",
 			"key": "sourceIp"
 		},
 		{
-			"id": "4a4a3bf9-f8d3-4f90-bdf4-7a5deca45edc",
+			"id": "54192930-9f73-45c6-9c38-966185a42833",
 			"key": "ssid"
 		},
 		{
-			"id": "e147c556-b872-44a3-8874-ef964452d483",
+			"id": "df236d90-7a3a-4d16-8ffe-f85a9ac4cb7c",
 			"key": "ssidNumber"
 		},
 		{
-			"id": "d4a3c658-9dfd-466b-ab6a-a95ad858821b",
+			"id": "a8993fdc-b92f-46c9-85be-72302f93eb87",
 			"key": "startingAfter"
 		},
 		{
-			"id": "f8ddf0b5-01be-4d9b-ba76-48c54262dfbb",
+			"id": "1986a510-5d0a-4bb4-b3b4-b772583cb59f",
 			"key": "state"
 		},
 		{
-			"id": "06e4cbbe-d2a4-46d1-9c24-d5aa26f5688e",
+			"id": "05822262-c7e7-44d3-8142-301ec60374a8",
 			"key": "staticRouteId"
 		},
 		{
-			"id": "6ac61173-9efe-4435-a1e6-81ee62817e89",
+			"id": "691725e8-db47-4db5-ab0d-55a1e61875fd",
 			"key": "status"
 		},
 		{
-			"id": "fa5e0240-3688-4d73-bbe7-b9d03fc2dad6",
+			"id": "a2f11870-da09-44d6-8b1c-3c10f253acfb",
 			"key": "statuses"
 		},
 		{
-			"id": "110d6db8-035c-43c9-892f-2e4a3e588887",
+			"id": "9f029f46-0b3a-4736-b98f-25757e2d21f7",
 			"key": "switchStackId"
 		},
 		{
-			"id": "01503221-28d9-4088-ac7b-040e9d01a3af",
+			"id": "76928014-1c35-4715-9bd4-fd8a4496ab82",
 			"key": "t0"
 		},
 		{
-			"id": "f01608a2-8513-4d5e-91e8-c4921d1e3163",
+			"id": "4c83852a-28a3-473e-a589-47d88eba724f",
 			"key": "t1"
 		},
 		{
-			"id": "061ab8fd-91ec-4881-99d8-aa79ebcd997c",
+			"id": "ecdc38c2-a62c-4b10-8e0e-adabf4294ffb",
 			"key": "tags"
 		},
 		{
-			"id": "b67b8bb8-d6eb-4622-8902-3c324763841d",
+			"id": "26848315-1bab-41df-9423-7edc81611f85",
 			"key": "tagsFilterType"
 		},
 		{
-			"id": "c26e960e-85d0-4ae8-bdc5-0ca0d51d6950",
+			"id": "b8f6fa7f-4b74-4285-8f08-f746259887de",
 			"key": "targetGroupId"
 		},
 		{
-			"id": "ce7d08e4-59b4-4e33-9b1c-3588e4ef5975",
+			"id": "5b8c828f-12f8-40eb-92f8-598f174a48b0",
 			"key": "timespan"
 		},
 		{
-			"id": "4c90fe62-c3c4-42ce-9d44-be75b390a724",
+			"id": "02fa88c6-2793-4a12-aa6e-4885ac5a5c06",
 			"key": "timestamp"
 		},
 		{
-			"id": "d77fda05-6327-485d-9d97-6ee1c87bd577",
+			"id": "39f95ed6-20b8-4f11-8528-199684ab95a2",
 			"key": "trustedServerId"
 		},
 		{
-			"id": "7b4c7114-0a10-4d4d-8940-5692f3a7f5ca",
+			"id": "ede500f8-c756-4688-8edd-1d0908bc9382",
 			"key": "types"
 		},
 		{
-			"id": "29f37cb0-e389-4849-9f42-e60e3f2ca782",
+			"id": "8ac5980a-e103-4f07-872f-3069e40636d5",
 			"key": "uplink"
 		},
 		{
-			"id": "d390f118-4330-40bd-8eee-54371dbaf7ff",
+			"id": "4ba30e8a-fe03-4d1b-b0a4-05fe295e4ca3",
 			"key": "url"
 		},
 		{
-			"id": "7766bf20-3495-40ff-ae6a-0258fe781909",
+			"id": "221903c8-fc16-4f29-b29a-efaef64d8ab1",
 			"key": "usedState"
 		},
 		{
-			"id": "66ccf43a-9934-47ac-8545-ef4eee836afe",
+			"id": "79a9ba3a-a89c-4d59-b6bd-7f863f3598f2",
 			"key": "userAccessDeviceId"
 		},
 		{
-			"id": "f9d4d9b2-0fb9-4113-823f-e640f723b72d",
+			"id": "f3f67a08-dd0a-412a-a62a-1210d1895a3f",
 			"key": "userAgent"
 		},
 		{
-			"id": "2f93bbff-575a-4244-ac6e-81961818361f",
+			"id": "1b88e9ab-23b3-4aa3-8778-186bd4a7010f",
 			"key": "userId"
 		},
 		{
-			"id": "1255cdcc-0b72-4db0-a389-69660a140b18",
+			"id": "a044c64e-ab5f-406c-a767-7dbe050357c8",
 			"key": "username"
 		},
 		{
-			"id": "40e828b3-88f3-45ea-bf4f-cde3ce5d832b",
+			"id": "1222f895-11eb-4f9f-be5b-ea47bfc4aaa6",
 			"key": "usernames"
 		},
 		{
-			"id": "dae4b5dc-c718-456c-9bc3-29debd8a8f6e",
+			"id": "7e11835e-39f2-4493-9227-abd985dc68f7",
 			"key": "version"
 		},
 		{
-			"id": "fcc8d2ba-5810-4207-a3a2-18633aab75fe",
+			"id": "325a29c9-aeba-4963-8877-320b29896597",
 			"key": "vlan"
 		},
 		{
-			"id": "a74a1277-c1a8-4a69-b919-02cfca379da1",
+			"id": "fa2c4543-d44a-49e4-b874-484ef73121fe",
 			"key": "vlanId"
 		},
 		{
-			"id": "9dc17d0f-e513-431b-acb7-24c1f02116d3",
+			"id": "e001a229-c19c-46a3-8215-77b59f2ce2a8",
 			"key": "vppAccountId"
 		},
 		{
-			"id": "55d9cb29-189d-4c2d-b822-16a2fcf20cb3",
+			"id": "c60c5659-3458-44f2-904f-bbe27e4f18c6",
 			"key": "webhookTestId"
 		},
 		{
-			"id": "129aa94e-90b7-402b-965d-3e5c0072ed81",
+			"id": "959c4dc1-84b3-4841-800a-31c0aa6ae129",
 			"key": "wifiMacs"
 		},
 		{
-			"id": "1b9bd542-a046-4969-adb0-6f958e5aa11f",
+			"id": "4b17cd06-a701-484c-8441-246a1c34505e",
 			"key": "wirelessProfileId"
 		},
 		{
-			"id": "c194bdd9-a022-4721-a927-e781df7f69cb",
+			"id": "1656897f-17cb-4f26-a808-2fa51b9f9d3a",
 			"key": "withDetails"
 		},
 		{
-			"id": "398604ca-9e2f-4d95-870c-8f7b0bf2819f",
+			"id": "89d59651-6609-4701-af22-73d8f25ab63a",
 			"key": "zoneId"
 		}
 	]
