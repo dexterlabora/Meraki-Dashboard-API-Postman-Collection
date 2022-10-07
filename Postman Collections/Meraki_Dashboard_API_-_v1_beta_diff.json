@@ -1,1043 +1,14 @@
 {
 	"info": {
 		"_postman_id": "5368b2fb-18fe-4b29-8490-1fd8a5ce1421",
-		"name": "Meraki Dashboard API - v1.25.0-beta.2 -Diff",
-		"description": "The Cisco Meraki Dashboard API is a modern REST API based on the OpenAPI specification.\n\n> Date: 28 September, 2022\n>\n> [Recent Updates](https://meraki.io/whats-new/)\n\n---\n\n[API Documentation](https://meraki.io/api)\n\n[Community Support](https://meraki.io/community)\n\n[Meraki Homepage](https://www.meraki.com)\n\n\nContact Support:\n Name: Meraki Developer Community",
+		"name": "Meraki Dashboard API - v1.26.0-beta.0 -Diff",
+		"description": "The Cisco Meraki Dashboard API is a modern REST API based on the OpenAPI specification.\n\n> Date: 05 October, 2022\n>\n> [Recent Updates](https://meraki.io/whats-new/)\n\n---\n\n[API Documentation](https://meraki.io/api)\n\n[Community Support](https://meraki.io/community)\n\n[Meraki Homepage](https://www.meraki.com)\n\n\nContact Support:\n Name: Meraki Developer Community",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
 		{
 			"name": "PRODUCTS",
 			"item": [
-				{
-					"name": "Appliance",
-					"item": [
-						{
-							"name": "Monitor",
-							"item": [
-								{
-									"name": "prefixes",
-									"item": [
-										{
-											"name": "delegated",
-											"item": [
-												{
-													"name": "Vlan Assignments",
-													"item": [
-														{
-															"name": "Return prefixes assigned to all IPv6 enabled VLANs on an appliance.",
-															"id": "b92cd999-4d4e-4986-8553-f4c87e8f5902",
-															"protocolProfileBehavior": {
-																"followAuthorizationHeader": true
-															},
-															"request": {
-																"method": "GET",
-																"header": [
-																	{
-																		"key": "X-Cisco-Meraki-API-Key",
-																		"value": ""
-																	}
-																],
-																"url": {
-																	"raw": "{{baseUrl}}/devices/:serial/appliance/prefixes/delegated/vlanAssignments",
-																	"host": [
-																		"{{baseUrl}}"
-																	],
-																	"path": [
-																		"devices",
-																		":serial",
-																		"appliance",
-																		"prefixes",
-																		"delegated",
-																		"vlanAssignments"
-																	],
-																	"variable": [
-																		{
-																			"id": "a6b0dd72-16df-4836-a884-9a0748493bbf",
-																			"key": "serial",
-																			"value": "{{serial}}",
-																			"description": "(Required) "
-																		}
-																	]
-																},
-																"description": "Return prefixes assigned to all IPv6 enabled VLANs on an appliance."
-															},
-															"response": [
-																{
-																	"id": "4a7e1d31-1d9b-40fa-b90f-b03c4497703e",
-																	"name": "Successful operation",
-																	"originalRequest": {
-																		"method": "GET",
-																		"header": [],
-																		"url": {
-																			"raw": "{{baseUrl}}/devices/:serial/appliance/prefixes/delegated/vlanAssignments",
-																			"host": [
-																				"{{baseUrl}}"
-																			],
-																			"path": [
-																				"devices",
-																				":serial",
-																				"appliance",
-																				"prefixes",
-																				"delegated",
-																				"vlanAssignments"
-																			],
-																			"variable": [
-																				{
-																					"key": "serial"
-																				}
-																			]
-																		}
-																	},
-																	"status": "OK",
-																	"code": 200,
-																	"_postman_previewlanguage": "json",
-																	"header": [
-																		{
-																			"key": "Content-Type",
-																			"value": "application/json"
-																		}
-																	],
-																	"cookie": [],
-																	"responseTime": null,
-																	"body": "[\n {\n  \"vlan\": {\n   \"id\": 100,\n   \"name\": \"My VLAN\"\n  },\n  \"origin\": {\n   \"interface\": \"wan1\",\n   \"prefix\": \"2001:db8:3c4d:15::/64\"\n  },\n  \"status\": \"Active\",\n  \"ipv6\": {\n   \"prefix\": \"2001:db8:3c4d:15::/64\",\n   \"address\": \"2001:db8:3c4d:15::1\",\n   \"linkLocal\": {\n    \"address\": \"2001:db8:3c4d:15::1\"\n   },\n   \"solicitedNodeMulticast\": {\n    \"address\": \"2001:db8:3c4d:15::1\"\n   }\n  }\n }\n]"
-																}
-															]
-														}
-													],
-													"id": "98815fc6-74a2-40a6-9964-6501cbe3bde7"
-												},
-												{
-													"name": "Return Current Delegated I Pv 6 Prefixes On An Appliance",
-													"id": "4c9b083b-c2e1-4cf4-b63f-1fb34d572046",
-													"protocolProfileBehavior": {
-														"followAuthorizationHeader": true
-													},
-													"request": {
-														"method": "GET",
-														"header": [
-															{
-																"key": "X-Cisco-Meraki-API-Key",
-																"value": ""
-															}
-														],
-														"url": {
-															"raw": "{{baseUrl}}/devices/:serial/appliance/prefixes/delegated",
-															"host": [
-																"{{baseUrl}}"
-															],
-															"path": [
-																"devices",
-																":serial",
-																"appliance",
-																"prefixes",
-																"delegated"
-															],
-															"variable": [
-																{
-																	"id": "9dbede82-b960-4d62-9584-7039271f5e0c",
-																	"key": "serial",
-																	"value": "{{serial}}",
-																	"description": "(Required) "
-																}
-															]
-														},
-														"description": "Return current delegated IPv6 prefixes on an appliance."
-													},
-													"response": [
-														{
-															"id": "8134ce65-0c4f-47e1-919a-48b58586eeba",
-															"name": "Successful operation",
-															"originalRequest": {
-																"method": "GET",
-																"header": [],
-																"url": {
-																	"raw": "{{baseUrl}}/devices/:serial/appliance/prefixes/delegated",
-																	"host": [
-																		"{{baseUrl}}"
-																	],
-																	"path": [
-																		"devices",
-																		":serial",
-																		"appliance",
-																		"prefixes",
-																		"delegated"
-																	],
-																	"variable": [
-																		{
-																			"key": "serial"
-																		}
-																	]
-																}
-															},
-															"status": "OK",
-															"code": 200,
-															"_postman_previewlanguage": "json",
-															"header": [
-																{
-																	"key": "Content-Type",
-																	"value": "application/json"
-																}
-															],
-															"cookie": [],
-															"responseTime": null,
-															"body": "[\n {\n  \"origin\": {\n   \"interface\": \"wan1\"\n  },\n  \"prefix\": \"2001:db8:3c4d:15::/64\",\n  \"counts\": {\n   \"assigned\": 2,\n   \"available\": 253\n  },\n  \"method\": \"auto\",\n  \"description\": \"My ISP provider\",\n  \"isPreferred\": true,\n  \"expiresAt\": \"2018-05-12T00:00:00Z\"\n }\n]"
-														}
-													]
-												}
-											],
-											"id": "9fbe680e-6898-4d27-ad58-b3a0e8198d34"
-										}
-									],
-									"id": "6248b2f6-4e9e-48b2-a4d6-45f5a799c28d"
-								}
-							],
-							"id": "947a0cf7-59f4-456a-82ed-de4c46eea435"
-						},
-						{
-							"name": "Configure",
-							"item": [
-								{
-									"name": "Uplinks",
-									"item": [
-										{
-											"name": "settings",
-											"item": [
-												{
-													"name": "Return The Uplink Settings For An MX Appliance",
-													"id": "0c09a361-6dc9-44d2-a9bc-85dbe609e3b8",
-													"protocolProfileBehavior": {
-														"followAuthorizationHeader": true
-													},
-													"request": {
-														"method": "GET",
-														"header": [
-															{
-																"key": "X-Cisco-Meraki-API-Key",
-																"value": ""
-															}
-														],
-														"url": {
-															"raw": "{{baseUrl}}/devices/:serial/appliance/uplinks/settings",
-															"host": [
-																"{{baseUrl}}"
-															],
-															"path": [
-																"devices",
-																":serial",
-																"appliance",
-																"uplinks",
-																"settings"
-															],
-															"variable": [
-																{
-																	"id": "9e2cbc6a-307f-492d-8d8b-a4d6b0ddbc59",
-																	"key": "serial",
-																	"value": "{{serial}}",
-																	"description": "(Required) "
-																}
-															]
-														},
-														"description": "Return the uplink settings for an MX appliance"
-													},
-													"response": [
-														{
-															"id": "aa7abfa3-94e8-43fa-bc45-dcba62d361d1",
-															"name": "Successful operation",
-															"originalRequest": {
-																"method": "GET",
-																"header": [],
-																"url": {
-																	"raw": "{{baseUrl}}/devices/:serial/appliance/uplinks/settings",
-																	"host": [
-																		"{{baseUrl}}"
-																	],
-																	"path": [
-																		"devices",
-																		":serial",
-																		"appliance",
-																		"uplinks",
-																		"settings"
-																	],
-																	"variable": [
-																		{
-																			"key": "serial"
-																		}
-																	]
-																}
-															},
-															"status": "OK",
-															"code": 200,
-															"_postman_previewlanguage": "json",
-															"header": [
-																{
-																	"key": "Content-Type",
-																	"value": "application/json"
-																}
-															],
-															"cookie": [],
-															"responseTime": null,
-															"body": "{\n \"interfaces\": {\n  \"wan1\": {\n   \"enabled\": true,\n   \"vlanTagging\": {\n    \"enabled\": true,\n    \"vlanId\": 1\n   },\n   \"svis\": {\n    \"ipv4\": {\n     \"assignmentMode\": \"static\",\n     \"address\": \"9.10.11.10/16\",\n     \"gateway\": \"13.14.15.16\",\n     \"nameservers\": {\n      \"addresses\": [\n       \"1.2.3.4\"\n      ]\n     }\n    },\n    \"ipv6\": {\n     \"assignmentMode\": \"static\",\n     \"address\": \"1:2:3::4\",\n     \"gateway\": \"1:2:3::5\",\n     \"nameservers\": {\n      \"addresses\": [\n       \"1001:4860:4860::8888\",\n       \"1001:4860:4860::8844\"\n      ]\n     }\n    }\n   },\n   \"pppoe\": {\n    \"enabled\": true,\n    \"authentication\": {\n     \"enabled\": true,\n     \"username\": \"username\"\n    }\n   }\n  },\n  \"wan2\": {\n   \"enabled\": true,\n   \"vlanTagging\": {\n    \"enabled\": true,\n    \"vlanId\": 1\n   },\n   \"svis\": {\n    \"ipv4\": {\n     \"assignmentMode\": \"static\",\n     \"address\": \"9.10.11.10/16\",\n     \"gateway\": \"13.14.15.16\",\n     \"nameservers\": {\n      \"addresses\": [\n       \"1.2.3.4\"\n      ]\n     }\n    },\n    \"ipv6\": {\n     \"assignmentMode\": \"static\",\n     \"address\": \"1:2:3::4\",\n     \"gateway\": \"1:2:3::5\",\n     \"nameservers\": {\n      \"addresses\": [\n       \"1001:4860:4860::8888\",\n       \"1001:4860:4860::8844\"\n      ]\n     }\n    }\n   },\n   \"pppoe\": {\n    \"enabled\": true,\n    \"authentication\": {\n     \"enabled\": true,\n     \"username\": \"username\"\n    }\n   }\n  }\n }\n}"
-														}
-													]
-												},
-												{
-													"name": "Update The Uplink Settings For An MX Appliance",
-													"id": "e3cb5ca7-b56c-471a-9bc0-cd354aed142a",
-													"protocolProfileBehavior": {
-														"followAuthorizationHeader": true
-													},
-													"request": {
-														"method": "PUT",
-														"header": [
-															{
-																"key": "X-Cisco-Meraki-API-Key",
-																"value": ""
-															},
-															{
-																"key": "Content-Type",
-																"value": "application/json"
-															}
-														],
-														"body": {
-															"mode": "raw",
-															"raw": "{\n    \"interfaces\": {\n        \"wan1\": {\n            \"enabled\": \"<boolean>\",\n            \"vlanTagging\": {\n                \"enabled\": \"<boolean>\",\n                \"vlanId\": \"<integer>\"\n            },\n            \"svis\": {\n                \"ipv4\": {\n                    \"assignmentMode\": \"<string>\",\n                    \"address\": \"<string>\",\n                    \"gateway\": \"<string>\",\n                    \"nameservers\": {\n                        \"addresses\": [\n                            \"<string>\",\n                            \"<string>\"\n                        ]\n                    }\n                },\n                \"ipv6\": {\n                    \"assignmentMode\": \"<string>\",\n                    \"address\": \"<string>\",\n                    \"gateway\": \"<string>\",\n                    \"nameservers\": {\n                        \"addresses\": [\n                            \"<string>\",\n                            \"<string>\"\n                        ]\n                    }\n                }\n            },\n            \"pppoe\": {\n                \"enabled\": \"<boolean>\",\n                \"authentication\": {\n                    \"enabled\": \"<boolean>\",\n                    \"username\": \"<string>\",\n                    \"password\": \"<string>\"\n                }\n            }\n        },\n        \"wan2\": {\n            \"enabled\": \"<boolean>\",\n            \"vlanTagging\": {\n                \"enabled\": \"<boolean>\",\n                \"vlanId\": \"<integer>\"\n            },\n            \"svis\": {\n                \"ipv4\": {\n                    \"assignmentMode\": \"<string>\",\n                    \"address\": \"<string>\",\n                    \"gateway\": \"<string>\",\n                    \"nameservers\": {\n                        \"addresses\": [\n                            \"<string>\",\n                            \"<string>\"\n                        ]\n                    }\n                },\n                \"ipv6\": {\n                    \"assignmentMode\": \"<string>\",\n                    \"address\": \"<string>\",\n                    \"gateway\": \"<string>\",\n                    \"nameservers\": {\n                        \"addresses\": [\n                            \"<string>\",\n                            \"<string>\"\n                        ]\n                    }\n                }\n            },\n            \"pppoe\": {\n                \"enabled\": \"<boolean>\",\n                \"authentication\": {\n                    \"enabled\": \"<boolean>\",\n                    \"username\": \"<string>\",\n                    \"password\": \"<string>\"\n                }\n            }\n        }\n    }\n}"
-														},
-														"url": {
-															"raw": "{{baseUrl}}/devices/:serial/appliance/uplinks/settings",
-															"host": [
-																"{{baseUrl}}"
-															],
-															"path": [
-																"devices",
-																":serial",
-																"appliance",
-																"uplinks",
-																"settings"
-															],
-															"variable": [
-																{
-																	"id": "b11d8056-4e45-4deb-900a-89328b2d3463",
-																	"key": "serial",
-																	"value": "{{serial}}",
-																	"description": "(Required) "
-																}
-															]
-														},
-														"description": "Update the uplink settings for an MX appliance\n #### Body Parameters \n**Parameter**|**Type**|**Description** \n :-------------: |:-------------: |:-------------: \ninterfaces| object| Interface settings.\n\n#### Supports Action Batches\n\n**Resource**|**Operation**\n:-------------: |:-------------:\n`/devices/{serial}/appliance/uplinks/settings` | update\n\n"
-													},
-													"response": [
-														{
-															"id": "c948c6f4-c49b-4475-8d36-409962dd4867",
-															"name": "Successful operation",
-															"originalRequest": {
-																"method": "PUT",
-																"header": [],
-																"body": {
-																	"mode": "raw",
-																	"raw": "{\n    \"interfaces\": {\n        \"wan1\": {\n            \"enabled\": true,\n            \"vlanTagging\": {\n                \"enabled\": true,\n                \"vlanId\": 1\n            },\n            \"svis\": {\n                \"ipv4\": {\n                    \"assignmentMode\": \"static\",\n                    \"address\": \"9.10.11.10/16\",\n                    \"gateway\": \"13.14.15.16\",\n                    \"nameservers\": {\n                        \"addresses\": [\n                            \"1.2.3.4\"\n                        ]\n                    }\n                },\n                \"ipv6\": {\n                    \"assignmentMode\": \"static\",\n                    \"address\": \"1:2:3::4\",\n                    \"gateway\": \"1:2:3::5\",\n                    \"nameservers\": {\n                        \"addresses\": [\n                            \"1001:4860:4860::8888\",\n                            \"1001:4860:4860::8844\"\n                        ]\n                    }\n                }\n            },\n            \"pppoe\": {\n                \"enabled\": true,\n                \"authentication\": {\n                    \"enabled\": true,\n                    \"username\": \"username\",\n                    \"password\": \"password\"\n                }\n            }\n        },\n        \"wan2\": {\n            \"enabled\": true,\n            \"vlanTagging\": {\n                \"enabled\": true,\n                \"vlanId\": 1\n            },\n            \"svis\": {\n                \"ipv4\": {\n                    \"assignmentMode\": \"static\",\n                    \"address\": \"9.10.11.10/16\",\n                    \"gateway\": \"13.14.15.16\",\n                    \"nameservers\": {\n                        \"addresses\": [\n                            \"1.2.3.4\"\n                        ]\n                    }\n                },\n                \"ipv6\": {\n                    \"assignmentMode\": \"static\",\n                    \"address\": \"1:2:3::4\",\n                    \"gateway\": \"1:2:3::5\",\n                    \"nameservers\": {\n                        \"addresses\": [\n                            \"1001:4860:4860::8888\",\n                            \"1001:4860:4860::8844\"\n                        ]\n                    }\n                }\n            },\n            \"pppoe\": {\n                \"enabled\": true,\n                \"authentication\": {\n                    \"enabled\": true,\n                    \"username\": \"username\",\n                    \"password\": \"password\"\n                }\n            }\n        }\n    }\n}"
-																},
-																"url": {
-																	"raw": "{{baseUrl}}/devices/:serial/appliance/uplinks/settings",
-																	"host": [
-																		"{{baseUrl}}"
-																	],
-																	"path": [
-																		"devices",
-																		":serial",
-																		"appliance",
-																		"uplinks",
-																		"settings"
-																	],
-																	"variable": [
-																		{
-																			"key": "serial"
-																		}
-																	]
-																}
-															},
-															"status": "OK",
-															"code": 200,
-															"_postman_previewlanguage": "json",
-															"header": [
-																{
-																	"key": "Content-Type",
-																	"value": "application/json"
-																}
-															],
-															"cookie": [],
-															"responseTime": null,
-															"body": "{\n \"interfaces\": {\n  \"wan1\": {\n   \"enabled\": true,\n   \"vlanTagging\": {\n    \"enabled\": true,\n    \"vlanId\": 1\n   },\n   \"svis\": {\n    \"ipv4\": {\n     \"assignmentMode\": \"static\",\n     \"address\": \"9.10.11.10/16\",\n     \"gateway\": \"13.14.15.16\",\n     \"nameservers\": {\n      \"addresses\": [\n       \"1.2.3.4\"\n      ]\n     }\n    },\n    \"ipv6\": {\n     \"assignmentMode\": \"static\",\n     \"address\": \"1:2:3::4\",\n     \"gateway\": \"1:2:3::5\",\n     \"nameservers\": {\n      \"addresses\": [\n       \"1001:4860:4860::8888\",\n       \"1001:4860:4860::8844\"\n      ]\n     }\n    }\n   },\n   \"pppoe\": {\n    \"enabled\": true,\n    \"authentication\": {\n     \"enabled\": true,\n     \"username\": \"username\"\n    }\n   }\n  },\n  \"wan2\": {\n   \"enabled\": true,\n   \"vlanTagging\": {\n    \"enabled\": true,\n    \"vlanId\": 1\n   },\n   \"svis\": {\n    \"ipv4\": {\n     \"assignmentMode\": \"static\",\n     \"address\": \"9.10.11.10/16\",\n     \"gateway\": \"13.14.15.16\",\n     \"nameservers\": {\n      \"addresses\": [\n       \"1.2.3.4\"\n      ]\n     }\n    },\n    \"ipv6\": {\n     \"assignmentMode\": \"static\",\n     \"address\": \"1:2:3::4\",\n     \"gateway\": \"1:2:3::5\",\n     \"nameservers\": {\n      \"addresses\": [\n       \"1001:4860:4860::8888\",\n       \"1001:4860:4860::8844\"\n      ]\n     }\n    }\n   },\n   \"pppoe\": {\n    \"enabled\": true,\n    \"authentication\": {\n     \"enabled\": true,\n     \"username\": \"username\"\n    }\n   }\n  }\n }\n}"
-														}
-													]
-												}
-											],
-											"id": "0d8f7bb1-0f04-48dd-879f-36fa934330c4"
-										}
-									],
-									"id": "97e98bf1-b678-4b8a-8ba1-dd08ca97e8e7"
-								},
-								{
-									"name": "Firewall",
-									"item": [
-										{
-											"name": "inboundCellularFirewallRules",
-											"item": [
-												{
-													"name": "Return The Inbound Cellular Firewall Rules For An MX Network",
-													"id": "784c97f0-2404-42d8-8562-78d908320e57",
-													"protocolProfileBehavior": {
-														"followAuthorizationHeader": true
-													},
-													"request": {
-														"method": "GET",
-														"header": [
-															{
-																"key": "X-Cisco-Meraki-API-Key",
-																"value": ""
-															}
-														],
-														"url": {
-															"raw": "{{baseUrl}}/networks/:networkId/appliance/firewall/inboundCellularFirewallRules",
-															"host": [
-																"{{baseUrl}}"
-															],
-															"path": [
-																"networks",
-																":networkId",
-																"appliance",
-																"firewall",
-																"inboundCellularFirewallRules"
-															],
-															"variable": [
-																{
-																	"id": "fae74141-cc68-423a-83a3-860e286bb3ec",
-																	"key": "networkId",
-																	"value": "{{networkId}}",
-																	"description": "(Required) "
-																}
-															]
-														},
-														"description": "Return the inbound cellular firewall rules for an MX network"
-													},
-													"response": [
-														{
-															"id": "18087b96-deef-486b-9d26-0bed8547a540",
-															"name": "Successful operation",
-															"originalRequest": {
-																"method": "GET",
-																"header": [],
-																"url": {
-																	"raw": "{{baseUrl}}/networks/:networkId/appliance/firewall/inboundCellularFirewallRules",
-																	"host": [
-																		"{{baseUrl}}"
-																	],
-																	"path": [
-																		"networks",
-																		":networkId",
-																		"appliance",
-																		"firewall",
-																		"inboundCellularFirewallRules"
-																	],
-																	"variable": [
-																		{
-																			"key": "networkId"
-																		}
-																	]
-																}
-															},
-															"status": "OK",
-															"code": 200,
-															"_postman_previewlanguage": "json",
-															"header": [
-																{
-																	"key": "Content-Type",
-																	"value": "application/json"
-																}
-															],
-															"cookie": [],
-															"responseTime": null,
-															"body": "[\n {\n  \"comment\": \"Allow TCP traffic to subnet with HTTP servers.\",\n  \"policy\": \"allow\",\n  \"protocol\": \"tcp\",\n  \"destPort\": \"443\",\n  \"destCidr\": \"192.168.1.0/24\",\n  \"srcPort\": \"Any\",\n  \"srcCidr\": \"Any\",\n  \"syslogEnabled\": false\n }\n]"
-														}
-													]
-												},
-												{
-													"name": "Update The Inbound Cellular Firewall Rules Of An MX Network",
-													"id": "beb52fb0-ba30-4af3-815e-e77905640385",
-													"protocolProfileBehavior": {
-														"followAuthorizationHeader": true
-													},
-													"request": {
-														"method": "PUT",
-														"header": [
-															{
-																"key": "X-Cisco-Meraki-API-Key",
-																"value": ""
-															},
-															{
-																"key": "Content-Type",
-																"value": "application/json"
-															}
-														],
-														"body": {
-															"mode": "raw",
-															"raw": "{\n    \"rules\": [\n        {\n            \"policy\": \"<string>\",\n            \"protocol\": \"<string>\",\n            \"srcCidr\": \"<string>\",\n            \"destCidr\": \"<string>\",\n            \"comment\": \"<string>\",\n            \"srcPort\": \"<string>\",\n            \"destPort\": \"<string>\",\n            \"syslogEnabled\": \"<boolean>\"\n        },\n        {\n            \"policy\": \"<string>\",\n            \"protocol\": \"<string>\",\n            \"srcCidr\": \"<string>\",\n            \"destCidr\": \"<string>\",\n            \"comment\": \"<string>\",\n            \"srcPort\": \"<string>\",\n            \"destPort\": \"<string>\",\n            \"syslogEnabled\": \"<boolean>\"\n        }\n    ]\n}"
-														},
-														"url": {
-															"raw": "{{baseUrl}}/networks/:networkId/appliance/firewall/inboundCellularFirewallRules",
-															"host": [
-																"{{baseUrl}}"
-															],
-															"path": [
-																"networks",
-																":networkId",
-																"appliance",
-																"firewall",
-																"inboundCellularFirewallRules"
-															],
-															"variable": [
-																{
-																	"id": "0afcd455-ad66-45e7-812c-a30ab84a7ae3",
-																	"key": "networkId",
-																	"value": "{{networkId}}",
-																	"description": "(Required) "
-																}
-															]
-														},
-														"description": "Update the inbound cellular firewall rules of an MX network\n #### Body Parameters \n**Parameter**|**Type**|**Description** \n :-------------: |:-------------: |:-------------: \nrules| array| An ordered array of the firewall rules (not including the default rule)\n"
-													},
-													"response": [
-														{
-															"id": "ea8ddec4-95fd-4cf2-b39d-35bf8c42293c",
-															"name": "Successful operation",
-															"originalRequest": {
-																"method": "PUT",
-																"header": [],
-																"body": {
-																	"mode": "raw",
-																	"raw": "{\n    \"rules\": [\n        {\n            \"comment\": \"Allow TCP traffic to subnet with HTTP servers.\",\n            \"policy\": \"allow\",\n            \"protocol\": \"tcp\",\n            \"destPort\": \"443\",\n            \"destCidr\": \"192.168.1.0/24\",\n            \"srcPort\": \"Any\",\n            \"srcCidr\": \"Any\",\n            \"syslogEnabled\": false\n        }\n    ]\n}"
-																},
-																"url": {
-																	"raw": "{{baseUrl}}/networks/:networkId/appliance/firewall/inboundCellularFirewallRules",
-																	"host": [
-																		"{{baseUrl}}"
-																	],
-																	"path": [
-																		"networks",
-																		":networkId",
-																		"appliance",
-																		"firewall",
-																		"inboundCellularFirewallRules"
-																	],
-																	"variable": [
-																		{
-																			"key": "networkId"
-																		}
-																	]
-																}
-															},
-															"status": "OK",
-															"code": 200,
-															"_postman_previewlanguage": "json",
-															"header": [
-																{
-																	"key": "Content-Type",
-																	"value": "application/json"
-																}
-															],
-															"cookie": [],
-															"responseTime": null,
-															"body": "[\n {\n  \"comment\": \"Allow TCP traffic to subnet with HTTP servers.\",\n  \"policy\": \"allow\",\n  \"protocol\": \"tcp\",\n  \"destPort\": \"443\",\n  \"destCidr\": \"192.168.1.0/24\",\n  \"srcPort\": \"Any\",\n  \"srcCidr\": \"Any\",\n  \"syslogEnabled\": false\n }\n]"
-														}
-													]
-												}
-											],
-											"id": "cc5f9e6e-7312-4906-a627-14a6526834f3"
-										}
-									],
-									"id": "d216ac28-246f-4f54-90da-4cfe9eb0858c"
-								},
-								{
-									"name": "Prefixes",
-									"item": [
-										{
-											"name": "delegated",
-											"item": [
-												{
-													"name": "statics",
-													"item": [
-														{
-															"name": "List Static Delegated Prefixes For A Network",
-															"id": "42292442-3640-4af7-9975-575726f94e8b",
-															"protocolProfileBehavior": {
-																"followAuthorizationHeader": true
-															},
-															"request": {
-																"method": "GET",
-																"header": [
-																	{
-																		"key": "X-Cisco-Meraki-API-Key",
-																		"value": ""
-																	}
-																],
-																"url": {
-																	"raw": "{{baseUrl}}/networks/:networkId/appliance/prefixes/delegated/statics",
-																	"host": [
-																		"{{baseUrl}}"
-																	],
-																	"path": [
-																		"networks",
-																		":networkId",
-																		"appliance",
-																		"prefixes",
-																		"delegated",
-																		"statics"
-																	],
-																	"variable": [
-																		{
-																			"id": "e7c40175-e373-4193-8498-a8fc54c335d9",
-																			"key": "networkId",
-																			"value": "{{networkId}}",
-																			"description": "(Required) "
-																		}
-																	]
-																},
-																"description": "List static delegated prefixes for a network"
-															},
-															"response": [
-																{
-																	"id": "afe9ee56-2b12-4c45-8ed4-376b1fd95209",
-																	"name": "Successful operation",
-																	"originalRequest": {
-																		"method": "GET",
-																		"header": [],
-																		"url": {
-																			"raw": "{{baseUrl}}/networks/:networkId/appliance/prefixes/delegated/statics",
-																			"host": [
-																				"{{baseUrl}}"
-																			],
-																			"path": [
-																				"networks",
-																				":networkId",
-																				"appliance",
-																				"prefixes",
-																				"delegated",
-																				"statics"
-																			],
-																			"variable": [
-																				{
-																					"key": "networkId"
-																				}
-																			]
-																		}
-																	},
-																	"status": "OK",
-																	"code": 200,
-																	"_postman_previewlanguage": "json",
-																	"header": [
-																		{
-																			"key": "Content-Type",
-																			"value": "application/json"
-																		}
-																	],
-																	"cookie": [],
-																	"responseTime": null,
-																	"body": "[\n {\n  \"staticDelegatedPrefixId\": \"1284392014819\",\n  \"prefix\": \"2001:db8:3c4d:15::/64\",\n  \"origin\": {\n   \"type\": \"internet\",\n   \"interfaces\": [\n    \"wan1\"\n   ]\n  },\n  \"description\": \"Prefix on WAN 1 of Long Island Office network\",\n  \"createdAt\": \"2018-05-12T00:00:00Z\",\n  \"updatedAt\": \"2018-05-12T00:00:00Z\"\n }\n]"
-																}
-															]
-														},
-														{
-															"name": "Add A Static Delegated Prefix From A Network",
-															"id": "1ac76546-8c07-4a1a-a917-b512cceb9ce5",
-															"protocolProfileBehavior": {
-																"followAuthorizationHeader": true
-															},
-															"request": {
-																"method": "POST",
-																"header": [
-																	{
-																		"key": "X-Cisco-Meraki-API-Key",
-																		"value": ""
-																	},
-																	{
-																		"key": "Content-Type",
-																		"value": "application/json"
-																	}
-																],
-																"body": {
-																	"mode": "raw",
-																	"raw": "{\n    \"prefix\": \"<string>\",\n    \"origin\": {\n        \"type\": \"<string>\",\n        \"interfaces\": [\n            \"<string>\",\n            \"<string>\"\n        ]\n    },\n    \"description\": \"<string>\"\n}"
-																},
-																"url": {
-																	"raw": "{{baseUrl}}/networks/:networkId/appliance/prefixes/delegated/statics",
-																	"host": [
-																		"{{baseUrl}}"
-																	],
-																	"path": [
-																		"networks",
-																		":networkId",
-																		"appliance",
-																		"prefixes",
-																		"delegated",
-																		"statics"
-																	],
-																	"variable": [
-																		{
-																			"id": "21800336-ffa5-4cd7-b62d-70654634c4f1",
-																			"key": "networkId",
-																			"value": "{{networkId}}",
-																			"description": "(Required) "
-																		}
-																	]
-																},
-																"description": "Add a static delegated prefix from a network\n #### Body Parameters \n**Parameter**|**Type**|**Description** \n :-------------: |:-------------: |:-------------: \nprefix| string| A static IPv6 prefix\norigin| object| The origin of the prefix\ndescription| string| A name or description for the prefix\n\n#### Supports Action Batches\n\n**Resource**|**Operation**\n:-------------: |:-------------:\n`/networks/{networkId}/appliance/prefixes/delegated/statics` | create\n\n"
-															},
-															"response": [
-																{
-																	"id": "eb087e82-4780-44bf-8446-4590935d3797",
-																	"name": "Successful operation",
-																	"originalRequest": {
-																		"method": "POST",
-																		"header": [],
-																		"body": {
-																			"mode": "raw",
-																			"raw": "{\n    \"prefix\": \"2001:db8:3c4d:15::/64\",\n    \"origin\": {\n        \"type\": \"internet\",\n        \"interfaces\": [\n            \"wan1\"\n        ]\n    },\n    \"description\": \"Prefix on WAN 1 of Long Island Office network\"\n}"
-																		},
-																		"url": {
-																			"raw": "{{baseUrl}}/networks/:networkId/appliance/prefixes/delegated/statics",
-																			"host": [
-																				"{{baseUrl}}"
-																			],
-																			"path": [
-																				"networks",
-																				":networkId",
-																				"appliance",
-																				"prefixes",
-																				"delegated",
-																				"statics"
-																			],
-																			"variable": [
-																				{
-																					"key": "networkId"
-																				}
-																			]
-																		}
-																	},
-																	"status": "Created",
-																	"code": 201,
-																	"_postman_previewlanguage": "json",
-																	"header": [
-																		{
-																			"key": "Content-Type",
-																			"value": "application/json"
-																		}
-																	],
-																	"cookie": [],
-																	"responseTime": null,
-																	"body": "{\n \"staticDelegatedPrefixId\": \"1284392014819\",\n \"prefix\": \"2001:db8:3c4d:15::/64\",\n \"origin\": {\n  \"type\": \"internet\",\n  \"interfaces\": [\n   \"wan1\"\n  ]\n },\n \"description\": \"Prefix on WAN 1 of Long Island Office network\",\n \"createdAt\": \"2018-05-12T00:00:00Z\",\n \"updatedAt\": \"2018-05-12T00:00:00Z\"\n}"
-																}
-															]
-														},
-														{
-															"name": "Return A Static Delegated Prefix From A Network",
-															"id": "f16da59c-c904-4331-b5a3-f524ed67e4d6",
-															"protocolProfileBehavior": {
-																"followAuthorizationHeader": true
-															},
-															"request": {
-																"method": "GET",
-																"header": [
-																	{
-																		"key": "X-Cisco-Meraki-API-Key",
-																		"value": ""
-																	}
-																],
-																"url": {
-																	"raw": "{{baseUrl}}/networks/:networkId/appliance/prefixes/delegated/statics/:staticDelegatedPrefixId",
-																	"host": [
-																		"{{baseUrl}}"
-																	],
-																	"path": [
-																		"networks",
-																		":networkId",
-																		"appliance",
-																		"prefixes",
-																		"delegated",
-																		"statics",
-																		":staticDelegatedPrefixId"
-																	],
-																	"variable": [
-																		{
-																			"id": "b3c1680a-a2f3-4b72-999d-c9bec0debe16",
-																			"key": "networkId",
-																			"value": "{{networkId}}",
-																			"description": "(Required) "
-																		},
-																		{
-																			"id": "70111922-2333-458b-83f8-b98c63a766d8",
-																			"key": "staticDelegatedPrefixId",
-																			"value": "{{staticDelegatedPrefixId}}",
-																			"description": "(Required) "
-																		}
-																	]
-																},
-																"description": "Return a static delegated prefix from a network"
-															},
-															"response": [
-																{
-																	"id": "07056e0e-9c02-41b6-bb9b-51d26da79554",
-																	"name": "Successful operation",
-																	"originalRequest": {
-																		"method": "GET",
-																		"header": [],
-																		"url": {
-																			"raw": "{{baseUrl}}/networks/:networkId/appliance/prefixes/delegated/statics/:staticDelegatedPrefixId",
-																			"host": [
-																				"{{baseUrl}}"
-																			],
-																			"path": [
-																				"networks",
-																				":networkId",
-																				"appliance",
-																				"prefixes",
-																				"delegated",
-																				"statics",
-																				":staticDelegatedPrefixId"
-																			],
-																			"variable": [
-																				{
-																					"key": "networkId"
-																				},
-																				{
-																					"key": "staticDelegatedPrefixId"
-																				}
-																			]
-																		}
-																	},
-																	"status": "OK",
-																	"code": 200,
-																	"_postman_previewlanguage": "json",
-																	"header": [
-																		{
-																			"key": "Content-Type",
-																			"value": "application/json"
-																		}
-																	],
-																	"cookie": [],
-																	"responseTime": null,
-																	"body": "{\n \"staticDelegatedPrefixId\": \"1284392014819\",\n \"prefix\": \"2001:db8:3c4d:15::/64\",\n \"origin\": {\n  \"type\": \"internet\",\n  \"interfaces\": [\n   \"wan1\"\n  ]\n },\n \"description\": \"Prefix on WAN 1 of Long Island Office network\",\n \"createdAt\": \"2018-05-12T00:00:00Z\",\n \"updatedAt\": \"2018-05-12T00:00:00Z\"\n}"
-																}
-															]
-														},
-														{
-															"name": "Update A Static Delegated Prefix From A Network",
-															"id": "af047588-9e0d-4e9f-b483-1b30896d7807",
-															"protocolProfileBehavior": {
-																"followAuthorizationHeader": true
-															},
-															"request": {
-																"method": "PUT",
-																"header": [
-																	{
-																		"key": "X-Cisco-Meraki-API-Key",
-																		"value": ""
-																	},
-																	{
-																		"key": "Content-Type",
-																		"value": "application/json"
-																	}
-																],
-																"body": {
-																	"mode": "raw",
-																	"raw": "{\n    \"prefix\": \"<string>\",\n    \"origin\": {\n        \"type\": \"<string>\",\n        \"interfaces\": [\n            \"<string>\",\n            \"<string>\"\n        ]\n    },\n    \"description\": \"<string>\"\n}"
-																},
-																"url": {
-																	"raw": "{{baseUrl}}/networks/:networkId/appliance/prefixes/delegated/statics/:staticDelegatedPrefixId",
-																	"host": [
-																		"{{baseUrl}}"
-																	],
-																	"path": [
-																		"networks",
-																		":networkId",
-																		"appliance",
-																		"prefixes",
-																		"delegated",
-																		"statics",
-																		":staticDelegatedPrefixId"
-																	],
-																	"variable": [
-																		{
-																			"id": "b45d1dc6-ef16-40ef-8925-4a15eb528d91",
-																			"key": "networkId",
-																			"value": "{{networkId}}",
-																			"description": "(Required) "
-																		},
-																		{
-																			"id": "1bdd7011-e852-45f0-a601-c28a232ac0fa",
-																			"key": "staticDelegatedPrefixId",
-																			"value": "{{staticDelegatedPrefixId}}",
-																			"description": "(Required) "
-																		}
-																	]
-																},
-																"description": "Update a static delegated prefix from a network\n #### Body Parameters \n**Parameter**|**Type**|**Description** \n :-------------: |:-------------: |:-------------: \nprefix| string| A static IPv6 prefix\norigin| object| The origin of the prefix\ndescription| string| A name or description for the prefix\n\n#### Supports Action Batches\n\n**Resource**|**Operation**\n:-------------: |:-------------:\n`/networks/{networkId}/appliance/prefixes/delegated/statics/{staticDelegatedPrefixId}` | update\n\n"
-															},
-															"response": [
-																{
-																	"id": "30faed50-f4fb-49a7-8bea-c8428628bc7e",
-																	"name": "Successful operation",
-																	"originalRequest": {
-																		"method": "PUT",
-																		"header": [],
-																		"body": {
-																			"mode": "raw",
-																			"raw": "{\n    \"prefix\": \"2001:db8:3c4d:15::/64\",\n    \"origin\": {\n        \"type\": \"internet\",\n        \"interfaces\": [\n            \"wan1\"\n        ]\n    },\n    \"description\": \"Prefix on WAN 1 of Long Island Office network\"\n}"
-																		},
-																		"url": {
-																			"raw": "{{baseUrl}}/networks/:networkId/appliance/prefixes/delegated/statics/:staticDelegatedPrefixId",
-																			"host": [
-																				"{{baseUrl}}"
-																			],
-																			"path": [
-																				"networks",
-																				":networkId",
-																				"appliance",
-																				"prefixes",
-																				"delegated",
-																				"statics",
-																				":staticDelegatedPrefixId"
-																			],
-																			"variable": [
-																				{
-																					"key": "networkId"
-																				},
-																				{
-																					"key": "staticDelegatedPrefixId"
-																				}
-																			]
-																		}
-																	},
-																	"status": "OK",
-																	"code": 200,
-																	"_postman_previewlanguage": "json",
-																	"header": [
-																		{
-																			"key": "Content-Type",
-																			"value": "application/json"
-																		}
-																	],
-																	"cookie": [],
-																	"responseTime": null,
-																	"body": "{\n \"staticDelegatedPrefixId\": \"1284392014819\",\n \"prefix\": \"2001:db8:3c4d:15::/64\",\n \"origin\": {\n  \"type\": \"internet\",\n  \"interfaces\": [\n   \"wan1\"\n  ]\n },\n \"description\": \"Prefix on WAN 1 of Long Island Office network\",\n \"createdAt\": \"2018-05-12T00:00:00Z\",\n \"updatedAt\": \"2018-05-12T00:00:00Z\"\n}"
-																}
-															]
-														},
-														{
-															"name": "Delete A Static Delegated Prefix From A Network",
-															"id": "157a303b-7d56-4b79-8f21-10f0ae347f7f",
-															"protocolProfileBehavior": {
-																"followAuthorizationHeader": true
-															},
-															"request": {
-																"method": "DELETE",
-																"header": [
-																	{
-																		"key": "X-Cisco-Meraki-API-Key",
-																		"value": ""
-																	}
-																],
-																"url": {
-																	"raw": "{{baseUrl}}/networks/:networkId/appliance/prefixes/delegated/statics/:staticDelegatedPrefixId",
-																	"host": [
-																		"{{baseUrl}}"
-																	],
-																	"path": [
-																		"networks",
-																		":networkId",
-																		"appliance",
-																		"prefixes",
-																		"delegated",
-																		"statics",
-																		":staticDelegatedPrefixId"
-																	],
-																	"variable": [
-																		{
-																			"id": "0038c011-ac5f-4ec3-99e5-01fa4ce58bc1",
-																			"key": "networkId",
-																			"value": "{{networkId}}",
-																			"description": "(Required) "
-																		},
-																		{
-																			"id": "d31721e4-4880-4f1c-8814-b0581ce75f7b",
-																			"key": "staticDelegatedPrefixId",
-																			"value": "{{staticDelegatedPrefixId}}",
-																			"description": "(Required) "
-																		}
-																	]
-																},
-																"description": "Delete a static delegated prefix from a network\n#### Supports Action Batches\n\n**Resource**|**Operation**\n:-------------: |:-------------:\n`/networks/{networkId}/appliance/prefixes/delegated/statics/{staticDelegatedPrefixId}` | destroy\n\n"
-															},
-															"response": [
-																{
-																	"id": "3cac37e8-24d0-4eb1-b798-000ab141bc4f",
-																	"name": "Successful operation",
-																	"originalRequest": {
-																		"method": "DELETE",
-																		"header": [],
-																		"url": {
-																			"raw": "{{baseUrl}}/networks/:networkId/appliance/prefixes/delegated/statics/:staticDelegatedPrefixId",
-																			"host": [
-																				"{{baseUrl}}"
-																			],
-																			"path": [
-																				"networks",
-																				":networkId",
-																				"appliance",
-																				"prefixes",
-																				"delegated",
-																				"statics",
-																				":staticDelegatedPrefixId"
-																			],
-																			"variable": [
-																				{
-																					"key": "networkId"
-																				},
-																				{
-																					"key": "staticDelegatedPrefixId"
-																				}
-																			]
-																		}
-																	},
-																	"status": "No Content",
-																	"code": 204,
-																	"_postman_previewlanguage": "text",
-																	"header": [
-																		{
-																			"key": "Content-Type",
-																			"value": "text/plain"
-																		}
-																	],
-																	"cookie": [],
-																	"responseTime": null,
-																	"body": ""
-																}
-															]
-														}
-													],
-													"id": "0f601897-4226-4230-9ec3-4b38dc321970"
-												}
-											],
-											"id": "5bf4374f-5824-46af-b727-de335dd3a65e"
-										}
-									],
-									"id": "1fed1056-a80e-466b-baf1-38e208d20282"
-								}
-							],
-							"id": "1779e1f8-2e3c-47f7-92f9-a2d76adacd48"
-						}
-					],
-					"id": "b1503fa7-df4d-4796-8876-644f4d27cc98"
-				},
 				{
 					"name": "Sensor",
 					"item": [
@@ -1049,7 +20,7 @@
 									"item": [
 										{
 											"name": "List The Sensor Roles For A Given Device",
-											"id": "27383a12-ceda-447f-9714-13554fbc2b95",
+											"id": "1db54b9f-105a-445d-9a1d-f07a4baf8b93",
 											"protocolProfileBehavior": {
 												"followAuthorizationHeader": true
 											},
@@ -1074,7 +45,7 @@
 													],
 													"variable": [
 														{
-															"id": "7570d1d8-6c5e-4697-9d17-4a75252527c9",
+															"id": "2f39e4e8-86a5-471b-b2d8-583ae1aef5bc",
 															"key": "serial",
 															"value": "{{serial}}",
 															"description": "(Required) "
@@ -1085,7 +56,7 @@
 											},
 											"response": [
 												{
-													"id": "cb18d4a0-1e0d-4238-a558-6c24744c100f",
+													"id": "93ede41e-18ae-4fd4-938c-21cb0f1f54ca",
 													"name": "Successful operation",
 													"originalRequest": {
 														"method": "GET",
@@ -1125,7 +96,7 @@
 										},
 										{
 											"name": "Assign One Or More Sensor Roles To A Given Device",
-											"id": "80d538e3-1593-4dc5-a515-038bacd57715",
+											"id": "fd114c71-a83d-480c-a9b2-dc06d0efbfb4",
 											"protocolProfileBehavior": {
 												"followAuthorizationHeader": true
 											},
@@ -1158,7 +129,7 @@
 													],
 													"variable": [
 														{
-															"id": "2af171b9-fe44-4bff-bb00-14f17b792f11",
+															"id": "071880e8-3a5f-4edc-80d0-fa4c948c3859",
 															"key": "serial",
 															"value": "{{serial}}",
 															"description": "(Required) "
@@ -1169,7 +140,7 @@
 											},
 											"response": [
 												{
-													"id": "a0da7352-a38f-43bc-827a-3d15cd718dd2",
+													"id": "f76f0c8a-ce1e-4e14-b3d4-cc2f7a9d8ecf",
 													"name": "Successful operation",
 													"originalRequest": {
 														"method": "PUT",
@@ -1213,7 +184,7 @@
 										},
 										{
 											"name": "List The Sensor Roles For Devices In A Given Network",
-											"id": "2d91486a-8fb1-4c07-9e80-4879cbe5f02f",
+											"id": "54fb3317-408e-45d6-a2ad-2053143eb6e5",
 											"protocolProfileBehavior": {
 												"followAuthorizationHeader": true
 											},
@@ -1238,7 +209,7 @@
 													],
 													"variable": [
 														{
-															"id": "192c7f14-783e-4447-8caf-f398759c311c",
+															"id": "78261eec-b555-4aa1-9364-1fef126e1609",
 															"key": "networkId",
 															"value": "{{networkId}}",
 															"description": "(Required) "
@@ -1249,7 +220,7 @@
 											},
 											"response": [
 												{
-													"id": "494971e6-59e3-48d0-9da0-b582af4ebc2e",
+													"id": "bfdee81a-a790-498b-ad2b-88736acaad84",
 													"name": "Successful operation",
 													"originalRequest": {
 														"method": "GET",
@@ -1288,14 +259,14 @@
 											]
 										}
 									],
-									"id": "b4143a20-f118-4941-9fb5-e5517ff53272"
+									"id": "6c7d35cb-c97a-4bfa-be4b-d1e52eb31118"
 								},
 								{
 									"name": "Schedules",
 									"item": [
 										{
 											"name": "Returns a list of all sensor schedules.",
-											"id": "02445718-2e27-4760-ba6f-08a306759b86",
+											"id": "ab38e250-82ea-41de-8402-cd8a85469c5b",
 											"protocolProfileBehavior": {
 												"followAuthorizationHeader": true
 											},
@@ -1320,7 +291,7 @@
 													],
 													"variable": [
 														{
-															"id": "646147cd-6f29-41e3-bf13-b06029075b62",
+															"id": "04cc3044-5611-4ae7-b852-9cf122effe64",
 															"key": "networkId",
 															"value": "{{networkId}}",
 															"description": "(Required) "
@@ -1331,7 +302,7 @@
 											},
 											"response": [
 												{
-													"id": "0b339021-3e62-4085-ad3f-f5c3e2cd60dc",
+													"id": "2143ee55-9b7b-45f9-8335-ccaced9ff5c8",
 													"name": "Successful operation",
 													"originalRequest": {
 														"method": "GET",
@@ -1370,10 +341,10 @@
 											]
 										}
 									],
-									"id": "a53576a3-f139-49f3-b4d7-3b74adacdb47"
+									"id": "4199faaf-c4a3-465c-875c-34df7d4e39e2"
 								}
 							],
-							"id": "fa80c7d7-6cd5-45c8-b4f0-80776a819816"
+							"id": "2d2d08bf-9aca-4425-9dcd-17b5316986c5"
 						},
 						{
 							"name": "Monitor",
@@ -1389,7 +360,7 @@
 													"item": [
 														{
 															"name": "Return all reported readings from sensors in a given timespan, summarized as a series of intervals, sorted by interval start time in descending order",
-															"id": "bca11c46-c6ae-47cd-ae4d-4d37da9757e0",
+															"id": "2a53e799-9b15-4636-ab53-8c7e292a62a6",
 															"protocolProfileBehavior": {
 																"followAuthorizationHeader": true
 															},
@@ -1484,7 +455,7 @@
 																	],
 																	"variable": [
 																		{
-																			"id": "5f187620-4e8e-4192-8bab-95bc6a60788d",
+																			"id": "64ffe297-0e0d-4d32-9419-38e84a0e4790",
 																			"key": "organizationId",
 																			"value": "{{organizationId}}",
 																			"description": "(Required) "
@@ -1495,7 +466,7 @@
 															},
 															"response": [
 																{
-																	"id": "1a4ad0f3-bb0c-456e-9d41-65d28088240b",
+																	"id": "58a43772-4c1a-46ec-870f-e979e9436249",
 																	"name": "Successful operation",
 																	"originalRequest": {
 																		"method": "GET",
@@ -1587,19 +558,19 @@
 															]
 														}
 													],
-													"id": "d226d6cd-dfe0-4f9a-a098-68865bd1b824"
+													"id": "d7373ffa-7375-498f-bf3e-29f3b829a0cd"
 												}
 											],
-											"id": "4111cd8a-0d58-4ccb-abb9-71804203b0ef"
+											"id": "020338c7-01fe-4dd9-8b50-7c98bd056c0a"
 										}
 									],
-									"id": "73a52930-7bff-4af9-9acd-7b945ead316a"
+									"id": "b1d3d578-b53e-4bfb-92bf-36820cf5885e"
 								}
 							],
-							"id": "3b7a0b5d-145b-4c4b-9cd4-416a4be088de"
+							"id": "3f70ac19-b84c-4d56-82b9-a32a9c2cddf3"
 						}
 					],
-					"id": "286822c7-d161-4903-b81c-13faf9b8e4c8"
+					"id": "88034dda-8db2-4b4d-aa0f-7e5e8371d0dd"
 				},
 				{
 					"name": "Wireless",
@@ -1612,7 +583,7 @@
 									"item": [
 										{
 											"name": "Fetch the health scores for a given AP on this network",
-											"id": "56323752-c953-43b1-99bf-4dd08b0a16f0",
+											"id": "bae8565f-f3de-40e3-acfd-3ae86a663f6f",
 											"protocolProfileBehavior": {
 												"followAuthorizationHeader": true
 											},
@@ -1637,7 +608,7 @@
 													],
 													"variable": [
 														{
-															"id": "458a6fa3-d594-4c43-a0e3-bdce607456a8",
+															"id": "0b8ffdd1-a309-434c-9c18-a6c85e5cb839",
 															"key": "serial",
 															"value": "{{serial}}",
 															"description": "(Required) "
@@ -1648,7 +619,7 @@
 											},
 											"response": [
 												{
-													"id": "3a8feb72-d737-4935-ba3b-fd6131225ad4",
+													"id": "4a0c6158-61de-4685-8db2-a99ec641b2d9",
 													"name": "Successful operation",
 													"originalRequest": {
 														"method": "GET",
@@ -1687,7 +658,7 @@
 											]
 										}
 									],
-									"id": "fc247b45-b945-4a32-9c12-8c558bddd0c5"
+									"id": "e23de307-c282-457b-ba14-bef2c9a61d55"
 								},
 								{
 									"name": "Clients",
@@ -1697,7 +668,7 @@
 											"item": [
 												{
 													"name": "Fetch The Health Scores For All Clients On This Network",
-													"id": "e742dfa0-02bc-4c65-9de1-f57d071d890d",
+													"id": "78cb6aa5-926c-48f0-8936-a1ae111bf62c",
 													"protocolProfileBehavior": {
 														"followAuthorizationHeader": true
 													},
@@ -1723,7 +694,7 @@
 															],
 															"variable": [
 																{
-																	"id": "606a0616-7562-4277-a0de-c7d2cc26157f",
+																	"id": "019fe6b6-1cbe-43f0-bf2a-552398ae51df",
 																	"key": "networkId",
 																	"value": "{{networkId}}",
 																	"description": "(Required) "
@@ -1734,7 +705,7 @@
 													},
 													"response": [
 														{
-															"id": "6b85b398-3c28-4088-bce9-4eae63a95d07",
+															"id": "a9000ac7-c1b5-4271-b7a5-23f04764ee04",
 															"name": "Successful operation",
 															"originalRequest": {
 																"method": "GET",
@@ -1775,7 +746,7 @@
 												},
 												{
 													"name": "Fetch The Health Scores For A Given Client On This Network",
-													"id": "070bbde3-6798-4825-a818-4cc0a4f8ed19",
+													"id": "cfb17bba-3c7a-4284-941a-8722dace16b8",
 													"protocolProfileBehavior": {
 														"followAuthorizationHeader": true
 													},
@@ -1802,13 +773,13 @@
 															],
 															"variable": [
 																{
-																	"id": "a3189a62-56c5-486f-95ea-8951cc109f0f",
+																	"id": "024628ff-96c8-404a-8f66-ca8b62c9023b",
 																	"key": "networkId",
 																	"value": "{{networkId}}",
 																	"description": "(Required) "
 																},
 																{
-																	"id": "5ac718b7-5719-48e1-af00-388cf6899b57",
+																	"id": "75261e7e-5452-4740-8412-21e7b5ee2ea4",
 																	"key": "clientId",
 																	"value": "{{clientId}}",
 																	"description": "(Required) "
@@ -1819,7 +790,7 @@
 													},
 													"response": [
 														{
-															"id": "c1722f49-4295-4ee7-b68f-283a4bdfe849",
+															"id": "998e992a-42de-42fe-b183-cd63b29ef443",
 															"name": "Successful operation",
 															"originalRequest": {
 																"method": "GET",
@@ -1863,14 +834,14 @@
 													]
 												}
 											],
-											"id": "1d3e93a1-cd31-483a-8abc-659a9fdc92b0"
+											"id": "52d4e341-4778-4d5a-af6f-2ae19262bf05"
 										},
 										{
 											"name": "Onboarding History",
 											"item": [
 												{
 													"name": "Return counts of distinct wireless clients connecting to a network over time",
-													"id": "908f224c-5865-4222-8d94-6964edfebc1f",
+													"id": "71a9cd00-84e8-4eed-89fd-094a13716dbf",
 													"protocolProfileBehavior": {
 														"followAuthorizationHeader": true
 													},
@@ -1934,7 +905,7 @@
 															],
 															"variable": [
 																{
-																	"id": "eae5b9a4-6c0b-4839-976f-9374bd34c6bf",
+																	"id": "6bd51e1c-3797-48b7-aa5c-62305c1ffc37",
 																	"key": "networkId",
 																	"value": "{{networkId}}",
 																	"description": "(Required) "
@@ -1945,7 +916,7 @@
 													},
 													"response": [
 														{
-															"id": "5c82c366-bb3b-4966-9606-e226db4ee69a",
+															"id": "92bbe51c-207d-4113-82e7-4ac142ffecf3",
 															"name": "Successful operation",
 															"originalRequest": {
 																"method": "GET",
@@ -2011,10 +982,10 @@
 													]
 												}
 											],
-											"id": "ce9aeaf0-b191-4ead-bd39-96d54404c917"
+											"id": "81f3bac2-1655-49ea-b30a-f61cd8ea84fb"
 										}
 									],
-									"id": "c375aad0-cb20-4481-8a58-e58c4c6181fe"
+									"id": "1fa1a9a7-8a65-419e-88ac-d55bd6c5c2fa"
 								},
 								{
 									"name": "Devices",
@@ -2024,7 +995,7 @@
 											"item": [
 												{
 													"name": "Fetch the health scores of all APs on this network",
-													"id": "2c6f0973-05eb-4713-830f-b434663d80c6",
+													"id": "ace1e0dd-b341-4b1e-ad32-bb09f79f2ca9",
 													"protocolProfileBehavior": {
 														"followAuthorizationHeader": true
 													},
@@ -2050,7 +1021,7 @@
 															],
 															"variable": [
 																{
-																	"id": "a112edc9-2688-459b-9712-383a1b924390",
+																	"id": "d6882d0b-02a2-4f10-8d4c-e80d15feb132",
 																	"key": "networkId",
 																	"value": "{{networkId}}",
 																	"description": "(Required) "
@@ -2061,7 +1032,7 @@
 													},
 													"response": [
 														{
-															"id": "bfbfcc96-3512-4ca9-9103-eaecb8f25e9f",
+															"id": "9b82d745-3b79-4924-9866-c9e6bc7393e0",
 															"name": "Successful operation",
 															"originalRequest": {
 																"method": "GET",
@@ -2101,13 +1072,13 @@
 													]
 												}
 											],
-											"id": "de68497d-e395-4828-8194-3af3bbce2420"
+											"id": "55190487-ace4-4bac-9a89-083a224ab9e9"
 										}
 									],
-									"id": "041b6b73-b993-42d7-9a28-6c825ec4bfc8"
+									"id": "3a5d6023-d4d0-4386-864d-c5886abf454a"
 								}
 							],
-							"id": "7d82efd1-1a7d-487b-a7d5-981de19dd5fc"
+							"id": "6bc17383-1634-4d2e-b85c-412a2308df66"
 						},
 						{
 							"name": "Configure",
@@ -2123,7 +1094,7 @@
 													"item": [
 														{
 															"name": "Endpoint to see power status for wireless devices",
-															"id": "d1922e7d-0a03-48d0-8bc4-54a60e8c7e2d",
+															"id": "dd48d08a-3b62-4019-8e97-4049eeb6f126",
 															"protocolProfileBehavior": {
 																"followAuthorizationHeader": true
 															},
@@ -2170,7 +1141,7 @@
 																	],
 																	"variable": [
 																		{
-																			"id": "fe045a8c-d28d-47b1-90b0-98dfb8c7c5d3",
+																			"id": "6df1f0e3-76f6-4514-8be2-3273140004be",
 																			"key": "organizationId",
 																			"value": "{{organizationId}}",
 																			"description": "(Required) "
@@ -2181,7 +1152,7 @@
 															},
 															"response": [
 																{
-																	"id": "65644b45-08d2-427b-984a-da741a7cdf71",
+																	"id": "3c6adf25-4295-4b45-8c39-c4f71e0ecff1",
 																	"name": "Successful operation",
 																	"originalRequest": {
 																		"method": "GET",
@@ -2241,22 +1212,22 @@
 															]
 														}
 													],
-													"id": "37842249-4153-4c0e-9c32-f153c8ba9462"
+													"id": "a917278e-6705-425d-a0d8-3598fae223c5"
 												}
 											],
-											"id": "bffb7f5c-7816-462c-8d7d-1593f1e60e4d"
+											"id": "d91088dc-e27c-4be5-a661-24a61b08cb0a"
 										}
 									],
-									"id": "456005cb-572f-4566-8879-8ee8e6248d99"
+									"id": "9fd2be5b-e7f9-4393-b78d-260dca64d41f"
 								}
 							],
-							"id": "c1642fe8-90ef-4c27-8061-afae32c56481"
+							"id": "8b082b03-d3cd-4293-88de-139d4b9356b7"
 						}
 					],
-					"id": "731b9613-8e23-4944-b421-b0fcbb62e373"
+					"id": "719d8f72-9fb2-43c2-bc3f-d7439068f613"
 				}
 			],
-			"id": "e2140535-31ae-485f-a713-f0caa45ab5e3"
+			"id": "44439cad-6585-4ad6-ad6c-ed312da7cdbe"
 		},
 		{
 			"name": "GENERAL",
@@ -2268,1703 +1239,14 @@
 							"name": "configure",
 							"item": [
 								{
-									"name": "Firmware Upgrades",
-									"item": [
-										{
-											"name": "staged",
-											"item": [
-												{
-													"name": "Events",
-													"item": [
-														{
-															"name": "Create A Staged Upgrade Event For A Network",
-															"id": "4ffbf5a8-8bd2-423c-990e-d1ebda67b09a",
-															"protocolProfileBehavior": {
-																"followAuthorizationHeader": true
-															},
-															"request": {
-																"method": "POST",
-																"header": [
-																	{
-																		"key": "X-Cisco-Meraki-API-Key",
-																		"value": ""
-																	},
-																	{
-																		"key": "Content-Type",
-																		"value": "application/json"
-																	}
-																],
-																"body": {
-																	"mode": "raw",
-																	"raw": "{\n    \"stages\": [\n        {\n            \"group\": {\n                \"id\": \"<string>\"\n            },\n            \"milestones\": {\n                \"scheduledFor\": \"<string>\"\n            }\n        },\n        {\n            \"group\": {\n                \"id\": \"<string>\"\n            },\n            \"milestones\": {\n                \"scheduledFor\": \"<string>\"\n            }\n        }\n    ],\n    \"products\": {\n        \"switch\": {\n            \"nextUpgrade\": {\n                \"toVersion\": {\n                    \"id\": \"<string>\"\n                }\n            }\n        }\n    }\n}"
-																},
-																"url": {
-																	"raw": "{{baseUrl}}/networks/:networkId/firmwareUpgrades/staged/events",
-																	"host": [
-																		"{{baseUrl}}"
-																	],
-																	"path": [
-																		"networks",
-																		":networkId",
-																		"firmwareUpgrades",
-																		"staged",
-																		"events"
-																	],
-																	"variable": [
-																		{
-																			"id": "4164ad1a-d17e-4726-8b8b-d4878c834589",
-																			"key": "networkId",
-																			"value": "{{networkId}}",
-																			"description": "(Required) "
-																		}
-																	]
-																},
-																"description": "Create a Staged Upgrade Event for a network\n #### Body Parameters \n**Parameter**|**Type**|**Description** \n :-------------: |:-------------: |:-------------: \nproducts| object| Contains information about the network to update\nstages| array| All firmware upgrade stages in the network with their start time.\n"
-															},
-															"response": [
-																{
-																	"id": "c62ca063-342c-4369-aee4-d5fceb85210c",
-																	"name": "Successful operation",
-																	"originalRequest": {
-																		"method": "POST",
-																		"header": [],
-																		"body": {
-																			"mode": "raw",
-																			"raw": "{\n    \"products\": {\n        \"switch\": {\n            \"nextUpgrade\": {\n                \"toVersion\": {}\n            }\n        }\n    },\n    \"stages\": [\n        {\n            \"group\": {},\n            \"milestones\": {\n                \"scheduledFor\": \"2018-02-11T00:00:00Z\"\n            }\n        }\n    ]\n}"
-																		},
-																		"url": {
-																			"raw": "{{baseUrl}}/networks/:networkId/firmwareUpgrades/staged/events",
-																			"host": [
-																				"{{baseUrl}}"
-																			],
-																			"path": [
-																				"networks",
-																				":networkId",
-																				"firmwareUpgrades",
-																				"staged",
-																				"events"
-																			],
-																			"variable": [
-																				{
-																					"key": "networkId"
-																				}
-																			]
-																		}
-																	},
-																	"status": "OK",
-																	"code": 200,
-																	"_postman_previewlanguage": "json",
-																	"header": [
-																		{
-																			"key": "Content-Type",
-																			"value": "application/json"
-																		}
-																	],
-																	"cookie": [],
-																	"responseTime": null,
-																	"body": "{\n \"products\": {\n  \"switch\": {\n   \"nextUpgrade\": {\n    \"toVersion\": {\n     \"id\": \"1234\",\n     \"shortName\": \"MS 15.2.1\"\n    }\n   }\n  }\n },\n \"stages\": [\n  {\n   \"group\": {\n    \"id\": \"1234\",\n    \"name\": \"My Staged Upgrade Group\",\n    \"description\": \"My Staged Upgrade Group Description\"\n   },\n   \"milestones\": {\n    \"scheduledFor\": \"2018-02-11T00:00:00Z\",\n    \"startedAt\": \"2018-02-11T00:00:00Z\",\n    \"completedAt\": \"2018-02-11T00:00:00Z\",\n    \"canceledAt\": \"2018-02-11T00:00:00Z\"\n   },\n   \"status\": \"Completed\"\n  }\n ],\n \"reasons\": [\n  {\n   \"category\": \"performance\",\n   \"comment\": \"Network was slower with the upgrade\"\n  }\n ]\n}"
-																}
-															]
-														},
-														{
-															"name": "Get The Staged Upgrade Event From A Network",
-															"id": "89c6d8d9-2756-4c80-aaeb-55f576f1db4c",
-															"protocolProfileBehavior": {
-																"followAuthorizationHeader": true
-															},
-															"request": {
-																"method": "GET",
-																"header": [
-																	{
-																		"key": "X-Cisco-Meraki-API-Key",
-																		"value": ""
-																	}
-																],
-																"url": {
-																	"raw": "{{baseUrl}}/networks/:networkId/firmwareUpgrades/staged/events",
-																	"host": [
-																		"{{baseUrl}}"
-																	],
-																	"path": [
-																		"networks",
-																		":networkId",
-																		"firmwareUpgrades",
-																		"staged",
-																		"events"
-																	],
-																	"variable": [
-																		{
-																			"id": "8f83a850-87e8-4e04-8cf2-929c4fbee031",
-																			"key": "networkId",
-																			"value": "{{networkId}}",
-																			"description": "(Required) "
-																		}
-																	]
-																},
-																"description": "Get the Staged Upgrade Event from a network"
-															},
-															"response": [
-																{
-																	"id": "753feaa8-c90b-4cbb-9fe4-36392a805a43",
-																	"name": "Successful operation",
-																	"originalRequest": {
-																		"method": "GET",
-																		"header": [],
-																		"url": {
-																			"raw": "{{baseUrl}}/networks/:networkId/firmwareUpgrades/staged/events",
-																			"host": [
-																				"{{baseUrl}}"
-																			],
-																			"path": [
-																				"networks",
-																				":networkId",
-																				"firmwareUpgrades",
-																				"staged",
-																				"events"
-																			],
-																			"variable": [
-																				{
-																					"key": "networkId"
-																				}
-																			]
-																		}
-																	},
-																	"status": "OK",
-																	"code": 200,
-																	"_postman_previewlanguage": "json",
-																	"header": [
-																		{
-																			"key": "Content-Type",
-																			"value": "application/json"
-																		}
-																	],
-																	"cookie": [],
-																	"responseTime": null,
-																	"body": "{\n \"products\": {\n  \"switch\": {\n   \"nextUpgrade\": {\n    \"toVersion\": {\n     \"id\": \"1234\",\n     \"shortName\": \"MS 15.2.1\"\n    }\n   }\n  }\n },\n \"stages\": [\n  {\n   \"group\": {\n    \"id\": \"1234\",\n    \"name\": \"My Staged Upgrade Group\",\n    \"description\": \"My Staged Upgrade Group Description\"\n   },\n   \"milestones\": {\n    \"scheduledFor\": \"2018-02-11T00:00:00Z\",\n    \"startedAt\": \"2018-02-11T00:00:00Z\",\n    \"completedAt\": \"2018-02-11T00:00:00Z\",\n    \"canceledAt\": \"2018-02-11T00:00:00Z\"\n   },\n   \"status\": \"Completed\"\n  }\n ],\n \"reasons\": [\n  {\n   \"category\": \"performance\",\n   \"comment\": \"Network was slower with the upgrade\"\n  }\n ]\n}"
-																}
-															]
-														},
-														{
-															"name": "Postpone By 1 Week All Pending Staged Upgrade Stages For A Network",
-															"id": "29a09c1b-707e-4515-b670-ce54f3bc0a70",
-															"protocolProfileBehavior": {
-																"followAuthorizationHeader": true
-															},
-															"request": {
-																"method": "POST",
-																"header": [
-																	{
-																		"key": "X-Cisco-Meraki-API-Key",
-																		"value": ""
-																	}
-																],
-																"url": {
-																	"raw": "{{baseUrl}}/networks/:networkId/firmwareUpgrades/staged/events/defer",
-																	"host": [
-																		"{{baseUrl}}"
-																	],
-																	"path": [
-																		"networks",
-																		":networkId",
-																		"firmwareUpgrades",
-																		"staged",
-																		"events",
-																		"defer"
-																	],
-																	"variable": [
-																		{
-																			"id": "228cd078-e48c-4971-b335-3d7de3592367",
-																			"key": "networkId",
-																			"value": "{{networkId}}",
-																			"description": "(Required) "
-																		}
-																	]
-																},
-																"description": "Postpone by 1 week all pending staged upgrade stages for a network"
-															},
-															"response": [
-																{
-																	"id": "8a145c6d-9650-4db7-8e9f-b9b14f4a4b8c",
-																	"name": "Successful operation",
-																	"originalRequest": {
-																		"method": "POST",
-																		"header": [],
-																		"url": {
-																			"raw": "{{baseUrl}}/networks/:networkId/firmwareUpgrades/staged/events/defer",
-																			"host": [
-																				"{{baseUrl}}"
-																			],
-																			"path": [
-																				"networks",
-																				":networkId",
-																				"firmwareUpgrades",
-																				"staged",
-																				"events",
-																				"defer"
-																			],
-																			"variable": [
-																				{
-																					"key": "networkId"
-																				}
-																			]
-																		}
-																	},
-																	"status": "OK",
-																	"code": 200,
-																	"_postman_previewlanguage": "json",
-																	"header": [
-																		{
-																			"key": "Content-Type",
-																			"value": "application/json"
-																		}
-																	],
-																	"cookie": [],
-																	"responseTime": null,
-																	"body": "{\n \"products\": {\n  \"switch\": {\n   \"nextUpgrade\": {\n    \"toVersion\": {\n     \"id\": \"1234\",\n     \"shortName\": \"MS 15.2.1\"\n    }\n   }\n  }\n },\n \"stages\": [\n  {\n   \"group\": {\n    \"id\": \"1234\",\n    \"name\": \"My Staged Upgrade Group\",\n    \"description\": \"My Staged Upgrade Group Description\"\n   },\n   \"milestones\": {\n    \"scheduledFor\": \"2018-02-11T00:00:00Z\",\n    \"startedAt\": \"2018-02-11T00:00:00Z\",\n    \"completedAt\": \"2018-02-11T00:00:00Z\",\n    \"canceledAt\": \"2018-02-11T00:00:00Z\"\n   },\n   \"status\": \"Completed\"\n  }\n ],\n \"reasons\": [\n  {\n   \"category\": \"performance\",\n   \"comment\": \"Network was slower with the upgrade\"\n  }\n ]\n}"
-																}
-															]
-														},
-														{
-															"name": "Rollback A Staged Upgrade Event For A Network",
-															"id": "495bf284-a695-44f9-8ec2-a78ae4ae9b83",
-															"protocolProfileBehavior": {
-																"followAuthorizationHeader": true
-															},
-															"request": {
-																"method": "POST",
-																"header": [
-																	{
-																		"key": "X-Cisco-Meraki-API-Key",
-																		"value": ""
-																	},
-																	{
-																		"key": "Content-Type",
-																		"value": "application/json"
-																	}
-																],
-																"body": {
-																	"mode": "raw",
-																	"raw": "{\n    \"stages\": [\n        {\n            \"group\": {\n                \"id\": \"<string>\"\n            },\n            \"milestones\": {\n                \"scheduledFor\": \"<string>\"\n            }\n        },\n        {\n            \"group\": {\n                \"id\": \"<string>\"\n            },\n            \"milestones\": {\n                \"scheduledFor\": \"<string>\"\n            }\n        }\n    ],\n    \"reasons\": [\n        {\n            \"category\": \"<string>\",\n            \"comment\": \"<string>\"\n        },\n        {\n            \"category\": \"<string>\",\n            \"comment\": \"<string>\"\n        }\n    ]\n}"
-																},
-																"url": {
-																	"raw": "{{baseUrl}}/networks/:networkId/firmwareUpgrades/staged/events/rollbacks",
-																	"host": [
-																		"{{baseUrl}}"
-																	],
-																	"path": [
-																		"networks",
-																		":networkId",
-																		"firmwareUpgrades",
-																		"staged",
-																		"events",
-																		"rollbacks"
-																	],
-																	"variable": [
-																		{
-																			"id": "03fc52d1-85fb-423a-87c1-a769ab8ed35e",
-																			"key": "networkId",
-																			"value": "{{networkId}}",
-																			"description": "(Required) "
-																		}
-																	]
-																},
-																"description": "Rollback a Staged Upgrade Event for a network\n #### Body Parameters \n**Parameter**|**Type**|**Description** \n :-------------: |:-------------: |:-------------: \nstages| array| All completed or in-progress stages in the network with their new start times. All pending stages will be canceled\nreasons| array| The reason for rolling back the staged upgrade\n"
-															},
-															"response": [
-																{
-																	"id": "0d166316-1838-4fdf-b17c-3d924c93b619",
-																	"name": "Successful operation",
-																	"originalRequest": {
-																		"method": "POST",
-																		"header": [],
-																		"body": {
-																			"mode": "raw",
-																			"raw": "{\n    \"stages\": [\n        {\n            \"group\": {},\n            \"milestones\": {\n                \"scheduledFor\": \"2018-02-11T00:00:00Z\"\n            }\n        }\n    ],\n    \"reasons\": [\n        {\n            \"category\": \"performance\",\n            \"comment\": \"Network was slower with the upgrade\"\n        }\n    ]\n}"
-																		},
-																		"url": {
-																			"raw": "{{baseUrl}}/networks/:networkId/firmwareUpgrades/staged/events/rollbacks",
-																			"host": [
-																				"{{baseUrl}}"
-																			],
-																			"path": [
-																				"networks",
-																				":networkId",
-																				"firmwareUpgrades",
-																				"staged",
-																				"events",
-																				"rollbacks"
-																			],
-																			"variable": [
-																				{
-																					"key": "networkId"
-																				}
-																			]
-																		}
-																	},
-																	"status": "OK",
-																	"code": 200,
-																	"_postman_previewlanguage": "json",
-																	"header": [
-																		{
-																			"key": "Content-Type",
-																			"value": "application/json"
-																		}
-																	],
-																	"cookie": [],
-																	"responseTime": null,
-																	"body": "{\n \"products\": {\n  \"switch\": {\n   \"nextUpgrade\": {\n    \"toVersion\": {\n     \"id\": \"1234\",\n     \"shortName\": \"MS 15.2.1\"\n    }\n   }\n  }\n },\n \"stages\": [\n  {\n   \"group\": {\n    \"id\": \"1234\",\n    \"name\": \"My Staged Upgrade Group\",\n    \"description\": \"My Staged Upgrade Group Description\"\n   },\n   \"milestones\": {\n    \"scheduledFor\": \"2018-02-11T00:00:00Z\",\n    \"startedAt\": \"2018-02-11T00:00:00Z\",\n    \"completedAt\": \"2018-02-11T00:00:00Z\",\n    \"canceledAt\": \"2018-02-11T00:00:00Z\"\n   },\n   \"status\": \"Completed\"\n  }\n ],\n \"reasons\": [\n  {\n   \"category\": \"performance\",\n   \"comment\": \"Network was slower with the upgrade\"\n  }\n ]\n}"
-																}
-															]
-														},
-														{
-															"name": "Update The Staged Upgrade Event For A Network",
-															"id": "d0e61e78-1110-483b-9719-2e9e11ace194",
-															"protocolProfileBehavior": {
-																"followAuthorizationHeader": true
-															},
-															"request": {
-																"method": "PUT",
-																"header": [
-																	{
-																		"key": "X-Cisco-Meraki-API-Key",
-																		"value": ""
-																	},
-																	{
-																		"key": "Content-Type",
-																		"value": "application/json"
-																	}
-																],
-																"body": {
-																	"mode": "raw",
-																	"raw": "{\n    \"stages\": [\n        {\n            \"group\": {\n                \"id\": \"<string>\"\n            },\n            \"milestones\": {\n                \"scheduledFor\": \"<string>\"\n            }\n        },\n        {\n            \"group\": {\n                \"id\": \"<string>\"\n            },\n            \"milestones\": {\n                \"scheduledFor\": \"<string>\"\n            }\n        }\n    ]\n}"
-																},
-																"url": {
-																	"raw": "{{baseUrl}}/networks/:networkId/firmwareUpgrades/staged/events",
-																	"host": [
-																		"{{baseUrl}}"
-																	],
-																	"path": [
-																		"networks",
-																		":networkId",
-																		"firmwareUpgrades",
-																		"staged",
-																		"events"
-																	],
-																	"variable": [
-																		{
-																			"id": "2f9eae75-739b-40c5-ac7c-68c4da0bfe5e",
-																			"key": "networkId",
-																			"value": "{{networkId}}",
-																			"description": "(Required) "
-																		}
-																	]
-																},
-																"description": "Update the Staged Upgrade Event for a network\n #### Body Parameters \n**Parameter**|**Type**|**Description** \n :-------------: |:-------------: |:-------------: \nstages| array| All firmware upgrade stages in the network with their start time.\n"
-															},
-															"response": [
-																{
-																	"id": "32961347-9a3a-4897-8518-1afe7f6e7e57",
-																	"name": "Successful operation",
-																	"originalRequest": {
-																		"method": "PUT",
-																		"header": [],
-																		"body": {
-																			"mode": "raw",
-																			"raw": "{\n    \"stages\": [\n        {\n            \"group\": {},\n            \"milestones\": {\n                \"scheduledFor\": \"2018-02-11T00:00:00Z\"\n            }\n        }\n    ]\n}"
-																		},
-																		"url": {
-																			"raw": "{{baseUrl}}/networks/:networkId/firmwareUpgrades/staged/events",
-																			"host": [
-																				"{{baseUrl}}"
-																			],
-																			"path": [
-																				"networks",
-																				":networkId",
-																				"firmwareUpgrades",
-																				"staged",
-																				"events"
-																			],
-																			"variable": [
-																				{
-																					"key": "networkId"
-																				}
-																			]
-																		}
-																	},
-																	"status": "OK",
-																	"code": 200,
-																	"_postman_previewlanguage": "json",
-																	"header": [
-																		{
-																			"key": "Content-Type",
-																			"value": "application/json"
-																		}
-																	],
-																	"cookie": [],
-																	"responseTime": null,
-																	"body": "{\n \"products\": {\n  \"switch\": {\n   \"nextUpgrade\": {\n    \"toVersion\": {\n     \"id\": \"1234\",\n     \"shortName\": \"MS 15.2.1\"\n    }\n   }\n  }\n },\n \"stages\": [\n  {\n   \"group\": {\n    \"id\": \"1234\",\n    \"name\": \"My Staged Upgrade Group\",\n    \"description\": \"My Staged Upgrade Group Description\"\n   },\n   \"milestones\": {\n    \"scheduledFor\": \"2018-02-11T00:00:00Z\",\n    \"startedAt\": \"2018-02-11T00:00:00Z\",\n    \"completedAt\": \"2018-02-11T00:00:00Z\",\n    \"canceledAt\": \"2018-02-11T00:00:00Z\"\n   },\n   \"status\": \"Completed\"\n  }\n ],\n \"reasons\": [\n  {\n   \"category\": \"performance\",\n   \"comment\": \"Network was slower with the upgrade\"\n  }\n ]\n}"
-																}
-															]
-														}
-													],
-													"id": "5caa5dee-fe77-4006-99d5-c1e41c487979"
-												},
-												{
-													"name": "Groups",
-													"item": [
-														{
-															"name": "Create A Staged Upgrade Group For A Network",
-															"id": "4af8741d-74f9-4643-99e7-b0098238f8b3",
-															"protocolProfileBehavior": {
-																"followAuthorizationHeader": true
-															},
-															"request": {
-																"method": "POST",
-																"header": [
-																	{
-																		"key": "X-Cisco-Meraki-API-Key",
-																		"value": ""
-																	},
-																	{
-																		"key": "Content-Type",
-																		"value": "application/json"
-																	}
-																],
-																"body": {
-																	"mode": "raw",
-																	"raw": "{\n    \"name\": \"<string>\",\n    \"isDefault\": \"<boolean>\",\n    \"description\": \"<string>\",\n    \"assignedDevices\": {\n        \"devices\": [\n            {\n                \"serial\": \"<string>\",\n                \"name\": \"<string>\"\n            },\n            {\n                \"serial\": \"<string>\",\n                \"name\": \"<string>\"\n            }\n        ],\n        \"switchStacks\": [\n            {\n                \"id\": \"<string>\",\n                \"name\": \"<string>\"\n            },\n            {\n                \"id\": \"<string>\",\n                \"name\": \"<string>\"\n            }\n        ]\n    }\n}"
-																},
-																"url": {
-																	"raw": "{{baseUrl}}/networks/:networkId/firmwareUpgrades/staged/groups",
-																	"host": [
-																		"{{baseUrl}}"
-																	],
-																	"path": [
-																		"networks",
-																		":networkId",
-																		"firmwareUpgrades",
-																		"staged",
-																		"groups"
-																	],
-																	"variable": [
-																		{
-																			"id": "e555ffe1-9797-4ed3-8fd1-8ec5e52fa86b",
-																			"key": "networkId",
-																			"value": "{{networkId}}",
-																			"description": "(Required) "
-																		}
-																	]
-																},
-																"description": "Create a Staged Upgrade Group for a network\n #### Body Parameters \n**Parameter**|**Type**|**Description** \n :-------------: |:-------------: |:-------------: \nname| string| Name of the Staged Upgrade Group. Length must be 1 to 255 characters\ndescription| string| Description of the Staged Upgrade Group. Length must be 1 to 255 characters\nisDefault| boolean| Boolean indicating the default Group. Any device that does not have a group explicitly assigned will upgrade with this group\nassignedDevices| object| The devices and Switch Stacks assigned to the Group\n\n#### Supports Action Batches\n\n**Resource**|**Operation**\n:-------------: |:-------------:\n`/networks/{networkId}/firmwareUpgrades/staged/groups` | create\n\n"
-															},
-															"response": [
-																{
-																	"id": "1dea5975-e37e-4052-b85b-cc6d044dee71",
-																	"name": "Successful operation",
-																	"originalRequest": {
-																		"method": "POST",
-																		"header": [],
-																		"body": {
-																			"mode": "raw",
-																			"raw": "{\n    \"name\": \"My Staged Upgrade Group\",\n    \"description\": \"The description of the group\",\n    \"isDefault\": false,\n    \"assignedDevices\": {\n        \"devices\": [\n            {\n                \"serial\": \"Q234-ABCD-5678\",\n                \"name\": \"Device Name\"\n            }\n        ],\n        \"switchStacks\": [\n            {\n                \"name\": \"Stack Name\"\n            }\n        ]\n    }\n}"
-																		},
-																		"url": {
-																			"raw": "{{baseUrl}}/networks/:networkId/firmwareUpgrades/staged/groups",
-																			"host": [
-																				"{{baseUrl}}"
-																			],
-																			"path": [
-																				"networks",
-																				":networkId",
-																				"firmwareUpgrades",
-																				"staged",
-																				"groups"
-																			],
-																			"variable": [
-																				{
-																					"key": "networkId"
-																				}
-																			]
-																		}
-																	},
-																	"status": "OK",
-																	"code": 200,
-																	"_postman_previewlanguage": "json",
-																	"header": [
-																		{
-																			"key": "Content-Type",
-																			"value": "application/json"
-																		}
-																	],
-																	"cookie": [],
-																	"responseTime": null,
-																	"body": "{\n \"groupId\": \"1234\",\n \"name\": \"My Staged Upgrade Group\",\n \"description\": \"The description of the group\",\n \"isDefault\": false,\n \"assignedDevices\": {\n  \"devices\": [\n   {\n    \"name\": \"Device Name\",\n    \"serial\": \"Q234-ABCD-5678\"\n   }\n  ],\n  \"switchStacks\": [\n   {\n    \"name\": \"Stack Name\",\n    \"id\": \"1234\"\n   }\n  ]\n }\n}"
-																}
-															]
-														},
-														{
-															"name": "Delete A Staged Upgrade Group",
-															"id": "3d435b43-f8b4-48ef-8586-7f4b2b078e02",
-															"protocolProfileBehavior": {
-																"followAuthorizationHeader": true
-															},
-															"request": {
-																"method": "DELETE",
-																"header": [
-																	{
-																		"key": "X-Cisco-Meraki-API-Key",
-																		"value": ""
-																	}
-																],
-																"url": {
-																	"raw": "{{baseUrl}}/networks/:networkId/firmwareUpgrades/staged/groups/:groupId",
-																	"host": [
-																		"{{baseUrl}}"
-																	],
-																	"path": [
-																		"networks",
-																		":networkId",
-																		"firmwareUpgrades",
-																		"staged",
-																		"groups",
-																		":groupId"
-																	],
-																	"variable": [
-																		{
-																			"id": "c7c1ef64-aa39-49f9-9251-134964b1aa33",
-																			"key": "networkId",
-																			"value": "{{networkId}}",
-																			"description": "(Required) "
-																		},
-																		{
-																			"id": "e3f30465-4745-4cb6-a1e6-f65350d5ce90",
-																			"key": "groupId",
-																			"value": "{{groupId}}",
-																			"description": "(Required) "
-																		}
-																	]
-																},
-																"description": "Delete a Staged Upgrade Group\n#### Supports Action Batches\n\n**Resource**|**Operation**\n:-------------: |:-------------:\n`/networks/{networkId}/firmwareUpgrades/staged/groups/{groupId}` | destroy\n\n"
-															},
-															"response": [
-																{
-																	"id": "768f7361-6fd5-44c2-a4cb-e411de380de0",
-																	"name": "Successful operation",
-																	"originalRequest": {
-																		"method": "DELETE",
-																		"header": [],
-																		"url": {
-																			"raw": "{{baseUrl}}/networks/:networkId/firmwareUpgrades/staged/groups/:groupId",
-																			"host": [
-																				"{{baseUrl}}"
-																			],
-																			"path": [
-																				"networks",
-																				":networkId",
-																				"firmwareUpgrades",
-																				"staged",
-																				"groups",
-																				":groupId"
-																			],
-																			"variable": [
-																				{
-																					"key": "networkId"
-																				},
-																				{
-																					"key": "groupId"
-																				}
-																			]
-																		}
-																	},
-																	"status": "No Content",
-																	"code": 204,
-																	"_postman_previewlanguage": "text",
-																	"header": [
-																		{
-																			"key": "Content-Type",
-																			"value": "text/plain"
-																		}
-																	],
-																	"cookie": [],
-																	"responseTime": null,
-																	"body": ""
-																}
-															]
-														},
-														{
-															"name": "Get A Staged Upgrade Group From A Network",
-															"id": "cbbd44d5-8b57-447d-bad8-4f8e28c26d1c",
-															"protocolProfileBehavior": {
-																"followAuthorizationHeader": true
-															},
-															"request": {
-																"method": "GET",
-																"header": [
-																	{
-																		"key": "X-Cisco-Meraki-API-Key",
-																		"value": ""
-																	}
-																],
-																"url": {
-																	"raw": "{{baseUrl}}/networks/:networkId/firmwareUpgrades/staged/groups/:groupId",
-																	"host": [
-																		"{{baseUrl}}"
-																	],
-																	"path": [
-																		"networks",
-																		":networkId",
-																		"firmwareUpgrades",
-																		"staged",
-																		"groups",
-																		":groupId"
-																	],
-																	"variable": [
-																		{
-																			"id": "bfd161e4-2619-46ec-a66a-1f92ccf9ccb1",
-																			"key": "networkId",
-																			"value": "{{networkId}}",
-																			"description": "(Required) "
-																		},
-																		{
-																			"id": "ebba8397-3480-4c1d-b4e5-d026acb506ea",
-																			"key": "groupId",
-																			"value": "{{groupId}}",
-																			"description": "(Required) "
-																		}
-																	]
-																},
-																"description": "Get a Staged Upgrade Group from a network"
-															},
-															"response": [
-																{
-																	"id": "e897c7a6-b21d-4d38-b30a-ae436a74c61b",
-																	"name": "Successful operation",
-																	"originalRequest": {
-																		"method": "GET",
-																		"header": [],
-																		"url": {
-																			"raw": "{{baseUrl}}/networks/:networkId/firmwareUpgrades/staged/groups/:groupId",
-																			"host": [
-																				"{{baseUrl}}"
-																			],
-																			"path": [
-																				"networks",
-																				":networkId",
-																				"firmwareUpgrades",
-																				"staged",
-																				"groups",
-																				":groupId"
-																			],
-																			"variable": [
-																				{
-																					"key": "networkId"
-																				},
-																				{
-																					"key": "groupId"
-																				}
-																			]
-																		}
-																	},
-																	"status": "OK",
-																	"code": 200,
-																	"_postman_previewlanguage": "json",
-																	"header": [
-																		{
-																			"key": "Content-Type",
-																			"value": "application/json"
-																		}
-																	],
-																	"cookie": [],
-																	"responseTime": null,
-																	"body": "{\n \"groupId\": \"1234\",\n \"name\": \"My Staged Upgrade Group\",\n \"description\": \"The description of the group\",\n \"isDefault\": false,\n \"assignedDevices\": {\n  \"devices\": [\n   {\n    \"serial\": \"Q234-ABCD-5678\",\n    \"name\": \"Device Name\"\n   }\n  ],\n  \"switchStacks\": [\n   {\n    \"id\": \"1234\",\n    \"name\": \"Stack Name\"\n   }\n  ]\n }\n}"
-																}
-															]
-														},
-														{
-															"name": "List Of Staged Upgrade Groups In A Network",
-															"id": "e35f1797-e920-41b1-8816-da3083fd936c",
-															"protocolProfileBehavior": {
-																"followAuthorizationHeader": true
-															},
-															"request": {
-																"method": "GET",
-																"header": [
-																	{
-																		"key": "X-Cisco-Meraki-API-Key",
-																		"value": ""
-																	}
-																],
-																"url": {
-																	"raw": "{{baseUrl}}/networks/:networkId/firmwareUpgrades/staged/groups",
-																	"host": [
-																		"{{baseUrl}}"
-																	],
-																	"path": [
-																		"networks",
-																		":networkId",
-																		"firmwareUpgrades",
-																		"staged",
-																		"groups"
-																	],
-																	"variable": [
-																		{
-																			"id": "27e418df-eb7d-4112-97ab-ccd258e8a7c1",
-																			"key": "networkId",
-																			"value": "{{networkId}}",
-																			"description": "(Required) "
-																		}
-																	]
-																},
-																"description": "List of Staged Upgrade Groups in a network"
-															},
-															"response": [
-																{
-																	"id": "8c004aaf-253e-4097-82ed-4e78f3568711",
-																	"name": "Successful operation",
-																	"originalRequest": {
-																		"method": "GET",
-																		"header": [],
-																		"url": {
-																			"raw": "{{baseUrl}}/networks/:networkId/firmwareUpgrades/staged/groups",
-																			"host": [
-																				"{{baseUrl}}"
-																			],
-																			"path": [
-																				"networks",
-																				":networkId",
-																				"firmwareUpgrades",
-																				"staged",
-																				"groups"
-																			],
-																			"variable": [
-																				{
-																					"key": "networkId"
-																				}
-																			]
-																		}
-																	},
-																	"status": "OK",
-																	"code": 200,
-																	"_postman_previewlanguage": "json",
-																	"header": [
-																		{
-																			"key": "Content-Type",
-																			"value": "application/json"
-																		}
-																	],
-																	"cookie": [],
-																	"responseTime": null,
-																	"body": "[\n {\n  \"groupId\": \"1234\",\n  \"name\": \"My Staged Upgrade Group\",\n  \"description\": \"The description of the group\",\n  \"isDefault\": false,\n  \"assignedDevices\": {\n   \"devices\": [\n    {\n     \"serial\": \"Q234-ABCD-5678\",\n     \"name\": \"Device Name\"\n    }\n   ],\n   \"switchStacks\": [\n    {\n     \"id\": \"1234\",\n     \"name\": \"Stack Name\"\n    }\n   ]\n  }\n }\n]"
-																}
-															]
-														},
-														{
-															"name": "Update A Staged Upgrade Group For A Network",
-															"id": "902db4dd-f6a6-4ee9-9bae-d5c83949d5d8",
-															"protocolProfileBehavior": {
-																"followAuthorizationHeader": true
-															},
-															"request": {
-																"method": "PUT",
-																"header": [
-																	{
-																		"key": "X-Cisco-Meraki-API-Key",
-																		"value": ""
-																	},
-																	{
-																		"key": "Content-Type",
-																		"value": "application/json"
-																	}
-																],
-																"body": {
-																	"mode": "raw",
-																	"raw": "{\n    \"name\": \"<string>\",\n    \"isDefault\": \"<boolean>\",\n    \"description\": \"<string>\",\n    \"assignedDevices\": {\n        \"devices\": [\n            {\n                \"serial\": \"<string>\",\n                \"name\": \"<string>\"\n            },\n            {\n                \"serial\": \"<string>\",\n                \"name\": \"<string>\"\n            }\n        ],\n        \"switchStacks\": [\n            {\n                \"id\": \"<string>\",\n                \"name\": \"<string>\"\n            },\n            {\n                \"id\": \"<string>\",\n                \"name\": \"<string>\"\n            }\n        ]\n    }\n}"
-																},
-																"url": {
-																	"raw": "{{baseUrl}}/networks/:networkId/firmwareUpgrades/staged/groups/:groupId",
-																	"host": [
-																		"{{baseUrl}}"
-																	],
-																	"path": [
-																		"networks",
-																		":networkId",
-																		"firmwareUpgrades",
-																		"staged",
-																		"groups",
-																		":groupId"
-																	],
-																	"variable": [
-																		{
-																			"id": "4b922aa7-3d8e-48e5-96a5-551b78022260",
-																			"key": "networkId",
-																			"value": "{{networkId}}",
-																			"description": "(Required) "
-																		},
-																		{
-																			"id": "3d1384fe-4e2c-485b-8448-edb82fd8248c",
-																			"key": "groupId",
-																			"value": "{{groupId}}",
-																			"description": "(Required) "
-																		}
-																	]
-																},
-																"description": "Update a Staged Upgrade Group for a network\n #### Body Parameters \n**Parameter**|**Type**|**Description** \n :-------------: |:-------------: |:-------------: \nname| string| Name of the Staged Upgrade Group. Length must be 1 to 255 characters\ndescription| string| Description of the Staged Upgrade Group. Length must be 1 to 255 characters\nisDefault| boolean| Boolean indicating the default Group. Any device that does not have a group explicitly assigned will upgrade with this group\nassignedDevices| object| The devices and Switch Stacks assigned to the Group\n"
-															},
-															"response": [
-																{
-																	"id": "baa70921-7643-437d-b31a-4a665542ea3f",
-																	"name": "Successful operation",
-																	"originalRequest": {
-																		"method": "PUT",
-																		"header": [],
-																		"body": {
-																			"mode": "raw",
-																			"raw": "{\n    \"name\": \"My Staged Upgrade Group\",\n    \"description\": \"The description of the group\",\n    \"isDefault\": false,\n    \"assignedDevices\": {\n        \"devices\": [\n            {\n                \"serial\": \"Q234-ABCD-5678\",\n                \"name\": \"Device Name\"\n            }\n        ],\n        \"switchStacks\": [\n            {\n                \"name\": \"Stack Name\"\n            }\n        ]\n    }\n}"
-																		},
-																		"url": {
-																			"raw": "{{baseUrl}}/networks/:networkId/firmwareUpgrades/staged/groups/:groupId",
-																			"host": [
-																				"{{baseUrl}}"
-																			],
-																			"path": [
-																				"networks",
-																				":networkId",
-																				"firmwareUpgrades",
-																				"staged",
-																				"groups",
-																				":groupId"
-																			],
-																			"variable": [
-																				{
-																					"key": "networkId"
-																				},
-																				{
-																					"key": "groupId"
-																				}
-																			]
-																		}
-																	},
-																	"status": "OK",
-																	"code": 200,
-																	"_postman_previewlanguage": "json",
-																	"header": [
-																		{
-																			"key": "Content-Type",
-																			"value": "application/json"
-																		}
-																	],
-																	"cookie": [],
-																	"responseTime": null,
-																	"body": "{\n \"groupId\": \"1234\",\n \"name\": \"My Staged Upgrade Group\",\n \"description\": \"The description of the group\",\n \"isDefault\": false,\n \"assignedDevices\": {\n  \"devices\": [\n   {\n    \"name\": \"Device Name\",\n    \"serial\": \"Q234-ABCD-5678\"\n   }\n  ],\n  \"switchStacks\": [\n   {\n    \"name\": \"Stack Name\",\n    \"id\": \"1234\"\n   }\n  ]\n }\n}"
-																}
-															]
-														}
-													],
-													"id": "f97975bb-1f76-4736-b5fc-9b1d562941bb"
-												},
-												{
-													"name": "Stages",
-													"item": [
-														{
-															"name": "Assign Staged Upgrade Group Order In The Sequence",
-															"id": "32746109-4b0a-4e16-ad02-62c6a9623625",
-															"protocolProfileBehavior": {
-																"followAuthorizationHeader": true
-															},
-															"request": {
-																"method": "PUT",
-																"header": [
-																	{
-																		"key": "X-Cisco-Meraki-API-Key",
-																		"value": ""
-																	},
-																	{
-																		"key": "Content-Type",
-																		"value": "application/json"
-																	}
-																],
-																"body": {
-																	"mode": "raw",
-																	"raw": "{\n    \"_json\": [\n        {\n            \"group\": {\n                \"id\": \"<string>\"\n            }\n        },\n        {\n            \"group\": {\n                \"id\": \"<string>\"\n            }\n        }\n    ]\n}"
-																},
-																"url": {
-																	"raw": "{{baseUrl}}/networks/:networkId/firmwareUpgrades/staged/stages",
-																	"host": [
-																		"{{baseUrl}}"
-																	],
-																	"path": [
-																		"networks",
-																		":networkId",
-																		"firmwareUpgrades",
-																		"staged",
-																		"stages"
-																	],
-																	"variable": [
-																		{
-																			"id": "2157a07f-21df-4b96-a590-f924617064d9",
-																			"key": "networkId",
-																			"value": "{{networkId}}",
-																			"description": "(Required) "
-																		}
-																	]
-																},
-																"description": "Assign Staged Upgrade Group order in the sequence.\n #### Body Parameters \n**Parameter**|**Type**|**Description** \n :-------------: |:-------------: |:-------------: \n_json| array| Array of Staged Upgrade Groups\n"
-															},
-															"response": [
-																{
-																	"id": "14a3e17e-3dda-4044-8e44-8a8cc3f0505d",
-																	"name": "Successful operation",
-																	"originalRequest": {
-																		"method": "PUT",
-																		"header": [],
-																		"body": {
-																			"mode": "raw",
-																			"raw": "{\n    \"_json\": [\n        {\n            \"group\": {}\n        }\n    ]\n}"
-																		},
-																		"url": {
-																			"raw": "{{baseUrl}}/networks/:networkId/firmwareUpgrades/staged/stages",
-																			"host": [
-																				"{{baseUrl}}"
-																			],
-																			"path": [
-																				"networks",
-																				":networkId",
-																				"firmwareUpgrades",
-																				"staged",
-																				"stages"
-																			],
-																			"variable": [
-																				{
-																					"key": "networkId"
-																				}
-																			]
-																		}
-																	},
-																	"status": "OK",
-																	"code": 200,
-																	"_postman_previewlanguage": "json",
-																	"header": [
-																		{
-																			"key": "Content-Type",
-																			"value": "application/json"
-																		}
-																	],
-																	"cookie": [],
-																	"responseTime": null,
-																	"body": "[\n {\n  \"group\": {\n   \"id\": \"1234\",\n   \"name\": \"My Staged Upgrade Group\",\n   \"description\": \"My Staged Upgrade Description\"\n  }\n }\n]"
-																}
-															]
-														},
-														{
-															"name": "Order Of Staged Upgrade Groups In A Network",
-															"id": "177dd594-4401-4fc8-ad72-865fea96c4ae",
-															"protocolProfileBehavior": {
-																"followAuthorizationHeader": true
-															},
-															"request": {
-																"method": "GET",
-																"header": [
-																	{
-																		"key": "X-Cisco-Meraki-API-Key",
-																		"value": ""
-																	}
-																],
-																"url": {
-																	"raw": "{{baseUrl}}/networks/:networkId/firmwareUpgrades/staged/stages",
-																	"host": [
-																		"{{baseUrl}}"
-																	],
-																	"path": [
-																		"networks",
-																		":networkId",
-																		"firmwareUpgrades",
-																		"staged",
-																		"stages"
-																	],
-																	"variable": [
-																		{
-																			"id": "ff51bbdb-d2d9-4431-b689-a8b94800b3e4",
-																			"key": "networkId",
-																			"value": "{{networkId}}",
-																			"description": "(Required) "
-																		}
-																	]
-																},
-																"description": "Order of Staged Upgrade Groups in a network"
-															},
-															"response": [
-																{
-																	"id": "2454b153-4d62-443c-b21a-54a362b6cf18",
-																	"name": "Successful operation",
-																	"originalRequest": {
-																		"method": "GET",
-																		"header": [],
-																		"url": {
-																			"raw": "{{baseUrl}}/networks/:networkId/firmwareUpgrades/staged/stages",
-																			"host": [
-																				"{{baseUrl}}"
-																			],
-																			"path": [
-																				"networks",
-																				":networkId",
-																				"firmwareUpgrades",
-																				"staged",
-																				"stages"
-																			],
-																			"variable": [
-																				{
-																					"key": "networkId"
-																				}
-																			]
-																		}
-																	},
-																	"status": "OK",
-																	"code": 200,
-																	"_postman_previewlanguage": "json",
-																	"header": [
-																		{
-																			"key": "Content-Type",
-																			"value": "application/json"
-																		}
-																	],
-																	"cookie": [],
-																	"responseTime": null,
-																	"body": "[\n {\n  \"group\": {\n   \"id\": \"1234\",\n   \"name\": \"My Staged Upgrade Group\",\n   \"description\": \"My Staged Upgrade Description\"\n  }\n }\n]"
-																}
-															]
-														}
-													],
-													"id": "8158b9a1-b8d1-474c-813e-bce9c94860ba"
-												}
-											],
-											"id": "79ee205d-cc5b-462a-89bc-bd949ede13ca"
-										}
-									],
-									"id": "971b32cf-a4da-49c4-a9eb-f988f514869a"
-								},
-								{
-									"name": "Http Servers",
-									"item": [
-										{
-											"name": "Webhook Tests",
-											"item": [
-												{
-													"name": "Return The Status Of A Webhook Test For A Network",
-													"id": "aa094a36-587e-4d1f-ab88-2d5a2a79a856",
-													"protocolProfileBehavior": {
-														"followAuthorizationHeader": true
-													},
-													"request": {
-														"method": "GET",
-														"header": [
-															{
-																"key": "X-Cisco-Meraki-API-Key",
-																"value": ""
-															}
-														],
-														"url": {
-															"raw": "{{baseUrl}}/networks/:networkId/httpServers/webhookTests/:id",
-															"host": [
-																"{{baseUrl}}"
-															],
-															"path": [
-																"networks",
-																":networkId",
-																"httpServers",
-																"webhookTests",
-																":id"
-															],
-															"variable": [
-																{
-																	"id": "4344cfb7-8f05-4c91-ae89-525bb6827b8d",
-																	"key": "networkId",
-																	"value": "{{networkId}}",
-																	"description": "(Required) "
-																},
-																{
-																	"id": "64e413b6-31f6-4a3f-8cc2-3466ad813d51",
-																	"key": "id",
-																	"value": "",
-																	"description": "(Required) "
-																}
-															]
-														},
-														"description": "Return the status of a webhook test for a network"
-													},
-													"response": [
-														{
-															"id": "699995c6-2471-4593-99b4-df7c6a8000d4",
-															"name": "Successful operation",
-															"originalRequest": {
-																"method": "GET",
-																"header": [],
-																"url": {
-																	"raw": "{{baseUrl}}/networks/:networkId/httpServers/webhookTests/:id",
-																	"host": [
-																		"{{baseUrl}}"
-																	],
-																	"path": [
-																		"networks",
-																		":networkId",
-																		"httpServers",
-																		"webhookTests",
-																		":id"
-																	],
-																	"variable": [
-																		{
-																			"key": "networkId"
-																		},
-																		{
-																			"key": "id"
-																		}
-																	]
-																}
-															},
-															"status": "OK",
-															"code": 200,
-															"_postman_previewlanguage": "json",
-															"header": [
-																{
-																	"key": "Content-Type",
-																	"value": "application/json"
-																}
-															],
-															"cookie": [],
-															"responseTime": null,
-															"body": "{\n \"id\": \"1234\",\n \"url\": \"https://www.example.com/path\",\n \"status\": \"delivered\"\n}"
-														}
-													]
-												},
-												{
-													"name": "Send A Test Webhook For A Network",
-													"id": "79c21d68-cf5a-456d-91a0-49fa09fac0d9",
-													"protocolProfileBehavior": {
-														"followAuthorizationHeader": true
-													},
-													"request": {
-														"method": "POST",
-														"header": [
-															{
-																"key": "X-Cisco-Meraki-API-Key",
-																"value": ""
-															},
-															{
-																"key": "Content-Type",
-																"value": "application/json"
-															}
-														],
-														"body": {
-															"mode": "raw",
-															"raw": "{\n    \"url\": \"<string>\",\n    \"sharedSecret\": \"\"\n}"
-														},
-														"url": {
-															"raw": "{{baseUrl}}/networks/:networkId/httpServers/webhookTests",
-															"host": [
-																"{{baseUrl}}"
-															],
-															"path": [
-																"networks",
-																":networkId",
-																"httpServers",
-																"webhookTests"
-															],
-															"variable": [
-																{
-																	"id": "188bf167-6b4f-4f21-b5f2-82fee157e1a4",
-																	"key": "networkId",
-																	"value": "{{networkId}}",
-																	"description": "(Required) "
-																}
-															]
-														},
-														"description": "Send a test webhook for a network\n #### Body Parameters \n**Parameter**|**Type**|**Description** \n :-------------: |:-------------: |:-------------: \nurl| string| The URL where the test webhook will be sent\nsharedSecret| string| The shared secret the test webhook will send. Optional. Defaults to an empty string.\n"
-													},
-													"response": [
-														{
-															"id": "f10dbec1-8924-4eed-9cd4-943de5c18ee1",
-															"name": "Successful operation",
-															"originalRequest": {
-																"method": "POST",
-																"header": [],
-																"body": {
-																	"mode": "raw",
-																	"raw": "{\n    \"url\": \"https://www.example.com/path\"\n}"
-																},
-																"url": {
-																	"raw": "{{baseUrl}}/networks/:networkId/httpServers/webhookTests",
-																	"host": [
-																		"{{baseUrl}}"
-																	],
-																	"path": [
-																		"networks",
-																		":networkId",
-																		"httpServers",
-																		"webhookTests"
-																	],
-																	"variable": [
-																		{
-																			"key": "networkId"
-																		}
-																	]
-																}
-															},
-															"status": "OK",
-															"code": 200,
-															"_postman_previewlanguage": "json",
-															"header": [
-																{
-																	"key": "Content-Type",
-																	"value": "application/json"
-																}
-															],
-															"cookie": [],
-															"responseTime": null,
-															"body": "{\n \"id\": \"1234\",\n \"url\": \"https://www.example.com/path\",\n \"status\": \"enqueued\"\n}"
-														}
-													]
-												}
-											],
-											"id": "02435df5-bc3f-4a23-87df-13bab20d1624"
-										},
-										{
-											"name": "Add An HTTP Server To A Network",
-											"id": "bc74d2d0-45b8-4774-bffd-cc1313278611",
-											"protocolProfileBehavior": {
-												"followAuthorizationHeader": true
-											},
-											"request": {
-												"method": "POST",
-												"header": [
-													{
-														"key": "X-Cisco-Meraki-API-Key",
-														"value": ""
-													},
-													{
-														"key": "Content-Type",
-														"value": "application/json"
-													}
-												],
-												"body": {
-													"mode": "raw",
-													"raw": "{\n    \"name\": \"<string>\",\n    \"url\": \"<string>\",\n    \"sharedSecret\": \"<string>\"\n}"
-												},
-												"url": {
-													"raw": "{{baseUrl}}/networks/:networkId/httpServers",
-													"host": [
-														"{{baseUrl}}"
-													],
-													"path": [
-														"networks",
-														":networkId",
-														"httpServers"
-													],
-													"variable": [
-														{
-															"id": "edaa65f8-e4d3-441d-aec4-2e263d3e9a12",
-															"key": "networkId",
-															"value": "{{networkId}}",
-															"description": "(Required) "
-														}
-													]
-												},
-												"description": "Add an HTTP server to a network\n #### Body Parameters \n**Parameter**|**Type**|**Description** \n :-------------: |:-------------: |:-------------: \nname| string| A name for easy reference to the HTTP server\nurl| string| The URL of the HTTP server\nsharedSecret| string| A shared secret that will be included in POSTs sent to the HTTP server. This secret can be used to verify that the request was sent by Meraki.\n"
-											},
-											"response": [
-												{
-													"id": "d896b2fc-0798-4faa-b402-eb7467621b3d",
-													"name": "Successful operation",
-													"originalRequest": {
-														"method": "POST",
-														"header": [],
-														"body": {
-															"mode": "raw",
-															"raw": "{\n    \"name\": \"Example Webhook Server\",\n    \"url\": \"https://example.com\",\n    \"sharedSecret\": \"shhh\"\n}"
-														},
-														"url": {
-															"raw": "{{baseUrl}}/networks/:networkId/httpServers",
-															"host": [
-																"{{baseUrl}}"
-															],
-															"path": [
-																"networks",
-																":networkId",
-																"httpServers"
-															],
-															"variable": [
-																{
-																	"key": "networkId"
-																}
-															]
-														}
-													},
-													"status": "Created",
-													"code": 201,
-													"_postman_previewlanguage": "json",
-													"header": [
-														{
-															"key": "Content-Type",
-															"value": "application/json"
-														}
-													],
-													"cookie": [],
-													"responseTime": null,
-													"body": "{\n \"id\": \"aHR0cHM6Ly93d3cuZXhhbXBsZS5jb20vbXlfY3VzdG9tX3dlYmhvb2s=\",\n \"name\": \"Example Webhook Server\",\n \"url\": \"https://www.example.com/my_custom_webhook\",\n \"networkId\": \"N_12345678\",\n \"payloadTemplate\": {\n  \"payloadTemplateId\": \"wpt_00001\",\n  \"name\": \"Meraki (included)\"\n }\n}"
-												}
-											]
-										},
-										{
-											"name": "Delete An HTTP Server From A Network",
-											"id": "ee4a1a39-f2d2-4f16-b515-4e444e69d0fb",
-											"protocolProfileBehavior": {
-												"followAuthorizationHeader": true
-											},
-											"request": {
-												"method": "DELETE",
-												"header": [
-													{
-														"key": "X-Cisco-Meraki-API-Key",
-														"value": ""
-													}
-												],
-												"url": {
-													"raw": "{{baseUrl}}/networks/:networkId/httpServers/:id",
-													"host": [
-														"{{baseUrl}}"
-													],
-													"path": [
-														"networks",
-														":networkId",
-														"httpServers",
-														":id"
-													],
-													"variable": [
-														{
-															"id": "8ad85182-7c6b-4dd7-8994-b85f7fa90894",
-															"key": "networkId",
-															"value": "{{networkId}}",
-															"description": "(Required) "
-														},
-														{
-															"id": "407e7330-ea3c-4b78-a748-3200344d0ff6",
-															"key": "id",
-															"value": "",
-															"description": "(Required) "
-														}
-													]
-												},
-												"description": "Delete an HTTP server from a network"
-											},
-											"response": [
-												{
-													"id": "b7f04187-aee8-4f4c-bb29-859bf9c92bd3",
-													"name": "Successful operation",
-													"originalRequest": {
-														"method": "DELETE",
-														"header": [],
-														"url": {
-															"raw": "{{baseUrl}}/networks/:networkId/httpServers/:id",
-															"host": [
-																"{{baseUrl}}"
-															],
-															"path": [
-																"networks",
-																":networkId",
-																"httpServers",
-																":id"
-															],
-															"variable": [
-																{
-																	"key": "networkId"
-																},
-																{
-																	"key": "id"
-																}
-															]
-														}
-													},
-													"status": "No Content",
-													"code": 204,
-													"_postman_previewlanguage": "text",
-													"header": [
-														{
-															"key": "Content-Type",
-															"value": "text/plain"
-														}
-													],
-													"cookie": [],
-													"responseTime": null,
-													"body": ""
-												}
-											]
-										},
-										{
-											"name": "List The HTTP Servers For A Network",
-											"id": "e4c9950d-14ab-4216-99a6-37bf3542e7c9",
-											"protocolProfileBehavior": {
-												"followAuthorizationHeader": true
-											},
-											"request": {
-												"method": "GET",
-												"header": [
-													{
-														"key": "X-Cisco-Meraki-API-Key",
-														"value": ""
-													}
-												],
-												"url": {
-													"raw": "{{baseUrl}}/networks/:networkId/httpServers",
-													"host": [
-														"{{baseUrl}}"
-													],
-													"path": [
-														"networks",
-														":networkId",
-														"httpServers"
-													],
-													"variable": [
-														{
-															"id": "c578bcca-6721-473a-b769-02488eb5a148",
-															"key": "networkId",
-															"value": "{{networkId}}",
-															"description": "(Required) "
-														}
-													]
-												},
-												"description": "List the HTTP servers for a network"
-											},
-											"response": [
-												{
-													"id": "992b0613-e41d-4785-8fd2-f8a16eaf4617",
-													"name": "Successful operation",
-													"originalRequest": {
-														"method": "GET",
-														"header": [],
-														"url": {
-															"raw": "{{baseUrl}}/networks/:networkId/httpServers",
-															"host": [
-																"{{baseUrl}}"
-															],
-															"path": [
-																"networks",
-																":networkId",
-																"httpServers"
-															],
-															"variable": [
-																{
-																	"key": "networkId"
-																}
-															]
-														}
-													},
-													"status": "OK",
-													"code": 200,
-													"_postman_previewlanguage": "json",
-													"header": [
-														{
-															"key": "Content-Type",
-															"value": "application/json"
-														}
-													],
-													"cookie": [],
-													"responseTime": null,
-													"body": "[\n {\n  \"id\": \"aHR0cHM6Ly93d3cuZXhhbXBsZS5jb20vbXlfY3VzdG9tX3dlYmhvb2s=\",\n  \"name\": \"Example Webhook Server\",\n  \"url\": \"https://www.example.com/my_custom_webhook\",\n  \"networkId\": \"N_12345678\",\n  \"payloadTemplate\": {\n   \"payloadTemplateId\": \"wpt_00001\",\n   \"name\": \"Meraki (included)\"\n  }\n }\n]"
-												}
-											]
-										},
-										{
-											"name": "Return An HTTP Server For A Network",
-											"id": "f5026638-d15f-4a6c-98a1-c7726d165d55",
-											"protocolProfileBehavior": {
-												"followAuthorizationHeader": true
-											},
-											"request": {
-												"method": "GET",
-												"header": [
-													{
-														"key": "X-Cisco-Meraki-API-Key",
-														"value": ""
-													}
-												],
-												"url": {
-													"raw": "{{baseUrl}}/networks/:networkId/httpServers/:id",
-													"host": [
-														"{{baseUrl}}"
-													],
-													"path": [
-														"networks",
-														":networkId",
-														"httpServers",
-														":id"
-													],
-													"variable": [
-														{
-															"id": "e5e65bcc-0c15-4b95-bae3-23d9a1489b32",
-															"key": "networkId",
-															"value": "{{networkId}}",
-															"description": "(Required) "
-														},
-														{
-															"id": "e21559a5-9028-44be-bdd6-236439355bb1",
-															"key": "id",
-															"value": "",
-															"description": "(Required) "
-														}
-													]
-												},
-												"description": "Return an HTTP server for a network"
-											},
-											"response": [
-												{
-													"id": "013db9f0-62f6-4ecb-87df-0f5b0e79ba3b",
-													"name": "Successful operation",
-													"originalRequest": {
-														"method": "GET",
-														"header": [],
-														"url": {
-															"raw": "{{baseUrl}}/networks/:networkId/httpServers/:id",
-															"host": [
-																"{{baseUrl}}"
-															],
-															"path": [
-																"networks",
-																":networkId",
-																"httpServers",
-																":id"
-															],
-															"variable": [
-																{
-																	"key": "networkId"
-																},
-																{
-																	"key": "id"
-																}
-															]
-														}
-													},
-													"status": "OK",
-													"code": 200,
-													"_postman_previewlanguage": "json",
-													"header": [
-														{
-															"key": "Content-Type",
-															"value": "application/json"
-														}
-													],
-													"cookie": [],
-													"responseTime": null,
-													"body": "{\n \"id\": \"aHR0cHM6Ly93d3cuZXhhbXBsZS5jb20vbXlfY3VzdG9tX3dlYmhvb2s=\",\n \"name\": \"Example Webhook Server\",\n \"url\": \"https://www.example.com/my_custom_webhook\",\n \"networkId\": \"N_12345678\",\n \"payloadTemplate\": {\n  \"payloadTemplateId\": \"wpt_00001\",\n  \"name\": \"Meraki (included)\"\n }\n}"
-												}
-											]
-										},
-										{
-											"name": "Update An HTTP Server",
-											"id": "ade608cf-1aff-41ec-9434-fe0d1ac213bf",
-											"protocolProfileBehavior": {
-												"followAuthorizationHeader": true
-											},
-											"request": {
-												"method": "PUT",
-												"header": [
-													{
-														"key": "X-Cisco-Meraki-API-Key",
-														"value": ""
-													},
-													{
-														"key": "Content-Type",
-														"value": "application/json"
-													}
-												],
-												"body": {
-													"mode": "raw",
-													"raw": "{\n    \"name\": \"<string>\",\n    \"url\": \"<string>\",\n    \"sharedSecret\": \"<string>\"\n}"
-												},
-												"url": {
-													"raw": "{{baseUrl}}/networks/:networkId/httpServers/:id",
-													"host": [
-														"{{baseUrl}}"
-													],
-													"path": [
-														"networks",
-														":networkId",
-														"httpServers",
-														":id"
-													],
-													"variable": [
-														{
-															"id": "736eb615-147b-435d-bcf3-9a4377f14121",
-															"key": "networkId",
-															"value": "{{networkId}}",
-															"description": "(Required) "
-														},
-														{
-															"id": "6aa84c61-66aa-4278-8e17-ee3d04d3e10a",
-															"key": "id",
-															"value": "",
-															"description": "(Required) "
-														}
-													]
-												},
-												"description": "Update an HTTP server\n #### Body Parameters \n**Parameter**|**Type**|**Description** \n :-------------: |:-------------: |:-------------: \nname| string| A name for easy reference to the HTTP server\nurl| string| The URL of the HTTP server\nsharedSecret| string| A shared secret that will be included in POSTs sent to the HTTP server. This secret can be used to verify that the request was sent by Meraki.\n"
-											},
-											"response": [
-												{
-													"id": "782b317a-5675-40d1-9122-4fdd522d9008",
-													"name": "Successful operation",
-													"originalRequest": {
-														"method": "PUT",
-														"header": [],
-														"body": {
-															"mode": "raw",
-															"raw": "{\n    \"name\": \"Example Webhook Server\",\n    \"url\": \"https://example.com\",\n    \"sharedSecret\": \"shhh\"\n}"
-														},
-														"url": {
-															"raw": "{{baseUrl}}/networks/:networkId/httpServers/:id",
-															"host": [
-																"{{baseUrl}}"
-															],
-															"path": [
-																"networks",
-																":networkId",
-																"httpServers",
-																":id"
-															],
-															"variable": [
-																{
-																	"key": "networkId"
-																},
-																{
-																	"key": "id"
-																}
-															]
-														}
-													},
-													"status": "OK",
-													"code": 200,
-													"_postman_previewlanguage": "json",
-													"header": [
-														{
-															"key": "Content-Type",
-															"value": "application/json"
-														}
-													],
-													"cookie": [],
-													"responseTime": null,
-													"body": "{\n \"id\": \"aHR0cHM6Ly93d3cuZXhhbXBsZS5jb20vbXlfY3VzdG9tX3dlYmhvb2s=\",\n \"name\": \"Example Webhook Server\",\n \"url\": \"https://www.example.com/my_custom_webhook\",\n \"networkId\": \"N_12345678\",\n \"payloadTemplate\": {\n  \"payloadTemplateId\": \"wpt_00001\",\n  \"name\": \"Meraki (included)\"\n }\n}"
-												}
-											]
-										}
-									],
-									"id": "36bc7090-3091-4e3c-a1b9-495c515bf396"
-								},
-								{
-									"name": "Location Scanning",
+									"name": "locationScanning",
 									"item": [
 										{
 											"name": "Http Servers",
 											"item": [
 												{
 													"name": "Return List Of Scanning API Receivers",
-													"id": "48e2b773-3ca6-4a3f-91cc-39473df9a1fa",
+													"id": "51523def-89cb-4f42-a5da-369c14d19a5c",
 													"protocolProfileBehavior": {
 														"followAuthorizationHeader": true
 													},
@@ -3989,7 +1271,7 @@
 															],
 															"variable": [
 																{
-																	"id": "34f89ea4-47ec-49fc-915a-ef5c9c2cb88c",
+																	"id": "8402e09c-2d73-4ae7-88e2-06c149d6f5b0",
 																	"key": "networkId",
 																	"value": "{{networkId}}",
 																	"description": "(Required) "
@@ -4000,7 +1282,7 @@
 													},
 													"response": [
 														{
-															"id": "2a894052-3122-4b90-b45a-0dee72364153",
+															"id": "35db7c3f-f39e-43a7-9a14-275c05271382",
 															"name": "Successful operation",
 															"originalRequest": {
 																"method": "GET",
@@ -4040,7 +1322,7 @@
 												},
 												{
 													"name": "Set The List Of Scanning API Receivers",
-													"id": "179be944-ada0-47a8-acf9-dea8ddcaa899",
+													"id": "80fcd03a-b040-4e29-9edc-95ee5ba8ba06",
 													"protocolProfileBehavior": {
 														"followAuthorizationHeader": true
 													},
@@ -4073,7 +1355,7 @@
 															],
 															"variable": [
 																{
-																	"id": "0fbd8bb8-2261-4d88-a3b7-bec7d7df67c9",
+																	"id": "df2ab619-1093-40cf-a4d6-2005f40a0582",
 																	"key": "networkId",
 																	"value": "{{networkId}}",
 																	"description": "(Required) "
@@ -4084,7 +1366,7 @@
 													},
 													"response": [
 														{
-															"id": "cb6f6bad-9a23-400d-ad8c-8ccad01fa98d",
+															"id": "8eeb3218-79c0-418d-be19-f633d23b4198",
 															"name": "Successful operation",
 															"originalRequest": {
 																"method": "PUT",
@@ -4127,11 +1409,11 @@
 													]
 												}
 											],
-											"id": "d710b61e-a1ca-4ac7-b9f8-c92a23dd88d6"
+											"id": "319fb43d-2f4f-4056-b11b-c37b882d2057"
 										},
 										{
 											"name": "Change Scanning API Settings",
-											"id": "2568f41c-4179-4d78-89af-3f872f984927",
+											"id": "50eecafb-2790-4db3-8e25-bac54208ad59",
 											"protocolProfileBehavior": {
 												"followAuthorizationHeader": true
 											},
@@ -4163,7 +1445,7 @@
 													],
 													"variable": [
 														{
-															"id": "1a66e208-339d-4f97-8662-1bd1676be701",
+															"id": "0ad49afd-5d80-4c52-aed0-df80d0d2981c",
 															"key": "networkId",
 															"value": "{{networkId}}",
 															"description": "(Required) "
@@ -4174,7 +1456,7 @@
 											},
 											"response": [
 												{
-													"id": "28fe5343-6755-43e5-aaad-6b0f376a82a1",
+													"id": "3d314600-b1d4-4d3b-a85a-15dd533d6e07",
 													"name": "Successful operation",
 													"originalRequest": {
 														"method": "PUT",
@@ -4217,7 +1499,7 @@
 										},
 										{
 											"name": "Return Scanning API Settings",
-											"id": "5f51198c-fcae-488b-ad64-ce95325cfce0",
+											"id": "426deec3-2f3d-4522-934d-2f60e0fbc458",
 											"protocolProfileBehavior": {
 												"followAuthorizationHeader": true
 											},
@@ -4241,7 +1523,7 @@
 													],
 													"variable": [
 														{
-															"id": "1fca152c-a6d9-4be1-9be0-6873617cb005",
+															"id": "6c4c5808-34ad-47fe-8432-c343d9b031e4",
 															"key": "networkId",
 															"value": "{{networkId}}",
 															"description": "(Required) "
@@ -4252,7 +1534,7 @@
 											},
 											"response": [
 												{
-													"id": "43bfa76c-6591-443b-9220-9bd9de196432",
+													"id": "548c6e45-80fe-4792-9358-949c5c653d77",
 													"name": "Successful operation",
 													"originalRequest": {
 														"method": "GET",
@@ -4290,13 +1572,13 @@
 											]
 										}
 									],
-									"id": "d1bdef18-60da-4642-93a0-341e16869d03"
+									"id": "06f837b6-19a2-4e73-b798-1b38671183fd"
 								}
 							],
-							"id": "566cd8a7-b42b-46fc-aa54-9b322e0b1fae"
+							"id": "70769a75-b681-41d7-9aa9-8a2c9dbed7f1"
 						}
 					],
-					"id": "a9a730dd-5e3a-4262-91b7-227413fa809c"
+					"id": "59f37aca-2429-4804-a87f-234663d6c335"
 				},
 				{
 					"name": "Organizations",
@@ -4312,7 +1594,7 @@
 											"item": [
 												{
 													"name": "Creates A New Policy Object Group",
-													"id": "7b34b207-5597-4a35-b549-1ccc76bd1de7",
+													"id": "12644860-ff85-4fb5-8bef-873ee7d8b918",
 													"protocolProfileBehavior": {
 														"followAuthorizationHeader": true
 													},
@@ -4345,7 +1627,7 @@
 															],
 															"variable": [
 																{
-																	"id": "0a9cfa41-0e87-4b7c-86fd-1c63b76cb99d",
+																	"id": "d6ac3540-6758-48b7-a06a-c783c91fb762",
 																	"key": "organizationId",
 																	"value": "{{organizationId}}",
 																	"description": "(Required) "
@@ -4356,7 +1638,7 @@
 													},
 													"response": [
 														{
-															"id": "29bf20f7-43ec-453c-92e7-f8535ce3bf4d",
+															"id": "5a9ae33d-95b9-4cde-b712-6c1374285338",
 															"name": "Successful operation",
 															"originalRequest": {
 																"method": "POST",
@@ -4400,7 +1682,7 @@
 												},
 												{
 													"name": "Deletes A Policy Object Group",
-													"id": "41929ebd-0c10-46ab-9344-a3e0eba8a785",
+													"id": "8b9cb6d7-6fab-43da-b3c6-293172fdbbf0",
 													"protocolProfileBehavior": {
 														"followAuthorizationHeader": true
 													},
@@ -4426,13 +1708,13 @@
 															],
 															"variable": [
 																{
-																	"id": "f5921f92-1e8c-418e-977a-7a8704801368",
+																	"id": "6cb7f34b-ce1f-4610-b92f-5c2113a3b044",
 																	"key": "organizationId",
 																	"value": "{{organizationId}}",
 																	"description": "(Required) "
 																},
 																{
-																	"id": "d64e1ceb-6a97-4138-b754-f18f77ed323a",
+																	"id": "01dc9581-3748-49fc-8430-bee8785651d0",
 																	"key": "policyObjectGroupId",
 																	"value": "{{policyObjectGroupId}}",
 																	"description": "(Required) "
@@ -4443,7 +1725,7 @@
 													},
 													"response": [
 														{
-															"id": "731c6074-6b32-4ec8-9df8-bf75a29721a8",
+															"id": "b482ba5b-5789-49df-803e-a673c5f73b2f",
 															"name": "Successful operation",
 															"originalRequest": {
 																"method": "DELETE",
@@ -4487,7 +1769,7 @@
 												},
 												{
 													"name": "Lists Policy Object Groups Belonging To The Organization",
-													"id": "e6de99bf-b5ee-48e4-b1f4-b4b6617858a7",
+													"id": "5fc7383a-d626-4279-8c93-e02d60291eca",
 													"protocolProfileBehavior": {
 														"followAuthorizationHeader": true
 													},
@@ -4532,7 +1814,7 @@
 															],
 															"variable": [
 																{
-																	"id": "97e19211-e8e2-4f47-849b-4c181bdebf9d",
+																	"id": "fbb2382d-4bdb-4114-936c-8ce707ab771a",
 																	"key": "organizationId",
 																	"value": "{{organizationId}}",
 																	"description": "(Required) "
@@ -4543,7 +1825,7 @@
 													},
 													"response": [
 														{
-															"id": "34f72881-91f7-485c-a5ea-4c97c5fab021",
+															"id": "f936a3e8-f6aa-4db8-bc37-c0315e5793c0",
 															"name": "Successful operation",
 															"originalRequest": {
 																"method": "GET",
@@ -4602,7 +1884,7 @@
 												},
 												{
 													"name": "Shows Details Of A Policy Object Group",
-													"id": "7c98a6d0-7db2-4061-83d3-b63cb6bb6654",
+													"id": "00e67e6a-3d92-4551-9e9f-dda92927b6ee",
 													"protocolProfileBehavior": {
 														"followAuthorizationHeader": true
 													},
@@ -4628,13 +1910,13 @@
 															],
 															"variable": [
 																{
-																	"id": "ba57f85d-7c99-4704-89ad-0fdca4bbc3f7",
+																	"id": "5ad24997-5bff-4abc-ba4b-f298420fdc1b",
 																	"key": "organizationId",
 																	"value": "{{organizationId}}",
 																	"description": "(Required) "
 																},
 																{
-																	"id": "e333c28b-ce4d-46c2-b5ab-c1732cafc551",
+																	"id": "8548ec70-37b2-4f84-a26e-0eff807f1ee9",
 																	"key": "policyObjectGroupId",
 																	"value": "{{policyObjectGroupId}}",
 																	"description": "(Required) "
@@ -4645,7 +1927,7 @@
 													},
 													"response": [
 														{
-															"id": "d38b5491-50f4-415a-bb40-a43d4ab51e71",
+															"id": "7a6a6c25-41fa-48b6-a772-09fcf2fe4672",
 															"name": "Successful operation",
 															"originalRequest": {
 																"method": "GET",
@@ -4689,7 +1971,7 @@
 												},
 												{
 													"name": "Updates A Policy Object Group",
-													"id": "81e8f8ae-0ed1-4898-bfba-bf8db9831571",
+													"id": "49e4a04f-9e8a-4475-8faf-d64ff713b9a6",
 													"protocolProfileBehavior": {
 														"followAuthorizationHeader": true
 													},
@@ -4723,13 +2005,13 @@
 															],
 															"variable": [
 																{
-																	"id": "8e4b6543-1e89-4ed0-b808-4639452ff154",
+																	"id": "f61284fa-b908-478b-b24e-a8e9eb6cc179",
 																	"key": "organizationId",
 																	"value": "{{organizationId}}",
 																	"description": "(Required) "
 																},
 																{
-																	"id": "f8eef842-a7a8-4b5b-a670-2d02b1c8f56b",
+																	"id": "2d816bc8-2368-4062-aa74-16b82f1d3759",
 																	"key": "policyObjectGroupId",
 																	"value": "{{policyObjectGroupId}}",
 																	"description": "(Required) "
@@ -4740,7 +2022,7 @@
 													},
 													"response": [
 														{
-															"id": "edfaf9ab-636e-4d50-b8a9-86f4e763a67d",
+															"id": "bf8ee10d-b458-40d4-9894-8a1fc10cc344",
 															"name": "Successful operation",
 															"originalRequest": {
 																"method": "PUT",
@@ -4787,11 +2069,11 @@
 													]
 												}
 											],
-											"id": "da3b875c-d1c6-4cde-b4f5-451034c6f197"
+											"id": "d304d53a-d7bb-446f-8417-3d21cb6c60c1"
 										},
 										{
 											"name": "Creates A New Policy Object",
-											"id": "470c6474-2cb4-4353-8e93-f3ef20e36675",
+											"id": "958f56e2-1d0e-4c76-86d1-5a7e2fa09bef",
 											"protocolProfileBehavior": {
 												"followAuthorizationHeader": true
 											},
@@ -4823,18 +2105,18 @@
 													],
 													"variable": [
 														{
-															"id": "b8f62a3f-4fca-4eb4-8764-697927653831",
+															"id": "07d0a3ee-8677-43a9-8e0e-3a723d631fd9",
 															"key": "organizationId",
 															"value": "{{organizationId}}",
 															"description": "(Required) "
 														}
 													]
 												},
-												"description": "Creates a new Policy Object.\n #### Body Parameters \n**Parameter**|**Type**|**Description** \n :-------------: |:-------------: |:-------------: \nname| string| Name of a policy object, unique within the organization (alphanumeric, space, dash, or underscore characters only)\ncategory| string| Category of a policy object (one of: adaptivePolicy, network)\ntype| string| Type of a policy object (one of: adaptivePolicyIpv4Cidr, fqdn, ipAndMask, cidr)\ncidr| string| CIDR Value of a policy object (e.g. 10.11.12.1/24\")\nfqdn| string| Fully qualified domain name of policy object (e.g. \"example.com\")\nmask| string| Mask of a policy object (e.g. \"255.255.0.0\")\nip| string| IP Address of a policy object (e.g. \"1.2.3.4\")\ngroupIds| array| The IDs of policy object groups the policy object belongs to\n\n#### Supports Action Batches\n\n**Resource**|**Operation**\n:-------------: |:-------------:\n`/organizations/{organizationId}/policyObjects` | create\n\n"
+												"description": "Creates a new Policy Object.\n #### Body Parameters \n**Parameter**|**Type**|**Description** \n :-------------: |:-------------: |:-------------: \nname| string| Name of a policy object, unique within the organization (alphanumeric, space, dash, or underscore characters only)\ncategory| string| Category of a policy object (one of: adaptivePolicy, network)\ntype| string| Type of a policy object (one of: cidr, adaptivePolicyIpv4Cidr, fqdn, ipAndMask)\ncidr| string| CIDR Value of a policy object (e.g. 10.11.12.1/24\")\nfqdn| string| Fully qualified domain name of policy object (e.g. \"example.com\")\nmask| string| Mask of a policy object (e.g. \"255.255.0.0\")\nip| string| IP Address of a policy object (e.g. \"1.2.3.4\")\ngroupIds| array| The IDs of policy object groups the policy object belongs to\n\n#### Supports Action Batches\n\n**Resource**|**Operation**\n:-------------: |:-------------:\n`/organizations/{organizationId}/policyObjects` | create\n\n"
 											},
 											"response": [
 												{
-													"id": "f4ad4d22-72ee-40e7-893e-6d6d5f15983a",
+													"id": "f1423d2e-617a-4413-a556-a42c423b842b",
 													"name": "Successful operation",
 													"originalRequest": {
 														"method": "POST",
@@ -4877,7 +2159,7 @@
 										},
 										{
 											"name": "Deletes A Policy Object",
-											"id": "08cfae6f-bea0-4c21-92b7-dba5de7bda40",
+											"id": "ce8a4621-e9ed-498a-93ca-b5ec67e1c580",
 											"protocolProfileBehavior": {
 												"followAuthorizationHeader": true
 											},
@@ -4902,13 +2184,13 @@
 													],
 													"variable": [
 														{
-															"id": "8539fb1f-37ec-4624-9405-0cf479d3b346",
+															"id": "0166ce02-cfb9-4dd2-86bb-9d159ff08b8a",
 															"key": "organizationId",
 															"value": "{{organizationId}}",
 															"description": "(Required) "
 														},
 														{
-															"id": "8004ee99-dce9-480b-abd8-280194dbd156",
+															"id": "53e003a3-b1a1-40a5-b94e-68b5988b0e12",
 															"key": "policyObjectId",
 															"value": "{{policyObjectId}}",
 															"description": "(Required) "
@@ -4919,7 +2201,7 @@
 											},
 											"response": [
 												{
-													"id": "95b87e88-b1dc-4e95-bf77-f5f69db7efe5",
+													"id": "d4f88f31-af2d-44ab-8aee-281c3cbedf1a",
 													"name": "Successful operation",
 													"originalRequest": {
 														"method": "DELETE",
@@ -4962,7 +2244,7 @@
 										},
 										{
 											"name": "Lists Policy Objects Belonging To The Organization",
-											"id": "9c6472b0-a2de-42cb-b73a-68a916f7db2e",
+											"id": "79be6514-95ff-4a30-9f13-5055f134c5ac",
 											"protocolProfileBehavior": {
 												"followAuthorizationHeader": true
 											},
@@ -5006,7 +2288,7 @@
 													],
 													"variable": [
 														{
-															"id": "c680a33a-06e8-4eb7-84f4-52411c8ed824",
+															"id": "d3870eff-684f-4b51-b7e2-19a50d7ff6c9",
 															"key": "organizationId",
 															"value": "{{organizationId}}",
 															"description": "(Required) "
@@ -5017,7 +2299,7 @@
 											},
 											"response": [
 												{
-													"id": "a7a0a61c-8afb-4334-99e8-e5f84519a0fe",
+													"id": "3753acba-2302-4754-94a9-d25698b7ed9d",
 													"name": "Successful operation",
 													"originalRequest": {
 														"method": "GET",
@@ -5075,7 +2357,7 @@
 										},
 										{
 											"name": "Shows Details Of A Policy Object",
-											"id": "4afb1186-7dab-4c4b-8753-6c71b13fd13f",
+											"id": "22e14507-57da-4ba2-bd49-9a5cae578db3",
 											"protocolProfileBehavior": {
 												"followAuthorizationHeader": true
 											},
@@ -5100,13 +2382,13 @@
 													],
 													"variable": [
 														{
-															"id": "dcbbab2b-c7eb-4772-b423-05677a340fc0",
+															"id": "c4f221b5-7b0a-4261-aa39-c82074df9379",
 															"key": "organizationId",
 															"value": "{{organizationId}}",
 															"description": "(Required) "
 														},
 														{
-															"id": "54d43c7f-b726-4ada-92e0-27f37ab4cf68",
+															"id": "68cb1e29-12fb-44ef-b137-a062b2e0f1fa",
 															"key": "policyObjectId",
 															"value": "{{policyObjectId}}",
 															"description": "(Required) "
@@ -5117,7 +2399,7 @@
 											},
 											"response": [
 												{
-													"id": "aa40c973-eca2-4125-805d-cb85c5621ce2",
+													"id": "37cd2b9c-d65a-4856-acd1-8fcabd77624c",
 													"name": "Successful operation",
 													"originalRequest": {
 														"method": "GET",
@@ -5160,7 +2442,7 @@
 										},
 										{
 											"name": "Updates A Policy Object",
-											"id": "00f8d918-85d1-4df9-898b-93e63310ca15",
+											"id": "9e27f528-5091-4a36-b15b-e6e746468125",
 											"protocolProfileBehavior": {
 												"followAuthorizationHeader": true
 											},
@@ -5193,13 +2475,13 @@
 													],
 													"variable": [
 														{
-															"id": "776293a9-ba62-47f1-bf93-0f2c812304d2",
+															"id": "b7f99491-a11b-4cee-a255-e125781b6dbc",
 															"key": "organizationId",
 															"value": "{{organizationId}}",
 															"description": "(Required) "
 														},
 														{
-															"id": "70373ade-d09a-466f-8e0f-2c20772ccfef",
+															"id": "335f19b3-0c00-4cb7-b9d5-987bb315aa1f",
 															"key": "policyObjectId",
 															"value": "{{policyObjectId}}",
 															"description": "(Required) "
@@ -5210,7 +2492,7 @@
 											},
 											"response": [
 												{
-													"id": "7ae4eac9-a99a-4aa6-b86b-1cfe32b11270",
+													"id": "85a08b4d-efa7-432d-8e39-b27e7acf5d0c",
 													"name": "Successful operation",
 													"originalRequest": {
 														"method": "PUT",
@@ -5256,7 +2538,7 @@
 											]
 										}
 									],
-									"id": "154f1b3b-fd24-45ae-8f8a-20082b8e5add"
+									"id": "1f59d4b6-9341-4141-81fd-84276e18b6b5"
 								},
 								{
 									"name": "Webhooks",
@@ -5266,7 +2548,7 @@
 											"item": [
 												{
 													"name": "Add An HTTP Server To An Organization",
-													"id": "e90e5949-031d-4cc9-a435-83f0e6a47125",
+													"id": "7c0ec984-70d7-4281-9d09-9037878f05ec",
 													"protocolProfileBehavior": {
 														"followAuthorizationHeader": true
 													},
@@ -5299,7 +2581,7 @@
 															],
 															"variable": [
 																{
-																	"id": "441e3bd0-f21e-4c49-b0b3-88c3dfe3ea41",
+																	"id": "a1618d88-6399-44e9-aed5-6f9a17c2c734",
 																	"key": "organizationId",
 																	"value": "{{organizationId}}",
 																	"description": "(Required) "
@@ -5310,7 +2592,7 @@
 													},
 													"response": [
 														{
-															"id": "6098157f-11a2-47f4-b2a2-bd95d4715784",
+															"id": "1e67aed9-432f-4ef4-b7d4-251b010b88d1",
 															"name": "Successful operation",
 															"originalRequest": {
 																"method": "POST",
@@ -5354,7 +2636,7 @@
 												},
 												{
 													"name": "Delete An HTTP Server From An Organization",
-													"id": "9f5e4717-6169-4323-84c6-de8afc31cdbd",
+													"id": "881e8deb-d894-4953-be98-b6bd8dfbc931",
 													"protocolProfileBehavior": {
 														"followAuthorizationHeader": true
 													},
@@ -5380,13 +2662,13 @@
 															],
 															"variable": [
 																{
-																	"id": "615967c2-5c75-46cc-b78f-affaac0390ca",
+																	"id": "5bcc7a4f-9b05-4e5e-9e0c-b13bdeaaac29",
 																	"key": "organizationId",
 																	"value": "{{organizationId}}",
 																	"description": "(Required) "
 																},
 																{
-																	"id": "1226abd7-7a99-4bc4-8190-a3bc813ec897",
+																	"id": "090e36b2-5744-4150-aef6-270fae8cd92c",
 																	"key": "id",
 																	"value": "",
 																	"description": "(Required) "
@@ -5397,7 +2679,7 @@
 													},
 													"response": [
 														{
-															"id": "bf26cf22-d8fc-446a-b393-8a084b11869e",
+															"id": "4c8560f3-9f0a-4209-90f3-fe11db76d52b",
 															"name": "Successful operation",
 															"originalRequest": {
 																"method": "DELETE",
@@ -5441,7 +2723,7 @@
 												},
 												{
 													"name": "List The HTTP Servers For This Organization",
-													"id": "25877a55-6ff6-4125-832e-01f47b967187",
+													"id": "1435eb81-eb84-4561-8fc7-dec62832013d",
 													"protocolProfileBehavior": {
 														"followAuthorizationHeader": true
 													},
@@ -5466,7 +2748,7 @@
 															],
 															"variable": [
 																{
-																	"id": "d284a24b-7806-4607-bafa-6cd585bdd077",
+																	"id": "4390f482-f42c-4063-aef2-3bdcdec6b7a5",
 																	"key": "organizationId",
 																	"value": "{{organizationId}}",
 																	"description": "(Required) "
@@ -5477,7 +2759,7 @@
 													},
 													"response": [
 														{
-															"id": "3e0b5f12-cb64-4e36-af46-ed71af2b1283",
+															"id": "49aa1d55-a942-4104-8d87-97d0c6261fc1",
 															"name": "Successful operation",
 															"originalRequest": {
 																"method": "GET",
@@ -5517,7 +2799,7 @@
 												},
 												{
 													"name": "Return An HTTP Server For An Organization",
-													"id": "5cd6b5fe-8d8f-4182-ad71-421563df3b51",
+													"id": "31f0750e-73c8-4f77-9e7f-be6d92a181ba",
 													"protocolProfileBehavior": {
 														"followAuthorizationHeader": true
 													},
@@ -5543,13 +2825,13 @@
 															],
 															"variable": [
 																{
-																	"id": "c0deab3c-ee56-4df9-87b5-8964fdc1a12f",
+																	"id": "8ce42ead-6973-4106-9b08-b92bf4f4d0eb",
 																	"key": "organizationId",
 																	"value": "{{organizationId}}",
 																	"description": "(Required) "
 																},
 																{
-																	"id": "832c371e-0ec6-4b33-b96e-1ab7429747f2",
+																	"id": "a60d6a0f-529b-4e41-a6d3-69b2b91cc59c",
 																	"key": "id",
 																	"value": "",
 																	"description": "(Required) "
@@ -5560,7 +2842,7 @@
 													},
 													"response": [
 														{
-															"id": "b2a70e2f-e533-4d74-af07-f87539af3cd3",
+															"id": "808571e6-af37-4471-ac33-f143a386fff6",
 															"name": "Successful operation",
 															"originalRequest": {
 																"method": "GET",
@@ -5604,7 +2886,7 @@
 												},
 												{
 													"name": "Update An HTTP Server For An Organization",
-													"id": "f8e6e440-f43e-4093-a63f-e723d4b84fb6",
+													"id": "1a1b9b25-8d69-47a9-958f-4475a869bf2a",
 													"protocolProfileBehavior": {
 														"followAuthorizationHeader": true
 													},
@@ -5638,13 +2920,13 @@
 															],
 															"variable": [
 																{
-																	"id": "cafab852-a424-4d36-aeda-a095dc2700a5",
+																	"id": "793e83e4-8269-4286-a26f-550292a2dee5",
 																	"key": "organizationId",
 																	"value": "{{organizationId}}",
 																	"description": "(Required) "
 																},
 																{
-																	"id": "19c093e8-b32b-41c9-b10e-543804a6e9e8",
+																	"id": "51294891-00b0-4864-8dc1-d98c400c1d9e",
 																	"key": "id",
 																	"value": "",
 																	"description": "(Required) "
@@ -5655,7 +2937,7 @@
 													},
 													"response": [
 														{
-															"id": "8aaf8159-c9be-4295-98ca-3f71a775b693",
+															"id": "b08a1f43-67df-4a99-8210-81ca182e51cc",
 															"name": "Successful operation",
 															"originalRequest": {
 																"method": "PUT",
@@ -5702,14 +2984,14 @@
 													]
 												}
 											],
-											"id": "2ca98884-be8e-4763-bd0b-afe8c016dc4c"
+											"id": "2fffcd86-d923-4c13-8207-e39a84befbb8"
 										},
 										{
 											"name": "Payload Templates",
 											"item": [
 												{
 													"name": "Create A Webhook Payload Template For An Organization",
-													"id": "879ebcef-6c67-4cc7-bc28-2238dae8c65f",
+													"id": "aa343dab-96f1-47bb-912b-e8d0aa0b9b47",
 													"protocolProfileBehavior": {
 														"followAuthorizationHeader": true
 													},
@@ -5742,7 +3024,7 @@
 															],
 															"variable": [
 																{
-																	"id": "09caf418-85a7-457c-a31b-54d5ce5c9b70",
+																	"id": "3e25c1d2-1a44-4ba6-9704-d063a5ca95a0",
 																	"key": "organizationId",
 																	"value": "{{organizationId}}",
 																	"description": "(Required) "
@@ -5753,7 +3035,7 @@
 													},
 													"response": [
 														{
-															"id": "71f58adf-21e4-4a69-b442-563f78fa79a6",
+															"id": "d4fa1cdf-d63f-44e1-98e3-cb6904ffe3f1",
 															"name": "Successful operation",
 															"originalRequest": {
 																"method": "POST",
@@ -5797,7 +3079,7 @@
 												},
 												{
 													"name": "Destroy A Webhook Payload Template For An Organization",
-													"id": "408be320-5ef5-40d1-baf1-f20f0a9cf017",
+													"id": "fac3c638-64b7-477e-b076-4f51f0799c04",
 													"protocolProfileBehavior": {
 														"followAuthorizationHeader": true
 													},
@@ -5823,24 +3105,24 @@
 															],
 															"variable": [
 																{
-																	"id": "40d6e198-83cf-4b23-a4a7-ce9e1dd9e92f",
+																	"id": "c4003e4e-c720-48a7-95ae-fd5c10014923",
 																	"key": "organizationId",
 																	"value": "{{organizationId}}",
 																	"description": "(Required) "
 																},
 																{
-																	"id": "9c4bd23f-a578-4b1f-bcb2-6f97f44a0506",
+																	"id": "741f1b3c-368e-491f-9de8-e5ea6145bf13",
 																	"key": "payloadTemplateId",
 																	"value": "{{payloadTemplateId}}",
 																	"description": "(Required) "
 																}
 															]
 														},
-														"description": "Destroy a webhook payload template for an organization. Does not work for included templates ('wpt_00001', 'wpt_00002', 'wpt_00003', 'wpt_00004' or 'wpt_00005')"
+														"description": "Destroy a webhook payload template for an organization. Does not work for included templates ('wpt_00001', 'wpt_00002', 'wpt_00003', 'wpt_00004', 'wpt_00005' or 'wpt_00006')"
 													},
 													"response": [
 														{
-															"id": "f2ccbd1f-4d37-44cc-9792-6019ad84df55",
+															"id": "963abc1e-23d2-4cb0-96af-89785d56af04",
 															"name": "Successful operation",
 															"originalRequest": {
 																"method": "DELETE",
@@ -5884,7 +3166,7 @@
 												},
 												{
 													"name": "Get The Webhook Payload Template For An Organization",
-													"id": "a3761a49-59d2-46b7-b30c-ff624c6124d8",
+													"id": "f9ad78ee-fbea-4221-b99b-43e5fc434c3d",
 													"protocolProfileBehavior": {
 														"followAuthorizationHeader": true
 													},
@@ -5910,13 +3192,13 @@
 															],
 															"variable": [
 																{
-																	"id": "e2e77c6b-886b-412b-9e2b-a0162fb95438",
+																	"id": "d8fe54a7-abc6-4e66-b36b-e30972c3275b",
 																	"key": "organizationId",
 																	"value": "{{organizationId}}",
 																	"description": "(Required) "
 																},
 																{
-																	"id": "fc7b686d-b11d-40ba-a680-c0b3ae6a2f7f",
+																	"id": "48f832d2-e713-4b54-8191-ed0161c78a38",
 																	"key": "payloadTemplateId",
 																	"value": "{{payloadTemplateId}}",
 																	"description": "(Required) "
@@ -5927,7 +3209,7 @@
 													},
 													"response": [
 														{
-															"id": "e88facce-0b9c-4f68-b7ea-6c042654ac10",
+															"id": "16c91aad-865d-40bd-bb24-53c88a5948a0",
 															"name": "Successful operation",
 															"originalRequest": {
 																"method": "GET",
@@ -5971,7 +3253,7 @@
 												},
 												{
 													"name": "List The Webhook Payload Templates For An Organization",
-													"id": "65a4480f-1419-4492-9120-bff41535be40",
+													"id": "2842dce1-ba4e-4a8d-92bc-ac3a1833fd9f",
 													"protocolProfileBehavior": {
 														"followAuthorizationHeader": true
 													},
@@ -5996,7 +3278,7 @@
 															],
 															"variable": [
 																{
-																	"id": "8d328311-f134-4b34-9d26-41613dc184e7",
+																	"id": "0500a59f-4ee8-47fe-a492-a4309f2eca43",
 																	"key": "organizationId",
 																	"value": "{{organizationId}}",
 																	"description": "(Required) "
@@ -6007,7 +3289,7 @@
 													},
 													"response": [
 														{
-															"id": "a3397a76-a809-4906-b8fe-9a7d01c47b2f",
+															"id": "262a9b5d-c33c-499c-bd02-c3fcf5df3516",
 															"name": "Successful operation",
 															"originalRequest": {
 																"method": "GET",
@@ -6047,7 +3329,7 @@
 												},
 												{
 													"name": "Update A Webhook Payload Template For An Organization",
-													"id": "36b7e1e8-539e-4038-a6f6-f3560aa27150",
+													"id": "10a90b3e-0b8b-4e36-b151-44634b86f34c",
 													"protocolProfileBehavior": {
 														"followAuthorizationHeader": true
 													},
@@ -6081,13 +3363,13 @@
 															],
 															"variable": [
 																{
-																	"id": "1ab2a8aa-2fff-4dd1-a91c-ed7282f14ef6",
+																	"id": "5d1baf23-fddb-49b4-a644-99da4f4e3051",
 																	"key": "organizationId",
 																	"value": "{{organizationId}}",
 																	"description": "(Required) "
 																},
 																{
-																	"id": "868fe4a4-6c91-4eb2-ae4d-3d211548d78d",
+																	"id": "17fe6699-c242-42b1-89e2-7a5e5b64864c",
 																	"key": "payloadTemplateId",
 																	"value": "{{payloadTemplateId}}",
 																	"description": "(Required) "
@@ -6098,7 +3380,7 @@
 													},
 													"response": [
 														{
-															"id": "42309e7d-2e56-45b0-a9b8-465beb2bd293",
+															"id": "43c0378e-5bf1-4bf2-9c7c-727dea470eb5",
 															"name": "Successful operation",
 															"originalRequest": {
 																"method": "PUT",
@@ -6145,14 +3427,14 @@
 													]
 												}
 											],
-											"id": "ecc43d9b-9386-4789-8f0e-10586d8af7f9"
+											"id": "269da177-5553-4a97-af55-5dd929afacae"
 										},
 										{
 											"name": "Webhook Tests",
 											"item": [
 												{
 													"name": "Return The Status Of A Webhook Test For An Organization",
-													"id": "ac7f82ee-7564-4562-b210-08611d2af5ca",
+													"id": "bc0b1e24-9ab1-4779-8b40-49b5551b64e9",
 													"protocolProfileBehavior": {
 														"followAuthorizationHeader": true
 													},
@@ -6178,13 +3460,13 @@
 															],
 															"variable": [
 																{
-																	"id": "d964c83c-9666-4011-9215-1452248f7497",
+																	"id": "cb907b8e-d8b7-4ee7-b24b-a48dc561576f",
 																	"key": "organizationId",
 																	"value": "{{organizationId}}",
 																	"description": "(Required) "
 																},
 																{
-																	"id": "4633ab48-410c-4eb6-ba3f-4cf4f68cf40c",
+																	"id": "858d77e8-f401-4016-b2f6-5546e5b94533",
 																	"key": "webhookTestId",
 																	"value": "{{webhookTestId}}",
 																	"description": "(Required) "
@@ -6195,7 +3477,7 @@
 													},
 													"response": [
 														{
-															"id": "c23189d6-10bd-48b7-a103-d7f2be684872",
+															"id": "10b6c92c-3e25-4b31-aa42-331e81f583fc",
 															"name": "Successful operation",
 															"originalRequest": {
 																"method": "GET",
@@ -6239,7 +3521,7 @@
 												},
 												{
 													"name": "Send A Test Webhook For An Organization",
-													"id": "c12c1735-d78f-465c-8e1f-21c93a547bed",
+													"id": "69f3214e-09a6-4e73-adc3-ab44779858b0",
 													"protocolProfileBehavior": {
 														"followAuthorizationHeader": true
 													},
@@ -6272,7 +3554,7 @@
 															],
 															"variable": [
 																{
-																	"id": "b1305ba1-3a95-4d41-9f89-7898415d3dec",
+																	"id": "e23f3103-c5af-4e8a-8ef7-4618d76f4d27",
 																	"key": "organizationId",
 																	"value": "{{organizationId}}",
 																	"description": "(Required) "
@@ -6283,7 +3565,7 @@
 													},
 													"response": [
 														{
-															"id": "f2cf027b-ebc7-47c4-b220-f5aac606a168",
+															"id": "4fc80ba6-533f-42b3-899e-8723c826174d",
 															"name": "Successful operation",
 															"originalRequest": {
 																"method": "POST",
@@ -6326,19 +3608,19 @@
 													]
 												}
 											],
-											"id": "abbe5680-955a-4048-be2a-5e67e6dfa9bc"
+											"id": "8eefee6d-fcbe-479e-bff4-be27bf7a5227"
 										}
 									],
-									"id": "e94df435-f345-4a28-ab15-05d55d7b65f1"
+									"id": "51ae3386-2b82-4df2-b048-7da906f530e5"
 								}
 							],
-							"id": "c6a1f55f-022d-4e3f-9afb-1bbfcdcee7ae"
+							"id": "5ef438f9-6893-4f73-8a5b-54f6b70475c4"
 						},
 						{
 							"name": "Monitor",
 							"item": [
 								{
-									"name": "Api Requests",
+									"name": "apiRequests",
 									"item": [
 										{
 											"name": "overview",
@@ -6351,7 +3633,7 @@
 															"item": [
 																{
 																	"name": "Tracks organizations' API requests by response code across a given time period",
-																	"id": "f0ea0e9f-6a6a-4b26-ba95-c48ec7822153",
+																	"id": "995a4d81-cf04-4889-8b93-f10f4cebed8c",
 																	"protocolProfileBehavior": {
 																		"followAuthorizationHeader": true
 																	},
@@ -6434,7 +3716,7 @@
 																			],
 																			"variable": [
 																				{
-																					"id": "cba89fd5-1a73-4fd1-aa6b-a3e1b6bb827d",
+																					"id": "8824aa61-e358-4504-ad58-37ac9dde5eee",
 																					"key": "organizationId",
 																					"value": "{{organizationId}}",
 																					"description": "(Required) "
@@ -6445,7 +3727,7 @@
 																	},
 																	"response": [
 																		{
-																			"id": "1fbe9b7d-f538-4d4d-a355-6931f0d34821",
+																			"id": "798edd4d-9528-4b25-adc4-1e00fa9297a9",
 																			"name": "Successful operation",
 																			"originalRequest": {
 																				"method": "GET",
@@ -6524,188 +3806,29 @@
 																	]
 																}
 															],
-															"id": "4f5e6680-08ac-40be-ac39-240bc75fe19b"
+															"id": "ea21f529-7b7f-4f9e-bc1d-9565458ff3db"
 														}
 													],
-													"id": "d5f6f8da-4d54-4565-8e33-e930dfaea871"
+													"id": "36fd414f-bcd4-4e2d-a82b-c21b230dbe2e"
 												}
 											],
-											"id": "c4dc4a4d-b214-4192-ac1d-ee6b0b381696"
+											"id": "262cac2f-0600-4183-8047-962ac54b08bd"
 										}
 									],
-									"id": "2b0cc7c3-f396-4872-bd84-398d88047d35"
-								},
-								{
-									"name": "Webhook Logs",
-									"item": [
-										{
-											"name": "Return the log of webhook POSTs sent",
-											"id": "3a42609e-4f10-481e-bddc-f73cfc79adc3",
-											"protocolProfileBehavior": {
-												"followAuthorizationHeader": true
-											},
-											"request": {
-												"method": "GET",
-												"header": [
-													{
-														"key": "X-Cisco-Meraki-API-Key",
-														"value": ""
-													}
-												],
-												"url": {
-													"raw": "{{baseUrl}}/organizations/:organizationId/webhookLogs",
-													"host": [
-														"{{baseUrl}}"
-													],
-													"path": [
-														"organizations",
-														":organizationId",
-														"webhookLogs"
-													],
-													"query": [
-														{
-															"description": "The beginning of the timespan for the data. The maximum lookback period is 90 days from today.",
-															"key": "t0",
-															"value": "{{t0}}",
-															"disabled": true
-														},
-														{
-															"description": "The end of the timespan for the data. t1 can be a maximum of 31 days after t0.",
-															"key": "t1",
-															"value": "{{t1}}",
-															"disabled": true
-														},
-														{
-															"description": "The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 1 day.",
-															"key": "timespan",
-															"value": "{{timespan}}",
-															"disabled": true
-														},
-														{
-															"description": "The number of entries per page returned. Acceptable range is 3 - 1000. Default is 50.",
-															"key": "perPage",
-															"value": "{{perPage}}",
-															"disabled": true
-														},
-														{
-															"description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.",
-															"key": "startingAfter",
-															"value": "{{startingAfter}}",
-															"disabled": true
-														},
-														{
-															"description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.",
-															"key": "endingBefore",
-															"value": "{{endingBefore}}",
-															"disabled": true
-														},
-														{
-															"description": "The URL the webhook was sent to",
-															"key": "url",
-															"value": "{{url}}",
-															"disabled": true
-														}
-													],
-													"variable": [
-														{
-															"id": "34d150a6-ed6f-4a01-9202-8beb10c2b628",
-															"key": "organizationId",
-															"value": "{{organizationId}}",
-															"description": "(Required) "
-														}
-													]
-												},
-												"description": "Return the log of webhook POSTs sent"
-											},
-											"response": [
-												{
-													"id": "5704ce4c-b00f-4da0-a7c3-c5a1cf8bcd05",
-													"name": "Successful operation",
-													"originalRequest": {
-														"method": "GET",
-														"header": [],
-														"url": {
-															"raw": "{{baseUrl}}/organizations/:organizationId/webhookLogs?t0=<string>&t1=<string>&timespan=<float>&perPage=<integer>&startingAfter=<string>&endingBefore=<string>&url=<string>",
-															"host": [
-																"{{baseUrl}}"
-															],
-															"path": [
-																"organizations",
-																":organizationId",
-																"webhookLogs"
-															],
-															"query": [
-																{
-																	"key": "t0",
-																	"value": "<string>"
-																},
-																{
-																	"key": "t1",
-																	"value": "<string>"
-																},
-																{
-																	"key": "timespan",
-																	"value": "<float>"
-																},
-																{
-																	"key": "perPage",
-																	"value": "<integer>"
-																},
-																{
-																	"key": "startingAfter",
-																	"value": "<string>"
-																},
-																{
-																	"key": "endingBefore",
-																	"value": "<string>"
-																},
-																{
-																	"key": "url",
-																	"value": "<string>"
-																}
-															],
-															"variable": [
-																{
-																	"key": "organizationId"
-																}
-															]
-														}
-													},
-													"status": "OK",
-													"code": 200,
-													"_postman_previewlanguage": "json",
-													"header": [
-														{
-															"key": "Link",
-															"value": "<string>",
-															"description": "A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests."
-														},
-														{
-															"key": "Content-Type",
-															"value": "application/json"
-														}
-													],
-													"cookie": [],
-													"responseTime": null,
-													"body": "[\n {\n  \"organizationId\": \"33619\",\n  \"networkId\": \"L_22742\",\n  \"alertType\": \"Settings changed\",\n  \"url\": \"https://www.example.com/path\",\n  \"sentAt\": \"2019-01-01T13:37:28.123456Z\",\n  \"loggedAt\": \"2019-01-01T13:37:28.423456Z\",\n  \"responseCode\": 200,\n  \"responseDuration\": 244\n }\n]"
-												}
-											]
-										}
-									],
-									"id": "5fbdfac5-f42a-4315-a2fb-c540773ddd26"
+									"id": "a709f5fd-65f0-4a10-af72-b6b3e03da789"
 								}
 							],
-							"id": "3ff73b21-a3f7-4122-96d4-3ff68b8aaf2c"
+							"id": "c5c2508b-5801-4f4a-90e5-ef76be0ed1dd"
 						}
 					],
-					"id": "32a8470a-17ea-4db7-a752-06024a459a0f"
+					"id": "f3648976-1913-40d4-b2fd-c38c62d7f4ac"
 				}
 			],
-			"id": "a35e1c30-71b5-4775-a8b2-deba7d527c8d"
+			"id": "c7cf1724-ff9c-409b-affa-8b63042718c2"
 		},
 		{
 			"name": "List the Organizations",
-			"id": "b3731e1d-f269-450e-be1e-c89872e22ba0",
+			"id": "e69ca6ac-77f9-4d63-915a-5ea84a9872ab",
 			"protocolProfileBehavior": {
 				"followAuthorizationHeader": true
 			},
@@ -6722,7 +3845,7 @@
 			},
 			"response": [
 				{
-					"id": "acc67e29-c367-40ba-a91b-c44c37c6ac2c",
+					"id": "82117d63-002e-448c-b474-88f78f2d3373",
 					"name": "Successful operation",
 					"originalRequest": {
 						"method": "GET",
@@ -6746,7 +3869,7 @@
 		},
 		{
 			"name": "List the Networks in an Organization ",
-			"id": "03ae7f6f-f26f-41b5-9c4e-6b360f0667cb",
+			"id": "71b0cd98-65a0-426f-8540-853fd5a619f8",
 			"protocolProfileBehavior": {
 				"followAuthorizationHeader": true
 			},
@@ -6808,7 +3931,7 @@
 					],
 					"variable": [
 						{
-							"id": "34a1f282-4900-4431-ae33-6ec3721c9d33",
+							"id": "bd6629c5-72db-4d35-a979-63afc9f78432",
 							"key": "organizationId",
 							"value": "{{organizationId}}",
 							"description": "(Required) "
@@ -6819,7 +3942,7 @@
 			},
 			"response": [
 				{
-					"id": "0b01474c-7675-4d94-aabb-1bc726701fc2",
+					"id": "905c0f26-489f-4873-bb15-64c129f7f5a2",
 					"name": "Successful operation",
 					"originalRequest": {
 						"method": "GET",
@@ -6889,7 +4012,7 @@
 		},
 		{
 			"name": "List the Devices in an Organization",
-			"id": "e94b1a73-9759-4a9f-afa7-8ddbed8723cc",
+			"id": "91c0e3f6-8586-4a26-b65b-94cfc1d3f4b9",
 			"protocolProfileBehavior": {
 				"followAuthorizationHeader": true
 			},
@@ -6939,7 +4062,7 @@
 					],
 					"variable": [
 						{
-							"id": "b4edb146-c584-436b-9154-d4d880e5e858",
+							"id": "bff52a9e-5f80-46c0-ace0-91dc6f7dafb4",
 							"key": "organizationId",
 							"value": "{{organizationId}}",
 							"description": "(Required) "
@@ -6950,7 +4073,7 @@
 			},
 			"response": [
 				{
-					"id": "fcb85cfb-8656-42f8-b118-116278536865",
+					"id": "b4e439a9-d69e-4004-b9ac-85fc8f75ee2c",
 					"name": "Successful operation",
 					"originalRequest": {
 						"method": "GET",
@@ -7012,7 +4135,7 @@
 		},
 		{
 			"name": "List the Clients in a Network",
-			"id": "8f49e1e4-eddc-4eb1-8e86-f88ef00efafe",
+			"id": "e3564ce6-d384-4e62-83ff-b90104a0b029",
 			"protocolProfileBehavior": {
 				"followAuthorizationHeader": true
 			},
@@ -7068,7 +4191,7 @@
 					],
 					"variable": [
 						{
-							"id": "55e8b840-80fe-42bf-b079-e4963500cbb0",
+							"id": "b8279888-b535-4d39-b432-fcf5c35e21e9",
 							"key": "networkId",
 							"value": "{{networkId}}",
 							"description": "(Required) "
@@ -7079,7 +4202,7 @@
 			},
 			"response": [
 				{
-					"id": "9550e97e-f9e9-470b-a2be-ab1d6c07fb00",
+					"id": "d8508c7f-5506-4032-86fb-58138befb677",
 					"name": "Successful operation",
 					"originalRequest": {
 						"method": "GET",
@@ -7183,132 +4306,120 @@
 	],
 	"variable": [
 		{
-			"id": "6880fc85-87c8-4968-acb4-93b588814cbe",
+			"id": "06a413e3-30f1-404c-b1ad-8e4aa813ad6d",
 			"key": "adminIds"
 		},
 		{
-			"id": "ef238162-fe74-4116-a1c9-2977f0bb8db6",
+			"id": "d4e1d88f-d6e8-45c9-bc88-251d15d091c4",
 			"key": "band"
 		},
 		{
-			"id": "323ca793-185c-4f9a-8bce-0d9c6063671e",
+			"id": "bff13bd2-70b7-42f2-9284-7801348215ce",
 			"key": "baseUrl",
 			"value": "https://api.meraki.com/api/v1"
 		},
 		{
-			"id": "5e787a45-e38c-459e-b2d0-59edc91cafa8",
+			"id": "0421c213-6d3b-446d-8d5b-ea6266013e17",
 			"key": "clientId"
 		},
 		{
-			"id": "7eafee29-d9b6-41cd-826e-969d4519fbc2",
+			"id": "34edbea3-73f6-4f3c-8815-1904cff5d082",
 			"key": "endingBefore"
 		},
 		{
-			"id": "aff3c8e5-e016-4e49-8512-0a76f6775e2f",
-			"key": "groupId"
-		},
-		{
-			"id": "4842c24f-13dc-4404-bb1d-245dd569e51d",
+			"id": "0e067738-a74d-4988-add8-f8405acb43c7",
 			"key": "id"
 		},
 		{
-			"id": "298e9088-8966-4036-931a-95ebd48c3a0d",
+			"id": "e9249d7e-db53-4f41-882e-e7eb3c462388",
 			"key": "interval"
 		},
 		{
-			"id": "6cf1bd12-8324-409c-bafe-aee3c599eb63",
+			"id": "686c5d32-0fe8-42a2-9a2f-299338bc600e",
 			"key": "metrics"
 		},
 		{
-			"id": "7aa934b3-c24d-4a9c-921b-4ba0e810aad8",
+			"id": "e04c15d5-fa38-4add-9644-68f9ea37c608",
 			"key": "models"
 		},
 		{
-			"id": "fc223273-bdd3-4af4-8ca9-012dcf993b9b",
+			"id": "069e6a32-0efd-4cac-b7fb-ba7b8830a9ef",
 			"key": "networkId"
 		},
 		{
-			"id": "127304ee-5d61-431a-93c1-a08ead078cdb",
+			"id": "32b4f5be-2f56-41c2-8909-643d5d1b1661",
 			"key": "networkIds"
 		},
 		{
-			"id": "da25214d-4690-4087-8c09-a89f4b681937",
+			"id": "a839f101-a8a4-4cd7-830f-91d8586af298",
 			"key": "operationIds"
 		},
 		{
-			"id": "5f31bccc-681e-483b-805c-3f620d1bc1db",
+			"id": "b364b8b1-e246-4ae9-9dbb-1a286870f96f",
 			"key": "organizationId"
 		},
 		{
-			"id": "c6c2de21-a218-4f36-9e16-40008918418d",
+			"id": "7c3a9779-3050-412f-9b9e-841b9f0604ea",
 			"key": "payloadTemplateId"
 		},
 		{
-			"id": "6afbf7a0-1f23-4dfd-b3b4-3ecc6b717cb9",
+			"id": "3f26e4c5-ab34-4d5c-9205-c5610ff4a76b",
 			"key": "perPage"
 		},
 		{
-			"id": "22ab2383-a5d3-4866-ad44-b9d3c9c0ff28",
+			"id": "c5aaf2df-9d7b-4438-8aa3-df27cea98c44",
 			"key": "policyObjectGroupId"
 		},
 		{
-			"id": "a7c72243-0e97-487d-8d4e-79e94e2298b9",
+			"id": "ec51116e-3648-4fa8-a0d5-965c08d3db99",
 			"key": "policyObjectId"
 		},
 		{
-			"id": "07335ef2-70b7-41bb-93c6-3ca09d1741b8",
+			"id": "b28b4389-cb62-45ea-bfd2-f2df60a3e5cc",
 			"key": "resolution"
 		},
 		{
-			"id": "331fcb6c-e73b-44b1-8a76-a3fd1e7723f4",
+			"id": "30a50495-ca01-4462-bcfc-876a8ba4871c",
 			"key": "serial"
 		},
 		{
-			"id": "c0d6b62b-8a83-4cac-a85f-e28ac8839a02",
+			"id": "f28801c4-8862-4fcf-a88f-3f5c31150e0f",
 			"key": "serials"
 		},
 		{
-			"id": "a2c537ab-aecb-4bf1-8dde-a081f85c335b",
+			"id": "2a57fb07-3647-40c7-8944-2e3726e8d8f8",
 			"key": "sourceIps"
 		},
 		{
-			"id": "5b62ffce-3ab2-4443-8890-b8e38cc4c1c3",
+			"id": "dd606c4d-b03c-4608-a68f-5af9778ff9aa",
 			"key": "ssid"
 		},
 		{
-			"id": "0dc08acf-d893-4288-acaf-868df69d9719",
+			"id": "e502f21a-9892-4324-8b44-3427fa766e03",
 			"key": "startingAfter"
 		},
 		{
-			"id": "192247fc-f227-41d9-a05b-05f121faf937",
-			"key": "staticDelegatedPrefixId"
-		},
-		{
-			"id": "9d17d9f9-7478-4eb6-b44a-213d5c8de123",
+			"id": "106e14cc-37d4-4f6c-a300-7d8e38037e1f",
 			"key": "t0"
 		},
 		{
-			"id": "e3b894be-0779-4f11-be59-fcc34f671372",
+			"id": "286b6ed6-3baf-44a0-87bd-5d0fa37044ca",
 			"key": "t1"
 		},
 		{
-			"id": "a16451d4-07e7-4daf-ae08-041ba4284888",
+			"id": "ebcf680e-feaa-4016-a240-b627c2e06189",
 			"key": "timespan"
 		},
 		{
-			"id": "81932ca0-8ffd-4806-a704-d048ec3af1e2",
-			"key": "url"
-		},
-		{
-			"id": "9133ad63-955b-4f9d-95ef-29734f6481aa",
+			"id": "b51bc1fa-c295-4365-9b67-ae29ec0e9934",
 			"key": "userAgent"
 		},
 		{
-			"id": "84701bd5-b350-47db-bbe7-433edb97cf25",
+			"id": "fa5d5231-a587-4887-a094-6722a1531960",
 			"key": "version"
 		},
 		{
-			"id": "16d7e858-578f-4fcd-a095-8a2f73b5d103",
+			"id": "5ff98a19-4fa1-4661-974c-81eab4a7a9b1",
 			"key": "webhookTestId"
 		}
 	]
