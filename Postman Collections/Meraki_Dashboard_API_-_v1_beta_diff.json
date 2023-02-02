@@ -1,8 +1,8 @@
 {
 	"info": {
 		"_postman_id": "5368b2fb-18fe-4b29-8490-1fd8a5ce1421",
-		"name": "Meraki Dashboard API - vv1.29.0-beta.3 -Diff",
-		"description": "The Cisco Meraki Dashboard API is a modern REST API based on the OpenAPI specification.\n\n> Date: 25 January, 2023\n>\n> [Recent Updates](https://meraki.io/whats-new/)\n\n---\n\n[API Documentation](https://meraki.io/api)\n\n[Community Support](https://meraki.io/community)\n\n[Meraki Homepage](https://www.meraki.com)\n\n\nContact Support:\n Name: Meraki Developer Community",
+		"name": "Meraki Dashboard API - vv1.30.0-beta.0 -Diff",
+		"description": "The Cisco Meraki Dashboard API is a modern REST API based on the OpenAPI specification.\n\n> Date: 01 February, 2023\n>\n> [Recent Updates](https://meraki.io/whats-new/)\n\n---\n\n[API Documentation](https://meraki.io/api)\n\n[Community Support](https://meraki.io/community)\n\n[Meraki Homepage](https://www.meraki.com)\n\n\nContact Support:\n Name: Meraki Developer Community",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
@@ -10,17 +10,17 @@
 			"name": "PRODUCTS",
 			"item": [
 				{
-					"name": "Sensor",
+					"name": "Wireless",
 					"item": [
 						{
-							"name": "Configure",
+							"name": "Monitor",
 							"item": [
 								{
-									"name": "Relationships",
+									"name": "Health Scores",
 									"item": [
 										{
-											"name": "List The Sensor Roles For A Given Sensor Or Camera Device",
-											"id": "62341be0-4412-4f20-a01f-e7b2d418ad2d",
+											"name": "Fetch the health scores for a given AP on this network",
+											"id": "f26d2470-c766-4acf-bf96-4761e8a5143c",
 											"protocolProfileBehavior": {
 												"followAuthorizationHeader": true
 											},
@@ -33,44 +33,44 @@
 													}
 												],
 												"url": {
-													"raw": "{{baseUrl}}/devices/:serial/sensor/relationships",
+													"raw": "{{baseUrl}}/devices/:serial/wireless/healthScores",
 													"host": [
 														"{{baseUrl}}"
 													],
 													"path": [
 														"devices",
 														":serial",
-														"sensor",
-														"relationships"
+														"wireless",
+														"healthScores"
 													],
 													"variable": [
 														{
-															"id": "954f7259-d67b-466f-9b5d-9f8855d3f7e9",
+															"id": "0c4de502-910d-433e-8c37-9876cf4cb501",
 															"key": "serial",
 															"value": "{{serial}}",
 															"description": "(Required) "
 														}
 													]
 												},
-												"description": "List the sensor roles for a given sensor or camera device."
+												"description": "Fetch the health scores for a given AP on this network"
 											},
 											"response": [
 												{
-													"id": "78a73afd-addc-40ee-b82c-02ac6ea1c213",
+													"id": "c0ee3da1-a57b-4e96-bf3f-a73a423055d5",
 													"name": "Successful operation",
 													"originalRequest": {
 														"method": "GET",
 														"header": [],
 														"url": {
-															"raw": "{{baseUrl}}/devices/:serial/sensor/relationships",
+															"raw": "{{baseUrl}}/devices/:serial/wireless/healthScores",
 															"host": [
 																"{{baseUrl}}"
 															],
 															"path": [
 																"devices",
 																":serial",
-																"sensor",
-																"relationships"
+																"wireless",
+																"healthScores"
 															],
 															"variable": [
 																{
@@ -90,183 +90,1232 @@
 													],
 													"cookie": [],
 													"responseTime": null,
-													"body": "[\n {\n  \"livestream\": {\n   \"relatedDevices\": [\n    {\n     \"serial\": \"Q234-ABCD-5678\",\n     \"productType\": \"camera\"\n    }\n   ]\n  }\n }\n]"
+													"body": "{\n \"device\": {\n  \"serial\": \"Q234-ABCD-5678\"\n },\n \"performance\": {\n  \"latest\": 80\n },\n \"onboarding\": {\n  \"latest\": 20\n }\n}"
 												}
 											]
-										},
+										}
+									],
+									"id": "b12362c2-7c82-46f4-8ca8-e4c9747c85d7"
+								},
+								{
+									"name": "Clients",
+									"item": [
 										{
-											"name": "Assign One Or More Sensor Roles To A Given Sensor Or Camera Device",
-											"id": "7bb48c27-27ae-482c-b282-6abb323080cd",
-											"protocolProfileBehavior": {
-												"followAuthorizationHeader": true
-											},
-											"request": {
-												"method": "PUT",
-												"header": [
-													{
-														"key": "X-Cisco-Meraki-API-Key",
-														"value": ""
-													},
-													{
-														"key": "Content-Type",
-														"value": "application/json"
-													}
-												],
-												"body": {
-													"mode": "raw",
-													"raw": "{\n    \"livestream\": {\n        \"relatedDevices\": [\n            {\n                \"serial\": \"<string>\"\n            },\n            {\n                \"serial\": \"<string>\"\n            }\n        ]\n    }\n}"
-												},
-												"url": {
-													"raw": "{{baseUrl}}/devices/:serial/sensor/relationships",
-													"host": [
-														"{{baseUrl}}"
-													],
-													"path": [
-														"devices",
-														":serial",
-														"sensor",
-														"relationships"
-													],
-													"variable": [
-														{
-															"id": "fe4f67b7-fdf4-4c29-81b4-2985959362e4",
-															"key": "serial",
-															"value": "{{serial}}",
-															"description": "(Required) "
-														}
-													]
-												},
-												"description": "Assign one or more sensor roles to a given sensor or camera device.\n #### Body Parameters \n**Parameter**|**Type**|**Description** \n :-------------: |:-------------: |:-------------: \nlivestream| object| A role defined between an MT sensor and an MV camera that adds the camera's livestream to the sensor's details page. Snapshots from the camera will also appear in alert notifications that the sensor triggers.\n\n#### Supports Action Batches\n\n**Resource**|**Operation**\n:-------------: |:-------------:\n`/devices/{serial}/sensor/relationships` | update\n\n"
-											},
-											"response": [
+											"name": "Health Scores",
+											"item": [
 												{
-													"id": "66ad09ba-78dc-48cd-aa65-a6694533b0c6",
-													"name": "Successful operation",
-													"originalRequest": {
-														"method": "PUT",
-														"header": [],
-														"body": {
-															"mode": "raw",
-															"raw": "{}"
-														},
-														"url": {
-															"raw": "{{baseUrl}}/devices/:serial/sensor/relationships",
-															"host": [
-																"{{baseUrl}}"
-															],
-															"path": [
-																"devices",
-																":serial",
-																"sensor",
-																"relationships"
-															],
-															"variable": [
-																{
-																	"key": "serial"
-																}
-															]
-														}
+													"name": "Fetch The Health Scores For All Clients On This Network",
+													"id": "71ff3a29-180e-48aa-bb9b-bceeadc16ffb",
+													"protocolProfileBehavior": {
+														"followAuthorizationHeader": true
 													},
-													"status": "OK",
-													"code": 200,
-													"_postman_previewlanguage": "json",
-													"header": [
-														{
-															"key": "Content-Type",
-															"value": "application/json"
-														}
-													],
-													"cookie": [],
-													"responseTime": null,
-													"body": "{\n \"livestream\": {\n  \"relatedDevices\": [\n   {\n    \"serial\": \"Q234-ABCD-5678\",\n    \"productType\": \"camera\"\n   }\n  ]\n }\n}"
-												}
-											]
-										},
-										{
-											"name": "List The Sensor Roles For Devices In A Given Network",
-											"id": "cc030a77-bfef-4383-8f19-fd68af0991c1",
-											"protocolProfileBehavior": {
-												"followAuthorizationHeader": true
-											},
-											"request": {
-												"method": "GET",
-												"header": [
-													{
-														"key": "X-Cisco-Meraki-API-Key",
-														"value": ""
-													}
-												],
-												"url": {
-													"raw": "{{baseUrl}}/networks/:networkId/sensor/relationships",
-													"host": [
-														"{{baseUrl}}"
-													],
-													"path": [
-														"networks",
-														":networkId",
-														"sensor",
-														"relationships"
-													],
-													"variable": [
-														{
-															"id": "6d37233d-6e44-4de1-9933-e636a287591b",
-															"key": "networkId",
-															"value": "{{networkId}}",
-															"description": "(Required) "
-														}
-													]
-												},
-												"description": "List the sensor roles for devices in a given network"
-											},
-											"response": [
-												{
-													"id": "1d3b20a3-fff5-4be9-b0aa-86802c17580d",
-													"name": "Successful operation",
-													"originalRequest": {
+													"request": {
 														"method": "GET",
-														"header": [],
+														"header": [
+															{
+																"key": "X-Cisco-Meraki-API-Key",
+																"value": ""
+															}
+														],
 														"url": {
-															"raw": "{{baseUrl}}/networks/:networkId/sensor/relationships",
+															"raw": "{{baseUrl}}/networks/:networkId/wireless/clients/healthScores",
 															"host": [
 																"{{baseUrl}}"
 															],
 															"path": [
 																"networks",
 																":networkId",
-																"sensor",
-																"relationships"
+																"wireless",
+																"clients",
+																"healthScores"
 															],
 															"variable": [
 																{
-																	"key": "networkId"
+																	"id": "1895379b-c104-4c70-a181-db00d69bb9b8",
+																	"key": "networkId",
+																	"value": "{{networkId}}",
+																	"description": "(Required) "
+																}
+															]
+														},
+														"description": "Fetch the health scores for all clients on this network"
+													},
+													"response": [
+														{
+															"id": "3ebaaaf6-aabc-40ca-922d-6f47cd70d133",
+															"name": "Successful operation",
+															"originalRequest": {
+																"method": "GET",
+																"header": [],
+																"url": {
+																	"raw": "{{baseUrl}}/networks/:networkId/wireless/clients/healthScores",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"networks",
+																		":networkId",
+																		"wireless",
+																		"clients",
+																		"healthScores"
+																	],
+																	"variable": [
+																		{
+																			"key": "networkId"
+																		}
+																	]
+																}
+															},
+															"status": "OK",
+															"code": 200,
+															"_postman_previewlanguage": "json",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "application/json"
+																}
+															],
+															"cookie": [],
+															"responseTime": null,
+															"body": "[\n {\n  \"mac\": \"22:33:44:55:66:77\",\n  \"clientId\": \"k74272e\",\n  \"performance\": {\n   \"latest\": 80,\n   \"currentConnection\": 100\n  },\n  \"onboarding\": {\n   \"latest\": 100\n  }\n },\n {\n  \"mac\": \"22:33:44:55:66:77\",\n  \"clientId\": \"k74272e\",\n  \"performance\": {\n   \"latest\": 30,\n   \"currentConnection\": 50\n  },\n  \"onboarding\": {\n   \"latest\": 70\n  }\n }\n]"
+														}
+													]
+												},
+												{
+													"name": "Fetch The Health Scores For A Given Client On This Network",
+													"id": "a3f76225-2a0f-4f62-a791-d008ac167cda",
+													"protocolProfileBehavior": {
+														"followAuthorizationHeader": true
+													},
+													"request": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "X-Cisco-Meraki-API-Key",
+																"value": ""
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/networks/:networkId/wireless/clients/:clientId/healthScores",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"networks",
+																":networkId",
+																"wireless",
+																"clients",
+																":clientId",
+																"healthScores"
+															],
+															"variable": [
+																{
+																	"id": "af9d7a74-55fa-45a9-a7f4-c8531980b51d",
+																	"key": "networkId",
+																	"value": "{{networkId}}",
+																	"description": "(Required) "
+																},
+																{
+																	"id": "5fd5f3be-69cf-4215-abf1-00fbeedcdd75",
+																	"key": "clientId",
+																	"value": "{{clientId}}",
+																	"description": "(Required) "
+																}
+															]
+														},
+														"description": "Fetch the health scores for a given client on this network. Clients are identified by their MAC or ID"
+													},
+													"response": [
+														{
+															"id": "42458279-b3a5-4cbf-bf49-54e88caf049c",
+															"name": "Successful operation",
+															"originalRequest": {
+																"method": "GET",
+																"header": [],
+																"url": {
+																	"raw": "{{baseUrl}}/networks/:networkId/wireless/clients/:clientId/healthScores",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"networks",
+																		":networkId",
+																		"wireless",
+																		"clients",
+																		":clientId",
+																		"healthScores"
+																	],
+																	"variable": [
+																		{
+																			"key": "networkId"
+																		},
+																		{
+																			"key": "clientId"
+																		}
+																	]
+																}
+															},
+															"status": "OK",
+															"code": 200,
+															"_postman_previewlanguage": "json",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "application/json"
+																}
+															],
+															"cookie": [],
+															"responseTime": null,
+															"body": "{\n \"mac\": \"22:33:44:55:66:77\",\n \"clientId\": \"k74272e\",\n \"performance\": {\n  \"latest\": 80,\n  \"currentConnection\": 100\n },\n \"onboarding\": {\n  \"latest\": 100\n }\n}"
+														}
+													]
+												}
+											],
+											"id": "821d821e-756c-4e1b-943b-bf2cb5d8c100"
+										},
+										{
+											"name": "Onboarding History",
+											"item": [
+												{
+													"name": "Return counts of distinct wireless clients connecting to a network over time",
+													"id": "79d8c92f-7ec1-44ed-bf88-0476b989d37d",
+													"protocolProfileBehavior": {
+														"followAuthorizationHeader": true
+													},
+													"request": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "X-Cisco-Meraki-API-Key",
+																"value": ""
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/networks/:networkId/wireless/clients/onboardingHistory",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"networks",
+																":networkId",
+																"wireless",
+																"clients",
+																"onboardingHistory"
+															],
+															"query": [
+																{
+																	"description": "The beginning of the timespan for the data. The maximum lookback period is 31 days from today.",
+																	"key": "t0",
+																	"value": "{{t0}}",
+																	"disabled": true
+																},
+																{
+																	"description": "The end of the timespan for the data. t1 can be a maximum of 31 days after t0.",
+																	"key": "t1",
+																	"value": "{{t1}}",
+																	"disabled": true
+																},
+																{
+																	"description": "The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 7 days.",
+																	"key": "timespan",
+																	"value": "{{timespan}}",
+																	"disabled": true
+																},
+																{
+																	"description": "The time resolution in seconds for returned data. The valid resolutions are: 300. The default is 300.",
+																	"key": "resolution",
+																	"value": "{{resolution}}",
+																	"disabled": true
+																},
+																{
+																	"description": "Filter results by band (either '2.4', '5' or '6'); this cannot be combined with the SSID filter.",
+																	"key": "band",
+																	"value": "{{band}}",
+																	"disabled": true
+																},
+																{
+																	"description": "Filter results by SSID number; this cannot be combined with the band filter.",
+																	"key": "ssid",
+																	"value": "{{ssid}}",
+																	"disabled": true
+																}
+															],
+															"variable": [
+																{
+																	"id": "3010a0c2-6b61-4d41-b292-a4620eb6f1c4",
+																	"key": "networkId",
+																	"value": "{{networkId}}",
+																	"description": "(Required) "
+																}
+															]
+														},
+														"description": "Return counts of distinct wireless clients connecting to a network over time"
+													},
+													"response": [
+														{
+															"id": "62fa58ad-52ad-4b5b-b857-1ddec9bfd06f",
+															"name": "Successful operation",
+															"originalRequest": {
+																"method": "GET",
+																"header": [],
+																"url": {
+																	"raw": "{{baseUrl}}/networks/:networkId/wireless/clients/onboardingHistory?t0=<string>&t1=<string>&timespan=<float>&resolution=<integer>&band=<string>&ssid=<integer>",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"networks",
+																		":networkId",
+																		"wireless",
+																		"clients",
+																		"onboardingHistory"
+																	],
+																	"query": [
+																		{
+																			"key": "t0",
+																			"value": "<string>"
+																		},
+																		{
+																			"key": "t1",
+																			"value": "<string>"
+																		},
+																		{
+																			"key": "timespan",
+																			"value": "<float>"
+																		},
+																		{
+																			"key": "resolution",
+																			"value": "<integer>"
+																		},
+																		{
+																			"key": "band",
+																			"value": "<string>"
+																		},
+																		{
+																			"key": "ssid",
+																			"value": "<integer>"
+																		}
+																	],
+																	"variable": [
+																		{
+																			"key": "networkId"
+																		}
+																	]
+																}
+															},
+															"status": "OK",
+															"code": 200,
+															"_postman_previewlanguage": "json",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "application/json"
+																}
+															],
+															"cookie": [],
+															"responseTime": null,
+															"body": "[\n {\n  \"startTs\": \"2020-01-01T00:00:00Z\",\n  \"endTs\": \"2020-01-01T00:05:00Z\",\n  \"clientCounts\": {\n   \"summary\": {\n    \"prospective\": 100,\n    \"successful\": 75,\n    \"failed\": 25\n   },\n   \"connectionSteps\": {\n    \"association\": {\n     \"prospective\": 100,\n     \"successful\": 97,\n     \"failed\": 3\n    },\n    \"authentication\": {\n     \"prospective\": 97,\n     \"successful\": 81,\n     \"failed\": 16\n    },\n    \"dhcp\": {\n     \"prospective\": 81,\n     \"successful\": 75,\n     \"failed\": 6\n    },\n    \"dns\": {\n     \"prospective\": 75,\n     \"successful\": 75,\n     \"failed\": 0\n    }\n   }\n  }\n }\n]"
+														}
+													]
+												}
+											],
+											"id": "277edcb0-b3f9-4876-91ed-68c994932269"
+										}
+									],
+									"id": "c4e82553-dd11-4c03-a7ef-c2f5ce6b42b1"
+								},
+								{
+									"name": "Devices",
+									"item": [
+										{
+											"name": "healthScores",
+											"item": [
+												{
+													"name": "Fetch the health scores of all APs on this network",
+													"id": "963268e5-b7dd-48e7-897d-8e938c5d9782",
+													"protocolProfileBehavior": {
+														"followAuthorizationHeader": true
+													},
+													"request": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "X-Cisco-Meraki-API-Key",
+																"value": ""
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/networks/:networkId/wireless/devices/healthScores",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"networks",
+																":networkId",
+																"wireless",
+																"devices",
+																"healthScores"
+															],
+															"variable": [
+																{
+																	"id": "1753e916-1b3b-4f0b-95cf-9b80ff81a66f",
+																	"key": "networkId",
+																	"value": "{{networkId}}",
+																	"description": "(Required) "
+																}
+															]
+														},
+														"description": "Fetch the health scores of all APs on this network"
+													},
+													"response": [
+														{
+															"id": "7a30d49e-fecb-4dba-87ba-8a8855012ea9",
+															"name": "Successful operation",
+															"originalRequest": {
+																"method": "GET",
+																"header": [],
+																"url": {
+																	"raw": "{{baseUrl}}/networks/:networkId/wireless/devices/healthScores",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"networks",
+																		":networkId",
+																		"wireless",
+																		"devices",
+																		"healthScores"
+																	],
+																	"variable": [
+																		{
+																			"key": "networkId"
+																		}
+																	]
+																}
+															},
+															"status": "OK",
+															"code": 200,
+															"_postman_previewlanguage": "json",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "application/json"
+																}
+															],
+															"cookie": [],
+															"responseTime": null,
+															"body": "[\n {\n  \"device\": {\n   \"serial\": \"Q234-ABCD-5678\"\n  },\n  \"performance\": {\n   \"latest\": 80\n  },\n  \"onboarding\": {\n   \"latest\": 20\n  }\n }\n]"
+														}
+													]
+												}
+											],
+											"id": "bd47494f-eb56-4b40-bc2b-cc974a06b624"
+										}
+									],
+									"id": "a1445a85-1ce9-4007-aa55-ab87537a5555"
+								}
+							],
+							"id": "39887ccb-b624-4ba3-a817-f10eee0bed6f"
+						},
+						{
+							"name": "Configure",
+							"item": [
+								{
+									"name": "devices",
+									"item": [
+										{
+											"name": "channelUtilization",
+											"item": [
+												{
+													"name": "By Device",
+													"item": [
+														{
+															"name": "Get average channel utilization for all bands in a network, split by AP",
+															"id": "2df9c8ff-d878-4a10-9043-c3d64c394b9b",
+															"protocolProfileBehavior": {
+																"followAuthorizationHeader": true
+															},
+															"request": {
+																"method": "GET",
+																"header": [
+																	{
+																		"key": "X-Cisco-Meraki-API-Key",
+																		"value": ""
+																	}
+																],
+																"url": {
+																	"raw": "{{baseUrl}}/organizations/:organizationId/wireless/devices/channelUtilization/byDevice",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"organizations",
+																		":organizationId",
+																		"wireless",
+																		"devices",
+																		"channelUtilization",
+																		"byDevice"
+																	],
+																	"query": [
+																		{
+																			"description": "Filter results by network.",
+																			"key": "networkIds",
+																			"value": "{{networkIds}}",
+																			"disabled": true
+																		},
+																		{
+																			"description": "Filter results by device.",
+																			"key": "serials",
+																			"value": "{{serials}}",
+																			"disabled": true
+																		},
+																		{
+																			"description": "The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000.",
+																			"key": "perPage",
+																			"value": "{{perPage}}",
+																			"disabled": true
+																		},
+																		{
+																			"description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.",
+																			"key": "startingAfter",
+																			"value": "{{startingAfter}}",
+																			"disabled": true
+																		},
+																		{
+																			"description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.",
+																			"key": "endingBefore",
+																			"value": "{{endingBefore}}",
+																			"disabled": true
+																		},
+																		{
+																			"description": "The beginning of the timespan for the data. The maximum lookback period is 90 days from today.",
+																			"key": "t0",
+																			"value": "{{t0}}",
+																			"disabled": true
+																		},
+																		{
+																			"description": "The end of the timespan for the data. t1 can be a maximum of 90 days after t0.",
+																			"key": "t1",
+																			"value": "{{t1}}",
+																			"disabled": true
+																		},
+																		{
+																			"description": "The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 90 days. The default is 7 days.",
+																			"key": "timespan",
+																			"value": "{{timespan}}",
+																			"disabled": true
+																		},
+																		{
+																			"description": "The time interval in seconds for returned data. The valid intervals are: 300, 600, 3600, 7200, 14400, 21600. The default is 3600.",
+																			"key": "interval",
+																			"value": "{{interval}}",
+																			"disabled": true
+																		}
+																	],
+																	"variable": [
+																		{
+																			"id": "0e4280de-a160-419d-9955-888c7af26024",
+																			"key": "organizationId",
+																			"value": "{{organizationId}}",
+																			"description": "(Required) "
+																		}
+																	]
+																},
+																"description": "Get average channel utilization for all bands in a network, split by AP"
+															},
+															"response": [
+																{
+																	"id": "c0bcbc4e-d606-4de3-a7ec-2e4ef4435dbc",
+																	"name": "Successful operation",
+																	"originalRequest": {
+																		"method": "GET",
+																		"header": [],
+																		"url": {
+																			"raw": "{{baseUrl}}/organizations/:organizationId/wireless/devices/channelUtilization/byDevice?networkIds=<string>,<string>&serials=<string>,<string>&perPage=<integer>&startingAfter=<string>&endingBefore=<string>&t0=<string>&t1=<string>&timespan=<float>&interval=<integer>",
+																			"host": [
+																				"{{baseUrl}}"
+																			],
+																			"path": [
+																				"organizations",
+																				":organizationId",
+																				"wireless",
+																				"devices",
+																				"channelUtilization",
+																				"byDevice"
+																			],
+																			"query": [
+																				{
+																					"key": "networkIds",
+																					"value": "<string>,<string>"
+																				},
+																				{
+																					"key": "serials",
+																					"value": "<string>,<string>"
+																				},
+																				{
+																					"key": "perPage",
+																					"value": "<integer>"
+																				},
+																				{
+																					"key": "startingAfter",
+																					"value": "<string>"
+																				},
+																				{
+																					"key": "endingBefore",
+																					"value": "<string>"
+																				},
+																				{
+																					"key": "t0",
+																					"value": "<string>"
+																				},
+																				{
+																					"key": "t1",
+																					"value": "<string>"
+																				},
+																				{
+																					"key": "timespan",
+																					"value": "<float>"
+																				},
+																				{
+																					"key": "interval",
+																					"value": "<integer>"
+																				}
+																			],
+																			"variable": [
+																				{
+																					"key": "organizationId"
+																				}
+																			]
+																		}
+																	},
+																	"status": "OK",
+																	"code": 200,
+																	"_postman_previewlanguage": "json",
+																	"header": [
+																		{
+																			"key": "Link",
+																			"value": "<string>",
+																			"description": "A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests."
+																		},
+																		{
+																			"key": "Content-Type",
+																			"value": "application/json"
+																		}
+																	],
+																	"cookie": [],
+																	"responseTime": null,
+																	"body": "[\n {\n  \"serial\": \"Q234-ABCD-5678\",\n  \"mac\": \"00:11:22:33:44:55\",\n  \"byBand\": [\n   {\n    \"band\": 5,\n    \"wifi\": {\n     \"percentage\": 33.84\n    },\n    \"nonWifi\": {\n     \"percentage\": 1.84\n    },\n    \"total\": {\n     \"percentage\": 32\n    }\n   }\n  ]\n }\n]"
 																}
 															]
 														}
-													},
-													"status": "OK",
-													"code": 200,
-													"_postman_previewlanguage": "json",
-													"header": [
+													],
+													"id": "c7e72018-804b-4323-8f65-f3e0cb47e879"
+												},
+												{
+													"name": "By Network",
+													"item": [
 														{
-															"key": "Content-Type",
-															"value": "application/json"
+															"name": "Get average channel utilization across all bands for all networks in the organization",
+															"id": "64c342cc-d724-46ef-9423-d1e34aba0a13",
+															"protocolProfileBehavior": {
+																"followAuthorizationHeader": true
+															},
+															"request": {
+																"method": "GET",
+																"header": [
+																	{
+																		"key": "X-Cisco-Meraki-API-Key",
+																		"value": ""
+																	}
+																],
+																"url": {
+																	"raw": "{{baseUrl}}/organizations/:organizationId/wireless/devices/channelUtilization/byNetwork",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"organizations",
+																		":organizationId",
+																		"wireless",
+																		"devices",
+																		"channelUtilization",
+																		"byNetwork"
+																	],
+																	"query": [
+																		{
+																			"description": "Filter results by network.",
+																			"key": "networkIds",
+																			"value": "{{networkIds}}",
+																			"disabled": true
+																		},
+																		{
+																			"description": "Filter results by device.",
+																			"key": "serials",
+																			"value": "{{serials}}",
+																			"disabled": true
+																		},
+																		{
+																			"description": "The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000.",
+																			"key": "perPage",
+																			"value": "{{perPage}}",
+																			"disabled": true
+																		},
+																		{
+																			"description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.",
+																			"key": "startingAfter",
+																			"value": "{{startingAfter}}",
+																			"disabled": true
+																		},
+																		{
+																			"description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.",
+																			"key": "endingBefore",
+																			"value": "{{endingBefore}}",
+																			"disabled": true
+																		},
+																		{
+																			"description": "The beginning of the timespan for the data. The maximum lookback period is 90 days from today.",
+																			"key": "t0",
+																			"value": "{{t0}}",
+																			"disabled": true
+																		},
+																		{
+																			"description": "The end of the timespan for the data. t1 can be a maximum of 90 days after t0.",
+																			"key": "t1",
+																			"value": "{{t1}}",
+																			"disabled": true
+																		},
+																		{
+																			"description": "The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 90 days. The default is 7 days.",
+																			"key": "timespan",
+																			"value": "{{timespan}}",
+																			"disabled": true
+																		},
+																		{
+																			"description": "The time interval in seconds for returned data. The valid intervals are: 300, 600, 3600, 7200, 14400, 21600. The default is 3600.",
+																			"key": "interval",
+																			"value": "{{interval}}",
+																			"disabled": true
+																		}
+																	],
+																	"variable": [
+																		{
+																			"id": "db48d207-6199-40e5-975b-8a66f8831e36",
+																			"key": "organizationId",
+																			"value": "{{organizationId}}",
+																			"description": "(Required) "
+																		}
+																	]
+																},
+																"description": "Get average channel utilization across all bands for all networks in the organization"
+															},
+															"response": [
+																{
+																	"id": "88ba3d6d-003d-40da-9ba4-1b021243a03e",
+																	"name": "Successful operation",
+																	"originalRequest": {
+																		"method": "GET",
+																		"header": [],
+																		"url": {
+																			"raw": "{{baseUrl}}/organizations/:organizationId/wireless/devices/channelUtilization/byNetwork?networkIds=<string>,<string>&serials=<string>,<string>&perPage=<integer>&startingAfter=<string>&endingBefore=<string>&t0=<string>&t1=<string>&timespan=<float>&interval=<integer>",
+																			"host": [
+																				"{{baseUrl}}"
+																			],
+																			"path": [
+																				"organizations",
+																				":organizationId",
+																				"wireless",
+																				"devices",
+																				"channelUtilization",
+																				"byNetwork"
+																			],
+																			"query": [
+																				{
+																					"key": "networkIds",
+																					"value": "<string>,<string>"
+																				},
+																				{
+																					"key": "serials",
+																					"value": "<string>,<string>"
+																				},
+																				{
+																					"key": "perPage",
+																					"value": "<integer>"
+																				},
+																				{
+																					"key": "startingAfter",
+																					"value": "<string>"
+																				},
+																				{
+																					"key": "endingBefore",
+																					"value": "<string>"
+																				},
+																				{
+																					"key": "t0",
+																					"value": "<string>"
+																				},
+																				{
+																					"key": "t1",
+																					"value": "<string>"
+																				},
+																				{
+																					"key": "timespan",
+																					"value": "<float>"
+																				},
+																				{
+																					"key": "interval",
+																					"value": "<integer>"
+																				}
+																			],
+																			"variable": [
+																				{
+																					"key": "organizationId"
+																				}
+																			]
+																		}
+																	},
+																	"status": "OK",
+																	"code": 200,
+																	"_postman_previewlanguage": "json",
+																	"header": [
+																		{
+																			"key": "Link",
+																			"value": "<string>",
+																			"description": "A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests."
+																		},
+																		{
+																			"key": "Content-Type",
+																			"value": "application/json"
+																		}
+																	],
+																	"cookie": [],
+																	"responseTime": null,
+																	"body": "[\n {\n  \"network\": {\n   \"id\": \"N_24329156\"\n  },\n  \"byBand\": [\n   {\n    \"band\": 5,\n    \"wifi\": {\n     \"percentage\": 33.84\n    },\n    \"nonWifi\": {\n     \"percentage\": 1.84\n    },\n    \"total\": {\n     \"percentage\": 32\n    }\n   }\n  ]\n }\n]"
+																}
+															]
 														}
 													],
-													"cookie": [],
-													"responseTime": null,
-													"body": "[\n {\n  \"device\": {\n   \"name\": \"My sensor\",\n   \"serial\": \"Q234-ABCD-0001\",\n   \"productType\": \"sensor\"\n  },\n  \"relationships\": {\n   \"livestream\": {\n    \"relatedDevices\": [\n     {\n      \"serial\": \"Q234-ABCD-5678\",\n      \"productType\": \"camera\"\n     }\n    ]\n   }\n  }\n }\n]"
+													"id": "9a80c4cb-1a4a-4e6d-94c0-a9723bf0aaa7"
+												},
+												{
+													"name": "History",
+													"item": [
+														{
+															"name": "By Device",
+															"item": [
+																{
+																	"name": "byInterval",
+																	"item": [
+																		{
+																			"name": "Get a time-series of average channel utilization for all bands, segmented by device.",
+																			"id": "ef9b6673-6832-4723-a0bc-a0ceebd3f898",
+																			"protocolProfileBehavior": {
+																				"followAuthorizationHeader": true
+																			},
+																			"request": {
+																				"method": "GET",
+																				"header": [
+																					{
+																						"key": "X-Cisco-Meraki-API-Key",
+																						"value": ""
+																					}
+																				],
+																				"url": {
+																					"raw": "{{baseUrl}}/organizations/:organizationId/wireless/devices/channelUtilization/history/byDevice/byInterval",
+																					"host": [
+																						"{{baseUrl}}"
+																					],
+																					"path": [
+																						"organizations",
+																						":organizationId",
+																						"wireless",
+																						"devices",
+																						"channelUtilization",
+																						"history",
+																						"byDevice",
+																						"byInterval"
+																					],
+																					"query": [
+																						{
+																							"description": "Filter results by network.",
+																							"key": "networkIds",
+																							"value": "{{networkIds}}",
+																							"disabled": true
+																						},
+																						{
+																							"description": "Filter results by device.",
+																							"key": "serials",
+																							"value": "{{serials}}",
+																							"disabled": true
+																						},
+																						{
+																							"description": "The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000.",
+																							"key": "perPage",
+																							"value": "{{perPage}}",
+																							"disabled": true
+																						},
+																						{
+																							"description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.",
+																							"key": "startingAfter",
+																							"value": "{{startingAfter}}",
+																							"disabled": true
+																						},
+																						{
+																							"description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.",
+																							"key": "endingBefore",
+																							"value": "{{endingBefore}}",
+																							"disabled": true
+																						},
+																						{
+																							"description": "The beginning of the timespan for the data. The maximum lookback period is 31 days from today.",
+																							"key": "t0",
+																							"value": "{{t0}}",
+																							"disabled": true
+																						},
+																						{
+																							"description": "The end of the timespan for the data. t1 can be a maximum of 31 days after t0.",
+																							"key": "t1",
+																							"value": "{{t1}}",
+																							"disabled": true
+																						},
+																						{
+																							"description": "The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 7 days.",
+																							"key": "timespan",
+																							"value": "{{timespan}}",
+																							"disabled": true
+																						},
+																						{
+																							"description": "The time interval in seconds for returned data. The valid intervals are: 300, 600, 3600, 7200, 14400, 21600. The default is 3600.",
+																							"key": "interval",
+																							"value": "{{interval}}",
+																							"disabled": true
+																						}
+																					],
+																					"variable": [
+																						{
+																							"id": "3bfc2a66-f1b5-47bb-8c00-618d0dab1458",
+																							"key": "organizationId",
+																							"value": "{{organizationId}}",
+																							"description": "(Required) "
+																						}
+																					]
+																				},
+																				"description": "Get a time-series of average channel utilization for all bands, segmented by device."
+																			},
+																			"response": [
+																				{
+																					"id": "d14959ea-d5b9-4c4e-b7e1-f9707bc94890",
+																					"name": "Successful operation",
+																					"originalRequest": {
+																						"method": "GET",
+																						"header": [],
+																						"url": {
+																							"raw": "{{baseUrl}}/organizations/:organizationId/wireless/devices/channelUtilization/history/byDevice/byInterval?networkIds=<string>,<string>&serials=<string>,<string>&perPage=<integer>&startingAfter=<string>&endingBefore=<string>&t0=<string>&t1=<string>&timespan=<float>&interval=<integer>",
+																							"host": [
+																								"{{baseUrl}}"
+																							],
+																							"path": [
+																								"organizations",
+																								":organizationId",
+																								"wireless",
+																								"devices",
+																								"channelUtilization",
+																								"history",
+																								"byDevice",
+																								"byInterval"
+																							],
+																							"query": [
+																								{
+																									"key": "networkIds",
+																									"value": "<string>,<string>"
+																								},
+																								{
+																									"key": "serials",
+																									"value": "<string>,<string>"
+																								},
+																								{
+																									"key": "perPage",
+																									"value": "<integer>"
+																								},
+																								{
+																									"key": "startingAfter",
+																									"value": "<string>"
+																								},
+																								{
+																									"key": "endingBefore",
+																									"value": "<string>"
+																								},
+																								{
+																									"key": "t0",
+																									"value": "<string>"
+																								},
+																								{
+																									"key": "t1",
+																									"value": "<string>"
+																								},
+																								{
+																									"key": "timespan",
+																									"value": "<float>"
+																								},
+																								{
+																									"key": "interval",
+																									"value": "<integer>"
+																								}
+																							],
+																							"variable": [
+																								{
+																									"key": "organizationId"
+																								}
+																							]
+																						}
+																					},
+																					"status": "OK",
+																					"code": 200,
+																					"_postman_previewlanguage": "json",
+																					"header": [
+																						{
+																							"key": "Link",
+																							"value": "<string>",
+																							"description": "A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests."
+																						},
+																						{
+																							"key": "Content-Type",
+																							"value": "application/json"
+																						}
+																					],
+																					"cookie": [],
+																					"responseTime": null,
+																					"body": "[\n {\n  \"startTs\": \"2018-02-11T00:00:00Z\",\n  \"endTs\": \"2018-05-12T00:00:00Z\",\n  \"serial\": \"Q234-ABCD-5678\",\n  \"mac\": \"00:11:22:33:44:55\",\n  \"byBand\": [\n   {\n    \"band\": 5,\n    \"wifi\": {\n     \"percentage\": 33.84\n    },\n    \"nonWifi\": {\n     \"percentage\": 1.84\n    },\n    \"total\": {\n     \"percentage\": 32\n    }\n   }\n  ]\n }\n]"
+																				}
+																			]
+																		}
+																	],
+																	"id": "c3d13532-9f00-4fd4-a1fd-e43b4de1e253"
+																}
+															],
+															"id": "7d05cd0f-1b0d-43f2-9e97-756c4389ca57"
+														},
+														{
+															"name": "By Network",
+															"item": [
+																{
+																	"name": "byInterval",
+																	"item": [
+																		{
+																			"name": "Get a time-series of average channel utilization for all bands",
+																			"id": "1f80e4e1-d609-4148-b32b-ed6adbb2fa0e",
+																			"protocolProfileBehavior": {
+																				"followAuthorizationHeader": true
+																			},
+																			"request": {
+																				"method": "GET",
+																				"header": [
+																					{
+																						"key": "X-Cisco-Meraki-API-Key",
+																						"value": ""
+																					}
+																				],
+																				"url": {
+																					"raw": "{{baseUrl}}/organizations/:organizationId/wireless/devices/channelUtilization/history/byNetwork/byInterval",
+																					"host": [
+																						"{{baseUrl}}"
+																					],
+																					"path": [
+																						"organizations",
+																						":organizationId",
+																						"wireless",
+																						"devices",
+																						"channelUtilization",
+																						"history",
+																						"byNetwork",
+																						"byInterval"
+																					],
+																					"query": [
+																						{
+																							"description": "Filter results by network.",
+																							"key": "networkIds",
+																							"value": "{{networkIds}}",
+																							"disabled": true
+																						},
+																						{
+																							"description": "Filter results by device.",
+																							"key": "serials",
+																							"value": "{{serials}}",
+																							"disabled": true
+																						},
+																						{
+																							"description": "The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000.",
+																							"key": "perPage",
+																							"value": "{{perPage}}",
+																							"disabled": true
+																						},
+																						{
+																							"description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.",
+																							"key": "startingAfter",
+																							"value": "{{startingAfter}}",
+																							"disabled": true
+																						},
+																						{
+																							"description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.",
+																							"key": "endingBefore",
+																							"value": "{{endingBefore}}",
+																							"disabled": true
+																						},
+																						{
+																							"description": "The beginning of the timespan for the data. The maximum lookback period is 31 days from today.",
+																							"key": "t0",
+																							"value": "{{t0}}",
+																							"disabled": true
+																						},
+																						{
+																							"description": "The end of the timespan for the data. t1 can be a maximum of 31 days after t0.",
+																							"key": "t1",
+																							"value": "{{t1}}",
+																							"disabled": true
+																						},
+																						{
+																							"description": "The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 7 days.",
+																							"key": "timespan",
+																							"value": "{{timespan}}",
+																							"disabled": true
+																						},
+																						{
+																							"description": "The time interval in seconds for returned data. The valid intervals are: 300, 600, 3600, 7200, 14400, 21600. The default is 3600.",
+																							"key": "interval",
+																							"value": "{{interval}}",
+																							"disabled": true
+																						}
+																					],
+																					"variable": [
+																						{
+																							"id": "fb6c7015-6081-477d-9a5b-c02a56a2442b",
+																							"key": "organizationId",
+																							"value": "{{organizationId}}",
+																							"description": "(Required) "
+																						}
+																					]
+																				},
+																				"description": "Get a time-series of average channel utilization for all bands"
+																			},
+																			"response": [
+																				{
+																					"id": "1fb6eb76-58cb-4eb3-b8fc-ea030df23988",
+																					"name": "Successful operation",
+																					"originalRequest": {
+																						"method": "GET",
+																						"header": [],
+																						"url": {
+																							"raw": "{{baseUrl}}/organizations/:organizationId/wireless/devices/channelUtilization/history/byNetwork/byInterval?networkIds=<string>,<string>&serials=<string>,<string>&perPage=<integer>&startingAfter=<string>&endingBefore=<string>&t0=<string>&t1=<string>&timespan=<float>&interval=<integer>",
+																							"host": [
+																								"{{baseUrl}}"
+																							],
+																							"path": [
+																								"organizations",
+																								":organizationId",
+																								"wireless",
+																								"devices",
+																								"channelUtilization",
+																								"history",
+																								"byNetwork",
+																								"byInterval"
+																							],
+																							"query": [
+																								{
+																									"key": "networkIds",
+																									"value": "<string>,<string>"
+																								},
+																								{
+																									"key": "serials",
+																									"value": "<string>,<string>"
+																								},
+																								{
+																									"key": "perPage",
+																									"value": "<integer>"
+																								},
+																								{
+																									"key": "startingAfter",
+																									"value": "<string>"
+																								},
+																								{
+																									"key": "endingBefore",
+																									"value": "<string>"
+																								},
+																								{
+																									"key": "t0",
+																									"value": "<string>"
+																								},
+																								{
+																									"key": "t1",
+																									"value": "<string>"
+																								},
+																								{
+																									"key": "timespan",
+																									"value": "<float>"
+																								},
+																								{
+																									"key": "interval",
+																									"value": "<integer>"
+																								}
+																							],
+																							"variable": [
+																								{
+																									"key": "organizationId"
+																								}
+																							]
+																						}
+																					},
+																					"status": "OK",
+																					"code": 200,
+																					"_postman_previewlanguage": "json",
+																					"header": [
+																						{
+																							"key": "Link",
+																							"value": "<string>",
+																							"description": "A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests."
+																						},
+																						{
+																							"key": "Content-Type",
+																							"value": "application/json"
+																						}
+																					],
+																					"cookie": [],
+																					"responseTime": null,
+																					"body": "[\n {\n  \"startTs\": \"2018-02-11T00:00:00Z\",\n  \"endTs\": \"2018-05-12T00:00:00Z\",\n  \"network\": {\n   \"id\": \"N_24329156\"\n  },\n  \"byBand\": [\n   {\n    \"band\": 5,\n    \"wifi\": {\n     \"percentage\": 33.84\n    },\n    \"nonWifi\": {\n     \"percentage\": 1.84\n    },\n    \"total\": {\n     \"percentage\": 32\n    }\n   }\n  ]\n }\n]"
+																				}
+																			]
+																		}
+																	],
+																	"id": "aecc073f-dcdd-47a1-826e-bf3f0ffeea1f"
+																}
+															],
+															"id": "c07dfee6-9f38-41a8-a745-5294f186fc7d"
+														}
+													],
+													"id": "fb79f181-9fc5-47b7-8f22-48b33b3f0a52"
 												}
-											]
+											],
+											"id": "803ee9b4-9020-4282-9de7-9b99e6101a7c"
 										}
 									],
-									"id": "77209980-f27c-481c-b9e8-b8df6c25f0c0"
-								},
+									"id": "75ac2a0b-1f73-4a71-83f5-8ea3e0a041e8"
+								}
+							],
+							"id": "25678929-2b64-48cf-b0df-2c58fddc387f"
+						}
+					],
+					"id": "610acc96-6bfb-40d7-a693-d8feefe7a725"
+				},
+				{
+					"name": "Sensor",
+					"item": [
+						{
+							"name": "Configure",
+							"item": [
 								{
-									"name": "Schedules",
+									"name": "schedules",
 									"item": [
 										{
 											"name": "Returns a list of all sensor schedules.",
-											"id": "2d828f95-d4d4-4e68-afc0-5f359a688dbf",
+											"id": "43a3949d-99ad-48a2-b36f-2bd3c8301ac4",
 											"protocolProfileBehavior": {
 												"followAuthorizationHeader": true
 											},
@@ -291,7 +1340,7 @@
 													],
 													"variable": [
 														{
-															"id": "0095a10e-2bda-44a0-b7c6-25421e214744",
+															"id": "d757fd57-3f3a-4f0c-a5bd-b8901c94e558",
 															"key": "networkId",
 															"value": "{{networkId}}",
 															"description": "(Required) "
@@ -302,7 +1351,7 @@
 											},
 											"response": [
 												{
-													"id": "cb9aee9f-42a3-46e8-856c-c3a3eee3e44e",
+													"id": "0c0ab4e0-683d-4433-ae4f-0c67ca95e5c7",
 													"name": "Successful operation",
 													"originalRequest": {
 														"method": "GET",
@@ -341,10 +1390,10 @@
 											]
 										}
 									],
-									"id": "5fee1612-29b2-4e29-8e9d-308718187321"
+									"id": "53976f17-d6fe-4e8a-9360-b7ceda9db2c7"
 								}
 							],
-							"id": "6241432e-a608-4ab2-aaf6-cc6a629773dd"
+							"id": "3c3d5c1c-e73b-4434-a879-cf5332c2ebb7"
 						},
 						{
 							"name": "Monitor",
@@ -360,7 +1409,7 @@
 													"item": [
 														{
 															"name": "Return all reported readings from sensors in a given timespan, summarized as a series of intervals, sorted by interval start time in descending order",
-															"id": "bb4e835d-b46d-4a95-bc48-022a2b914f70",
+															"id": "a53dc3fb-895b-4abd-a3d3-9045c0b08d17",
 															"protocolProfileBehavior": {
 																"followAuthorizationHeader": true
 															},
@@ -455,7 +1504,7 @@
 																	],
 																	"variable": [
 																		{
-																			"id": "29636763-0daa-4ed6-91c4-449e76da0820",
+																			"id": "45c3c354-5ff4-4203-a1b8-587cf99edf2b",
 																			"key": "organizationId",
 																			"value": "{{organizationId}}",
 																			"description": "(Required) "
@@ -466,7 +1515,7 @@
 															},
 															"response": [
 																{
-																	"id": "f888a679-62e1-40a8-a8dd-e1c55ec8ab97",
+																	"id": "345dbbcd-9103-4be3-9fd7-7f2faba53977",
 																	"name": "Successful operation",
 																	"originalRequest": {
 																		"method": "GET",
@@ -558,1314 +1607,19 @@
 															]
 														}
 													],
-													"id": "138db8e9-0f9d-4824-8034-e2a3900e4e3c"
+													"id": "48bccfb0-90a5-4b81-b76b-44d5cf125f54"
 												}
 											],
-											"id": "683d7ee8-4666-488c-8202-50c02e167967"
+											"id": "aecd917a-b6a2-46d2-b75c-eff96bc6ec44"
 										}
 									],
-									"id": "5d22aa89-8349-4db6-9778-baf5bf2007b6"
+									"id": "5e775ae7-5af6-4d91-97b5-44ce5d22e7ba"
 								}
 							],
-							"id": "99ca3ef0-4822-4906-9f1c-e84fd1d448c0"
+							"id": "fd15a469-da75-4b9b-9701-dcef76910066"
 						}
 					],
-					"id": "10aabd81-106a-4cc2-b8eb-016967532479"
-				},
-				{
-					"name": "Wireless",
-					"item": [
-						{
-							"name": "Monitor",
-							"item": [
-								{
-									"name": "Health Scores",
-									"item": [
-										{
-											"name": "Fetch the health scores for a given AP on this network",
-											"id": "1f289b58-849f-482d-9f2e-c78a2e14e04d",
-											"protocolProfileBehavior": {
-												"followAuthorizationHeader": true
-											},
-											"request": {
-												"method": "GET",
-												"header": [
-													{
-														"key": "X-Cisco-Meraki-API-Key",
-														"value": ""
-													}
-												],
-												"url": {
-													"raw": "{{baseUrl}}/devices/:serial/wireless/healthScores",
-													"host": [
-														"{{baseUrl}}"
-													],
-													"path": [
-														"devices",
-														":serial",
-														"wireless",
-														"healthScores"
-													],
-													"variable": [
-														{
-															"id": "0cba709a-b537-4094-89e5-6ac20e3e4528",
-															"key": "serial",
-															"value": "{{serial}}",
-															"description": "(Required) "
-														}
-													]
-												},
-												"description": "Fetch the health scores for a given AP on this network"
-											},
-											"response": [
-												{
-													"id": "f709c3cd-3eb7-4ed3-9d1c-e9ae1909e1d8",
-													"name": "Successful operation",
-													"originalRequest": {
-														"method": "GET",
-														"header": [],
-														"url": {
-															"raw": "{{baseUrl}}/devices/:serial/wireless/healthScores",
-															"host": [
-																"{{baseUrl}}"
-															],
-															"path": [
-																"devices",
-																":serial",
-																"wireless",
-																"healthScores"
-															],
-															"variable": [
-																{
-																	"key": "serial"
-																}
-															]
-														}
-													},
-													"status": "OK",
-													"code": 200,
-													"_postman_previewlanguage": "json",
-													"header": [
-														{
-															"key": "Content-Type",
-															"value": "application/json"
-														}
-													],
-													"cookie": [],
-													"responseTime": null,
-													"body": "{\n \"device\": {\n  \"serial\": \"Q234-ABCD-5678\"\n },\n \"performance\": {\n  \"latest\": 80\n },\n \"onboarding\": {\n  \"latest\": 20\n }\n}"
-												}
-											]
-										}
-									],
-									"id": "8898e335-bcab-4f2e-ae04-b45adfd20c4e"
-								},
-								{
-									"name": "Clients",
-									"item": [
-										{
-											"name": "Health Scores",
-											"item": [
-												{
-													"name": "Fetch The Health Scores For All Clients On This Network",
-													"id": "7b99d75c-3f2a-422b-b31a-f1b4c31dc2fd",
-													"protocolProfileBehavior": {
-														"followAuthorizationHeader": true
-													},
-													"request": {
-														"method": "GET",
-														"header": [
-															{
-																"key": "X-Cisco-Meraki-API-Key",
-																"value": ""
-															}
-														],
-														"url": {
-															"raw": "{{baseUrl}}/networks/:networkId/wireless/clients/healthScores",
-															"host": [
-																"{{baseUrl}}"
-															],
-															"path": [
-																"networks",
-																":networkId",
-																"wireless",
-																"clients",
-																"healthScores"
-															],
-															"variable": [
-																{
-																	"id": "8630552d-9a51-446a-bd1e-d6bb0b5faf42",
-																	"key": "networkId",
-																	"value": "{{networkId}}",
-																	"description": "(Required) "
-																}
-															]
-														},
-														"description": "Fetch the health scores for all clients on this network"
-													},
-													"response": [
-														{
-															"id": "19e39ecf-5882-4557-994e-77f695b796ba",
-															"name": "Successful operation",
-															"originalRequest": {
-																"method": "GET",
-																"header": [],
-																"url": {
-																	"raw": "{{baseUrl}}/networks/:networkId/wireless/clients/healthScores",
-																	"host": [
-																		"{{baseUrl}}"
-																	],
-																	"path": [
-																		"networks",
-																		":networkId",
-																		"wireless",
-																		"clients",
-																		"healthScores"
-																	],
-																	"variable": [
-																		{
-																			"key": "networkId"
-																		}
-																	]
-																}
-															},
-															"status": "OK",
-															"code": 200,
-															"_postman_previewlanguage": "json",
-															"header": [
-																{
-																	"key": "Content-Type",
-																	"value": "application/json"
-																}
-															],
-															"cookie": [],
-															"responseTime": null,
-															"body": "[\n {\n  \"mac\": \"22:33:44:55:66:77\",\n  \"clientId\": \"k74272e\",\n  \"performance\": {\n   \"latest\": 80,\n   \"currentConnection\": 100\n  },\n  \"onboarding\": {\n   \"latest\": 100\n  }\n },\n {\n  \"mac\": \"22:33:44:55:66:77\",\n  \"clientId\": \"k74272e\",\n  \"performance\": {\n   \"latest\": 30,\n   \"currentConnection\": 50\n  },\n  \"onboarding\": {\n   \"latest\": 70\n  }\n }\n]"
-														}
-													]
-												},
-												{
-													"name": "Fetch The Health Scores For A Given Client On This Network",
-													"id": "9d141857-d838-41b3-ac83-656ede3869b0",
-													"protocolProfileBehavior": {
-														"followAuthorizationHeader": true
-													},
-													"request": {
-														"method": "GET",
-														"header": [
-															{
-																"key": "X-Cisco-Meraki-API-Key",
-																"value": ""
-															}
-														],
-														"url": {
-															"raw": "{{baseUrl}}/networks/:networkId/wireless/clients/:clientId/healthScores",
-															"host": [
-																"{{baseUrl}}"
-															],
-															"path": [
-																"networks",
-																":networkId",
-																"wireless",
-																"clients",
-																":clientId",
-																"healthScores"
-															],
-															"variable": [
-																{
-																	"id": "ca16b979-3b4b-42b6-8ba8-f7683e3b6112",
-																	"key": "networkId",
-																	"value": "{{networkId}}",
-																	"description": "(Required) "
-																},
-																{
-																	"id": "a2b33239-a518-4b96-8dc5-fdfdbe6e5e1b",
-																	"key": "clientId",
-																	"value": "{{clientId}}",
-																	"description": "(Required) "
-																}
-															]
-														},
-														"description": "Fetch the health scores for a given client on this network. Clients are identified by their MAC or ID"
-													},
-													"response": [
-														{
-															"id": "b944a3ea-2643-4b78-8173-9e7ee5d22d1a",
-															"name": "Successful operation",
-															"originalRequest": {
-																"method": "GET",
-																"header": [],
-																"url": {
-																	"raw": "{{baseUrl}}/networks/:networkId/wireless/clients/:clientId/healthScores",
-																	"host": [
-																		"{{baseUrl}}"
-																	],
-																	"path": [
-																		"networks",
-																		":networkId",
-																		"wireless",
-																		"clients",
-																		":clientId",
-																		"healthScores"
-																	],
-																	"variable": [
-																		{
-																			"key": "networkId"
-																		},
-																		{
-																			"key": "clientId"
-																		}
-																	]
-																}
-															},
-															"status": "OK",
-															"code": 200,
-															"_postman_previewlanguage": "json",
-															"header": [
-																{
-																	"key": "Content-Type",
-																	"value": "application/json"
-																}
-															],
-															"cookie": [],
-															"responseTime": null,
-															"body": "{\n \"mac\": \"22:33:44:55:66:77\",\n \"clientId\": \"k74272e\",\n \"performance\": {\n  \"latest\": 80,\n  \"currentConnection\": 100\n },\n \"onboarding\": {\n  \"latest\": 100\n }\n}"
-														}
-													]
-												}
-											],
-											"id": "ba0f09e6-bea1-45d3-9e10-23817439a366"
-										},
-										{
-											"name": "Onboarding History",
-											"item": [
-												{
-													"name": "Return counts of distinct wireless clients connecting to a network over time",
-													"id": "018f3add-4ce0-4552-b0eb-89babfefa2d3",
-													"protocolProfileBehavior": {
-														"followAuthorizationHeader": true
-													},
-													"request": {
-														"method": "GET",
-														"header": [
-															{
-																"key": "X-Cisco-Meraki-API-Key",
-																"value": ""
-															}
-														],
-														"url": {
-															"raw": "{{baseUrl}}/networks/:networkId/wireless/clients/onboardingHistory",
-															"host": [
-																"{{baseUrl}}"
-															],
-															"path": [
-																"networks",
-																":networkId",
-																"wireless",
-																"clients",
-																"onboardingHistory"
-															],
-															"query": [
-																{
-																	"description": "The beginning of the timespan for the data. The maximum lookback period is 31 days from today.",
-																	"key": "t0",
-																	"value": "{{t0}}",
-																	"disabled": true
-																},
-																{
-																	"description": "The end of the timespan for the data. t1 can be a maximum of 31 days after t0.",
-																	"key": "t1",
-																	"value": "{{t1}}",
-																	"disabled": true
-																},
-																{
-																	"description": "The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 7 days.",
-																	"key": "timespan",
-																	"value": "{{timespan}}",
-																	"disabled": true
-																},
-																{
-																	"description": "The time resolution in seconds for returned data. The valid resolutions are: 300. The default is 300.",
-																	"key": "resolution",
-																	"value": "{{resolution}}",
-																	"disabled": true
-																},
-																{
-																	"description": "Filter results by band (either '2.4', '5' or '6'); this cannot be combined with the SSID filter.",
-																	"key": "band",
-																	"value": "{{band}}",
-																	"disabled": true
-																},
-																{
-																	"description": "Filter results by SSID number; this cannot be combined with the band filter.",
-																	"key": "ssid",
-																	"value": "{{ssid}}",
-																	"disabled": true
-																}
-															],
-															"variable": [
-																{
-																	"id": "f1c42c4c-5b33-4ad9-be26-d1e58b8cf46d",
-																	"key": "networkId",
-																	"value": "{{networkId}}",
-																	"description": "(Required) "
-																}
-															]
-														},
-														"description": "Return counts of distinct wireless clients connecting to a network over time"
-													},
-													"response": [
-														{
-															"id": "f05add78-e8e7-4bd8-8adf-09d752f058d1",
-															"name": "Successful operation",
-															"originalRequest": {
-																"method": "GET",
-																"header": [],
-																"url": {
-																	"raw": "{{baseUrl}}/networks/:networkId/wireless/clients/onboardingHistory?t0=<string>&t1=<string>&timespan=<float>&resolution=<integer>&band=<string>&ssid=<integer>",
-																	"host": [
-																		"{{baseUrl}}"
-																	],
-																	"path": [
-																		"networks",
-																		":networkId",
-																		"wireless",
-																		"clients",
-																		"onboardingHistory"
-																	],
-																	"query": [
-																		{
-																			"key": "t0",
-																			"value": "<string>"
-																		},
-																		{
-																			"key": "t1",
-																			"value": "<string>"
-																		},
-																		{
-																			"key": "timespan",
-																			"value": "<float>"
-																		},
-																		{
-																			"key": "resolution",
-																			"value": "<integer>"
-																		},
-																		{
-																			"key": "band",
-																			"value": "<string>"
-																		},
-																		{
-																			"key": "ssid",
-																			"value": "<integer>"
-																		}
-																	],
-																	"variable": [
-																		{
-																			"key": "networkId"
-																		}
-																	]
-																}
-															},
-															"status": "OK",
-															"code": 200,
-															"_postman_previewlanguage": "json",
-															"header": [
-																{
-																	"key": "Content-Type",
-																	"value": "application/json"
-																}
-															],
-															"cookie": [],
-															"responseTime": null,
-															"body": "[\n {\n  \"startTs\": \"2020-01-01T00:00:00Z\",\n  \"endTs\": \"2020-01-01T00:05:00Z\",\n  \"clientCounts\": {\n   \"summary\": {\n    \"prospective\": 100,\n    \"successful\": 75,\n    \"failed\": 25\n   },\n   \"connectionSteps\": {\n    \"association\": {\n     \"prospective\": 100,\n     \"successful\": 97,\n     \"failed\": 3\n    },\n    \"authentication\": {\n     \"prospective\": 97,\n     \"successful\": 81,\n     \"failed\": 16\n    },\n    \"dhcp\": {\n     \"prospective\": 81,\n     \"successful\": 75,\n     \"failed\": 6\n    },\n    \"dns\": {\n     \"prospective\": 75,\n     \"successful\": 75,\n     \"failed\": 0\n    }\n   }\n  }\n }\n]"
-														}
-													]
-												}
-											],
-											"id": "c1a6ebfc-79d7-4799-b9c1-d5e042a98530"
-										}
-									],
-									"id": "48510311-7ee0-498d-aa2a-3178eee3cfd6"
-								},
-								{
-									"name": "Devices",
-									"item": [
-										{
-											"name": "healthScores",
-											"item": [
-												{
-													"name": "Fetch the health scores of all APs on this network",
-													"id": "30586deb-8beb-4e44-93ea-f8ad2d731851",
-													"protocolProfileBehavior": {
-														"followAuthorizationHeader": true
-													},
-													"request": {
-														"method": "GET",
-														"header": [
-															{
-																"key": "X-Cisco-Meraki-API-Key",
-																"value": ""
-															}
-														],
-														"url": {
-															"raw": "{{baseUrl}}/networks/:networkId/wireless/devices/healthScores",
-															"host": [
-																"{{baseUrl}}"
-															],
-															"path": [
-																"networks",
-																":networkId",
-																"wireless",
-																"devices",
-																"healthScores"
-															],
-															"variable": [
-																{
-																	"id": "41b3037d-dccf-40b8-a032-e4888637bdc3",
-																	"key": "networkId",
-																	"value": "{{networkId}}",
-																	"description": "(Required) "
-																}
-															]
-														},
-														"description": "Fetch the health scores of all APs on this network"
-													},
-													"response": [
-														{
-															"id": "9ed11d9d-40f3-4d62-aad3-1d4565492cb9",
-															"name": "Successful operation",
-															"originalRequest": {
-																"method": "GET",
-																"header": [],
-																"url": {
-																	"raw": "{{baseUrl}}/networks/:networkId/wireless/devices/healthScores",
-																	"host": [
-																		"{{baseUrl}}"
-																	],
-																	"path": [
-																		"networks",
-																		":networkId",
-																		"wireless",
-																		"devices",
-																		"healthScores"
-																	],
-																	"variable": [
-																		{
-																			"key": "networkId"
-																		}
-																	]
-																}
-															},
-															"status": "OK",
-															"code": 200,
-															"_postman_previewlanguage": "json",
-															"header": [
-																{
-																	"key": "Content-Type",
-																	"value": "application/json"
-																}
-															],
-															"cookie": [],
-															"responseTime": null,
-															"body": "[\n {\n  \"device\": {\n   \"serial\": \"Q234-ABCD-5678\"\n  },\n  \"performance\": {\n   \"latest\": 80\n  },\n  \"onboarding\": {\n   \"latest\": 20\n  }\n }\n]"
-														}
-													]
-												}
-											],
-											"id": "76c232b4-71a7-460a-bdc8-ac42a1507637"
-										}
-									],
-									"id": "59cb71a7-ebc4-44c1-aba6-349c10318642"
-								}
-							],
-							"id": "d6dc2942-2672-44bb-a104-27b52bc10edf"
-						},
-						{
-							"name": "Configure",
-							"item": [
-								{
-									"name": "devices",
-									"item": [
-										{
-											"name": "channelUtilization",
-											"item": [
-												{
-													"name": "By Device",
-													"item": [
-														{
-															"name": "Get average channel utilization for all bands in a network, split by AP",
-															"id": "68868021-9968-4cbe-b17e-fe8d704b3a87",
-															"protocolProfileBehavior": {
-																"followAuthorizationHeader": true
-															},
-															"request": {
-																"method": "GET",
-																"header": [
-																	{
-																		"key": "X-Cisco-Meraki-API-Key",
-																		"value": ""
-																	}
-																],
-																"url": {
-																	"raw": "{{baseUrl}}/organizations/:organizationId/wireless/devices/channelUtilization/byDevice",
-																	"host": [
-																		"{{baseUrl}}"
-																	],
-																	"path": [
-																		"organizations",
-																		":organizationId",
-																		"wireless",
-																		"devices",
-																		"channelUtilization",
-																		"byDevice"
-																	],
-																	"query": [
-																		{
-																			"description": "Filter results by network.",
-																			"key": "networkIds",
-																			"value": "{{networkIds}}",
-																			"disabled": true
-																		},
-																		{
-																			"description": "Filter results by device.",
-																			"key": "serials",
-																			"value": "{{serials}}",
-																			"disabled": true
-																		},
-																		{
-																			"description": "The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000.",
-																			"key": "perPage",
-																			"value": "{{perPage}}",
-																			"disabled": true
-																		},
-																		{
-																			"description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.",
-																			"key": "startingAfter",
-																			"value": "{{startingAfter}}",
-																			"disabled": true
-																		},
-																		{
-																			"description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.",
-																			"key": "endingBefore",
-																			"value": "{{endingBefore}}",
-																			"disabled": true
-																		},
-																		{
-																			"description": "The beginning of the timespan for the data. The maximum lookback period is 90 days from today.",
-																			"key": "t0",
-																			"value": "{{t0}}",
-																			"disabled": true
-																		},
-																		{
-																			"description": "The end of the timespan for the data. t1 can be a maximum of 90 days after t0.",
-																			"key": "t1",
-																			"value": "{{t1}}",
-																			"disabled": true
-																		},
-																		{
-																			"description": "The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 90 days. The default is 7 days.",
-																			"key": "timespan",
-																			"value": "{{timespan}}",
-																			"disabled": true
-																		},
-																		{
-																			"description": "The time interval in seconds for returned data. The valid intervals are: 300, 600, 3600, 7200, 14400, 21600. The default is 3600.",
-																			"key": "interval",
-																			"value": "{{interval}}",
-																			"disabled": true
-																		}
-																	],
-																	"variable": [
-																		{
-																			"id": "3cdd08e7-f504-429b-ad92-56a9444e7f5d",
-																			"key": "organizationId",
-																			"value": "{{organizationId}}",
-																			"description": "(Required) "
-																		}
-																	]
-																},
-																"description": "Get average channel utilization for all bands in a network, split by AP"
-															},
-															"response": [
-																{
-																	"id": "d5ce00be-12f4-4026-a86b-ab3cc6fe3a6d",
-																	"name": "Successful operation",
-																	"originalRequest": {
-																		"method": "GET",
-																		"header": [],
-																		"url": {
-																			"raw": "{{baseUrl}}/organizations/:organizationId/wireless/devices/channelUtilization/byDevice?networkIds=<string>,<string>&serials=<string>,<string>&perPage=<integer>&startingAfter=<string>&endingBefore=<string>&t0=<string>&t1=<string>&timespan=<float>&interval=<integer>",
-																			"host": [
-																				"{{baseUrl}}"
-																			],
-																			"path": [
-																				"organizations",
-																				":organizationId",
-																				"wireless",
-																				"devices",
-																				"channelUtilization",
-																				"byDevice"
-																			],
-																			"query": [
-																				{
-																					"key": "networkIds",
-																					"value": "<string>,<string>"
-																				},
-																				{
-																					"key": "serials",
-																					"value": "<string>,<string>"
-																				},
-																				{
-																					"key": "perPage",
-																					"value": "<integer>"
-																				},
-																				{
-																					"key": "startingAfter",
-																					"value": "<string>"
-																				},
-																				{
-																					"key": "endingBefore",
-																					"value": "<string>"
-																				},
-																				{
-																					"key": "t0",
-																					"value": "<string>"
-																				},
-																				{
-																					"key": "t1",
-																					"value": "<string>"
-																				},
-																				{
-																					"key": "timespan",
-																					"value": "<float>"
-																				},
-																				{
-																					"key": "interval",
-																					"value": "<integer>"
-																				}
-																			],
-																			"variable": [
-																				{
-																					"key": "organizationId"
-																				}
-																			]
-																		}
-																	},
-																	"status": "OK",
-																	"code": 200,
-																	"_postman_previewlanguage": "json",
-																	"header": [
-																		{
-																			"key": "Link",
-																			"value": "<string>",
-																			"description": "A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests."
-																		},
-																		{
-																			"key": "Content-Type",
-																			"value": "application/json"
-																		}
-																	],
-																	"cookie": [],
-																	"responseTime": null,
-																	"body": "[\n {\n  \"serial\": \"Q234-ABCD-5678\",\n  \"mac\": \"00:11:22:33:44:55\",\n  \"byBand\": [\n   {\n    \"band\": 5,\n    \"wifi\": {\n     \"percentage\": 33.84\n    },\n    \"nonWifi\": {\n     \"percentage\": 1.84\n    },\n    \"total\": {\n     \"percentage\": 32\n    }\n   }\n  ]\n }\n]"
-																}
-															]
-														}
-													],
-													"id": "cfe7e2c9-100e-4a5c-b2cb-2a5b6b7c8fd4"
-												},
-												{
-													"name": "By Network",
-													"item": [
-														{
-															"name": "Get average channel utilization across all bands for all networks in the organization",
-															"id": "f5909d6f-31d5-4d9d-8779-a6b764d7eb9e",
-															"protocolProfileBehavior": {
-																"followAuthorizationHeader": true
-															},
-															"request": {
-																"method": "GET",
-																"header": [
-																	{
-																		"key": "X-Cisco-Meraki-API-Key",
-																		"value": ""
-																	}
-																],
-																"url": {
-																	"raw": "{{baseUrl}}/organizations/:organizationId/wireless/devices/channelUtilization/byNetwork",
-																	"host": [
-																		"{{baseUrl}}"
-																	],
-																	"path": [
-																		"organizations",
-																		":organizationId",
-																		"wireless",
-																		"devices",
-																		"channelUtilization",
-																		"byNetwork"
-																	],
-																	"query": [
-																		{
-																			"description": "Filter results by network.",
-																			"key": "networkIds",
-																			"value": "{{networkIds}}",
-																			"disabled": true
-																		},
-																		{
-																			"description": "Filter results by device.",
-																			"key": "serials",
-																			"value": "{{serials}}",
-																			"disabled": true
-																		},
-																		{
-																			"description": "The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000.",
-																			"key": "perPage",
-																			"value": "{{perPage}}",
-																			"disabled": true
-																		},
-																		{
-																			"description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.",
-																			"key": "startingAfter",
-																			"value": "{{startingAfter}}",
-																			"disabled": true
-																		},
-																		{
-																			"description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.",
-																			"key": "endingBefore",
-																			"value": "{{endingBefore}}",
-																			"disabled": true
-																		},
-																		{
-																			"description": "The beginning of the timespan for the data. The maximum lookback period is 90 days from today.",
-																			"key": "t0",
-																			"value": "{{t0}}",
-																			"disabled": true
-																		},
-																		{
-																			"description": "The end of the timespan for the data. t1 can be a maximum of 90 days after t0.",
-																			"key": "t1",
-																			"value": "{{t1}}",
-																			"disabled": true
-																		},
-																		{
-																			"description": "The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 90 days. The default is 7 days.",
-																			"key": "timespan",
-																			"value": "{{timespan}}",
-																			"disabled": true
-																		},
-																		{
-																			"description": "The time interval in seconds for returned data. The valid intervals are: 300, 600, 3600, 7200, 14400, 21600. The default is 3600.",
-																			"key": "interval",
-																			"value": "{{interval}}",
-																			"disabled": true
-																		}
-																	],
-																	"variable": [
-																		{
-																			"id": "bfeb3536-9c51-4950-a6f0-271eec888f2f",
-																			"key": "organizationId",
-																			"value": "{{organizationId}}",
-																			"description": "(Required) "
-																		}
-																	]
-																},
-																"description": "Get average channel utilization across all bands for all networks in the organization"
-															},
-															"response": [
-																{
-																	"id": "67dad8b2-2049-41c3-92c9-848e17044f46",
-																	"name": "Successful operation",
-																	"originalRequest": {
-																		"method": "GET",
-																		"header": [],
-																		"url": {
-																			"raw": "{{baseUrl}}/organizations/:organizationId/wireless/devices/channelUtilization/byNetwork?networkIds=<string>,<string>&serials=<string>,<string>&perPage=<integer>&startingAfter=<string>&endingBefore=<string>&t0=<string>&t1=<string>&timespan=<float>&interval=<integer>",
-																			"host": [
-																				"{{baseUrl}}"
-																			],
-																			"path": [
-																				"organizations",
-																				":organizationId",
-																				"wireless",
-																				"devices",
-																				"channelUtilization",
-																				"byNetwork"
-																			],
-																			"query": [
-																				{
-																					"key": "networkIds",
-																					"value": "<string>,<string>"
-																				},
-																				{
-																					"key": "serials",
-																					"value": "<string>,<string>"
-																				},
-																				{
-																					"key": "perPage",
-																					"value": "<integer>"
-																				},
-																				{
-																					"key": "startingAfter",
-																					"value": "<string>"
-																				},
-																				{
-																					"key": "endingBefore",
-																					"value": "<string>"
-																				},
-																				{
-																					"key": "t0",
-																					"value": "<string>"
-																				},
-																				{
-																					"key": "t1",
-																					"value": "<string>"
-																				},
-																				{
-																					"key": "timespan",
-																					"value": "<float>"
-																				},
-																				{
-																					"key": "interval",
-																					"value": "<integer>"
-																				}
-																			],
-																			"variable": [
-																				{
-																					"key": "organizationId"
-																				}
-																			]
-																		}
-																	},
-																	"status": "OK",
-																	"code": 200,
-																	"_postman_previewlanguage": "json",
-																	"header": [
-																		{
-																			"key": "Link",
-																			"value": "<string>",
-																			"description": "A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests."
-																		},
-																		{
-																			"key": "Content-Type",
-																			"value": "application/json"
-																		}
-																	],
-																	"cookie": [],
-																	"responseTime": null,
-																	"body": "[\n {\n  \"network\": {\n   \"id\": \"N_24329156\"\n  },\n  \"byBand\": [\n   {\n    \"band\": 5,\n    \"wifi\": {\n     \"percentage\": 33.84\n    },\n    \"nonWifi\": {\n     \"percentage\": 1.84\n    },\n    \"total\": {\n     \"percentage\": 32\n    }\n   }\n  ]\n }\n]"
-																}
-															]
-														}
-													],
-													"id": "3b6d93b1-f306-43a8-812b-5888759175d0"
-												},
-												{
-													"name": "History",
-													"item": [
-														{
-															"name": "By Device",
-															"item": [
-																{
-																	"name": "byInterval",
-																	"item": [
-																		{
-																			"name": "Get a time-series of average channel utilization for all bands, segmented by device.",
-																			"id": "f04dc10f-ecf5-4b00-acd5-b180277ba426",
-																			"protocolProfileBehavior": {
-																				"followAuthorizationHeader": true
-																			},
-																			"request": {
-																				"method": "GET",
-																				"header": [
-																					{
-																						"key": "X-Cisco-Meraki-API-Key",
-																						"value": ""
-																					}
-																				],
-																				"url": {
-																					"raw": "{{baseUrl}}/organizations/:organizationId/wireless/devices/channelUtilization/history/byDevice/byInterval",
-																					"host": [
-																						"{{baseUrl}}"
-																					],
-																					"path": [
-																						"organizations",
-																						":organizationId",
-																						"wireless",
-																						"devices",
-																						"channelUtilization",
-																						"history",
-																						"byDevice",
-																						"byInterval"
-																					],
-																					"query": [
-																						{
-																							"description": "Filter results by network.",
-																							"key": "networkIds",
-																							"value": "{{networkIds}}",
-																							"disabled": true
-																						},
-																						{
-																							"description": "Filter results by device.",
-																							"key": "serials",
-																							"value": "{{serials}}",
-																							"disabled": true
-																						},
-																						{
-																							"description": "The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000.",
-																							"key": "perPage",
-																							"value": "{{perPage}}",
-																							"disabled": true
-																						},
-																						{
-																							"description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.",
-																							"key": "startingAfter",
-																							"value": "{{startingAfter}}",
-																							"disabled": true
-																						},
-																						{
-																							"description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.",
-																							"key": "endingBefore",
-																							"value": "{{endingBefore}}",
-																							"disabled": true
-																						},
-																						{
-																							"description": "The beginning of the timespan for the data. The maximum lookback period is 31 days from today.",
-																							"key": "t0",
-																							"value": "{{t0}}",
-																							"disabled": true
-																						},
-																						{
-																							"description": "The end of the timespan for the data. t1 can be a maximum of 31 days after t0.",
-																							"key": "t1",
-																							"value": "{{t1}}",
-																							"disabled": true
-																						},
-																						{
-																							"description": "The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 7 days.",
-																							"key": "timespan",
-																							"value": "{{timespan}}",
-																							"disabled": true
-																						},
-																						{
-																							"description": "The time interval in seconds for returned data. The valid intervals are: 300, 600, 3600, 7200, 14400, 21600. The default is 3600.",
-																							"key": "interval",
-																							"value": "{{interval}}",
-																							"disabled": true
-																						}
-																					],
-																					"variable": [
-																						{
-																							"id": "576a7f2e-922f-45bb-ac41-16bc65e4b9a4",
-																							"key": "organizationId",
-																							"value": "{{organizationId}}",
-																							"description": "(Required) "
-																						}
-																					]
-																				},
-																				"description": "Get a time-series of average channel utilization for all bands, segmented by device."
-																			},
-																			"response": [
-																				{
-																					"id": "8878d4bf-9476-4634-a12a-56aa59a4c4e4",
-																					"name": "Successful operation",
-																					"originalRequest": {
-																						"method": "GET",
-																						"header": [],
-																						"url": {
-																							"raw": "{{baseUrl}}/organizations/:organizationId/wireless/devices/channelUtilization/history/byDevice/byInterval?networkIds=<string>,<string>&serials=<string>,<string>&perPage=<integer>&startingAfter=<string>&endingBefore=<string>&t0=<string>&t1=<string>&timespan=<float>&interval=<integer>",
-																							"host": [
-																								"{{baseUrl}}"
-																							],
-																							"path": [
-																								"organizations",
-																								":organizationId",
-																								"wireless",
-																								"devices",
-																								"channelUtilization",
-																								"history",
-																								"byDevice",
-																								"byInterval"
-																							],
-																							"query": [
-																								{
-																									"key": "networkIds",
-																									"value": "<string>,<string>"
-																								},
-																								{
-																									"key": "serials",
-																									"value": "<string>,<string>"
-																								},
-																								{
-																									"key": "perPage",
-																									"value": "<integer>"
-																								},
-																								{
-																									"key": "startingAfter",
-																									"value": "<string>"
-																								},
-																								{
-																									"key": "endingBefore",
-																									"value": "<string>"
-																								},
-																								{
-																									"key": "t0",
-																									"value": "<string>"
-																								},
-																								{
-																									"key": "t1",
-																									"value": "<string>"
-																								},
-																								{
-																									"key": "timespan",
-																									"value": "<float>"
-																								},
-																								{
-																									"key": "interval",
-																									"value": "<integer>"
-																								}
-																							],
-																							"variable": [
-																								{
-																									"key": "organizationId"
-																								}
-																							]
-																						}
-																					},
-																					"status": "OK",
-																					"code": 200,
-																					"_postman_previewlanguage": "json",
-																					"header": [
-																						{
-																							"key": "Link",
-																							"value": "<string>",
-																							"description": "A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests."
-																						},
-																						{
-																							"key": "Content-Type",
-																							"value": "application/json"
-																						}
-																					],
-																					"cookie": [],
-																					"responseTime": null,
-																					"body": "[\n {\n  \"startTs\": \"2018-02-11T00:00:00Z\",\n  \"endTs\": \"2018-05-12T00:00:00Z\",\n  \"serial\": \"Q234-ABCD-5678\",\n  \"mac\": \"00:11:22:33:44:55\",\n  \"byBand\": [\n   {\n    \"band\": 5,\n    \"wifi\": {\n     \"percentage\": 33.84\n    },\n    \"nonWifi\": {\n     \"percentage\": 1.84\n    },\n    \"total\": {\n     \"percentage\": 32\n    }\n   }\n  ]\n }\n]"
-																				}
-																			]
-																		}
-																	],
-																	"id": "33ab0c8e-0232-4b03-96b5-ba75403fa8f3"
-																}
-															],
-															"id": "25abe722-41a4-4fdf-a362-eb2fd5876096"
-														},
-														{
-															"name": "By Network",
-															"item": [
-																{
-																	"name": "byInterval",
-																	"item": [
-																		{
-																			"name": "Get a time-series of average channel utilization for all bands",
-																			"id": "1990a4e5-8fcc-43ad-8a3b-4d10de170912",
-																			"protocolProfileBehavior": {
-																				"followAuthorizationHeader": true
-																			},
-																			"request": {
-																				"method": "GET",
-																				"header": [
-																					{
-																						"key": "X-Cisco-Meraki-API-Key",
-																						"value": ""
-																					}
-																				],
-																				"url": {
-																					"raw": "{{baseUrl}}/organizations/:organizationId/wireless/devices/channelUtilization/history/byNetwork/byInterval",
-																					"host": [
-																						"{{baseUrl}}"
-																					],
-																					"path": [
-																						"organizations",
-																						":organizationId",
-																						"wireless",
-																						"devices",
-																						"channelUtilization",
-																						"history",
-																						"byNetwork",
-																						"byInterval"
-																					],
-																					"query": [
-																						{
-																							"description": "Filter results by network.",
-																							"key": "networkIds",
-																							"value": "{{networkIds}}",
-																							"disabled": true
-																						},
-																						{
-																							"description": "Filter results by device.",
-																							"key": "serials",
-																							"value": "{{serials}}",
-																							"disabled": true
-																						},
-																						{
-																							"description": "The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000.",
-																							"key": "perPage",
-																							"value": "{{perPage}}",
-																							"disabled": true
-																						},
-																						{
-																							"description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.",
-																							"key": "startingAfter",
-																							"value": "{{startingAfter}}",
-																							"disabled": true
-																						},
-																						{
-																							"description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.",
-																							"key": "endingBefore",
-																							"value": "{{endingBefore}}",
-																							"disabled": true
-																						},
-																						{
-																							"description": "The beginning of the timespan for the data. The maximum lookback period is 31 days from today.",
-																							"key": "t0",
-																							"value": "{{t0}}",
-																							"disabled": true
-																						},
-																						{
-																							"description": "The end of the timespan for the data. t1 can be a maximum of 31 days after t0.",
-																							"key": "t1",
-																							"value": "{{t1}}",
-																							"disabled": true
-																						},
-																						{
-																							"description": "The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 7 days.",
-																							"key": "timespan",
-																							"value": "{{timespan}}",
-																							"disabled": true
-																						},
-																						{
-																							"description": "The time interval in seconds for returned data. The valid intervals are: 300, 600, 3600, 7200, 14400, 21600. The default is 3600.",
-																							"key": "interval",
-																							"value": "{{interval}}",
-																							"disabled": true
-																						}
-																					],
-																					"variable": [
-																						{
-																							"id": "024a3bd1-7bde-4c5c-80cd-99ed1711a352",
-																							"key": "organizationId",
-																							"value": "{{organizationId}}",
-																							"description": "(Required) "
-																						}
-																					]
-																				},
-																				"description": "Get a time-series of average channel utilization for all bands"
-																			},
-																			"response": [
-																				{
-																					"id": "2134b770-5a92-44a3-be6c-adb4485133ab",
-																					"name": "Successful operation",
-																					"originalRequest": {
-																						"method": "GET",
-																						"header": [],
-																						"url": {
-																							"raw": "{{baseUrl}}/organizations/:organizationId/wireless/devices/channelUtilization/history/byNetwork/byInterval?networkIds=<string>,<string>&serials=<string>,<string>&perPage=<integer>&startingAfter=<string>&endingBefore=<string>&t0=<string>&t1=<string>&timespan=<float>&interval=<integer>",
-																							"host": [
-																								"{{baseUrl}}"
-																							],
-																							"path": [
-																								"organizations",
-																								":organizationId",
-																								"wireless",
-																								"devices",
-																								"channelUtilization",
-																								"history",
-																								"byNetwork",
-																								"byInterval"
-																							],
-																							"query": [
-																								{
-																									"key": "networkIds",
-																									"value": "<string>,<string>"
-																								},
-																								{
-																									"key": "serials",
-																									"value": "<string>,<string>"
-																								},
-																								{
-																									"key": "perPage",
-																									"value": "<integer>"
-																								},
-																								{
-																									"key": "startingAfter",
-																									"value": "<string>"
-																								},
-																								{
-																									"key": "endingBefore",
-																									"value": "<string>"
-																								},
-																								{
-																									"key": "t0",
-																									"value": "<string>"
-																								},
-																								{
-																									"key": "t1",
-																									"value": "<string>"
-																								},
-																								{
-																									"key": "timespan",
-																									"value": "<float>"
-																								},
-																								{
-																									"key": "interval",
-																									"value": "<integer>"
-																								}
-																							],
-																							"variable": [
-																								{
-																									"key": "organizationId"
-																								}
-																							]
-																						}
-																					},
-																					"status": "OK",
-																					"code": 200,
-																					"_postman_previewlanguage": "json",
-																					"header": [
-																						{
-																							"key": "Link",
-																							"value": "<string>",
-																							"description": "A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests."
-																						},
-																						{
-																							"key": "Content-Type",
-																							"value": "application/json"
-																						}
-																					],
-																					"cookie": [],
-																					"responseTime": null,
-																					"body": "[\n {\n  \"startTs\": \"2018-02-11T00:00:00Z\",\n  \"endTs\": \"2018-05-12T00:00:00Z\",\n  \"network\": {\n   \"id\": \"N_24329156\"\n  },\n  \"byBand\": [\n   {\n    \"band\": 5,\n    \"wifi\": {\n     \"percentage\": 33.84\n    },\n    \"nonWifi\": {\n     \"percentage\": 1.84\n    },\n    \"total\": {\n     \"percentage\": 32\n    }\n   }\n  ]\n }\n]"
-																				}
-																			]
-																		}
-																	],
-																	"id": "5e61abbb-c768-4a60-9ac3-f4d602abaf6d"
-																}
-															],
-															"id": "8fbf7904-f669-428a-9dbb-b2bb84cb4bce"
-														}
-													],
-													"id": "846fa646-175a-400d-ad3b-ff651b50ee87"
-												}
-											],
-											"id": "1fb26f83-26bf-44e0-8137-c9bede34eaf1"
-										}
-									],
-									"id": "16030026-92ff-4d76-825f-0c28859b103a"
-								}
-							],
-							"id": "b98dde75-1ec9-43de-bc47-5f3c64c0dc38"
-						}
-					],
-					"id": "c661cf50-c6a9-40a6-b038-d267c27ec7b4"
+					"id": "5844bc84-6cf4-41c1-b8e6-08214325bb0b"
 				},
 				{
 					"name": "Appliance",
@@ -1884,7 +1638,7 @@
 													"item": [
 														{
 															"name": "Get the sent and received bytes for each uplink of all wired networks within an organization",
-															"id": "70d1fb92-7558-47ed-894a-6fa9262ebc64",
+															"id": "7a1adc8c-4c49-4d9a-9175-c446e4d7d2df",
 															"protocolProfileBehavior": {
 																"followAuthorizationHeader": true
 															},
@@ -1931,7 +1685,7 @@
 																	],
 																	"variable": [
 																		{
-																			"id": "22833ca9-974b-45bc-a1f6-c79cf92791bb",
+																			"id": "65ab3bfa-526c-4426-93e0-ac0324d227da",
 																			"key": "organizationId",
 																			"value": "{{organizationId}}",
 																			"description": "(Required) "
@@ -1942,7 +1696,7 @@
 															},
 															"response": [
 																{
-																	"id": "0ea1195b-26cb-48e0-9cb8-6d20b37d139a",
+																	"id": "7bc6f4ec-247c-44c5-aae7-d881b0f2ac99",
 																	"name": "Successful operation",
 																	"originalRequest": {
 																		"method": "GET",
@@ -1997,22 +1751,22 @@
 															]
 														}
 													],
-													"id": "897d3fd4-f7cf-4a40-91ef-34009986b89f"
+													"id": "fdabafd8-2e33-4d2c-9bc2-9ac7871ed0b5"
 												}
 											],
-											"id": "7b6d1536-9991-47d0-80c1-84482612e491"
+											"id": "4b91f135-d167-4426-be3a-ba63df680408"
 										}
 									],
-									"id": "7da087a3-7257-4acd-a907-42d0f9acce8e"
+									"id": "ec385b15-03b1-494a-9d7f-0db906bf3044"
 								}
 							],
-							"id": "f9e98f28-66b2-466a-ad92-530a347ae51e"
+							"id": "4ea8e5ca-f81b-4ddd-8a91-f7e22943ba2d"
 						}
 					],
-					"id": "78e8bfec-f139-4534-8aeb-56e359314a9f"
+					"id": "c7eaf9db-4ce0-492b-a122-ec7a7fa60fbf"
 				}
 			],
-			"id": "a8b4cd0d-091c-47b8-98d2-348803c9b6c2"
+			"id": "588d9e83-b5b8-4096-ae14-9767ff57fcf1"
 		},
 		{
 			"name": "GENERAL",
@@ -2031,7 +1785,7 @@
 											"item": [
 												{
 													"name": "Return List Of Scanning API Receivers",
-													"id": "b667b1fa-d768-4797-8b55-3b9b3e8a65b7",
+													"id": "06deb0b7-40dc-4865-9638-0500a1d20780",
 													"protocolProfileBehavior": {
 														"followAuthorizationHeader": true
 													},
@@ -2056,7 +1810,7 @@
 															],
 															"variable": [
 																{
-																	"id": "43c9cbd4-8c7f-44d9-b695-c88331ac341e",
+																	"id": "3d7a60bd-ed25-4d65-a798-336f54c96049",
 																	"key": "networkId",
 																	"value": "{{networkId}}",
 																	"description": "(Required) "
@@ -2067,7 +1821,7 @@
 													},
 													"response": [
 														{
-															"id": "5bb6dbf0-6d2d-4e99-941d-04e8ded078b4",
+															"id": "73744024-e75d-4acc-89d6-c3bc81e06e6b",
 															"name": "Successful operation",
 															"originalRequest": {
 																"method": "GET",
@@ -2107,7 +1861,7 @@
 												},
 												{
 													"name": "Set The List Of Scanning API Receivers",
-													"id": "85a58a52-cfa7-47e3-a12b-76ef1b781b65",
+													"id": "1e185942-f672-4f97-ac03-b86224f3e4bd",
 													"protocolProfileBehavior": {
 														"followAuthorizationHeader": true
 													},
@@ -2140,7 +1894,7 @@
 															],
 															"variable": [
 																{
-																	"id": "bbb4845c-787c-4bf6-bf00-ce93aba88602",
+																	"id": "c0018a5d-1347-4076-8a57-bbdf8486522d",
 																	"key": "networkId",
 																	"value": "{{networkId}}",
 																	"description": "(Required) "
@@ -2151,7 +1905,7 @@
 													},
 													"response": [
 														{
-															"id": "81ac5128-f5a6-4caf-88d5-f4884726a3b1",
+															"id": "d0b71e92-e70e-43e8-a7c0-a7a0983fce19",
 															"name": "Successful operation",
 															"originalRequest": {
 																"method": "PUT",
@@ -2194,11 +1948,11 @@
 													]
 												}
 											],
-											"id": "aa345cae-84e3-48b0-bd94-08e1d88d9509"
+											"id": "19eb88e3-8c15-4f3a-bfd5-226a3f06e84b"
 										},
 										{
 											"name": "Change Scanning API Settings",
-											"id": "25bb14cc-5de9-4a51-b8b8-5f64ceae8f6c",
+											"id": "6b1ec6e8-9ac4-47cb-bcfa-587cb63e821f",
 											"protocolProfileBehavior": {
 												"followAuthorizationHeader": true
 											},
@@ -2230,7 +1984,7 @@
 													],
 													"variable": [
 														{
-															"id": "b8f0c1da-51b8-4583-8381-fb1b05689123",
+															"id": "7765b540-ae1c-4e53-ada3-b3f56834a5c6",
 															"key": "networkId",
 															"value": "{{networkId}}",
 															"description": "(Required) "
@@ -2241,7 +1995,7 @@
 											},
 											"response": [
 												{
-													"id": "34c7cd32-343e-4565-8c76-5c1f1cb7c50d",
+													"id": "b8fa84c1-490c-4e65-b6b9-cac6fbe17d46",
 													"name": "Successful operation",
 													"originalRequest": {
 														"method": "PUT",
@@ -2284,7 +2038,7 @@
 										},
 										{
 											"name": "Return Scanning API Settings",
-											"id": "65dbc097-91e4-43e0-ad9d-92821bd1d4ff",
+											"id": "69fab216-d0c3-4aec-93de-f2b8bf183cad",
 											"protocolProfileBehavior": {
 												"followAuthorizationHeader": true
 											},
@@ -2308,7 +2062,7 @@
 													],
 													"variable": [
 														{
-															"id": "acc40b9a-de79-4373-b7e8-34c10c186db9",
+															"id": "ddc3ce25-8af4-4813-9c0b-b2ec9623e57f",
 															"key": "networkId",
 															"value": "{{networkId}}",
 															"description": "(Required) "
@@ -2319,7 +2073,7 @@
 											},
 											"response": [
 												{
-													"id": "a43992f0-0c04-4aed-982a-76e95cd8628c",
+													"id": "1c80387d-3035-4abc-8ec1-be958e210ad5",
 													"name": "Successful operation",
 													"originalRequest": {
 														"method": "GET",
@@ -2357,13 +2111,13 @@
 											]
 										}
 									],
-									"id": "91ec0d53-e938-46c5-a876-8cfd2e24fdbf"
+									"id": "2205594e-ac02-4380-a936-7d41c2a895ba"
 								}
 							],
-							"id": "88d7f186-0eb5-45e9-b9ba-2a89f384b1c3"
+							"id": "440fa1ec-4320-42e8-bcf4-9169c07423fb"
 						}
 					],
-					"id": "5d603beb-fe89-47bd-8f17-997f7c8a09e7"
+					"id": "9e2cd9a2-6b02-46c2-92e8-33e0368e170e"
 				},
 				{
 					"name": "Organizations",
@@ -2379,7 +2133,7 @@
 											"item": [
 												{
 													"name": "Add An HTTP Server To An Organization",
-													"id": "04373714-6068-4114-a3f3-c75059545ba2",
+													"id": "66e94968-be7b-4e16-88ca-fda7ddbd7535",
 													"protocolProfileBehavior": {
 														"followAuthorizationHeader": true
 													},
@@ -2412,7 +2166,7 @@
 															],
 															"variable": [
 																{
-																	"id": "d6cbd79f-ab9a-4ff0-b96a-b05fb9cb8397",
+																	"id": "abe2f40a-bbc1-49be-9eca-ee943efefc24",
 																	"key": "organizationId",
 																	"value": "{{organizationId}}",
 																	"description": "(Required) "
@@ -2423,7 +2177,7 @@
 													},
 													"response": [
 														{
-															"id": "03b2758e-22bd-4851-92df-8027ae712b54",
+															"id": "de67368e-dbc2-4b12-ac78-9d55045c82de",
 															"name": "Successful operation",
 															"originalRequest": {
 																"method": "POST",
@@ -2467,7 +2221,7 @@
 												},
 												{
 													"name": "Delete An HTTP Server From An Organization",
-													"id": "5c187607-c29a-4c11-9ef5-505ffa298a8c",
+													"id": "37c37831-924c-403f-b94a-40e3c05238dd",
 													"protocolProfileBehavior": {
 														"followAuthorizationHeader": true
 													},
@@ -2493,13 +2247,13 @@
 															],
 															"variable": [
 																{
-																	"id": "6532807b-7ad9-4328-86c5-eae25cd24f6d",
+																	"id": "f15fbb4f-8dbd-491e-8829-688d24fcedef",
 																	"key": "organizationId",
 																	"value": "{{organizationId}}",
 																	"description": "(Required) "
 																},
 																{
-																	"id": "b4dde9ca-9403-4ef0-bb2d-1f594687eee3",
+																	"id": "804d9b51-002d-4882-9841-b09d78720725",
 																	"key": "id",
 																	"value": "",
 																	"description": "(Required) "
@@ -2510,7 +2264,7 @@
 													},
 													"response": [
 														{
-															"id": "aa94184e-4dc0-4b4c-8f76-5694ae6b4dc6",
+															"id": "8c6390aa-07c8-4a0d-9cf0-f8984d3ff8fb",
 															"name": "Successful operation",
 															"originalRequest": {
 																"method": "DELETE",
@@ -2554,7 +2308,7 @@
 												},
 												{
 													"name": "List The HTTP Servers For This Organization",
-													"id": "a7171d2e-b90b-4446-b2b6-c9cc9c37ffec",
+													"id": "47cbcfbc-99a1-44ab-bc30-d72c22ad6393",
 													"protocolProfileBehavior": {
 														"followAuthorizationHeader": true
 													},
@@ -2579,7 +2333,7 @@
 															],
 															"variable": [
 																{
-																	"id": "98184e7c-06bf-44c0-8be2-93dfb52ad85a",
+																	"id": "54a378c3-b04f-4209-bf59-16d7d814bf30",
 																	"key": "organizationId",
 																	"value": "{{organizationId}}",
 																	"description": "(Required) "
@@ -2590,7 +2344,7 @@
 													},
 													"response": [
 														{
-															"id": "5a27754f-68d8-425d-97ef-70c4cafd2a65",
+															"id": "06b0dd5e-1962-48c2-9859-c94165bde072",
 															"name": "Successful operation",
 															"originalRequest": {
 																"method": "GET",
@@ -2630,7 +2384,7 @@
 												},
 												{
 													"name": "Return An HTTP Server For An Organization",
-													"id": "b8f97678-9b44-4b9a-ac6e-be12714c22f0",
+													"id": "fdf7f6d6-1563-444f-a236-ab8ac122baa5",
 													"protocolProfileBehavior": {
 														"followAuthorizationHeader": true
 													},
@@ -2656,13 +2410,13 @@
 															],
 															"variable": [
 																{
-																	"id": "8be79633-845e-4606-84f4-924d3f413844",
+																	"id": "7e62bc16-e2cd-4af5-955f-be8c51b5abe3",
 																	"key": "organizationId",
 																	"value": "{{organizationId}}",
 																	"description": "(Required) "
 																},
 																{
-																	"id": "81ccf4e8-6532-40d3-891a-d5d7dfa845db",
+																	"id": "1e641873-202c-49b6-aaaf-bcee49feddf9",
 																	"key": "id",
 																	"value": "",
 																	"description": "(Required) "
@@ -2673,7 +2427,7 @@
 													},
 													"response": [
 														{
-															"id": "52231ec9-2950-4e6d-83e8-6446728d0bba",
+															"id": "e2015227-cc49-482a-be29-03ebf4521a16",
 															"name": "Successful operation",
 															"originalRequest": {
 																"method": "GET",
@@ -2717,7 +2471,7 @@
 												},
 												{
 													"name": "Update An HTTP Server For An Organization",
-													"id": "cda506ef-9bb7-45c8-a169-99f27b967cc4",
+													"id": "4f22f526-cbb5-455d-a326-f88b0ad64036",
 													"protocolProfileBehavior": {
 														"followAuthorizationHeader": true
 													},
@@ -2751,13 +2505,13 @@
 															],
 															"variable": [
 																{
-																	"id": "3d3b8e6e-5230-4f7f-b71c-138344729338",
+																	"id": "abf6ae58-9bfe-4292-a6dc-866308fd82a3",
 																	"key": "organizationId",
 																	"value": "{{organizationId}}",
 																	"description": "(Required) "
 																},
 																{
-																	"id": "7096d07e-a4b3-47cf-9cbe-ff6401a689e5",
+																	"id": "d75d0fbb-0f29-46d6-9f54-fd40450a2020",
 																	"key": "id",
 																	"value": "",
 																	"description": "(Required) "
@@ -2768,7 +2522,7 @@
 													},
 													"response": [
 														{
-															"id": "6f73662b-bb47-4d6f-899b-9cacd3b8cc49",
+															"id": "9ee5d024-cacb-4fe1-9ce9-064ace2da3f3",
 															"name": "Successful operation",
 															"originalRequest": {
 																"method": "PUT",
@@ -2815,14 +2569,14 @@
 													]
 												}
 											],
-											"id": "406f0803-0dff-437e-80e7-1f26f8ab1017"
+											"id": "651cf57a-04ce-46b1-9f96-ee3643813740"
 										},
 										{
 											"name": "Payload Templates",
 											"item": [
 												{
 													"name": "Create A Webhook Payload Template For An Organization",
-													"id": "8f3f81cf-ea9d-4846-b00a-96f79fe08801",
+													"id": "84694010-6292-43c8-b4a6-ef88b4d03e0d",
 													"protocolProfileBehavior": {
 														"followAuthorizationHeader": true
 													},
@@ -2840,7 +2594,7 @@
 														],
 														"body": {
 															"mode": "raw",
-															"raw": "{\n    \"name\": \"<string>\",\n    \"body\": \"<string>\",\n    \"headers\": [\n        {\n            \"name\": \"<string>\",\n            \"template\": \"<string>\"\n        },\n        {\n            \"name\": \"<string>\",\n            \"template\": \"<string>\"\n        }\n    ],\n    \"bodyFile\": \"<byte>\",\n    \"headersFile\": \"<byte>\",\n    \"allNetworks\": \"<boolean>\",\n    \"allowNetworkModify\": \"<boolean>\"\n}"
+															"raw": "{\n    \"name\": \"<string>\",\n    \"body\": \"<string>\",\n    \"headers\": [\n        {\n            \"name\": \"<string>\",\n            \"template\": \"<string>\"\n        },\n        {\n            \"name\": \"<string>\",\n            \"template\": \"<string>\"\n        }\n    ],\n    \"bodyFile\": \"<byte>\",\n    \"headersFile\": \"<byte>\",\n    \"allNetworks\": \"<boolean>\",\n    \"allowNetworkModify\": \"<boolean>\",\n    \"allowedNetworks\": [\n        \"<string>\",\n        \"<string>\"\n    ]\n}"
 														},
 														"url": {
 															"raw": "{{baseUrl}}/organizations/:organizationId/webhooks/payloadTemplates",
@@ -2855,25 +2609,25 @@
 															],
 															"variable": [
 																{
-																	"id": "38d05d4b-b9c2-4f8c-9dba-96f12a69a114",
+																	"id": "e8d7860b-174d-40e3-8f1d-dfc032f53d33",
 																	"key": "organizationId",
 																	"value": "{{organizationId}}",
 																	"description": "(Required) "
 																}
 															]
 														},
-														"description": "Create a webhook payload template for an organization\n #### Body Parameters \n**Parameter**|**Type**|**Description** \n :-------------: |:-------------: |:-------------: \nname| string| The name of the new template\nbody| string| The liquid template used for the body of the webhook message. Either `body` or `bodyFile` must be specified.\nheaders| array| The liquid template used with the webhook headers.\nbodyFile| string| A file containing liquid template used for the body of the webhook message. Either `body` or `bodyFile` must be specified.\nheadersFile| string| A file containing the liquid template used with the webhook headers.\nallNetworks| boolean| Indicates whether all networks have access to this template. Defaults to false.\nallowNetworkModify| boolean| Indicates whether network admins may modify this template. Defaults to false.\n\n#### Supports Action Batches\n\n**Resource**|**Operation**\n:-------------: |:-------------:\n`/organizations/{organizationId}/webhooks/payloadTemplates` | create\n\n"
+														"description": "Create a webhook payload template for an organization\n #### Body Parameters \n**Parameter**|**Type**|**Description** \n :-------------: |:-------------: |:-------------: \nname| string| The name of the new template\nbody| string| The liquid template used for the body of the webhook message. Either `body` or `bodyFile` must be specified.\nheaders| array| The liquid template used with the webhook headers.\nbodyFile| string| A file containing liquid template used for the body of the webhook message. Either `body` or `bodyFile` must be specified.\nheadersFile| string| A file containing the liquid template used with the webhook headers.\nallNetworks| boolean| Indicates whether all networks have access to this template. Defaults to false.\nallowNetworkModify| boolean| Indicates whether network admins may modify this template. Defaults to false.\nallowedNetworks| array| List of network ids which will be allowed access to the new template.\n\n#### Supports Action Batches\n\n**Resource**|**Operation**\n:-------------: |:-------------:\n`/organizations/{organizationId}/webhooks/payloadTemplates` | create\n\n"
 													},
 													"response": [
 														{
-															"id": "feacaab1-cda8-4c62-91b2-563c8bc95928",
+															"id": "7cbaa558-d087-4f38-bd19-db983c0afdf7",
 															"name": "Successful operation",
 															"originalRequest": {
 																"method": "POST",
 																"header": [],
 																"body": {
 																	"mode": "raw",
-																	"raw": "{\n    \"name\": \"Weeb Hooks\",\n    \"body\": \"{\\\"event_type\\\":\\\"{{alertTypeId}}\\\",\\\"client_payload\\\":{\\\"text\\\":\\\"{{alertData}}\\\"}}\",\n    \"headers\": [\n        {\n            \"name\": \"Authorization\",\n            \"template\": \"Bearer {{sharedSecret}}\"\n        }\n    ],\n    \"bodyFile\": \"Qm9keSBGaWxl\",\n    \"headersFile\": \"SGVhZGVycyBGaWxl\",\n    \"allNetworks\": true,\n    \"allowNetworkModify\": true\n}"
+																	"raw": "{\n    \"name\": \"Weeb Hooks\",\n    \"body\": \"{\\\"event_type\\\":\\\"{{alertTypeId}}\\\",\\\"client_payload\\\":{\\\"text\\\":\\\"{{alertData}}\\\"}}\",\n    \"headers\": [\n        {\n            \"name\": \"Authorization\",\n            \"template\": \"Bearer {{sharedSecret}}\"\n        }\n    ],\n    \"bodyFile\": \"Qm9keSBGaWxl\",\n    \"headersFile\": \"SGVhZGVycyBGaWxl\",\n    \"allNetworks\": true,\n    \"allowNetworkModify\": true,\n    \"allowedNetworks\": [\n        \"N_1234\"\n    ]\n}"
 																},
 																"url": {
 																	"raw": "{{baseUrl}}/organizations/:organizationId/webhooks/payloadTemplates",
@@ -2910,7 +2664,7 @@
 												},
 												{
 													"name": "Destroy A Webhook Payload Template For An Organization",
-													"id": "23973778-4f72-492b-8476-b4b8bd63c56c",
+													"id": "662a5f66-2de7-42ff-9461-2e199531f835",
 													"protocolProfileBehavior": {
 														"followAuthorizationHeader": true
 													},
@@ -2936,13 +2690,13 @@
 															],
 															"variable": [
 																{
-																	"id": "c1d2c067-acba-48f9-b9ba-6d9224b8bcc7",
+																	"id": "4375e85f-69e5-49bb-9c14-0bdb585688f9",
 																	"key": "organizationId",
 																	"value": "{{organizationId}}",
 																	"description": "(Required) "
 																},
 																{
-																	"id": "2eeeb5f9-4743-419c-a229-76dec1bab8c7",
+																	"id": "220f9a63-b3c5-4f2e-9e4c-eb6ee769574d",
 																	"key": "payloadTemplateId",
 																	"value": "{{payloadTemplateId}}",
 																	"description": "(Required) "
@@ -2953,7 +2707,7 @@
 													},
 													"response": [
 														{
-															"id": "053e5c1d-93c6-445b-9042-b94f444b7ab2",
+															"id": "3f8ef24e-6b5a-472f-a312-194837e958f8",
 															"name": "Successful operation",
 															"originalRequest": {
 																"method": "DELETE",
@@ -2997,7 +2751,7 @@
 												},
 												{
 													"name": "Get The Webhook Payload Template For An Organization",
-													"id": "8f2126ef-6f83-4ad0-a93d-c183a4cc31c0",
+													"id": "e8b4a623-42c3-4c17-ba05-6e52f81aa7c4",
 													"protocolProfileBehavior": {
 														"followAuthorizationHeader": true
 													},
@@ -3023,13 +2777,13 @@
 															],
 															"variable": [
 																{
-																	"id": "d73acfd5-fcbf-417f-b744-69a5a26ec0ad",
+																	"id": "d3935eb0-93e7-46dc-90c2-bc80f8633cec",
 																	"key": "organizationId",
 																	"value": "{{organizationId}}",
 																	"description": "(Required) "
 																},
 																{
-																	"id": "9df17673-0552-4486-a9cb-5d0f8a9fef36",
+																	"id": "e4e3a56f-a0e3-4675-bb3e-a67665145bfc",
 																	"key": "payloadTemplateId",
 																	"value": "{{payloadTemplateId}}",
 																	"description": "(Required) "
@@ -3040,7 +2794,7 @@
 													},
 													"response": [
 														{
-															"id": "42c556c1-5db7-4899-9d74-cc30ee48d8b0",
+															"id": "c73bb5d5-3d76-427d-afda-03ed5c81ebdb",
 															"name": "Successful operation",
 															"originalRequest": {
 																"method": "GET",
@@ -3084,7 +2838,7 @@
 												},
 												{
 													"name": "List The Webhook Payload Templates For An Organization",
-													"id": "df6a11ed-46bf-464d-9c40-3ab4f66c57b2",
+													"id": "9cf6ddc5-7597-4c49-a4e2-0f0504bd8d88",
 													"protocolProfileBehavior": {
 														"followAuthorizationHeader": true
 													},
@@ -3109,7 +2863,7 @@
 															],
 															"variable": [
 																{
-																	"id": "c525410c-7f36-4a6e-83b9-29e658b30844",
+																	"id": "8c29e100-906e-4090-9c8b-1e918b5f3b8e",
 																	"key": "organizationId",
 																	"value": "{{organizationId}}",
 																	"description": "(Required) "
@@ -3120,7 +2874,7 @@
 													},
 													"response": [
 														{
-															"id": "1f7c77ad-3bdb-427e-9775-e180713a19b0",
+															"id": "1adb40c6-7627-4fcf-8ada-b67fd4d3894e",
 															"name": "Successful operation",
 															"originalRequest": {
 																"method": "GET",
@@ -3160,7 +2914,7 @@
 												},
 												{
 													"name": "Update A Webhook Payload Template For An Organization",
-													"id": "98f5807c-076b-4161-98c5-04bdbb27c09d",
+													"id": "e3562087-6e2c-4864-a0b2-b61cb470116b",
 													"protocolProfileBehavior": {
 														"followAuthorizationHeader": true
 													},
@@ -3178,7 +2932,7 @@
 														],
 														"body": {
 															"mode": "raw",
-															"raw": "{\n    \"name\": \"<string>\",\n    \"body\": \"<string>\",\n    \"headers\": [\n        {\n            \"name\": \"<string>\",\n            \"template\": \"<string>\"\n        },\n        {\n            \"name\": \"<string>\",\n            \"template\": \"<string>\"\n        }\n    ],\n    \"bodyFile\": \"<byte>\",\n    \"headersFile\": \"<byte>\",\n    \"allNetworks\": \"<boolean>\",\n    \"allowNetworkModify\": \"<boolean>\"\n}"
+															"raw": "{\n    \"name\": \"<string>\",\n    \"body\": \"<string>\",\n    \"headers\": [\n        {\n            \"name\": \"<string>\",\n            \"template\": \"<string>\"\n        },\n        {\n            \"name\": \"<string>\",\n            \"template\": \"<string>\"\n        }\n    ],\n    \"bodyFile\": \"<byte>\",\n    \"headersFile\": \"<byte>\",\n    \"allNetworks\": \"<boolean>\",\n    \"allowNetworkModify\": \"<boolean>\",\n    \"allowedNetworks\": [\n        \"<string>\",\n        \"<string>\"\n    ]\n}"
 														},
 														"url": {
 															"raw": "{{baseUrl}}/organizations/:organizationId/webhooks/payloadTemplates/:payloadTemplateId",
@@ -3194,31 +2948,31 @@
 															],
 															"variable": [
 																{
-																	"id": "74ab88d9-04a8-4a11-81f7-6e4e6a4e6c1d",
+																	"id": "c412642c-76b8-4dbb-ad24-1a4be61267ae",
 																	"key": "organizationId",
 																	"value": "{{organizationId}}",
 																	"description": "(Required) "
 																},
 																{
-																	"id": "aa0adf43-6e5a-4a6e-8f0f-d0ac10d01aa8",
+																	"id": "07ca15ad-b252-4e29-94bc-e5f8d312d94e",
 																	"key": "payloadTemplateId",
 																	"value": "{{payloadTemplateId}}",
 																	"description": "(Required) "
 																}
 															]
 														},
-														"description": "Update a webhook payload template for an organization\n #### Body Parameters \n**Parameter**|**Type**|**Description** \n :-------------: |:-------------: |:-------------: \nname| string| The name of the template\nbody| string| The liquid template used for the body of the webhook message.\nheaders| array| The liquid template used with the webhook headers.\nbodyFile| string| A file containing liquid template used for the body of the webhook message.\nheadersFile| string| A file containing the liquid template used with the webhook headers.\nallNetworks| boolean| Indicates whether all networks have access to this template. Defaults to false.\nallowNetworkModify| boolean| Indicates whether network admins may modify this template. Defaults to false.\n\n#### Supports Action Batches\n\n**Resource**|**Operation**\n:-------------: |:-------------:\n`/organizations/{organizationId}/webhooks/payloadTemplates/{payloadTemplateId}` | update\n\n"
+														"description": "Update a webhook payload template for an organization\n #### Body Parameters \n**Parameter**|**Type**|**Description** \n :-------------: |:-------------: |:-------------: \nname| string| The name of the template\nbody| string| The liquid template used for the body of the webhook message.\nheaders| array| The liquid template used with the webhook headers.\nbodyFile| string| A file containing liquid template used for the body of the webhook message.\nheadersFile| string| A file containing the liquid template used with the webhook headers.\nallNetworks| boolean| Indicates whether all networks have access to this template. Defaults to false.\nallowNetworkModify| boolean| Indicates whether network admins may modify this template. Defaults to false.\nallowedNetworks| array| List of network ids which will be allowed access to the new template.\n\n#### Supports Action Batches\n\n**Resource**|**Operation**\n:-------------: |:-------------:\n`/organizations/{organizationId}/webhooks/payloadTemplates/{payloadTemplateId}` | update\n\n"
 													},
 													"response": [
 														{
-															"id": "6d2618dc-12c3-4254-8430-93e2953343a3",
+															"id": "13f0ed7c-1ca4-4675-852b-418361690661",
 															"name": "Successful operation",
 															"originalRequest": {
 																"method": "PUT",
 																"header": [],
 																"body": {
 																	"mode": "raw",
-																	"raw": "{\n    \"name\": \"Weeb Hooks\",\n    \"body\": \"{\\\"event_type\\\":\\\"{{alertTypeId}}\\\",\\\"client_payload\\\":{\\\"text\\\":\\\"{{alertData}}\\\"}}\",\n    \"headers\": [\n        {\n            \"name\": \"Authorization\",\n            \"template\": \"Bearer {{sharedSecret}}\"\n        }\n    ],\n    \"bodyFile\": \"Qm9keSBGaWxl\",\n    \"headersFile\": \"SGVhZGVycyBGaWxl\",\n    \"allNetworks\": true,\n    \"allowNetworkModify\": true\n}"
+																	"raw": "{\n    \"name\": \"Weeb Hooks\",\n    \"body\": \"{\\\"event_type\\\":\\\"{{alertTypeId}}\\\",\\\"client_payload\\\":{\\\"text\\\":\\\"{{alertData}}\\\"}}\",\n    \"headers\": [\n        {\n            \"name\": \"Authorization\",\n            \"template\": \"Bearer {{sharedSecret}}\"\n        }\n    ],\n    \"bodyFile\": \"Qm9keSBGaWxl\",\n    \"headersFile\": \"SGVhZGVycyBGaWxl\",\n    \"allNetworks\": true,\n    \"allowNetworkModify\": true,\n    \"allowedNetworks\": [\n        \"N_1234\"\n    ]\n}"
 																},
 																"url": {
 																	"raw": "{{baseUrl}}/organizations/:organizationId/webhooks/payloadTemplates/:payloadTemplateId",
@@ -3258,14 +3012,14 @@
 													]
 												}
 											],
-											"id": "bc0c17d1-388d-48ab-9445-c20b0dc62c67"
+											"id": "9c7df402-88cd-4f92-a760-c0a53524854f"
 										},
 										{
 											"name": "Webhook Tests",
 											"item": [
 												{
 													"name": "Return The Status Of A Webhook Test For An Organization",
-													"id": "d77e328f-c416-4984-9f09-4abef9a682c3",
+													"id": "5e9221ff-9a87-4365-a717-94fd820d696c",
 													"protocolProfileBehavior": {
 														"followAuthorizationHeader": true
 													},
@@ -3291,13 +3045,13 @@
 															],
 															"variable": [
 																{
-																	"id": "01f36c1e-70e7-4e14-b70f-8b4a5ddf378d",
+																	"id": "d7a83798-cb98-4fda-8c9f-296f4912300a",
 																	"key": "organizationId",
 																	"value": "{{organizationId}}",
 																	"description": "(Required) "
 																},
 																{
-																	"id": "8c908252-13ca-4ada-8181-4a3e982c4695",
+																	"id": "83404fa1-f822-4bf1-b070-936e6ef6c3ec",
 																	"key": "webhookTestId",
 																	"value": "{{webhookTestId}}",
 																	"description": "(Required) "
@@ -3308,7 +3062,7 @@
 													},
 													"response": [
 														{
-															"id": "6cd7e99e-93ec-4d35-9bb9-f8973067a81a",
+															"id": "06acd9c8-4c4b-4f88-8e04-ce789cf6405c",
 															"name": "Successful operation",
 															"originalRequest": {
 																"method": "GET",
@@ -3352,7 +3106,7 @@
 												},
 												{
 													"name": "Send A Test Webhook For An Organization",
-													"id": "489607d5-72ea-436e-b815-74167e22d1b6",
+													"id": "c56552c1-c6ef-4ac0-9b4a-91ef86111d2c",
 													"protocolProfileBehavior": {
 														"followAuthorizationHeader": true
 													},
@@ -3385,7 +3139,7 @@
 															],
 															"variable": [
 																{
-																	"id": "27d96e7c-0363-4f64-adc7-45138b1436e7",
+																	"id": "a33112bd-1025-480b-8ea0-75fb3dcaf0a3",
 																	"key": "organizationId",
 																	"value": "{{organizationId}}",
 																	"description": "(Required) "
@@ -3396,7 +3150,7 @@
 													},
 													"response": [
 														{
-															"id": "f2b85cd1-860d-4f04-8fd9-42527d5b006d",
+															"id": "9690f473-5892-4506-ad85-c380f6238168",
 															"name": "Successful operation",
 															"originalRequest": {
 																"method": "POST",
@@ -3439,215 +3193,17 @@
 													]
 												}
 											],
-											"id": "7c666f09-9bd9-40a4-a0de-8fd0b060f675"
+											"id": "64e991dd-5009-4898-8709-b22aba0db39b"
 										}
 									],
-									"id": "c376344a-d73d-4078-94ba-e44da8d51f4c"
+									"id": "af23b109-2a79-40dd-af71-263bbc595bc0"
 								}
 							],
-							"id": "0c89b4e7-6abd-4383-a615-888ebd842015"
+							"id": "1868a96a-ce4d-4e4f-bed7-dc0366a59138"
 						},
 						{
 							"name": "Monitor",
 							"item": [
-								{
-									"name": "Api Requests",
-									"item": [
-										{
-											"name": "overview",
-											"item": [
-												{
-													"name": "responseCodes",
-													"item": [
-														{
-															"name": "byInterval",
-															"item": [
-																{
-																	"name": "Tracks organizations' API requests by response code across a given time period",
-																	"id": "7d17cda9-6650-4757-aced-28dfe98850d0",
-																	"protocolProfileBehavior": {
-																		"followAuthorizationHeader": true
-																	},
-																	"request": {
-																		"method": "GET",
-																		"header": [
-																			{
-																				"key": "X-Cisco-Meraki-API-Key",
-																				"value": ""
-																			}
-																		],
-																		"url": {
-																			"raw": "{{baseUrl}}/organizations/:organizationId/apiRequests/overview/responseCodes/byInterval",
-																			"host": [
-																				"{{baseUrl}}"
-																			],
-																			"path": [
-																				"organizations",
-																				":organizationId",
-																				"apiRequests",
-																				"overview",
-																				"responseCodes",
-																				"byInterval"
-																			],
-																			"query": [
-																				{
-																					"description": "The beginning of the timespan for the data. The maximum lookback period is 31 days from today.",
-																					"key": "t0",
-																					"value": "{{t0}}",
-																					"disabled": true
-																				},
-																				{
-																					"description": "The end of the timespan for the data. t1 can be a maximum of 31 days after t0.",
-																					"key": "t1",
-																					"value": "{{t1}}",
-																					"disabled": true
-																				},
-																				{
-																					"description": "The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 31 days. If interval is provided, the timespan will be autocalculated.",
-																					"key": "timespan",
-																					"value": "{{timespan}}",
-																					"disabled": true
-																				},
-																				{
-																					"description": "The time interval in seconds for returned data. The valid intervals are: 120, 3600, 14400, 21600. The default is 21600. Interval is calculated if time params are provided.",
-																					"key": "interval",
-																					"value": "{{interval}}",
-																					"disabled": true
-																				},
-																				{
-																					"description": "Filter by API version of the endpoint. Allowable values are: [0, 1]",
-																					"key": "version",
-																					"value": "{{version}}",
-																					"disabled": true
-																				},
-																				{
-																					"description": "Filter by operation ID of the endpoint",
-																					"key": "operationIds",
-																					"value": "{{operationIds}}",
-																					"disabled": true
-																				},
-																				{
-																					"description": "Filter by source IP that made the API request",
-																					"key": "sourceIps",
-																					"value": "{{sourceIps}}",
-																					"disabled": true
-																				},
-																				{
-																					"description": "Filter by admin ID of user that made the API request",
-																					"key": "adminIds",
-																					"value": "{{adminIds}}",
-																					"disabled": true
-																				},
-																				{
-																					"description": "Filter by user agent string for API request. This will filter by a complete or partial match.",
-																					"key": "userAgent",
-																					"value": "{{userAgent}}",
-																					"disabled": true
-																				}
-																			],
-																			"variable": [
-																				{
-																					"id": "4f1ae7d6-09ed-45e4-8f2c-850b089be4e8",
-																					"key": "organizationId",
-																					"value": "{{organizationId}}",
-																					"description": "(Required) "
-																				}
-																			]
-																		},
-																		"description": "Tracks organizations' API requests by response code across a given time period"
-																	},
-																	"response": [
-																		{
-																			"id": "87ac0004-d7c1-4a37-ae4c-e91b49ff36f4",
-																			"name": "Successful operation",
-																			"originalRequest": {
-																				"method": "GET",
-																				"header": [],
-																				"url": {
-																					"raw": "{{baseUrl}}/organizations/:organizationId/apiRequests/overview/responseCodes/byInterval?t0=<string>&t1=<string>&timespan=<float>&interval=<integer>&version=<integer>&operationIds=<string>,<string>&sourceIps=<string>,<string>&adminIds=<string>,<string>&userAgent=<string>",
-																					"host": [
-																						"{{baseUrl}}"
-																					],
-																					"path": [
-																						"organizations",
-																						":organizationId",
-																						"apiRequests",
-																						"overview",
-																						"responseCodes",
-																						"byInterval"
-																					],
-																					"query": [
-																						{
-																							"key": "t0",
-																							"value": "<string>"
-																						},
-																						{
-																							"key": "t1",
-																							"value": "<string>"
-																						},
-																						{
-																							"key": "timespan",
-																							"value": "<float>"
-																						},
-																						{
-																							"key": "interval",
-																							"value": "<integer>"
-																						},
-																						{
-																							"key": "version",
-																							"value": "<integer>"
-																						},
-																						{
-																							"key": "operationIds",
-																							"value": "<string>,<string>"
-																						},
-																						{
-																							"key": "sourceIps",
-																							"value": "<string>,<string>"
-																						},
-																						{
-																							"key": "adminIds",
-																							"value": "<string>,<string>"
-																						},
-																						{
-																							"key": "userAgent",
-																							"value": "<string>"
-																						}
-																					],
-																					"variable": [
-																						{
-																							"key": "organizationId"
-																						}
-																					]
-																				}
-																			},
-																			"status": "OK",
-																			"code": 200,
-																			"_postman_previewlanguage": "json",
-																			"header": [
-																				{
-																					"key": "Content-Type",
-																					"value": "application/json"
-																				}
-																			],
-																			"cookie": [],
-																			"responseTime": null,
-																			"body": "[\n {\n  \"startTs\": \"2018-02-11T00:00:00Z\",\n  \"endTs\": \"2018-05-12T00:00:00Z\",\n  \"counts\": [\n   {\n    \"code\": 200,\n    \"count\": 198938\n   }\n  ]\n }\n]"
-																		}
-																	]
-																}
-															],
-															"id": "e9ce88ed-34cb-4605-92d5-2b690b9021a5"
-														}
-													],
-													"id": "0e2ebf3e-6fc0-43f3-9cea-3acace64fec1"
-												}
-											],
-											"id": "3278cffd-1e11-47c9-afd5-cc5449e535b4"
-										}
-									],
-									"id": "68932816-bfd2-4575-a155-b50eb8d4b6dc"
-								},
 								{
 									"name": "Cloud",
 									"item": [
@@ -3659,7 +3215,7 @@
 													"item": [
 														{
 															"name": "List of source/destination traffic rules",
-															"id": "fc9fdb28-0b99-4c88-a6f8-d21271de5a22",
+															"id": "dd4d2576-8211-45ca-9d6c-ffa17c208bd7",
 															"protocolProfileBehavior": {
 																"followAuthorizationHeader": true
 															},
@@ -3685,7 +3241,7 @@
 																	],
 																	"variable": [
 																		{
-																			"id": "771eb90f-2405-4fd6-82e0-20cd0de9869d",
+																			"id": "67049ee6-45eb-4e64-b8f6-4509e944378f",
 																			"key": "organizationId",
 																			"value": "{{organizationId}}",
 																			"description": "(Required) "
@@ -3696,7 +3252,7 @@
 															},
 															"response": [
 																{
-																	"id": "16a0357c-216d-414f-95fa-077e05d77df5",
+																	"id": "af03758e-4deb-4dd9-b4ea-3e515bec2288",
 																	"name": "Successful operation",
 																	"originalRequest": {
 																		"method": "GET",
@@ -3736,13 +3292,13 @@
 															]
 														}
 													],
-													"id": "1a739970-c6b8-4ad9-8e51-38651d086a68"
+													"id": "b72a63b1-7f81-4b2c-8b27-df3ae9c4a867"
 												}
 											],
-											"id": "0b5a9ffa-ee45-4e44-8c03-0fbafbd4fb3d"
+											"id": "6ac76adb-c1a6-4b1b-bef2-bad048eb28f6"
 										}
 									],
-									"id": "b73aaf01-482e-4307-8f9a-74cb8d7c3e81"
+									"id": "7c8ffc1f-2525-459f-ab73-acc4a05e876d"
 								},
 								{
 									"name": "Devices",
@@ -3755,7 +3311,7 @@
 													"item": [
 														{
 															"name": "List the configuration status information for devices in an organization.",
-															"id": "d7274007-9b47-4fad-8cd7-274a5ebf5f39",
+															"id": "d797b317-2143-4d21-9f1f-fb73f787d674",
 															"protocolProfileBehavior": {
 																"followAuthorizationHeader": true
 															},
@@ -3831,7 +3387,7 @@
 																	],
 																	"variable": [
 																		{
-																			"id": "296e544f-18dd-4039-9cd5-204e6e4eadd3",
+																			"id": "3b224373-7b9b-4d25-bcad-fc82c26c5d7c",
 																			"key": "organizationId",
 																			"value": "{{organizationId}}",
 																			"description": "(Required) "
@@ -3842,7 +3398,7 @@
 															},
 															"response": [
 																{
-																	"id": "348995ff-e508-4401-8bdb-4fb19d779028",
+																	"id": "4284bf3f-e06c-42e8-90d9-21d79b5b543c",
 																	"name": "Successful operation",
 																	"originalRequest": {
 																		"method": "GET",
@@ -3921,26 +3477,26 @@
 															]
 														}
 													],
-													"id": "9b53bf73-00c3-4156-b5f6-f3b2bbec0fe5"
+													"id": "530da33e-bae3-42f9-8ee6-27f101bfecca"
 												}
 											],
-											"id": "41a7f2a1-db87-43e5-af60-cb9b95e9f5ea"
+											"id": "36137674-7f0c-495f-ad5a-0a0dab9fd822"
 										}
 									],
-									"id": "0c025beb-dd6d-4285-b5f6-98d6b731b58d"
+									"id": "65a8d378-1b5d-4b0e-8bbd-0eb5896dcffe"
 								}
 							],
-							"id": "2cf5184f-b490-477f-81d1-4445c274dab7"
+							"id": "eb00d4cb-3888-4b43-bd5f-597b1c3ba186"
 						}
 					],
-					"id": "fe89bc61-8447-48b1-89a1-dec7018fed85"
+					"id": "ec7f3fe6-4a2c-4e8a-aead-779e054f2495"
 				}
 			],
-			"id": "cc2972a6-67f8-4a65-8b2a-15bdbf0ca317"
+			"id": "d6c81bcd-e664-41bf-966a-d01bc49f783a"
 		},
 		{
 			"name": "List the Organizations",
-			"id": "ca60e2eb-67af-4f12-a4cd-53b3330fb44e",
+			"id": "69f1e591-8a9f-4c86-927f-81d5c2b9a210",
 			"protocolProfileBehavior": {
 				"followAuthorizationHeader": true
 			},
@@ -3957,7 +3513,7 @@
 			},
 			"response": [
 				{
-					"id": "de5d527b-f9a1-45c3-8f4b-ef4900023cd9",
+					"id": "59b945c2-3acf-4569-b420-730df0f2cbdd",
 					"name": "Successful operation",
 					"originalRequest": {
 						"method": "GET",
@@ -3981,7 +3537,7 @@
 		},
 		{
 			"name": "List the Networks in an Organization ",
-			"id": "b56f69a9-490b-4d49-92bf-ae7f7540d9e5",
+			"id": "65e6267b-f389-48a6-8a40-e06649d6eb22",
 			"protocolProfileBehavior": {
 				"followAuthorizationHeader": true
 			},
@@ -4043,7 +3599,7 @@
 					],
 					"variable": [
 						{
-							"id": "61d13418-146c-4972-a1b5-a05877d778fc",
+							"id": "8833b3d7-ccc4-4a59-8d3e-054e835b8073",
 							"key": "organizationId",
 							"value": "{{organizationId}}",
 							"description": "(Required) "
@@ -4054,7 +3610,7 @@
 			},
 			"response": [
 				{
-					"id": "577cd7c5-14e4-4f8b-a945-6a3d0aee625a",
+					"id": "5e1f7f5c-849f-486a-a677-55fcb092e6cd",
 					"name": "Successful operation",
 					"originalRequest": {
 						"method": "GET",
@@ -4124,7 +3680,7 @@
 		},
 		{
 			"name": "List the Devices in an Organization",
-			"id": "95c4b17a-2185-4b90-8abf-d3df741d8caa",
+			"id": "ba2ba69a-ac22-46a0-932f-8cc494f62034",
 			"protocolProfileBehavior": {
 				"followAuthorizationHeader": true
 			},
@@ -4174,7 +3730,7 @@
 					],
 					"variable": [
 						{
-							"id": "10e6de75-5358-45b3-8a89-9d4037b6a68e",
+							"id": "dab01c8e-aa9f-4071-a441-b4683f24df28",
 							"key": "organizationId",
 							"value": "{{organizationId}}",
 							"description": "(Required) "
@@ -4185,7 +3741,7 @@
 			},
 			"response": [
 				{
-					"id": "f3690950-f917-426c-a456-c4ee5708f81a",
+					"id": "c8102a2c-531c-4a64-b84b-22cfd8716893",
 					"name": "Successful operation",
 					"originalRequest": {
 						"method": "GET",
@@ -4247,7 +3803,7 @@
 		},
 		{
 			"name": "List the Clients in a Network",
-			"id": "3d1f7d2e-b2e5-46c4-9ebe-faebe833610c",
+			"id": "26fb1f55-eb8a-49d6-a0b5-ce98f97dd750",
 			"protocolProfileBehavior": {
 				"followAuthorizationHeader": true
 			},
@@ -4303,7 +3859,7 @@
 					],
 					"variable": [
 						{
-							"id": "cb1d9623-3966-4ead-b68b-e206a946e289",
+							"id": "595ed498-11c2-486d-bd69-e278f55a11c7",
 							"key": "networkId",
 							"value": "{{networkId}}",
 							"description": "(Required) "
@@ -4314,7 +3870,7 @@
 			},
 			"response": [
 				{
-					"id": "4b0ee861-b641-44a9-8cd3-8f83a9294bc6",
+					"id": "ec65eccc-97e2-4622-81a3-d70cced1e37d",
 					"name": "Successful operation",
 					"originalRequest": {
 						"method": "GET",
@@ -4418,124 +3974,104 @@
 	],
 	"variable": [
 		{
-			"id": "ee0e4af7-acb4-409d-bf54-6b433357873c",
-			"key": "adminIds"
-		},
-		{
-			"id": "3f8a85a1-5eec-4e9e-b40b-6ec429084e65",
+			"id": "0f215d88-487a-4fea-8ae4-31b0ab49dc9d",
 			"key": "band"
 		},
 		{
-			"id": "7c9c5821-5b12-4f7b-a139-bc966401af2a",
+			"id": "b25bacee-3d5d-4f78-81e5-6427789bb5a9",
 			"key": "baseUrl",
 			"value": "https://api.meraki.com/api/v1"
 		},
 		{
-			"id": "5e67b6fa-18cf-4d7b-a373-cf7cc4f01228",
+			"id": "5091e3c2-28d3-4f16-af63-9afde7610329",
 			"key": "clientId"
 		},
 		{
-			"id": "47abfad3-9e7e-4494-9a6b-d77b44ddc63e",
+			"id": "f054f6c2-108b-45dd-ba26-221fa43ed09c",
 			"key": "endingBefore"
 		},
 		{
-			"id": "b0715a78-ea88-410d-a38a-45bd97032154",
+			"id": "42818dde-e2d6-4fdf-bb8c-a0782c30d8f6",
 			"key": "id"
 		},
 		{
-			"id": "cdd726b2-6228-49fa-9709-9f5bc1931f33",
+			"id": "28058402-a31c-4325-bb43-51fae0ecc9eb",
 			"key": "interval"
 		},
 		{
-			"id": "8bd57eec-7420-4689-8c40-85272844773a",
+			"id": "33e699f7-5e4d-4b3d-a833-3aac250f750d",
 			"key": "metrics"
 		},
 		{
-			"id": "8a1b39d0-bd13-4227-8f8c-fbace3bb1fdf",
+			"id": "d64c2dd6-842e-4c7b-9a2c-e1060053bbd3",
 			"key": "models"
 		},
 		{
-			"id": "4f7f9c7a-2289-434c-9d85-5c6de4a80850",
+			"id": "b9a4cf14-31f6-4409-890d-ebad38bbe4d7",
 			"key": "networkId"
 		},
 		{
-			"id": "07cd121c-6cf2-4289-858b-e0638ca6b0f6",
+			"id": "212f78b2-51ef-46fe-95cf-baa8d03aaf76",
 			"key": "networkIds"
 		},
 		{
-			"id": "6d467f60-6a45-477b-b1f5-6bd5dfbc1c83",
-			"key": "operationIds"
-		},
-		{
-			"id": "c90fda03-abb2-4fcb-9fa7-739031be4ec9",
+			"id": "4e8f9144-59ff-4f8f-aac4-c0cdd1cdba00",
 			"key": "organizationId"
 		},
 		{
-			"id": "17984c21-ae1c-4d2b-8e3f-b96d9452af53",
+			"id": "e0120c72-aa5c-47e5-a84a-f9021026b7e1",
 			"key": "payloadTemplateId"
 		},
 		{
-			"id": "dfd44294-e845-4252-921f-14feef0fb9e8",
+			"id": "7c0354b4-c805-460d-a28f-c324f0c51602",
 			"key": "perPage"
 		},
 		{
-			"id": "f22fe79a-1f5b-480b-8ccd-6c19b59c61bd",
+			"id": "de545edd-b56d-4248-be40-4ee74cd3817d",
 			"key": "productTypes"
 		},
 		{
-			"id": "84755a42-abd0-4e29-a8f0-fe9993fbb3ff",
+			"id": "3844d998-9f07-44b1-969d-d2b03aed29df",
 			"key": "resolution"
 		},
 		{
-			"id": "4def7d23-0b6d-4218-a720-8f950381dfb3",
+			"id": "27ba80d9-1374-4809-bc41-243198db7a8c",
 			"key": "serial"
 		},
 		{
-			"id": "8555fd62-4ab6-4392-9455-578ba1684d65",
+			"id": "85432cf2-fd6a-4eaf-8d2f-4567ed603b4c",
 			"key": "serials"
 		},
 		{
-			"id": "291397b0-4ce5-430a-aa06-5d91c9001641",
-			"key": "sourceIps"
-		},
-		{
-			"id": "204dd130-dcaa-48a3-91e6-5c6ce25bee34",
+			"id": "62055c2d-f198-4533-ab67-e644508ed671",
 			"key": "ssid"
 		},
 		{
-			"id": "2a2bca1a-37ff-485c-ae6e-eff12014ef0a",
+			"id": "041de3f9-fa25-493e-9b9d-e304dd2ab66a",
 			"key": "startingAfter"
 		},
 		{
-			"id": "37805580-d60c-4167-be42-25a00abb1a48",
+			"id": "48e6db9f-067f-449d-bfde-8c32949fc010",
 			"key": "t0"
 		},
 		{
-			"id": "edba122e-760c-4f6a-be67-f85835ce1853",
+			"id": "05a4dddf-1905-4573-8b22-a8894379ca5f",
 			"key": "t1"
 		},
 		{
-			"id": "c9b7d0bb-1719-4a4f-b1da-1c5c63dd09ca",
+			"id": "8723ee8b-ae8a-4b66-9b52-4d4d4b541617",
 			"key": "tags"
 		},
 		{
-			"id": "93799472-53d3-49cd-b747-a375e5c99026",
+			"id": "b09d014c-56f8-48c1-973c-7eee6ef85d96",
 			"key": "tagsFilterType"
 		},
 		{
-			"id": "b919eb5d-02c1-478c-9584-7b5b07b5fa76",
+			"id": "12622ae2-a93c-4b1a-845d-983f80cf6540",
 			"key": "timespan"
 		},
 		{
-			"id": "2201ba0b-7f24-4973-9224-f76e3f8f8aaa",
-			"key": "userAgent"
-		},
-		{
-			"id": "1f62ca08-7597-4232-ba00-af1b060e5798",
-			"key": "version"
-		},
-		{
-			"id": "43d7deb0-1bbe-4673-ba73-92f855e301f1",
+			"id": "492870c6-9e13-4e4b-90d5-a36df7524aa2",
 			"key": "webhookTestId"
 		}
 	]
