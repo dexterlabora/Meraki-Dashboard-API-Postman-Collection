@@ -83396,15 +83396,17 @@
 		}
 	],
 	"auth": {
-		"type": "bearer",
-		"bearer": {
-			"token": "{{apiKey}}"
+		"type": "apikey",
+		"apikey": {
+			"value": "{{apiKey}}",
+			"key": "X-Cisco-Meraki-API-Key"
 		}
 	},
 	"event": [
 		{
 			"listen": "prerequest",
 			"script": {
+				"id": "3b0f4bb5-3cd6-45ec-8481-04ad3596d84e",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -83414,6 +83416,7 @@
 		{
 			"listen": "test",
 			"script": {
+				"id": "65f6c7c3-6f90-4b1f-9d70-146131efc65d",
 				"type": "text/javascript",
 				"exec": [
 					"// JSON Magic Postman Template",
@@ -83431,7 +83434,8 @@
 	],
 	"variable": [
 		{
-			"id": "02772543-9124-427d-848b-b981b13aa9f5",
+			"id": "a392bef6-124e-4225-96a3-8ca98393fec1",
+			"key": "baseUrl",
 			"value": "https://api.meraki.com/api/v1"
 		}
 	]
