@@ -8,8 +8,8 @@
  * calls to navigate through paginated data.
  *
  * How to Use:
- * 1. Make an initial API call to an endpoint that supports pagination.
- * 2. Add this script to the "Tests" section of your Postman request.
+ * 1. Add this script to the "Tests" section of your Postman request.   
+ * 2. Make an initial API call to an endpoint that supports pagination.
  * 3. If the response contains a Link header with pagination links,
  *    the script will parse it and set the startingAfter or endingBefore
  *    environment variables.
