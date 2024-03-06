@@ -1,1001 +1,1001 @@
 {
-  "info": {
-    "_postman_id": "06308cb5-2f10-42ad-92a1-f6a987c14962",
-    "name": "Meraki Webhooks - Samples v0.1",
-    "description": "# Overview\n\nA collection of sample Meraki alerts that would normally be delivered via a webhook.\n\nUse this collection to \"post\" to your receiving server to simulate Meraki sending this data.",
-    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
-  },
-  "item": [
-    {
-      "name": "APs came up",
-      "id": "ab67c7ed-db07-412f-84ae-5cd27a4f7e64",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.522804Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My access point\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MR\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"APs came up\",\n  \"alertTypeId\": \"started_reporting\",\n  \"alertLevel\": \"informational\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {}\n}"
-        },
-        "url": "{{webhook-url}}"
-      },
-      "response": []
-    },
-    {
-      "name": "APs went down",
-      "id": "97b92a47-65a8-4663-9040-492bffcd7adb",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.507166Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My access point\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MR\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"APs went down\",\n  \"alertTypeId\": \"stopped_reporting\",\n  \"alertLevel\": \"critical\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {}\n}"
-        },
-        "url": "{{webhook-url}}"
-      },
-      "response": []
-    },
-    {
-      "name": "Air Marshal - Rogue AP detected",
-      "id": "ce826be2-47f7-4294-b71c-64c020d1abe9",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.558462Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"\",\n  \"deviceMac\": \"\",\n  \"deviceName\": \"\",\n  \"deviceUrl\": \"\",\n  \"deviceTags\": [],\n  \"deviceModel\": \"\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Air Marshal - Rogue AP detected\",\n  \"alertTypeId\": \"foreign_ap\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"minFirstSeen\": 0,\n    \"maxLastSeen\": 10,\n    \"ssidName\": \"My SSID\"\n  }\n}"
-        },
-        "url": "{{webhook-url}}"
-      },
-      "response": []
-    },
-    {
-      "name": "Bluetooth Clients have become visible",
-      "id": "95b1dd45-df3f-4174-8521-1e6d00853405",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.491527Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My access point\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MR\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Bluetooth Clients have become visible\",\n  \"alertTypeId\": \"bluetooth_in\",\n  \"alertLevel\": \"informational\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"mac\": \"00:11:22:33:44:55\",\n    \"name\": \"\",\n    \"rowStartedAt\": {\n      \"millisFromEpoch\": 1563208308228\n    },\n    \"bluetoothClientId\": \"0000000000000000\",\n    \"rssi\": -94,\n    \"seenAt\": {\n      \"millisFromEpoch\": 1563519260925\n    }\n  }\n}"
-        },
-        "url": "{{webhook-url}}"
-      },
-      "response": []
-    },
-    {
-      "name": "Bluetooth Clients have gone out of range",
-      "id": "1bf6be2c-2a13-4b2a-a9cf-e6becd9b6b29",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.500878Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My access point\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MR\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Bluetooth Clients have gone out of range\",\n  \"alertTypeId\": \"bluetooth_out\",\n  \"alertLevel\": \"informational\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"mac\": \"00:11:22:33:44:55\",\n    \"name\": \"\",\n    \"rowStartedAt\": {\n      \"millisFromEpoch\": 1563208308228\n    },\n    \"bluetoothClientId\": \"0000000000000000\",\n    \"rssi\": -94,\n    \"seenAt\": {\n      \"millisFromEpoch\": 1563519260925\n    }\n  }\n}"
-        },
-        "url": "{{webhook-url}}"
-      },
-      "response": []
-    },
-    {
-      "name": "Cable error detected",
-      "id": "68f8924c-f32e-4eca-b856-2f2dcadf5168",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.550097Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My switch\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MS\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Cable error detected\",\n  \"alertTypeId\": \"port_cable_error\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"portNum\": 3,\n    \"description\": \"Gigabit link negotiation failed\",\n    \"status\": \"10 Gbps\",\n    \"prevStatus\": \"100 Gbps\",\n    \"portDesc\": \"Corp Access\"\n  }\n}"
-        },
-        "url": "{{webhook-url}}"
-      },
-      "response": []
-    },
-    {
-      "name": "Camera may have critical hardware failure",
-      "id": "03c9b390-aa84-4d23-b76c-a7ba4371e903",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.524087Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My camera\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MV\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Camera may have critical hardware failure\",\n  \"alertTypeId\": \"node_hardware_failure\",\n  \"alertLevel\": \"critical\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {}\n}"
-        },
-        "url": "{{webhook-url}}"
-      },
-      "response": []
-    },
-    {
-      "name": "Cellular came up",
-      "id": "006669d2-f529-4de5-9274-491381514b1c",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.513014Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My appliance\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MX\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Cellular came up\",\n  \"alertTypeId\": \"cellular_up\",\n  \"alertLevel\": \"informational\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"provider\": \"Purview Wireless\",\n    \"model\": \"UML290VW\",\n    \"local\": \"192.168.1.2\",\n    \"remote\": \"1.2.3.5\",\n    \"connection\": \"LTE\"\n  }\n}"
-        },
-        "url": "{{webhook-url}}"
-      },
-      "response": []
-    },
-    {
-      "name": "Cellular went down",
-      "id": "3a2bea5c-75c0-42b1-ad77-0ea40be339df",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.476239Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My appliance\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MX\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Cellular went down\",\n  \"alertTypeId\": \"cellular_down\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"bytesIn\": \"1861\",\n    \"bytesOut\": \"1880\",\n    \"connectTime\": \"2\",\n    \"provider\": \"Purview Wireless\",\n    \"model\": \"UML290VW\",\n    \"local\": \"192.168.1.2\",\n    \"remote\": \"1.2.3.5\",\n    \"connection\": \"LTE\"\n  }\n}"
-        },
-        "url": "{{webhook-url}}"
-      },
-      "response": []
-    },
-    {
-      "name": "Cisco Meraki Umbrella Subscription Reminder",
-      "id": "3b4b83d5-041d-4de1-b4bf-4fe0721a66fd",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.493227Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My appliance\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MX\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Cisco Meraki Umbrella Subscription Reminder\",\n  \"alertTypeId\": \"umbrella_expiring\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"daysLeft\": \"25\",\n    \"expirationDate\": \"2020-10-21\"\n  }\n}"
-        },
-        "url": "{{webhook-url}}"
-      },
-      "response": []
-    },
-    {
-      "name": "Client IP conflict detected",
-      "id": "1b67f045-32b2-45e9-bf85-b1699c5aa2c4",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.496161Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My appliance\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MX\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Client IP conflict detected\",\n  \"alertTypeId\": \"ip_conflict\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"conflictingIp\": \"192.168.1.2\",\n    \"contendingMac\": \"00:11:22:33:44:55\"\n  }\n}"
-        },
-        "url": "{{webhook-url}}"
-      },
-      "response": []
-    },
-    {
-      "name": "Client connected to another network",
-      "id": "baf44415-8c7e-4fa2-9d04-8ea2adb598c5",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.480123Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My access point\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MR\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Client connected to another network\",\n  \"alertTypeId\": \"rogue_ap_association\",\n  \"alertLevel\": \"informational\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"mac\": \"00:11:22:33:44:55\",\n    \"foreignBssid\": \"E2:55:7D:26:09:C0\"\n  }\n}"
-        },
-        "url": "{{webhook-url}}"
-      },
-      "response": []
-    },
-    {
-      "name": "Client connectivity changed",
-      "id": "00c34c8a-0f4c-4562-a444-ac7c832af43b",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.546463Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My appliance\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MX\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Client connectivity changed\",\n  \"alertTypeId\": \"client_connectivity\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"mac\": \"00:11:22:33:44:55\",\n    \"ip\": \"192.168.1.2\",\n    \"connected\": \"true\",\n    \"clientName\": \"Cisco Meraki valued client\",\n    \"clientUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\"\n  }\n}"
-        },
-        "url": "{{webhook-url}}"
-      },
-      "response": []
-    },
-    {
-      "name": "Clients are compliant with their security policy",
-      "id": "b2e5b649-cfe9-48f3-a975-a343f77631cd",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.534269Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"\",\n  \"deviceMac\": \"\",\n  \"deviceName\": \"\",\n  \"deviceUrl\": \"\",\n  \"deviceTags\": [],\n  \"deviceModel\": \"\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Clients are compliant with their security policy\",\n  \"alertTypeId\": \"pcc_security_compliance\",\n  \"alertLevel\": \"informational\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"pccSecurityPolicyId\": \"0000000000000000\",\n    \"pccSecurityAlertConfigId\": \"0000000000000000\"\n  }\n}"
-        },
-        "url": "{{webhook-url}}"
-      },
-      "response": []
-    },
-    {
-      "name": "Clients are violating their security policy",
-      "id": "a522a465-e2b3-47a7-a346-bf733c45ba9d",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.536000Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"\",\n  \"deviceMac\": \"\",\n  \"deviceName\": \"\",\n  \"deviceUrl\": \"\",\n  \"deviceTags\": [],\n  \"deviceModel\": \"\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Clients are violating their security policy\",\n  \"alertTypeId\": \"pcc_security_violation\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"pccSecurityPolicyId\": \"0000000000000000\",\n    \"pccSecurityAlertConfigId\": \"0000000000000000\"\n  }\n}"
-        },
-        "url": "{{webhook-url}}"
-      },
-      "response": []
-    },
-    {
-      "name": "Clients came up",
-      "id": "e188bef5-e95e-4681-93cb-6727a17c5fb8",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.494662Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"\",\n  \"deviceMac\": \"\",\n  \"deviceName\": \"\",\n  \"deviceUrl\": \"\",\n  \"deviceTags\": [],\n  \"deviceModel\": \"\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Clients came up\",\n  \"alertTypeId\": \"pcc_outage_end\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {}\n}"
-        },
-        "url": "{{webhook-url}}"
-      },
-      "response": []
-    },
-    {
-      "name": "Clients have enrolled in one of your networks",
-      "id": "0fb9759c-6d5c-406f-8a37-5b1e1d04fcc8",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.505756Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"\",\n  \"deviceMac\": \"\",\n  \"deviceName\": \"\",\n  \"deviceUrl\": \"\",\n  \"deviceTags\": [],\n  \"deviceModel\": \"\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Clients have enrolled in one of your networks\",\n  \"alertTypeId\": \"pcc_enrollment\",\n  \"alertLevel\": \"informational\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"deviceId\": \"0000000000000000\"\n  }\n}"
-        },
-        "url": "{{webhook-url}}"
-      },
-      "response": []
-    },
-    {
-      "name": "Clients have re-entered their geofenced area",
-      "id": "6defa50f-18c1-4794-af59-792c7b9f36f6",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.478525Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My access point\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MR\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Clients have re-entered their geofenced area\",\n  \"alertTypeId\": \"geofencing_in\",\n  \"alertLevel\": \"informational\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {}\n}"
-        },
-        "url": "{{webhook-url}}"
-      },
-      "response": []
-    },
-    {
-      "name": "Clients have violated their geofencing policy",
-      "id": "24547cf5-85f5-4e4d-9a1d-077c89cca11f",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.551752Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My access point\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MR\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Clients have violated their geofencing policy\",\n  \"alertTypeId\": \"geofencing_out\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {}\n}"
-        },
-        "url": "{{webhook-url}}"
-      },
-      "response": []
-    },
-    {
-      "name": "Clients went down",
-      "id": "83701195-d6f1-4b26-9454-7363a05a33b9",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.481599Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"\",\n  \"deviceMac\": \"\",\n  \"deviceName\": \"\",\n  \"deviceUrl\": \"\",\n  \"deviceTags\": [],\n  \"deviceModel\": \"\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Clients went down\",\n  \"alertTypeId\": \"pcc_outage_begin\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {}\n}"
-        },
-        "url": "{{webhook-url}}"
-      },
-      "response": []
-    },
-    {
-      "name": "DHCP leases exhausted",
-      "id": "a276821c-1d31-42d6-99ba-0f5e3ae7ae1b",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.511417Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My appliance\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MX\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"DHCP leases exhausted\",\n  \"alertTypeId\": \"dhcp_no_leases\",\n  \"alertLevel\": \"informational\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"network\": \"192.168.1.0/24'192.168.1.254\"\n  }\n}"
-        },
-        "url": "{{webhook-url}}"
-      },
-      "response": []
-    },
-    {
-      "name": "Devices operating at critical temperature",
-      "id": "c5c6e53a-f2be-45b5-8a87-cf891105b069",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.521153Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My switch\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MS\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Devices operating at critical temperature\",\n  \"alertTypeId\": \"critical_temperature\",\n  \"alertLevel\": \"critical\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"temperature\": \"Critical Level\",\n    \"action\": \"Shutdown\"\n  }\n}"
-        },
-        "url": "{{webhook-url}}"
-      },
-      "response": []
-    },
-    {
-      "name": "Failover event detected",
-      "id": "58829fbc-ea61-4fd8-b0be-f8b846645cdb",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.525972Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My switch\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MS\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Failover event detected\",\n  \"alertTypeId\": \"vrrp\",\n  \"alertLevel\": \"critical\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"oldIfUp\": \"0\",\n    \"oldMode\": \"detect\",\n    \"oldPrio\": \"75\",\n    \"electorState\": \"master\",\n    \"mode\": \"detect\",\n    \"prio\": \"75\",\n    \"ifUp\": \"1\"\n  }\n}"
-        },
-        "url": "{{webhook-url}}"
-      },
-      "response": []
-    },
-    {
-      "name": "Gateway to repeater",
-      "id": "375f641a-2b38-4697-b111-d4f5289f2261",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.555140Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My access point\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MR\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Gateway to repeater\",\n  \"alertTypeId\": \"gateway_to_repeater\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {}\n}"
-        },
-        "url": "{{webhook-url}}"
-      },
-      "response": []
-    },
-    {
-      "name": "Insight Alert",
-      "id": "7f0c4499-4764-4109-a0dd-4a32466ee928",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.514442Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Insight Alert\",\n  \"alertTypeId\": \"mi_alert\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {}\n}"
-        },
-        "url": "{{webhook-url}}"
-      },
-      "response": []
-    },
-    {
-      "name": "MDM certificate will expire soon",
-      "id": "bdf99ab6-d565-4cbf-afd9-1a90add6eacb",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.499259Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"\",\n  \"deviceMac\": \"\",\n  \"deviceName\": \"\",\n  \"deviceUrl\": \"\",\n  \"deviceTags\": [],\n  \"deviceModel\": \"\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"MDM certificate will expire soon\",\n  \"alertTypeId\": \"pcc_expired_apns_cert\",\n  \"alertLevel\": \"informational\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"expiry\": \"2018-02-11T00:00:00Z\",\n    \"networkId\": \"1254235\",\n    \"topic\": \"com.apple.mgmt.External.e9908a35-405d-4b25-b513-fa55431d1374\"\n  }\n}"
-        },
-        "url": "{{webhook-url}}"
-      },
-      "response": []
-    },
-    {
-      "name": "Malware download blocked",
-      "id": "01e54f29-1e6d-4fae-9fb7-de8fb50982d0",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.508581Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My appliance\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MX\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Malware download blocked\",\n  \"alertTypeId\": \"amp_malware_blocked\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {}\n}"
-        },
-        "url": "{{webhook-url}}"
-      },
-      "response": []
-    },
-    {
-      "name": "Malware download detected",
-      "id": "315b3ba4-4ec3-47e0-9eee-80edc32259b8",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.530203Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My access point\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MR\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Malware download detected\",\n  \"alertTypeId\": \"amp_malware_detected\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"eventType\": \"amp_malware_detected\",\n    \"sha256\": \"ddcb8f357d86d11dfa3409f71a966e5076240445ca9825fb72e7386efc5582e4\",\n    \"disposition\": 3\n  }\n}"
-        },
-        "url": "{{webhook-url}}"
-      },
-      "response": []
-    },
-    {
-      "name": "Matching software installations found",
-      "id": "87ef56b3-7e08-48d5-8ef8-9871e00f7ca6",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.518054Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"\",\n  \"deviceMac\": \"\",\n  \"deviceName\": \"\",\n  \"deviceUrl\": \"\",\n  \"deviceTags\": [],\n  \"deviceModel\": \"\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Matching software installations found\",\n  \"alertTypeId\": \"pcc_sw_found\",\n  \"alertLevel\": \"informational\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"swFoundRegex\": \".*\",\n    \"installs\": [\n      {\n        \"swName\": \"TrackAbout\",\n        \"swVendor\": \"iTunes Store\",\n        \"pccName\": \"Miles Meraki iPhone\",\n        \"swVersion\": \"7.313.132\",\n        \"swInstallDate\": \"2019-07-17\"\n      }\n    ]\n  }\n}"
-        },
-        "url": "{{webhook-url}}"
-      },
-      "response": []
-    },
-    {
-      "name": "Meraki Management profile removed",
-      "id": "bc1510c5-0ec5-4fb8-af00-a37ec4c9392b",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.537662Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"\",\n  \"deviceMac\": \"\",\n  \"deviceName\": \"\",\n  \"deviceUrl\": \"\",\n  \"deviceTags\": [],\n  \"deviceModel\": \"\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Meraki Management profile removed\",\n  \"alertTypeId\": \"pcc_unmanaged\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"pccName\": \"iPhone\",\n    \"wifiMac\": \"00:11:22:33:44:55\",\n    \"serialNumber\": \"F5XKHEBX\"\n  }\n}"
-        },
-        "url": "{{webhook-url}}"
-      },
-      "response": []
-    },
-    {
-      "name": "Motion detected",
-      "id": "d29559fe-1a0e-4407-87c9-c8743434ebbe",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.516099Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My camera\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MV\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Motion detected\",\n  \"alertTypeId\": \"motion_alert\",\n  \"alertLevel\": \"informational\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"imageUrl\": \"https://XXXXXXXXXXXXXXXXXXXXXXXXXXX.jpg\",\n    \"timestamp\": 1563499479.547,\n    \"motionRecapEnabled\": true,\n    \"motionDetectorAllowsRecap\": true,\n    \"isSpyglass\": false,\n    \"imageEnabled\": true\n  }\n}"
-        },
-        "url": "{{webhook-url}}"
-      },
-      "response": []
-    },
-    {
-      "name": "Network usage alert",
-      "id": "cb2ac214-42de-4370-940f-6e0e12d876c8",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.543206Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"\",\n  \"deviceMac\": \"\",\n  \"deviceName\": \"\",\n  \"deviceUrl\": \"\",\n  \"deviceTags\": [],\n  \"deviceModel\": \"\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Network usage alert\",\n  \"alertTypeId\": \"usage_alert\",\n  \"alertLevel\": \"informational\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"usageThreshold\": \"104857600\",\n    \"kbTotal\": \"115892215\",\n    \"period\": \"1200\"\n  }\n}"
-        },
-        "url": "{{webhook-url}}"
-      },
-      "response": []
-    },
-    {
-      "name": "New DHCP server detected",
-      "id": "a4df819c-be45-42e1-b42c-b62df4caf98e",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.556731Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My switch\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MS\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"New DHCP server detected\",\n  \"alertTypeId\": \"dhcp_alerts\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"mac\": \"00:11:22:33:44:55\",\n    \"ip\": \"192.168.1.2\",\n    \"vlan\": \"104\",\n    \"subnet\": \"192.168.1.0/24\"\n  }\n}"
-        },
-        "url": "{{webhook-url}}"
-      },
-      "response": []
-    },
-    {
-      "name": "New splash user registered",
-      "id": "23d06e43-8bc9-4214-803a-ff17556694e3",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.504180Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"\",\n  \"deviceMac\": \"\",\n  \"deviceName\": \"\",\n  \"deviceUrl\": \"\",\n  \"deviceTags\": [],\n  \"deviceModel\": \"\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"New splash user registered\",\n  \"alertTypeId\": \"new_splash_signup\",\n  \"alertLevel\": \"informational\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"userEmail\": \"miles@meraki.com\",\n    \"userName\": \"milesmeraki\",\n    \"ssidId\": \"My SSID\"\n  }\n}"
-        },
-        "url": "{{webhook-url}}"
-      },
-      "response": []
-    },
-    {
-      "name": "Power supply came up",
-      "id": "6dd18fbc-5758-41df-b849-a4a445dbcd5e",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.519545Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My switch\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MS\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Power supply came up\",\n  \"alertTypeId\": \"power_supply_up\",\n  \"alertLevel\": \"informational\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"num\": 2\n  }\n}"
-        },
-        "url": "{{webhook-url}}"
-      },
-      "response": []
-    },
-    {
-      "name": "Power supply went down",
-      "id": "a28ea733-1bfd-4e54-b172-9a43dde79dcf",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.489807Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My switch\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MS\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Power supply went down\",\n  \"alertTypeId\": \"power_supply_down\",\n  \"alertLevel\": \"critical\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"num\": 2\n  }\n}"
-        },
-        "url": "{{webhook-url}}"
-      },
-      "response": []
-    },
-    {
-      "name": "RADIUS authentication server unreachable",
-      "id": "12ba86ce-9a07-477b-b0f7-eb471ca0fe6a",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.483467Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"\",\n  \"deviceMac\": \"\",\n  \"deviceName\": \"\",\n  \"deviceUrl\": \"\",\n  \"deviceTags\": [],\n  \"deviceModel\": \"\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"RADIUS authentication server unreachable\",\n  \"alertTypeId\": \"unreachable_radius_server\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"shardId\": \"207\",\n    \"isSpare\": true,\n    \"machineIp\": \"192.168.1.2\",\n    \"ssid\": \"My SSID\",\n    \"srvIp\": \"server.example.com\",\n    \"port\": \"1812\"\n  }\n}"
-        },
-        "url": "{{webhook-url}}"
-      },
-      "response": []
-    },
-    {
-      "name": "Returned to using primary power",
-      "id": "2c14f9fd-52c4-42cc-af2d-62c277438abb",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.488423Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My switch\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MS\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Returned to using primary power\",\n  \"alertTypeId\": \"rps_base_supply_up\",\n  \"alertLevel\": \"informational\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"num\": 0\n  }\n}"
-        },
-        "url": "{{webhook-url}}"
-      },
-      "response": []
-    },
-    {
-      "name": "Rogue AP detected",
-      "id": "7dd234de-9678-4362-8a14-66b4ac4cba49",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.559910Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My access point\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MR\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Rogue AP detected\",\n  \"alertTypeId\": \"rogue_ap\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"rssi\": \"1126462856796059000\"\n  }\n}"
-        },
-        "url": "{{webhook-url}}"
-      },
-      "response": []
-    },
-    {
-      "name": "Rogue DHCP server detected",
-      "id": "9532fba2-8c19-4bd1-952f-c074f5bf7f90",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.497653Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My switch\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MS\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Rogue DHCP server detected\",\n  \"alertTypeId\": \"rogue_dhcp\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"eth\": \"bb:bb:bb:11:11:11\",\n    \"ip\": \"10.20.2.62\",\n    \"subnet\": \"0.0.0.0/0\",\n    \"vlan\": \"3\"\n  }\n}"
-        },
-        "url": "{{webhook-url}}"
-      },
-      "response": []
-    },
-    {
-      "name": "Running on backup power",
-      "id": "1e4744e9-f043-4781-8776-f9ab2618a4d0",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.544809Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My switch\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MS\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Running on backup power\",\n  \"alertTypeId\": \"rps_backup\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"num\": 0\n  }\n}"
-        },
-        "url": "{{webhook-url}}"
-      },
-      "response": []
-    },
-    {
-      "name": "Settings changed",
-      "id": "ed28e32f-80a7-4a5e-8a04-35addf74d79f",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.532187Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"\",\n  \"deviceMac\": \"\",\n  \"deviceName\": \"\",\n  \"deviceUrl\": \"\",\n  \"deviceTags\": [],\n  \"deviceModel\": \"\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Settings changed\",\n  \"alertTypeId\": \"settings_changed\",\n  \"alertLevel\": \"informational\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"name\": \"Routing and DHCP\",\n    \"url\": \"/manage/configure/switch_l3\",\n    \"changes\": {\n      \"createStaticRoute\": {\n        \"label\": \"Added static route on SP-Warehouse\",\n        \"newText\": \"10.10.10.0/24 -> 172.16.254.253\",\n        \"changedBy\": \"miles@meraki.com\",\n        \"oldText\": \"\",\n        \"ssidId\": \"My SSID\"\n      }\n    },\n    \"userId\": \"0000000000000000\"\n  }\n}"
-        },
-        "url": "{{webhook-url}}"
-      },
-      "response": []
-    },
-    {
-      "name": "Switch port connected",
-      "id": "c148ff0f-fd99-4101-a72a-9d7b85d6a4c2",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.486834Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My switch\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MS\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Switch port connected\",\n  \"alertTypeId\": \"port_connected\",\n  \"alertLevel\": \"informational\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"portNum\": 3,\n    \"description\": \"Switch port is up at 10 Gbps\",\n    \"status\": \"10 Gbps\",\n    \"prevStatus\": \"down\",\n    \"portDesc\": \"Corp Access\"\n  }\n}"
-        },
-        "url": "{{webhook-url}}"
-      },
-      "response": []
-    },
-    {
-      "name": "Switch port disconnected",
-      "id": "b425513a-dcc9-4009-8fbe-b5cd36894a04",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.548358Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My switch\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MS\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Switch port disconnected\",\n  \"alertTypeId\": \"port_disconnected\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"portNum\": 3,\n    \"description\": \"Switch port is down\",\n    \"status\": \"down\",\n    \"prevStatus\": \"100 Gbps\",\n    \"portDesc\": \"Corp Access\"\n  }\n}"
-        },
-        "url": "{{webhook-url}}"
-      },
-      "response": []
-    },
-    {
-      "name": "Switch port link speed changed",
-      "id": "14f94074-e00e-4b6c-a8e8-54059fec8484",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.540980Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My switch\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MS\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Switch port link speed changed\",\n  \"alertTypeId\": \"port_speed_change\",\n  \"alertLevel\": \"informational\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"portNum\": 3,\n    \"description\": \"10 Gbps to 100 Gbps\",\n    \"status\": \"100 Gbps\",\n    \"prevStatus\": \"10 Gbps\",\n    \"portDesc\": \"Corp Access\"\n  }\n}"
-        },
-        "url": "{{webhook-url}}"
-      },
-      "response": []
-    },
-    {
-      "name": "UDLD error",
-      "id": "ba602cbf-a41d-4d64-8507-908963d73fbf",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.553469Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My switch\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MS\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"UDLD error\",\n  \"alertTypeId\": \"udld_error\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"errorType\": \"Unidirectional link (outbound fault)\",\n    \"action\": \"none\",\n    \"port\": {\n      \"port\": 52,\n      \"moduleSlot\": 0,\n      \"modulePid\": \"\"\n    }\n  }\n}"
-        },
-        "url": "{{webhook-url}}"
-      },
-      "response": []
-    },
-    {
-      "name": "Unreachable devices detected",
-      "id": "c9f64661-366f-4eaf-b869-d8efa82ab760",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.509977Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My appliance\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MX\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Unreachable devices detected\",\n  \"alertTypeId\": \"firewall_test_failed\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"failingNodes\": \"Inside AP\\nRecycle Shed AP\"\n  }\n}"
-        },
-        "url": "{{webhook-url}}"
-      },
-      "response": []
-    },
-    {
-      "name": "Uplink IPv6 duplicate address detected",
-      "id": "2ffa98a4-b8f9-43a5-a852-5061840bfae2",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.539307Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My appliance\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MX\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Uplink IPv6 duplicate address detected\",\n  \"alertTypeId\": \"uplink_ip6_conflict\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"conflictingIp\": \"192.168.1.2\",\n    \"contendingMac\": \"00:11:22:33:44:55\"\n  }\n}"
-        },
-        "url": "{{webhook-url}}"
-      },
-      "response": []
-    },
-    {
-      "name": "Uplink status changed",
-      "id": "8de2a620-83b3-41a1-b8f1-d5253ac14614",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.502582Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My switch\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MS\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Uplink status changed\",\n  \"alertTypeId\": \"failover_event\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"uplink\": \"0\"\n  }\n}"
-        },
-        "url": "{{webhook-url}}"
-      },
-      "response": []
-    },
-    {
-      "name": "VPN connectivity changed",
-      "id": "a647e060-1012-44d7-95fd-710ecbfbee35",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.528201Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My appliance\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MX\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"VPN connectivity changed\",\n  \"alertTypeId\": \"vpn_connectivity_change\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"vpnType\": \"l2tpv3\",\n    \"vap\": \"1\",\n    \"onSecondary\": false,\n    \"secondaryEndpoint\": \"192.168.1.2\",\n    \"primaryEndpoint\": \"192.168.1.1\",\n    \"connectivity\": \"true\",\n    \"peerNetworkName\": \"Corp Access\",\n    \"peerNetworkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n    \"peerNetworkId\": \"N_24329156\"\n  }\n}"
-        },
-        "url": "{{webhook-url}}"
-      },
-      "response": []
-    },
-    {
-      "name": "translation missing: en.alerts.analyzed_app_network_insight_performance_alert",
-      "id": "221f97f7-36c7-46a8-803f-50c8ee3480b9",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.485154Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"translation missing: en.alerts.analyzed_app_network_insight_performance_alert\",\n  \"alertTypeId\": \"analyzed_app_network_insight_performance_alert\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {}\n}"
-        },
-        "url": "{{webhook-url}}"
-      },
-      "response": []
-    }
-  ],
-  "event": [
-    {
-      "listen": "prerequest",
-      "script": {
-        "id": "3c150b48-8663-4310-b3f8-354320db18f7",
-        "type": "text/javascript",
-        "exec": [
-          ""
-        ]
-      }
-    },
-    {
-      "listen": "test",
-      "script": {
-        "id": "9b703bf0-18ce-4f12-bb81-45ac80081770",
-        "type": "text/javascript",
-        "exec": [
-          ""
-        ]
-      }
-    }
-  ]
+	"info": {
+		"_postman_id": "06308cb5-2f10-42ad-92a1-f6a987c14962",
+		"name": "Meraki Webhooks - Samples v0.1",
+		"description": "# Overview\n\nA collection of sample Meraki alerts that would normally be delivered via a webhook.\n\nUse this collection to \"post\" to your receiving server to simulate Meraki sending this data.\n\n  \nLearn more  \n[https://meraki.io/webhooks](https://meraki.io/webhooks)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "APs came up",
+			"id": "ab67c7ed-db07-412f-84ae-5cd27a4f7e64",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.522804Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My access point\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MR\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"APs came up\",\n  \"alertTypeId\": \"started_reporting\",\n  \"alertLevel\": \"informational\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {}\n}"
+				},
+				"url": "{{webhook-url}}"
+			},
+			"response": []
+		},
+		{
+			"name": "APs went down",
+			"id": "97b92a47-65a8-4663-9040-492bffcd7adb",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.507166Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My access point\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MR\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"APs went down\",\n  \"alertTypeId\": \"stopped_reporting\",\n  \"alertLevel\": \"critical\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {}\n}"
+				},
+				"url": "{{webhook-url}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Air Marshal - Rogue AP detected",
+			"id": "ce826be2-47f7-4294-b71c-64c020d1abe9",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.558462Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"\",\n  \"deviceMac\": \"\",\n  \"deviceName\": \"\",\n  \"deviceUrl\": \"\",\n  \"deviceTags\": [],\n  \"deviceModel\": \"\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Air Marshal - Rogue AP detected\",\n  \"alertTypeId\": \"foreign_ap\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"minFirstSeen\": 0,\n    \"maxLastSeen\": 10,\n    \"ssidName\": \"My SSID\"\n  }\n}"
+				},
+				"url": "{{webhook-url}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Bluetooth Clients have become visible",
+			"id": "95b1dd45-df3f-4174-8521-1e6d00853405",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.491527Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My access point\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MR\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Bluetooth Clients have become visible\",\n  \"alertTypeId\": \"bluetooth_in\",\n  \"alertLevel\": \"informational\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"mac\": \"00:11:22:33:44:55\",\n    \"name\": \"\",\n    \"rowStartedAt\": {\n      \"millisFromEpoch\": 1563208308228\n    },\n    \"bluetoothClientId\": \"0000000000000000\",\n    \"rssi\": -94,\n    \"seenAt\": {\n      \"millisFromEpoch\": 1563519260925\n    }\n  }\n}"
+				},
+				"url": "{{webhook-url}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Bluetooth Clients have gone out of range",
+			"id": "1bf6be2c-2a13-4b2a-a9cf-e6becd9b6b29",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.500878Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My access point\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MR\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Bluetooth Clients have gone out of range\",\n  \"alertTypeId\": \"bluetooth_out\",\n  \"alertLevel\": \"informational\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"mac\": \"00:11:22:33:44:55\",\n    \"name\": \"\",\n    \"rowStartedAt\": {\n      \"millisFromEpoch\": 1563208308228\n    },\n    \"bluetoothClientId\": \"0000000000000000\",\n    \"rssi\": -94,\n    \"seenAt\": {\n      \"millisFromEpoch\": 1563519260925\n    }\n  }\n}"
+				},
+				"url": "{{webhook-url}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Cable error detected",
+			"id": "68f8924c-f32e-4eca-b856-2f2dcadf5168",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.550097Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My switch\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MS\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Cable error detected\",\n  \"alertTypeId\": \"port_cable_error\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"portNum\": 3,\n    \"description\": \"Gigabit link negotiation failed\",\n    \"status\": \"10 Gbps\",\n    \"prevStatus\": \"100 Gbps\",\n    \"portDesc\": \"Corp Access\"\n  }\n}"
+				},
+				"url": "{{webhook-url}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Camera may have critical hardware failure",
+			"id": "03c9b390-aa84-4d23-b76c-a7ba4371e903",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.524087Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My camera\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MV\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Camera may have critical hardware failure\",\n  \"alertTypeId\": \"node_hardware_failure\",\n  \"alertLevel\": \"critical\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {}\n}"
+				},
+				"url": "{{webhook-url}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Cellular came up",
+			"id": "006669d2-f529-4de5-9274-491381514b1c",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.513014Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My appliance\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MX\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Cellular came up\",\n  \"alertTypeId\": \"cellular_up\",\n  \"alertLevel\": \"informational\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"provider\": \"Purview Wireless\",\n    \"model\": \"UML290VW\",\n    \"local\": \"192.168.1.2\",\n    \"remote\": \"1.2.3.5\",\n    \"connection\": \"LTE\"\n  }\n}"
+				},
+				"url": "{{webhook-url}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Cellular went down",
+			"id": "3a2bea5c-75c0-42b1-ad77-0ea40be339df",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.476239Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My appliance\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MX\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Cellular went down\",\n  \"alertTypeId\": \"cellular_down\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"bytesIn\": \"1861\",\n    \"bytesOut\": \"1880\",\n    \"connectTime\": \"2\",\n    \"provider\": \"Purview Wireless\",\n    \"model\": \"UML290VW\",\n    \"local\": \"192.168.1.2\",\n    \"remote\": \"1.2.3.5\",\n    \"connection\": \"LTE\"\n  }\n}"
+				},
+				"url": "{{webhook-url}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Cisco Meraki Umbrella Subscription Reminder",
+			"id": "3b4b83d5-041d-4de1-b4bf-4fe0721a66fd",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.493227Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My appliance\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MX\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Cisco Meraki Umbrella Subscription Reminder\",\n  \"alertTypeId\": \"umbrella_expiring\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"daysLeft\": \"25\",\n    \"expirationDate\": \"2020-10-21\"\n  }\n}"
+				},
+				"url": "{{webhook-url}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Client IP conflict detected",
+			"id": "1b67f045-32b2-45e9-bf85-b1699c5aa2c4",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.496161Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My appliance\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MX\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Client IP conflict detected\",\n  \"alertTypeId\": \"ip_conflict\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"conflictingIp\": \"192.168.1.2\",\n    \"contendingMac\": \"00:11:22:33:44:55\"\n  }\n}"
+				},
+				"url": "{{webhook-url}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Client connected to another network",
+			"id": "baf44415-8c7e-4fa2-9d04-8ea2adb598c5",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.480123Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My access point\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MR\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Client connected to another network\",\n  \"alertTypeId\": \"rogue_ap_association\",\n  \"alertLevel\": \"informational\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"mac\": \"00:11:22:33:44:55\",\n    \"foreignBssid\": \"E2:55:7D:26:09:C0\"\n  }\n}"
+				},
+				"url": "{{webhook-url}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Client connectivity changed",
+			"id": "00c34c8a-0f4c-4562-a444-ac7c832af43b",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.546463Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My appliance\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MX\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Client connectivity changed\",\n  \"alertTypeId\": \"client_connectivity\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"mac\": \"00:11:22:33:44:55\",\n    \"ip\": \"192.168.1.2\",\n    \"connected\": \"true\",\n    \"clientName\": \"Cisco Meraki valued client\",\n    \"clientUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\"\n  }\n}"
+				},
+				"url": "{{webhook-url}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Clients are compliant with their security policy",
+			"id": "b2e5b649-cfe9-48f3-a975-a343f77631cd",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.534269Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"\",\n  \"deviceMac\": \"\",\n  \"deviceName\": \"\",\n  \"deviceUrl\": \"\",\n  \"deviceTags\": [],\n  \"deviceModel\": \"\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Clients are compliant with their security policy\",\n  \"alertTypeId\": \"pcc_security_compliance\",\n  \"alertLevel\": \"informational\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"pccSecurityPolicyId\": \"0000000000000000\",\n    \"pccSecurityAlertConfigId\": \"0000000000000000\"\n  }\n}"
+				},
+				"url": "{{webhook-url}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Clients are violating their security policy",
+			"id": "a522a465-e2b3-47a7-a346-bf733c45ba9d",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.536000Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"\",\n  \"deviceMac\": \"\",\n  \"deviceName\": \"\",\n  \"deviceUrl\": \"\",\n  \"deviceTags\": [],\n  \"deviceModel\": \"\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Clients are violating their security policy\",\n  \"alertTypeId\": \"pcc_security_violation\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"pccSecurityPolicyId\": \"0000000000000000\",\n    \"pccSecurityAlertConfigId\": \"0000000000000000\"\n  }\n}"
+				},
+				"url": "{{webhook-url}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Clients came up",
+			"id": "e188bef5-e95e-4681-93cb-6727a17c5fb8",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.494662Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"\",\n  \"deviceMac\": \"\",\n  \"deviceName\": \"\",\n  \"deviceUrl\": \"\",\n  \"deviceTags\": [],\n  \"deviceModel\": \"\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Clients came up\",\n  \"alertTypeId\": \"pcc_outage_end\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {}\n}"
+				},
+				"url": "{{webhook-url}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Clients have enrolled in one of your networks",
+			"id": "0fb9759c-6d5c-406f-8a37-5b1e1d04fcc8",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.505756Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"\",\n  \"deviceMac\": \"\",\n  \"deviceName\": \"\",\n  \"deviceUrl\": \"\",\n  \"deviceTags\": [],\n  \"deviceModel\": \"\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Clients have enrolled in one of your networks\",\n  \"alertTypeId\": \"pcc_enrollment\",\n  \"alertLevel\": \"informational\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"deviceId\": \"0000000000000000\"\n  }\n}"
+				},
+				"url": "{{webhook-url}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Clients have re-entered their geofenced area",
+			"id": "6defa50f-18c1-4794-af59-792c7b9f36f6",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.478525Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My access point\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MR\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Clients have re-entered their geofenced area\",\n  \"alertTypeId\": \"geofencing_in\",\n  \"alertLevel\": \"informational\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {}\n}"
+				},
+				"url": "{{webhook-url}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Clients have violated their geofencing policy",
+			"id": "24547cf5-85f5-4e4d-9a1d-077c89cca11f",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.551752Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My access point\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MR\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Clients have violated their geofencing policy\",\n  \"alertTypeId\": \"geofencing_out\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {}\n}"
+				},
+				"url": "{{webhook-url}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Clients went down",
+			"id": "83701195-d6f1-4b26-9454-7363a05a33b9",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.481599Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"\",\n  \"deviceMac\": \"\",\n  \"deviceName\": \"\",\n  \"deviceUrl\": \"\",\n  \"deviceTags\": [],\n  \"deviceModel\": \"\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Clients went down\",\n  \"alertTypeId\": \"pcc_outage_begin\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {}\n}"
+				},
+				"url": "{{webhook-url}}"
+			},
+			"response": []
+		},
+		{
+			"name": "DHCP leases exhausted",
+			"id": "a276821c-1d31-42d6-99ba-0f5e3ae7ae1b",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.511417Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My appliance\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MX\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"DHCP leases exhausted\",\n  \"alertTypeId\": \"dhcp_no_leases\",\n  \"alertLevel\": \"informational\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"network\": \"192.168.1.0/24'192.168.1.254\"\n  }\n}"
+				},
+				"url": "{{webhook-url}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Devices operating at critical temperature",
+			"id": "c5c6e53a-f2be-45b5-8a87-cf891105b069",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.521153Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My switch\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MS\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Devices operating at critical temperature\",\n  \"alertTypeId\": \"critical_temperature\",\n  \"alertLevel\": \"critical\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"temperature\": \"Critical Level\",\n    \"action\": \"Shutdown\"\n  }\n}"
+				},
+				"url": "{{webhook-url}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Failover event detected",
+			"id": "58829fbc-ea61-4fd8-b0be-f8b846645cdb",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.525972Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My switch\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MS\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Failover event detected\",\n  \"alertTypeId\": \"vrrp\",\n  \"alertLevel\": \"critical\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"oldIfUp\": \"0\",\n    \"oldMode\": \"detect\",\n    \"oldPrio\": \"75\",\n    \"electorState\": \"master\",\n    \"mode\": \"detect\",\n    \"prio\": \"75\",\n    \"ifUp\": \"1\"\n  }\n}"
+				},
+				"url": "{{webhook-url}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Gateway to repeater",
+			"id": "375f641a-2b38-4697-b111-d4f5289f2261",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.555140Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My access point\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MR\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Gateway to repeater\",\n  \"alertTypeId\": \"gateway_to_repeater\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {}\n}"
+				},
+				"url": "{{webhook-url}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Insight Alert",
+			"id": "7f0c4499-4764-4109-a0dd-4a32466ee928",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.514442Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Insight Alert\",\n  \"alertTypeId\": \"mi_alert\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {}\n}"
+				},
+				"url": "{{webhook-url}}"
+			},
+			"response": []
+		},
+		{
+			"name": "MDM certificate will expire soon",
+			"id": "bdf99ab6-d565-4cbf-afd9-1a90add6eacb",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.499259Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"\",\n  \"deviceMac\": \"\",\n  \"deviceName\": \"\",\n  \"deviceUrl\": \"\",\n  \"deviceTags\": [],\n  \"deviceModel\": \"\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"MDM certificate will expire soon\",\n  \"alertTypeId\": \"pcc_expired_apns_cert\",\n  \"alertLevel\": \"informational\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"expiry\": \"2018-02-11T00:00:00Z\",\n    \"networkId\": \"1254235\",\n    \"topic\": \"com.apple.mgmt.External.e9908a35-405d-4b25-b513-fa55431d1374\"\n  }\n}"
+				},
+				"url": "{{webhook-url}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Malware download blocked",
+			"id": "01e54f29-1e6d-4fae-9fb7-de8fb50982d0",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.508581Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My appliance\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MX\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Malware download blocked\",\n  \"alertTypeId\": \"amp_malware_blocked\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {}\n}"
+				},
+				"url": "{{webhook-url}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Malware download detected",
+			"id": "315b3ba4-4ec3-47e0-9eee-80edc32259b8",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.530203Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My access point\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MR\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Malware download detected\",\n  \"alertTypeId\": \"amp_malware_detected\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"eventType\": \"amp_malware_detected\",\n    \"sha256\": \"ddcb8f357d86d11dfa3409f71a966e5076240445ca9825fb72e7386efc5582e4\",\n    \"disposition\": 3\n  }\n}"
+				},
+				"url": "{{webhook-url}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Matching software installations found",
+			"id": "87ef56b3-7e08-48d5-8ef8-9871e00f7ca6",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.518054Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"\",\n  \"deviceMac\": \"\",\n  \"deviceName\": \"\",\n  \"deviceUrl\": \"\",\n  \"deviceTags\": [],\n  \"deviceModel\": \"\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Matching software installations found\",\n  \"alertTypeId\": \"pcc_sw_found\",\n  \"alertLevel\": \"informational\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"swFoundRegex\": \".*\",\n    \"installs\": [\n      {\n        \"swName\": \"TrackAbout\",\n        \"swVendor\": \"iTunes Store\",\n        \"pccName\": \"Miles Meraki iPhone\",\n        \"swVersion\": \"7.313.132\",\n        \"swInstallDate\": \"2019-07-17\"\n      }\n    ]\n  }\n}"
+				},
+				"url": "{{webhook-url}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Meraki Management profile removed",
+			"id": "bc1510c5-0ec5-4fb8-af00-a37ec4c9392b",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.537662Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"\",\n  \"deviceMac\": \"\",\n  \"deviceName\": \"\",\n  \"deviceUrl\": \"\",\n  \"deviceTags\": [],\n  \"deviceModel\": \"\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Meraki Management profile removed\",\n  \"alertTypeId\": \"pcc_unmanaged\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"pccName\": \"iPhone\",\n    \"wifiMac\": \"00:11:22:33:44:55\",\n    \"serialNumber\": \"F5XKHEBX\"\n  }\n}"
+				},
+				"url": "{{webhook-url}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Motion detected",
+			"id": "d29559fe-1a0e-4407-87c9-c8743434ebbe",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.516099Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My camera\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MV\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Motion detected\",\n  \"alertTypeId\": \"motion_alert\",\n  \"alertLevel\": \"informational\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"imageUrl\": \"https://XXXXXXXXXXXXXXXXXXXXXXXXXXX.jpg\",\n    \"timestamp\": 1563499479.547,\n    \"motionRecapEnabled\": true,\n    \"motionDetectorAllowsRecap\": true,\n    \"isSpyglass\": false,\n    \"imageEnabled\": true\n  }\n}"
+				},
+				"url": "{{webhook-url}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Network usage alert",
+			"id": "cb2ac214-42de-4370-940f-6e0e12d876c8",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.543206Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"\",\n  \"deviceMac\": \"\",\n  \"deviceName\": \"\",\n  \"deviceUrl\": \"\",\n  \"deviceTags\": [],\n  \"deviceModel\": \"\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Network usage alert\",\n  \"alertTypeId\": \"usage_alert\",\n  \"alertLevel\": \"informational\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"usageThreshold\": \"104857600\",\n    \"kbTotal\": \"115892215\",\n    \"period\": \"1200\"\n  }\n}"
+				},
+				"url": "{{webhook-url}}"
+			},
+			"response": []
+		},
+		{
+			"name": "New DHCP server detected",
+			"id": "a4df819c-be45-42e1-b42c-b62df4caf98e",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.556731Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My switch\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MS\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"New DHCP server detected\",\n  \"alertTypeId\": \"dhcp_alerts\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"mac\": \"00:11:22:33:44:55\",\n    \"ip\": \"192.168.1.2\",\n    \"vlan\": \"104\",\n    \"subnet\": \"192.168.1.0/24\"\n  }\n}"
+				},
+				"url": "{{webhook-url}}"
+			},
+			"response": []
+		},
+		{
+			"name": "New splash user registered",
+			"id": "23d06e43-8bc9-4214-803a-ff17556694e3",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.504180Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"\",\n  \"deviceMac\": \"\",\n  \"deviceName\": \"\",\n  \"deviceUrl\": \"\",\n  \"deviceTags\": [],\n  \"deviceModel\": \"\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"New splash user registered\",\n  \"alertTypeId\": \"new_splash_signup\",\n  \"alertLevel\": \"informational\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"userEmail\": \"miles@meraki.com\",\n    \"userName\": \"milesmeraki\",\n    \"ssidId\": \"My SSID\"\n  }\n}"
+				},
+				"url": "{{webhook-url}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Power supply came up",
+			"id": "6dd18fbc-5758-41df-b849-a4a445dbcd5e",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.519545Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My switch\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MS\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Power supply came up\",\n  \"alertTypeId\": \"power_supply_up\",\n  \"alertLevel\": \"informational\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"num\": 2\n  }\n}"
+				},
+				"url": "{{webhook-url}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Power supply went down",
+			"id": "a28ea733-1bfd-4e54-b172-9a43dde79dcf",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.489807Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My switch\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MS\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Power supply went down\",\n  \"alertTypeId\": \"power_supply_down\",\n  \"alertLevel\": \"critical\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"num\": 2\n  }\n}"
+				},
+				"url": "{{webhook-url}}"
+			},
+			"response": []
+		},
+		{
+			"name": "RADIUS authentication server unreachable",
+			"id": "12ba86ce-9a07-477b-b0f7-eb471ca0fe6a",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.483467Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"\",\n  \"deviceMac\": \"\",\n  \"deviceName\": \"\",\n  \"deviceUrl\": \"\",\n  \"deviceTags\": [],\n  \"deviceModel\": \"\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"RADIUS authentication server unreachable\",\n  \"alertTypeId\": \"unreachable_radius_server\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"shardId\": \"207\",\n    \"isSpare\": true,\n    \"machineIp\": \"192.168.1.2\",\n    \"ssid\": \"My SSID\",\n    \"srvIp\": \"server.example.com\",\n    \"port\": \"1812\"\n  }\n}"
+				},
+				"url": "{{webhook-url}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Returned to using primary power",
+			"id": "2c14f9fd-52c4-42cc-af2d-62c277438abb",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.488423Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My switch\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MS\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Returned to using primary power\",\n  \"alertTypeId\": \"rps_base_supply_up\",\n  \"alertLevel\": \"informational\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"num\": 0\n  }\n}"
+				},
+				"url": "{{webhook-url}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Rogue AP detected",
+			"id": "7dd234de-9678-4362-8a14-66b4ac4cba49",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.559910Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My access point\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MR\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Rogue AP detected\",\n  \"alertTypeId\": \"rogue_ap\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"rssi\": \"1126462856796059000\"\n  }\n}"
+				},
+				"url": "{{webhook-url}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Rogue DHCP server detected",
+			"id": "9532fba2-8c19-4bd1-952f-c074f5bf7f90",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.497653Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My switch\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MS\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Rogue DHCP server detected\",\n  \"alertTypeId\": \"rogue_dhcp\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"eth\": \"bb:bb:bb:11:11:11\",\n    \"ip\": \"10.20.2.62\",\n    \"subnet\": \"0.0.0.0/0\",\n    \"vlan\": \"3\"\n  }\n}"
+				},
+				"url": "{{webhook-url}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Running on backup power",
+			"id": "1e4744e9-f043-4781-8776-f9ab2618a4d0",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.544809Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My switch\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MS\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Running on backup power\",\n  \"alertTypeId\": \"rps_backup\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"num\": 0\n  }\n}"
+				},
+				"url": "{{webhook-url}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Settings changed",
+			"id": "ed28e32f-80a7-4a5e-8a04-35addf74d79f",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.532187Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"\",\n  \"deviceMac\": \"\",\n  \"deviceName\": \"\",\n  \"deviceUrl\": \"\",\n  \"deviceTags\": [],\n  \"deviceModel\": \"\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Settings changed\",\n  \"alertTypeId\": \"settings_changed\",\n  \"alertLevel\": \"informational\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"name\": \"Routing and DHCP\",\n    \"url\": \"/manage/configure/switch_l3\",\n    \"changes\": {\n      \"createStaticRoute\": {\n        \"label\": \"Added static route on SP-Warehouse\",\n        \"newText\": \"10.10.10.0/24 -> 172.16.254.253\",\n        \"changedBy\": \"miles@meraki.com\",\n        \"oldText\": \"\",\n        \"ssidId\": \"My SSID\"\n      }\n    },\n    \"userId\": \"0000000000000000\"\n  }\n}"
+				},
+				"url": "{{webhook-url}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Switch port connected",
+			"id": "c148ff0f-fd99-4101-a72a-9d7b85d6a4c2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.486834Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My switch\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MS\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Switch port connected\",\n  \"alertTypeId\": \"port_connected\",\n  \"alertLevel\": \"informational\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"portNum\": 3,\n    \"description\": \"Switch port is up at 10 Gbps\",\n    \"status\": \"10 Gbps\",\n    \"prevStatus\": \"down\",\n    \"portDesc\": \"Corp Access\"\n  }\n}"
+				},
+				"url": "{{webhook-url}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Switch port disconnected",
+			"id": "b425513a-dcc9-4009-8fbe-b5cd36894a04",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.548358Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My switch\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MS\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Switch port disconnected\",\n  \"alertTypeId\": \"port_disconnected\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"portNum\": 3,\n    \"description\": \"Switch port is down\",\n    \"status\": \"down\",\n    \"prevStatus\": \"100 Gbps\",\n    \"portDesc\": \"Corp Access\"\n  }\n}"
+				},
+				"url": "{{webhook-url}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Switch port link speed changed",
+			"id": "14f94074-e00e-4b6c-a8e8-54059fec8484",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.540980Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My switch\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MS\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Switch port link speed changed\",\n  \"alertTypeId\": \"port_speed_change\",\n  \"alertLevel\": \"informational\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"portNum\": 3,\n    \"description\": \"10 Gbps to 100 Gbps\",\n    \"status\": \"100 Gbps\",\n    \"prevStatus\": \"10 Gbps\",\n    \"portDesc\": \"Corp Access\"\n  }\n}"
+				},
+				"url": "{{webhook-url}}"
+			},
+			"response": []
+		},
+		{
+			"name": "UDLD error",
+			"id": "ba602cbf-a41d-4d64-8507-908963d73fbf",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.553469Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My switch\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MS\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"UDLD error\",\n  \"alertTypeId\": \"udld_error\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"errorType\": \"Unidirectional link (outbound fault)\",\n    \"action\": \"none\",\n    \"port\": {\n      \"port\": 52,\n      \"moduleSlot\": 0,\n      \"modulePid\": \"\"\n    }\n  }\n}"
+				},
+				"url": "{{webhook-url}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Unreachable devices detected",
+			"id": "c9f64661-366f-4eaf-b869-d8efa82ab760",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.509977Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My appliance\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MX\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Unreachable devices detected\",\n  \"alertTypeId\": \"firewall_test_failed\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"failingNodes\": \"Inside AP\\nRecycle Shed AP\"\n  }\n}"
+				},
+				"url": "{{webhook-url}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Uplink IPv6 duplicate address detected",
+			"id": "2ffa98a4-b8f9-43a5-a852-5061840bfae2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.539307Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My appliance\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MX\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Uplink IPv6 duplicate address detected\",\n  \"alertTypeId\": \"uplink_ip6_conflict\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"conflictingIp\": \"192.168.1.2\",\n    \"contendingMac\": \"00:11:22:33:44:55\"\n  }\n}"
+				},
+				"url": "{{webhook-url}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Uplink status changed",
+			"id": "8de2a620-83b3-41a1-b8f1-d5253ac14614",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.502582Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My switch\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MS\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"Uplink status changed\",\n  \"alertTypeId\": \"failover_event\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"uplink\": \"0\"\n  }\n}"
+				},
+				"url": "{{webhook-url}}"
+			},
+			"response": []
+		},
+		{
+			"name": "VPN connectivity changed",
+			"id": "a647e060-1012-44d7-95fd-710ecbfbee35",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.528201Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My appliance\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"MX\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"VPN connectivity changed\",\n  \"alertTypeId\": \"vpn_connectivity_change\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {\n    \"vpnType\": \"l2tpv3\",\n    \"vap\": \"1\",\n    \"onSecondary\": false,\n    \"secondaryEndpoint\": \"192.168.1.2\",\n    \"primaryEndpoint\": \"192.168.1.1\",\n    \"connectivity\": \"true\",\n    \"peerNetworkName\": \"Corp Access\",\n    \"peerNetworkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n    \"peerNetworkId\": \"N_24329156\"\n  }\n}"
+				},
+				"url": "{{webhook-url}}"
+			},
+			"response": []
+		},
+		{
+			"name": "translation missing: en.alerts.analyzed_app_network_insight_performance_alert",
+			"id": "221f97f7-36c7-46a8-803f-50c8ee3480b9",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2021-10-07T08:38:40.485154Z\",\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n  \"networkTags\": [],\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"deviceModel\": \"\",\n  \"alertId\": \"0000000000000000\",\n  \"alertType\": \"translation missing: en.alerts.analyzed_app_network_insight_performance_alert\",\n  \"alertTypeId\": \"analyzed_app_network_insight_performance_alert\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {}\n}"
+				},
+				"url": "{{webhook-url}}"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "3c150b48-8663-4310-b3f8-354320db18f7",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "9b703bf0-18ce-4f12-bb81-45ac80081770",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
 }
