@@ -102,7 +102,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"specUrl\":\"https://raw.githubusercontent.com/meraki/openapi/v1-beta/openapi/spec2.json\"\n}",
+							"raw": "{\n    \"specUrl\":\"https://raw.githubusercontent.com/meraki/openapi/v1-beta/openapi/spec3.json\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -168,7 +168,31 @@
 						"url": "https://us-central1-meraki-micro-services.cloudfunctions.net/merakiPostmanTransformer",
 						"description": "Generate a Meraki API Postman Collection using your `organizationId` and `apiKey` stored in your Postman **Environement**\n\nNote: \nThis request uses a `Pre-request Script` to first request the openAPI Specification for your organization. It then\nsets an environement variable `orgApiSpec` to the JSON contents. \n\nThe request then uses this JSON to submit the POST request to the transformer. Once completed, a post test script will clear\nthe temporary variable. This could be preserved if needed by commenting out the **Tests** script"
 					},
-					"response": []
+					"response": [
+						{
+							"id": "b639c171-3b25-4e63-b9b4-ce1037c79762",
+							"name": "Generate Collection - V1 by organizationId",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"spec\":{{orgApiSpec}}\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "https://us-central1-meraki-micro-services.cloudfunctions.net/merakiPostmanTransformer"
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"responseTime": null,
+							"body": null
+						}
+					]
 				},
 				{
 					"name": "Generate Collection - V1 by organizationId diff",
