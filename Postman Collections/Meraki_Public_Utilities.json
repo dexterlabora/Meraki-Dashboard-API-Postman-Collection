@@ -1,630 +1,630 @@
 {
-  "info": {
-    "_postman_id": "58211ef8-3266-49e2-b86b-3afa697592e3",
-    "name": "Meraki Public Utilities",
-    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
-  },
-  "item": [
-    {
-      "name": "Meraki Postman Transformer",
-      "item": [
-        {
-          "name": "Generate Collection - streaming",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "8e7c7ed1-95fa-4429-8b6a-58aa2541c608",
-                "exec": [
-                  ""
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "ef281c19-55da-40ea-b0b5-a8810c87ba20",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"specUrl\":\"https://api.meraki.com/api/v1/openapiSpec\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": "https://us-central1-meraki-micro-services.cloudfunctions.net/merakiPostmanTransformer",
-            "description": "Generate a Meraki API Postman Collection using the v1 GA streaming feed (may contain GA endpoints that have not been officially released and documented)"
-          },
-          "response": []
-        },
-        {
-          "name": "Generate Collection -- v1 GA",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "dd4d39c3-b52a-4e7b-a403-dc9b26920746",
-                "exec": [
-                  ""
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "61619f7b-b977-4a5d-a381-b6a80984baf9",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"specUrl\":\"https://raw.githubusercontent.com/meraki/openapi/master/openapi/spec2.json\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": "https://us-central1-meraki-micro-services.cloudfunctions.net/merakiPostmanTransformer",
-            "description": "Generate a Meraki API Postman Collection using the Generally Available v1 latest release"
-          },
-          "response": []
-        },
-        {
-          "name": "Generate Collection - v1 Beta",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "ec94ce32-a189-4185-b077-a8c2971e1013",
-                "exec": [
-                  ""
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "b7c12f6d-de76-4c98-b126-ae3418aea33a",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"specUrl\":\"https://raw.githubusercontent.com/meraki/openapi/v1-beta/openapi/spec2.json\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": "https://us-central1-meraki-micro-services.cloudfunctions.net/merakiPostmanTransformer",
-            "description": "Generate a Meraki API Postman Collection using the Beta v1 latest release"
-          },
-          "response": []
-        },
-        {
-          "name": "Generate Collection - V1 by organizationId",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "c9284f5f-3933-4da1-a2a9-5ec091bcf012",
-                "exec": [
-                  "const organizationId = pm.environment.get('organizationId');",
-                  "const apiKey = pm.environment.get('apiKey');",
-                  "const getOrgApiSpec = {",
-                  "  url: 'https://api.meraki.com/api/v1/organizations/'+organizationId+\"/openapiSpec\",",
-                  "  method: 'GET',",
-                  "  header: \"X-Cisco-Meraki-API-Key:\" + apiKey",
-                  "};",
-                  "pm.sendRequest(getOrgApiSpec, function (err, res) {",
-                  "  console.log(err ? err : res.json());",
-                  "  pm.environment.set('orgApiSpec',JSON.stringify(res.json()))",
-                  "});"
-                ],
-                "type": "text/javascript"
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "id": "dcbfdda6-3d04-4931-8b38-745e6f379a3b",
-                "exec": [
-                  "// removes temporary API spec from environment",
-                  "pm.environment.unset('orgApiSpec')"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "0903d72e-3704-42dc-ab23-334dba211412",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"spec\":{{orgApiSpec}}\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": "https://us-central1-meraki-micro-services.cloudfunctions.net/merakiPostmanTransformer",
-            "description": "Generate a Meraki API Postman Collection using your `organizationId` and `apiKey` stored in your Postman **Environement**\n\nNote: \nThis request uses a `Pre-request Script` to first request the openAPI Specification for your organization. It then\nsets an environement variable `orgApiSpec` to the JSON contents. \n\nThe request then uses this JSON to submit the POST request to the transformer. Once completed, a post test script will clear\nthe temporary variable. This could be preserved if needed by commenting out the **Tests** script"
-          },
-          "response": []
-        },
-        {
-          "name": "Generate Collection - V1 by organizationId diff",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "3e2e2160-cac7-48e7-bd1d-05a2ba5fbb01",
-                "exec": [
-                  "",
-                  "var oldSpecOptions = {",
-                  "    url: 'https://raw.githubusercontent.com/meraki/openapi/master/openapi/spec2.json',",
-                  "    method: 'GET',",
-                  "}",
-                  "",
-                  "const organizationId = pm.environment.get('organizationId');",
-                  "const apiKey = pm.environment.get('apiKey');",
-                  "           ",
-                  "var newSpecOptions = {",
-                  "    url: 'https://api.meraki.com/api/v1/organizations/'+organizationId+\"/openapiSpec\",",
-                  "    method: 'GET',",
-                  "    header: \"X-Cisco-Meraki-API-Key:\" + apiKey",
-                  "}",
-                  "",
-                  "pm.sendRequest(oldSpecOptions, (err, res) => {",
-                  "    if (err) {",
-                  "        console.error(err);",
-                  "        return;",
-                  "    }",
-                  "    var oldSpec = res.json();",
-                  "",
-                  "    pm.sendRequest(newSpecOptions, (err, res) => {",
-                  "        if (err) {",
-                  "            console.error(err);",
-                  "            return;",
-                  "        }",
-                  "        var newSpec = res.json();",
-                  "",
-                  "        const diffSpec = {...{}, ...newSpec}",
-                  "        diffSpec.paths = diffPaths(oldSpec.paths,newSpec.paths)",
-                  "        pm.environment.set(\"oasDiffStub\",JSON.stringify(diffSpec,null,4))",
-                  "",
-                  "        })",
-                  "})",
-                  "",
-                  "",
-                  "// helper",
-                  "function diffPaths(oldPaths, newPaths) {",
-                  "        let diff = {};",
-                  "        for (var path in newPaths) {",
-                  "            if (Object.prototype.hasOwnProperty.call(newPaths, path)) {",
-                  "                if (!Object.prototype.hasOwnProperty.call(oldPaths, path)) {",
-                  "                    diff[path] = newPaths[path];",
-                  "                }",
-                  "            }",
-                  "        }",
-                  "        return diff;",
-                  "    }"
-                ],
-                "type": "text/javascript"
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "id": "c9700b27-07b8-445a-99d0-f2b90d7764d1",
-                "exec": [
-                  "// removes temporary API spec from environment",
-                  "pm.environment.unset('oasDiffStub')"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "23f7bba5-78de-4191-bfea-18b4ebb53479",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"spec\":{{oasDiffStub}}\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": "https://us-central1-meraki-micro-services.cloudfunctions.net/merakiPostmanTransformer",
-            "description": "Generate a Meraki API Postman Collection using your `organizationId` and `apiKey` stored in your Postman **Environement**\n\nNote: \nThis request uses a `Pre-request Script` to first request the openAPI Specification for your organization. It then\nsets an environement variable `orgApiSpec` to the JSON contents. \n\nThe request then uses this JSON to submit the POST request to the transformer. Once completed, a post test script will clear\nthe temporary variable. This could be preserved if needed by commenting out the **Tests** script"
-          },
-          "response": []
-        },
-        {
-          "name": "Generate Collection - V1 by Beta diff",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "e6e9e0e9-0d57-423f-9915-49072ca93d58",
-                "exec": [
-                  "",
-                  "var oldSpecOptions = {",
-                  "    url: 'https://raw.githubusercontent.com/meraki/openapi/master/openapi/spec2.json',",
-                  "    method: 'GET',",
-                  "}",
-                  "",
-                  "var newSpecOptions = {",
-                  "    url: 'https://raw.githubusercontent.com/meraki/openapi/v1-beta/openapi/spec2.json',",
-                  "    method: 'GET'",
-                  "}",
-                  "",
-                  "pm.sendRequest(oldSpecOptions, (err, res) => {",
-                  "    if (err) {",
-                  "        console.error(err);",
-                  "        return;",
-                  "    }",
-                  "    var oldSpec = res.json();",
-                  "",
-                  "    pm.sendRequest(newSpecOptions, (err, res) => {",
-                  "        if (err) {",
-                  "            console.error(err);",
-                  "            return;",
-                  "        }",
-                  "        var newSpec = res.json();",
-                  "",
-                  "        const diffSpec = {...{}, ...newSpec}",
-                  "        diffSpec.paths = diffPaths(oldSpec.paths,newSpec.paths)",
-                  "        pm.environment.set(\"oasDiffStub\",JSON.stringify(diffSpec,null,4))",
-                  "",
-                  "        })",
-                  "})",
-                  "",
-                  "",
-                  "// helper",
-                  "function diffPaths(oldPaths, newPaths) {",
-                  "        let diff = {};",
-                  "        for (var path in newPaths) {",
-                  "            if (Object.prototype.hasOwnProperty.call(newPaths, path)) {",
-                  "                if (!Object.prototype.hasOwnProperty.call(oldPaths, path)) {",
-                  "                    diff[path] = newPaths[path];",
-                  "                }",
-                  "            }",
-                  "        }",
-                  "        return diff;",
-                  "    }"
-                ],
-                "type": "text/javascript"
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "id": "50a21995-031a-410c-81ce-631f025ca4d8",
-                "exec": [
-                  "// removes temporary API spec from environment",
-                  "//pm.environment.unset('orgApiSpec')"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "b1757208-3584-4c02-a96f-5e03bc2652ec",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"spec\":{{oasDiffStub}}\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": "https://us-central1-meraki-micro-services.cloudfunctions.net/merakiPostmanTransformer",
-            "description": "Generate a Meraki API Postman Collection using your `organizationId` and `apiKey` stored in your Postman **Environement**\n\nNote: \nThis request uses a `Pre-request Script` to first request the openAPI Specification for your organization. It then\nsets an environement variable `orgApiSpec` to the JSON contents. \n\nThe request then uses this JSON to submit the POST request to the transformer. Once completed, a post test script will clear\nthe temporary variable. This could be preserved if needed by commenting out the **Tests** script"
-          },
-          "response": []
-        }
-      ],
-      "id": "6f323bcc-231c-43b8-931a-7f2c0a7c9edf"
-    },
-    {
-      "name": "Meraki API Changelog",
-      "item": [
-        {
-          "name": "Meraki API - v1 prev to v1 latest",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "8bba2d58-b47c-47bc-aca6-14b4c03b0d6e",
-                "exec": [
-                  "// Generate Meraki API Changlog using the GitHub releases",
-                  "",
-                  "const BETA = false;",
-                  "",
-                  "// helper functions",
-                  "",
-                  "const githubReleases = {",
-                  "    url: \"https://api.github.com/repos/meraki/openapi/releases\",",
-                  "    method: \"GET\",",
-                  "    headers: {",
-                  "        \"Content-Type\": \"application/json\",",
-                  "        \"User-Agent\":\"Postman\"",
-                  "        }",
-                  "    };",
-                  "",
-                  "pm.sendRequest(githubReleases, function (err, res) {",
-                  "  console.log(err ? err : \"GitHub RELEASES\", res.json());",
-                  "  const releases = res.json();",
-                  "",
-                  "  const filteredReleases = releases.filter(r => r.prerelease === BETA)",
-                  "  console.log('filteredReleases', filteredReleases)",
-                  "",
-                  "",
-                  "  const latestApiRelease = filteredReleases[0].tag_name",
-                  "  const prevApiRelease = filteredReleases[1].tag_name;",
-                  "",
-                  "  console.log('release versions', prevApiRelease, latestApiRelease)",
-                  "  pm.environment.set('prevApiRelease',prevApiRelease)",
-                  "  pm.environment.set('latestApiRelease',latestApiRelease)",
-                  "",
-                  "});"
-                ],
-                "type": "text/javascript"
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "id": "792f0da2-be83-404c-aec0-57036378a9aa",
-                "exec": [
-                  "  pm.environment.unset('prevApiRelease')",
-                  "  pm.environment.unset('latestApiRelease')"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "883bf11c-6a00-472f-b0b2-20c4d8f8c795",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "name": "Content-Type",
-                "type": "text",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"oldSpec\": \"https://raw.githubusercontent.com/meraki/openapi/{{prevApiRelease}}/openapi/spec2.json\",\n    \"newSpec\": \"https://raw.githubusercontent.com/meraki/openapi/{{latestApiRelease}}/openapi/spec2.json\"\n}"
-            },
-            "url": "https://us-central1-focal-rig-261016.cloudfunctions.net/app/swagger/diff",
-            "description": "Generates a changelog using the latest Meraki API specification in GitHub Releases\n- Latest v1 GA"
-          },
-          "response": []
-        },
-        {
-          "name": "Meraki API - v1 to v1 Beta",
-          "id": "4dc403b9-d5b5-43f5-875f-dd3110028341",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "name": "Content-Type",
-                "value": "application/json",
-                "type": "text"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"oldSpec\": \"https://raw.githubusercontent.com/meraki/openapi/master/openapi/spec2.json\",\n    \"newSpec\": \"https://raw.githubusercontent.com/meraki/openapi/v1-beta/openapi/spec2.json\"\n}"
-            },
-            "url": "https://us-central1-focal-rig-261016.cloudfunctions.net/app/swagger/diff"
-          },
-          "response": []
-        },
-        {
-          "name": "Meraki API - v1 prev to v1 latest Beta",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "483548ea-1f3c-4b47-a638-db0029c83083",
-                "exec": [
-                  "// Generate Meraki API Changlog using the GitHub releases",
-                  "",
-                  "const BETA = true;",
-                  "",
-                  "// helper functions",
-                  "",
-                  "const githubReleases = {",
-                  "    url: \"https://api.github.com/repos/meraki/openapi/releases\",",
-                  "    method: \"GET\",",
-                  "    headers: {",
-                  "        \"Content-Type\": \"application/json\",",
-                  "        \"User-Agent\":\"Postman\"",
-                  "        }",
-                  "    };",
-                  "",
-                  "pm.sendRequest(githubReleases, function (err, res) {",
-                  "  console.log(err ? err : \"GitHub RELEASES\", res.json());",
-                  "  const releases = res.json();",
-                  "",
-                  "  const filteredReleases = releases.filter(r => r.prerelease === BETA)",
-                  "  console.log('filteredReleases', filteredReleases)",
-                  "",
-                  "",
-                  "  const latestApiRelease = filteredReleases[0].tag_name",
-                  "  const prevApiRelease = filteredReleases[1].tag_name;",
-                  "",
-                  "  console.log('release versions', prevApiRelease, latestApiRelease)",
-                  "  pm.environment.set('prevApiRelease',prevApiRelease)",
-                  "  pm.environment.set('latestApiRelease',latestApiRelease)",
-                  "",
-                  "});"
-                ],
-                "type": "text/javascript"
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "id": "4d469f0c-77ca-4e18-bf0d-4315773650e3",
-                "exec": [
-                  "  pm.environment.unset('prevApiRelease')",
-                  "  pm.environment.unset('latestApiRelease')"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "f173d8db-e94c-4672-a613-23af3787aab9",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "name": "Content-Type",
-                "type": "text",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"oldSpec\": \"https://raw.githubusercontent.com/meraki/openapi/{{prevApiRelease}}/openapi/spec2.json\",\n    \"newSpec\": \"https://raw.githubusercontent.com/meraki/openapi/{{latestApiRelease}}/openapi/spec2.json\"\n}"
-            },
-            "url": "https://us-central1-focal-rig-261016.cloudfunctions.net/app/swagger/diff",
-            "description": "Generates a changelog using the latest Meraki API specification in GitHub Releases\n\n- Latest v1 BETA"
-          },
-          "response": []
-        },
-        {
-          "name": "Meraki API - v1.0.0 to v1 latest GA",
-          "id": "0e7d251f-83a9-4459-867e-09c4a2404d1d",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "name": "Content-Type",
-                "type": "text",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"oldSpec\": \"https://raw.githubusercontent.com/meraki/openapi/v1.0.0/openapi/spec2.json\",\n    \"newSpec\": \"https://raw.githubusercontent.com/meraki/openapi/master/openapi/spec2.json\"\n}"
-            },
-            "url": "https://us-central1-focal-rig-261016.cloudfunctions.net/app/swagger/diff"
-          },
-          "response": []
-        },
-        {
-          "name": "Meraki API - v0 to v1",
-          "id": "0c3ad044-2f17-4aff-9b99-1fe35f6329d6",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "name": "Content-Type",
-                "type": "text",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"oldSpec\": \"https://raw.githubusercontent.com/meraki/openapi/v0/openapi/spec2.json\",\n    \"newSpec\": \"https://raw.githubusercontent.com/meraki/openapi/master/openapi/spec2.json\"\n}"
-            },
-            "url": "https://us-central1-focal-rig-261016.cloudfunctions.net/app/swagger/diff"
-          },
-          "response": []
-        }
-      ],
-      "id": "c63ef6c6-60f2-4957-835d-aa398354ae88"
-    }
-  ],
-  "event": [
-    {
-      "listen": "prerequest",
-      "script": {
-        "id": "92435c5d-b7de-4dcb-9681-d40af0606e05",
-        "type": "text/javascript",
-        "exec": [
-          ""
-        ]
-      }
-    },
-    {
-      "listen": "test",
-      "script": {
-        "id": "4cc99a7a-e53b-48ae-bcdb-03a585b56008",
-        "type": "text/javascript",
-        "exec": [
-          "var templateUrl = \"https://raw.githubusercontent.com/dexterlabora/json-magic/master/postman/postman-viz-jsonmagic-template.html\"",
-          "",
-          "//Load remote template",
-          "pm.sendRequest(templateUrl,  (_, res) => { ",
-          "    var template = res.text()",
-          "    var data = pm.response.json()",
-          "    pm.visualizer.set(template, data )",
-          "});"
-        ]
-      }
-    }
-  ],
-  "variable": [
-    {
-      "id": "6bb1e248-58b6-4074-9b19-ccd084df4596",
-      "key": "viz-template-url",
-      "value": ""
-    }
-  ]
+	"info": {
+		"_postman_id": "58211ef8-3266-49e2-b86b-3afa697592e3",
+		"name": "Meraki Public Utilities",
+		"description": "A Collection of utilities related to the Meraki API, such as generating a Postman Collection from a Meraki OpenAPI spec or generating changelogs between various versions.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Meraki Postman Transformer",
+			"item": [
+				{
+					"name": "Generate Collection - streaming",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "8e7c7ed1-95fa-4429-8b6a-58aa2541c608",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "ef281c19-55da-40ea-b0b5-a8810c87ba20",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"specUrl\":\"https://api.meraki.com/api/v1/openapiSpec\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://us-central1-meraki-micro-services.cloudfunctions.net/merakiPostmanTransformer",
+						"description": "Generate a Meraki API Postman Collection using the v1 GA streaming feed (may contain GA endpoints that have not been officially released and documented)"
+					},
+					"response": []
+				},
+				{
+					"name": "Generate Collection -- v1 GA",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "dd4d39c3-b52a-4e7b-a403-dc9b26920746",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "61619f7b-b977-4a5d-a381-b6a80984baf9",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"specUrl\":\"https://raw.githubusercontent.com/meraki/openapi/master/openapi/spec2.json\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://us-central1-meraki-micro-services.cloudfunctions.net/merakiPostmanTransformer",
+						"description": "Generate a Meraki API Postman Collection using the Generally Available v1 latest release"
+					},
+					"response": []
+				},
+				{
+					"name": "Generate Collection - v1 Beta",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "ec94ce32-a189-4185-b077-a8c2971e1013",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "b7c12f6d-de76-4c98-b126-ae3418aea33a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"specUrl\":\"https://raw.githubusercontent.com/meraki/openapi/v1-beta/openapi/spec2.json\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://us-central1-meraki-micro-services.cloudfunctions.net/merakiPostmanTransformer",
+						"description": "Generate a Meraki API Postman Collection using the Beta v1 latest release"
+					},
+					"response": []
+				},
+				{
+					"name": "Generate Collection - V1 by organizationId",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "c9284f5f-3933-4da1-a2a9-5ec091bcf012",
+								"exec": [
+									"const organizationId = pm.environment.get('organizationId');",
+									"const apiKey = pm.environment.get('apiKey');",
+									"const getOrgApiSpec = {",
+									"  url: 'https://api.meraki.com/api/v1/organizations/'+organizationId+\"/openapiSpec\",",
+									"  method: 'GET',",
+									"  header: \"X-Cisco-Meraki-API-Key:\" + apiKey",
+									"};",
+									"pm.sendRequest(getOrgApiSpec, function (err, res) {",
+									"  console.log(err ? err : res.json());",
+									"  pm.environment.set('orgApiSpec',JSON.stringify(res.json()))",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "dcbfdda6-3d04-4931-8b38-745e6f379a3b",
+								"exec": [
+									"// removes temporary API spec from environment",
+									"pm.environment.unset('orgApiSpec')"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "0903d72e-3704-42dc-ab23-334dba211412",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"spec\":{{orgApiSpec}}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://us-central1-meraki-micro-services.cloudfunctions.net/merakiPostmanTransformer",
+						"description": "Generate a Meraki API Postman Collection using your `organizationId` and `apiKey` stored in your Postman **Environement**\n\nNote: \nThis request uses a `Pre-request Script` to first request the openAPI Specification for your organization. It then\nsets an environement variable `orgApiSpec` to the JSON contents. \n\nThe request then uses this JSON to submit the POST request to the transformer. Once completed, a post test script will clear\nthe temporary variable. This could be preserved if needed by commenting out the **Tests** script"
+					},
+					"response": []
+				},
+				{
+					"name": "Generate Collection - V1 by organizationId diff",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "3e2e2160-cac7-48e7-bd1d-05a2ba5fbb01",
+								"exec": [
+									"",
+									"var oldSpecOptions = {",
+									"    url: 'https://raw.githubusercontent.com/meraki/openapi/master/openapi/spec2.json',",
+									"    method: 'GET',",
+									"}",
+									"",
+									"const organizationId = pm.environment.get('organizationId');",
+									"const apiKey = pm.environment.get('apiKey');",
+									"           ",
+									"var newSpecOptions = {",
+									"    url: 'https://api.meraki.com/api/v1/organizations/'+organizationId+\"/openapiSpec\",",
+									"    method: 'GET',",
+									"    header: \"X-Cisco-Meraki-API-Key:\" + apiKey",
+									"}",
+									"",
+									"pm.sendRequest(oldSpecOptions, (err, res) => {",
+									"    if (err) {",
+									"        console.error(err);",
+									"        return;",
+									"    }",
+									"    var oldSpec = res.json();",
+									"",
+									"    pm.sendRequest(newSpecOptions, (err, res) => {",
+									"        if (err) {",
+									"            console.error(err);",
+									"            return;",
+									"        }",
+									"        var newSpec = res.json();",
+									"",
+									"        const diffSpec = {...{}, ...newSpec}",
+									"        diffSpec.paths = diffPaths(oldSpec.paths,newSpec.paths)",
+									"        pm.environment.set(\"oasDiffStub\",JSON.stringify(diffSpec,null,4))",
+									"",
+									"        })",
+									"})",
+									"",
+									"",
+									"// helper",
+									"function diffPaths(oldPaths, newPaths) {",
+									"        let diff = {};",
+									"        for (var path in newPaths) {",
+									"            if (Object.prototype.hasOwnProperty.call(newPaths, path)) {",
+									"                if (!Object.prototype.hasOwnProperty.call(oldPaths, path)) {",
+									"                    diff[path] = newPaths[path];",
+									"                }",
+									"            }",
+									"        }",
+									"        return diff;",
+									"    }"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "c9700b27-07b8-445a-99d0-f2b90d7764d1",
+								"exec": [
+									"// removes temporary API spec from environment",
+									"pm.environment.unset('oasDiffStub')"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "23f7bba5-78de-4191-bfea-18b4ebb53479",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"spec\":{{oasDiffStub}}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://us-central1-meraki-micro-services.cloudfunctions.net/merakiPostmanTransformer",
+						"description": "Generate a Meraki API Postman Collection using your `organizationId` and `apiKey` stored in your Postman **Environement**\n\nNote: \nThis request uses a `Pre-request Script` to first request the openAPI Specification for your organization. It then\nsets an environement variable `orgApiSpec` to the JSON contents. \n\nThe request then uses this JSON to submit the POST request to the transformer. Once completed, a post test script will clear\nthe temporary variable. This could be preserved if needed by commenting out the **Tests** script"
+					},
+					"response": []
+				},
+				{
+					"name": "Generate Collection - V1 by Beta diff",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "e6e9e0e9-0d57-423f-9915-49072ca93d58",
+								"exec": [
+									"",
+									"var oldSpecOptions = {",
+									"    url: 'https://raw.githubusercontent.com/meraki/openapi/master/openapi/spec2.json',",
+									"    method: 'GET',",
+									"}",
+									"",
+									"var newSpecOptions = {",
+									"    url: 'https://raw.githubusercontent.com/meraki/openapi/v1-beta/openapi/spec2.json',",
+									"    method: 'GET'",
+									"}",
+									"",
+									"pm.sendRequest(oldSpecOptions, (err, res) => {",
+									"    if (err) {",
+									"        console.error(err);",
+									"        return;",
+									"    }",
+									"    var oldSpec = res.json();",
+									"",
+									"    pm.sendRequest(newSpecOptions, (err, res) => {",
+									"        if (err) {",
+									"            console.error(err);",
+									"            return;",
+									"        }",
+									"        var newSpec = res.json();",
+									"",
+									"        const diffSpec = {...{}, ...newSpec}",
+									"        diffSpec.paths = diffPaths(oldSpec.paths,newSpec.paths)",
+									"        pm.environment.set(\"oasDiffStub\",JSON.stringify(diffSpec,null,4))",
+									"",
+									"        })",
+									"})",
+									"",
+									"",
+									"// helper",
+									"function diffPaths(oldPaths, newPaths) {",
+									"        let diff = {};",
+									"        for (var path in newPaths) {",
+									"            if (Object.prototype.hasOwnProperty.call(newPaths, path)) {",
+									"                if (!Object.prototype.hasOwnProperty.call(oldPaths, path)) {",
+									"                    diff[path] = newPaths[path];",
+									"                }",
+									"            }",
+									"        }",
+									"        return diff;",
+									"    }"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "50a21995-031a-410c-81ce-631f025ca4d8",
+								"exec": [
+									"// removes temporary API spec from environment",
+									"//pm.environment.unset('orgApiSpec')"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "b1757208-3584-4c02-a96f-5e03bc2652ec",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"spec\":{{oasDiffStub}}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://us-central1-meraki-micro-services.cloudfunctions.net/merakiPostmanTransformer",
+						"description": "Generate a Meraki API Postman Collection using your `organizationId` and `apiKey` stored in your Postman **Environement**\n\nNote: \nThis request uses a `Pre-request Script` to first request the openAPI Specification for your organization. It then\nsets an environement variable `orgApiSpec` to the JSON contents. \n\nThe request then uses this JSON to submit the POST request to the transformer. Once completed, a post test script will clear\nthe temporary variable. This could be preserved if needed by commenting out the **Tests** script"
+					},
+					"response": []
+				}
+			],
+			"id": "6f323bcc-231c-43b8-931a-7f2c0a7c9edf"
+		},
+		{
+			"name": "Meraki API Changelog",
+			"item": [
+				{
+					"name": "Meraki API - v1 prev to v1 latest",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "8bba2d58-b47c-47bc-aca6-14b4c03b0d6e",
+								"exec": [
+									"// Generate Meraki API Changlog using the GitHub releases",
+									"",
+									"const BETA = false;",
+									"",
+									"// helper functions",
+									"",
+									"const githubReleases = {",
+									"    url: \"https://api.github.com/repos/meraki/openapi/releases\",",
+									"    method: \"GET\",",
+									"    headers: {",
+									"        \"Content-Type\": \"application/json\",",
+									"        \"User-Agent\":\"Postman\"",
+									"        }",
+									"    };",
+									"",
+									"pm.sendRequest(githubReleases, function (err, res) {",
+									"  console.log(err ? err : \"GitHub RELEASES\", res.json());",
+									"  const releases = res.json();",
+									"",
+									"  const filteredReleases = releases.filter(r => r.prerelease === BETA)",
+									"  console.log('filteredReleases', filteredReleases)",
+									"",
+									"",
+									"  const latestApiRelease = filteredReleases[0].tag_name",
+									"  const prevApiRelease = filteredReleases[1].tag_name;",
+									"",
+									"  console.log('release versions', prevApiRelease, latestApiRelease)",
+									"  pm.environment.set('prevApiRelease',prevApiRelease)",
+									"  pm.environment.set('latestApiRelease',latestApiRelease)",
+									"",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "792f0da2-be83-404c-aec0-57036378a9aa",
+								"exec": [
+									"  pm.environment.unset('prevApiRelease')",
+									"  pm.environment.unset('latestApiRelease')"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "883bf11c-6a00-472f-b0b2-20c4d8f8c795",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"oldSpec\": \"https://raw.githubusercontent.com/meraki/openapi/{{prevApiRelease}}/openapi/spec2.json\",\n    \"newSpec\": \"https://raw.githubusercontent.com/meraki/openapi/{{latestApiRelease}}/openapi/spec2.json\"\n}"
+						},
+						"url": "https://us-central1-focal-rig-261016.cloudfunctions.net/app/swagger/diff",
+						"description": "Generates a changelog using the latest Meraki API specification in GitHub Releases\n- Latest v1 GA"
+					},
+					"response": []
+				},
+				{
+					"name": "Meraki API - v1 to v1 Beta",
+					"id": "4dc403b9-d5b5-43f5-875f-dd3110028341",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"oldSpec\": \"https://raw.githubusercontent.com/meraki/openapi/master/openapi/spec2.json\",\n    \"newSpec\": \"https://raw.githubusercontent.com/meraki/openapi/v1-beta/openapi/spec2.json\"\n}"
+						},
+						"url": "https://us-central1-focal-rig-261016.cloudfunctions.net/app/swagger/diff"
+					},
+					"response": []
+				},
+				{
+					"name": "Meraki API - v1 prev to v1 latest Beta",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "483548ea-1f3c-4b47-a638-db0029c83083",
+								"exec": [
+									"// Generate Meraki API Changlog using the GitHub releases",
+									"",
+									"const BETA = true;",
+									"",
+									"// helper functions",
+									"",
+									"const githubReleases = {",
+									"    url: \"https://api.github.com/repos/meraki/openapi/releases\",",
+									"    method: \"GET\",",
+									"    headers: {",
+									"        \"Content-Type\": \"application/json\",",
+									"        \"User-Agent\":\"Postman\"",
+									"        }",
+									"    };",
+									"",
+									"pm.sendRequest(githubReleases, function (err, res) {",
+									"  console.log(err ? err : \"GitHub RELEASES\", res.json());",
+									"  const releases = res.json();",
+									"",
+									"  const filteredReleases = releases.filter(r => r.prerelease === BETA)",
+									"  console.log('filteredReleases', filteredReleases)",
+									"",
+									"",
+									"  const latestApiRelease = filteredReleases[0].tag_name",
+									"  const prevApiRelease = filteredReleases[1].tag_name;",
+									"",
+									"  console.log('release versions', prevApiRelease, latestApiRelease)",
+									"  pm.environment.set('prevApiRelease',prevApiRelease)",
+									"  pm.environment.set('latestApiRelease',latestApiRelease)",
+									"",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "4d469f0c-77ca-4e18-bf0d-4315773650e3",
+								"exec": [
+									"  pm.environment.unset('prevApiRelease')",
+									"  pm.environment.unset('latestApiRelease')"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "f173d8db-e94c-4672-a613-23af3787aab9",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"oldSpec\": \"https://raw.githubusercontent.com/meraki/openapi/{{prevApiRelease}}/openapi/spec2.json\",\n    \"newSpec\": \"https://raw.githubusercontent.com/meraki/openapi/{{latestApiRelease}}/openapi/spec2.json\"\n}"
+						},
+						"url": "https://us-central1-focal-rig-261016.cloudfunctions.net/app/swagger/diff",
+						"description": "Generates a changelog using the latest Meraki API specification in GitHub Releases\n\n- Latest v1 BETA"
+					},
+					"response": []
+				},
+				{
+					"name": "Meraki API - v1.0.0 to v1 latest GA",
+					"id": "0e7d251f-83a9-4459-867e-09c4a2404d1d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"oldSpec\": \"https://raw.githubusercontent.com/meraki/openapi/v1.0.0/openapi/spec2.json\",\n    \"newSpec\": \"https://raw.githubusercontent.com/meraki/openapi/master/openapi/spec2.json\"\n}"
+						},
+						"url": "https://us-central1-focal-rig-261016.cloudfunctions.net/app/swagger/diff"
+					},
+					"response": []
+				},
+				{
+					"name": "Meraki API - v0 to v1",
+					"id": "0c3ad044-2f17-4aff-9b99-1fe35f6329d6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"oldSpec\": \"https://raw.githubusercontent.com/meraki/openapi/v0/openapi/spec2.json\",\n    \"newSpec\": \"https://raw.githubusercontent.com/meraki/openapi/master/openapi/spec2.json\"\n}"
+						},
+						"url": "https://us-central1-focal-rig-261016.cloudfunctions.net/app/swagger/diff"
+					},
+					"response": []
+				}
+			],
+			"id": "c63ef6c6-60f2-4957-835d-aa398354ae88"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "92435c5d-b7de-4dcb-9681-d40af0606e05",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "4cc99a7a-e53b-48ae-bcdb-03a585b56008",
+				"type": "text/javascript",
+				"exec": [
+					"var templateUrl = \"https://raw.githubusercontent.com/dexterlabora/json-magic/master/postman/postman-viz-jsonmagic-template.html\"",
+					"",
+					"//Load remote template",
+					"pm.sendRequest(templateUrl,  (_, res) => { ",
+					"    var template = res.text()",
+					"    var data = pm.response.json()",
+					"    pm.visualizer.set(template, data )",
+					"});"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "viz-template-url",
+			"value": ""
+		}
+	]
 }
