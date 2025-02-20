@@ -3,7 +3,7 @@
 		"_postman_id": "58211ef8-3266-49e2-b86b-3afa697592e3",
 		"name": "Meraki Public Utilities",
 		"description": "A Collection of utilities related to the Meraki API, such as generating a Postman Collection from a Meraki OpenAPI spec or generating changelogs between various versions.",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+		"schema": "https://schema.postman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
 		{
@@ -125,7 +125,7 @@
 									"const organizationId = pm.environment.get('organizationId');",
 									"const apiKey = pm.environment.get('apiKey');",
 									"const getOrgApiSpec = {",
-									"  url: 'https://api.meraki.com/api/v1/organizations/'+organizationId+\"/openapiSpec\",",
+									"  url: 'https://api.meraki.com/api/v1/organizations/'+organizationId+\"/openapiSpec?version=3\",",
 									"  method: 'GET',",
 									"  header: \"X-Cisco-Meraki-API-Key:\" + apiKey",
 									"};",
@@ -134,7 +134,8 @@
 									"  pm.environment.set('orgApiSpec',JSON.stringify(res.json()))",
 									"});"
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"packages": {}
 							}
 						},
 						{
@@ -145,7 +146,8 @@
 									"// removes temporary API spec from environment",
 									"pm.environment.unset('orgApiSpec')"
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"packages": {}
 							}
 						}
 					],
