@@ -206,7 +206,7 @@
 								"exec": [
 									"",
 									"var oldSpecOptions = {",
-									"    url: 'https://raw.githubusercontent.com/meraki/openapi/master/openapi/spec2.json',",
+									"    url: 'https://raw.githubusercontent.com/meraki/openapi/master/openapi/spec3.json',",
 									"    method: 'GET',",
 									"}",
 									"",
@@ -214,7 +214,7 @@
 									"const apiKey = pm.environment.get('apiKey');",
 									"           ",
 									"var newSpecOptions = {",
-									"    url: 'https://api.meraki.com/api/v1/organizations/'+organizationId+\"/openapiSpec\",",
+									"    url: 'https://api.meraki.com/api/v1/organizations/'+organizationId+'/openapiSpec?version=3',",
 									"    method: 'GET',",
 									"    header: \"X-Cisco-Meraki-API-Key:\" + apiKey",
 									"}",
@@ -254,7 +254,8 @@
 									"        return diff;",
 									"    }"
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"packages": {}
 							}
 						},
 						{
@@ -265,7 +266,8 @@
 									"// removes temporary API spec from environment",
 									"pm.environment.unset('oasDiffStub')"
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"packages": {}
 							}
 						}
 					],
@@ -300,12 +302,12 @@
 								"exec": [
 									"",
 									"var oldSpecOptions = {",
-									"    url: 'https://raw.githubusercontent.com/meraki/openapi/master/openapi/spec2.json',",
+									"    url: 'https://raw.githubusercontent.com/meraki/openapi/master/openapi/spec3.json',",
 									"    method: 'GET',",
 									"}",
 									"",
 									"var newSpecOptions = {",
-									"    url: 'https://raw.githubusercontent.com/meraki/openapi/v1-beta/openapi/spec2.json',",
+									"    url: 'https://raw.githubusercontent.com/meraki/openapi/v1-beta/openapi/spec3.json',",
 									"    method: 'GET'",
 									"}",
 									"",
@@ -344,7 +346,8 @@
 									"        return diff;",
 									"    }"
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"packages": {}
 							}
 						},
 						{
@@ -355,7 +358,8 @@
 									"// removes temporary API spec from environment",
 									"//pm.environment.unset('orgApiSpec')"
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"packages": {}
 							}
 						}
 					],
