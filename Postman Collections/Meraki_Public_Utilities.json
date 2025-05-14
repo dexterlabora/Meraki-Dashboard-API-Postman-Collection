@@ -3,7 +3,7 @@
 		"_postman_id": "58211ef8-3266-49e2-b86b-3afa697592e3",
 		"name": "Meraki Public Utilities",
 		"description": "A Collection of utilities related to the Meraki API, such as generating a Postman Collection from a Meraki OpenAPI spec or generating changelogs between various versions.",
-		"schema": "https://schema.postman.com/json/collection/v2.0.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
 		{
@@ -432,7 +432,8 @@
 									"",
 									"});"
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"packages": {}
 							}
 						},
 						{
@@ -443,7 +444,8 @@
 									"  pm.environment.unset('prevApiRelease')",
 									"  pm.environment.unset('latestApiRelease')"
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"packages": {}
 							}
 						}
 					],
@@ -456,14 +458,13 @@
 						"header": [
 							{
 								"key": "Content-Type",
-								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"value": "application/json",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"oldSpec\": \"https://raw.githubusercontent.com/meraki/openapi/{{prevApiRelease}}/openapi/spec2.json\",\n    \"newSpec\": \"https://raw.githubusercontent.com/meraki/openapi/{{latestApiRelease}}/openapi/spec2.json\"\n}"
+							"raw": "{\n    \"oldSpec\": \"https://raw.githubusercontent.com/meraki/openapi/{{prevApiRelease}}/openapi/spec3.json\",\n    \"newSpec\": \"https://raw.githubusercontent.com/meraki/openapi/{{latestApiRelease}}/openapi/spec3.json\"\n}"
 						},
 						"url": "https://us-central1-focal-rig-261016.cloudfunctions.net/app/swagger/diff",
 						"description": "Generates a changelog using the latest Meraki API specification in GitHub Releases\n- Latest v1 GA"
@@ -481,14 +482,13 @@
 						"header": [
 							{
 								"key": "Content-Type",
-								"name": "Content-Type",
 								"value": "application/json",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"oldSpec\": \"https://raw.githubusercontent.com/meraki/openapi/master/openapi/spec2.json\",\n    \"newSpec\": \"https://raw.githubusercontent.com/meraki/openapi/v1-beta/openapi/spec2.json\"\n}"
+							"raw": "{\n    \"oldSpec\": \"https://raw.githubusercontent.com/meraki/openapi/master/openapi/spec3.json\",\n    \"newSpec\": \"https://raw.githubusercontent.com/meraki/openapi/v1-beta/openapi/spec3.json\"\n}"
 						},
 						"url": "https://us-central1-focal-rig-261016.cloudfunctions.net/app/swagger/diff"
 					},
@@ -534,7 +534,8 @@
 									"",
 									"});"
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"packages": {}
 							}
 						},
 						{
@@ -545,7 +546,8 @@
 									"  pm.environment.unset('prevApiRelease')",
 									"  pm.environment.unset('latestApiRelease')"
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"packages": {}
 							}
 						}
 					],
@@ -558,14 +560,13 @@
 						"header": [
 							{
 								"key": "Content-Type",
-								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"value": "application/json",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"oldSpec\": \"https://raw.githubusercontent.com/meraki/openapi/{{prevApiRelease}}/openapi/spec2.json\",\n    \"newSpec\": \"https://raw.githubusercontent.com/meraki/openapi/{{latestApiRelease}}/openapi/spec2.json\"\n}"
+							"raw": "{\n    \"oldSpec\": \"https://raw.githubusercontent.com/meraki/openapi/{{prevApiRelease}}/openapi/spec3.json\",\n    \"newSpec\": \"https://raw.githubusercontent.com/meraki/openapi/{{latestApiRelease}}/openapi/spec3.json\"\n}"
 						},
 						"url": "https://us-central1-focal-rig-261016.cloudfunctions.net/app/swagger/diff",
 						"description": "Generates a changelog using the latest Meraki API specification in GitHub Releases\n\n- Latest v1 BETA"
@@ -583,14 +584,13 @@
 						"header": [
 							{
 								"key": "Content-Type",
-								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"value": "application/json",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"oldSpec\": \"https://raw.githubusercontent.com/meraki/openapi/v1.0.0/openapi/spec2.json\",\n    \"newSpec\": \"https://raw.githubusercontent.com/meraki/openapi/master/openapi/spec2.json\"\n}"
+							"raw": "{\n    \"oldSpec\": \"https://raw.githubusercontent.com/meraki/openapi/v1.0.0/openapi/spec3.json\",\n    \"newSpec\": \"https://raw.githubusercontent.com/meraki/openapi/master/openapi/spec3.json\"\n}"
 						},
 						"url": "https://us-central1-focal-rig-261016.cloudfunctions.net/app/swagger/diff"
 					},
