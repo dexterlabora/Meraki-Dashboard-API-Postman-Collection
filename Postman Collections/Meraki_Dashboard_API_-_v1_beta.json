@@ -61492,6 +61492,160 @@
 													"cookie": [],
 													"responseTime": null,
 													"body": "{\n  \"alertTypeId\": \"stopped_reporting\",\n  \"alertType\": \"APs went down\",\n  \"example\": {\n    \"version\": \"0.1\",\n    \"sharedSecret\": \"secret\",\n    \"sentAt\": \"2018-02-11T00:00:00.090210Z\",\n    \"alertId\": \"0000000000000000\",\n    \"alertLevel\": \"warning\",\n    \"occurredAt\": \"2018-02-11T00:00:00.090210Z\",\n    \"organizationId\": \"2930418\",\n    \"organizationName\": \"My organization\",\n    \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n    \"deviceSerial\": \"Q234-ABCD-5678\",\n    \"deviceMac\": \"00:11:22:33:44:55\",\n    \"deviceName\": \"My AP\",\n    \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n    \"deviceTags\": [\n      \"tag1\",\n      \"tag2\"\n    ],\n    \"deviceModel\": \"MR34\",\n    \"networkId\": \"N_24329156\",\n    \"networkName\": \"Main Office\",\n    \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\",\n    \"enrollmentString\": \"my-enrollment-string\",\n    \"notes\": \"Additional description of the network\",\n    \"productTypes\": [\n      \"appliance\",\n      \"switch\",\n      \"wireless\"\n    ],\n    \"encryptedId\": \"6GREra\"\n  }\n}"
+												},
+												{
+													"id": "c2bd1880-4538-4699-9cd9-f193973a3519",
+													"name": "getOrganizationWebhooksAlertTypes",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/organizations",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"organizations"
+															],
+															"query": [
+																{
+																	"key": "productType",
+																	"value": "{{productType}}",
+																	"description": "Filter sample alerts to a specific product type",
+																	"disabled": true
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": null,
+													"header": [
+														{
+															"key": "Date",
+															"value": "Wed, 07 Oct 2026 10:02:25 GMT"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Transfer-Encoding",
+															"value": "chunked"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "server",
+															"value": "cloudflare"
+														},
+														{
+															"key": "vary",
+															"value": "Accept-Encoding,Origin"
+														},
+														{
+															"key": "x-frame-options",
+															"value": "sameorigin"
+														},
+														{
+															"key": "x-xss-protection",
+															"value": "1; mode=block"
+														},
+														{
+															"key": "x-xss-protection",
+															"value": "1; mode=block"
+														},
+														{
+															"key": "x-content-type-options",
+															"value": "nosniff"
+														},
+														{
+															"key": "x-download-options",
+															"value": "noopen"
+														},
+														{
+															"key": "x-permitted-cross-domain-policies",
+															"value": "none"
+														},
+														{
+															"key": "referrer-policy",
+															"value": "strict-origin-when-cross-origin"
+														},
+														{
+															"key": "x-robots-tag",
+															"value": "none"
+														},
+														{
+															"key": "cache-control",
+															"value": "no-cache, no-store"
+														},
+														{
+															"key": "pragma",
+															"value": "no-cache"
+														},
+														{
+															"key": "expires",
+															"value": "Fri, 01 Jan 1990 00:00:00 GMT"
+														},
+														{
+															"key": "link",
+															"value": "<https://api.meraki.com/api/v1/organizations?perPage=9000&startingAfter=0>; rel=first, <https://api.meraki.com/api/v1/organizations?endingBefore=9223372036854775807&perPage=9000>; rel=last"
+														},
+														{
+															"key": "etag",
+															"value": "W/\"ffa730db6db715a2086a00b731b0364a\""
+														},
+														{
+															"key": "x-request-id",
+															"value": "bdb03e94-5b98-4e99-9536-9cfc313929c0"
+														},
+														{
+															"key": "x-runtime",
+															"value": "0.056378"
+														},
+														{
+															"key": "strict-transport-security",
+															"value": "max-age=31536000; includeSubDomains"
+														},
+														{
+															"key": "content-encoding",
+															"value": "gzip"
+														},
+														{
+															"key": "x-ratelimit-limit",
+															"value": "30"
+														},
+														{
+															"key": "x-ratelimit-remaining",
+															"value": "30"
+														},
+														{
+															"key": "x-ratelimit-reset",
+															"value": "0"
+														},
+														{
+															"key": "cf-cache-status",
+															"value": "DYNAMIC"
+														},
+														{
+															"key": "set-cookie",
+															"value": "__cf_bm=OYydTWIq7ClQO9RRuwibglQm.3wdlGjp_0IGC9W.LZk-1791367345.4837124-1.0.1.1-HbDkWPFARjqy7mAbo4RDpYIA3nRVnWSZzy3cupw2TA6yXxeDXXb5RnKYQ80N1bv1mB1rbKc5sAfxDMWwCX7iadpmywn2msJbKfM5yK1M34K1UsTmDLrgNT5pmSO0heH.; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.meraki.com; Expires=Wed, 07 Oct 2026 10:32:25 GMT"
+														},
+														{
+															"key": "CF-RAY",
+															"value": "a46c11f549ac270e-AMS"
+														}
+													],
+													"cookie": [],
+													"responseTime": null,
+													"body": "[\n    {\n        \"id\": \"265271\",\n        \"name\": \"Adam Harris\",\n        \"url\": \"https://n133.dashboard.meraki.com/o/hNzvQd/manage/organization/overview\",\n        \"samlConsumerUrls\": null,\n        \"samlConsumerUrl\": null,\n        \"api\": {\n            \"enabled\": true\n        },\n        \"licensing\": {\n            \"model\": \"co-term\"\n        },\n        \"cloud\": {\n            \"region\": {\n                \"name\": \"North America\",\n                \"host\": {\n                    \"name\": \"United States\"\n                }\n            }\n        },\n        \"management\": {\n            \"details\": [\n                {\n                    \"name\": \"customer number\",\n                    \"value\": \"75935955\"\n                }\n            ]\n        }\n    },\n    {\n        \"id\": \"306267\",\n        \"name\": \".Dexter's Laboratory\",\n        \"url\": \"https://n143.dashboard.meraki.com/o/3ZZIub/manage/organization/overview\",\n        \"samlConsumerUrls\": [],\n        \"samlConsumerUrl\": null,\n        \"api\": {\n            \"enabled\": true\n        },\n        \"licensing\": {\n            \"model\": \"per-device\"\n        },\n        \"cloud\": {\n            \"region\": {\n                \"name\": \"Europe\",\n                \"host\": {\n                    \"name\": \"Europe\"\n                }\n            }\n        },\n        \"management\": {\n            \"details\": [\n                {\n                    \"name\": \"customer number\",\n                    \"value\": \"67492603\"\n                }\n            ]\n        }\n    },\n    {\n        \"id\": \"913543\",\n        \"name\": \"Last Rev\",\n        \"url\": \"https://n127.dashboard.meraki.com/o/Lkbeed/manage/organization/overview\",\n        \"samlConsumerUrls\": null,\n        \"samlConsumerUrl\": null,\n        \"api\": {\n            \"enabled\": true\n        },\n        \"licensing\": {\n            \"model\": \"co-term\"\n        },\n        \"cloud\": {\n            \"region\": {\n                \"name\": \"North America\",\n                \"host\": {\n                    \"name\": \"United States\"\n                }\n            }\n        },\n        \"management\": {\n            \"details\": []\n        }\n    },\n    {\n        \"id\": \"568016503002103930\",\n        \"name\": \"Datametrix Training\",\n        \"url\": \"https://n567.dashboard.meraki.com/o/oOLUQcj/manage/organization/overview\",\n        \"samlConsumerUrls\": null,\n        \"samlConsumerUrl\": null,\n        \"api\": {\n            \"enabled\": true\n        },\n        \"licensing\": {\n            \"model\": \"co-term\"\n        },\n        \"cloud\": {\n            \"region\": {\n                \"name\": \"North America\",\n                \"host\": {\n                    \"name\": \"United States\"\n                }\n            }\n        },\n        \"management\": {\n            \"details\": [\n                {\n                    \"name\": \"customer number\",\n                    \"value\": \"16681118\"\n                }\n            ]\n        }\n    },\n    {\n        \"id\": \"643451796760560347\",\n        \"name\": \"Sample Splunk Org Inc.\",\n        \"url\": \"https://n143.dashboard.meraki.com/o/atBghbpc/manage/organization/overview\",\n        \"samlConsumerUrls\": [],\n        \"samlConsumerUrl\": null,\n        \"api\": {\n            \"enabled\": true\n        },\n        \"licensing\": {\n            \"model\": \"co-term\"\n        },\n        \"cloud\": {\n            \"region\": {\n                \"name\": \"Europe\",\n                \"host\": {\n                    \"name\": \"Europe\"\n                }\n            }\n        },\n        \"management\": {\n            \"details\": [\n                {\n                    \"name\": \"customer number\",\n                    \"value\": \"67492603\"\n                },\n                {\n                    \"name\": \"IP restriction mode for API\",\n                    \"value\": \"client allowed\"\n                }\n            ]\n        }\n    },\n    {\n        \"id\": \"643451796760560381\",\n        \"name\": \"API-PM-ALPHA\",\n        \"url\": \"https://n143.dashboard.meraki.com/o/PIHLocpc/manage/organization/overview\",\n        \"samlConsumerUrls\": [],\n        \"samlConsumerUrl\": null,\n        \"api\": {\n            \"enabled\": true\n        },\n        \"licensing\": {\n            \"model\": \"co-term\"\n        },\n        \"cloud\": {\n            \"region\": {\n                \"name\": \"Europe\",\n                \"host\": {\n                    \"name\": \"Europe\"\n                }\n            }\n        },\n        \"management\": {\n            \"details\": [\n                {\n                    \"name\": \"customer number\",\n                    \"value\": \"67492603\"\n                }\n            ]\n        }\n    },\n    {\n        \"id\": \"643451796760560410\",\n        \"name\": \"API-PM-BETA\",\n        \"url\": \"https://n143.dashboard.meraki.com/o/BFzwDcpc/manage/organization/overview\",\n        \"samlConsumerUrls\": [],\n        \"samlConsumerUrl\": null,\n        \"api\": {\n            \"enabled\": true\n        },\n        \"licensing\": {\n            \"model\": \"co-term\"\n        },\n        \"cloud\": {\n            \"region\": {\n                \"name\": \"Europe\",\n                \"host\": {\n                    \"name\": \"Europe\"\n                }\n            }\n        },\n        \"management\": {\n            \"details\": [\n                {\n                    \"name\": \"customer number\",\n                    \"value\": \"67492603\"\n                }\n            ]\n        }\n    },\n    {\n        \"id\": \"643451796760560562\",\n        \"name\": \"BenNet\",\n        \"url\": \"https://n143.dashboard.meraki.com/o/oCljNbpc/manage/organization/overview\",\n        \"samlConsumerUrls\": null,\n        \"samlConsumerUrl\": null,\n        \"api\": {\n            \"enabled\": true\n        },\n        \"licensing\": {\n            \"model\": \"co-term\"\n        },\n        \"cloud\": {\n            \"region\": {\n                \"name\": \"Europe\",\n                \"host\": {\n                    \"name\": \"Europe\"\n                }\n            }\n        },\n        \"management\": {\n            \"details\": [\n                {\n                    \"name\": \"customer number\",\n                    \"value\": \"00000007\"\n                }\n            ]\n        }\n    },\n    {\n        \"id\": \"643451796760560810\",\n        \"name\": \"API-PM-GA\",\n        \"url\": \"https://n143.dashboard.meraki.com/o/t0_Shcpc/manage/organization/overview\",\n        \"samlConsumerUrls\": [],\n        \"samlConsumerUrl\": null,\n        \"api\": {\n            \"enabled\": true\n        },\n        \"licensing\": {\n            \"model\": \"co-term\"\n        },\n        \"cloud\": {\n            \"region\": {\n                \"name\": \"Europe\",\n                \"host\": {\n                    \"name\": \"Europe\"\n                }\n            }\n        },\n        \"management\": {\n            \"details\": [\n                {\n                    \"name\": \"customer number\",\n                    \"value\": \"67492603\"\n                }\n            ]\n        }\n    },\n    {\n        \"id\": \"643451796760561024\",\n        \"name\": \"Test - GA\",\n        \"url\": \"https://n143.dashboard.meraki.com/o/NJPZNdpc/manage/organization/overview\",\n        \"samlConsumerUrls\": null,\n        \"samlConsumerUrl\": null,\n        \"api\": {\n            \"enabled\": true\n        },\n        \"licensing\": {\n            \"model\": \"co-term\"\n        },\n        \"cloud\": {\n            \"region\": {\n                \"name\": \"Europe\",\n                \"host\": {\n                    \"name\": \"Europe\"\n                }\n            }\n        },\n        \"management\": {\n            \"details\": []\n        }\n    },\n    {\n        \"id\": \"643451796760561439\",\n        \"name\": \"CiscoLiveLabs\",\n        \"url\": \"https://n143.dashboard.meraki.com/o/SKIIeapc/manage/organization/overview\",\n        \"samlConsumerUrls\": [],\n        \"samlConsumerUrl\": null,\n        \"api\": {\n            \"enabled\": true\n        },\n        \"licensing\": {\n            \"model\": \"co-term\"\n        },\n        \"cloud\": {\n            \"region\": {\n                \"name\": \"Europe\",\n                \"host\": {\n                    \"name\": \"Europe\"\n                }\n            }\n        },\n        \"management\": {\n            \"details\": [\n                {\n                    \"name\": \"customer number\",\n                    \"value\": \"67492603\"\n                },\n                {\n                    \"name\": \"IP restriction mode for API\",\n                    \"value\": \"client allowed\"\n                }\n            ]\n        }\n    },\n    {\n        \"id\": \"643451796760561493\",\n        \"name\": \"API Splunk Demo - US\",\n        \"url\": \"https://n143.dashboard.meraki.com/o/NOkuMdpc/manage/organization/overview\",\n        \"samlConsumerUrls\": null,\n        \"samlConsumerUrl\": null,\n        \"api\": {\n            \"enabled\": true\n        },\n        \"licensing\": {\n            \"model\": \"co-term\"\n        },\n        \"cloud\": {\n            \"region\": {\n                \"name\": \"Europe\",\n                \"host\": {\n                    \"name\": \"Europe\"\n                }\n            }\n        },\n        \"management\": {\n            \"details\": []\n        }\n    },\n    {\n        \"id\": \"643451796760561494\",\n        \"name\": \"API Splunk Demo - US\",\n        \"url\": \"https://n143.dashboard.meraki.com/o/SaaM2cpc/manage/organization/overview\",\n        \"samlConsumerUrls\": null,\n        \"samlConsumerUrl\": null,\n        \"api\": {\n            \"enabled\": true\n        },\n        \"licensing\": {\n            \"model\": \"co-term\"\n        },\n        \"cloud\": {\n            \"region\": {\n                \"name\": \"Europe\",\n                \"host\": {\n                    \"name\": \"Europe\"\n                }\n            }\n        },\n        \"management\": {\n            \"details\": []\n        }\n    }\n]"
 												}
 											]
 										}
